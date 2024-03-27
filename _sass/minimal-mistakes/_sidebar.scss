@@ -126,13 +126,11 @@
   vertical-align: top;
   width: 36px;
   height: 36px;
-  border-radius: 50%; // 원형으로 만드는 스타일 추가
-
+   
   @include breakpoint($large) {
     display: block;
     width: auto;
     height: auto;
-    border-radius: 50%; // 원형으로 만드는 스타일 추가
   }
 
   img {
