@@ -36,23 +36,6 @@
       <li>
         {% assign sum = site.categories['논문리뷰'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/논문리뷰">📃 논문리뷰 ({{sum}})</a></span>
-        {% assign fav_tags = "Computer Vision/CV, 3D Gaussian Splatting/3DGS, Audio and Speech Processing/ASP, Natural Language Processing/NLP, Reinforcement Learning/RL, 3D Vision/3DV" | split: ", " %}
-        {% for fav_tag in fav_tags %}
-          {% assign sep = fav_tag | split: "/" %}
-          <ul v-show="flag_c">
-            {% for tag in site.tags %}
-              {% if tag[0] == sep[0] %}
-                {% assign cnt = 0 %}
-                {% for page in tag[1] %}
-                  {% if page.url contains "%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0" %}
-                    {% assign cnt = cnt | plus: 1 %}
-                  {% endif %}
-                {% endfor %}
-                <li><a href="/categories/논문리뷰/{{sep[1]}}" class="">{{sep[0]}} ({{cnt}})</a></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        {% endfor %}
 
         {% assign sum = site.categories['공부'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/공부">✍️ 공부 ({{sum}})</a></span>
