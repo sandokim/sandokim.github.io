@@ -36,7 +36,7 @@
       <li>
         {% assign sum = site.categories['논문리뷰'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/논문리뷰">📃 논문리뷰 ({{sum}})</a></span>
-        {% assign fav_tags = "Computer Vision/CV, Audio and Speech Processing/ASP, Natural Language Processing/NLP, Reinforcement Learning/RL, 3D Vision/3DV" | split: ", " %}
+        {% assign fav_tags = "Computer Vision/CV, 3D Gaussian Splatting/3DGS, Audio and Speech Processing/ASP, Natural Language Processing/NLP, Reinforcement Learning/RL, 3D Vision/3DV" | split: ", " %}
         {% for fav_tag in fav_tags %}
           {% assign sep = fav_tag | split: "/" %}
           <ul v-show="flag_c">
