@@ -1,4 +1,4 @@
-{% assign navigation = site.data.navigation[include.nav] %}
+<!-- {% assign navigation = site.data.navigation[include.nav] %}
 
 <nav class="nav__list">
   {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
@@ -59,6 +59,9 @@
 
         {% assign sum = site.categories['공부'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/공부">📒 공부 ({{sum}})</a></span>
+
+        {% assign sum = site.categories['AI소식'] | size %}
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/AI소식">🔥 AI소식 ({{sum}})</a></span>
 
         <!-- <span class="nav__sub-title" v-on:click='togglet()'>tags</span>
         <ul v-show="flag_t">
