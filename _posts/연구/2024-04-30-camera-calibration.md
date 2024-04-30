@@ -40,6 +40,6 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a196cf2b-7e59-4042-9905-ddf65f7464b3)
 
-code snippet의 f_x, f_y와 ppt에서 TECH SPCES를 참고하여 구한 focal length x, focal length y가 비슷함을 알 수 있습니다.
+code snippet의 f_x, f_y와 TECH SPCES를 참고하여 구한 focal length x, focal length y가 비슷함을 알 수 있습니다.
 
 [[RealSense D435 Tech Specs](https://www.intelrealsense.com/depth-camera-d435/)]
