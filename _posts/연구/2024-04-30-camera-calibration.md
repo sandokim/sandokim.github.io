@@ -20,9 +20,9 @@ classes: wide
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/945fdf82-1279-403d-a315-0867dbe72ef8" alt="Image">
 </p>
 
-1) RealSense Viewer에서 제공하는 RealSense D435 Depth camera calibration data
+[좌측] RealSense Viewer에서 제공하는 RealSense D435 Depth camera calibration data
 
-2) OpenCV에서 camera calibration으로 구한 RealSense RGB Camera calibration data
+[우측] OpenCV에서 camera calibration으로 구한 RealSense RGB Camera calibration data
 
 > FOV(HFOV, VFOV)와 focal length와 시야각
 1) FOV가 커지면 더 넓은 시야각 --> focal length는 짧아지고, 더 넓은 범위를 한 번에 포착 --> Depth Camera
