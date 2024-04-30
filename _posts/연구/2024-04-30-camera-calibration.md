@@ -1,5 +1,5 @@
 ---
-title: "[3D Vision 연구] camera calibration"
+title: "[3D Vision 연구] Camera Calibration"
 last_modified_at: 2024-04-30
 categories:
   - 연구
