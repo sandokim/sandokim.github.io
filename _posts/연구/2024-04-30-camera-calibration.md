@@ -23,7 +23,8 @@ classes: wide
 
 [우측] OpenCV에서 camera calibration으로 구한 RealSense RGB Camera calibration data
 
-> FOV(HFOV, VFOV)와 focal length와 시야각
+### FOV(HFOV, VFOV)와 focal length와 시야각
+
 1) FOV가 커지면 더 넓은 시야각 --> focal length는 짧아지고, 더 넓은 범위를 한 번에 포착 --> Depth Camera
   
 2) FOV가 작아지면 더 좁은 시야각 --> focal length는 길어지고, 이미지의 세부사항을 더 선명하게 포착 --> RGB Camera
