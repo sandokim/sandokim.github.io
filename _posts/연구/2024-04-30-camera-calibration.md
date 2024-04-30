@@ -14,8 +14,6 @@ use_math: true
 classes: wide
 ---
 
-> [[fastMRI Dataset](https://fastmri.med.nyu.edu/)] [[fastMRI Github](https://github.com/facebookresearch/fastMRI?tab=readme-ov-file)] [[skm-tea Dataset](https://stanfordaimi.azurewebsites.net/datasets/4aaeafb9-c6e6-4e3c-9188-3aaaf0e0a9e7)] [[skm-tea Github](https://github.com/StanfordMIMI/skm-tea)]
-
 > RealSense D435 Camera와 OpenCV로 구한 Camera Calibration에서 focal length는 pixel 단위로 저장 됩니다.
 
 <p align="center">
@@ -23,7 +21,22 @@ classes: wide
 </p>
 
 1) RealSense Viewer에서 제공하는 RealSense D435 Depth camera calibration data
-2) 
-3) OpenCV에서 camera calibration으로 구한 RealSense RGB Camera calibration data
 
+2) OpenCV에서 camera calibration으로 구한 RealSense RGB Camera calibration data
 
+> FOV(HFOV, VFOV)와 focal length와 시야각
+1) FOV가 커지면 더 넓은 시야각 --> focal length는 짧아지고, 더 넓은 범위를 한 번에 포착 --> Depth Camera
+  
+2) FOV가 작아지면 더 좁은 시야각 --> focal length는 길어지고, 이미지의 세부사항을 더 선명하게 포착 --> RGB Camera
+
+### RealSense D435의 RGB 카메라의 HFOV, VFOV를 구해봅시다.
+
+먼저 RealSense Document에 따르면 focal length는 pixels 단위로 구하게 됩니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a99d3673-be87-45ea-b882-818f3705fd89)
+
+[[resolution(pixels)과 HFOV(degree)로 focal length(pixels)를 구하는 공식](https://dev.intelrealsense.com/docs/white-paper-subpixel-linearity-improvement-for-intel-realsense-depth-cameras)]
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8f87b2c1-ee9c-41b4-a561-ca59d27062ff)
+
+[[RealSense D435 Tech Specs](https://www.intelrealsense.com/depth-camera-d435/)]
