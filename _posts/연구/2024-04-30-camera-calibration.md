@@ -37,6 +37,10 @@ classes: wide
 
 [[resolution(pixels)과 HFOV(degree)로 focal length(pixels)를 구하는 공식](https://dev.intelrealsense.com/docs/white-paper-subpixel-linearity-improvement-for-intel-realsense-depth-cameras)]
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8f87b2c1-ee9c-41b4-a561-ca59d27062ff)
+다음으로 RealSense D435의 RGB camera의 HFOV와 VFOV의 TECH SPECS를 참고하여, 이론적인 focal length(pixels)를 구해보고, OpenCV의 cv2.calibrateCamera()로 구한 focal length(pixels)인 f_x, f_y와 비교해봅니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a196cf2b-7e59-4042-9905-ddf65f7464b3)
+
+code snippet의 f_x, f_y와 ppt에서 TECH SPCES를 참고하여 구한 focal length x, focal length y가 비슷함을 알 수 있습니다.
 
 [[RealSense D435 Tech Specs](https://www.intelrealsense.com/depth-camera-d435/)]
