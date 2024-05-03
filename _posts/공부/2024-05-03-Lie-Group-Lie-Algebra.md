@@ -33,13 +33,13 @@ classes: wide
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/ab0a72ec-1953-4816-8ca3-5b377e1835d0" alt="Image">
 </p>
 
-### Lie Algebra의 Taylor Series로 Lie Group를 표현할 수 있다.
+### Lie Algebra의 Taylor Series로 Lie Group를 표현할 수 있습니다.
 
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/cd2bece9-5cfb-4c5a-8028-91e78dfc0149" alt="Image">
 </p>
 
-## Lie Group은 Groups와 Manifolds의 교집합에 존재한다.
+## Lie Group은 Groups와 Manifolds의 교집합에 존재합니다.
 
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f91704a3-cea1-4b06-b764-76fb18efdd9d" alt="Image">
