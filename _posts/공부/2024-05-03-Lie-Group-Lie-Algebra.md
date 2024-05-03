@@ -1,4 +1,4 @@
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/60521951-d851-44de-9a94-9475b3fc3d08)---
+---
 title: "[3D CV] Lie Group Lie Algebra"
 last_modified_at: 2024-05-02
 categories:
