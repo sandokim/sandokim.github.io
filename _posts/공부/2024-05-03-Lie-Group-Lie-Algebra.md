@@ -22,13 +22,17 @@ classes: wide
 
 본 포스트는 위 유튜브 영상을 참조하여 만든 게시물임을 밝힙니다.
 
+> Lie Group SO(3), SE(3)
+
+> Lie Algebra so(3), se(3)
+
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/85b9adf3-8f6e-46f2-9d99-3477281c9716" alt="Image">
 </p>
 
-> Lie Group SO(3), SE(3)
-
-> Lie Algebra so(3), se(3)
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/ab0a72ec-1953-4816-8ca3-5b377e1835d0" alt="Image">
+</p>
 
 ## Lie Group은 Groups와 Manifolds의 교집합에 존재한다.
 
