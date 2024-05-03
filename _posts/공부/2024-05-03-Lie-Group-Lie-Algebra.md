@@ -17,8 +17,7 @@ use_math: true
 classes: wide
 ---
 
-> [[What is Lie theory? Here is the big picture. | Lie groups, algebras, brackets #3](https://youtu.be/ZRca3Ggpy_g?si=0crGpsOeJo7pnCW3&t=86)]
-> [[Spinors for Beginners 16: Lie Groups and Lie Algebras](https://www.youtube.com/watch?v=IPzwqAVfce4&ab_channel=eigenchris)]
+> [[Spinors for Beginners 16: Lie Groups and Lie Algebras](https://www.youtube.com/watch?v=IPzwqAVfce4&ab_channel=eigenchris)] [[What is Lie theory? Here is the big picture. | Lie groups, algebras, brackets #3](https://youtu.be/ZRca3Ggpy_g?si=0crGpsOeJo7pnCW3&t=86)]
 
 본 포스트는 위 유튜브 영상을 참조하여 만든 게시물임을 밝힙니다.
 
