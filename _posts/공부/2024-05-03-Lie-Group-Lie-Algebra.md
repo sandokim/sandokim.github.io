@@ -1,4 +1,4 @@
----
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5ec32ac5-9034-48ca-be08-b1ca86e389a7)---
 title: "[3D CV] Lie Group Lie Algebra"
 last_modified_at: 2024-05-02
 categories:
@@ -17,7 +17,12 @@ use_math: true
 classes: wide
 ---
 
-> [[What is Lie theory? Here is the big picture. | Lie groups, algebras, brackets #3](https://youtu.be/ZRca3Ggpy_g?si=0crGpsOeJo7pnCW3&t=86)] 
+> [[What is Lie theory? Here is the big picture. | Lie groups, algebras, brackets #3](https://youtu.be/ZRca3Ggpy_g?si=0crGpsOeJo7pnCW3&t=86)]
+> [[Spinors for Beginners 16: Lie Groups and Lie Algebras](https://www.youtube.com/watch?v=IPzwqAVfce4&ab_channel=eigenchris)]
+
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/85b9adf3-8f6e-46f2-9d99-3477281c9716" alt="Image">
+</p>
 
 본 포스트는 위 유튜브 영상을 참조하여 만든 게시물임을 밝힙니다.
 
