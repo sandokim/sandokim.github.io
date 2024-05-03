@@ -73,7 +73,7 @@ classes: wide
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/45d12b28-c23f-4da6-88ee-482ccf838b9d" alt="Image">
 </p>
 
-## Lie group(=curved space), Lie algebra(=flat space = tangent space)
+## Lie group(=curved space), Lie algebra(=flat space=tangent space)
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/dfec3bc2-6372-48f8-8110-5a9fcb2b4b7b" alt="Image">
 </p>
