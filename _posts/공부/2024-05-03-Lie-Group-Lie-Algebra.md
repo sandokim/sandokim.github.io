@@ -25,22 +25,16 @@ classes: wide
 
 > Lie Algebra so(3), se(3)
 
+## Lie Group은 Groups와 Manifolds의 교집합에 존재한다.
+
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f91704a3-cea1-4b06-b764-76fb18efdd9d" alt="Image">
+</p>
+
 ## Manifold란?
 
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/2acc3bf8-366e-4c3b-a6b0-2848a48fd512" alt="Image">
-</p>
-
-<p align="center">
-  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/dfec3bc2-6372-48f8-8110-5a9fcb2b4b7b" alt="Image">
-</p>
-
-<p align="center">
-  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/2ed19cd9-d706-4c61-b2b7-ada915881cf6" alt="Image">
-</p>
-
-<p align="center">
-  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f91704a3-cea1-4b06-b764-76fb18efdd9d" alt="Image">
 </p>
 
 ### 1-dimensional manifold
@@ -63,6 +57,15 @@ classes: wide
 
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/45d12b28-c23f-4da6-88ee-482ccf838b9d" alt="Image">
+</p>
+
+### Lie group(=curved space), Lie algebra(=flat space = tangent space)
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/dfec3bc2-6372-48f8-8110-5a9fcb2b4b7b" alt="Image">
+</p>
+
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/2ed19cd9-d706-4c61-b2b7-ada915881cf6" alt="Image">
 </p>
 
 ## Lie Group과 Lie Algebra간의 관계
