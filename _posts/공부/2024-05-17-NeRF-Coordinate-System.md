@@ -16,6 +16,10 @@ classes: wide
 
 ### NeRF의 Coordinate System을 이해해보자
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1234e352-7a75-4e96-8b9e-66baffaf97b8)
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/1234e352-7a75-4e96-8b9e-66baffaf97b8" alt="Image">
+</p>
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/51ca60b3-31ab-4934-a7a6-2a4996970f24)
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/51ca60b3-31ab-4934-a7a6-2a4996970f24" alt="Image">
+</p>
