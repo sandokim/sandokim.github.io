@@ -1,6 +1,6 @@
 ---
 title: "[3D CV] NeRF Coordinate System"
-last_modified_at: 2024-03-27
+last_modified_at: 2024-05-20
 categories:
   - 공부
 tags:
