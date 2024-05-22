@@ -1,11 +1,11 @@
 ---
-title: "[3D Vision 연구] Camera Calibration"
+title: "[3D CV 연구] Camera Calibration"
 last_modified_at: 2024-04-30
 categories:
   - 연구
 tags:
   - 연구
-  - 3D Vision
+  - 3D CV
   - camera calibration
   - pixels
 excerpt: "camera calibration"
