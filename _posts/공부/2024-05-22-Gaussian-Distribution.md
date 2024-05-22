@@ -1,4 +1,4 @@
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/755fbd74-813e-4125-9ee5-1277299081ad)---
+---
 title: "[3D CV] 3D Gaussian Distribution 정의"
 last_modified_at: 2024-05-20
 categories:
