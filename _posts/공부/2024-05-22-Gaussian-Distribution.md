@@ -38,7 +38,7 @@ classes: wide
 </p>
 
 <p align="center">
-  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/0b622b65-31d3-45cf-8223-e896d4416463" alt="Image">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/a8c6bdda-b218-4e06-928b-ad39e67ac058" alt="Image">
 </p>
 
 <p align="center">
