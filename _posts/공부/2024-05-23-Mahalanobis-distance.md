@@ -26,3 +26,11 @@ classes: wide
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f0e67aa5-a370-427b-8126-9db02f5565ea" alt="Image">
 </p>
+
+SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering에서 Mahalanobis Distance로 3D Gaussian로부터 3D point p까지의 거리를 측정하고, density function으로 변환 후, density function을 Signed Distance Function (SDF)로 변환하여 사용함을 확인해볼 수 있습니다.
+
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/b6de35ec-d1c8-40cb-9064-1628b2262ab3" alt="Image">
+</p>
+
+
