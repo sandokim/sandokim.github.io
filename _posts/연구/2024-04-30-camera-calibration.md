@@ -50,5 +50,5 @@ OpenCV로 구한 code snippet의 f_x, f_y와 TECH SPCES를 참고하여 이론�
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b5fd04f1-d60b-4ec1-9434-0afc8b5d807e)
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/11eb8b26-af30-48f2-a579-610fe27a1725)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/378670a3-dd70-4481-af7b-f7884f587e82)
 
