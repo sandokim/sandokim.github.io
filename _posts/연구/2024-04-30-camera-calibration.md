@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] Camera Calibration"
-last_modified_at: 2024-04-30
+last_modified_at: 2024-05-27
 categories:
   - 연구
 tags:
@@ -44,3 +44,14 @@ classes: wide
 OpenCV로 구한 code snippet의 f_x, f_y와 TECH SPCES를 참고하여 이론적으로 구한 focal length x, focal length y가 비슷함을 알 수 있습니다.
 
 [[RealSense D435 Tech Specs](https://www.intelrealsense.com/depth-camera-d435/)]
+
+
+### Custom Dataset
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fefc9d5d-2613-400e-b2db-5d2fb67b77fb)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d05411e8-fc62-4a10-acdb-11e492c3418d)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e2e26750-4551-4d47-88ba-48a0d97816d3)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9ae94a9d-0eff-4c39-9331-51e93d6aa7cc)
