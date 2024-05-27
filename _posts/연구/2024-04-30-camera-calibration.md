@@ -48,7 +48,7 @@ OpenCV로 구한 code snippet의 f_x, f_y와 TECH SPCES를 참고하여 이론�
 
 ### Custom Dataset
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b5fd04f1-d60b-4ec1-9434-0afc8b5d807e)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/525b212c-31f7-4493-9d63-4c97b14d2740)
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/378670a3-dd70-4481-af7b-f7884f587e82)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/95e033e4-f837-4bb7-8abb-5ca6a56064d2)
 
