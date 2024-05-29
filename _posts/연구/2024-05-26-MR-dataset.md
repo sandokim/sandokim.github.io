@@ -44,3 +44,17 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 4) image domain에서 모든 8개의 image에 대해 zero padding으로 (H,W) = (640,372) 사이즈로 맞춰줍니다
 5) fft를 하여 (H,W) = (640,372)로 사이즈가 조정된 multi-coil k-space 8개를 얻습니다.
 
+### MR Sequence를 얻는 과정
+
+**Spiral Pattern**
+- Spiral 패턴은 흔하지 않고, 기계의 안정성 문제로 인해 잘 사용되지 않습니다.
+- 빠르게 움직이고 모션이 강한 심장 이미지에서는 Spiral 패턴을 사용하기도 합니다.
+- 3D에서 Spiral 패턴의 k-space 데이터를 얻을 수 있습니다.
+- Spiral Pattern을 얻는 평면에서 Poisson 샘플링 기법을 사용하여 noisy한 패턴을 만들 수 있습니다.
+- 즉, spiral pattern을 무릎이나 뇌에 대해서 얻는 경우는 거의 없습니다.
+**Cartesian Pattern**
+- 무릎이나 뇌의 이미지는 일반적으로 Cartesian 패턴을 사용하여 얻습니다.
+
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/3a6f27cb-0906-4d85-9b62-bc979946dffe" alt="Image">
+</p>
