@@ -46,7 +46,7 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 4) image domain에서 모든 8개의 image에 대해 zero padding으로 (H,W) = (640,372) 사이즈로 맞춰줍니다
 5) fft를 하여 (H,W) = (640,372)로 사이즈가 조정된 multi-coil k-space 8개를 얻습니다.
 
-### MR Sequence를 얻는 과정
+### MR Pulse Sequence를 얻는 과정 (k-space 취득 과정)
 
 **Spiral Pattern**
 - 3D에서 Spiral 패턴의 k-space 데이터를 얻을 수 있습니다.
