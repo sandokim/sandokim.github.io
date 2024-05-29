@@ -38,6 +38,8 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 
 ### FastMRI dataset에 대해서 multi-coil k-space 8개를 가지는 모든 patient에 대한 k-space shape을 640, 372로 통일해봅시다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/da92a8ed-50fd-49f2-bf7e-988dc66963e2)
+
 1) H는 640으로 모두 동일하니 그대로 두고
 2) Width는 320, 356, 368, 372 사이즈를 갖는 patient에 대해서 372로 통일하도록 방향을 잡고
 3) 먼저 multi-coil k-space 8개를 ifft로 image domain으로 변환한 뒤
