@@ -30,7 +30,7 @@ classes: wide
 
 ### Multi-coil k-space가 8개 존재할 때, 모든 patient에 대한 k-space의 shape을 원하는 사이즈로 통일하는 법
 
-Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 image domain에서 crop 혹은 zero-padding한 뒤, 다시 fft로 raw k-space로 변환하면 real-data라고 볼 수 있습니다.
+Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 image domain에서 crop 혹은 zero-padding한 뒤, 다시 fft로 raw k-space로 변환하면 Real k-space data라고 볼 수 있습니다.
 
 1) k-space 8개를 ifft
 2) image domain으로 변환된 8개의 image에 대해 crop 혹은 zero padding하여 원하는 size로 통일 후, fft
