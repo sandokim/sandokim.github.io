@@ -1,5 +1,5 @@
 ---
-title: "[논문리뷰] High Resolution Triplane feature vectors"
+title: "[논문리뷰] High Resolution Triplane Feature Vectors, Optical Flow, Marching Cube"
 last_modified_at: 2024-05-30
 categories:
   - 논문리뷰
@@ -19,7 +19,7 @@ tags:
   - initial gaussian points
   - optical flow
   - 4D Gaussian
-excerpt: "triplane을 이해해봅시다"
+excerpt: "triplane, optical flow, marching cube"
 use_math: true
 classes: wide
 ---
@@ -75,13 +75,13 @@ camera orbit elevation and azimuth angles (e, a)로 표기합니다.
 
 Pretrained된 Zero-1-2-3로 initial Gaussian points를 생성할 수도 있습니다.
 
-Optical flow는 video에 multiple frame이 있을 때, pixel level에서 video에서 움직이는 게 무엇인지 알려줍니다. 위 그림에서 background는 static이어서 아예 움직이지 않으므로 white 색을 가집니다. Optical flow는 intelligent하진 않고, optical flow는 보통 semantic understanding을 가지 않습니다. Optical flow에서는 그냥 blob of pixels이 다음 frame에서 어디로 이동했는지를 봅니다.
+Optical flow는 video에 multiple frame이 있을 때, pixel level에서 video에서 움직이는 게 무엇인지 알려줍니다. 위 그림에서 background는 static이어서 아예 움직이지 않으므로 white 색을 가집니다. **Optical flow는 intelligent하진 않고, optical flow는 보통 semantic understanding을 가지 않습니다.** Optical flow에서는 그냥 blob of pixels이 다음 frame에서 어디로 이동했는지를 봅니다.
 
 위 논문에서는 모든 consecutive pair of frames에 대해 optical flow를 run하고, Gaussian Flow라는 것으로 Distill해서 같은 concept이지만 pixel space가 아닌 gaussian splat space에서 하고 있습니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fd0abe38-a110-430e-8d12-cdfda0b9b8ad)
 
-Optical flow의 단점은 예를 들어 all black인 object를 rotate한다면, 모든 것이 same color기 때문에 optical flow 입장에서는 악몽에 가깝습니다. 실제 무슨 일이 일어나는지 optical flow는 알아차리지 못하기 때문입니다. 이는 optical flow가 pixel space에서 동작하기 때문입니다.
+**Optical flow의 단점은 예를 들어 all black인 object를 rotate한다면, 모든 것이 same color기 때문에 optical flow 입장에서는 악몽에 가깝습니다.** 실제 무슨 일이 일어나는지 optical flow는 알아차리지 못하기 때문입니다. 이는 optical flow가 pixel space에서 동작하기 때문입니다.
 
 Optical flow는 Pixel Space에서의 every single pixel에 대해서 flow를 줍니다.
 
@@ -120,7 +120,7 @@ high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니�
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/64abe9c1-2cfb-492e-bc39-90a214afa435)
 
-보통 object에 대해서 위쪽에서 촬영한 영상으로 데이터셋이 구성되어 있기 때문입니다. 따라서 undershot view에서 single shot generation을 하면 퀄리티가 매우 떨어지는 문제가 있습니다. 위 figure에서 fish를 undershot view로 single shot generation을 하면 대부분 결과가 매우 안좋게 나오는 것을 볼 수 있습니다.
+보통 object에 대해서 위쪽에서 촬영한 영상으로 데이터셋이 구성되어 있기 때문입니다. **즉, undershot view에서 single shot generation을 하면 퀄리티가 매우 떨어지는 문제가 있습니다.** 위 figure에서 fish를 undershot view로 single shot generation을 하면 대부분 결과가 매우 안좋게 나오는 것을 볼 수 있습니다.
 
 ### Triplane size가 주어졌을 때, 3D output역시 triplane과 같은 사이즈인가요? 아닙니다.
 
