@@ -55,7 +55,7 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 
 ### FastMRI dataset에 대해서 multi-coil k-space 15개를 가지는 모든 patient에 대한 k-space shape을 640, 372로 통일해봅시다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8b91f5e0-fdbe-48d5-ad1a-604051b86cb7)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/991e712d-e89b-4fd0-b21b-b449d0af7e1a)
 
 1) H는 640으로 모두 동일하니 그대로 두고
    
@@ -66,6 +66,10 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 4) image domain에서 모든 15개의 image에 대해 zero padding으로 (H,W) = (640,372) 사이즈로 맞춰줍니다
    
 5) fft를 하여 (H,W) = (640,372)로 사이즈가 조정된 multi-coil k-space 15개를 얻습니다.
+
+**주의할 점**
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d376253e-2095-4fb7-ad59-93241dd26ff6)
 
 ### MR Pulse Sequence를 얻는 과정 (k-space 취득 과정)
 
