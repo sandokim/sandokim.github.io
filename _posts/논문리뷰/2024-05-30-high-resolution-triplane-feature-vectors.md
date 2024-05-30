@@ -77,7 +77,9 @@ Optical flow는 video에 multiple frame이 있을 때, pixel level에서 video�
 
 위 논문에서는 모든 consecutive pair of frames에 대해 optical flow를 run하고, Gaussian Flow라는 것으로 Distill해서 같은 concept이지만 pixel space가 아닌 gaussian splat space에서 하고 있습니다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fd0abe38-a110-430e-8d12-cdfda0b9b8ad)
 
+Optical flow의 단점은 예를 들어 all black인 object를 rotate한다면, 모든 것이 same color기 때문에 optical flow 입장에서는 악몽에 가깝습니다. 실제 무슨 일이 일어나는지 optical flow는 알아차리지 못하기 때문입니다. 이는 optical flow가 pixel space에서 동작하기 때문입니다.
 
 
 
