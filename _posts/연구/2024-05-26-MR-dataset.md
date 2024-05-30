@@ -23,16 +23,25 @@ classes: wide
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/3917d328-bd68-4920-88b8-256d5e11fdd2" alt="Image">
 </p>
 
-## fastMRI knee unfolded dataset
+## fastMRI knee unfolded dataset (Simulation Data)
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/4c4c30fd-2699-47c4-a74b-3326cf83bd36" alt="Image">
 </p>
 
-## skm-tea dataset
+## skm-tea dataset (Simulation Data)
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/9ab4e0ba-1d13-4a94-befa-c7915972d6cb" alt="Image">
 </p>
 
+## fastMRI knee unfolded dataset (Real Data)
+
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/d4c598a2-c7c9-416c-9c05-26b2676e499b" alt="Image">
+</p>
+
+## skm-tea dataset (Real Data)
+
+TBD..
 
 ### Multi-coil k-space가 8개 존재할 때, 모든 patient에 대한 k-space의 shape을 원하는 사이즈로 통일하는 법
 
