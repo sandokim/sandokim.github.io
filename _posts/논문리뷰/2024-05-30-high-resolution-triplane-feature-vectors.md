@@ -13,6 +13,12 @@ tags:
   - single shot generation
   - elevation
   - azimuth
+  - SAM (Segment Anything Model)
+  - Visibility Mask
+  - Zero-1-2-3
+  - initial gaussian points
+  - optical flow
+  - 4D Gaussian
 excerpt: "triplane을 이해해봅시다"
 use_math: true
 classes: wide
@@ -55,6 +61,31 @@ camera orbit elevation and azimuth angles (e, a)로 표기합니다.
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/7e3cbdf5-f128-4959-a929-fc5c07ed1f52" alt="Image" width="50%" hight="50%">
 </p>
+
+### SAM을 사용하여 아래그림처럼 Visibility Mask를 생성할 수도 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/173c2c3f-d532-46cb-8af8-ec7ab9ec062d)
+
+
+### Pretrained된 Zero-1-2-3로 initial Gaussian points를 생성할 수도 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4401bd3b-e1c3-4b7d-bd2d-3596c113cd69)
+
+Optical flow는 video에 multiple frame이 있을 때, pixel level에서 video에서 움직이는 게 무엇인지 알려줍니다. 위 그림에서 background는 static이어서 아예 움직이지 않으므로 white 색을 가집니다. Optical flow는 intelligent하진 않고, optical flow는 보통 semantic understanding을 가지 않습니다. Optical flow에서는 그냥 blob of pixels이 다음 frame에서 어디로 이동했는지를 봅니다.
+
+위 논문에서는 모든 consecutive pair of frames에 대해 optical flow를 run하고, Gaussian Flow라는 것으로 Distill해서 같은 concept이지만 pixel space가 아닌 gaussian splat space에서 하고 있습니다.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
