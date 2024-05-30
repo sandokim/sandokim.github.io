@@ -69,7 +69,7 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 
 **주의할 점**
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d376253e-2095-4fb7-ad59-93241dd26ff6)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/84710c1f-41ba-4b0d-9f13-aa43bac43bbe)
 
 ### MR Pulse Sequence를 얻는 과정 (k-space 취득 과정)
 
