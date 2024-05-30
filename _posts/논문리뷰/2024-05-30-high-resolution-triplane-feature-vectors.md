@@ -122,9 +122,21 @@ high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니�
 
 보통 object에 대해서 위쪽에서 촬영한 영상으로 데이터셋이 구성되어 있기 때문입니다. 따라서 undershot view에서 single shot generation을 하면 퀄리티가 매우 떨어지는 문제가 있습니다. 위 figure에서 fish를 undershot view로 single shot generation을 하면 대부분 결과가 매우 안좋게 나오는 것을 볼 수 있습니다.
 
+### Triplane size가 주어졌을 때, 3D output역시 triplane과 같은 사이즈인가요? 아닙니다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b2944dd9-d087-403c-bd11-0bed1dea45fe)
 
+NeRF는 defining the field합니다. NeRF는 neural network로 approximating하는 function이고, that function은 field로써 evaluating any point in space가 가능합니다. 따라서 NeRF는 infinite resolution을 가집니다. i.e. NeRF는 What is the value at (0,0,0)? or what is the value at (0,0,0.0000001)도 가능합니다.
 
+Triplane feature는 NeRF에 넣어주는 값의 형태 중의 하나입니다. 
+
+"I want the color at this specific point in space, then you would say "Ok that specific point in space corresponds to pixels of each triplane."
+
+이 triplane의 normalized coordinate of the point in space를 Color MLP에 feed합니다.
+
+**Final resolution of 3D object는 Marching cube의 hyperparameters나 얼마나 많은 query를 Color MLP(NeRF)에서 할 것이냐에 달려있습니다.** 
+
+**만약 query를 100번하면 100개의 points가 생기고, 100개의 points로 mesh를 만들 수 있습니다. 같은 Color MLP(NeRF)로 1,000,000번 query하면 1,000,000의 points가 생기고 이를 marching cube에 넣으면 위 figure에서 최종결과에서 high resolution Colored 3D Model을 얻을 수 있습니다.**
 
 
 
