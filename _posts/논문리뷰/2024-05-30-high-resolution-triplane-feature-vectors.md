@@ -53,7 +53,7 @@ camera orbit elevation and azimuth angles (e, a)로 표기합니다.
 "camera orbit elevation: 카메라가 어느정도 높이에서 궤도를 가지고, azmiuth angle: 어 각도로 돌아가는가" 로 해석합니다.
 
 <p align="center">
-  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/7e3cbdf5-f128-4959-a929-fc5c07ed1f52" alt="Image">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/7e3cbdf5-f128-4959-a929-fc5c07ed1f52" alt="Image" width="50%" hight="50%">
 </p>
 
 
