@@ -1,5 +1,5 @@
 ---
-title: "[논문리뷰] High Resolution Triplane Feature Vectors, Optical Flow, Marching Cube"
+title: "[논문리뷰] High Resolution Triplane Feature Vector, Optical Flow, Marching Cube"
 last_modified_at: 2024-05-30
 categories:
   - 논문리뷰
@@ -19,7 +19,8 @@ tags:
   - initial gaussian points
   - optical flow
   - 4D Gaussian
-excerpt: "triplane, optical flow, marching cube"
+  - LoRA
+excerpt: "triplane feature vector, optical flow, marching cube"
 use_math: true
 classes: wide
 ---
