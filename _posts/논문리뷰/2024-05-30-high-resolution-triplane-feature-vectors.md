@@ -99,7 +99,11 @@ LoRA는 Low Rank Adaptor로 기본적으로 extra set of trainable weights입니
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0d312cce-998a-4ca8-8800-3d22cd6a2803)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f8700dae-b8c4-48c9-ae99-d7ceeb7c4516)
+
 high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니다. (channel dim은 32)
+
+페이퍼에서 **utilizes low-resolution latent representations to query features from a high-resolution 3D feature volume**이라고 표현했습니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b1833d83-00da-491d-8459-969ad4fb4b9b)
 
