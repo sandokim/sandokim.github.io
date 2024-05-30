@@ -93,6 +93,23 @@ Optical flow는 Pixel Space에서의 every single pixel에 대해서 flow를 줍
 
 위 figure에서 3개의 Plane을 feature plane이라고 볼 수 있고, 각 plane은 some little vector를 가진다. 만약 내가 what the feature vector is for a random point in 3D space, you can then project that into each of the plane and then get those 3 little vectors and then combine those vectors for that specific voxel in 3D space. 이것이 2 dimensional feature space에서 3 dimensional feature plane으로 가는 법입니다.
 
+LoRA는 Low Rank Adaptor로 기본적으로 extra set of trainable weights입니다. 위 figure에서 Stable Diffusion (SD)는 frozen하고 LoRA만 업데이트합니다. LoRA가 있으면 original model에 combine 혹은 merge할 수 있습니다. A bunch of delta w로 생각하면 이를 original w에 더하는 것으로 생각할 수 있습니다.
+
+### Triplane을 scaling할 수 있나요? 네 물론 원하는대로 scaling이 가능합니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0d312cce-998a-4ca8-8800-3d22cd6a2803)
+
+high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니다. (channel dim은 32)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b1833d83-00da-491d-8459-969ad4fb4b9b)
+
+비슷한 예시로 40,40에서 high resolution인 80,80으로 디코딩한 것을 볼 수 있습니다. (channel dim은 최종적으로 16) 
+
+
+
+
+
+
 
 
 
