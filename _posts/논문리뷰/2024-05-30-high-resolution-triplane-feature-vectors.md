@@ -44,6 +44,8 @@ classes: wide
 
 [GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation](https://arxiv.org/pdf/2403.14621.pdf)
 
+[Objaverse dataset](https://objaverse.allenai.org/) --> filtered Objaverse dataset으로 만들기도 합니다. As there are many low-quality 3D models in the original Objaverse dataset.
+
 ### 위 9개의 논문을 참고하여 NeRF, Gaussian Splatting에서 등장하는 개념 중 하나인 Triplane feature vector의 개념을 이해해봅시다.
 
 triplane encoder는 3D representation에 대한 position embedding처럼 생각해도 됩니다. 3 axes aligned plane에 glue시킵니다. 그러면 3D representation의 voxel 안 어느 위치에서든 query를 할 수 있고, 그 query point에 대한 specific feature point를 얻을 수 있습니다.
@@ -110,9 +112,6 @@ high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b1833d83-00da-491d-8459-969ad4fb4b9b)
 
 비슷한 예시로 40,40에서 high resolution인 80,80으로 디코딩한 것을 볼 수 있습니다. (channel dim은 최종적으로 16) 
-
-
-
 
 
 
