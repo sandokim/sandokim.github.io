@@ -103,11 +103,16 @@ LoRA는 Low Rank Adaptor로 기본적으로 extra set of trainable weights입니
 
 high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니다. (channel dim은 32)
 
+각 plane은 128x128 image이며 32 channel을 가집니다. 그러므로 each little dot here (xyz 축의 3차원 공간에서의 한점)은 하나의 32 dimensional vector입니다. 각 plane의 32 dimensional vector를 concatenate하면 32+32+32인 feature vector를 만듭니다. 이를 Color MLP(NeRF)에 feed합니다.
+
 페이퍼에서 **utilizes low-resolution latent representations to query features from a high-resolution 3D feature volume**이라고 표현했습니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b1833d83-00da-491d-8459-969ad4fb4b9b)
 
 비슷한 예시로 40,40에서 high resolution인 80,80으로 디코딩한 것을 볼 수 있습니다. (channel dim은 최종적으로 16) 
+
+
+
 
 
 
