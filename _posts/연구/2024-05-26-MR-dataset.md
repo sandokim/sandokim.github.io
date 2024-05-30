@@ -36,7 +36,7 @@ classes: wide
 ## fastMRI knee unfolded dataset (Real Data)
 
 <p align="center">
-  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/d4c598a2-c7c9-416c-9c05-26b2676e499b" alt="Image">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/64068b39-49c7-4819-b4fb-b9cd051c1df7" alt="Image">
 </p>
 
 ## skm-tea dataset (Real Data)
