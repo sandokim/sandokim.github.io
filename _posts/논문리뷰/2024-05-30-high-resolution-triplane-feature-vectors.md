@@ -93,7 +93,11 @@ Optical flow는 Pixel Space에서의 every single pixel에 대해서 flow를 줍
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b2dd4c64-21ab-4acf-a83f-f16621a3b9eb)
 
-위 figure에서 3개의 Plane을 feature plane이라고 볼 수 있고, 각 plane은 some little vector를 가진다. 만약 내가 what the feature vector is for a random point in 3D space, you can then project that into each of the plane and then get those 3 little vectors and then combine those vectors for that specific voxel in 3D space. 이것이 2 dimensional feature space에서 3 dimensional feature plane으로 가는 법입니다.
+위 figure에서 3개의 Plane을 feature plane이라고 볼 수 있고, 각 plane은 some little vector를 가진다. 
+
+**What the feature vector is for a random point in 3D space, you can then project that into each of the plane and then get those 3 little vectors and then combine those vectors for that specific voxel in 3D space.**
+
+이것이 2 dimensional feature space에서 3 dimensional feature plane으로 가는 법입니다.
 
 LoRA는 Low Rank Adaptor로 기본적으로 extra set of trainable weights입니다. 위 figure에서 Stable Diffusion (SD)는 frozen하고 LoRA만 업데이트합니다. LoRA가 있으면 original model에 combine 혹은 merge할 수 있습니다. A bunch of delta w로 생각하면 이를 original w에 더하는 것으로 생각할 수 있습니다.
 
@@ -103,9 +107,9 @@ LoRA는 Low Rank Adaptor로 기본적으로 extra set of trainable weights입니
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f8700dae-b8c4-48c9-ae99-d7ceeb7c4516)
 
-high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니다. (channel dim은 32)
+**high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니다. (channel dim은 32)**
 
-각 plane은 128x128 image이며 32 channel을 가집니다. 그러므로 each little dot here (xyz 축의 3차원 공간에서의 한점)은 하나의 32 dimensional vector입니다. 각 plane의 32 dimensional vector를 concatenate하면 32+32+32인 feature vector를 만듭니다. 이를 Color MLP(NeRF)에 feed합니다.
+**각 plane은 128x128 image이며 32 channel을 가집니다. 그러므로 each little dot here (xyz 축의 3차원 공간에서의 한점)은 하나의 32 dimensional vector입니다. 각 plane의 32 dimensional vector를 concatenate하면 32+32+32인 feature vector를 만듭니다. 이를 Color MLP(NeRF)에 feed합니다.**
 
 페이퍼에서 **utilizes low-resolution latent representations to query features from a high-resolution 3D feature volume**이라고 표현했습니다.
 
@@ -122,7 +126,7 @@ high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니�
 
 보통 object에 대해서 위쪽에서 촬영한 영상으로 데이터셋이 구성되어 있기 때문입니다. **즉, undershot view에서 single shot generation을 하면 퀄리티가 매우 떨어지는 문제가 있습니다.** 위 figure에서 fish를 undershot view로 single shot generation을 하면 대부분 결과가 매우 안좋게 나오는 것을 볼 수 있습니다.
 
-### Triplane size가 주어졌을 때, 3D output역시 triplane과 같은 사이즈인가요? 아닙니다.
+### Triplane size가 주어졌을 때, 3D output 역시 triplane과 같은 사이즈인가요? 아닙니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b2944dd9-d087-403c-bd11-0bed1dea45fe)
 
