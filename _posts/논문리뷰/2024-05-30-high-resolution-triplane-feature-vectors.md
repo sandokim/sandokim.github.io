@@ -87,8 +87,11 @@ Optical flow는 Pixel Space에서의 every single pixel에 대해서 flow를 줍
 
 3D Gaussian을 Pixel Space로 2D로 splat 된것을 표현할 때 위 그림처럼 그려볼 수 있습니다. Gaussian들은 specific opacity를 가지고 respective to the camera position에 대해 sorting하여 overlapping on the top of each other합니다. 
 
+### Triplane NeRF
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b2dd4c64-21ab-4acf-a83f-f16621a3b9eb)
 
+위 figure에서 3개의 Plane을 feature plane이라고 볼 수 있고, 각 plane은 some little vector를 가진다. 만약 내가 what the feature vector is for a random point in 3D space, you can then project that into each of the plane and then get those 3 little vectors and then combine those vectors for that specific voxel in 3D space. 이것이 2 dimensional feature space에서 3 dimensional feature plane으로 가는 법입니다.
 
 
 
