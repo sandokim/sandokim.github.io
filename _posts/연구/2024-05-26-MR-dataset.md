@@ -17,6 +17,12 @@ classes: wide
 
 > [[fastMRI Dataset](https://fastmri.med.nyu.edu/)] [[fastMRI Github](https://github.com/facebookresearch/fastMRI?tab=readme-ov-file)] [[skm-tea Dataset](https://stanfordaimi.azurewebsites.net/datasets/4aaeafb9-c6e6-4e3c-9188-3aaaf0e0a9e7)] [[skm-tea Github](https://github.com/StanfordMIMI/skm-tea)]
 
+## Meta 정보를 제외하고 kspace array만 저장하였을 때 h5, npy file format 용량 차이는 거의 없습니다.
+
+<p align="center">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/3917d328-bd68-4920-88b8-256d5e11fdd2" alt="Image">
+</p>
+
 ## fastMRI knee unfolded dataset
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/4c4c30fd-2699-47c4-a74b-3326cf83bd36" alt="Image">
