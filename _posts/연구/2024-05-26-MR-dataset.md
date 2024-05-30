@@ -83,6 +83,8 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/533924d2-0414-44e9-ad46-8917656c4c47)
 
+0번째, 1번쨰, 7번째 coil k-space는 매우 노이지해서 ifft했을 때, 이미지가 제대로 변환되지 않음을 볼 수 있습니다.
+
 
 **npy 저장시 주의할 점**
 
