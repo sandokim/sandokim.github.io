@@ -114,7 +114,13 @@ high-resolution triplane은 128,128이고 normal triplane은 고작 32,32입니�
 비슷한 예시로 40,40에서 high resolution인 80,80으로 디코딩한 것을 볼 수 있습니다. (channel dim은 최종적으로 16) 
 
 
+### 대부분의 3D generation models은 밑에서 촬영한 view로 학습되지 않습니다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/22f57084-c451-458a-a262-c5463fb0da10)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/64abe9c1-2cfb-492e-bc39-90a214afa435)
+
+보통 object에 대해서 위쪽에서 촬영한 영상으로 데이터셋이 구성되어 있기 때문입니다. 따라서 undershot view에서 single shot generation을 하면 퀄리티가 매우 떨어지는 문제가 있습니다. 위 figure에서 fish를 undershot view로 single shot generation을 하면 대부분 결과가 매우 안좋게 나오는 것을 볼 수 있습니다.
 
 
 
