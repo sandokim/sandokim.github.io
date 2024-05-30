@@ -57,6 +57,8 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/991e712d-e89b-4fd0-b21b-b449d0af7e1a)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/909ed9aa-45b7-4849-ad83-0bafb9e6dbac)
+
 1) H는 640으로 모두 동일하니 그대로 두고
    
 2) Width는 320, 356, 368, 372 사이즈를 갖는 patient에 대해서 372로 통일하도록 방향을 잡고
@@ -66,8 +68,9 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 4) image domain에서 모든 15개의 image에 대해 zero padding으로 (H,W) = (640,372) 사이즈로 맞춰줍니다
    
 5) fft를 하여 (H,W) = (640,372)로 사이즈가 조정된 multi-coil k-space 15개를 얻습니다.
+   
 
-**주의할 점**
+**npy 저장시 주의할 점**
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d99fb4bf-e95a-4900-bf41-108be6b14004)
 
