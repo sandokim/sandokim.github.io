@@ -81,10 +81,11 @@ Optical flow는 video에 multiple frame이 있을 때, pixel level에서 video�
 
 Optical flow의 단점은 예를 들어 all black인 object를 rotate한다면, 모든 것이 same color기 때문에 optical flow 입장에서는 악몽에 가깝습니다. 실제 무슨 일이 일어나는지 optical flow는 알아차리지 못하기 때문입니다. 이는 optical flow가 pixel space에서 동작하기 때문입니다.
 
+Optical flow는 Pixel Space에서의 every single pixel에 대해서 flow를 줍니다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0fb9f2f7-d83c-440b-9f16-0f4b3b265f69)
 
-
-
+3D Gaussian을 Pixel Space로 2D로 splat 된것을 표현할 때 위 그림처럼 그려볼 수 있습니다. Gaussian들은 specific opacity를 가지고 respective to the camera position에 대해 sorting하여 overlapping on the top of each other합니다. 
 
 
 
