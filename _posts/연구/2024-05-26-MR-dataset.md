@@ -68,7 +68,16 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 4) image domain에서 모든 15개의 image에 대해 zero padding으로 (H,W) = (640,372) 사이즈로 맞춰줍니다
    
 5) fft를 하여 (H,W) = (640,372)로 사이즈가 조정된 multi-coil k-space 15개를 얻습니다.
-   
+
+**case: file1000007 26번째 slice의 multicoil k-space 15개를 visualize하여 관찰하여 봅시다.**
+
+**왼쪽부터 순차적으로 Real k-space --> ifft image --> zero padded ifft image --> zero padded Real k-space**
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5b2cfae2-3f88-4f47-8673-308cda9ad018)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a644c2da-60ae-465c-a8ec-b2b280387719)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/15682ef0-7a88-4f10-b3cc-ecd83866d15f)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1ce37557-8814-44c3-89f3-a847461b0140)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/533924d2-0414-44e9-ad46-8917656c4c47)
+
 
 **npy 저장시 주의할 점**
 
