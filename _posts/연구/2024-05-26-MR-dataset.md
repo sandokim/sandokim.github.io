@@ -55,7 +55,7 @@ Real data에서 Coilmap을 estimation안하고 raw k-space를 각각 ifft하고 
 
 ### FastMRI dataset에 대해서 multi-coil k-space 15개를 가지는 모든 patient에 대한 k-space shape을 640, 372로 통일해봅시다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0b070d87-c9e6-4e0b-894a-f86b6b23f2c9)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9bb2b50e-4cb9-4817-a262-e9bd9d959f52)
 
 1) H는 640으로 모두 동일하니 그대로 두고
    
