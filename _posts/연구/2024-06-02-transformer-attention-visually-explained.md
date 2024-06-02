@@ -40,11 +40,11 @@ Column vector(initial embedding vector) 1개를 Tower라 하고 아래를 생각
 
 Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향으로 high dimensional space상에서 이동합니다.
 
-즉, 가중치가 반영된 벡터를 1개 더해서 Tower의 inital embedding vector를 Eiffel embedding vector 방향으로 업데이트가 됩니다.
+즉, 가중치가 반영된 벡터를 1개 더해서 "Tower"의 inital embedding vector를 "Eiffel"의 embedding vector 방향으로 업데이트가 됩니다.
 
---> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
+--> 업데이트 되면서 "Tower"의 initial embedding vector가 high dimensional space 상에서 "Eiffel Tower" 벡터에 가까워지게 됩니다.
 
-만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향으로써 하나 더 추가되었다고 생각하면 됩니다. 즉, tower에 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
+만약 문장이 miniature Eiffel Tower라면, "miniature"라는 context가 Tower에 주는 영향으로써 하나 더 추가되었다고 생각하면 됩니다. 즉, Tower에 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
 
 ![tower (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2e18fc62-e725-411c-b3af-80f18577d75d)
 
@@ -52,11 +52,11 @@ Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product�
 
 이 내용을 Attention Pattern에서 보면, 위와 같은 initial embedding vector에서 더해주는 context에 해당하는 embedding vector들이 여러 개 존재한다고 볼 수 있습니다. (위의 예시에서는 더해주는 벡터가 1개, 2개인 경우만 visualize해서 본 것으로 생각하시면 됩니다.)
 
-이번에는 miniature Eiffel tower보다 긴 문장인 a fluffy blue creature roamed the verdant forest 문장에서 이해해봅시다.
+이번에는 miniature Eiffel Tower보다 긴 문장인 a fluffy blue creature roamed the verdant forest 문장에서 이해해봅시다.
 
 ![creature](https://github.com/sandokim/sandokim.github.io/assets/74639652/f544cd4d-aabd-4fe1-8662-8018b29057b5)
 
-creature의 initial embedding에 더해지는 임베딩 벡터들은, creature 앞에 해당하는 a, fluffy, blue 이고, 
+creature의 initial embedding에 더해지는 임베딩 벡터들은, creature 앞에 해당하는 "a", "fluffy", "blue"에 대한 각각의 embedding vector이고, 
 
 이후 모든 임베딩 벡터들은 cheating을 방지하기 위해 0의 가중치를 가지도록 attention pattern을 계산했습니다.
 
@@ -64,13 +64,13 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 ![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
 
-즉, creature의 initial embedding vector는 a, fluffy, blue의 임베딩 벡터와의 유사도를 dot product로 계산하고, 그 값의 크기들만큼 high dimensional space 상에서 creature의 initial embedding vector에 더해져 initial embedding vector의 방향과 크기가 업데이트 되게 됩니다.
+즉, creature의 initial embedding vector는 "a", "fluffy", "blue"의 임베딩 벡터와의 유사도를 dot product로 계산하고, 그 값의 크기들만큼 high dimensional space 상에서 "creature"의 initial embedding vector에 더해져 "creature"의 initial embedding vector가 "a fluffy blue creature"의 임베딩 벡터 방향으로 업데이트 되게 됩니다.
 
 ![creature (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/13e25c7b-b336-4f21-bb75-126675df8e37)
 
 ![creature (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2261dfee-6e60-4b9f-a174-fc1357df7f2c)
 
-이는 위의 간단한 miniature Eiffel tower 예시와 동일하고, 단지 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어, 더 많은 context를 고려하는 예시일 뿐이라고 이해할 수 있습니다. (문장이 길면 하나의 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어난다는 의미로 해석가능합니다. 문장이 길면 전체 context를 고려하기 위해 더 많은 임베딩 벡터가 더해진다고도 해석할 수 있습니다.)
+이는 위의 간단한 miniature Eiffel Tower 예시와 동일하고, 단지 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어, 더 많은 context를 고려하는 예시일 뿐이라고 이해할 수 있습니다. (문장이 길면 하나의 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어난다는 의미로 해석가능합니다. 문장이 길면 전체 context를 고려하기 위해 더 많은 임베딩 벡터가 더해진다고도 해석할 수 있습니다.)
 
 현재까지 모든 설명은 single head attention의 하나의 column vector(initial embedding vector)에 대한 것이었습니다.
 
@@ -97,16 +97,16 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 ***"creature"에 대한 1개의 initial embedding vector (Attention Pattern에서 column vector 1개)에 대해서만 고려해봅시다.***
 
 #### [Single head attention]
-creature의 initial embedding vector와의 a, fluffy, blue의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 creature의 initial embedding vector를 a, fluffy, blue의 embedding vector ***3개*** 방향으로 high dimensional space상에서 이동합니다.
+"creature"의 initial embedding vector와의 "a", "fluffy", "blue"의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 "creature"의 initial embedding vector를 "a', "fluffy", "blue"의 embedding vector ***3개*** 방향으로 high dimensional space상에서 이동합니다.
 
---> 업데이트 되면서 high dimensional space 상에서 "creature의 initial embedding vector"가 이에 attend하는 "a", "fluffy", "blue"라는 context를 고려하는 "a fluffy blue creature" embedding vector에 가까워지게 됩니다.
+--> 업데이트 되면서 high dimensional space 상에서 "creature"의 initial embedding vector가 이에 attend하는 "a", "fluffy", "blue"라는 context를 고려하는 "a fluffy blue creature"의 embedding vector에 가까워지게 됩니다.
 
 #### [Multi head attention]
 single head attention이 96개인 것입니다. 즉, Distinct한 Attention Pattern이 96개 있는 것입니다.
 
-creature의 initial embedding vector와의 a, fluffy, blue의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 creature의 initial embedding vector를 a, fluffy, blue의 embedding vector ***3개 x 96개*** 방향으로 high dimensional space상에서 이동합니다.
+"creature"의 initial embedding vector와의 "a", "fluffy", "blue"의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 "creature"의 initial embedding vector를 "a", "fluffy", "blue"의 embedding vector ***3개 x 96개*** 방향으로 high dimensional space상에서 이동합니다.
 
---> 업데이트 되면서 high dimensional space 상에서 "creature의 initial embedding vector"가 이에 attend하는 "a", "fluffy", "blue"라는 context를 고려하는 "a fluffy blue creature" embedding vector에 가까워지게 됩니다.
+--> 업데이트 되면서 high dimensional space 상에서 "creature"의 initial embedding vector가 이에 attend하는 "a", "fluffy", "blue"라는 context를 고려하는 "a fluffy blue creature"의 embedding vector에 가까워지게 됩니다.
 
 ![multi-headed attention (7-2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/6f41b95f-279e-4e05-afd5-f77f5ee94a8a)
 
