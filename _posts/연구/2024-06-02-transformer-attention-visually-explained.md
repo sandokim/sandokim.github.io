@@ -94,14 +94,12 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 ### a fluffy blue creature roamed the verdant forest 문장에서 Single head attention과 Multi-headed attention의 차이를 알아봅시다.
 
-**[Single head attention]**
-
+#### [Single head attention]
 creature의 initial embedding vector와의 a, fluffy, blue의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 creature의 initial embedding vector를 a, fluffy, blue의 embedding vector 3개 방향으로 high dimensional space상에서 이동합니다.
 
 --> 업데이트 되면서 high dimensional space 상에서 "creature의 initial embedding vector"가 이에 attend하는 "a", "fluffy", "blue"라는 context를 고려하는 "a fluffy blue creature" embedding vector에 가까워지게 됩니다.
 
-**[Multi head attention]**
-
+#### [Multi head attention]
 single head attention이 96개인 것입니다. 즉, Distinct한 Attention Pattern이 96개 있는 것입니다.
 
 creature의 initial embedding vector와의 a, fluffy, blue의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 creature의 initial embedding vector를 a, fluffy, blue의 embedding vector 3개 **x 96개** 방향으로 high dimensional space상에서 이동합니다.
