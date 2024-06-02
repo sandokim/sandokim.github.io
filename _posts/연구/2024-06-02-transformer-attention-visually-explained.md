@@ -74,18 +74,45 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 현재까지 모든 설명은 single head attention의 하나의 column vector(initial embedding vector)에 대한 것이었습니다.
 
+![multi-headed attention](https://github.com/sandokim/sandokim.github.io/assets/74639652/8b2bee50-00fe-407d-9619-4dea700dc31a)
+
 **[Single head attention]이 하나의 attention pattern을 가졌다면,**
 
 **[Multi-headed attention]은 96개의 distinct한 attention pattern이 있는 것입니다.**
 
+![multi-headed attention (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/d83d6611-0a47-4310-9127-31e55eb8b93f)
+
+![multi-headed attention (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/86288fe1-43e5-48a6-bb24-e40542de4385)
+
+![multi-headed attention (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/80ee6c3a-1bb2-4973-99fb-735fbed09552)
+
+![multi-headed attention (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/39dd413b-8dc9-428a-b450-43eb9bab0a32)
+
+![multi-headed attention (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/42944b71-f1a1-45e6-a657-cc6ee3d385e5)
+
+![multi-headed attention (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/02f47e21-8f90-4ac1-887b-ad675c7beb1f)
+
+![multi-headed attention (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5a5d49af-73d0-48a9-abc5-959531e544a7)
+
+![multi-headed attention (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/cd735984-302c-4691-9ded-0de29b703201)
+
 ### [Single head attention]
 Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향(Value 벡터)으로 high dimensional space상에서 이동합니다.
+
+--> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
 
 ### [Multi head attention]
 single head attention이 96개인 것이고, 즉 Distinct한 Attention Pattern이 96개 있는 것입니다.
 다시말해, 가중치가 반영된 벡터를 96개 더해서 Tower의 inital embedding vector를 Eiffel embedding vector 방향으로 업데이트가 됩니다.
 
 --> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
+
+![multi-headed attention (10)](https://github.com/sandokim/sandokim.github.io/assets/74639652/48d521b2-c328-4336-b009-2a76d03249e5)
+
+![multi-headed attention (11)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9c20ad46-c00c-4efe-9889-61533379faba)
+
+![multi-headed attention (12)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8341da74-e412-4d10-9863-eda0e8afd943)
+
 
 ### Embedding Space, Attention Pattern, Softmax, Masking
 
