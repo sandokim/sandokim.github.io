@@ -42,7 +42,7 @@ Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product�
 
 --> 업데이트 되면서 "Tower"의 initial embedding vector가 high dimensional space 상에서 "Eiffel Tower" 벡터에 가까워지게 됩니다.
 
-만약 문장이 miniature Eiffel Tower라면, "miniature"라는 context가 Tower에 주는 영향으로써 하나 더 추가되었다고 생각하면 됩니다. 즉, Tower에 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
+만약 문장이 "miniature Eiffel Tower"라면, "miniature"라는 context가 "Tower"에 주는 영향으로써 하나 더 추가되었다고 생각하면 됩니다. 즉, "Tower"의 initial embedding vector에 더해주는 context embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
 
 ![tower (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8a9f216d-658c-434a-95a5-e3cc09ca25db)
 
@@ -52,7 +52,7 @@ Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product�
 
 이 내용을 Attention Pattern에서 보면, 위와 같은 initial embedding vector에서 더해주는 context에 해당하는 embedding vector들이 여러 개 존재한다고 볼 수 있습니다. (위의 예시에서는 더해주는 벡터가 1개, 2개인 경우만 visualize해서 본 것으로 생각하시면 됩니다.)
 
-이번에는 miniature Eiffel Tower보다 긴 문장인 a fluffy blue creature roamed the verdant forest 문장에서 이해해봅시다.
+이번에는 "miniature Eiffel Tower"보다 긴 문장인 "a fluffy blue creature roamed the verdant forest" 문장에서 Attention을 이해해봅시다.
 
 ![creature](https://github.com/sandokim/sandokim.github.io/assets/74639652/f544cd4d-aabd-4fe1-8662-8018b29057b5)
 
