@@ -64,7 +64,7 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 ![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
 
-즉 creature의 initial embedding vector는 a, fluffy, blue의 임베딩 벡터와의 유사도를 dot product로 계산하고, 그 값의 크기들만큼 high dimensional space 상에서 creature의 initial embedding vector에 더해져 initial embedding vector의 방향과 크기가 업데이트 되게 됩니다.
+즉, creature의 initial embedding vector는 a, fluffy, blue의 임베딩 벡터와의 유사도를 dot product로 계산하고, 그 값의 크기들만큼 high dimensional space 상에서 creature의 initial embedding vector에 더해져 initial embedding vector의 방향과 크기가 업데이트 되게 됩니다.
 
 ![creature (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/13e25c7b-b336-4f21-bb75-126675df8e37)
 
