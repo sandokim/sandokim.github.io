@@ -38,7 +38,7 @@ Column vector(initial embedding vector) 1개를 Tower라 하고 아래를 생각
 
 ![tower (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8a9f216d-658c-434a-95a5-e3cc09ca25db)
 
-Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향(Value 벡터)으로 high dimensional space상에서 이동합니다.
+Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향으로 high dimensional space상에서 이동합니다.
 
 즉, 가중치가 반영된 벡터를 1개 더해서 Tower의 inital embedding vector를 Eiffel embedding vector 방향으로 업데이트가 됩니다.
 
@@ -88,30 +88,33 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 ![multi-headed attention (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/39dd413b-8dc9-428a-b450-43eb9bab0a32)
 
-![multi-headed attention (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/42944b71-f1a1-45e6-a657-cc6ee3d385e5)
+![multi-headed attention (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/4985019a-f8a5-4127-a03c-01c700973fcc)
 
-![multi-headed attention (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/02f47e21-8f90-4ac1-887b-ad675c7beb1f)
+![multi-headed attention (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/6ee0268f-c8cb-48e7-ba3b-da998ac01394)
 
-![multi-headed attention (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5a5d49af-73d0-48a9-abc5-959531e544a7)
-
-![multi-headed attention (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/cd735984-302c-4691-9ded-0de29b703201)
+a fluffy blue creature roamed the verdant forest 문장에서
 
 ### [Single head attention]
-Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향(Value 벡터)으로 high dimensional space상에서 이동합니다.
+creature의 initial embedding vector와의 a, fluffy, blue의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 creature의 initial embedding vector를 a, fluffy, blue의 embedding vector 3개 방향으로 high dimensional space상에서 이동합니다.
 
 --> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
 
 ### [Multi head attention]
 single head attention이 96개인 것이고, 즉 Distinct한 Attention Pattern이 96개 있는 것입니다.
-다시말해, 가중치가 반영된 벡터를 96개 더해서 Tower의 inital embedding vector를 Eiffel embedding vector 방향으로 업데이트가 됩니다.
+
+creature의 initial embedding vector와의 a, fluffy, blue의 embedding vector와의 dot product로 구한 가중치(Q, K 연산결과)만큼 creature의 initial embedding vector를 a, fluffy, blue의 embedding vector 3개 **x 96개** 방향으로 high dimensional space상에서 이동합니다.
 
 --> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
 
-![multi-headed attention (10)](https://github.com/sandokim/sandokim.github.io/assets/74639652/48d521b2-c328-4336-b009-2a76d03249e5)
+![multi-headed attention (7-2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/6f41b95f-279e-4e05-afd5-f77f5ee94a8a)
 
-![multi-headed attention (11)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9c20ad46-c00c-4efe-9889-61533379faba)
+![multi-headed attention (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/05b3a4e0-8a0b-4f41-9dff-c77618fb3b61)
 
-![multi-headed attention (12)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8341da74-e412-4d10-9863-eda0e8afd943)
+![multi-headed attention (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/ca7e3116-9bfc-4fc2-9d4b-53689167af8d)
+
+![multi-headed attention (10)](https://github.com/sandokim/sandokim.github.io/assets/74639652/0dec06ba-98ec-4716-87ac-be51c7cc4a7c)
+
+![multi-headed attention (11)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8b4fa4a9-3ddc-4083-9958-d29eed22f373)
 
 
 ### Embedding Space, Attention Pattern, Softmax, Masking
