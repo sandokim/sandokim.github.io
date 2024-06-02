@@ -88,7 +88,21 @@ Attention Pattern은 Attention is All you need 페이퍼의 수식과 대응하�
 
 ![attention softmax2](https://github.com/sandokim/sandokim.github.io/assets/74639652/dd218214-8563-493c-80aa-a2747296a0ab)
 
+Attention Pattern을 계산할 때, 현재값 이후의 token을 Attend하는 것은 cheating에 해당하므로 이를 방지하기 위해, 해당 token들에 대해서는 masking을 하는 과정이 추가되어야 합니다. 이는 그 부분에 해당하는 값을 -∞로 바꾸고, softmax를 통과시켜 확률값을 0%로 바꾸는 것으로 해당 token부분에 대해서 masking을 수행할 수 있습니다.
 
+![masking](https://github.com/sandokim/sandokim.github.io/assets/74639652/e01ebd32-0dc3-4b46-b0bd-9d5f02e1a259)
+
+![masking (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/753a94be-7693-4378-82c3-10443e5404fe)
+
+![masking (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/6ace54a2-0ec1-45de-a483-9f434623c3a9)
+
+![masking (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/24070f84-bbdf-4839-b46a-43e283210e1d)
+
+![masking (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/91ad4dbd-471c-47af-9fbf-529829319e50)
+
+![masking (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/91090752-cfb2-44fe-81dc-985ed80ebb38)
+
+![masking (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/60784887-712c-431e-8db1-7fe8a3e61732)
 
 
 
