@@ -44,7 +44,7 @@ Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product�
 
 --> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
 
-만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향이 하나더 추가되었다고 생각하면 됩니다. 즉, 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
+만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향으로써 하나 더 추가되었다고 생각하면 됩니다. 즉, tower에 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
 
 ![tower (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2e18fc62-e725-411c-b3af-80f18577d75d)
 
