@@ -30,7 +30,7 @@ classes: wide
 
 inital embedding vector는 Attention Pattern에서는 하나의 column vector에 해당합니다.
 
-Column vector 1개를 Tower라 하고 아래를 생각해봅시다.
+Column vector(initial embedding vector) 1개를 Tower라 하고 아래를 생각해봅시다.
 
 ![tower](https://github.com/sandokim/sandokim.github.io/assets/74639652/db277a9c-ecf4-42ee-b92f-b6d50cfabdb5)
 
@@ -44,7 +44,7 @@ Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product�
 
 --> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
 
-만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향이 하나더 추가되었다고 생각하면 됩니다. 즉 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
+만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향이 하나더 추가되었다고 생각하면 됩니다. 즉, 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
 
 ![tower (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2e18fc62-e725-411c-b3af-80f18577d75d)
 
@@ -72,7 +72,7 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 이는 위의 간단한 miniature Eiffel tower 예시와 동일하고, 단지 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어, 더 많은 context를 고려한다고 이해할 수 있습니다.
 
-현재까지 모든 설명은 single head attention의 하나의 column vector에 대한 것이었습니다.
+현재까지 모든 설명은 single head attention의 하나의 column vector(initial embedding vector)에 대한 것이었습니다.
 
 **[Single head attention]이 하나의 attention pattern을 가졌다면,**
 
