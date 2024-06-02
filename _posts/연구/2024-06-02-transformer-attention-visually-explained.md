@@ -50,7 +50,7 @@ single head attention이 96개인 것이고, 즉 Distinct한 Attention Pattern�
 
 ### Embedding Space, Attention Pattern, Softmax, Masking
 
-Query, Key는 먼저 사전의 정의된 Embedding Matrix를 거쳐initial Embedding Space 상으로 보냅니다.
+Query, Key는 먼저 사전의 정의된 Embedding Matrix를 거쳐 initial Embedding Space 상으로 보냅니다. 그리고, 임베딩 벡터들은 initial Embedding Space 상에서 Attention Pattern에서 구하는 임베딩 벡터만큼 더해져 더 많은 context를 아우르는 임베딩 벡터로 이동하게 됩니다.
 
 ![embedding space](https://github.com/sandokim/sandokim.github.io/assets/74639652/ca890719-1d1e-48d3-9b85-4ca7ca171d35)
 
