@@ -1,3 +1,5 @@
+
+
 ---
 title: "[CV 연구] Transformer Attention Visually Explained"
 last_modified_at: 2024-06-02
@@ -26,21 +28,59 @@ classes: wide
 
 ### Attention Pattern: Q, K dot product한 matrix
 
-[Single head attention]이 하나의 attention pattern을 가졌다면,
-[Multi-headed attention]은 96개의 distinct한 attention pattern이 있는 것입니다.
-
 개념적이해: 문장에서 하나의 word token에 대한 initial embedding vector는 dot product연산으로 이전 word값들을 참조하여 가중치가 반영된 벡터들의 합으로 업데이트 되면서 high dimensional space 상에서 이전 word들과 연관성있게 벡터의 방향과 값의 크기가 업데이트 됩니다.
 
 inital embedding vector는 Attention Pattern에서는 하나의 column vector에 해당합니다.
 
 Column vector 1개를 Tower라 하고 아래를 생각해봅시다.
 
-### [Single head attention]
+![tower](https://github.com/sandokim/sandokim.github.io/assets/74639652/db277a9c-ecf4-42ee-b92f-b6d50cfabdb5)
+
+![tower (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/35ab9969-9823-4b39-87aa-38ffc1ddf84d)
+
+![tower (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8a9f216d-658c-434a-95a5-e3cc09ca25db)
+
 Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향(Value 벡터)으로 high dimensional space상에서 이동합니다.
 
 즉, 가중치가 반영된 벡터를 1개 더해서 Tower의 inital embedding vector를 Eiffel embedding vector 방향으로 업데이트가 됩니다.
 
 --> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
+
+만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향이 하나더 추가되었다고 생각하면 됩니다. 즉 더해주는 embedding vector가 하나더 추가로 존재한다고 생각하시면 됩니다.
+
+![tower (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2e18fc62-e725-411c-b3af-80f18577d75d)
+
+![tower (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/ef1c6fd7-34d7-4a6e-b979-e2eed7345ece)
+
+이 내용을 Attention Pattern에서 보면, 위와 같은 initial embedding vector에서 더해주는 context에 해당하는 embedding vector들이 여러 개 존재한다고 볼 수 있습니다. (위의 예시에서는 더해주는 벡터가 1개, 2개인 경우만 visualize해서 본 것으로 생각하시면 됩니다.)
+
+이번에는 miniature Eiffel tower보다 긴 문장인 a fluffy blue creature roamed the verdant forest 문장에서 이해해봅시다.
+
+![creature](https://github.com/sandokim/sandokim.github.io/assets/74639652/f544cd4d-aabd-4fe1-8662-8018b29057b5)
+
+creature의 initial embedding에 더해지는 임베딩 벡터들은, creature 앞에 해당하는 a, fluffy, blue 이고, 
+
+이후 모든 임베딩 벡터들은 cheating을 방지하기 위해 0의 가중치를 가지도록 attention pattern을 계산했습니다.
+
+![creature (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/a06e8c4f-dd5c-410f-aac1-92e0419de1c8)
+
+![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
+
+즉 creature의 initial embedding vector는 a, fluffy, blue의 임베딩 벡터와의 유사도를 dot product로 계산하고, 그 값의 크기들만큼 high dimensional space 상에서 creature의 initial embedding vecotr에 더해져 initial embedding vector의 방향과 크기가 업데이트 되게 됩니다.
+
+![creature (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/13e25c7b-b336-4f21-bb75-126675df8e37)
+
+![creature (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2261dfee-6e60-4b9f-a174-fc1357df7f2c)
+
+이는 위의 간단한 miniature Eiffel tower 예시와 동일하고, 단지 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어, 더 많은 context를 고려한다고 이해할 수 있습니다.
+
+현재까지 모든 설명은 single head attention의 하나의 column vector에 대한 것이었습니다.
+
+[Single head attention]이 하나의 attention pattern을 가졌다면,
+[Multi-headed attention]은 96개의 distinct한 attention pattern이 있는 것입니다.
+
+### [Single head attention]
+Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향(Value 벡터)으로 high dimensional space상에서 이동합니다.
 
 ### [Multi head attention]
 single head attention이 96개인 것이고, 즉 Distinct한 Attention Pattern이 96개 있는 것입니다.
