@@ -70,7 +70,7 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 ![creature (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2261dfee-6e60-4b9f-a174-fc1357df7f2c)
 
-이는 위의 간단한 miniature Eiffel tower 예시와 동일하고, 단지 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어, 더 많은 context를 고려한다고 이해할 수 있습니다.
+이는 위의 간단한 miniature Eiffel tower 예시와 동일하고, 단지 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어, 더 많은 context를 고려하는 예시일 뿐이라고 이해할 수 있습니다. (문장이 길면 하나의 initial embedding vector에 더해지는 임베딩 벡터의 개수가 늘어난다는 의미로 해석가능합니다. 문장이 길면 전체 context를 고려하기 위해 더 많은 임베딩 벡터가 더해진다고도 해석할 수 있습니다.)
 
 현재까지 모든 설명은 single head attention의 하나의 column vector(initial embedding vector)에 대한 것이었습니다.
 
