@@ -36,8 +36,6 @@ Column vector(initial embedding vector) 1개를 Tower라 하고 아래를 생각
 
 ![tower (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/35ab9969-9823-4b39-87aa-38ffc1ddf84d)
 
-![tower (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8a9f216d-658c-434a-95a5-e3cc09ca25db)
-
 Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향으로 high dimensional space상에서 이동합니다.
 
 즉, 가중치가 반영된 벡터를 1개 더해서 "Tower"의 inital embedding vector를 "Eiffel"의 embedding vector 방향으로 업데이트가 됩니다.
@@ -45,6 +43,8 @@ Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product�
 --> 업데이트 되면서 "Tower"의 initial embedding vector가 high dimensional space 상에서 "Eiffel Tower" 벡터에 가까워지게 됩니다.
 
 만약 문장이 miniature Eiffel Tower라면, "miniature"라는 context가 Tower에 주는 영향으로써 하나 더 추가되었다고 생각하면 됩니다. 즉, Tower에 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
+
+![tower (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8a9f216d-658c-434a-95a5-e3cc09ca25db)
 
 ![tower (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2e18fc62-e725-411c-b3af-80f18577d75d)
 
