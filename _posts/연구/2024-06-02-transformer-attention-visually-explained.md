@@ -36,7 +36,7 @@ Column vector(initial embedding vector) 1개를 Tower라 하고 아래를 생각
 
 ![tower (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/35ab9969-9823-4b39-87aa-38ffc1ddf84d)
 
-Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향으로 high dimensional space상에서 이동합니다.
+"Tower"의 initial embedding vector와 "Eiffel"의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 "Tower"의 initial embedding vector를 "Eiffel"의 embedding vector 방향으로 high dimensional space상에서 이동합니다.
 
 즉, 가중치가 반영된 벡터를 1개 더해서 "Tower"의 inital embedding vector를 "Eiffel"의 embedding vector 방향으로 업데이트가 됩니다.
 
