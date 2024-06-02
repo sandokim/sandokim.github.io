@@ -1,5 +1,5 @@
 ---
-title: "[CV 연구] Attention Pattern"
+title: "[CV 연구] Transformer Attention Visually Explained"
 last_modified_at: 2024-05-31
 categories:
   - 연구
@@ -13,7 +13,7 @@ tags:
   - Language Model
   - 3Blue1Brown
   - visually explaned
-excerpt: "Attention Mechanism 이해"
+excerpt: "Transformer의 Attention을 시각적으로 이해해봅시다."
 use_math: true
 classes: wide
 ---
