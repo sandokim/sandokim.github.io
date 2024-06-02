@@ -44,7 +44,7 @@ Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product�
 
 --> 업데이트 되면서 high dimensional space 상에서 Eiffel Tower 벡터에 가까워지게 됩니다.
 
-만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향이 하나더 추가되었다고 생각하면 됩니다. 즉 더해주는 embedding vector가 하나더 추가로 존재한다고 생각하시면 됩니다.
+만약 문장이 miniature Eiffel tower라면, "miniature"라는 context가 tower에 주는 영향이 하나더 추가되었다고 생각하면 됩니다. 즉 더해주는 embedding vector가 하나 더 추가로 존재한다고 생각하시면 됩니다.
 
 ![tower (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2e18fc62-e725-411c-b3af-80f18577d75d)
 
@@ -64,7 +64,7 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 ![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
 
-즉 creature의 initial embedding vector는 a, fluffy, blue의 임베딩 벡터와의 유사도를 dot product로 계산하고, 그 값의 크기들만큼 high dimensional space 상에서 creature의 initial embedding vecotr에 더해져 initial embedding vector의 방향과 크기가 업데이트 되게 됩니다.
+즉 creature의 initial embedding vector는 a, fluffy, blue의 임베딩 벡터와의 유사도를 dot product로 계산하고, 그 값의 크기들만큼 high dimensional space 상에서 creature의 initial embedding vector에 더해져 initial embedding vector의 방향과 크기가 업데이트 되게 됩니다.
 
 ![creature (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/13e25c7b-b336-4f21-bb75-126675df8e37)
 
@@ -74,8 +74,9 @@ creature의 initial embedding에 더해지는 임베딩 벡터들은, creature �
 
 현재까지 모든 설명은 single head attention의 하나의 column vector에 대한 것이었습니다.
 
-[Single head attention]이 하나의 attention pattern을 가졌다면,
-[Multi-headed attention]은 96개의 distinct한 attention pattern이 있는 것입니다.
+**[Single head attention]이 하나의 attention pattern을 가졌다면,**
+
+**[Multi-headed attention]은 96개의 distinct한 attention pattern이 있는 것입니다.**
 
 ### [Single head attention]
 Tower의 initial embedding vector와 Eiffel의 embedding vector와 dot product로 구한 가중치(Q, K 연산결과)만큼 Tower의 initial embedding vector를 Eiffel의 embedding vector 방향(Value 벡터)으로 high dimensional space상에서 이동합니다.
