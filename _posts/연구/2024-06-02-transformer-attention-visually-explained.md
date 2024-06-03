@@ -301,7 +301,7 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/af6f046c-96e9-485f-aaf6-654e0d698f24)
 
-이렇게 쪼개진 matrix 2개를 각각 linear map을 한다고 생각하시면 됩니다.
+이렇게 쪼개진 matrix 2개는 각각 linear map을 수행한다고 생각하시면 됩니다.
 
 ![Value matrix (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/7b8af54f-6323-4456-828c-71755417003c)
 
