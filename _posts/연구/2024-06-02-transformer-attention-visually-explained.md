@@ -177,8 +177,7 @@ Attention Pattern을 계산할 때, 현재값 이후의 token을 Attend하는 �
 
 
 
-
-### 결론적으로 Attention을 통해 각 token의 embedding vector는 더 많은 context를 고려한 벡터로 변화하게 됩니다.
+## 결론적으로 Attention을 통해 각 token의 embedding vector는 더 많은 context를 고려한 벡터로 변화하게 됩니다.
 
 ![mole](https://github.com/sandokim/sandokim.github.io/assets/74639652/013f9073-d581-4644-a399-1cf8d52549c9)
 
@@ -216,19 +215,22 @@ Attention Pattern을 계산할 때, 현재값 이후의 token을 Attend하는 �
 
 ![Harry (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/487445c0-e2fb-4095-996c-43e5ca306281)
 
-**"King" embedding vector는 context를 표현하는 "lived in Scotland", "murdererd predecessor", "in Shakespearean language"의 embedding vector들의 context를 반영하는 embedding vector로 업데이트 됩니다."**
+**"King"의 embedding vector는 context를 표현하는 "lived in Scotland", "murdererd predecessor", "in Shakespearean language"의 embedding vector들의 context를 반영하는 embedding vector로 업데이트 됩니다.**
 
 ![King context](https://github.com/sandokim/sandokim.github.io/assets/74639652/7a4eb91b-153e-45e7-9d4f-5e30e7a99aec)
 
-1) "King" embedding vector와 "lived in Scotland", "murdered predecssor", "in Shakespearean language"의 embedding vector들 간의 계산은 "King"을 Query vector로, 나머지는 Key vector로하여 dot product로 벡터간의 유사도를 계산한 Attention Pattern을 구하고,
+1) "King"의 embedding vector와 "lived in Scotland", "murdered predecssor", "in Shakespearean language"의 embedding vector들 간의 계산은 "King"을 Query vector로, 나머지는 Key vector로하여 dot product로 벡터간의 유사도를 계산한 Attention Pattern을 구하고,
 
 2) Attention Pattern의 가중치만큼 "lived in Scotland", "murdered predecessor", "in Shakespearean language"를 Value_down으로 인코딩한 각각 value embedding vector에 가중치를 주고,
 
 3) "King"의 embedding vector에 더하여, "King"의 embedding vector가 context인 "lived in Scotland", "murdered predecessor", "in Shakespearean langauge"를 반영한 embedding vector로 업데이트 됩니다.
 
+같은 예시로 이전에 들었던 "a fluffy blue creature roamed the verdant forest"에서 "creature"의 embedding vector에 context로 주어지는 "a", "fluffy", "blue"의 embedding vector로 인해 업데이트 되는 과정을 Attention Pattern에서 표현하면 아래와 같습니다.
+
+![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
 
 
-
+### Side Note: Value Matrix 연산 과정
 
 
 
