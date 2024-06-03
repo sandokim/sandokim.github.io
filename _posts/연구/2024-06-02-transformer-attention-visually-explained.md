@@ -305,7 +305,7 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/7b8af54f-6323-4456-828c-71755417003c)
 
-앞서 high dimensional space상에 Value matrix를 통해 Value를 구했던 과정을 linear map으로 생각하면 됩니다.
+앞서 high dimensional space상에 Value matrix를 통해 Value를 구했던 과정에서 Value matrix는 linear map을 수행한다고 생각하면 됩니다.
 
 ![fluffy creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/faa00fd9-312c-465e-82c8-ce8a1c309585)
 
