@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] Marching Cube"
+title: "[3D CV] Marching Cubes"
 last_modified_at: 2024-05-30
 categories:
   - 공부
@@ -7,7 +7,7 @@ tags:
   - Marching Cube
   - NeRF
   - 3D mesh
-excerpt: "Marching Cube 정리"
+excerpt: "Marching Cubes 정리"
 use_math: true
 classes: wide
 ---
