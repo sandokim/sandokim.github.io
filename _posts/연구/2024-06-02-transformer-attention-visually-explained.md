@@ -327,7 +327,7 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (14)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c81d3464-e9b9-4589-aa53-5796b76225cd)
 
-결론적으로 여기서 수행하는 Linear map은 "Low rank" trnasformation과 같습니다.
+결론적으로 여기서 수행하는 Linear map은 "Low rank" transformation과 같습니다.
 
 ![Value matrix (15)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9ea3f36f-bea3-49e0-82e4-898843972cdd)
 
