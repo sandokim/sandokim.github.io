@@ -268,7 +268,7 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 
 ![blue fluffy creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/cb6b9d03-cd7c-4ffa-a94a-fa0d5a978405)
 
-***시각화를 위해 1), 2)로 나눠 시각화하여 보았지만, 실제 Attention Pattern에서는 아래와 같이 "creature"의 embedding vector에 "fluffy", "blue"의 Value가 더해지는 과정이 한번에 이루어집니다.***
+***시각화를 위해 1), 2)로 나눠 순차적으로 Value가 더해지는 과정을 보았지만, 실제 Attention Pattern에서는 아래와 같이 "creature"의 embedding vector에 "fluffy", "blue"의 Value가 더해지는 과정이 한번에 이루어집니다.***
 
 ![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
 
