@@ -234,6 +234,50 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 
 ![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
 
+![blue creature](https://github.com/sandokim/sandokim.github.io/assets/74639652/045b791e-809b-4000-a916-57a2aeb085ac)
+
+![blue creature (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/3ef3d26e-2d10-442f-b03e-392ccb846c32)
+
+![blue creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/3df0383e-cace-4de1-a87f-2fdf61e233ca)
+
+이 과정을 high dimensional space 상에서 "creature"의 embedding vector에 "fluffy"의 Value embedding vector와 "blue"의 Value embedding vector가 더해져 "creature"의 embedding vector가 업데이트되는 과정을 시각화 해보겠습니다.
+
+**1) "fluffy"의 Value가 "creature"의 embedding vector에 더해지는 과정 시각화**
+
+![fluffy creature](https://github.com/sandokim/sandokim.github.io/assets/74639652/4930ebb6-1b5a-444e-8627-97f2a7a0fb03)
+
+![fluffy creature (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/d682e2f4-313f-481c-b960-9ba5c9760a91)
+
+![fluffy creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/bb1f2e71-edf1-4028-a718-dc241a54d642)
+
+![fluffy creature (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/f30f84e6-eaa6-434d-b131-4b1ce195bf11)
+
+![fluffy creature (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/f1ae7750-8776-4e08-a5a7-3be1c7b620e3)
+
+![fluffy creature (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/f7bf8bad-8b40-4348-92f2-31d6a8dafa0a)
+
+![fluffy creature (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/b7ce836e-1c38-4d90-8dd8-ec772c2c1408)
+
+![fluffy creature (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/59a9f19f-9ef3-4400-a991-0807bf2df2a0)
+
+**2) "blue"의 Value가 "fluffy creature"의 embedding vector에 더해지는 과정 시각화**
+
+![blue fluffy creature](https://github.com/sandokim/sandokim.github.io/assets/74639652/5c43421c-1d1f-4939-aaca-971a4ab020ba)
+
+![blue fluffy creature (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/bbcd644c-85db-46ad-a1fa-3e93af98aaaa)
+
+![blue fluffy creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/cb6b9d03-cd7c-4ffa-a94a-fa0d5a978405)
+
+***시각화를 위해 1), 2)로 나눠 시각화하여 보았지만, 실제 Attention Pattern에서는 아래와 같이 "creature"의 embedding vector에 "fluffy", "blue"의 Value가 더해지는 과정이 한번에 이루어집니다.***
+
+![creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5489659a-ee02-456e-99ad-a1ff8cf8e022)
+
+![blue creature](https://github.com/sandokim/sandokim.github.io/assets/74639652/045b791e-809b-4000-a916-57a2aeb085ac)
+
+![blue creature (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/3ef3d26e-2d10-442f-b03e-392ccb846c32)
+
+![blue creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/3df0383e-cace-4de1-a87f-2fdf61e233ca)
+
 
 ### Side Note: Value Matrix 연산 과정
 
