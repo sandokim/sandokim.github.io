@@ -323,7 +323,7 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (13)](https://github.com/sandokim/sandokim.github.io/assets/74639652/ba310646-8774-4f64-96d8-44e8f18e6433)
 
-128 dims을 12,288 dims로 linear map하는 matrix를 Value_uo matrix라 해봅시다. (정식 명칭은 아님)
+128 dims을 12,288 dims로 linear map하는 matrix를 Value_up matrix라 해봅시다. (정식 명칭은 아님)
 
 ![Value matrix (14)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c81d3464-e9b9-4589-aa53-5796b76225cd)
 
