@@ -291,7 +291,9 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/bcbd80db-4a48-4db1-901c-d4a9f65418b8)
 
-우리는 Value matrix의 파라미터 수를 Query와 Key matrix의 파라미터 수의 합만큼으로 나타내고 싶습니다.
+***우리는 Value matrix의 파라미터 수를 Query와 Key matrix의 파라미터 수의 합만큼으로 나타내고 싶습니다.***
+
+=> 이는 코드 구현상에서 Query, Key, Value_down, Value_up의 파라미터를 같도록 만들어주어, Multi-head attention에서 Query, Key, Value의 head dim을 하나의 hyper parameter로 조절할 수 있게 해줍니다.
 
 ![Value matrix (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8fd2c8ad-9482-4243-868d-319ca1234bcf)
 
@@ -333,10 +335,11 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (16)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c25a0e4f-1b44-41d1-b659-c673ec81ab1c)
 
-이로써 Query, Key, Value (Value_up, Value_down)의 파라미터 수가 같아지도록 만들었습니다.
+***이로써 Query, Key, Value (Value_up, Value_down)의 파라미터 수가 같아지도록 만들었습니다.***
 
 ![Value matrix (17)](https://github.com/sandokim/sandokim.github.io/assets/74639652/38c80133-a7d9-457d-908e-ded75c83522c)
 
+***즉, transformer의 multi-headed attention 상에서 Query, Key, Value의 head 수를 128로 동일하게 맞춰줄 수 있게, Value의 파라미터 수를 조절해주었다고 생각해도 됩니다. 즉, Multi-headed attention에서 Query, Key, Value의 head_dim을 하나의 hyper parameter로써 64, 128, 256 등으로 바꿔줄 수 있게 되었습니다.***
 
 ### Value matrix를 linear map(Low rank transformation)으로 취급하여 나눴던 Value_up, Value_down matrix 중에서 Value_up만 따로 행렬로 묶습니다.
 
