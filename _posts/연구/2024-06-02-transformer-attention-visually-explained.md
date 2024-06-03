@@ -279,12 +279,64 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 ![blue creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/3df0383e-cace-4de1-a87f-2fdf61e233ca)
 
 
-### Side Note: Value Matrix 연산 과정
+### Value Matrix 연산 과정
+
+![Value matrix](https://github.com/sandokim/sandokim.github.io/assets/74639652/8eec9216-1245-4a9a-9784-ce709f6e15e6)
+
+![Value matrix (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/f84080e1-27ce-4b1e-8dab-43084d1d7710)
+
+![Value matrix (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/10558764-fd54-425c-b7ce-26abc31922fe)
+
+![Value matrix (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/bcbd80db-4a48-4db1-901c-d4a9f65418b8)
+
+![Value matrix (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8fd2c8ad-9482-4243-868d-319ca1234bcf)
+
+![Value matrix (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/6f518b47-ae5e-4bd3-8fc2-f9878a800c78)
+
+![Value matrix (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/af6f046c-96e9-485f-aaf6-654e0d698f24)
+
+![Value matrix (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/7b8af54f-6323-4456-828c-71755417003c)
+
+![Value matrix (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/f64631a7-08c9-4c94-87ab-d6a5d273817f)
+
+![Value matrix (10)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9380c822-5dcf-4259-986d-f63abffa0ad8)
+
+![Value matrix (11)](https://github.com/sandokim/sandokim.github.io/assets/74639652/4a235881-60e6-48f0-8509-6c462b31baa1)
+
+![Value matrix (12)](https://github.com/sandokim/sandokim.github.io/assets/74639652/6fb68fb1-7624-4211-8d3d-1c608d7a7531)
+
+![Value matrix (13)](https://github.com/sandokim/sandokim.github.io/assets/74639652/ba310646-8774-4f64-96d8-44e8f18e6433)
+
+![Value matrix (14)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c81d3464-e9b9-4589-aa53-5796b76225cd)
+
+![Value matrix (15)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9ea3f36f-bea3-49e0-82e4-898843972cdd)
+
+![Value matrix (16)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c25a0e4f-1b44-41d1-b659-c673ec81ab1c)
+
+![Value matrix (17)](https://github.com/sandokim/sandokim.github.io/assets/74639652/38c80133-a7d9-457d-908e-ded75c83522c)
 
 
+### Value matrix를 linear map(Low rank transformation)으로 취급하여 나눴던 Value_up, Value_down matrix 중에서 Value_up만 따로 행렬로 묶습니다.
 
+우리가 실제 코드 Implementation에서 사용하는 Value matrix는 Value_down matrix로 **128** x 12,288 의 dimension을 가지게 되는 것입니다.
 
+![output matrix](https://github.com/sandokim/sandokim.github.io/assets/74639652/3d0c37e9-62bc-476d-a173-ee6a5194fa9b)
 
+![output matrix (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/76f13997-2434-4061-8b74-cf3eb8e0a78c)
+
+![output matrix (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/7bb5b87e-52bf-413e-8de5-02727a6bd887)
+
+![output matrix (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/0117c7d6-15e3-41dc-af96-26234d9b1f93)
+
+![output matrix (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/b14baf9c-ab40-46a1-836a-ea78ee55ed28)
+
+![output matrix (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c284e579-33ed-44ad-9833-22f24084ca59)
+
+![output matrix (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/fc53e33d-1e52-4f01-8bca-a9821518c422)
+
+![output matrix (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/b74b4776-6199-49e4-9a6e-41f5e2e97a76)
+
+![output matrix (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/73c5ef3f-cbec-4118-9210-24bab90a3d39)
 
 
 
