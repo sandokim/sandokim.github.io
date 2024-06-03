@@ -178,6 +178,63 @@ Attention Pattern을 계산할 때, 현재값 이후의 token을 Attend하는 �
 
 
 
+### 결론적으로 Attention을 통해 각 token의 embedding vector는 더 많은 context를 고려한 벡터로 변화하게 됩니다.
+
+![mole](https://github.com/sandokim/sandokim.github.io/assets/74639652/013f9073-d581-4644-a399-1cf8d52549c9)
+
+![mole (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/fe34e50a-d2a4-46c3-9336-cf5a04aef604)
+
+![mole (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/afc5c34d-b1a9-4669-8ab1-d9b26951d14c)
+
+![mole (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/10064241-8c09-4544-a6b4-009264b15124)
+
+![mole (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/d13de4ec-3594-4d80-8cd8-14236cb36967)
+
+![mole (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/5eabf038-6315-4afe-9356-a21ac3de7fdd)
+
+![mole (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c4bef436-1116-443a-9c6a-4f84bba66401)
+
+**또다른 예시로 "they crashed the car" 문장에서 "car"가 "they", "crashed", "the"의 context를 고려해서 바뀌는 것을 관찰할 수 있습니다.** 
+
+![crashed car](https://github.com/sandokim/sandokim.github.io/assets/74639652/dc5e7234-d052-40b1-9d80-c0ee4f4cd948)
+
+![crashed car (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/eebc375b-845e-4a0b-8df6-b437c5a389b6)
+
+![crashed car (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/97e112bf-1726-44e1-a0b5-ff53940650ba)
+
+**좀 더 긴 문장에서 띄엄띄엄 존재하는 context에 대해서도 Attention의 효과를 관찰할 수 있습니다.**
+
+**"wizard", "Hogwarts", "Hermione"의 context를 반영한 "Harry"**
+
+![Harry](https://github.com/sandokim/sandokim.github.io/assets/74639652/0886a024-43dd-4e02-a492-49bffa1ef4cb)
+
+![Harry (2)](https://github.com/sandokim/sandokim.github.io/assets/74639652/2ab49654-153b-4995-bdeb-ece0fa2318c6)
+
+**"Queen", "Sussex", "William", "Harry"의 context를 반영한 "Harry"**
+
+![Harry (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/827a730d-c10a-463d-8e4c-755c9b79bb76)
+
+![Harry (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/487445c0-e2fb-4095-996c-43e5ca306281)
+
+**"King" embedding vector는 context를 표현하는 "lived in Scotland", "murdererd predecessor", "in Shakespearean language"의 embedding vector들의 context를 반영하는 embedding vector로 업데이트 됩니다."**
+
+![King context](https://github.com/sandokim/sandokim.github.io/assets/74639652/7a4eb91b-153e-45e7-9d4f-5e30e7a99aec)
+
+1) "King" embedding vector와 "lived in Scotland", "murdered predecssor", "in Shakespearean language"의 embedding vector들 간의 계산은 "King"을 Query vector로, 나머지는 Key vector로하여 dot product로 벡터간의 유사도를 계산한 Attention Pattern을 구하고,
+
+2) Attention Pattern의 가중치만큼 "lived in Scotland", "murdered predecessor", "in Shakespearean language"를 Value_down으로 인코딩한 각각 value embedding vector에 가중치를 주고,
+
+3) "King"의 embedding vector에 더하여, "King"의 embedding vector가 context인 "lived in Scotland", "murdered predecessor", "in Shakespearean langauge"를 반영한 embedding vector로 업데이트 됩니다.
+
+
+
+
+
+
+
+
+
+
 
 
 
