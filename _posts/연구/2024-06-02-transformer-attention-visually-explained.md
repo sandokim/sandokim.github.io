@@ -287,19 +287,35 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 
 ![Value matrix (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/10558764-fd54-425c-b7ce-26abc31922fe)
 
+Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수가 너무 많습니다.
+
 ![Value matrix (4)](https://github.com/sandokim/sandokim.github.io/assets/74639652/bcbd80db-4a48-4db1-901c-d4a9f65418b8)
+
+우리는 Value matrix의 파라미터 수를 Query와 Key matrix의 파라미터 수의 합만큼으로 나타내고 싶습니다.
 
 ![Value matrix (5)](https://github.com/sandokim/sandokim.github.io/assets/74639652/8fd2c8ad-9482-4243-868d-319ca1234bcf)
 
 ![Value matrix (6)](https://github.com/sandokim/sandokim.github.io/assets/74639652/6f518b47-ae5e-4bd3-8fc2-f9878a800c78)
 
+따라서 Query, Key matrix가 128 x 12,288 matrix의 파라미터를 가지므로, Value matrix를 128 x 12,288 matrix 2개를 연산한 것으로 쪼갭니다.
+
 ![Value matrix (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/af6f046c-96e9-485f-aaf6-654e0d698f24)
 
+이렇게 쪼개진 matrix 2개를 각각 linear map을 한다고 생각하시면 됩니다.
+
 ![Value matrix (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/7b8af54f-6323-4456-828c-71755417003c)
+
+앞서 high dimensional space상에 Value matrix를 통해 Value를 구했던 과정을 linear map으로 생각하면 됩니다.
+
+![fluffy creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/faa00fd9-312c-465e-82c8-ce8a1c309585)
+
+![fluffy creature (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c29a0f7a-67f5-40e3-a663-a4e7798d80a1)
 
 ![Value matrix (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/f64631a7-08c9-4c94-87ab-d6a5d273817f)
 
 ![Value matrix (10)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9380c822-5dcf-4259-986d-f63abffa0ad8)
+
+12,288 dims을 128 dims로 linear map하는 matrix를 Value_down matrix라 해봅시다. (정식 명칭은 아님)
 
 ![Value matrix (11)](https://github.com/sandokim/sandokim.github.io/assets/74639652/4a235881-60e6-48f0-8509-6c462b31baa1)
 
@@ -307,7 +323,11 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 
 ![Value matrix (13)](https://github.com/sandokim/sandokim.github.io/assets/74639652/ba310646-8774-4f64-96d8-44e8f18e6433)
 
+128 dims을 12,288 dims로 linear map하는 matrix를 Value_uo matrix라 해봅시다. (정식 명칭은 아님)
+
 ![Value matrix (14)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c81d3464-e9b9-4589-aa53-5796b76225cd)
+
+결론적으로 여기서 수행하는 Linear map은 "Low rank" trnasformation과 같습니다.
 
 ![Value matrix (15)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9ea3f36f-bea3-49e0-82e4-898843972cdd)
 
@@ -318,7 +338,9 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 
 ### Value matrix를 linear map(Low rank transformation)으로 취급하여 나눴던 Value_up, Value_down matrix 중에서 Value_up만 따로 행렬로 묶습니다.
 
-우리가 실제 코드 Implementation에서 사용하는 Value matrix는 Value_down matrix로 **128** x 12,288 의 dimension을 가지게 되는 것입니다.
+우리가 실제 코드 Implementation에서는 Query, Key, Value에서 Value 부분은 ***Value_down matrix***로 코딩이 되어 있고, 이 matrix가 ***128*** x 12,288 의 dimension을 가지게 됩니다.
+
+그리고 ***Value_up matrix들은 Output Matrix로써 따로 분리되어 있습니다.***
 
 ![output matrix](https://github.com/sandokim/sandokim.github.io/assets/74639652/3d0c37e9-62bc-476d-a173-ee6a5194fa9b)
 
@@ -335,6 +357,8 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 ![output matrix (7)](https://github.com/sandokim/sandokim.github.io/assets/74639652/fc53e33d-1e52-4f01-8bca-a9821518c422)
 
 ![output matrix (8)](https://github.com/sandokim/sandokim.github.io/assets/74639652/b74b4776-6199-49e4-9a6e-41f5e2e97a76)
+
+ML 사람들은 여러 개의 matrix를 하나의 single matrix multiplication으로 compress하는 것을 좋아하기 때문에, 이처럼 Value_up matrix와 Value_down matrix를 분리하여, **Value_up 행렬만 모아서 Output matrix로 만듭니다.**
 
 ![output matrix (9)](https://github.com/sandokim/sandokim.github.io/assets/74639652/73c5ef3f-cbec-4118-9210-24bab90a3d39)
 
