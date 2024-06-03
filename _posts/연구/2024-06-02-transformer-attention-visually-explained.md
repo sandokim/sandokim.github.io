@@ -333,6 +333,8 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (16)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c25a0e4f-1b44-41d1-b659-c673ec81ab1c)
 
+이로써 Query, Key, Value (Value_up, Value_down)의 파라미터 수가 같아지도록 만들었습니다.
+
 ![Value matrix (17)](https://github.com/sandokim/sandokim.github.io/assets/74639652/38c80133-a7d9-457d-908e-ded75c83522c)
 
 
