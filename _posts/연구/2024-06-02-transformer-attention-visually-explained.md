@@ -240,7 +240,7 @@ Attention 예시 2)와 동일한 과정으로 이전에 들었던 "a fluffy blue
 
 ![blue creature (3)](https://github.com/sandokim/sandokim.github.io/assets/74639652/3df0383e-cace-4de1-a87f-2fdf61e233ca)
 
-이 과정을 high dimensional space 상에서 "creature"의 embedding vector에 "fluffy"의 Value embedding vector와 "blue"의 Value embedding vector가 더해져 "creature"의 embedding vector가 업데이트되는 과정을 시각화 해보겠습니다.
+이 과정을 high dimensional space 상에서 "creature"의 embedding vector에 "fluffy"의 Value embedding vector와 "blue"의 Value embedding vector가 더해져 "creature"의 embedding vector가 "blue fluffy creature"의 embedding vector로 업데이트되는 과정을 시각화 해보겠습니다.
 
 **1) "fluffy"의 Value가 "creature"의 embedding vector에 더해지는 과정 시각화**
 
