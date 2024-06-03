@@ -14,6 +14,8 @@ classes: wide
 
 [[WIKIPEDIA Marching cubes](https://en.wikipedia.org/wiki/Marching_cubes)]
 
+Marching cubes is a computer graphics algorithm, published in the 1987 SIGGRAPH, for extracting a polygonal mesh of an isosurface from a three-dimensional discrete scalar field (the elements of which are sometimes called voxels).
+
 ### Marching Cubes 알고리즘
 Marching Cubes 알고리즘은 3차원 격자 데이터를 입력으로 받아 isosurface를 추출하는 방법입니다. Isosurface는 특정 임계값을 가지는 점들로 구성된 표면입니다. 이 알고리즘은 각 격자 셀을 큐브로 간주하고, 큐브의 각 꼭짓점이 임계값보다 높은지 낮은지를 기준으로 큐브를 삼각형으로 분할합니다.
 
