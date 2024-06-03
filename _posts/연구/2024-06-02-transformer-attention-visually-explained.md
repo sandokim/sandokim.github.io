@@ -317,7 +317,7 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (10)](https://github.com/sandokim/sandokim.github.io/assets/74639652/9380c822-5dcf-4259-986d-f63abffa0ad8)
 
-12,288 dims을 128 dims로 linear map하는 matrix를 Value_down matrix라 해봅시다. (정식 명칭은 아님)
+12,288 dims을 128 dims로 linear map하는 matrix를 Value_down matrix라 해봅시다.
 
 ![Value matrix (11)](https://github.com/sandokim/sandokim.github.io/assets/74639652/4a235881-60e6-48f0-8509-6c462b31baa1)
 
@@ -325,7 +325,7 @@ Value matrix를 12,288 x 12,288로 사용할 수는 있지만 파라미터 수�
 
 ![Value matrix (13)](https://github.com/sandokim/sandokim.github.io/assets/74639652/ba310646-8774-4f64-96d8-44e8f18e6433)
 
-128 dims을 12,288 dims로 linear map하는 matrix를 Value_up matrix라 해봅시다. (정식 명칭은 아님)
+128 dims을 12,288 dims로 linear map하는 matrix를 Value_up matrix라 해봅시다.
 
 ![Value matrix (14)](https://github.com/sandokim/sandokim.github.io/assets/74639652/c81d3464-e9b9-4589-aa53-5796b76225cd)
 
