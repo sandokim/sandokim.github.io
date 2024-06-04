@@ -1,5 +1,5 @@
 ---
-title: "[3D CV 연구] 3D Gaussian Splatting background color masking with RGBA images"
+title: "[3D CV 연구] 3DGS background color masking with RGBA images"
 last_modified_at: 2024-06-04
 categories:
   - 연구
