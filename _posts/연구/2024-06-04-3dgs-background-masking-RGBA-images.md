@@ -63,6 +63,8 @@ else:
 
 - 최소값: 0 (완전히 투명한 부분, 검정색으로 표시됨)
 - 최대값: 255 (완전히 불투명한 부분, 흰색으로 표시됨)
+
+***Blender 데이터셋 같은 경우 Alpha channel에서 alpha value로 0과 255 값이 대부분을 차지하므로, 사실상 binary mask로써 존재함을 시각적 그리고 정량적으로 관찰할 수 있습니다.***
   
 <div style="text-align: center;">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/e0f449c9-528b-4920-a289-c70d2e606a47" alt="Image 1" style="width: 45%; margin-right: 5%;">
@@ -79,8 +81,6 @@ else:
 </div>
 
 -----------------------------------------------------------
-
-***Blender 데이터셋 같은 경우 Alpha channel에서 alpha value로 0과 255 값이 대부분을 차지하므로, 사실상 binary mask로써 존재함을 시각적 그리고 정량적으로 관찰할 수 있습니다.***
 
 3DGS 코드에서 Blender 데이터셋 같은 RGBA 이미지를 불러왔을 때,
 
