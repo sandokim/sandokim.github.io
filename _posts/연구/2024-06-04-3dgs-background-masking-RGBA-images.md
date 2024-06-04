@@ -82,6 +82,8 @@ else:
 
 -----------------------------------------------------------
 
+### 3DGS code에서 RGBA 이미지를 처리하는 방식
+
 3DGS 코드에서 Blender 데이터셋 같은 RGBA 이미지를 불러왔을 때,
 
 즉, RGB image의 shape이 4일 경우, RGB image에 Alpha channel이 마지막 채널로 존재하게 됩니다.
