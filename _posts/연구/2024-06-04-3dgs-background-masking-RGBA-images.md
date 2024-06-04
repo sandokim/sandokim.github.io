@@ -157,7 +157,7 @@ else:
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c3aed915-b6de-43e1-a5d4-86e206bc4c2f)
 
-***그러나 실제 3DGS original 코드상에서는 image를 "RGBA" 정보가 아닌 "RGB"로 불러오고 있으며, shape을 고려하는 부분도 [3, W, H], [4, W, H]일 것 중에서 RGB(3)인지 RGBA(4)인지에 상관없이 항상 Alpha channel(mask)는 고려하지 않도록 의도적으로 shape[1]인 Width로 indexing하도록 되어있습니다. (if문이 항상 false가 되도록 하드코딩하였음)***
+***그러나 실제 아래의 3DGS original 코드상에서는 image를 "RGBA" 정보가 아닌 "RGB"로 불러오고 있으며, shape을 고려하는 부분도 [3, W, H], [4, W, H]일 것 중에서 RGB(3)인지 RGBA(4)인지에 상관없이 항상 Alpha channel(mask)는 고려하지 않도록 의도적으로 shape[1]인 Width로 indexing하도록 되어있습니다. (if문이 항상 false가 되도록 하드코딩하였음)***
 
 **즉, 3DGS original code에서는 애초에 "RGBA" 이미지도 Alpha channel은 불러오지 않고, "RGB"로만 고려해서 학습하도록 하드코딩되어 있습니다.**
 
