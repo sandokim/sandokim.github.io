@@ -33,13 +33,14 @@ RGB 3채널 이미지에 추가로 Alpha channel을 Object 영역이외의 부�
 
 이는 실제 Blender 데이터셋에서 lego의 RGBA 이미지가 white background를 갖는 것과 일치함을 알 수 있습니다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/aafb9c38-3e0d-4ec2-8f4e-5ddcf00c9a49)
+<div style="text-align: center;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/55f1a77a-03e0-4b9f-94cb-afeb36739e5b" alt="Image 1" style="width: 45%; margin-right: 5%;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/aafb9c38-3e0d-4ec2-8f4e-5ddcf00c9a49" alt="Image 2" style="width: 45%;">
+</div>
 
 ### Blender dataset (lego scene)에 대한 alpha mask 분석
 
 Blender와 같은 데이터셋의 경우 RGBA로 RGB + Alpha channel이 존재하는 4채널 png 파일입니다.
-
-![r_59](https://github.com/sandokim/sandokim.github.io/assets/74639652/847f5069-bf95-4443-9e6b-ba0758d05575)
 
 ```python
 from PIL import Image
@@ -77,7 +78,10 @@ else:
     print("The image is not in RGBA format.")
 ```
 
-![output](https://github.com/sandokim/sandokim.github.io/assets/74639652/736c47e7-edad-4243-9ad6-1029c18cac39)
+<div style="text-align: center;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/aafb9c38-3e0d-4ec2-8f4e-5ddcf00c9a49" alt="Image 1" style="width: 45%; margin-right: 5%;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/736c47e7-edad-4243-9ad6-1029c18cac39" alt="Image 2" style="width: 45%;">
+</div>
 
 ***Alpha 채널은 0부터 255까지의 연속적인 값을 갖고 있으며, 투명도를 나타냅니다.***
 
