@@ -69,17 +69,16 @@ else:
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/cb6a6649-94ce-471e-a6a6-a6fc84ed2785" alt="Image 2" style="width: 45%;">
 </div>
 
-
 <div style="text-align: center;">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/a1b86a13-67f8-411d-ba2c-e31eb3674b49" alt="Image 3" style="width: 45%; margin-right: 5%;">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/e1028c41-3f5e-4fe0-bf60-79c6d07fea9c" alt="Image 4" style="width: 45%;">
 </div>
 
-
 <div style="text-align: center;">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/795a0e36-0cc6-4aba-bb39-1ad293288e46" alt="Image 5" style="width: 45%;">
 </div>
 
+-----------------------------------------------------------
 
 ***Blender 데이터셋 같은 경우 Alpha channel에서 alpha value로 0과 255 값이 대부분을 차지하므로, 사실상 binary mask로써 존재함을 시각적 그리고 정량적으로 관찰할 수 있습니다.***
 
