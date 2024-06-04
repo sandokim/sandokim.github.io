@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] 3D Gaussian Splatting background color masking with RGBA images"
-last_modified_at: 2024-05-27
+last_modified_at: 2024-06-04
 categories:
   - 연구
 tags:
@@ -78,7 +78,8 @@ else:
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/795a0e36-0cc6-4aba-bb39-1ad293288e46" alt="Image 5" style="width: 45%;">
 </div>
 
-***Blender 데이터셋 같은 경우 Alpha channel에서 alpha value로 0과 255 값이 대부분을 차지하므로, 사실상 binary mask로써 존재함을 시각적으로 관찰할 수 있습니다.***
+
+***Blender 데이터셋 같은 경우 Alpha channel에서 alpha value로 0과 255 값이 대부분을 차지하므로, 사실상 binary mask로써 존재함을 시각적 그리고 정량적으로 관찰할 수 있습니다.***
 
 3DGS 코드에서 Blender 데이터셋 같은 RGBA 이미지를 불러왔을 때,
 
