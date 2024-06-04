@@ -167,7 +167,7 @@ else:
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/17fe83c5-b0b6-411f-a757-d54ed0a96f81)
 
-하지만 이와 같은 작업은 bug로 보이며, [Bug in reading GT alpha mask #283](https://github.com/graphdeco-inria/gaussian-splatting/issues/283)에서처럼 3DGS original code에서 alpha channel을 고려하도록 바꿔줍시다.
+하지만 이는 bug로 보이며, [Bug in reading GT alpha mask #283](https://github.com/graphdeco-inria/gaussian-splatting/issues/283)에서처럼 3DGS original code에서 alpha channel을 고려하도록 바꿔줍시다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/15bb46ab-cf94-4463-bf7b-49a7c352841c)
 
