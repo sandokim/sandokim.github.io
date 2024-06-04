@@ -161,7 +161,7 @@ else:
 
 **즉, 3DGS original code에서는 애초에 "RGBA" 이미지도 Alpha channel은 불러오지 않고, "RGB"로만 고려해서 학습하도록 하드코딩되어 있습니다.**
 
-https://github.com/graphdeco-inria/gaussian-splatting/issues/64
+[Loading colmap datasets with RGBA images #64](https://github.com/graphdeco-inria/gaussian-splatting/issues/64)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/17fe83c5-b0b6-411f-a757-d54ed0a96f81)
 
