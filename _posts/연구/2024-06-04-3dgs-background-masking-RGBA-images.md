@@ -31,7 +31,7 @@ RGB 3채널 이미지에 추가로 Alpha channel을 Object 영역이외의 부�
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c455451f-2c64-4fcc-9195-cce20e18b133)
 
-이는 실제 Blender 데이터셋에서 lego의 RGBA 이미지가 white background를 갖는 것과 일치함을 알 수 있습니다.
+실제 Blender 데이터셋에서 lego의 RGBA 이미지도 white background를 가지고 있음을 비교 확인할 수 있습니다.
 
 <div style="text-align: center;">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/55f1a77a-03e0-4b9f-94cb-afeb36739e5b" alt="Image 1" style="width: 45%; margin-right: 5%;">
