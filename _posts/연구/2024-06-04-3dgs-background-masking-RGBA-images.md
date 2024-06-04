@@ -27,6 +27,14 @@ https://github.com/graphdeco-inria/gaussian-splatting/issues/101
 
 이는 Python script와 imagemagick을 사용하여 할 수 있습니다.
 
+RGB 3채널 이미지에 추가로 Alpha channel을 Object 영역이외의 부분을 0으로 하는 Mask를 주면, 이미지 자체는 white background를 갖는 RGBA 이미지로 저장됩니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c455451f-2c64-4fcc-9195-cce20e18b133)
+
+이는 실제 Blender 데이터셋에서 lego의 RGBA 이미지가 white background를 갖는 것과 일치함을 알 수 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/aafb9c38-3e0d-4ec2-8f4e-5ddcf00c9a49)
+
 ### Blender dataset (lego scene)에 대한 alpha mask 분석
 
 Blender와 같은 데이터셋의 경우 RGBA로 RGB + Alpha channel이 존재하는 4채널 png 파일입니다.
