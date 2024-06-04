@@ -122,7 +122,7 @@ else:
 
 ***그러나 실제 3DGS original 코드상에서는 image를 "RGBA" 정보가 아닌 "RGB"로 불러오고 있으며, shape을 고려하는 부분도 [3, W, H], [4, W, H]일 것 중에서 shape(1)인 W로 일부로 indexing하고 있게 되어있습니다.***
 
-**즉, 애초에 "RGBA" 이미지도 "RGB"로만 고려해서 학습하도록 하드 코딩되어 있습니다.**
+**즉, 3DGS original code에서는 애초에 "RGBA" 이미지도 Alpha channel은 불러오지 않고, "RGB"로만 고려해서 학습하도록 하드코딩되어 있습니다.**
 
 https://github.com/graphdeco-inria/gaussian-splatting/issues/64
 
