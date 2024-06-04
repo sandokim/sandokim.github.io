@@ -43,7 +43,7 @@ RGB 3채널 이미지에 추가로 Alpha channel을 Object 영역이외의 부�
 
 RGBA인 lego scene에 대해서 배경이 white임을 앞서 확인했습니다.
 
-[nerf pytorch original code](https://github.com/yenchenlin/nerf-pytorch/blob/master/run_nerf.py#L502)에서는 render한 이미지를 인풋에 들어간 white background를 가지는 이미지와 같은 형태로 저장하기 위해 white_bkgd=True로 인자를 줍니다.
+[nerf pytorch original code](https://github.com/yenchenlin/nerf-pytorch/blob/master/run_nerf.py#L502)에서는 render한 이미지를 input으로 들어간 white background를 가지는 RGBA와 같은 형태로 저장하기 위해 white_bkgd=True로 인자를 줍니다.
 
 [lego scene에 대한 config](https://github.com/yenchenlin/nerf-pytorch/blob/master/configs/lego.txt)에서 white_bkgd=True 로 되어 있음을 확인할 수 있습니다.
 
