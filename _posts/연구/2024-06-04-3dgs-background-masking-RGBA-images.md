@@ -17,17 +17,19 @@ use_math: true
 classes: wide
 ---
 
-### How to remove the background
+### Background는 0으로 Masking하여 Background의 reconstrution은 무시하고, Foreground의 rendering quality에 집중하여 학습하도록 만들어줄 수 있습니다.
 
-https://github.com/graphdeco-inria/gaussian-splatting/issues/101
+[How to remove the background #101](https://github.com/graphdeco-inria/gaussian-splatting/issues/101)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f961fab7-46c8-44b9-9f82-dc19c2a3887b)
 
-오직 foreground object에 대해서만 관심이 있고, background에 대한 reconstruction을 하지않고 피하기 위해서는, original RGB image와 mask를 merge하면 됩니다. 이때, Alpha에 대해서는 mask해서 없애버려야 하는 영역을 모두 0으로 만들면 됩니다.
+오직 foreground object에 대해서만 관심이 있고, background에 대한 reconstruction을 피하기 위해서는, original RGB image와 mask를 merge하면 됩니다. 이때, Alpha에 대해서는 mask해서 없애버려야 하는 영역을 모두 0으로 만들면 됩니다.
 
 이는 Python script와 imagemagick을 사용하여 할 수 있습니다.
 
 RGB 3채널 이미지에 추가로 Alpha channel을 Object 영역이외의 부분을 0으로 하는 Mask를 주면, 이미지 자체는 white background를 갖는 RGBA 이미지로 저장됩니다.
+
+**foreground와 background를 분리하는 마스크는 Segment Anything Model (SAM)으로 손쉽게 만들 수 있습니다.**
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c455451f-2c64-4fcc-9195-cce20e18b133)
 
