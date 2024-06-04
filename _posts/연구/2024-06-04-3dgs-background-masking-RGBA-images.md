@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Open the image file
-file_path = '/mnt/data/r_59.png'
+file_path = 'r_59.png' # Set path to Your image
 image = Image.open(file_path)
 
 # Check if the image is RGBA
@@ -42,10 +42,10 @@ if is_rgba:
     
     # Count the occurrences of each alpha value
     unique, counts = np.unique(alpha_channel, return_counts=True)
-    alpha_counts_df = pd.DataFrame(list(zip(unique, counts)), columns=['Alpha Value', 'Count'])
     
-    # Display the counts of alpha values
-    display(alpha_counts_df)
+    # Print alpha values and counts
+    for u, c in zip(unique, counts):
+        print(f"Alpha Value: {u}, Count: {c}")
     
     # Visualize the alpha channel
     plt.figure(figsize=(8, 8))
@@ -55,19 +55,30 @@ if is_rgba:
     plt.show()
 else:
     print("The image is not in RGBA format.")
-
-is_rgba # True
 ```
-![output](https://github.com/sandokim/sandokim.github.io/assets/74639652/736c47e7-edad-4243-9ad6-1029c18cac39)
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a3a6be28-a127-4cc1-9b3a-0aeaa7a253d8)
+![output](https://github.com/sandokim/sandokim.github.io/assets/74639652/736c47e7-edad-4243-9ad6-1029c18cac39)
 
 ***Alpha 채널은 0부터 255까지의 연속적인 값을 갖고 있으며, 투명도를 나타냅니다. ***
 
 - 최소값: 0 (완전히 투명한 부분, 검정색으로 표시됨)
 - 최대값: 255 (완전히 불투명한 부분, 흰색으로 표시됨)
+  
+<div style="text-align: center;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/e0f449c9-528b-4920-a289-c70d2e606a47" alt="Image 1" style="width: 45%; margin-right: 5%;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/cb6a6649-94ce-471e-a6a6-a6fc84ed2785" alt="Image 2" style="width: 45%;">
+</div>
 
-***Blender 데이터셋 같은 경우 Alpha channel이 binary mask로써 존재함을 시각적으로 관찰할 수 있습니다.***
+<div style="text-align: center;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/a1b86a13-67f8-411d-ba2c-e31eb3674b49" alt="Image 3" style="width: 45%; margin-right: 5%;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/e1028c41-3f5e-4fe0-bf60-79c6d07fea9c" alt="Image 4" style="width: 45%;">
+</div>
+
+<div style="text-align: center;">
+  <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/795a0e36-0cc6-4aba-bb39-1ad293288e46" alt="Image 5" style="width: 45%;">
+</div>
+
+***Blender 데이터셋 같은 경우 Alpha channel에서 alpha value로 0과 255 값이 대부분을 차지하므로, 사실상 binary mask로써 존재함을 시각적으로 관찰할 수 있습니다.***
 
 3DGS 코드에서 Blender 데이터셋 같은 RGBA 이미지를 불러왔을 때,
 
