@@ -38,6 +38,43 @@ RGB 3채널 이미지에 추가로 Alpha channel을 Object 영역이외의 부�
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/aafb9c38-3e0d-4ec2-8f4e-5ddcf00c9a49" alt="Image 2" style="width: 45%;">
 </div>
 
+
+### white background?
+
+RGBA인 lego scene에 대해서 배경이 white임을 앞서 확인했습니다.
+
+[nerf pytorch original code](https://github.com/yenchenlin/nerf-pytorch/blob/master/run_nerf.py#L502)에서는 render한 이미지를 인풋에 들어간 white background를 가지는 이미지와 같은 형태로 저장하기 위해 white_bkgd=True로 인자를 줍니다.
+
+[lego scene에 대한 config](https://github.com/yenchenlin/nerf-pytorch/blob/master/configs/lego.txt)에서 white_bkgd=True 로 되어 있음을 확인할 수 있습니다.
+
+```python
+expname = blender_paper_lego
+basedir = ./logs
+datadir = ./data/nerf_synthetic/lego
+dataset_type = blender
+
+no_batching = True
+
+use_viewdirs = True
+white_bkgd = True
+lrate_decay = 500
+
+N_samples = 64
+N_importance = 128
+N_rand = 1024
+
+precrop_iters = 500
+precrop_frac = 0.5
+
+half_res = True
+```
+
+```python
+## blender flags
+    parser.add_argument("--white_bkgd", action='store_true', 
+                        help='set to render synthetic data on a white bkgd (always use for dvoxels)')
+```
+
 ### Blender dataset (lego scene)에 대한 alpha mask 분석
 
 Blender와 같은 데이터셋의 경우 RGBA로 RGB + Alpha channel이 존재하는 4채널 png 파일입니다.
