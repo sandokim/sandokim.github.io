@@ -17,6 +17,18 @@ use_math: true
 classes: wide
 ---
 
+### How to remove the background
+
+https://github.com/graphdeco-inria/gaussian-splatting/issues/101
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f961fab7-46c8-44b9-9f82-dc19c2a3887b)
+
+오직 foreground object에 대해서만 관심이 있고, background에 대한 reconstruction을 하지않고 피하기 위해서는, original RGB image와 mask를 merge하면 됩니다. 이때, Alpha에 대해서는 mask해서 없애버려야 하는 영역을 모두 0으로 만들면 됩니다.
+
+이는 Python script와 imagemagick을 사용하여 할 수 있습니다.
+
+### Blender dataset (lego scene)에 대한 alpha mask 분석
+
 Blender와 같은 데이터셋의 경우 RGBA로 RGB + Alpha channel이 존재하는 4채널 png 파일입니다.
 
 ![r_59](https://github.com/sandokim/sandokim.github.io/assets/74639652/847f5069-bf95-4443-9e6b-ba0758d05575)
