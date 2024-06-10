@@ -8,14 +8,7 @@ tags:
   - 3D CV
   - 3dgs
   - 3d gaussian splatting
-  - near far
-  - z_far z_near
-  - scene extent
-  - pruning
-  - prune
-  - big gaussians culling
-  - view-space size culling
-  - world-space size culling
+  - positional gradient
   - NDC/view space
 excerpt: "3DGS positional gradient는 NDC/view space에서 계산됩니다."
 use_math: true
