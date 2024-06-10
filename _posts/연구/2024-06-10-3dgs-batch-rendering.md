@@ -18,7 +18,7 @@ classes: wide
 
 하지만 batch rendering을 하여, 하나의 frame만이 아닌 여러 개의 frame에 대한 gaussian들의 properties를 optimize할 수도 있긴합니다.
 
-다만, 이를 위해서는 CUDA coding을 해야하므로 저자도 이 부분에 대해 구현이 쉽지 않을 것임을 밝히고 있습니다.
+다만, 이를 위해서는 CUDA coding을 해야하므로 저자도 이 부분에 대한 구현이 쉽지 않을 것임을 밝히고 있습니다.
 
 https://github.com/graphdeco-inria/gaussian-splatting/issues/92
 
