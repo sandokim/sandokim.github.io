@@ -39,3 +39,21 @@ https://github.com/graphdeco-inria/gaussian-splatting/issues/100
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4a66010f-c3b5-4ff0-8fe9-41c5af399a8a)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3417a1fb-f43f-4cdf-acdb-0ec11ed1df4b)
+
+------
+
+### world2camrea and full_transformation matrix를 transposed하여 cuda rasterizer에 넣는 이유
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1e1b5461-fa9c-44f2-ad21-c65344a8bb74)
+
+기존 코드와의 호환성 때문에, world2camera와 full_transformation 행렬을 CUDA 래스터라이저에 전달할 때 전치된 형태로 전달합니다.
+
+- CUDA 코드가 행 우선(row-major) 방식을 사용
+- Python 코드가 열 우선(column-major) 방식을 사용
+
+
+
+
+
+
+
