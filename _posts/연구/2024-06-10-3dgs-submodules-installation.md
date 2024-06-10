@@ -1,5 +1,5 @@
 ---
-title: "[3D CV 연구] 3DGS submodules"
+title: "[3D CV 연구] 3DGS submodules installation"
 last_modified_at: 2024-06-10
 categories:
   - 연구
