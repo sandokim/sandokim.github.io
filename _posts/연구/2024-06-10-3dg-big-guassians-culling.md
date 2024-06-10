@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] 3DGS big gaussians culling in view-space code bug"
-last_modified_at: 2024-06-04
+last_modified_at: 2024-06-10
 categories:
   - 연구
 tags:
