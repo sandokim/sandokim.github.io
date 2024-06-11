@@ -43,6 +43,8 @@ Spatial learning rate(공간 학습률)은 알고리즘이 공간적인 정보, 
 - **학습률 스케줄링**: 학습률을 단계별로 낮추는 스케줄링 기법을 사용할 수 있습니다. 예를 들어, 학습 오류가 감소하지 않으면 spatial learning rate을 줄이는 방식입니다.
 - **Validation Set 활용**: 검증 데이터셋을 활용하여 최적의 spatial learning rate을 찾아냅니다. 여러 학습률을 테스트하고, 가장 좋은 성능을 보이는 값을 선택합니다.
 
+https://github.com/graphdeco-inria/gaussian-splatting/issues/67
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/916bd265-e1fa-4a71-972c-f0c901e195dc)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6fa1238a-d643-4663-b5ff-0292c3925c7e)
