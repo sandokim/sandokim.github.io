@@ -22,7 +22,7 @@ $$
 (p - \mu_g)^T \Sigma_g^{-1} (p - \mu_g) \approx \frac{1}{s_g^2} \langle p - \mu_g, n_g \rangle^2
 $$
 
-- Gaussians가 'flat'하다는 것은 하나의 scaling factor가 다른 것들보다 훨씬 작다는 것을 의미합니다.
+- ***Gaussians가 'flat'하다는 것은 하나의 scaling factor가 다른 것들보다 훨씬 작다는 것을 의미합니다.***
 - inverse covariance matrix를 대각선의 하나의 non-zero 값과 나머지 두 개의 작은 값만 있는 대각 행렬로 근사합니다.
 - 이 non-zero 값이 투영된 결과를 스케일링합니다.
 
