@@ -22,7 +22,12 @@ classes: wide
 
 구체적으로는 entropy term을 다음과 같이 loss function에 더합니다.
 
-H(αg) = -αg log(αg) - (1-αg) log(1-αg)
+$$
+H(\alpha_g) = -\alpha_g \log(\alpha_g) - (1-\alpha_g) \log(1-\alpha_g)
+$$
+
+#### SuGaR entropy loss code snippet
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/697f6ac5-9088-4bc0-b629-e9caf7122dfe)
 
 위 식은 each gaussian의 scalar opacity value αg를 계산합니다.
 
