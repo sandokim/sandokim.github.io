@@ -29,6 +29,38 @@ $$
 #### SuGaR entropy loss code snippet
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/697f6ac5-9088-4bc0-b629-e9caf7122dfe)
 
+#### SuGaR entropy loss graph visualize code snippet
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the function
+def H(alpha_g):
+    return -alpha_g * np.log(alpha_g) - (1 - alpha_g) * np.log(1 - alpha_g)
+
+# Create an array of alpha_g values from 0 to 1
+alpha_g_values = np.linspace(0.001, 0.999, 1000)
+
+# Calculate H(alpha_g) for each alpha_g value
+H_values = H(alpha_g_values)
+
+# Plot the function without using LaTeX in labels, but with proper alpha symbol
+plt.figure(figsize=(8, 6))
+plt.plot(alpha_g_values, H_values, label='H(α) = -α log(α) - (1 - α) log(1 - α)')
+plt.xlabel('α')
+plt.ylabel('H(α)')
+plt.title('H(α) = -α log(α) - (1 - α) log(1 - α)')
+plt.axvline(0, color='grey', linestyle='--', linewidth=0.5)
+plt.axvline(1, color='grey', linestyle='--', linewidth=0.5)
+plt.axhline(0, color='grey', linestyle='--', linewidth=0.5)
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/093cc05e-4fb5-45e7-962c-46b0e6e865a6)
+
 위 식은 each gaussian의 scalar opacity value αg를 계산합니다.
 
 이 entropy term은 
