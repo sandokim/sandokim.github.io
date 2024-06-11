@@ -52,7 +52,7 @@ density 함수를 Signed Distance Function (SDF)으로 변환하는 것이 재�
 
 직관적으로 보면, Equation (5)는 평평하게 분포된 Gaussians의 density 함수를 나타내며, 지수 내부의 스칼라 곱은 3D 점 $p$와 3D Gaussian의 중심을 통과하는 평면 사이의 거리와 같습니다. 벡터 $v$는 Gaussian의 가장 작은 scaling factor와 연관된 축이므로, Gaussian이 평평할 때 가장 작은 scaling factor가 0에 가까워지고, 이 벡터를 표면의 normal로 간주하는 것이 매우 직관적입니다.
 
-마지막으로, Equation (6)은 단순히 Equation (5)의 역공식입니다. Equation (5)가 $\exp(-d^2)$와 같은 것을 제공한다면, Equation (6)은 $\sqrt{-\log(d)}$를 제공합니다. 이 관계는 이상적인 경우에 성립하지만, 실제 비이상적인 density $\rho$를 사용하여 Equation (6)에 따라 $\rho$를 계산하여 density가 비파괴적인 방식으로 이상적인 density 함수로 수렴하도록 강제합니다.
+마지막으로, Equation (6)은 단순히 Equation (5)의 역공식입니다. Equation (5)가 $\exp(-d^2)$와 같은 것을 제공한다면, Equation (6)은 $\sqrt{-\log(d)}$를 제공합니다. 이 관계는 이상적인 경우에 성립하지만, 실제 비이상적인 density $\rho$를 사용하여 Equation (6)에 따라 $\rho$를 계산하여 density가 non-destructive way하게 이상적인 density 함수로 수렴하도록 강제합니다.
 
 ### Fig.5
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1b6f25df-8478-42b7-b032-1e4b36b79497)
