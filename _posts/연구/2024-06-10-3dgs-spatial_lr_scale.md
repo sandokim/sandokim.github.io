@@ -71,8 +71,21 @@ A) 현재 우리의 이해에 따르면, 두 가지 수준의 **spatial discrepa
 그러나 **rotations은 증가하지 않아야 하며, 현재로서는 Adam이 이 부분에서 중요한 역할을 할 것**이라고 생각합니다.
 
 
+------
 
+### Question about scene extent
 
+**Scene_extent 계산**:
+- Initial point-cloud는 outliers로 인해 정확하지 않을 수 있어, camera center의 반경을 사용.
+- Cameras는 더 안정적이며, scene 크기를 상대적으로 나타냄.
+
+**Learning Rate 조정**:
+- Adam optimizer의 특성상, 일정한 gradient를 받는 점은 scene 크기와 상관없이 world-space에서 일정한 step으로 움직임.
+- 이 방법은 실험적으로 유효성을 보였으므로, 사용자가 다양한 learning rates를 실험해보는 것이 좋음.
+
+https://github.com/graphdeco-inria/gaussian-splatting/issues/48
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/37cabfcf-b555-4001-8388-678d9f04d539)
 
 
 
