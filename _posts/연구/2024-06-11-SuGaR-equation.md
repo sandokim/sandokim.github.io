@@ -35,6 +35,10 @@ Rotation matrix $R$와 diagonal scaling matrix $S$의 역행렬을 사용하여 
 
 따라서 $\Sigma^{-1}$를 $\alpha$로 곱하는 것은 $\alpha$를 $\Sigma^{-1}$의 가장 작은 scaling factor와 연관된 열에 투영하고 결과를 $\lambda$로 스케일링하는 것과 같습니다. 이 열이 $\alpha$와 연관된 scaling axis에 해당하기 때문에 Equation (4)가 성립합니다.
 
+### Equation (5)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a4f09683-a6f6-4ec8-a8c4-f74117ae5e42)
+
 ### Equation (6)
 
 $$
