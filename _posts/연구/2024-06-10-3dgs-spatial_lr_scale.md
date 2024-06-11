@@ -59,15 +59,14 @@ Q) 지금까지 scales과 positions은 scale하기 쉽다는 것을 이해했습
 
 A) 현재 우리의 이해에 따르면, 두 가지 수준의 **spatial discrepancies**가 발생합니다:
 
-Gradients Size Variation due to Projection: 동일한 장면(same scene)을 확대하면 world space에서 gradients가 더 작아집니다.
+**1) Gradients Size Variation due to Projection**: 동일한 장면(same scene)을 확대하면 world space에서 gradients가 더 작아집니다.
 
-Adaptation of Learning Rates: Enlarged scenes(확대된 동일한 장면)에 맞게 learning rates를 조정해야 합니다. 더 큰 장면에서는 실제로 더 많이 이동해야 합니다.
+**2) Adaptation of Learning Rates**: Enlarged scenes(확대된 동일한 장면)에 맞게 learning rates를 조정해야 합니다. 더 큰 장면에서는 실제로 더 많이 이동해야 합니다.
 
 이 문제를 해결하기 위해 다음과 같은 방안을 고려할 수 있습니다:
 
-Adam Optimizer 사용: Adam optimizer는 learning rates를 동적으로 조정하여 일정한 scaling factor에 대해 불변성을 유지합니다.
-
-업데이트의 적응: 더 큰 장면에 맞게 업데이트를 조정해야 합니다. 예를 들어, 10배 큰 동일한 장면에서는 동일한 업데이트가 이제 Gaussians를 10배 더 멀리 이동시켜야 합니다. 
+- **Adam Optimizer 사용**: Adam optimizer는 learning rates를 동적으로 조정하여 일정한 scaling factor에 대해 불변성을 유지합니다.
+- **업데이트의 적응**: 더 큰 장면에 맞게 업데이트를 조정해야 합니다. 예를 들어, 10배 큰 동일한 장면에서는 동일한 업데이트가 이제 Gaussians를 10배 더 멀리 이동시켜야 합니다. 
 
 그러나 **rotations은 증가하지 않아야 하며, 현재로서는 Adam이 이 부분에서 중요한 역할을 할 것**이라고 생각합니다.
 
