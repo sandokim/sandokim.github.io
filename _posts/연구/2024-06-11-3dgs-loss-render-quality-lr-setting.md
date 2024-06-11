@@ -11,6 +11,9 @@ tags:
   - loss
   - render quality
   - learning rate
+  - spatial_lr_scale
+  - real extent
+  - move Gaussians
 excerpt: "3DGS Loss not going down and renders look bad, scene에 따른 learning rate 조절"
 use_math: true
 classes: wide
