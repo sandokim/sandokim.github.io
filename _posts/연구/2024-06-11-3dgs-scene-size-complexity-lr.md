@@ -11,6 +11,7 @@ tags:
   - scene size
   - scene complexity
   - spatial learning rate
+  - lr
 excerpt: "3DGS scene size & scene complexity and spatial learning rate"
 use_math: true
 classes: wide
