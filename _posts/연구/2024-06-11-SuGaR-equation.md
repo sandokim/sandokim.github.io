@@ -67,7 +67,7 @@ density 함수를 Signed Distance Function (SDF)으로 변환하는 것이 재�
 #### 질문: 왜 Fig. 5에서는 점 $p$의 깊이의 차이를 계산하여 $f(p)$를 계산할 수 있는가?
 
 **답변**:
-추정기 $\phi$는 현재 장면과 연관된 실제 SDF의 대략적인 근사치입니다. 이 근사는 "splatted" depth maps의 맥락에서 의미가 있습니다.
+estimator $\hat{f}(p)$는 현재 장면과 연관된 실제 SDF의 대략적인 근사치입니다. 이 근사는 "splatted" depth maps의 맥락에서 의미가 있습니다.
 
 최적화 중인 카메라 $c$에 대해 Gaussian Splatting rasterizer를 사용하여 depth map을 계산합니다. 비록 완벽하지는 않지만, 이 depth map은 장면의 표면을 잘 묘사합니다. Gaussian 분포의 곱을 사용하여 샘플링된 점 $p$는 실제 표면 근처에 위치할 가능성이 높으며, $p$의 SDF 값, 즉 표면까지의 거리는 $p$와 가장 가까운 depth map의 표면 점 $q$ 사이의 거리와 같습니다.
 
