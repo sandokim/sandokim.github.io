@@ -16,13 +16,17 @@ use_math: true
 classes: wide
 ---
 
+저자의 Paper Sec.5.1에 따르면
+
+> To compute the density values of points from a gaussian g, we sum only the gaussian functions from the 16 nearest gaussians of g and update the list of nearest neighbors every 500 iterations.
+
 For the regularization from 9000-15000 steps, eq(8)에 따라 gaussian distribution에서 different sample $p$를 샘플링합니다.
 
-저자에 따르면 point $p$의 neighbors를 사용하지 않고, Gaussian $g$의 neighbors에서 point $p$를 샘플링합니다.
+저자에 따르면 point $p$의 neighbors를 샘플링하는 것이 아니라, Gaussian $g$의 neighbors에서 point $p$를 샘플링합니다.
 
-다른말로, every 500 iters마다 모든 Gaussians의 neighbor Gaussians를 업데이트 합니다.
+다른말로, ***every 500 iters마다 모든 Gaussians의 neighbor Gaussians를 업데이트 합니다.***
 
-그래서, 저자는 Gaussian $g$를 사용하여 샘플링한 point $p$의 density가 대부분 Gaussian $g$에 가까운 Gaussian들에 의존합니다. (물론 Gaussian $g$ 자체도 포함합니다.)
+그래서, 저자는 Gaussian $g$를 사용하여 샘플링한 point $p$의 density는 대부분 Gaussian $g$에 가까운 Gaussian들에 의존한다고 말합니다. (물론 Gaussian $g$ 자체도 포함합니다.)
 
 https://github.com/Anttwo/SuGaR/issues/5
 
