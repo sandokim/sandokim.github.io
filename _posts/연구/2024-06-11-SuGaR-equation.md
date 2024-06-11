@@ -9,6 +9,8 @@ tags:
   - 3dgs
   - 3d gaussian splatting
   - SuGaR
+  - flat gaussian
+  - splatted
 excerpt: "3DGS SuGaR equations"
 use_math: true
 classes: wide
