@@ -9,6 +9,7 @@ tags:
   - 3dgs
   - 3d gaussian splatting
   - SuGaR
+  - entropy loss
 excerpt: "3DGS SuGaR entropy loss"
 use_math: true
 classes: wide
