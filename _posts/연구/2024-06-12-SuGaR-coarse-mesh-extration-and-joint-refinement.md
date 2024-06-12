@@ -17,3 +17,10 @@ classes: wide
 ---
 
 
+https://github.com/Anttwo/SuGaR/issues/101
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9e8014c0-6769-410a-a0f4-0f078ce216f7)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c88ec0a4-6b14-446f-ab90-4c155f251db5)
+
+
