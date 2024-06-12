@@ -20,6 +20,8 @@ classes: wide
 
 ## background가 단색이고 특정한 details이 없는 경우, 필연적으로 background에 small artifacts가 발생하게 됩니다.
 
+https://github.com/Anttwo/SuGaR/issues/96
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9abce77a-b6e2-4e0f-9f7c-3e0548b99a67)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4311ab88-d58e-4fc1-a6fa-b59a5231dbec)
@@ -57,8 +59,6 @@ classes: wide
 Linux/MacOS(또는 WSL2를 사용하는 Windows)을 사용 중이라면, 전용 SuGaR 뷰어를 사용할 수 있습니다. 
 
 이 뷰어를 통해 주변 조명(ambient lighting)과 함께 textured mesh를 시각화할 수 있으며, 하이브리드 표현(i.e. mesh와 표면에 3D Gaussian이 있는 형태)도 확인할 수 있습니다.
-
-https://github.com/Anttwo/SuGaR/issues/96
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/728e80d8-3ccb-4e9b-be72-79034eb729bb)
 
