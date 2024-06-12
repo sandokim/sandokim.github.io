@@ -1,5 +1,5 @@
 ---
-title: "[3D CV 연구] 3DGS SuGaR how to improve rendering result in monochrome background"
+title: "[3D CV 연구] 3DGS SuGaR how to improve rendering result of simple object in monochrome background"
 last_modified_at: 2024-06-12
 categories:
   - 연구
@@ -13,7 +13,7 @@ tags:
   - improve rendering result
   - monochrome
   - background
-excerpt: "3DGS SuGaR how to improve rendering result"
+excerpt: "3DGS SuGaR how to improve rendering result of simple object in monochrome background"
 use_math: true
 classes: wide
 ---
