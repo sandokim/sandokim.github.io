@@ -56,6 +56,10 @@ $\int_xI(x)dx=\int_xe^{-i0(x)}I(x)dx =k(0)=image \ intensity$
 
 k-space에서 **max가 30,000(coil 13)인 케이스**가 ifft했을 때 **밝은 영역을 더 많이 가지고 있음**을 관찰할 수 있습니다.
 
+특히나, ifft했을때 그냥 거의 노이즈로 나타나는 coilmap들은 k-space에서도 0~2000, 0~4000 정도로 작은 값을 가졌습니다.
+
+보통 ifft했을 때 잘나오는 coilmap들은 k-space에서 0~10,000, 0~20,000, 0~30,000 등의 값을 가지는걸로 관찰됩니다.
+
 - MR에서 mean을 0으로 보내는 z-norm은 함부로 쓰면 안됩니다. k-space domain에서 최대값이 center에 위치하지 않게 되버릴 수도 있기 때문입니다. → diffusion model처럼 z-norm하지 않고 따로 처리해줘야 합니다.
 
 ### Coilmap normalization
