@@ -38,7 +38,7 @@ $\int_xI(x)dx=\int_xe^{-i0(x)}I(x)dx =k(0)=image \ intensity$
 - k-space를 ifft한 image에서 밝은 영역이 넓고 밝기가 클수록, k-space의 max 값이 크게 나타납니다.
 - k-space를 ifft한 image에서 밝은 영역이 작고 밝기가 작을수록, k-space의 min 값이 작게 나타납니다.
 - 따라서 k-space의 value range에서 min max의 값이 크게 다르다고 해서 normalization하지 않습니다.
-- 왜냐면 k-space의 value는 image domain에서는 밝기의 분포의 총합을 의미하기 때문입니다.
+- 왜냐면 k-space의 max value는 image domain에서는 밝기의 분포의 총합(모든 pixel의 intensity 합)을 의미하기 때문입니다.
 - k-space에서 max 값의 차이가 많이 나타나더라도, image domain으로 ifft하면 image domain에서 value들을 대부분 0 ~ 1.2, 0 ~ 1.7 등의 range로 비슷하게 가짐을 실험적으로, 이론적으로 증명이 가능합니다.
 
 ![1718177639422](https://github.com/sandokim/sandokim.github.io/assets/74639652/d5a48b90-9993-4d87-8552-ff15424385bc)
