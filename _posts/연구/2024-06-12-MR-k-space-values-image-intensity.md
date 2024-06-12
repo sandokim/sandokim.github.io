@@ -48,6 +48,14 @@ $\int_xI(x)dx=\int_xe^{-i0(x)}I(x)dx =k(0)=image \ intensity$
 ![1718177644936](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f4bbe16-a026-4a8a-a821-ac4d1197a9ec)
 ![1718177645923](https://github.com/sandokim/sandokim.github.io/assets/74639652/85f9d46c-1ed0-44f0-92af-3ab065fa03dd)
 
+***fastMRI 데이터셋에서 실제로도 k-space에서 max value가 클수록 ifft한 이미지에서 밝게 나타나는 영역이 많아집니다.***
+
+**위 그림에서 norm k-space와 norm ifft image에서 coil 12, coil 13을 비교해서 보시면**
+
+확실히 k-space에서 max value가 14,000(coil 12)인거랑 30,000(coil 13)인거랑 ifft한 이미지를 보면 image domain에서는 value range는 0 ~ 1.2(coil 12), 0 ~ 1.6 (coil 13)정도로 비슷한데
+
+k-space에서 **max가 30,000(coil 13)인 케이스**가 ifft했을 때 **밝은 영역을 더 많이 가지고 있음**을 관찰할 수 있습니다.
+
 - MR에서 mean을 0으로 보내는 z-norm은 함부로 쓰면 안됩니다. k-space domain에서 최대값이 center에 위치하지 않게 되버릴 수도 있기 때문입니다. → diffusion model처럼 z-norm하지 않고 따로 처리해줘야 합니다.
 
 ### Coilmap normalization
