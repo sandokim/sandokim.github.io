@@ -55,10 +55,10 @@ $S_{sos}=\sqrt{S_1^2+S_2^2+S_3^2+S_4^2}$
 
 각 이미지 $S_1, S_2, S_3, S_4$의 모든 pixel에 대해 sum이 1이어야하는 조건을 강하게 줄 수 있습니다.
 
-$\sum^4_{i=1}S_i^2=\bold{1}$
+$\sum^4_{i=1}S_i^2=\mathbf{1}$
 
 → 단 이는 **ideal**한 것을 예시로 드는 것이기 때문에 **raw에서는 이렇게 하면 안될 것으로 보입니다.**
 
 ⇒ **coilmap의 합과 1 matrix의 차이가 0이 되게하는 loss로 constraint를 주는게 raw에서는 더 나을 것으로 보입니다**
 
-$1 \ matrix \ loss =min(\sum^4_{i=1}S_i^2-\bold{1})$
+$1 \ matrix \ loss =min(\sum^4_{i=1}S_i^2-\mathbf{1})$
