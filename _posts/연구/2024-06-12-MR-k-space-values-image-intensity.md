@@ -38,8 +38,16 @@ $\int_xI(x)dx=\int_xe^{-i0(x)}I(x)dx =k(0)=image \ intensity$
 - k-space를 ifft한 image에서 밝은 영역이 넓고 밝기가 클수록, k-space의 max 값이 크게 나타납니다.
 - k-space를 ifft한 image에서 밝은 영역이 작고 밝기가 작을수록, k-space의 min 값이 작게 나타납니다.
 - 따라서 k-space의 value range에서 min max의 값이 크게 다르다고 해서 normalization하지 않습니다.
-- 왜냐면 k-space의 value는 image domain에서는 밝기의 분포를 나타내는 것을 의미하기 때문입니다.
-- k-space에서 max 값의 차이가 많이 나타나더라도, image domain으로 ifft하면 image domain에서 value들을 대부분 0~1.2, 0~1.7 등의 range로 비슷하게 가짐을 실험적으로, 이론적으로 증명이 가능합니다.
+- 왜냐면 k-space의 value는 image domain에서는 밝기의 분포의 총합을 의미하기 때문입니다.
+- k-space에서 max 값의 차이가 많이 나타나더라도, image domain으로 ifft하면 image domain에서 value들을 대부분 0 ~ 1.2, 0 ~ 1.7 등의 range로 비슷하게 가짐을 실험적으로, 이론적으로 증명이 가능합니다.
+
+![1718177639422](https://github.com/sandokim/sandokim.github.io/assets/74639652/d5a48b90-9993-4d87-8552-ff15424385bc)
+![1718177641820](https://github.com/sandokim/sandokim.github.io/assets/74639652/a2da711e-6096-483f-ac0f-a272996ad976)
+![1718177642817](https://github.com/sandokim/sandokim.github.io/assets/74639652/fc2aa2ca-53e1-457e-a2ed-b4a16d8c1753)
+![1718177643910](https://github.com/sandokim/sandokim.github.io/assets/74639652/5048d675-5054-4e5b-b1ac-37f8071493cf)
+![1718177644936](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f4bbe16-a026-4a8a-a821-ac4d1197a9ec)
+![1718177645923](https://github.com/sandokim/sandokim.github.io/assets/74639652/85f9d46c-1ed0-44f0-92af-3ab065fa03dd)
+
 - MR에서 mean을 0으로 보내는 z-norm은 함부로 쓰면 안됩니다. k-space domain에서 최대값이 center에 위치하지 않게 되버릴 수도 있기 때문입니다. → diffusion model처럼 z-norm하지 않고 따로 처리해줘야 합니다.
 
 ### Coilmap normalization
