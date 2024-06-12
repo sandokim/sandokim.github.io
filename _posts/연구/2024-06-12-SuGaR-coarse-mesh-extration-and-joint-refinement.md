@@ -11,10 +11,14 @@ tags:
   - SuGaR
   - implementation details
   - mesh extraction
+  - coarse mesh extraction
+  - SuGaR refinement
 excerpt: "3DGS SuGaR implementation details of coarse mesh extraction and joint refinement"
 use_math: true
 classes: wide
 ---
+
+
 
 
 https://github.com/Anttwo/SuGaR/issues/101
