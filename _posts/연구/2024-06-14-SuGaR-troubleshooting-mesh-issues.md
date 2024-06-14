@@ -1,5 +1,5 @@
 ---
-title: "[3D CV 연구] 3DGS Troublshooting Mesh Issues in SuGaR"
+title: "[3D CV 연구] 3DGS SuGaR Troublshooting Mesh Issues"
 last_modified_at: 2024-06-14
 categories:
   - 연구
@@ -13,7 +13,7 @@ tags:
   - mesh
   - hole in mesh
   - messy ellipsoidal bumps on the mesh surface
-excerpt: "3DGS Troublshooting Mesh Issues in SuGaR"
+excerpt: "3DGS SuGaR Troublshooting Mesh Issues"
 use_math: true
 classes: wide
 ---
