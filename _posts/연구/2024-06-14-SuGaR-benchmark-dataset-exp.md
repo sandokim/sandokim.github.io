@@ -32,7 +32,9 @@ classes: wide
 ### SuGaR refine_mesh OBJ file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f653288c-5d63-4a73-abdc-980f94b98b99)
 
-refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더링 소프트웨어가 linear interpolation을 사용하기 때문입니다.
+refine_mesh에는 verticies lines가 남습니다. 
+
+이는 기본적으로 렌더링 소프트웨어가 linear interpolation을 사용하기 때문입니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/15685d90-d1c6-4282-af6e-159bd5e6e4d9)
 
 [Question about how to remove the verticies lines](https://github.com/Anttwo/SuGaR/issues/119)
@@ -71,8 +73,7 @@ refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더
 - Emission Shader를 사용하면 더욱 효과적으로 시각화할 수 있습니다.
 
 blender에서 SuGaR의 refined_mesh인 OBJ file을 drag & drop으로 open 합니다.
-
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/74676acd-6997-422a-a408-31a5f8d70882)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ae7591c6-49e2-49be-b104-5c4edf98055c)
 
 Object Mode에서 Texture Paint로 바꿔줍니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fbbe7436-7540-4bc2-ab92-83bd4ff089a8)
