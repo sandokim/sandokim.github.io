@@ -61,11 +61,10 @@ refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더
 예시:
 - Linear Interpolation: 삼각형 사이에 하얀 선이 나타나는 것을 볼 수 있습니다.
 - Closest Pixel: 하얀 선이 없고 텍스처가 훨씬 더 깨끗하게 보입니다.
+
 추가 팁:
-
-**Blender에서 SuGaR의 메쉬를 시각화할 때는 "Emission Shader"를 사용하는 것이 좋습니다. 이는 텍스처를 다른 조명/그림자 효과 없이 렌더링하는 가장 간단한 방법입니다.**
-
-또 다른 방법은 환경 조명을 사용하는 것이지만, Blender에서는 Emission Shader가 더 간단합니다.
+- **Blender에서 SuGaR의 메쉬를 시각화할 때는 "Emission Shader"를 사용하는 것이 좋습니다. 이는 텍스처를 다른 조명/그림자 효과 없이 렌더링하는 가장 간단한 방법입니다.**
+- 또 다른 방법은 환경 조명을 사용하는 것이지만, Blender에서는 Emission Shader가 더 간단합니다.
 
 #### 결론
 - UV unwrapping 후 삼각형 경계선의 하얀 선 문제는 Texture Interpolation 방법을 "Closest Pixel"로 변경함으로써 해결할 수 있습니다. 
