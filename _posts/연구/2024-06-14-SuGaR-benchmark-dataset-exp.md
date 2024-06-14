@@ -33,7 +33,7 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f653288c-5d63-4a73-abdc-980f94b98b99)
 
 refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더링 소프트웨어가 linear interpolation을 사용하기 때문입니다.
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/256dc23f-9b0b-4bb5-ab79-98f3690336b3)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/15685d90-d1c6-4282-af6e-159bd5e6e4d9)
 
 #### 삼각형 경계선을 부드럽게 만드는 방법: Blender에서 Texture Interpolation 설정하기
 3D 모델링과 렌더링을 할 때, UV unwrapping 과정에서 삼각형 경계선에 하얀 선이 나타나는 경우가 종종 있습니다. 이는 Texture Interpolation 방법과 UV 맵핑 방식 때문에 발생할 수 있는 문제입니다. 이 글에서는 이 문제를 해결하는 방법과 그 이유에 대해 설명하겠습니다.
