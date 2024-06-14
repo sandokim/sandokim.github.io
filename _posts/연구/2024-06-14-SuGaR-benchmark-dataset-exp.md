@@ -26,7 +26,7 @@ classes: wide
 ### 3dgs 7,000 iters output PLY File
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1e8cce0e-12d7-45c3-a6e1-259797a916d9)
 
-### SuGaR coarse_mseh PLY file
+### SuGaR coarse_mesh PLY file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/da9df865-cd56-4516-999e-4e9d965c862c)
 
 ### SuGaR refine_mesh OBJ file
