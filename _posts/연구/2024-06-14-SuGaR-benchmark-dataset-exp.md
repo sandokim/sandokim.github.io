@@ -19,9 +19,13 @@ use_math: true
 classes: wide
 ---
 
-# COLMAP MipNeRF360 dataset (360_v2)
+### SuGaR는 기본적으로 coarse_mesh PLY file, refine_mesh OBJ file, refined_ply PLY file을 output 합니다.
 
-## garden scene
+-------
+
+## COLMAP MipNeRF360 dataset (360_v2)
+
+### garden scene
 
 ### 3dgs 7,000 iters output PLY File
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1e8cce0e-12d7-45c3-a6e1-259797a916d9)
@@ -88,6 +92,8 @@ Material -> Surface -> Linear interpolation (vertices line이 하얗게 나타�
 
 Material -> Surface -> Closest (vertices line이 하얗게 나타나던 문제가 사라짐)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5eb5d7b1-3a84-4699-bf3d-14db4fd79f49)
+
+----
 
 ### SuGaR refined_ply PLY file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f82511e8-2b3d-453c-aef8-db1e69f4ed53)
