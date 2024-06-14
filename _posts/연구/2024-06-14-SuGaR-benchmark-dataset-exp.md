@@ -71,7 +71,7 @@ refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더
 - 이를 통해 메쉬가 더 부드럽고 깨끗하게 보일 것입니다. 
 - Emission Shader를 사용하면 더욱 효과적으로 시각화할 수 있습니다.
 
-(Question about how to remove the verticies lines)[https://github.com/Anttwo/SuGaR/issues/119]
+[Question about how to remove the verticies lines](https://github.com/Anttwo/SuGaR/issues/119)
 
 ### SuGaR refined_ply PLY file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f82511e8-2b3d-453c-aef8-db1e69f4ed53)
