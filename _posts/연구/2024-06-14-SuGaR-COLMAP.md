@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] 3DGS needs undistorted images following a pinhole model"
-last_modified_at: 2024-06-12
+last_modified_at: 2024-06-14
 categories:
   - 연구
 tags:
