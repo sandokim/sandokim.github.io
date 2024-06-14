@@ -62,6 +62,29 @@ classes: wide
 - 이러한 artifacts는 하이브리드 표현에서 보이지 않습니다.
 - Gaussian texturing이 refinement 과정에서 이러한 artifacts에 low-opacity를 부여하기 때문입니다.
 
+## Avoiding Artifacts in SuGaR
+
+### Identifying new camera poses
+- 새로운 카메라 포즈를 식별하여 학습 이미지에서 보이지 않는 표면 부분을 덮습니다.
+- 이러한 포즈는 보이는 부분과 same level set에 있을 가능성이 높은 부분을 포함합니다.
+
+### Adding camera poses
+- Poisson reconstruction을 적용할 때 포인트 샘플링에 사용되는 카메라 세트에 이러한 카메라 포즈를 추가합니다.
+- 이러한 아이디어를 코드에 반영하여 곧 업데이트할 예정입니다.
+
+## Converting Video to Images with ffmpeg
+
+###  Install ffmpeg
+비디오를 이미지로 변환하려면 ffmpeg을 설치합니다.
+
+### Run command
+```python
+ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
+```
+- 여기서 <FPS>는 비디오 이미지의 샘플링 속도를 나타냅니다.
+- FPS 값이 1이면 초당 하나의 이미지를 샘플링합니다.
+- 샘플링 속도는 비디오 길이에 맞추어 조정하여 샘플링된 이미지 수가 100에서 300 사이가 되도록 하는 것이 좋습니다.
+
 https://github.com/Anttwo/SuGaR?tab=readme-ov-file
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/16d933ba-53b7-4e1e-a7e7-91b2ea8db85a)
