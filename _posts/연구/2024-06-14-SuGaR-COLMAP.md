@@ -18,7 +18,7 @@ use_math: true
 classes: wide
 ---
 
-## 3dgs나 SuGaR나 code는 pinhole camera model을 따르는 undistorted image들을 필요로 합니다.
+### 3dgs나 SuGaR나 code는 pinhole camera model을 따르는 undistorted image들을 필요로 합니다.
 
 이는 pinhole camera model을 따르는 undistorted image들은 image들을 COLMAP으로 돌려서 바로 얻을 수 있습니다.
 
