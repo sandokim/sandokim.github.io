@@ -38,7 +38,8 @@ refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더
 [Question about how to remove the verticies lines](https://github.com/Anttwo/SuGaR/issues/119)
 
 #### 삼각형 경계선을 부드럽게 만드는 방법: Blender에서 Texture Interpolation 설정하기
-3D 모델링과 렌더링을 할 때, UV unwrapping 과정에서 삼각형 경계선에 하얀 선이 나타나는 경우가 종종 있습니다. 이는 Texture Interpolation 방법과 UV 맵핑 방식 때문에 발생할 수 있는 문제입니다. 이 글에서는 이 문제를 해결하는 방법과 그 이유에 대해 설명하겠습니다.
+- 3D 모델링과 렌더링을 할 때, UV unwrapping 과정에서 삼각형 경계선에 하얀 선이 나타나는 경우가 종종 있습니다. 이는 Texture Interpolation 방법과 UV 맵핑 방식 때문에 발생할 수 있는 문제입니다. 
+- 이 글에서는 이 문제를 해결하는 방법과 그 이유에 대해 설명하겠습니다.
 
 #### 1. 간단한 해결책:
 - 삼각형 사이에 나타나는 하얀 선은 렌더링 소프트웨어에서 사용하는 Texture Interpolation 방법과 UV unwrapping 방식 때문에 발생합니다.
@@ -60,10 +61,6 @@ refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더
 - "Closest" 설정을 사용하면 텍스처가 올바르게 렌더링됩니다.
 - 그러나 "Linear" 설정을 사용하면 삼각형 사이에 하얀 선이 나타납니다. 이는 UV 맵에서 인접한 픽셀이 실제로는 메쉬에서 다른 삼각형에 매핑되어 있기 때문입니다.
 
-예시:
-- Linear Interpolation: 삼각형 사이에 하얀 선이 나타나는 것을 볼 수 있습니다.
-- Closest Pixel: 하얀 선이 없고 텍스처가 훨씬 더 깨끗하게 보입니다.
-
 추가 팁:
 - **Blender에서 SuGaR의 메쉬를 시각화할 때는 "Emission Shader"를 사용하는 것이 좋습니다. 이는 텍스처를 다른 조명/그림자 효과 없이 렌더링하는 가장 간단한 방법입니다.**
 - 또 다른 방법은 환경 조명을 사용하는 것이지만, Blender에서는 Emission Shader가 더 간단합니다.
@@ -72,6 +69,22 @@ refine_mesh에는 verticies lines가 남습니다. 이는 기본적으로 렌더
 - UV unwrapping 후 삼각형 경계선의 하얀 선 문제는 Texture Interpolation 방법을 "Closest Pixel"로 변경함으로써 해결할 수 있습니다. 
 - 이를 통해 메쉬가 더 부드럽고 깨끗하게 보일 것입니다. 
 - Emission Shader를 사용하면 더욱 효과적으로 시각화할 수 있습니다.
+
+blender에서 SuGaR의 refined_mesh인 OBJ file을 drag & drop으로 open 합니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/74676acd-6997-422a-a408-31a5f8d70882)
+
+Object Mode에서 Texture Paint로 바꿔줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fbbe7436-7540-4bc2-ab92-83bd4ff089a8)
+
+Texture Paint로 바꾸면 Texture가 입혀집니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/966ce94d-ba4c-4fa2-b4c0-b9117b07da71)
+
+- Material -> Surface -> Linear interpolation (vertices line이 하얗게 나타남)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/758c8cdf-5a63-4f26-8c45-b65158d5db5e)
+
+- Material -> Surface -> Closest (vertices line이 하얗게 나타나던 문제가 사라짐)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5eb5d7b1-3a84-4699-bf3d-14db4fd79f49)
 
 ### SuGaR refined_ply PLY file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f82511e8-2b3d-453c-aef8-db1e69f4ed53)
