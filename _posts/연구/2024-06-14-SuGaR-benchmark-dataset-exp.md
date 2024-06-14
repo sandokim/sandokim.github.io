@@ -80,10 +80,12 @@ Object Mode에서 Texture Paint로 바꿔줍니다.
 Texture Paint로 바꾸면 Texture가 입혀집니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/966ce94d-ba4c-4fa2-b4c0-b9117b07da71)
 
-- Material -> Surface -> Linear interpolation (vertices line이 하얗게 나타남)
+Blender에서 Interpolation 방식을 Linear에서 Closest로 바꿈으로써 vertices line이 하얗게 나타나는 문제를 해결할 수 있습니다.
+
+Material -> Surface -> Linear interpolation (vertices line이 하얗게 나타남)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/758c8cdf-5a63-4f26-8c45-b65158d5db5e)
 
-- Material -> Surface -> Closest (vertices line이 하얗게 나타나던 문제가 사라짐)
+Material -> Surface -> Closest (vertices line이 하얗게 나타나던 문제가 사라짐)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5eb5d7b1-3a84-4699-bf3d-14db4fd79f49)
 
 ### SuGaR refined_ply PLY file
