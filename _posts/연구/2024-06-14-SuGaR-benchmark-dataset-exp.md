@@ -23,13 +23,15 @@ classes: wide
 
 ### garden scene
 
-#### 3dgs 7,000 iters output.ply
+#### 3dgs 7,000 iters output PLY File
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1e8cce0e-12d7-45c3-a6e1-259797a916d9)
 
-#### SuGaR coarse mesh ply
+#### SuGaR coarse_mseh PLY file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/da9df865-cd56-4516-999e-4e9d965c862c)
 
-#### SuGaR refine mesh ply
+#### SuGaR refine_mesh OBJ file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/48815330-45f2-4871-9c23-b13be391493b)
 
+### SuGaR refined_ply PLY file
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f82511e8-2b3d-453c-aef8-db1e69f4ed53)
 
