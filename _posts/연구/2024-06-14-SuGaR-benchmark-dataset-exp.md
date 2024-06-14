@@ -30,7 +30,7 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/da9df865-cd56-4516-999e-4e9d965c862c)
 
 #### SuGaR refine_mesh OBJ file
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/48815330-45f2-4871-9c23-b13be391493b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f653288c-5d63-4a73-abdc-980f94b98b99)
 
 ### SuGaR refined_ply PLY file
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f82511e8-2b3d-453c-aef8-db1e69f4ed53)
