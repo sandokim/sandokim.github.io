@@ -79,19 +79,19 @@ refine_mesh에는 verticies lines가 남습니다.
 blender에서 SuGaR의 refined_mesh인 OBJ file을 drag & drop으로 open 합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ae7591c6-49e2-49be-b104-5c4edf98055c)
 
-Object Mode에서 Texture Paint로 바꿔줍니다.
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fbbe7436-7540-4bc2-ab92-83bd4ff089a8)
+Viewport Shading을 Object mode에서 Material Preview mode로 바꿔줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/758f7264-73d6-4235-9b45-8871d875746d)
 
-Texture Paint로 바꾸면 Texture가 입혀집니다.
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/966ce94d-ba4c-4fa2-b4c0-b9117b07da71)
+Material Preview mode로 바꾸면 Texture가 입혀집니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b5c8e3cf-f259-49df-a78f-0653066a8acf)
 
-Blender에서 Interpolation 방식을 Linear에서 Closest로 바꿈으로써 vertices line이 하얗게 나타나는 문제를 해결할 수 있습니다.
+**Blender에서 Interpolation 방식을 Linear에서 Closest로 바꿈으로써 vertices line이 하얗게 나타나는 문제를 해결할 수 있습니다.**
 
 Material -> Surface -> Linear interpolation (vertices line이 하얗게 나타남)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/758c8cdf-5a63-4f26-8c45-b65158d5db5e)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d87a305b-cd17-4601-8f90-b39bc6495754)
 
 Material -> Surface -> Closest (vertices line이 하얗게 나타나던 문제가 사라짐)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5eb5d7b1-3a84-4699-bf3d-14db4fd79f49)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3f225f31-61aa-4ce1-b203-dd2986024fab)
 
 ----
 
