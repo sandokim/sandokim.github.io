@@ -52,5 +52,6 @@ Blender Studio Website: https://studio.blender.org/characters/
 #### Tips
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
 - `ctrl+s`로 자주 저장해줍시다.
+- Timeline, Dope Sheet, Graph Editor에서 `p`를 누르고 마우스 드래그하여 preview range를 설정하여 원하는 시간대의 keyframe들에 대해서만 playback할 수 있습니다.
 
 
