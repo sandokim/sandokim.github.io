@@ -23,5 +23,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 3. Timeline에서 Auto keys를 설정하고 시작합니다.
 
+4. rig에서 원하는 부분을 마우스 좌클릭하고, `g` (grab), `r` (rotate), `s` (scale)하여 마우스 좌클릭으로 바꾼 모습을 confirm하거나 우클릭으로 취소합니다.
 
+5. `g`, `r`, `s`할 때, axis를 지정해서 움직일 수 있고, `x`, `y`, `z`를 눌러서 합니다.
 
