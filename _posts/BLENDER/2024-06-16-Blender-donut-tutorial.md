@@ -89,7 +89,36 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49c6fe66-ef0f-41e4-9bf7-d9395937ae07)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ec97a5f2-5e3a-4308-bd6b-9998e435910b)
 
-15. Render Engine
+15. Animation
+- `shift+마우스 우클릭`으로 `3D cursor`를 위치시킵니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7d492a17-7e3f-4ba1-aaad-65453c312bf2)
+- `shift+a`로 `Empty` object를 선택해줍니다. 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/894664f6-6c63-4340-8cbc-2c0b93787967)
+- `sphere`로 선택해주고 size를 조절해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/37b95012-0d1b-4a9f-82b9-d4a132451e33)
+- camera를 이제 empty object인 sphere에 parenting 해줄 것입니다. camera를 먼저 선택하고, `shift+마우스 좌클릭`으로 sphere도 선택해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f48a3a54-96d3-48da-8ab4-3ba5db80f258)
+- `ctrl+p`를 누르고 Set Parent To --> Object (Keep Transform)으로 선택해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7f87f977-e661-4921-8f43-aedd72f9321d)
+- 이제 sphere를 선택하고 `r`로 rotate하면 camera가 sphere를 중심점으로 돌아갑니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e1c25d0b-9a98-43ba-b81b-38a9bb9307fd)
+- 혹은 `Numpad의 0`를 눌러서 camera view로 전환한 다음 `r`을 두번 눌러 local axis에서 sphere를 중심으로 camera를 돌릴 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/aa853819-cfe2-40b3-bbf2-a4cd9d9d090d)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fb1d4295-712a-476b-b1aa-9817ba035b73)
+- **empty object인 sphere가 선택된 상태**에서 `i`로 Rotation에 대한 keyframe을 삽입해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/628daf68-615d-40b0-a69f-cb79637c8335)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/531fa180-15f9-4e61-a1bf-58710363dbbc)
+- `r`로 rotate시, `x`, `y`, `z` 중 하나로 axis를 고정하고 돌리고, `ctrl`을 누른 상태로 돌리면 5도 간격으로 각도를 돌려줄 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/46ebfc1c-0649-4bc2-b0ba-a02114ca6204)
+- Animation 패널인 상태에서 아래쪽의 Dope Sheet에서 keyframe에 대한 효과를 줍니다. `home`을 누르면 선택한 keyframe에 대해 자동으로 focus되어 스케일이 조절됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/90294d78-d5a4-4831-bbcd-a22c0741719e)
+- start keyframe에서 `r`로 rotate, end keyframe에서 `s`로 scale하는 방식으로 시동을 걸어시작하면서 스무스하게 끝나는 카메라 무빙이 가능합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6194cda2-2b65-4870-a3ed-2ed48580fd85)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/970c51d3-3140-4195-a93f-52356cd9488a)
+
+
+
+16. Render Engine
 - EEVEE는 rasterize하는 engine이므로 rendering이 빠르지만 퀄리티가 떨어집니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f8eaff8-8284-451f-a674-4ebfc47a9dc2)
 - Cycles은 path tracer, ray tracing하는 engine이므로 느리지만 realistic합니다.
