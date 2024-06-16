@@ -40,8 +40,8 @@
         {% assign sum = site.categories['공부'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/공부">✍️ 공부 ({{sum}})</a></span>
 
-        {% assign sum = site.categories['Blender'] | size %}
-        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/Blender">[![Blender](https://cdn3.emoji.gg/emojis/8027-blender.png)](https://emoji.gg/emoji/8027-blender) Blender ({{sum}})</a></span>
+        {% assign sum = site.categories['BLENDER'] | size %}
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/BLENDER">[![Blender](https://cdn3.emoji.gg/emojis/8027-blender.png)](https://emoji.gg/emoji/8027-blender) BLENDER ({{sum}})</a></span>
 
         {% assign sum = site.categories['연구'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/연구">💻 연구 ({{sum}})</a></span>
