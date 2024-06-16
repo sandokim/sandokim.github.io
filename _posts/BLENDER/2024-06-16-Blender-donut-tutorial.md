@@ -48,12 +48,21 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3e8fc4be-c01c-4629-b4b9-2e47954909e3)
 - `grab`의 hotkey는 `g`입니다. 이건 마치 손가락으로 푹 찌르듯이 움직여 모양을 만들어줄 때 유용합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/aaf831f0-0c6f-40eb-9341-e92cff9390af)
+- `mask`로 칠하면 검정색 부분이 되고, 이 영역은 다른 sculpt tool의 영향을 받지 않게됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f2c31cb1-7a4e-451a-9159-adee13584e94)
+mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e47a6467-47bf-460e-b1e0-0b46a26bc6f6)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/68c567f0-99e6-4ebb-a55b-b6ef13514615)
+
 
 
 ### Tips
 - object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
 - Blender의 modifier는 맨 위쪽에서 아래쪽 순서로 적용됩니다. Solidify 하고 Subdivision 합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d622c3a5-9211-4e3b-89e0-1c6a68bdb0d5)
+- Sculpt mode에서 isolated로 object를 보고 싶을 땐 `/`를 눌러줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5949c971-05cb-4788-a5e9-3de486c2242b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/552b63e7-8237-4190-9ec1-125bfd68be55)
 
 
 
