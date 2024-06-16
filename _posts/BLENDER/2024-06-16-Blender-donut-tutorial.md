@@ -85,6 +85,10 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a817176c-d2df-4af3-b1e6-b841c0322f4d)
 - Image* 로 * 표시가 있으면 저장이 안된 상태입니다. Texture painting을 한 뒤에는 꼭 이 이미지를 저장을 해줍시다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c616006e-05a3-420d-92bf-1a26e55533e6)
+- Local은 isolated mode라는 뜻입니다. isolated object에 대해 모든 작업을 완료한 후에는 `/`로 돌아가줍시다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49c6fe66-ef0f-41e4-9bf7-d9395937ae07)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ec97a5f2-5e3a-4308-bd6b-9998e435910b)
+
 
 
 ### Tips
@@ -97,7 +101,4 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - `/`로 isolated object를 볼때 lamp까지 없애버리기 때문에, rendered mode에서 어둡게 보입니다. 이때는 Material Preview로 보면됩니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a08986ab-5055-4e79-bbf3-de94a993a6e2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/66f921a7-1b88-4535-8d9a-17f725adfef7)
-
-
-
 
