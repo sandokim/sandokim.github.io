@@ -32,3 +32,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 7. 마우스 좌클릭으로 여러 개 관절들을 box쳐서 선택할 수 있고, shift + 마우스 좌클릭으로 box를 만들어 빠진 관절도 추가로 선택할 수 있습니다.
 
 8. rig의 한쪽 손가락들을 자연스럽게 pose 시켜놨다면, 그 keyframe들을 `ctrl+c`로 복사한 뒤, 반대 쪽 손가락들에 `ctrl+shift+v`로 mirror한 상태로 붙여넣을 수 있습니다.
+
+9. `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 반대로 할 수도 있습니다.
+
+
