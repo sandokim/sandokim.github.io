@@ -62,6 +62,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 - Bloom은 glowing effect를 줍니다.
 - Motion Blur를 주면 realistic한 움직임을 줄 수 있습니다.
 - Film에서 Transparent를 클릭하면 background를 투명하게 만들어줄 수 있습니다. (compositing할 때 매우 유용한 기능입니다.)
+- Simplify를 하면 subdivision level을 줄여 viewport에서 frame rate를 높여줄 수 있습니다. (대신 blocky 해집니다.)
 
 
 #### Tips
