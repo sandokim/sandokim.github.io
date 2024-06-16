@@ -42,6 +42,12 @@ classes: wide
 #### Wireframe mode
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3b822872-2733-40df-a267-118514c2ddb9)
 
+11. Sculpt mode에서 `inflate`의 hotkey는 `i`입니다. `f`는 적용할 영역의 크기, `shift+f`는 strength를 결정합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5d8c11b3-2261-4223-b72d-dc04fe8ab241)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3e8fc4be-c01c-4629-b4b9-2e47954909e3)
+
+
+
 
 ### Tips
 - object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
