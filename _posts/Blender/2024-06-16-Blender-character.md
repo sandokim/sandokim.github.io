@@ -1,10 +1,9 @@
 ---
-title: "[3D CV] Epipolar Geometry"
+title: "[Blender] Animation Character"
 last_modified_at: 2024-03-27
 categories:
-  - 프로그래밍
+  - Blender
 tags:
-  - 프로그래밍
   - Blender
   - 블렌더
   - animation
