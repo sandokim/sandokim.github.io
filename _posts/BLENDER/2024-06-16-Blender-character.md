@@ -1,10 +1,10 @@
 ---
-title: "[Blender] Animation Character"
+title: "[BLENDER] Animation Character"
 last_modified_at: 2024-03-27
 categories:
-  - Blender
+  - BLENDER
 tags:
-  - Blender
+  - BLENDER
   - 블렌더
   - animation
   - blender animation
