@@ -79,6 +79,9 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - Sculpt mode에서 isolated로 object를 보고 싶을 땐 `/`를 눌러줍니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5949c971-05cb-4788-a5e9-3de486c2242b)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/552b63e7-8237-4190-9ec1-125bfd68be55)
+- `/`로 isolated object를 볼때 lamp까지 없애버리기 때문에, rendered mode에서 어둡게 보입니다. 이때는 Material Preview로 보면됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a08986ab-5055-4e79-bbf3-de94a993a6e2)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/66f921a7-1b88-4535-8d9a-17f725adfef7)
 
 
 
