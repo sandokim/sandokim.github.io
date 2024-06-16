@@ -53,6 +53,8 @@ Blender Studio Website: https://studio.blender.org/characters/
 - 먼저 Outliner 탭에서 원하는 카메라 🎥를 클릭하여 default camera로 한 뒤에, Marker -> Bind Camera to Markers를 해줍니다.
 - 이후 첫 번째 카메라 🎥의 모션이 끝나는 frame 이후에 다음 카메라 🎥를 default camera로 클릭한 상태에서 Marker -> Bind Camera to Markers를 해주면 camera cut이 완성됩니다.
 
+17. Outliner에서 💡를 누르고 Light의 타입을 Point, Sun, Spot, Area로 설정해줄 수 있습니다. 그리고 `shift+t`로 aiming을 할 수 있습니다.
+
 #### Tips
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
 - `ctrl+s`로 자주 저장해줍시다.
