@@ -1,6 +1,6 @@
 ---
 title: "[BLENDER] Animation Character"
-last_modified_at: 2024-03-27
+last_modified_at: 2024-06-16
 categories:
   - BLENDER
 tags:
@@ -81,6 +81,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 - blender에서는 어떤 properties 위에 마우스를 위치시키고, `i`를 누르면 keyframe이 생깁니다.
   - i.e. 🎥에서 Camera focal, length, Depth of Field등에 대해서도 keyframe 설정이 가능하고, 생성된 keyframe은 Timeline, Dope Sheet, Graph Editor에서도 자동으로 생성됩니다.
 - `shift + 마우스 휠 누른상태`로 움직이면 상하좌우로 panning으로 이동합니다.
+- `마우스 휠 누른상태`로 움직이면 orbiting으로 궤도를 돕니다.
 -  Rendering에서 Sampling -> Viewport Denoising을 off 해줍니다. 
 
 
