@@ -105,4 +105,11 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/975cc705-d60a-4afc-b30a-6bc7d3e7cafe)
 - 예를 들어 object들을 선택하고 `s`로 scale을 바꾼 상태이면 local에서만 바뀐 상태입니다. global에 적용하려면 조절하려면 변화시킨 object들을 선택하고 `ctrl+a`를 누르고 Scale을 Apply합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/87c3acfc-5878-44f8-a16b-de48d86d0a38)
+- Face를 선택하고 Cylinder의 위아래면을 `shift`로 좌클릭 선택한 상태에서 `ctrl+b`로 Bevel을 넣을 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b58f9d34-a15d-4bb6-966f-f9c80c373779)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/07586dcc-600b-4dcd-9f92-6ecd0248ac86)
+
+
+
+
 
