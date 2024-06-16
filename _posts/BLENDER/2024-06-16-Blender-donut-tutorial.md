@@ -30,7 +30,7 @@ classes: wide
 
 7. `shift+d`로 duplicate하여 선택한 object를 복제할 수 있습니다. 마우스 좌클릭으로 confirm하거나 우클릭으로 취소합니다.
 
-8. `Snap`을 키고, Snap Individual Elements to `Face Project`로 선택하고, ⦿ Propotional Editing 상태에서 `g`로 잡아내리면 donut위에 icing 효과를 줄 수 있습니다. 이때, icing으로 사용하는 object에 subdivision을 주는 것이 좋습니다.
+8. `Snap`을 키고, Snap Individual Elements to `Face Project`로 선택하고, ⦿ Propotional Editing 상태에서 `g`로 잡아내리면 donut위에 icing 효과를 줄 수 있습니다. 이때, icing으로 사용하는 object에 Add modifier로 subdivision modifer를 주는 것이 좋습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dd938f91-3a6e-48ff-b88c-c870cbfdc011)
 
 
