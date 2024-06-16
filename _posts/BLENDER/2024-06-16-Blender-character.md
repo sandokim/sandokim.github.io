@@ -43,6 +43,8 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 13. 카메라를 조절해줬으면 'Camera to View' 옵션을 항상 꺼줍시다.
 
+14. ctrl+\`로 FPS 게임의 1인칭 시점으로서 카메라를 움직일 수 있습니다. 이 모드에서 카메라를 움직이는 hotkey는 아래 표시됩니다.
+
 #### Tips
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
 - `ctrl+s`로 자주 저장해줍시다.
