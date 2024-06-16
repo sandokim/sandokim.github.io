@@ -23,3 +23,6 @@ classes: wide
 5. `Alt`를 누르고 vertex를 하나 누르면 그 라인에 있는 모든 vertices들이 선택됩니다. `s`를 눌러 scale하고 마우스 왼쪽 클릭으로 confirm 혹은 우클릭으로 취소합니다.
 
 6. `shift+d`로 duplicate하여 선택한 object를 복제할 수 있습니다. 마우스 좌클릭으로 confirm하거나 우클릭으로 취소합니다.
+
+### Tips
+- object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
