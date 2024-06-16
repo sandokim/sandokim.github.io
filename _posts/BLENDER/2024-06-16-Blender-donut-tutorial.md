@@ -36,11 +36,16 @@ classes: wide
 
 9. Toggle X-ray mode를 선택하면, 마우스 좌클릭으로 box 영역으로 선택할 때 object 뒤쪽까지 한번에 선택이 가능합니다. (gizmo로 x, y, z축에서 선택하면 잘못 vertices를 선택할 일을 방지할 수 있습니다.)
 
+10. 두 개 이상의 vertices를 `shift+마우스 좌클릭`으로 선택하고 `e`를 눌러 extrude하여 새로운 Face가 생성됩니다. 이는 Wireframe 모드에서 보면 확실하게 보입니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2b69abc0-1482-4248-bab4-582d78383403)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3b822872-2733-40df-a267-118514c2ddb9)
+
 
 ### Tips
 - object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
 - Blender의 modifier는 맨 위쪽에서 아래쪽 순서로 적용됩니다. Solidify 하고 Subdivision 합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d622c3a5-9211-4e3b-89e0-1c6a68bdb0d5)
+
 
 
 
