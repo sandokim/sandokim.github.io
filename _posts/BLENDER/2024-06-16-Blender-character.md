@@ -17,6 +17,8 @@ classes: wide
 
 Blender Studio Website: https://studio.blender.org/characters/
 
+1. `z`를 눌러 rendering mode (Rendered, Soild, Material Preview, Wireframe 중 하나)를 설정할 수 있습니다. (Material Preview가 일반적입니다.)
+
 1. rig를 click하고 `ctrl+Tab`으로 pose mode로 바꿔줘서 animation 작업을 위한 준비를 합니다.
 
 2. `i` (insert keyframe)를 눌러 Location, Rotation & Scaling에 대한 keyframe을 넣어줍니다.
@@ -35,7 +37,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 9. IK (Inverse Kinematics), FK (Forward Kinematics): Rotation을 다룰 때는 FK가 자연스럽습니다.
 
-10. `0`를 누르거나 🎥를 눌러서 카메라 뷰로 볼 수 있고, `z`를 눌러 rendering mode (Rendered, Soild, Material Preview, Wireframe 중 하나)를 설정할 수 있습니다.
+10. `0`를 누르거나 🎥를 눌러서 카메라 뷰로 볼 수 있습니다.
 
 11. `shift+a`로 카메라를 추가해줄 수 있습니다.
 
