@@ -132,5 +132,11 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - `Alt+마우스 좌클릭`으로 Circle의 안쪽 vertices를 클릭하고, `f`를 눌러 접시의 바닥면에 해당하는 `face`를 추가해줍니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/18bb5944-4a69-4360-9f99-3cc109975441)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a71272c7-a1f4-439e-a3b4-f5e35fadf56e)
+- `2`인 Edge Select mode에서 `Alt+Shift+마우스 좌클릭`으로 edge들을 선택해주고, `ctrl+b`로 bevel을 만들어줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9147c3f8-2ff6-4346-a7ce-9e168682f748)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c16db682-ac9b-4982-b615-2704a069f415)
+
+
+
 
 
