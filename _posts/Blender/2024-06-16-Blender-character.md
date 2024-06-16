@@ -13,4 +13,6 @@ use_math: true
 classes: wide
 ---
 
+아래 웹사이트에서 Blender Animation을 위한 rig(character)를 무료로 다운받을 수 있습니다.
 
+Blender Studio Website: https://studio.blender.org/characters/
