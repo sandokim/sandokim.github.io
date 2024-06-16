@@ -20,6 +20,8 @@ use_math: true
 classes: wide
 ---
 
+https://github.com/Anttwo/SuGaR?tab=readme-ov-file
+
 ## Troubleshooting Mesh Issues in SuGaR
 
 ### 1. Handling Holes in the Mesh
@@ -52,10 +54,5 @@ poisson_depth = 7
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b5865d2b-8715-415d-8899-54b1bd78943a)
 [Fig 출처: Poisson Surface Reconstruction](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://hhoppe.com/poissonrecon.pdf&ved=2ahUKEwj1y_LGzOCGAxUqsFYBHamSAy8QFnoECDgQAQ&usg=AOvVaw2ITaXcDu9-WHIsaLHQuh7F)
-
-
-https://github.com/Anttwo/SuGaR?tab=readme-ov-file
-
-
 
 
