@@ -64,8 +64,8 @@ Blender Studio Website: https://studio.blender.org/characters/
 - Film에서 Transparent를 클릭하면 background를 투명하게 만들어줄 수 있습니다. (compositing할 때 매우 유용한 기능입니다.)
 - Simplify를 하면 subdivision level을 줄여 viewport에서 frame rate를 높여줄 수 있습니다. (대신 blocky 해집니다.)
 - **Color management에서 꼭 다음과 같이 선택해줍니다**
-  - Non-photo realistic animation에는 `Standard`
-  - Photo realism 이미지에 대해서는 `filmic` 혹은 `AgX`를 사용합니다.
+  - Non-photo realism (stylized animation)에는 `Standard`
+  - Photo realism에 대해서는 `filmic` 혹은 `AgX`를 사용합니다.
 
 
 #### Tips
