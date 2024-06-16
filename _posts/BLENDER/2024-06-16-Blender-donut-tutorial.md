@@ -102,7 +102,7 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a08986ab-5055-4e79-bbf3-de94a993a6e2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/66f921a7-1b88-4535-8d9a-17f725adfef7)
 - `g`, `r`, `s`로 object의 이동, 크기, 스케일을 조절할 때, `ctrl`을 누르면 incremental하게 (0.1씩 증감)할 수 있고, 혹은 직접 숫자를 입력해줄 수 있습니다. 하지만 이는 사실 local에만 적용된 상태입니다. global에 적용하려면, 즉 real world의 실제 크기로 조절해줘야 햡니다.
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7458c774-455d-423a-9fc5-5109f21edf99)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/975cc705-d60a-4afc-b30a-6bc7d3e7cafe)
 - 예를 들어 object들을 선택하고 `s`로 scale을 바꾼 상태이면 local에서만 바뀐 상태입니다. global에 적용하려면 조절하려면 변화시킨 object들을 선택하고 `ctrl+a`를 누르고 Scale을 Apply합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/87c3acfc-5878-44f8-a16b-de48d86d0a38)
 
