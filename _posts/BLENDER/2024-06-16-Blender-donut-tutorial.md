@@ -108,8 +108,7 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - Face를 선택하고 Cylinder의 위아래면을 `shift`로 좌클릭 선택한 상태에서 `ctrl+b`로 Bevel을 넣을 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b58f9d34-a15d-4bb6-966f-f9c80c373779)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/07586dcc-600b-4dcd-9f92-6ecd0248ac86)
-
-
-
+- 마우스 휠 up & down으로 bevel의 수를 선택할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1685d3fb-a67e-4845-9474-5a83f231d257)
 
 
