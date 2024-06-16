@@ -65,7 +65,11 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/44532dcc-7085-49b3-9742-ffea90dcbbdc)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2c69a623-d581-41db-853d-a64108b74615)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d73fea8f-865a-4007-8c2b-05a66b6d486f)
-
+- normal에서 마우스 좌클릭으로 drag out하고 놓아줘서 Image texture node를 추가하고 normal texture를 불러옵니다. ([이후 자세한 설정은 영상을 참고](https://youtu.be/fsLO1F5x7yM?si=kE5WWN8yORbk46F2)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c761c25a-7b4e-43d4-99c8-d520522f8c1d)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/85f13b31-2369-40cb-8e93-b6803afc35e5)
+- `shift+a`로 normal map node을 사이에 추가해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3c37b532-1bf1-4b28-ad45-d262c084fc7e)
 
 
 ### Tips
