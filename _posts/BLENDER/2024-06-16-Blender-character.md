@@ -39,7 +39,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 11. `shift+a`로 카메라를 추가해줄 수 있습니다.
 
-12. 카메라도 Timeline에서 Auto keys로 설정해주고 시작합시다.
+12. 카메라에서도 rig를 다룰 때와 같이, Timeline에서 Auto keys를 켜주고, `i`로 Location, Rotation & Scaling인 keyframe을 삽입해줍니다.
 
 13. 일반적으로 사람들이 가장 많이 카메라를 움직이는 방법은, `n`을 누르고 'View` 탭으로 가서 'Camera to View' 옵션을 선택해주면, zoom in & out, rotate를 3D viewport에 맞춰서 해줄 수 있습니다.
 
