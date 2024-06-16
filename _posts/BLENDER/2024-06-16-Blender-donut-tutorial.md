@@ -119,5 +119,7 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/07586dcc-600b-4dcd-9f92-6ecd0248ac86)
 - 마우스 휠 up & down으로 bevel의 수를 선택할 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1685d3fb-a67e-4845-9474-5a83f231d257)
+- `1`, `2`, `3`로 vertices, edge, face select mode로 바꿀 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/45e349b6-0bd5-48bf-ab02-ecd0f55c1c78)
 
 
