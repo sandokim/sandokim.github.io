@@ -136,6 +136,9 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9147c3f8-2ff6-4346-a7ce-9e168682f748)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c16db682-ac9b-4982-b615-2704a069f415)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5e1d8d07-6898-4257-8462-1113cb8b82c6)
+- `Add modifier`에서 `Solidify`를 object에 적용해 접시에 두께감을 줍니다. Thickness를 조절합니다. 이후 `Apply`까지 눌러줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e7c02622-43f2-404a-b4b2-bdb55028a85d)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e6acf943-725e-4693-8ba7-84c50e25a87d)
 
 
 
