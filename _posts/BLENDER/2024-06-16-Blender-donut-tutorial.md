@@ -89,6 +89,15 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49c6fe66-ef0f-41e4-9bf7-d9395937ae07)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ec97a5f2-5e3a-4308-bd6b-9998e435910b)
 
+15. Render Engine
+- EEVEE는 rasterize하는 engine이므로 rendering이 빠르지만 퀄리티가 떨어집니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f8eaff8-8284-451f-a674-4ebfc47a9dc2)
+- Cycles은 path tracer, ray tracing하는 engine이므로 느리지만 realistic합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8deb37fa-ff0c-4529-8cf5-4593b1eea14c)
+- EEVEE(rasterizer)와 Cycles(ray tracing) 속도 & 퀄리티 비교
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5d8340da-b682-440d-89d4-9b942f5ef7df)
+
+
 
 
 ### Tips
