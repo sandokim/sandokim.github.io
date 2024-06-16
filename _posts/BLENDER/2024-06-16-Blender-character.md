@@ -33,6 +33,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 8. rig의 한쪽 손가락들을 자연스럽게 pose 시켜놨다면, 그 keyframe들을 `ctrl+c`로 복사한 뒤, 반대 쪽 손가락들에 `ctrl+shift+v`로 mirror한 상태로 붙여넣을 수 있습니다.
 
+9. IK (Inverse Kinematics), FK (Forward Kinematics): Rotation을 다룰 때는 FK가 자연스럽다.
 
 #### Tips
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
