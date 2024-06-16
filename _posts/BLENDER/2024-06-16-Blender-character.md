@@ -67,6 +67,7 @@ Blender Studio Website: https://studio.blender.org/characters/
   - Non-photo realism (stylized animation)에는 `Standard`
   - Photo realism에 대해서는 `filmic` 혹은 `AgX`를 사용합니다.
 
+19. View -> Viewport Render Animation을 하면 preview range에 대해서만 rendering한 결과를 빠르게 볼 수 있습니다.
 
 #### Tips
 - keyframe을 `i`로 추가할 때, 변화를 주고자 하는 frame 양쪽에 모두 keyframe을 넣고 시작합니다.
