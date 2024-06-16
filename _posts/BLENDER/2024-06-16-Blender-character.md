@@ -53,6 +53,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
 - `ctrl+s`로 자주 저장해줍시다.
 - Timeline, Dope Sheet, Graph Editor에서 `p`를 누르고 마우스 드래그하여 preview range를 설정하여 원하는 시간대의 keyframe들에 대해서만 playback할 수 있습니다.
+  - ⏱️를 누르면 preview range가 꺼집니다.
 - blender에서는 default 값으로 돌아가고 싶으면 마우스를 값 위에 위치시키고, `backspace`를 누르면 됩니다.
 - blender에서는 어떤 properties 위에 마우스를 위치시키고, `i`를 누르면 keyframe이 생깁니다.
   - i.e. 🎥에서 Camera focal, length, Depth of Field등에 대해서도 keyframe 설정이 가능하고, 생성된 keyframe은 Timeline, Dope Sheet, Graph Editor에서도 자동으로 생성됩니다.
