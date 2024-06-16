@@ -127,7 +127,10 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - `s`로 바깥쪽으로 scale out하고, `e`로 extrude하면서 접시의 모양을 만들어 나갑니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e07e082c-0296-4e3b-b990-59caa96954ea)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/457036e5-3c2b-4c6f-8583-309d25c207d8)
-
-
+- `z`로 shading mode를 빠르게 왔다갔다 할 수 있습니다. Wireframe mode에서 접시의 안쪽을 채워봅시다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/adc7237e-8cb0-4c75-b394-a4a17e95dd13)
+- `Alt+마우스 좌클릭`으로 Circle의 안쪽 vertices를 클릭하고, `f`를 눌러 접시의 바닥면에 해당하는 `face`를 추가해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/18bb5944-4a69-4360-9f99-3cc109975441)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a71272c7-a1f4-439e-a3b4-f5e35fadf56e)
 
 
