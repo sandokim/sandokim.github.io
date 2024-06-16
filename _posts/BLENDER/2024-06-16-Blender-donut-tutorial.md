@@ -96,8 +96,8 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8deb37fa-ff0c-4529-8cf5-4593b1eea14c)
 - EEVEE(rasterizer)와 Cycles(ray tracing) 속도 & 퀄리티 비교
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5d8340da-b682-440d-89d4-9b942f5ef7df)
-
-
+- Cycles을 render engine으로 사용할 때, Device는 GPU로 선택하고, Preferences -> System -> CUDA에서 사용중인 Nvidia GPU를 선택해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1e908d1b-b87c-4757-aecd-158e19066a88)
 
 
 ### Tips
