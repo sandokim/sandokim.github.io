@@ -78,8 +78,11 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - drop down에서 `donut base` 이미지를 선택합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/537951ea-a98f-4193-b05b-4a88dbc8d27c)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a893a47b-2881-4395-902b-12a74a08ff09)
-- 이제 paint를 할 수 있습니다.
+- 이제 2D에서든 3D에서든 paint를 할 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/94a72e6a-7440-4d4b-8b19-d9f96551a973)
+- 이는 3D의 texture가 uv unwrapping되어 2D image texture가 되기 때문에 가능합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5da75816-4935-4d4b-b283-c5efe6268b7c)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a817176c-d2df-4af3-b1e6-b841c0322f4d)
 
 
 ### Tips
