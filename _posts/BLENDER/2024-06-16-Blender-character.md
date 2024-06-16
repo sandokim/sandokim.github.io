@@ -61,6 +61,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 - Ambient Occlusion은 Light가 미세하게 작은 영역에 대해 약간의 변화를 주어 realistic하게 해줍니다.
 - Bloom은 glowing effect를 줍니다.
 - Motion Blur를 주면 realistic한 움직임을 줄 수 있습니다.
+- Film에서 Transparent를 클릭하면 background를 투명하게 만들어줄 수 있습니다. (compositing할 때 매우 유용한 기능입니다.)
 
 
 #### Tips
