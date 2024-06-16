@@ -54,20 +54,20 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e47a6467-47bf-460e-b1e0-0b46a26bc6f6)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/68c567f0-99e6-4ebb-a55b-b6ef13514615)
 
+12. Material Preview는 rendered mode와 같긴한데, 다른 lighting setup입니다. HDRI로 일종의 fake light와 reflection map을 사용해서 빠르게 Material preview를 가능하게 합니다.
+#### Material Preview
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7fad99f7-97db-4816-bcda-8b30d0eed05a)
+#### Rendered mode
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3a571e50-2f7c-406a-9507-066b623192dd)
 
 
-## Tips
+### Tips
 - object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
 - Blender의 modifier는 맨 위쪽에서 아래쪽 순서로 적용됩니다. Solidify 하고 Subdivision 합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d622c3a5-9211-4e3b-89e0-1c6a68bdb0d5)
 - Sculpt mode에서 isolated로 object를 보고 싶을 땐 `/`를 눌러줍니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5949c971-05cb-4788-a5e9-3de486c2242b)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/552b63e7-8237-4190-9ec1-125bfd68be55)
-- Material Preview는 rendered mode와 같긴한데, 다른 lighting setup입니다. HDRI로 일종의 fake light와 reflection map을 사용해서 빠르게 Material preview를 가능하게 합니다.
-### Material Preview
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7fad99f7-97db-4816-bcda-8b30d0eed05a)
-### Rendered mode
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3a571e50-2f7c-406a-9507-066b623192dd)
 
 
 
