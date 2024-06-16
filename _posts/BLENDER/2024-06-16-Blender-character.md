@@ -55,6 +55,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 17. Outliner에서 💡를 누르고 Light의 타입을 Point, Sun, Spot, Area로 설정해줄 수 있습니다. 그리고 `shift+t`로 aiming을 할 수 있습니다. Light의 값 위에 마우스를 위치시키고 `i`를 눌러 keyframe을 추가할 수 있습니다.
 
+
 #### Tips
 - keyframe을 `i`로 추가할 때, 변화를 주고자 하는 frame 양쪽에 모두 keyframe을 넣고 시작합니다.
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
@@ -65,5 +66,6 @@ Blender Studio Website: https://studio.blender.org/characters/
 - blender에서는 어떤 properties 위에 마우스를 위치시키고, `i`를 누르면 keyframe이 생깁니다.
   - i.e. 🎥에서 Camera focal, length, Depth of Field등에 대해서도 keyframe 설정이 가능하고, 생성된 keyframe은 Timeline, Dope Sheet, Graph Editor에서도 자동으로 생성됩니다.
 - `shift + 마우스 휠 누른상태`로 움직이면 상하좌우로 panning으로 이동합니다.
+-  Rendering에서 Sampling -> Viewport Denoising을 off 해줍니다. 
 
 
