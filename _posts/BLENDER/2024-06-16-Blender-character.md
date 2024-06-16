@@ -23,7 +23,9 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 3. Timeline에서 Auto keys를 설정하고 시작합니다.
 
-4. rig에서 원하는 부분을 마우스 좌클릭하고, `g` (grab), `r` (rotate), `s` (scale)하여 마우스 좌클릭으로 바꾼 모습을 confirm하거나 우클릭으로 취소합니다.
+4. 이제 Timeline을 Dope sheet `ctrl+F12`로 바꿔서 keyframe들을 확인하며 작업하고, 추가적인 modifier로 keyframe의 동작에 효과를 넣고 싶으면 Dope sheet에서 `ctrl+Tab`으로 Graph editor로 바꾸어 작업합니다.
 
-5. `g`, `r`, `s`할 때, axis를 지정해서 움직일 수 있고, `x`, `y`, `z`를 눌러서 합니다.
+5. rig에서 원하는 부분을 마우스 좌클릭하고, `g` (grab), `r` (rotate), `s` (scale)하여 마우스 좌클릭으로 바꾼 모습을 confirm하거나 우클릭으로 취소합니다.
+
+6. `g`, `r`, `s`할 때, axis를 지정해서 움직일 수 있고, `x`, `y`, `z`를 눌러서 합니다.
 
