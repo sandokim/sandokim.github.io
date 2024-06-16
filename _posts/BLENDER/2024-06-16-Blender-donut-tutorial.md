@@ -60,6 +60,13 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 #### Rendered mode
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3a571e50-2f7c-406a-9507-066b623192dd)
 
+13. Shading에서 `shift+a`로 추가하고 싶은 `node`를 선택하고, 넣어주어서 손쉽게 기능을 추가할 수 있습니다.
+- 아래에서는 Hue/Saturation/Value node를 추가하고 Hue값을 파란색으로 바꿔본 예시입니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/44532dcc-7085-49b3-9742-ffea90dcbbdc)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2c69a623-d581-41db-853d-a64108b74615)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d73fea8f-865a-4007-8c2b-05a66b6d486f)
+
+
 
 ### Tips
 - object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
