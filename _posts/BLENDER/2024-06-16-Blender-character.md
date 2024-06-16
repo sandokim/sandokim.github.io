@@ -39,6 +39,10 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 11. `shift+a`로 카메라를 추가해줄 수 있습니다.
 
+12. 일반적으로 사람들이 가장 많이 카메라를 움직이는 방법은, `n`을 누르고 'View` 탭으로 가서 'Camera to View' 옵션을 선택해주면, zoom in & out, rotate를 3D viewport에 맞춰서 해줄 수 있습니다.
+
+13. 카메라를 조절해줬으면 'Camera to View' 옵션을 항상 꺼줍시다.
+
 #### Tips
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
 - `ctrl+s`로 자주 저장해줍시다.
