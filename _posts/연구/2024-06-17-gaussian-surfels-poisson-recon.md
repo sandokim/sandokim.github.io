@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] 3DGS Gaussian Surfels Poisson Reconstrucion"
-last_modified_at: 2024-06-14
+last_modified_at: 2024-06-17
 categories:
   - 연구
 tags:
