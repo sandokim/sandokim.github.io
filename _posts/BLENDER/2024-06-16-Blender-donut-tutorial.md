@@ -71,6 +71,16 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - `shift+a`로 normal map node을 사이에 추가해줍니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3c37b532-1bf1-4b28-ad45-d262c084fc7e)
 
+14. Texture Painting에서 Object를 `/`로 isolated하게 선택한 상태에서, Material Preview로 선택합니다. Material 탭에서 base color의 • 을 클릭하고 Image Texture를 선택합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/522023cb-37be-43ce-a8d7-3d5ea74cb71a)
+- `+ New`를 선택하여 image texture를 직접 만들어줍시다. (혹은 불러옴) resolution은 donut 본체니까 그냥 낮은 resol을 사용해도 되므로 default값을 사용합니다. 이름은 `donut base`로 저장해봅시다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/13ef12ce-0cef-40ad-aa71-cdaa65773035)
+- drop down에서 `donut base` 이미지를 선택합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/537951ea-a98f-4193-b05b-4a88dbc8d27c)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a893a47b-2881-4395-902b-12a74a08ff09)
+- 이제 paint를 할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/94a72e6a-7440-4d4b-8b19-d9f96551a973)
+
 
 ### Tips
 - object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
