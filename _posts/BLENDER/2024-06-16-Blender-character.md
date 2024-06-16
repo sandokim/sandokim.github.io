@@ -37,6 +37,8 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 10. `0`를 누르거나 🎥를 눌러서 카메라 뷰로 볼 수 있고, `z`를 눌러 rendering mode (Rendered, Soild, Material Preview, Wireframe 중 하나)를 설정할 수 있습니다.
 
+11. `shift+a`로 카메라를 추가해줄 수 있습니다.
+
 #### Tips
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
 - `ctrl+s`로 자주 저장해줍시다.
