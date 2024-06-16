@@ -101,4 +101,5 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - `/`로 isolated object를 볼때 lamp까지 없애버리기 때문에, rendered mode에서 어둡게 보입니다. 이때는 Material Preview로 보면됩니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a08986ab-5055-4e79-bbf3-de94a993a6e2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/66f921a7-1b88-4535-8d9a-17f725adfef7)
+- `g`, `r`, `s`로 object의 이동, 크기, 스케일을 조절할 때, `ctrl`을 누르면 incremental하게 (0.1씩 증감)할 수 있고, 혹은 직접 숫자를 입력해줄 수 있습니다.
 
