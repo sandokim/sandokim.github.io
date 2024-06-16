@@ -124,8 +124,9 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - i.e. `shift+a`에서 circle을 선택하여 생성하고, `1`인 vertices select mode에서 `Alt+마우스 좌클릭` 후 `e`로 extrude를 하는데, `z`로 z-axis를 따라 extrude 해줍니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/054f1dbe-3902-423a-b6cf-c29a6afed66d)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/984250c1-913f-4f46-b6ce-39fcdf5c49b3)
-
-
+- `s`로 바깥쪽으로 scale out하고, `e`로 extrude하면서 접시의 모양을 만들어 나갑니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e07e082c-0296-4e3b-b990-59caa96954ea)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/457036e5-3c2b-4c6f-8583-309d25c207d8)
 
 
 
