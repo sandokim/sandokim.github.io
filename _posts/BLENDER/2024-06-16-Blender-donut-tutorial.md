@@ -121,5 +121,12 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1685d3fb-a67e-4845-9474-5a83f231d257)
 - `1`, `2`, `3`로 vertices, edge, face select mode로 바꿀 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/45e349b6-0bd5-48bf-ab02-ecd0f55c1c78)
+- i.e. `shift+a`에서 circle을 선택하여 생성하고, `1`인 vertices select mode에서 `Alt+마우스 좌클릭` 후 `e`로 extrude를 하는데, `z`로 z-axis를 따라 extrude 해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/054f1dbe-3902-423a-b6cf-c29a6afed66d)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/984250c1-913f-4f46-b6ce-39fcdf5c49b3)
+
+
+
+
 
 
