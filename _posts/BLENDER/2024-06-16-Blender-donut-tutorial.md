@@ -143,5 +143,7 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/cbe3170a-8a37-4d3c-8103-814f4b05c494)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ff54d9d0-97e5-4580-9ace-2bcf253cebb2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b5536b51-a36e-47d0-8444-7b7c4d09042a)
+- `r`로 rotate시, `z`를 두번 누르면 original axis가 아닌 local axis로 회전시킬 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/cd3d0e06-23d3-4b1e-8526-789f7d6b7143)
 
 
