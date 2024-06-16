@@ -41,7 +41,7 @@
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/공부">✍️ 공부 ({{sum}})</a></span>
 
         {% assign sum = site.categories['BLENDER'] | size %}
-        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/BLENDER">[![Blender](https://cdn3.emoji.gg/emojis/8027-blender.png)](https://emoji.gg/emoji/8027-blender) BLENDER ({{sum}})</a></span>
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/BLENDER"><a href="https://emoji.gg/emoji/8027-blender"><img src="https://cdn3.emoji.gg/emojis/8027-blender.png" width="64px" height="64px" alt="Blender"></a> BLENDER ({{sum}})</a></span>
 
         {% assign sum = site.categories['연구'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/연구">💻 연구 ({{sum}})</a></span>
