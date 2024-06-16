@@ -41,7 +41,7 @@
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/공부">✍️ 공부 ({{sum}})</a></span>
 
         {% assign sum = site.categories['BLENDER'] | size %}
-        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/BLENDER"><img src="https://cdn3.emoji.gg/emojis/8027-blender.png" width="4px" height="4px" alt="Blender"> ({{sum}})</a></span>
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/BLENDER">🎥 BLENDER ({{sum}})</a></span>
 
         {% assign sum = site.categories['연구'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/연구">💻 연구 ({{sum}})</a></span>
