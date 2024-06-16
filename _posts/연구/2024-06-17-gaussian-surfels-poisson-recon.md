@@ -32,9 +32,6 @@ We use screened Poisson surface reconstruction to extract mesh, at this line in 
 ```python
 poisson_mesh(path, wpos, normal, color, poisson_depth, prune_thrsh)
 ```
-In your output folder, ```xxx_plain.ply``` is the original mesh after Poisson reconstruction with the default depth of 10. For scenes in larger scales, you may use a higher depth level. For a smoother mesh, you may decrease the depth value.
-We prune the Poisson mesh with a certain threshold to remove outlying faces and output ```xxx_pruned.ply```. This process sometimes may over-prune the mesh and results in holes. You may increase the "prune_thrsh" parameter accordingly.
-
 - **path**
   - 파일의 경로를 나타냅니다.
   - 생성된 메쉬 파일이 저장될 위치를 지정합니다.
@@ -63,3 +60,8 @@ We prune the Poisson mesh with a certain threshold to remove outlying faces and 
   - 임계값이 낮으면 더 많은 점들이 제거되고, 높으면 더 적은 점들이 제거됩니다.
   - 임계값이 너무 낮으면 과도한 프루닝으로 메쉬에 구멍이 생길 수 있습니다.
   - 이러한 경우 "prune_thrsh" 파라미터를 증가시킬 수 있습니다.
+
+
+In your output folder, ```xxx_plain.ply``` is the original mesh after Poisson reconstruction with the default depth of 10. For scenes in larger scales, you may use a higher depth level. For a smoother mesh, you may decrease the depth value.
+We prune the Poisson mesh with a certain threshold to remove outlying faces and output ```xxx_pruned.ply```. This process sometimes may over-prune the mesh and results in holes. You may increase the "prune_thrsh" parameter accordingly.
+
