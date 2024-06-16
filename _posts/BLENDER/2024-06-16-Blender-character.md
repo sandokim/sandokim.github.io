@@ -57,7 +57,9 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 17. Outliner에서 💡를 누르고 Light의 타입을 Point, Sun, Spot, Area로 설정해줄 수 있습니다. 그리고 `shift+t`로 aiming을 할 수 있습니다. Light의 값 위에 마우스를 위치시키고 `i`를 눌러 keyframe을 추가할 수 있습니다.
 
-18. Outliner에서 Render 탭에서 Ambient Occlusion은 Light가 미세하게 작은 영역에 대해 약간의 변화를 주어 realistic하게 해줍니다.
+18. Outliner에서 Render 탭
+- Ambient Occlusion은 Light가 미세하게 작은 영역에 대해 약간의 변화를 주어 realistic하게 해줍니다.
+- Bloom은 glowing effect를 줍니다.
 
 
 #### Tips
