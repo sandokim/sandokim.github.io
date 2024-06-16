@@ -54,6 +54,7 @@ Blender Studio Website: https://studio.blender.org/characters/
 - `ctrl+s`로 자주 저장해줍시다.
 - Timeline, Dope Sheet, Graph Editor에서 `p`를 누르고 마우스 드래그하여 preview range를 설정하여 원하는 시간대의 keyframe들에 대해서만 playback할 수 있습니다.
 - blender에서는 default 값으로 돌아가고 싶으면 마우스를 값 위에 위치시키고, `backspace`를 누르면 됩니다.
+- blender에서는 어떤 properties 위에 마우스를 위치시키고, `i`를 누르면 keyframe이 생깁니다. (i.e. Camera focal, length, Depth of Field등에 대해서도 keyframe 설정이 가능함)
 - `shift + 마우스 휠 누른상태`로 움직이면 상하좌우로 panning으로 이동합니다.
 
 
