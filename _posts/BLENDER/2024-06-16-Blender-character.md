@@ -39,11 +39,13 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 11. `shift+a`로 카메라를 추가해줄 수 있습니다.
 
-12. 일반적으로 사람들이 가장 많이 카메라를 움직이는 방법은, `n`을 누르고 'View` 탭으로 가서 'Camera to View' 옵션을 선택해주면, zoom in & out, rotate를 3D viewport에 맞춰서 해줄 수 있습니다.
+12. 카메라도 Timeline에서 Auto keys로 설정해주고 시작합시다.
 
-13. 카메라를 조절해줬으면 'Camera to View' 옵션을 항상 꺼줍시다.
+13. 일반적으로 사람들이 가장 많이 카메라를 움직이는 방법은, `n`을 누르고 'View` 탭으로 가서 'Camera to View' 옵션을 선택해주면, zoom in & out, rotate를 3D viewport에 맞춰서 해줄 수 있습니다.
 
-14. `0`을 눌러서 카메라 렌즈를 통해서 보는 상황에서, shift + ` (tilda)를 눌러 FPS 게임의 1인칭 시점으로서 카메라를 움직일 수 있습니다.
+14. 카메라를 조절해줬으면 'Camera to View' 옵션을 항상 꺼줍시다.
+
+15. `0`을 눌러서 카메라 렌즈를 통해서 보는 상황에서, shift + ` (tilda)를 눌러 FPS 게임의 1인칭 시점으로서 카메라를 움직일 수 있습니다.
 - 이 모드에서 카메라를 움직이는 hotkey는 아래 표시되므로 외울 필요는 없습니다. (W,S,A,D로 상하좌우 이동 E: up, Q: down 등)
 - 3D viewport를 하나 더 패널로 열어서 카메라의 3D 위치를 확인하면서 움직이면 좋습니다.
 
