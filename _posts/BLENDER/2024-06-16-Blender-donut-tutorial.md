@@ -56,7 +56,7 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 
 
 
-### Tips
+## Tips
 - object를 선택한 상태에서 `F2`를 누르면 이름 변경이 가능합니다.
 - Blender의 modifier는 맨 위쪽에서 아래쪽 순서로 적용됩니다. Solidify 하고 Subdivision 합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d622c3a5-9211-4e3b-89e0-1c6a68bdb0d5)
