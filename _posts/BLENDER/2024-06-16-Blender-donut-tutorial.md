@@ -83,6 +83,8 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 - 이는 3D의 texture가 uv unwrapping되어 2D image texture가 되기 때문에 가능합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5da75816-4935-4d4b-b283-c5efe6268b7c)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a817176c-d2df-4af3-b1e6-b841c0322f4d)
+- Image* 로 * 표시가 있으면 저장이 안된 상태입니다. Texture painting을 한 뒤에는 꼭 이 이미지를 저장을 해줍시다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c616006e-05a3-420d-92bf-1a26e55533e6)
 
 
 ### Tips
