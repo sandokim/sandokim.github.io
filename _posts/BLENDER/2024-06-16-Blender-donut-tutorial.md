@@ -25,10 +25,13 @@ classes: wide
 선택된 vertices들은 `h`를 눌러 hide할 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5b16cbfd-ce24-4c5d-9d5d-57d6e7a55544)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0cf8c9bf-e5a0-4a15-8488-e2f9b8b8599d)
+`Alt+h`를 하면 hide된 vertices들을 다시 불러옵니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f2734556-eb4d-4d50-9003-afcae085be0b)
 
-6. `shift+d`로 duplicate하여 선택한 object를 복제할 수 있습니다. 마우스 좌클릭으로 confirm하거나 우클릭으로 취소합니다.
 
-7. Toggle X-ray mode를 선택하면, 마우스 좌클릭으로 box 영역으로 선택할 때 object 뒤쪽까지 한번에 선택이 가능합니다. (gizmo로 x, y, z축에서 선택하면 잘못 vertices를 선택할 일을 방지할 수 있습니다.)
+7. `shift+d`로 duplicate하여 선택한 object를 복제할 수 있습니다. 마우스 좌클릭으로 confirm하거나 우클릭으로 취소합니다.
+
+8. Toggle X-ray mode를 선택하면, 마우스 좌클릭으로 box 영역으로 선택할 때 object 뒤쪽까지 한번에 선택이 가능합니다. (gizmo로 x, y, z축에서 선택하면 잘못 vertices를 선택할 일을 방지할 수 있습니다.)
 
 
 ### Tips
