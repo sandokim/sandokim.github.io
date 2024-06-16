@@ -69,6 +69,8 @@ Blender Studio Website: https://studio.blender.org/characters/
 
 19. View -> Viewport Render Animation을 하면 preview range에 대해서만 rendering한 결과를 빠르게 볼 수 있습니다.
 
+20. Image sequences로 rendering하면 Rener 탭에서 Transparent를 켜주고, RGBA로 rendering하면 배경이 투명한 png 이미지들로 얻을 수 있고, 이를 나중에 배경과 같이 overlay할때 유용합니다.
+
 #### Tips
 - keyframe을 `i`로 추가할 때, 변화를 주고자 하는 frame 양쪽에 모두 keyframe을 넣고 시작합니다.
 - `ctrl+z`로 취소할 수 있고, `ctrl+shift+z`로 취소를 취소할 수도 있습니다.
