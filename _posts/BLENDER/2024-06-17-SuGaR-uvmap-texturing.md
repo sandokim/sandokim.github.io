@@ -32,7 +32,7 @@ classes: wide
 
 - 하지만 UV map을 mesh와 함께 있던 폴더에서 제거해주게 되면, Blender에서 자동으로 같이 불러오던 UV map이 사라져 Rendered mode에서 texture가 사라지게 됩니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8129e4f7-3a49-46bd-8f9b-f55a70b821b0)
-- Rendered 모드에서 texture가 사라져서 보라색으로 표현이 되는 것을 볼 수 있습니다.
+- 이 경우, Rendered 모드에서 texture가 사라져서 보라색으로 표현이 되는 것을 볼 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4df0d2ff-692c-4056-bfb8-9fd132c30ab0)
 
 
