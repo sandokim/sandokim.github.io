@@ -12,14 +12,34 @@ tags:
   - uv unwrapping
   - 3dgs
   - SuGaR
+  - mtl file
+  - obj file
 excerpt: "3DGS SuGaR UV map texturing with Blender"
 use_math: true
 classes: wide
 ---
 
+- **OBJ 파일**
+  - OBJ는 3D 모델이 저장되는 파일의 포맷 중 하나입니다.
+  - Vertex, texture 좌표, normal, face 정보(한 면을 구성하는 vertex, texture, normal) 등이 담겨 있습니다.
+  - 3D 모델링 툴(3dmax, 스케치업, maya 등등)에서 .obj로 Export를 하게 되면 .obj 파일을 생성할 수 있습니다.
+
+- **MTL 파일**
+  - .mtl 파일은 Material Library File입니다.
+  - .mtl 파일은 .obj에서 사용되는 재질 속성들에 대한 정보를 포함하고 있습니다.
+  - 예를 들어, 텍스처 맵, 반사율, 투명도 등의 정보가 포함됩니다.
+
+- **OBJ와 MTL 파일의 관계**
+  - 따라서 .obj 파일과 .mtl 파일은 세트라고 볼 수 있습니다.
+  - MTL이라는 별도의 material 파일을 사용하기 때문에 3D 모델의 형상 외에 texture, material 정보를 함께 옮길 때는 MTL 파일과 함께 옮겨야 합니다.
+
+------
+
 ### SuGaR로 original 3dgs으로 7,000 iters 학습시켜 나온 coarse mesh를 refine하면 refined_mesh를 얻을 수 있습니다.
 
+### SuGaR에서 export하는 파일 3개
 - OBJ 파일: 3D mesh (without texture)
+- MTL 파일: OBJ 파일에 적용되는 재질 속성에 대한 정보를 포함
 - png 파일: UV map (3D mesh에 입혀지는 2D texture)
 
 - playroom scene을 SuGaR로 학습하여 얻게된 UV map 이미지 크기
