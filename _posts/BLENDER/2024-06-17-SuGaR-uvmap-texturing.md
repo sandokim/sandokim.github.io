@@ -31,6 +31,7 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f914d662-6d2a-4af5-b083-930de935a27e)
 
 - 하지만 UV map을 mesh와 함께 있던 폴더에서 제거해주게 되면, Blender에서 자동으로 같이 불러오던 UV map이 사라져 Rendered mode에서 texture가 사라지게 됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8129e4f7-3a49-46bd-8f9b-f55a70b821b0)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1a6a95a3-bf0a-4f2f-9558-8ea87e121218)
 
 
