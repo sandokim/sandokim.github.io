@@ -9,6 +9,7 @@ tags:
   - animation
   - blender animation
   - uv map
+  - uv unwrapping
   - 3dgs
   - SuGaR
 excerpt: "3DGS SuGaR UV map texturing with Blender"
@@ -36,4 +37,15 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4df0d2ff-692c-4056-bfb8-9fd132c30ab0)
 
 
+### Texture Paint를 UV map을 통해 해봅시다.
 
+- 먼저 Texture Paint 모드로 패널을 바꿔주고, Rendered 모드에서 작업해줍니다. (Material Preview 모드에서 해도 됩니다.)
+- Material -> Surface -> Base Color를 보면 이미 UV map이 같이 불러와져서 Image Texture로 지정되어 있는 것을 확인할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8efab586-07ad-4c93-888a-8e8d56be46e0)
+
+- UV map의 drop down에서도 UV map으로 SuGaR에서 output해서 나온 UV map 이미지로 지정되어 있습을 확인할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d9b078b2-1b67-4a13-b5a5-1da0a1d22411)
+
+
+- 이제 2D 혹은 3D에서 Paint을 해주면 UV unwarpping (3D --> 2D) 되어 있기 때문에 페인팅이 잘 되는 것을 확인 할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7093b50f-27c6-42e4-b765-82fc21bd8b57)
