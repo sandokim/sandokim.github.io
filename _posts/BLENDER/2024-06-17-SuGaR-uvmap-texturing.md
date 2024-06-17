@@ -21,7 +21,7 @@ classes: wide
 - OBJ 파일: 3D mesh (without texture)
 - png 파일: UV map (3D mesh에 입혀지는 2D texture)
 
-- playroom에 대한 scene 복원 후 얻게된 UV map 이미지 크기
+- playroom scene 복원 후 얻게된 UV map 이미지 크기
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9bfc0c36-32d4-49fa-adb0-75032eb8bdd1)
 
 - SuGaR에서 얻은 refined_mesh인 OBJ 파일은 UV map 이미지와 같은 폴더 안에 들어있습니다.
