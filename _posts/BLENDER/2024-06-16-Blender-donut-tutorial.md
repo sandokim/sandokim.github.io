@@ -176,3 +176,5 @@ mask 영역을 반전시키는 것을 photoshop과 비슷하게 `ctrl+i`로 합�
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/cd3d0e06-23d3-4b1e-8526-789f7d6b7143)
 
 
+### Reference
+[Blender Tutorial for Complete Beginners](https://www.youtube.com/watch?v=B0J27sf9N1Y&list=PLjEaoINr3zgEPv5y--4MKpciLaoQYZB1Z)
