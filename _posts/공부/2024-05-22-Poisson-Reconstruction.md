@@ -18,7 +18,7 @@ classes: wide
 
 ### Poisson detph
 
-Poisson 재구성은 포인트 클라우드(point cloud) 데이터로부터 매끄러운 표면을 생성하는 방법 중 하나입니다. 이 알고리즘은 포인트 클라우드에서 추출한 정상(normal) 벡터를 사용하여 최적의 표면을 계산합니다.
+Poisson 재구성은 포인트 클라우드(point cloud) 데이터로부터 매끄러운 표면을 생성하는 방법 중 하나입니다. 이 알고리즘은 포인트 클라우드에서 추출한 normal 벡터를 사용하여 최적의 표면을 계산합니다.
 
 **Poisson Depth = Depth of Octree**
 
