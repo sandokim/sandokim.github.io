@@ -248,7 +248,7 @@ classes: wide
 
 -------
 ## Normal map 정리
-### Normal map (RGB pixels) --> Surface Normal vectors --> dot product with lighting direction
+### Normal map (RGB pixels) --> Surface Normal vectors --> Calculate the dot product of surface normals with the lighting direction
 - 간단히 말하면 각 normal map의 pixel에 대응하는 shading normal들이 존재하고, 
 - object의 geometry는 바꾸지 않으면서,
 - normal map의 pixel 값을 바꿈으로써 이로부터 RGB to vector로 mapping되어 shading normal을 바꿔서
