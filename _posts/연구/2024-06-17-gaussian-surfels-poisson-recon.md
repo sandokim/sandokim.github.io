@@ -52,7 +52,6 @@ poisson_mesh(path, wpos, normal, color, poisson_depth, prune_thrsh)
   - Poisson 재구성의 깊이를 나타냅니다.
   - 기본 깊이는 10으로 설정되어 있습니다.
   - 더 큰 장면에서는 더 높은 깊이 수준을 사용할 수 있습니다.
-  - 매쉬를 부드럽게 만들려면 깊이 값을 낮출 수 있습니다.
 
 - **prune_thrsh**
   - 메쉬를 프루닝(가지치기)할 때 사용되는 임계값을 설정합니다.
@@ -62,6 +61,7 @@ poisson_mesh(path, wpos, normal, color, poisson_depth, prune_thrsh)
   - 이러한 경우 "prune_thrsh" 파라미터를 증가시킬 수 있습니다.
 
 
-In your output folder, ```xxx_plain.ply``` is the original mesh after Poisson reconstruction with the default depth of 10. For scenes in larger scales, you may use a higher depth level. For a smoother mesh, you may decrease the depth value.
+In your output folder, ```xxx_plain.ply``` is the original mesh after Poisson reconstruction with the default depth of 10. For scenes in larger scales, you may use a higher depth level.
+
 We prune the Poisson mesh with a certain threshold to remove outlying faces and output ```xxx_pruned.ply```. This process sometimes may over-prune the mesh and results in holes. You may increase the "prune_thrsh" parameter accordingly.
 
