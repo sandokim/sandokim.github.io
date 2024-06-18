@@ -45,7 +45,7 @@ poisson_depth = 7
   - 모델 표면에서 샘플링된 oriented points와 모델의 indicator function 사이에는 적분적 관계가 있습니다.
 - **Gradient의 특성**:
   - Indicator function의 gradient는 거의 모든 곳에서 0인 벡터 필드입니다.
-  - 이는 indicator function이 모델 내부에서는 1, 외부에서는 0으로 상수이기 때문에, 그 경계에서는 변화가 없어서 gradient가 0이 됩니다.
+  - 이는 indicator function이 모델 내부에서는 1, 외부에서는 0으로 상수이기 때문에, 그 점들에서의 gradient는 0이 됩니다.
   - 표면 근처의 점에서는 indicator function이 0에서 1로 급격히 변합니다. 이 변화는 표면 normal 방향으로 일어나므로, 이 지점에서의 gradient는 내부 표면 normal과 같습니다.
 - **표면 근처의 점에서는**:
   - 표면 근처의 점에서 indicator function의 gradient가 non-zero입니다. 이는 표면에서의 변화(경계 조건) 때문입니다. 이 변화는 표면 normal 방향으로 일어나므로, 이 지점에서의 gradient는 표면 normal의 방향과 크기를 반영합니다.
