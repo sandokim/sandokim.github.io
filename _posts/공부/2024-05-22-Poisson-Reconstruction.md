@@ -85,6 +85,49 @@ poisson_depth = 7
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c315fa85-9efb-4cd8-a808-dd54781451c0)
 
+### 4.4. Isosurface Extraction
+
+Poisson reconstruction에서는 implicit function을 사용하여 표면을 재구성하고, isosurface extraction을 통해 최종 표면을 얻습니다. 이는 level set 방법의 개념과 유사하지만, Poisson reconstruction 자체는 특정한 방법론이고, isosurface extraction은 이 방법론의 한 부분입니다.
+
+1. **Implicit Function**:
+   - Poisson reconstruction의 기본 개념은 implicit function을 사용하는 것입니다. 이 함수는 주로 indicator function으로 정의됩니다.
+
+2. **Indicator Function**:
+   - Indicator function은 모델의 내부와 외부를 구분합니다. 모델 내부의 점에서는 1로 정의되고, 외부의 점에서는 0으로 정의됩니다.
+
+3. **Poisson Reconstruction**:
+   - Implicit function을 계산하는 방법론으로, 주어진 데이터에서 표면을 재구성합니다.
+   - 계산된 implicit function으로부터 적절한 isovalue를 선택합니다.
+
+4. **Isovalue**:
+   - Isovalue는 isosurface를 추출하기 위해 선택되는 값입니다. 이 값은 주로 입력 샘플의 위치를 가깝게 근사하도록 선택됩니다.
+
+5. **Isosurface Extraction**:
+   - Poisson reconstruction에서 계산된 implicit function과 선택된 isovalue를 사용하여 isosurface를 추출하는 단계입니다.
+   - 추출된 isosurface는 재구성된 표면을 나타냅니다.
+
+6. **Level Set 방법**:
+   - Level set 방법은 implicit function을 사용하여 표면을 추적하는 방법론입니다.
+   - Poisson reconstruction에서 사용될 수 있으며, isosurface extraction과 개념적으로 유사합니다.
+
+### Poisson Reconstruction, Level Set 방법 및 Isosurface Extraction의 관련성
+
+- **Poisson Reconstruction**:
+  - Implicit function을 사용하여 표면을 재구성하는 포괄적인 방법론입니다.
+  - 계산된 implicit function으로부터 isosurface를 추출하여 최종 표면을 얻습니다.
+
+- **Level Set 방법**:
+  - Implicit function을 사용하는 방법론 중 하나로, Poisson reconstruction의 일부로 간주될 수 있습니다.
+  - Isosurface extraction과 유사하게 implicit function의 특정 값을 기준으로 표면을 추출하는 과정입니다.
+
+- **Isosurface Extraction**:
+  - Poisson reconstruction의 한 단계로, 계산된 implicit function에서 isosurface를 추출합니다.
+  - Level set 방법과 유사하게, isosurface extraction은 implicit function의 특정 값을 기준으로 표면을 정의합니다.
+
+따라서, **Poisson reconstruction에서 isosurface extraction과 level set 방법은 동일한 원리를 공유합니다.** **두 방법 모두 implicit function을 사용하여 표면을 정의하고, 이를 통해 재구성된 표면을 얻는 과정입니다.**
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4e8f534b-dc76-47f8-a19c-2149beefa2d4)
+
 
 ## [Poisson Surface Reconstruction User Guide](https://doc.cgal.org/latest/Poisson_surface_reconstruction_3/index.html)
 
