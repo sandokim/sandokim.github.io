@@ -60,6 +60,30 @@ poisson_depth = 7
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0ed42b76-ac9f-4e79-8bfe-8b7378f3a779)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e90babb4-8f57-4d6f-8583-965631927ad8)
 
+### 4.1. Problem Discretization  
+먼저, 문제를 discretize할 함수 공간을 선택해야 합니다. 가장 단순한 접근 방식은 regular 3D grid를 사용하는 것이지만, 이는 고해상도 세부 재구성에 비실용적입니다. 해상도가 높아질수록 공간의 차원이 급격히 증가하여 계산 복잡도가 커지기 때문입니다. 
+
+**다행히도, implicit function의 정확한 표현은 재구성된 표면 근처에서만 필요합니다.** 이는 implicit function을 표현하고 Poisson 시스템을 해결하기 위해 adaptive octree를 사용하는 동기를 제공합니다. Poisson에서 Octree를 사용하는 이유는 computational cost를 줄이기 위해서입니다.
+
+- **Problem Discretization**:
+  - 문제를 discretize할 함수 공간 선택이 필요합니다.
+    
+- **기본 접근 방식**:
+  - Regular 3D grid로 시작하는 것이 가장 단순한 접근 방식입니다.
+    
+- **균일한 구조의 문제점**:
+  - 균일한 구조는 고해상도 세부 재구성에 비실용적입니다.
+  - 해상도에 따라 공간의 차원이 세제곱으로 증가합니다.
+  - surface triangle의 수는 이차적으로 증가합니다.
+
+- **Implicit Function의 정확한 표현**:
+  - Implicit function의 정확한 표현은 재구성된 표면 근처에서만 필요합니다.
+
+- **Adaptive Octree 사용 동기**:
+  - Implicit function을 표현하고 Poisson 시스템을 해결하기 위해 adaptive octree를 사용합니다.
+  - Poisson에서 Octree를 사용하는 이유는 computational cost를 줄이기 위해서입니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c315fa85-9efb-4cd8-a808-dd54781451c0)
 
 
 ## [Poisson Surface Reconstruction User Guide](https://doc.cgal.org/latest/Poisson_surface_reconstruction_3/index.html)
