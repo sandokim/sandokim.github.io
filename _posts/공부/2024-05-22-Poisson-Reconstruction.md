@@ -34,5 +34,6 @@ poisson_depth = 7
 
 
 ### Reference
+- [Poisson Surface Reconstruction User Guide](https://doc.cgal.org/latest/Poisson_surface_reconstruction_3/index.html)
 - [Poisson Surface Reconstruction](https://hhoppe.com/poissonrecon.pdf)
 - [Screened Poisson Surface Reconstruction](https://www.cs.jhu.edu/~misha/MyPapers/ToG13.pdf)
