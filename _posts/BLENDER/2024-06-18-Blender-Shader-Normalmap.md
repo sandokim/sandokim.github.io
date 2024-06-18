@@ -271,3 +271,4 @@ classes: wide
 - [Change Your Understanding of Normals In 8 Minutes](https://www.youtube.com/watch?v=g57mNKE8IYc&t=37s)
 - [Deconstructing a Normal Map (CGC Weekly #18)](https://www.youtube.com/watch?v=oOOeV3IU2Yo)
 - [WTF are... Normal maps?](https://youtu.be/p-hA5KsY_Yg?si=t4nJMEJ03NSKMk-Z)
+- [Normal Maps in Blender - Instant Realism to Materials](https://youtu.be/WJZTI3SSVBU?si=eq0pO6NCqNC51YEA)
