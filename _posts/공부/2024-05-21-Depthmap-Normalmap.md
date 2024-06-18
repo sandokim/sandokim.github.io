@@ -70,4 +70,4 @@ Default normal vector (0.0, 0.0, 1.0) → Default normal map (0.5, 0.5, 1.0) ←
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/65f40c75-7215-4fe8-a7c0-c48a9f971e6d" alt="Image">
 </p>
 
-Normal map에서 normal vector를 그려보면 위처럼 표현할 수 있을 듯함!
+Normal map에서 normal vector를 그려보면 위처럼 표현해볼 수 있습니다.
