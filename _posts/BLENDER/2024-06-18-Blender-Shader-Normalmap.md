@@ -1,4 +1,4 @@
----
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a29a058e-0adf-4ca3-9dfd-ca9d97b25745)---
 title: "[BLENDER] Shader Fundamentals & Normal mapping"
 last_modified_at: 2024-06-18
 categories:
@@ -204,6 +204,47 @@ classes: wide
 - 우리는 3D program이 어떻게 object의 normal을 이해하는지 visualize 해볼 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/40718e4f-8b25-474e-859b-e678d23e78e6)
 - 3D space에서 각 direction은 다른 color를 가집니다.
+- front left는 blue, front light는 red, back left는 yellow, back right는 green, 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d2a9bea4-8da2-45b1-8b5e-5e0a025170a9)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/011c8cf4-eda0-4cca-80f5-c451d7c19f28)
+- face가 pointing up하면 lighter, face가 pointing down하면 darker 해집니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9f4330fa-bb1b-4da3-ad10-69e4a662f9f5)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/58ee7222-8f76-462a-88d2-45749e8933fb)
+
+- **예를 들어, 왼쪽 아래 입의 색깔과, 왼쪽 위의 눈썹부분은 같은 분홍색을 가집니다. 이유는 그 영역의 face normal들이 같은 방향을 가리키고 있기 때문입니다.**
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/56de1b9d-9d1d-49ff-8bcb-735265668196)
+
+
+### 이제 우리는 blender가 어떤 색깔로 다른 방향들을 정의하는지 알았습니다.
+- Blender에 텍스처 맵(예: 노멀 맵)을 가져와서 오브젝트의 normals을 변경하고, 이를 통해 조명과 셰이딩에 영향을 줄 수 있습니다.
+- 아래 object는 다양한 object shapes이 있는 normal map을 가집니다.
+- 각기 다른 색깔들은 특정 direction들에 대응합니다.
+- 예를 들어 각 object의 아래부분은 dark purple입니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/66bf1b5e-a3ee-4d6b-b70c-9624d8e80131)
+
+- Blender가 원래는 단일 평면 노멀만 가진 이 표면의 픽셀들을, 우리가 제공한 노멀을 기반으로 셰이딩하는 것을 볼 수 있습니다
+  - Blender는 기본적으로 평면 표면의 모든 픽셀에 동일한 노멀 벡터를 할당하여 셰이딩을 수행합니다.
+  - 그러나 우리가 노멀 맵을 사용하여 각 픽셀마다 다른 노멀 벡터를 제공하면, Blender는 이러한 새로운 노멀 벡터를 기반으로 셰이딩을 수행하게 됩니다.
+  - 이로 인해 표면의 디테일이 더 현실적으로 보이게 됩니다.
+  - **즉, 원래는 단순한 평면으로 인식되던 표면이 노멀 맵 덕분에 더 복잡하고 정교한 셰이딩을 가지게 되는 것입니다.**
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/418cf3ca-aa16-4579-9d8c-733bab0c59de)
+
+  - 표면이 더 이상 평평하지 않은 것처럼 보일 뿐만 아니라, 이 point lamp(광원)를 표면 위에서 움직이면 정확한 그림자까지 얻을 수 있습니다.
+  - 노멀 맵을 사용하면 표면이 실제로 평평하지 않은 것처럼 보이게 만들 수 있습니다.
+  - 또한, 포인트 램프(점광원)를 움직일 때, 노멀 맵 덕분에 표면의 디테일을 반영한 정확한 그림자가 생성됩니다.
+  - 이는 표면의 미세한 디테일과 질감을 더욱 현실감 있게 표현하는 데 도움이 됩니다.
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8a424a0c-22bd-4b64-8583-9aa5a19fcf49)
+
+  - 이 표면을 거울 표면으로 만들거나 재질 설정을 통해 거울 효과를 적용하면, 실제로는 평평한 평면일지라도 정확한 반사 효과를 얻을 수 있고, 빛과 원숭이 머리가 반사되는 것을 볼 수 있습니다.
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9b531a0a-08d3-4ee3-911a-b4d92f566170)
+
+### 노멀 맵의 멋진 점은 훨씬 더 단순한 기하학 구조에 세밀한 디테일을 추가할 수 있다는 것입니다.
+- **이 기술을 사용하여 매우 낮은 폴리곤 모델을 훨씬 더 디테일하고 고해상도로 조각된 것처럼 보이게 만들 수 있습니다.**
+- 노멀 맵을 사용하면 단순한 기하학적 형태(저폴리곤 모델)에 세밀한 디테일을 추가할 수 있습니다.
+- 이는 복잡한 고해상도 모델을 만들지 않고도 시각적으로 디테일한 표면 효과를 구현할 수 있음을 의미합니다.
+- 이 기술은 low poly 모델을 마치 high-res로 조각된 것처럼 보이게 하여, 그래픽 성능을 유지하면서도 시각적 품질을 높이는 데 사용됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ed10a794-c1fa-4b49-a4be-b451628d5595)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7ca49350-1e7d-4311-965b-56622ed651eb)
 
 
 
