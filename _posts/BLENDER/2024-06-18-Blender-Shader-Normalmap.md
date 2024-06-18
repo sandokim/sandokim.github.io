@@ -12,6 +12,13 @@ tags:
   - normal mapping
   - Shader
   - Shading
+  - tangent vector
+  - bitangent vector
+  - tangent space
+  - world space
+  - object space
+  - surface normal
+  - face normal
 excerpt: "Shader Fundamentals & Normal mapping"
 use_math: true
 classes: wide
@@ -136,7 +143,7 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c428985a-458b-4a2f-8ff6-6dbf7233922d)
 - 이를 벡터들을 계산하는 것은 normals을 계산했던 것만큼 쉽지는 않지만, 3D modeling software나 당신이 선택한 engine은 계산하는 걸 가능하게 합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/033e45a8-eded-4aa0-b473-648f7c6c4e4c)
-- Uniy에서는 tangent vector는 pre-calculated 되어있고, bitangent는 보통 vertex Shader에서 normal과 tangent의 cross product로 calculated됩니다.
+- Unity에서는 tangent vector는 pre-calculated 되어있고, bitangent는 보통 vertex Shader에서 normal과 tangent의 cross product로 calculated됩니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4e60ed4a-e515-4cf2-894a-6257ce4df47d)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c0db9805-e438-41f7-8b2e-8dd244342782)
 - 우리가 이렇게 unpacked normal과 3개의 tangent basis vectors (tangent space를 구성하는 3개의 벡터)를 얻었는데, 그래서 어떻게 사용할 건가요?
