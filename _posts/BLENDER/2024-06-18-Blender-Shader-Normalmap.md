@@ -175,6 +175,38 @@ classes: wide
 - normal map으로부터 informed되는 basic lighting으로 object를 shading하는 simple Shader를 구한 것입니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0c89b701-f27c-466a-8d6b-229dd5708390)
 
+-----
+## A normal is basically the vector or the direction that a face points in 3d space
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0b97870c-ffb9-4ec9-a67f-2736384b6c89)
+- faces는 2개의 다른 normal directions을 가집니다.
+- positive normal은 red / negative normal은 blue로 표현됩니다.
+<div style="text-align: center;">
+    <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/bad0f0e2-d518-445f-8a12-925314997335" alt="image 1" style="display: inline-block; width: 45%; margin-right: 2%;" />
+    <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/47a37029-8175-44cc-9f39-04d8018fe798" alt="image 2" style="display: inline-block; width: 45%;" />
+</div>
+-
+
+### 일반적으로 당신은 positive normals이 camera에 visible하기를 원합니다.
+- 만약 당신의 object가 negative normals을 visible하게 가진다면 shading에서 안좋은 일이 일어납니다. (아래에서 오른쪽 같은 monkey가 됩니다.)
+- 아래 그림은 동일한 material을 가졌지만, 오른쪽 monkey는 flipped normals을 가지고 있어서, blender software가 object의 lighthing과 shading을 계산할 때, 안에서 밖으로 계산하기 때문입니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5577142a-2d56-45a6-9eea-950b191df33a)
+- face의 normal의 direction은 그걸을 둘러싼 verts의 direction에 based하여 계산됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e243b1e3-d89b-4ab3-8550-b717e1e2a42a)
+- blender는 handy(유용한) overlay mode가 있어서 normal의 direction을 보여줄 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6b3f33ac-ac58-4e02-9b9d-59b4ddcc8761)
+- 만약 이 모드에서 우리가 하나의 vert를 grab해서 움직이면, face는 이제 더 이상 flat하지 않습니다.
+- normal direction도 따라서 영향을 받아 움직이는 것을 볼 수 있습니다. (verts의 direction에 따라 face normal도 바뀐다는 의미입니다.)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/636f06e5-0426-4668-bd82-5286491b866e)
+
+### normal map은 기본적으로 우리가 face위의 있는 pixel의 normal의 directions을 바꿈으로써 object를 shading하는 것을 manipulate할 수 있도록 해줍니다.
+
+- 우리는 3D program이 어떻게 object의 normal을 이해하는지 visualize 해볼 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/40718e4f-8b25-474e-859b-e678d23e78e6)
+- 3D space에서 각 direction은 다른 color를 가집니다.
+
+
+
 
 
 ### Reference
