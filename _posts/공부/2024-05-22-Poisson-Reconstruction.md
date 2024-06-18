@@ -140,10 +140,10 @@ Figure 63.8 Left: 50K points sampled on the Neptune trident. The reconstruction 
 The reconstruction is devised to solve for an implicit function which is an approximate indicator function of an inferred solid. For this reason the contouring algorithm always extracts a closed surface mesh and hence is able to fill the small holes where data are missing due, e.g., to occlusions during acquisition (see Figure 63.9).
 
 #### 6.6 한국어 해석
-Poisson reconstruction은 추론된 solid의 근사 indicator function인 implicit function을 풀기 위해 고안되었습니다. 이러한 이유로, contouring 알고리즘은 항상 closed surface mesh를 추출하여, 예를 들어 데이터 취득 중 occlusions로 인해 발생한 작은 구멍을 메울 수 있습니다 (그림 63.9 참조).
+**Poisson reconstruction은 추론된 solid의 근사 indicator function인 implicit function을 풀기 위해 고안되었습니다. 이러한 이유로, contouring 알고리즘은 항상 closed surface mesh를 추출**하여, 예를 들어 데이터 취득 중 **occlusions로 인해 발생한 작은 구멍을 메울 수 있습니다** (그림 63.9 참조).
 
-- Implicit function 계산: Poisson reconstruction은 추론된 solid의 근사 indicator function인 implicit function을 계산합니다. 이는 재구성된 표면이 고체의 구조를 잘 반영하도록 합니다.
-- Closed surface mesh 추출: Contouring 알고리즘은 항상 closed surface mesh를 추출합니다. Closed surface mesh란 모든 구멍이 메워진 완전한 표면을 의미합니다.
+- **Implicit function 계산: Poisson reconstruction은 추론된 solid의 근사 indicator function인 implicit function을 계산합니다. 이는 재구성된 표면이 고체의 구조를 잘 반영하도록 합니다.**
+- **Closed surface mesh 추출: Contouring 알고리즘은 항상 closed surface mesh를 추출합니다. Closed surface mesh란 모든 구멍이 메워진 완전한 표면을 의미합니다.**
 - 작은 구멍 메우기: Closed surface mesh를 생성함으로써, 데이터 취득 중 발생한 작은 구멍을 메울 수 있습니다. 예를 들어, 데이터 취득 시 occlusions로 인해 데이터가 누락된 부분을 채울 수 있습니다.
 - 결론적으로, Poisson reconstruction 알고리즘은 데이터 취득 과정에서 발생할 수 있는 결함을 보완하여 보다 완전하고 신뢰할 수 있는 표면 재구성을 제공합니다.
 
