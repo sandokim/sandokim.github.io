@@ -104,8 +104,26 @@ classes: wide
       <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f9731fdd-33a1-40c7-b2e2-4e5e8c6ac4a6" alt="image 2" style="display: inline-block; width: 45%;" />
   </div>
 
+### normals를 object space에 남겨져있고, lighting direction은 world space에 정의되어 있습니다. 따라서 object를 rotate해도 lighting이 incorrectly하게 계산됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fdbffffd-24f1-4d23-843c-766d77baf0eb)
+- 이는 vertex Shader에서 object space normals을 world space로 transform하여 해결할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/cca27849-af2e-461e-8df7-3b08ce2aea99)
+- 해결된 결과
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a73e9014-2473-41b7-8dcb-4ca77109c692)
 
 
+### 이제 우리가 흔히 접하는 2D normal map이 정확히 뭔지 이해해봅시다.
+
+***3D object의 surface normals이 texture로 captured된 것이 normal map입니다.***
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2fa0ac46-0a8e-466d-ac2c-2d84ddca5e46)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/91724012-747b-4108-937f-cf11e03bb7d9)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b341aff0-4303-49be-b630-4ab50072283d)
+
+
+### normals는 object space가 아니라 tangent space에 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1489bf4f-eeda-4311-b344-cdd8a6960b32)
+- 따라서, world space의 lighting direction을 사용하려면, normals을 world space로 transform해야합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0977f8fe-0a3d-4b74-8cbe-4152fea839c9)
 
 
 
