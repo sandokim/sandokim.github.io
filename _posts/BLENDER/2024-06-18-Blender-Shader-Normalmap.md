@@ -270,3 +270,4 @@ classes: wide
 - [Shader Fundamentals - Normal Mapping](https://www.youtube.com/watch?v=6_-NNKc4lrk)
 - [Change Your Understanding of Normals In 8 Minutes](https://www.youtube.com/watch?v=g57mNKE8IYc&t=37s)
 - [Deconstructing a Normal Map (CGC Weekly #18)](https://www.youtube.com/watch?v=oOOeV3IU2Yo)
+- [WTF are... Normal maps?](https://youtu.be/p-hA5KsY_Yg?si=t4nJMEJ03NSKMk-Z)
