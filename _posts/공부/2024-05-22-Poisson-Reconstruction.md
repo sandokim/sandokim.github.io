@@ -93,7 +93,7 @@ Figure 63.3 Poisson reconstruction. Left: 120K points sampled on a statue (Minol
 
 Figure 63.4 Left: 120K points sampled on a statue (Minolta laser scanner). Right: reconstructed surface mesh.
 
-The algorithm is fairly robust to anisotropic sampling and to noise. It is also robust to missing data through filling the corresponding holes as the algorithm is designed to reconstruct the indicator function of an inferred solid (see Figure 63.5).
+The algorithm is fairly robust to anisotropic sampling and to noise. **It is also robust to missing data through filling the corresponding holes as the algorithm is designed to reconstruct the indicator function of an inferred solid** (see Figure 63.5).
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/737df213-db98-40fc-b81f-5eccc5bc1086)
 
@@ -110,10 +110,17 @@ The algorithm works well even when the inferred surface is composed of several c
 #### 6.3 Contouring Parameters
 Our implementation of the Poisson surface reconstruction algorithm computes an implicit function represented as a piecewise linear function over the tetrahedra of a 3D Delaunay triangulation constructed from the input points then refined through Delaunay refinement. For this reason, any iso-surface is also piecewise linear and hence may contain sharp creases. As the contouring algorithm make_surface_mesh() expects a smooth implicit function these sharp creases may create spurious clusters of vertices in the final reconstructed surface mesh when setting a small mesh sizing or surface approximation error parameter (see Figure 63.7).
 
-One way to avoid these spurious clusters consists of adjusting the mesh sizing and surface approximation parameters large enough compared to the average sampling density (obtained through compute_average_spacing()) so that the contouring algorithm perceives a smooth iso-surface. We recommend to use the following contouring parameters:
+**One way to avoid these spurious clusters consists of adjusting the mesh sizing and surface approximation parameters large enough compared to the average sampling density** (obtained through compute_average_spacing()) **so that the contouring algorithm perceives a smooth iso-surface.** We recommend to use the following contouring parameters:
 
 - Max triangle radius: at least 100 times the average spacing.
 - Approximation distance: at least 0.25 times the average spacing.
+
+#### 6.3 한국어 해석
+Poisson 표면 재구성 알고리즘을 사용할 때는 표면의 부드러움을 유지하고 메쉬의 품질을 보장하기 위해 파라미터 설정에 주의해야 합니다.
+
+- Implicit Function의 특성: Poisson 표면 재구성 알고리즘은 3D Delaunay triangulation의 tetrahedra 위에 piecewise linear function으로 표현된 implicit function을 계산합니다. 이러한 특성 때문에 모든 iso-surface는 piecewise linear이며, 따라서 날카로운 주름을 포함할 수 있습니다. 이로 인해 표면이 매끄럽지 않게 보일 수 있습니다.
+- Contouring 알고리즘의 기대: Contouring 알고리즘인 make_surface_mesh()는 부드러운 implicit function을 기대합니다. 그러나 입력된 iso-surface가 날카로운 주름을 포함하고 있을 경우, contouring 알고리즘은 이를 제대로 처리하지 못해 최종 재구성된 표면 메쉬에 spurious한 클러스터가 생성될 수 있습니다. 이는 특히 작은 mesh 크기 또는 표면 근사 오류 파라미터를 사용할 때 발생할 가능성이 높습니다.
+- 파라미터 설정의 중요성: 이러한 문제를 피하기 위해서는 파라미터 설정에 주의해야 합니다. 파라미터를 적절히 설정하면 contouring 알고리즘이 부드러운 iso-surface를 인식할 수 있게 되어, 결과적으로 부드러운 표면과 높은 품질의 mesh를 얻을 수 있습니다. 예를 들어, Max triangle radius와 Approximation distance를 평균 샘플링 밀도에 비해 충분히 크게 설정함으로써, contouring 알고리즘이 부드러운 iso-surface를 인식할 수 있습니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0a856723-1c2c-4154-bede-91e90aaed839)
 
