@@ -57,6 +57,8 @@ poisson_depth = 7
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/45a463ba-40c7-4db9-8d63-03e635e807dd)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a58c7bdf-b406-4e4f-8ffb-9f0145b075f9)
 
+...
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0ed42b76-ac9f-4e79-8bfe-8b7378f3a779)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e90babb4-8f57-4d6f-8583-965631927ad8)
 
@@ -127,6 +129,11 @@ Poisson reconstruction에서는 implicit function을 사용하여 표면을 재�
 따라서, **Poisson reconstruction에서 isosurface extraction과 level set 방법은 동일한 원리를 공유합니다.** **두 방법 모두 implicit function을 사용하여 표면을 정의하고, 이를 통해 재구성된 표면을 얻는 과정입니다.**
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4e8f534b-dc76-47f8-a19c-2149beefa2d4)
+
+...
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3071774f-d92f-48b5-bb0e-3c8d7c2efa41)
+
 
 
 ## [Poisson Surface Reconstruction User Guide](https://doc.cgal.org/latest/Poisson_surface_reconstruction_3/index.html)
