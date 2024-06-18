@@ -73,7 +73,39 @@ classes: wide
 - 가장 흔하게 normals이 쓰이는 경우는 lighting 입니다.
 - 어떻게 우리가 normals로 objects를 비추는지 알기 위해 우리는 dot product을 알아야 합니다.
 - dot product는 간단하게 설명하면, 2개의 vectors가 서로 얼마나 닮았는지를 계산합니다.
-- 
+<div style="text-align: center;">
+    <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/53c095b3-6eab-4f9f-aec1-5b17af833c65" alt="left image" style="display: inline-block; width: 30%; margin-right: 1%;" />
+    <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/e3b73e07-c212-4dbd-ae0b-94827b3a9885" alt="middle image" style="display: inline-block; width: 30%; margin-right: 1%;" />
+    <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/b1fbfc41-6368-4835-bcb3-aba2ec5deaea" alt="right image" style="display: inline-block; width: 30%;" />
+</div>
+
+#### incoming light와 surface normal이 주어졌을 때, 우리는 normal과 lighting direction이 얼마나 닮았는지를 질문해볼 수 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2f9667df-f32c-45b5-ad25-d06b9e4a3844)
+- directional light source를 flip하여 생각봐야 합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f1e3576c-a9c2-4b60-b4b6-d815fca1abdf)
+- 즉, light가 shines하는 direction이 아니라
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/31b2057a-6d91-4892-9b27-a3b60f06749a)
+- light source를 향하는 direction을 생각해야 합니다. (every sinlge point in the world에서)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d76be6ec-8069-4a9e-9eed-33021d4b7ca1)
+
+### 우리는 dot product를 사용하여 surface normal (N)과 lighting direction (L)이 얼마나 닮았는지 계산해야 합니다.
+- 만약 normal과 lighting direction이 같은 방향을 가리키고 있다면, point는 fully illuminated 됩니다.
+  <div style="text-align: center;">
+      <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/5a9960fc-f9ce-4450-a64a-1da3a1eea783" alt="centered image" style="display: inline-block; width: 45%;" />
+  </div>
+- 만약 normal과 lighting direction이 서로 orthogonal 하다면, point는 fully unlit 됩니다.
+  <div style="text-align: center;">
+      <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/65a05a1c-72bd-4e65-9335-57c82b757c92" alt="centered image" style="display: inline-block; width: 45%;" />
+  </div>
+- 일반적으로 negative light를 model하는 건 useful하지 않기 때문에, negative range는 무시되어 0으로 saturate 시킵니다.
+  <div style="text-align: center;">
+      <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/9dc911cd-b2cc-4071-b67d-801b9c02b8ba" alt="image 1" style="display: inline-block; width: 45%; margin-right: 2%;" />
+      <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f9731fdd-33a1-40c7-b2e2-4e5e8c6ac4a6" alt="image 2" style="display: inline-block; width: 45%;" />
+  </div>
+
+
+
 
 
 
