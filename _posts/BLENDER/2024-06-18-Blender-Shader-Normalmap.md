@@ -266,6 +266,24 @@ classes: wide
 ### Normal map의 활용
 - low poly (triangles가 적은 모델)에 대해 high details을 주고 싶을 때, normal map을 활용합니다. (memory efficient)
 
+------
+
+## PBR : Physical Base Rendering
+
+Blender에서 PBR(Physically Based Rendering)은 물리적으로 기반한 렌더링을 의미합니다. 이는 실제 세계의 물리 법칙을 시뮬레이션하여 더 현실적이고 일관된 결과를 얻기 위한 렌더링 방법입니다. PBR은 물체의 재질과 빛의 상호작용을 사실적으로 표현하기 위해 복잡한 알고리즘과 셰이더를 사용합니다.
+
+### PBR 텍스처
+
+PBR 텍스처는 PBR 렌더링에 사용되는 텍스처를 말합니다. 일반적으로 다음과 같은 다양한 맵으로 구성됩니다:
+
+- **Diffuse/Albedo Map**: 물체의 기본 색상을 정의하는 맵입니다.
+- **Normal Map**: 표면의 세부적인 높낮이를 정의하여 빛이 어떻게 반사되는지를 결정합니다.
+- **Roughness Map**: 표면의 거칠기를 정의하여 빛의 확산을 조절합니다.
+- **Metallic Map**: 물체의 금속성을 정의합니다. 금속성에 따라 빛의 반사가 달라집니다.
+- **Ambient Occlusion (AO) Map**: 빛이 도달하기 어려운 영역을 어둡게 표현하여 깊이감을 줍니다.
+- **Bump Map**: 흑백 이미지로, 밝기 값에 따라 표면의 높낮이를 표현합니다. 흰색은 높은 부분을, 검은색은 낮은 부분을 나타냅니다.
+
+
 ### Reference
 - [Shader Fundamentals - Normal Mapping](https://www.youtube.com/watch?v=6_-NNKc4lrk)
 - [Change Your Understanding of Normals In 8 Minutes](https://www.youtube.com/watch?v=g57mNKE8IYc&t=37s)
