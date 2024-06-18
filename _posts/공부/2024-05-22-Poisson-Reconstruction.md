@@ -33,7 +33,36 @@ Poisson 재구성은 포인트 클라우드(point cloud) 데이터로부터 매�
 poisson_depth = 7
 ```
 
-## Poisson Reconstruction 원리
+## [Poisson Surface Reconstruction](https://hhoppe.com/poissonrecon.pdf)
+많은 이전 연구들처럼, Poisson Surface Reconstruction은 표면 재구성 문제에 대해 implicit function 프레임워크를 사용하여 접근합니다. 구체적으로, [Kaz05]와 같이, 우리는 3D indicator function χ를 계산합니다 (모델 내부의 점에서는 1로 정의되고, 외부의 점에서는 0으로 정의됩니다). 그런 다음 적절한 isosurface를 추출하여 재구성된 표면을 얻습니다. 우리의 주요 통찰력은 모델 표면에서 샘플링된 oriented points와 모델의 indicator function 사이에 적분적 관계가 있다는 것입니다. 구체적으로, indicator function의 gradient는 거의 모든 곳에서 0인 벡터 필드입니다(이는 indicator function이 거의 모든 곳에서 상수이기 때문입니다). 그러나 표면 근처의 점에서는 gradient가 내부 표면 normal과 같습니다. 따라서 oriented point 샘플은 모델의 indicator function gradient의 샘플로 볼 수 있습니다(그림 1 참조).
+
+- **Poisson Surface Reconstruction**: 많은 이전 연구들처럼, Poisson Surface Reconstruction은 표면 재구성 문제에 대해 implicit function 프레임워크를 사용하여 접근합니다.
+- **3D Indicator Function χ**:
+  - 모델 내부의 점에서는 1로 정의되고, 외부의 점에서는 0으로 정의되는 3D indicator function χ를 계산합니다.
+- **Isosurface 추출**:
+  - 계산된 indicator function을 사용하여 적절한 isosurface를 추출함으로써 재구성된 표면을 얻습니다.
+- **주요 통찰력**:
+  - 모델 표면에서 샘플링된 oriented points와 모델의 indicator function 사이에는 적분적 관계가 있습니다.
+- **Gradient의 특성**:
+  - Indicator function의 gradient는 거의 모든 곳에서 0인 벡터 필드입니다.
+  - 이는 indicator function이 모델 내부에서는 1, 외부에서는 0으로 상수이기 때문에, 그 경계에서는 변화가 없어서 gradient가 0이 됩니다.
+  - 표면 근처의 점에서는 indicator function이 0에서 1로 급격히 변합니다. 이 변화는 표면 normal 방향으로 일어나므로, 이 지점에서의 gradient는 내부 표면 normal과 같습니다.
+- **표면 근처의 점에서는**:
+  - 표면 근처의 점에서 indicator function의 gradient가 non-zero입니다. 이는 표면에서의 변화(경계 조건) 때문입니다. 이 변화는 표면 normal 방향으로 일어나므로, 이 지점에서의 gradient는 표면 normal의 방향과 크기를 반영합니다.
+- **Oriented Point 샘플**:
+  - Oriented point 샘플은 모델의 표면에서 가져온 점들과 그 점들에 수직인 normal들을 포함합니다.
+  - 이 샘플들은 모델의 indicator function gradient의 샘플로 볼 수 있습니다. 이는 표면 근처의 gradient가 표면 normal과 일치하기 때문입니다.
+  - 따라서, oriented points는 표면의 기하학적 특성을 잘 반영하며, 이를 통해 표면을 재구성할 수 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/45a463ba-40c7-4db9-8d63-03e635e807dd)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a58c7bdf-b406-4e4f-8ffb-9f0145b075f9)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0ed42b76-ac9f-4e79-8bfe-8b7378f3a779)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e90babb4-8f57-4d6f-8583-965631927ad8)
+
+
+
+## [Poisson Surface Reconstruction User Guide](https://doc.cgal.org/latest/Poisson_surface_reconstruction_3/index.html)
 
 ### 3 Poisson
 ***Poisson Surface Reconstruction 방법은 3D 점과 그에 대한 노말 정보를 활용하여 추론된 고체의 표면을 정확하게 재구성하는 알고리즘입니다. 이 알고리즘은 주어진 노말 벡터와 잘 맞는 gradient를 가진 indicator function을 계산함으로써 표면의 형태를 추정합니다.***
