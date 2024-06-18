@@ -182,10 +182,16 @@ Figure 63.12 Top-left: points sampled on a sphere and corrupted with a lot of no
 #### 6.9 Sharp Creases
 The current reconstruction algorithm is not able to recover the sharp creases and corners present in the inferred surface. This translates into smoothed sharp creases.
 
+#### 6.9 한국어 해석
+현재의 Poisson Reconsrcution 알고리즘은 추론된 표면에 존재하는 sharp creases(주름)와 corners(모서리)를 복원할 수 없습니다. 이는 결과적으로 매끄럽게 처리된 sharp creases(주름)로 나타납니다.
+
+- Sharp creases(주름)와 corners(모서리)의 복원 불가능: 현재 사용 중인 재구성 알고리즘은 추론된 표면에 존재하는 sharp creases(주름)와 corners(모서리)를 정확하게 복원할 수 없습니다. 이는 알고리즘이 날카로운 모서리나 주름을 인식하고 이를 그대로 유지하는 데 어려움을 겪는다는 것을 의미합니다.
+- 매끄럽게 처리된 sharp creases(주름): 이러한 한계로 인해, sharp creases(주름)는 매끄럽게 처리되어 날카로운 모양이 사라지고 둥근 형태로 변형됩니다. 이는 복원된 표면이 원래의 날카로운 특징을 잃게 만드는 결과를 초래합니다.
+- 결론적으로, **현재의 Poisson reconstruction 알고리즘은 날카로운 주름과 모서리를 정확히 복원하지 못해, 결과 표면이 부드럽게 처리**되는 한계가 있습니다.
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3f22a2b3-d0df-4ec2-b07e-3ea4038f1479)
 
 Figure 63.13 Left: 5K points sampled on a mechanical piece with sharp features (creases, darts and corners). Right: reconstructed surface mesh with smoothed creases.
-
 
 
 ### Reference
