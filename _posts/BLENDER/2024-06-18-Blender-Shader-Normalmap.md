@@ -1,4 +1,4 @@
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a29a058e-0adf-4ca3-9dfd-ca9d97b25745)---
+---
 title: "[BLENDER] Shader Fundamentals & Normal mapping"
 last_modified_at: 2024-06-18
 categories:
