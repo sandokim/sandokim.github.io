@@ -158,7 +158,15 @@ In case of large holes the algorithm still closes them all but the resulting pie
 Figure 63.10 Left: The wrist. Middle: one pass. Right: two passes.
 
 #### 6.7 Wrongly Oriented Normals
-The Poisson surface reconstruction approaches solves for an implicit function whose gradient best matches a set of input normals. Because it solves this problem in the least squares sense, it is robust to few isolated wrongly oriented (flipped) normals. Nevertheless a cluster of wrongly oriented normals leads to an incorrect implicit function and hence to spurious geometric or even topological distortion (see Figure 63.11).
+**The Poisson surface reconstruction approaches solves for an implicit function whose gradient best matches a set of input normals.** Because it solves this problem in the least squares sense, it is robust to few isolated wrongly oriented (flipped) normals. Nevertheless a cluster of wrongly oriented normals leads to an incorrect implicit function and hence to spurious geometric or even topological distortion (see Figure 63.11).
+
+#### 6.7 한국어 해석
+Poisson surface reconstruction 방법은 입력된 normal 세트와 가장 잘 맞는 gradient를 가지는 implicit function을 풉니다. 이 문제를 최소 제곱 방식으로 풀기 때문에, 일부 고립된 잘못된 방향(뒤집힌) normals에 대해서는 견고합니다. 그러나 잘못된 방향의 normals가 클러스터로 존재할 경우, 잘못된 implicit function이 생성되어 기하학적 왜곡이나 심지어 위상적 왜곡이 발생할 수 있습니다 (그림 63.11 참조).
+
+- **Implicit function 계산: Poisson surface reconstruction 방법은 a set of input normals과 가장 잘 일치하는 gradient를 가지는 implicit function을 계산합니다. 이는 표면의 모양을 잘 반영하도록 합니다.**
+- 최소 제곱 방식의 장점: 이 알고리즘은 최소 제곱 방식을 사용하기 때문에, 일부 고립된 잘못된 방향의 normals에 대해서는 견고합니다. 즉, 몇 개의 잘못된 normals가 있어도 전체 결과에 큰 영향을 미치지 않습니다.
+- **클러스터로 존재하는 잘못된 방향의 normals의 문제점: 그러나 잘못된 방향의 normals가 클러스터로 존재하면 문제가 발생합니다. 이러한 클러스터는 잘못된 implicit function을 생성하게 되어, 결과적으로 기하학적 왜곡이나 위상적 왜곡을 초래할 수 있습니다.** 이는 재구성된 표면이 실제 표면과 크게 다를 수 있음을 의미합니다.
+- 결론적으로, **Poisson surface reconstruction 알고리즘은 일부 고립된 잘못된 normals에 대해 견고하지만, 클러스터 형태의 잘못된 normals에 대해서는 취약합니다.**
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b0308cc6-d191-4ced-8bbd-915dbeec4502)
 
