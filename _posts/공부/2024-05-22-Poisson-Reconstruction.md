@@ -59,11 +59,11 @@ Figure 63.2 Common surface reconstruction pipeline.
 ### 3 Poisson
 Given a set of 3D points with oriented normals (denoted oriented points in the sequel) sampled on the boundary of a 3D solid, the Poisson Surface Reconstruction method [2] solves for an approximate indicator function of the inferred solid, whose gradient best matches the input normals. The output scalar function, represented in an adaptive octree, is then iso-contoured using an adaptive marching cubes.
 
-CGAL implements a variant of this algorithm which solves for a piecewise linear function on a 3D Delaunay triangulation instead of an adaptive octree. The algorithm takes as input a set of 3D oriented points. It builds a 3D Delaunay triangulation from these points and refines it by Delaunay refinement so as to remove all badly shaped (non-isotropic) tetrahedra and to tessellate a loose bounding box of the input oriented points. The normal of each Steiner point added during refinement is set to zero. It then solves for a scalar indicator function \( f \) represented as a piecewise linear function over the refined triangulation. More specifically, it solves for the Poisson equation
+CGAL implements a variant of this algorithm which solves for a piecewise linear function on a 3D Delaunay triangulation instead of an adaptive octree. The algorithm takes as input a set of 3D oriented points. It builds a 3D Delaunay triangulation from these points and refines it by Delaunay refinement so as to remove all badly shaped (non-isotropic) tetrahedra and to tessellate a loose bounding box of the input oriented points. The normal of each Steiner point added during refinement is set to zero. It then solves for a scalar indicator function $f$ represented as a piecewise linear function over the refined triangulation. More specifically, it solves for the Poisson equation
 
-\[ \Delta f = \text{div}(n) \]
+$$ \Delta f = \text{div}(n) $$
 
-at each vertex of the triangulation using a sparse linear solver. Eventually, the CGAL surface mesh generator extracts an isosurface with function value set by default to be the median value of \( f \) at all input points.
+at each vertex of the triangulation using a sparse linear solver. Eventually, the CGAL surface mesh generator extracts an isosurface with function value set by default to be the median value of $f$ at all input points.
 
 ### 4 Reconstruction Function
 A global function poisson_surface_reconstruction_delaunay() is provided. It takes points with normals as input and handles the whole reconstruction pipeline :
