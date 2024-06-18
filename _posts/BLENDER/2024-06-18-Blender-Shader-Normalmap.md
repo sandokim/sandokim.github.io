@@ -66,7 +66,14 @@ classes: wide
   - 오른쪽은 visually smoothing한데, 그 이유는 각 vertex에 있던 normal들은 neighboring triangles에 의해 average되고 각 triangle의 surface를 across하여 interpolated되었기 때문입니다.
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9d464a7f-b1fe-49e9-a453-73b6bd5e25d1)
 
+### 이제 normals이 triangle의 vertex로부터 만들어지고, 나머지가 normals은 인접한 triangle들의 average와 interpolation을 통해 smoothing되어 만들어진다는 것까지 이해했습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/21e7a222-4091-4f99-8af9-abb08758772a)
 
+### 그럼 이 normals이 어떻게 쓰이는지 알아봅시다.
+- 가장 흔하게 normals이 쓰이는 경우는 lighting 입니다.
+- 어떻게 우리가 normals로 objects를 비추는지 알기 위해 우리는 dot product을 알아야 합니다.
+- dot product는 간단하게 설명하면, 2개의 vectors가 서로 얼마나 닮았는지를 계산합니다.
+- 
 
 
 
