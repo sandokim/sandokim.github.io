@@ -1,5 +1,5 @@
 ---
-title: "[BLENDER] Shader Fundamentals & Normal mapping"
+title: "[BLENDER] Shader Fundamentals & Normal mapping & PBR (Physically Based Rendering) texture"
 last_modified_at: 2024-06-18
 categories:
   - BLENDER
@@ -19,7 +19,8 @@ tags:
   - object space
   - surface normal
   - face normal
-excerpt: "Shader Fundamentals & Normal mapping"
+  - pbr (physically based rendering)
+excerpt: "Shader Fundamentals & Normal mapping & PBR (Physically Based Rendering) texture"
 use_math: true
 classes: wide
 ---
