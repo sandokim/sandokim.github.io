@@ -246,9 +246,18 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ed10a794-c1fa-4b49-a4be-b451628d5595)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7ca49350-1e7d-4311-965b-56622ed651eb)
 
+-------
+## Normal map 정리
+### Normal map (RGB pixels) --> Surface Normal vectors --> dot product with lighting direction
+- 간단히 말하면 각 normal map의 pixel에 대응하는 shading normal들이 존재하고, 
+- object의 geometry는 바꾸지 않으면서,
+- normal map의 pixel 값을 바꿈으로써 이로부터 RGB to vector로 mapping되어 shading normal을 바꿔서
+- shading normal과 lighting direction을 dot product로 계산한 값으로
+- 빛이 object에 shading되어 color, shadow, reflection되는 값들을 조절해줄 수 있는 것입니다.
+- Object의 geometry는 변화시키지 않으면서 shading되는 값만 바꾸므로 normal map으로 illusion을 준다고 표현하기도 합니다.
 
-
-
+### Normal map의 활용
+- low poly (triangles가 적은 모델)에 대해 high details을 주고 싶을 때, normal map을 활용합니다. (memory efficient)
 
 ### Reference
 - [Shader Fundamentals - Normal Mapping](https://www.youtube.com/watch?v=6_-NNKc4lrk)
