@@ -134,6 +134,26 @@ Poisson reconstruction에서는 implicit function을 사용하여 표면을 재�
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3071774f-d92f-48b5-bb0e-3c8d7c2efa41)
 
+### 5.1. Resolution
+최대 octree 깊이가 재구성된 표면에 미치는 영향을 고려해봅시다.
+
+- **Resolution**:
+  - 최대 octree 깊이가 재구성된 표면에 미치는 영향을 고려합니다.
+  - Octree 깊이 6, 8, 10에서 "dragon" 모델의 재구성 결과를 보여줍니다.
+  - 정규 그리드에서 이는 각각 64³, 256³, 1024³ 해상도에 해당합니다.
+
+- **트리 깊이 증가의 효과**:
+  - ***트리 깊이가 증가함에 따라 더 높은 해상도의 함수가 indicator function을 맞추는 데 사용됩니다.***
+  - 그 결과, 재구성된 표면이 더 세밀한 디테일을 포착합니다.
+
+- **세밀한 디테일 포착 예시**:
+  - 가장 낮은 해상도에서는 포착하기 어려운 용의 비늘이 트리 깊이가 증가함에 따라 나타나기 시작합니다.
+  - 더 높은 해상도에서는 용의 비늘이 더 선명하게 표현됩니다.
+
+***즉, octree의 깊이를 증가시키면 더 높은 해상도의 함수를 사용하여 indicator function을 맞출 수 있게 되어, 재구성된 표면이 더 세밀한 디테일을 포착할 수 있습니다.***
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/88b306fc-5209-4cc4-a8b8-899a87fc3b96)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/57589834-6eb6-43c2-bc2b-40ad93c8e701)
 
 
 ## [Poisson Surface Reconstruction User Guide](https://doc.cgal.org/latest/Poisson_surface_reconstruction_3/index.html)
