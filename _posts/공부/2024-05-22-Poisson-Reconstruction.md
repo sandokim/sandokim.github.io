@@ -6,7 +6,6 @@ categories:
 tags:
   - Poisson Reconstruction
   - Octree
-  - 옥트리
   - poisson depth
 excerpt: "Poisson Reconstruction 정리"
 use_math: true
@@ -31,3 +30,9 @@ Poisson 재구성은 포인트 클라우드(point cloud) 데이터로부터 매�
 ```python
 poisson_depth = 7
 ```
+
+
+
+### Reference
+- [Poisson Surface Reconstruction](https://hhoppe.com/poissonrecon.pdf)
+- [Screened Poisson Surface Reconstruction](https://www.cs.jhu.edu/~misha/MyPapers/ToG13.pdf)
