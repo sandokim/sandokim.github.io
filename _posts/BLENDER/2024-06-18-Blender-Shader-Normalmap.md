@@ -123,7 +123,57 @@ classes: wide
 ### normals는 object space가 아니라 tangent space에 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1489bf4f-eeda-4311-b344-cdd8a6960b32)
 - 따라서, world space의 lighting direction을 사용하려면, normals을 world space로 transform해야합니다.
+- 이를 위해서는 normal과 다른 2개의 벡터인 Tangent와 Bitangent가 필요합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0977f8fe-0a3d-4b74-8cbe-4152fea839c9)
+- 이 3개의 벡터들을 set으로 사용하여 tangent space coordinates에서 world space로 transform할 수 있습니다.
+- 이 3개의 벡터들은 서로 orthogonal 합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b48d4687-9387-4b9a-9204-cc4171ec7208)
+- 하지만 이런 벡터들의 조합은 무한정으로 많이 존재합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ceb74117-2add-4a53-93ca-13da3f522065)
+- 그리고 이들을 surface위에 interpolate를 smoothly하여 normals이 했던 것처럼 하려면 이들이 consistent하게 해줄 필요가 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e1016cbe-e079-4f0a-87fe-cbc409cff20d)
+- 이를 위해 우리는 texture coordinates의 direction을 사용하여 Tangent와 Bitangent의 direction을 알려줘봅시다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c428985a-458b-4a2f-8ff6-6dbf7233922d)
+- 이를 벡터들을 계산하는 것은 normals을 계산했던 것만큼 쉽지는 않지만, 3D modeling software나 당신이 선택한 engine은 계산하는 걸 가능하게 합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/033e45a8-eded-4aa0-b473-648f7c6c4e4c)
+- Uniy에서는 tangent vector는 pre-calculated 되어있고, bitangent는 보통 vertex Shader에서 normal과 tangent의 cross product로 calculated됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4e60ed4a-e515-4cf2-894a-6257ce4df47d)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c0db9805-e438-41f7-8b2e-8dd244342782)
+- 우리가 이렇게 unpacked normal과 3개의 tangent basis vectors (tangent space를 구성하는 3개의 벡터)를 얻었는데, 그래서 어떻게 사용할 건가요?
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f8fe0ff3-8f6a-4914-92e4-2ae4892c4c40)
+
+### 가장 기본적인 케이스인 normal map을 살펴봅시다.
+
+#### normal map
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4cb3f838-2223-432d-83de-9cafef3c8592)
+- red와 green values는 0.5이고, blue value는 1.0입니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/06d4b681-5ec1-4a14-95b1-1d5c3f93632b)
+- 이를 unpack할 시에 우리는 (0, 0, 1) vector를 얻게 됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6836b591-9f96-4f85-80cc-568dcaf7eeab)
+- 우리는 이 value가 unperturbed surface normal로 return되기를 기대합니다.
+- 따라서 당신은 unpacked normal의 z component를 surface normal에 곱하는 걸 생각해볼 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a4f51e40-8d4f-4dd0-b76a-0fbfe30f03c7)
+- 이 경우, normal map의 blue channel은 얼만큼의 surface normal을 사용하고 싶은지를 encoding하고 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3dfe06ce-920b-4bb9-9984-113c73b08e73)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6ca0c0ef-dff3-434c-b4f2-fa37339a7586)
+- 비슷한 방식으로 red는 얼만큼의 tangent를 사용하는지, green은 얼만큼의 bitangent를 사용하는지를 encoding합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/da2ff780-1682-486f-b61d-f1b7cebdb78d)
+- 그러므로 unpacked normal과 3개의 bases vectors (Tangent, Bitangent, Normal)이 주어졌을 때, 우리는 a world space normal을 각 vector를 그에 associateded된 color를 normal map으로부터 가져와 곱함으로써 얻을 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dda5c3eb-a6da-4f15-91c2-b5ed56078d08)
+
+### 만약 우리가 normal value를 lighting calculations에 사용하고, Unity에서 보면 x-axis가 flipped된 것처럼 보입니다.
+- 우리가 normal map을 capture할때, z facing toward us, y facing up으로 했기 때문에, Unity에서는 X direction이 left를 가리키게 됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/25253c9f-7753-4610-b0c5-6309cbe201ac)
+- 반면에 tangent values는 UV coordinates에 based로 encoded되어서 X direction이 right을 가리키게 됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9653ac73-d0f3-487a-85f0-c21d8e7b104c)
+- 이를 해결하기 위해서는 normal texture에서 red channel을 invert합니다.
+- Unity에서는 green light가 top, red light가 right hand side에 오도록 합니다.
+- 아래 normal map을 참고하여, 당신이 구한 normal map의 direction이 맞는지 체크할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7ca0a348-8aa8-4050-a740-9d5fc578a0e2)
+
+### 우리는 이제 textrue를 받아 object를 shade하는 simpe Shader를 구했습니다. 
+- normal map으로부터 informed되는 basic lighting으로 object를 shading하는 simple Shader를 구한 것입니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0c89b701-f27c-466a-8d6b-229dd5708390)
 
 
 
