@@ -83,7 +83,7 @@ The surface reconstruction problem being inherently ill-posed, the proposed algo
 **The user must keep in mind that the Poisson surface reconstruction algorithm comprises two phases (computing the implicit function from the input point set and contouring an iso-surface of this function). Both require some care in terms of sampling conditions and parameter tuning.**
 
 #### 6.2 Point Set
-Ideally the current implementation of the Poisson surface reconstruction method expects a dense 3D oriented point set (typically matching the epsilon-sampling condition [1]) and sampled over a closed, smooth surface. Oriented herein means that all 3D points must come with consistently oriented normals to the inferred surface. Figure 63.3 and Figure 63.4 illustrate cases where these ideal conditions are met.
+Ideally the current implementation of the Poisson surface reconstruction method expects a dense 3D oriented point set (typically matching the epsilon-sampling condition [1]) and sampled over a closed, smooth surface. **Oriented herein means that all 3D points must come with consistently oriented normals to the inferred surface.** Figure 63.3 and Figure 63.4 illustrate cases where these ideal conditions are met.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b9e714e3-d400-4ade-9117-44559c40d40f)
 
