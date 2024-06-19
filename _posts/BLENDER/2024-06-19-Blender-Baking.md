@@ -41,8 +41,8 @@ classes: wide
 
  ### Bake는 precompute and store인 경우 사용하응 용어 입니다.
 논문에서 "bake"라는 용어를 사용한 예시는 아래와 같습니다.
-```
+
 Our method “bakes” NeRF’s continuous neural volumetric scene representation into a discrete Sparse Neural Radiance Grid (SNeRG) for real-time rendering
-```
+
  - [Baking Neural Radiance Fields for Real-Time View Synthesis](https://arxiv.org/abs/2103.14645)
  
