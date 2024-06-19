@@ -30,8 +30,9 @@ classes: wide
 
 
 
-[Learn the BASICS of Material Shading in BLENDER (Part 1)](https://www.youtube.com/watch?v=Wg244y2f9Fw&t=981s)
-[Blender PBR Material Shading (Material Series Part 2)](https://www.youtube.com/watch?v=jBT6MD7IzHU&t=9s)
+### Reference
+- [Learn the BASICS of Material Shading in BLENDER (Part 1)](https://www.youtube.com/watch?v=Wg244y2f9Fw&t=981s)
+- [Blender PBR Material Shading (Material Series Part 2)](https://www.youtube.com/watch?v=jBT6MD7IzHU&t=9s)
 
 
 
