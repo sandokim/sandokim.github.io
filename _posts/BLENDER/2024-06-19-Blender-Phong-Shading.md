@@ -60,7 +60,7 @@ Phong Shading을 Normal Interpolation Shading이라고 말할 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c2464a05-58d7-43a7-b63f-2bb7d5d3e42b)
 - Blender의 기본 auto smooth 설정은 35도입니다. 이는 이웃한 면과의 각도가 35도 미만인 면에만 smooth가 적용된다는 것을 의미합니다. 각도가 35도보다 크면 smoothing 알고리즘에 의해 무시되고 날카로운 가장자리를 얻게 됩니다.
 - 아래와 같이 auto smooth의 설정을 4.6도까지 줄이면, 4.6도보다 큰 각도에 대해서는 smoothing 알고리즘에 의해 무시되고  날카로운 가장자리를 얻게 됩니다.
-![bandicam 2024-06-19 18-28-48-106](https://github.com/sandokim/sandokim.github.io/assets/74639652/e4badd2e-0cfe-4822-b765-b730e17bd1e5)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/865d7bbe-f70b-40b5-93ff-a131cfad4346)
 - 대부분의 프로그램에는 Phong shading의 분포를 제어하는 더 복잡한 방법도 있습니다.
   - 예를 들어, Blender에는 사용자가 설정한 다양한 기준에 따라 더 적극적으로 면을 부드럽게 하는 weighted normal modifier가 있습니다.
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/82e1a657-2d7b-4375-958b-5a6f5c17f7fc)
