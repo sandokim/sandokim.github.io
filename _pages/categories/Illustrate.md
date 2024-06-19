@@ -1,7 +1,7 @@
 ---
-title: "Illustrate"
-permalink: /categories/Illustrate/
+title: "일러스트"
+permalink: /categories/일러스트/
 layout: category
 author_profile: true
-taxonomy: Illustrate
+taxonomy: 일러스트
 ---
