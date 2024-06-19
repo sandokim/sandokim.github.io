@@ -1,19 +1,19 @@
 ---
 title: "[일러스트] Inkscape 사용법"
 last_modified_at: 2024-06-19
-categories:
-  - 일러스트
-tags:
-  - 일러스트
-  - illustrate
-  - inkscape
-  - svg file
-  - vector image
-  - 벡터 이미지
-  - 벡터 파일
-  - 일러스트레이트
-  - 그림 그리기
-  - 제안서
+  categories:
+    - 일러스트
+  tags:
+    - 일러스트
+    - illustrate
+    - inkscape
+    - svg file
+    - vector image
+    - 벡터 이미지
+    - 벡터 파일
+    - 일러스트레이트
+    - 그림 그리기
+    - 제안서
 excerpt: "Inkscape을 사용하여 svg 벡터 이미지 파일을 그릴 수 있습니다."
 use_math: true
 classes: wide
