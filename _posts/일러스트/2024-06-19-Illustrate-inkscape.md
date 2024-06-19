@@ -27,7 +27,7 @@ classes: wide
 - 먼저 reference로 사용할 이미지를 불러옵니다.
 - 윤곽선을 따라 그릴 펜툴을 `B`를 눌러 활성화 합니다.
 - 윤곽선을 `마우스 좌클릭`으로 그려주고, 시작점과 끝점을 연결하여 마무리 하거나, 거의 다 완성하였을 때 `마우스 우클릭`으로 속을 채워줄 수 있습니다.
-- 윤곽석을 따주고, Hue, Saturation, Light, Alpha를 조절합니다.
+- 윤곽선을 따주고, Hue, Saturation, Light, Alpha를 조절합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a74e0fe1-8d0c-4128-9259-cd37293371b8)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ef46fafd-e06b-4fa3-a670-9c71dec99fd0)
