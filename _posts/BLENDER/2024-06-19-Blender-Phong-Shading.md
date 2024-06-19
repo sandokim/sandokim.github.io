@@ -22,8 +22,7 @@ Phong Shading: Normals are interpolated across the polygon --> normals이 polygo
 
 Phong Shading을 Normal Interpolation Shading이라고 말할 수 있습니다.
 
-
-### Phong shading을 
+### Phong shading은 실제 geometry를 부드럽게 하는 대신 shading을 부드럽게 합니다.
 
 - flat shading의 문제는 객체를 구성하는 개별 폴리곤이 쉽게 보일 수 있다는 것입니다. 부드럽게 보이더라도 말이죠.
 ![bandicam 2024-06-19 18-14-29-701](https://github.com/sandokim/sandokim.github.io/assets/74639652/4da36fd1-aa78-45d1-8e46-fb360f473860)
