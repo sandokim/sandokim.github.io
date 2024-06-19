@@ -43,8 +43,8 @@
         {% assign sum = site.categories['BLENDER'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/BLENDER">🎥 BLENDER ({{sum}})</a></span>
 
-        {% assign sum = site.categories['Illustrate'] | size %}
-        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/Illustrate">✒️ Illustrate ({{sum}})</a></span>
+        {% assign sum = site.categories['일러스트'] | size %}
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/일러스트">✒️ 일러스트 ({{sum}})</a></span>
 
         {% assign sum = site.categories['연구'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/연구">💻 연구 ({{sum}})</a></span>
