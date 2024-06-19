@@ -1,4 +1,4 @@
-![bandicam 2024-06-19 11-22-24-352](https://github.com/sandokim/sandokim.github.io/assets/74639652/ad253a4b-54ad-45b2-aec8-55ddae220c51)---
+---
 title: "[BLENDER] BASICS of Material Shading"
 last_modified_at: 2024-06-18
 categories:
@@ -54,9 +54,11 @@ Objects는 하나 이상의 material을 가질 수 있고, 이를 material slots
   - Surface: everything on the outside surface of the object. i.e. paint, wood, metal
   ![bandicam 2024-06-19 11-26-43-409](https://github.com/sandokim/sandokim.github.io/assets/74639652/2cacb453-2f18-4f21-af07-2a49aa896a66)
   - Volume: how you want the three dimensional space inside the object to be filled. i.e. smoke, fog, inside of an object or liquid, cloud, etc.
-  - Displacement: physical movement or displacement of the mesh. i.e. you
-  ![bandicam 2024-06-19 11-28-52-723](https://github.com/sandokim/sandokim.github.io/assets/74639652/16982f91-ae2b-4236-a9d8-157de93643cf)
-  ![bandicam 2024-06-19 11-28-58-692](https://github.com/sandokim/sandokim.github.io/assets/74639652/5dff9819-f3cf-4058-9409-d3fcdb1d02f7)
+  - Displacement: physical movement or displacement of the mesh.
+    <div style="text-align: center;">
+        <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/16982f91-ae2b-4236-a9d8-157de93643cf" alt="image 1" style="display: inline-block; width: 45%; margin-right: 2%;"      />
+        <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/5dff9819-f3cf-4058-9409-d3fcdb1d02f7" alt="image 2" style="display: inline-block; width: 45%;" />
+    </div>
 
 
 
