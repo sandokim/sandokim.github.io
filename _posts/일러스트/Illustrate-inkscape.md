@@ -1,9 +1,10 @@
 ---
-title: "[Illustrate] Inkscape 사용법"
+title: "[일러스트] Inkscape 사용법"
 last_modified_at: 2024-06-19
 categories:
-  - Illustrate
+  - 일러스트
 tags:
+  - 일러스트
   - illustrate
   - inkscape
   - svg file
