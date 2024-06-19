@@ -1,4 +1,4 @@
-![bandicam 2024-06-19 18-30-58-676](https://github.com/sandokim/sandokim.github.io/assets/74639652/af395f0f-6549-4bb8-822d-e8a324701539)---
+---
 title: "[BLENDER] Blender Flat Shading, Phong Shading & Normals"
 last_modified_at: 2024-06-19
 categories:
