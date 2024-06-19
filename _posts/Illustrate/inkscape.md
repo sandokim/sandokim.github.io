@@ -44,8 +44,9 @@ classes: wide
 
 - 레퍼런스 이미지를 삭제하고, 투명도를 조절합니다.
 - 모두 선택하고 `ctrl+g`로 그룹화합니다.
-![bandicam 2024-06-19 14-30-16-329](https://github.com/sandokim/sandokim.github.io/assets/74639652/76197d0c-f8da-4475-bda1-90f6546bda73)
-![bandicam 2024-06-19 14-30-22-171](https://github.com/sandokim/sandokim.github.io/assets/74639652/2fc646a0-998f-4742-8ef4-bca32fe6077b)
-
+<div style="text-align: center;">
+    <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/76197d0c-f8da-4475-bda1-90f6546bda73" alt="image 1" style="display: inline-block; width: 45%; margin-right: 2%;" />
+    <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/2fc646a0-998f-4742-8ef4-bca32fe6077b" alt="image 2" style="display: inline-block; width: 45%;" />
+</div>
 
 - `ctrl+z`, `ctrl+shift+z`로 취소와 취소를 취소가 가능합니다.
