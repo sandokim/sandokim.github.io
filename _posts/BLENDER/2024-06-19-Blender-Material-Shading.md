@@ -61,6 +61,17 @@ Objects는 하나 이상의 material을 가질 수 있고, 이를 material slots
     </div>
 
 
+- Surface를 먼저 봅시다. 이 패널의 모든 것은 shader editor에서 노드를 사용하여 실제로 생성된 내용의 요약입니다. simple materials의 경우 모든 설정을 여기서 처리할 수 있지만, materials이 복잡해지면 노드로 이동해야 합니다.
+![bandicam 2024-06-19 11-34-07-539](https://github.com/sandokim/sandokim.github.io/assets/74639652/0741d7ae-5fc3-4054-bc58-30b7713b463f)
+- Principled BSDF는 블렌더에서 기본 재질 셰이더입니다. 매우 다재다능한 셰이더로, 많은 것을 만들 수 있습니다.
+- 셰이더란 무엇일까요? 셰이더는 재질을 출력하고, 씬의 빛과 어떻게 상호 작용할지 계산하는 것입니다.
+- 셰이더 이름을 클릭하면 다양한 셰이더 목록이 나옵니다. 모두 다 다루지는 않을 것이며, 대부분 사용하지 않을 것입니다. 이 Emission 셰이더 같은 경우는 많은 옵션이 없지만, Principled BSDF는 많은 설정이 있어 다양한 작업을 수행할 수 있습니다.
+![bandicam 2024-06-19 11-35-33-056](https://github.com/sandokim/sandokim.github.io/assets/74639652/850f763e-f078-45fc-944a-1dadbeddc6e5)
+![bandicam 2024-06-19 11-36-57-711](https://github.com/sandokim/sandokim.github.io/assets/74639652/b4ee29d9-cca3-4f43-a44f-7970d3420e7d)
+
+
+
+
 
 ### Reference
 - [Learn the BASICS of Material Shading in BLENDER (Part 1)](https://www.youtube.com/watch?v=Wg244y2f9Fw&t=981s)
