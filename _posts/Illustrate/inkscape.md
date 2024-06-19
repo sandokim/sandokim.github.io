@@ -52,5 +52,9 @@ classes: wide
 - 이렇게 만든 svg 파일에서 이미지 `ctrl+c`, `ctrl+v`로 ppt, word에 바로 붙여넣을 수 있고, 한글에서는 `ctrl+c`, `ctrl+v`가 안되므로 캡쳐하여 복붙하여 사용하면 됩니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bf565102-e6ea-4044-ba36-568b8e07e93c)
 
+
 #### Tips
 - `ctrl+z`, `ctrl+shift+z`로 취소와 취소를 취소가 가능합니다.
+- 경로 탭 --> 결합, 차이, 교차 등도 사용하면 편리합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f4ce93c6-f5f7-4d24-81dd-84214fc65d76)
+
