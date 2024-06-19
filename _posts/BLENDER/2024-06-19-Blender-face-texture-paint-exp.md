@@ -1,5 +1,5 @@
 ---
-title: "[BLENDER] BASICS of Material Shading"
+title: "[BLENDER] Blender Texture Painting Experiment"
 last_modified_at: 2024-06-19
 categories:
   - BLENDER
@@ -9,7 +9,7 @@ tags:
   - texture paint
   - wireframe mode
   - Toggle X-Ray
-excerpt: "BASICS of Material Shading"
+excerpt: "Blender Texture Painting Experiment"
 use_math: true
 classes: wide
 ---
