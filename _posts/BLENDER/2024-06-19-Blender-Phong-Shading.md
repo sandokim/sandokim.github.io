@@ -65,11 +65,11 @@ Phong Shading을 Normal Interpolation Shading이라고 말할 수 있습니다.
   - 예를 들어, Blender에는 사용자가 설정한 다양한 기준에 따라 더 적극적으로 면을 부드럽게 하는 weighted normal modifier가 있습니다.
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/82e1a657-2d7b-4375-958b-5a6f5c17f7fc)
   - weighted normal modifier를 적용하고 Weight의 값에 따른 결과입니다.
-  <div style="display: flex; justify-content: space-between;">
-      <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/16d62c5c-70ef-49d3-9c88-8060ef166a5a" alt="Image 1" width="30%">
-      <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/516ab236-35a5-40cf-a28d-345cc10757ee" alt="Image 2" width="30%">
-      <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/ae8d0543-35ad-47d5-9be5-6ed704adcaef" alt="Image 3" width="30%">
-  </div>
+    <div style="display: flex; justify-content: space-between;">
+        <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/16d62c5c-70ef-49d3-9c88-8060ef166a5a" alt="Image 1" width="30%">
+        <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/516ab236-35a5-40cf-a28d-345cc10757ee" alt="Image 2" width="30%">
+        <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/ae8d0543-35ad-47d5-9be5-6ed704adcaef" alt="Image 3" width="30%">
+    </div>
 
 
 
