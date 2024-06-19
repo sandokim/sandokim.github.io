@@ -17,8 +17,9 @@ classes: wide
 
 ### Phong Shading이란?
 
+Phong Shading: Normals are interpolated across the polygon --> normals이 polygon 전체에 걸쳐 보간됩니다.
 
-
+Phong Shading을 Normal Interpolation Shading이라고 말할 수 있습니다.
 
 
 ### Reference
