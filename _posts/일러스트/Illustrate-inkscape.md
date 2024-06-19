@@ -19,7 +19,6 @@ use_math: true
 classes: wide
 ---
 
-
 ### inkscape을 사용하면 아래와 같은 svg 벡터 파일을 만들 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6ec95b10-db01-47f6-b9aa-c441ace5ea18)
 
