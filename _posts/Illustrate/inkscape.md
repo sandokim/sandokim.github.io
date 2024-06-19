@@ -2,7 +2,7 @@
 title: "[Illustrate] Inkscape 사용법"
 last_modified_at: 2024-06-19
 categories:
-  - BLENDER
+  - Illustrate
 tags:
   - inkscape
   - svg file
