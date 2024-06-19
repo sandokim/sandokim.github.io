@@ -20,12 +20,13 @@ tags:
   - surface normal
   - face normal
   - pbr (physically based rendering)
+  - Render Engine (Cycles, EEVEE)
 excerpt: "BASICS of Material Shading"
 use_math: true
 classes: wide
 ---
 
-
+이 튜토리얼에서 Render Engine은 모두 Cycles로 진행합니다.
 
 
 
