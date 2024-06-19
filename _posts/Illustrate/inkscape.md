@@ -4,6 +4,7 @@ last_modified_at: 2024-06-19
 categories:
   - Illustrate
 tags:
+  - illustrate
   - inkscape
   - svg file
   - vector image
