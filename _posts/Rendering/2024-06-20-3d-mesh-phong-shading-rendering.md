@@ -108,8 +108,13 @@ from pytorch3d.renderer.blending import BlendParams
 
 # 3D 객체를 렌더링할 때의 혼합 매개변수를 정의합니다.
 # 주로 알파 블렌딩과 관련된 설정을 포함합니다.
-blend_params = BlendParams(sigma=1e-4, gamma=1e-4)
+blend_params=BlendParams(background_color=(1.0, 1.0, 1.0))
 ```
+
+#### BlendParams 해석
+- background_color: (1.0, 1.0, 1.0)로 설정되어 있으며, 이는 렌더링된 이미지의 배경 색상을 흰색으로 설정합니다.
+- sigma (기본값: 1e-4): 폴리곤의 경계 가시성을 제어하는 파라미터입니다. 값이 작을수록 경계가 더 뚜렷해집니다.
+- gamma (기본값: 1e-4): 블렌딩에서 폴리곤의 가장자리 투명도를 제어하는 파라미터입니다. 값이 클수록 경계가 부드럽게 블렌딩됩니다.
 
 ### 기타 모듈
 - GaussianSplattingWrapper: 이는 sugar_scene.gs_model 모듈에서 가져온 클래스입니다. Gaussian splatting 기법을 사용하여 3D 데이터를 처리하는 래퍼로 추정됩니다.
