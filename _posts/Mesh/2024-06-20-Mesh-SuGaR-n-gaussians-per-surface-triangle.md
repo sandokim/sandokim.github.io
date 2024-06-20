@@ -39,10 +39,10 @@ SuGaR 모델에서는 surface mesh의 각 triangle(=face)에 특정 개수의 Ga
 
 ------
 
-### `sugar_model.py`에서 triangle에 Gaussian Splats을 배치하는 과정을 봅시다.
+### `sugar_model.py`에서 각 triangle마다 Gaussian Splats은 무게중심(barycentric coordinates)을 활용하여 배치합니다.
 
 ### 1. 1개의 Gaussian splat per 삼각형
-각 삼각형의 무게 중심을 사용하여 Gaussian splat을 배치합니다. 이 경우 단일 Gaussian splat이 삼각형의 전체를 대표하게 됩니다.
+각 삼각형의 무게중심을 사용하여 Gaussian splat을 배치합니다. 이 경우 단일 Gaussian splat이 삼각형의 전체를 대표하게 됩니다.
 
 ```python
 if n_gaussians_per_surface_triangle == 1:
