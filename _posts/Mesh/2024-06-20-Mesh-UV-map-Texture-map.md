@@ -1,5 +1,5 @@
 ---
-title: "[Mesh] UV map & Texture map (Albedo map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map"
+title: "[Mesh] UV map & Texture map (Albedo map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map)"
 last_modified_at: 2024-06-20
 categories:
   - Mesh
@@ -16,7 +16,7 @@ tags:
   - ambient occlusion map
   - metalness map
   - roughness map
-excerpt: "UV map & Texture map (Albedo map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map"
+excerpt: "UV map & Texture map (Albedo map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map)"
 use_math: true
 classes: wide
 ---
