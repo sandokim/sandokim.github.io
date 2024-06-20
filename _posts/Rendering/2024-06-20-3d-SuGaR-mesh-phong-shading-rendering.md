@@ -302,3 +302,13 @@ plt.show()
 #### 종합 해석
 이 과정에서 사용된 설정과 매개변수들은 렌더링된 이미지의 품질과 성능에 직접적인 영향을 미칩니다. 예를 들어, faces_per_pixel 값을 높이면 더 많은 폴리곤을 처리하여 세밀한 렌더링을 할 수 있지만, 성능이 저하될 수 있습니다. 배경 색상을 흰색으로 설정함으로써 결과 이미지가 깔끔하고 명확하게 보일 수 있습니다.
 
+------
+## 만약 Rasterization이 differentiable하게 하려면 edge를 blur 해주어야 합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a13180d0-9916-4b5c-8673-38694a57ce4f)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/94af1859-a097-4ccc-8abe-f5bcea31b15b)
+
+[PyTorch3D 유튜브 설명](https://youtu.be/MOBAJb5nJRI?si=_DIqT8HlsV02L8os)
+
+
+
