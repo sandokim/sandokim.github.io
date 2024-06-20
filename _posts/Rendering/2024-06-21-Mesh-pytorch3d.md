@@ -27,6 +27,8 @@ classes: wide
 
 [Pytorch3D](https://youtu.be/MOBAJb5nJRI?si=uN_ITZQe1Tn4WpVI)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0011abef-8dcb-4314-92b0-72572d8f861a)
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d18471f3-ee79-4fa9-bcc4-17131f75156e)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4c940ad9-9431-40af-a445-c0a2991bf2f7)
