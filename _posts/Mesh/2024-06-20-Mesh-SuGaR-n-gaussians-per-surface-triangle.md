@@ -127,7 +127,7 @@ if self.binded_to_surface_mesh and (not learn_surface_mesh_opacity):
 - **self.binded_to_surface_mesh**: Gaussian들이 surface mesh에 바인딩되어 있는지를 나타냅니다.
 - **learn_surface_mesh_opacity**: surface mesh에 존재하는 Gaussian들의 불투명도(opacity)를 학습할지 여부를 결정합니다. 불투명도를 학습하지 않으면, 불투명도 값이 고정된 채로 유지됩니다.
 
-#### surface_mesh에 binding 여부와 surface_mesh_opacity 학습 여부에 따른 모든 gaussian들의 densities 초기화 방법
+#### Gaussian들이 surface_mesh에 binding 되어있는지 여부와 surface_mesh_opacity 학습 여부에 따른 모든 gaussian들의 densities 초기화 방법
 
 - CASE 1: `self.binded_to_surface_mesh`가 참이고 `learn_surface_mesh_opacity`가 거짓일 때
 ```python
