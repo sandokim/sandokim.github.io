@@ -59,6 +59,21 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/617ab86d-edcf-43c9-93d3-cc6f9f23488d)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ce45919f-e9f5-4325-8098-ee956da31986)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49003eec-52cc-4d4c-a7c8-95fdef3fadf5)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4c00e676-3257-492c-a141-fe1682421938)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/323ff775-93a9-4578-8bbd-4dad1b3280b4)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/031b7375-3567-4c9e-b9c3-7513d666603a)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/765eb964-0db1-4166-af88-4cb492e94171)
+
+
+
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d1b7497d-75c4-4d03-ab5d-10efdf0903a6)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4666775e-ee82-4a7a-ba41-da7dcd3b7331)
