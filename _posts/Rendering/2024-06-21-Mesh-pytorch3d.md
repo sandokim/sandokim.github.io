@@ -41,6 +41,13 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1027c830-96ca-4963-a97f-49e03df07510)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f1f060d0-fc1e-4f5d-9b6e-7ac2d93cf1c7)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f1c19815-fb86-4972-b91a-e2fd5e790316)
+
+
+
+
 
 
 
