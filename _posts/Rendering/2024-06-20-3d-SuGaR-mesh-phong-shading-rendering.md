@@ -1,5 +1,5 @@
 ---
-title: "[Rendering] 3D mesh load, Phong Shading, Rendering"
+title: "[Rendering] SuGaR 3D mesh load, Phong Shading, Rendering"
 last_modified_at: 2024-06-20
 categories:
   - Rendering
