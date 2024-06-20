@@ -107,14 +107,50 @@ if n_gaussians_per_surface_triangle == 6:
 ### 결론
 이러한 방식을 통해 모델은 surface mesh의 디테일을 보다 잘 표현할 수 있으며, Gaussian splats의 수와 배치 방법을 조절함으로써 모델의 표현력을 유연하게 조정할 수 있습니다. 이 과정은 결과적으로 모델의 학습과 렌더링 품질에 큰 영향을 미칩니다.
 
+-----
 
+## `sugar_model.py`에서 surface_mesh에 binding된 모든 gaussian들의 densities 초기화 방법
 
+```python
+if self.binded_to_surface_mesh and (not learn_surface_mesh_opacity):
+            all_densities = inverse_sigmoid(0.9999 * torch.ones((n_points, 1), dtype=torch.float, device=points.device))
+            self.learn_opacities = False
+        else:
+            all_densities = inverse_sigmoid(0.1 * torch.ones((n_points, 1), dtype=torch.float, device=points.device))
+        self.all_densities = nn.Parameter(all_densities, 
+                                     requires_grad=self.learn_opacities).to(nerfmodel.device)
+        self.return_one_densities = False
+```
 
+### 파라미터 설명 및 역할
 
+- **self.binded_to_surface_mesh**: 이 파라미터는 모델이 표면 메쉬(surface mesh)에 바인딩되어 있는지를 나타냅니다.
+- **learn_surface_mesh_opacity**: 이 파라미터는 표면 메쉬의 불투명도(opacity)를 학습할지 여부를 결정합니다. 불투명도를 학습하지 않으면, 불투명도 값이 고정된 채로 유지됩니다.
 
+#### surface_mesh에 binding 여부와 surface_mesh_opacity 학습 여부에 따른 모든 gaussian들의 densities 초기화 방법
 
+- CASE 1: `self.binded_to_surface_mesh`가 참이고 `learn_surface_mesh_opacity`가 거짓일 때
+```python
+if self.binded_to_surface_mesh and (not learn_surface_mesh_opacity):
+    all_densities = inverse_sigmoid(0.9999 * torch.ones((n_points, 1), dtype=torch.float, device=points.device))
+    self.learn_opacities = False
+```
+  - 모델이 surface mesh에 바인딩되어 있고, surface mesh의 opacity를 학습하지 않도록 설정되어 있습니다. 이 경우, 모든 가우시안들의 density값은 0.9999로 초기화됩니다. 역 시그모이드 함수가 적용되어 매우 큰 양의 값이 됩니다. 이는 밀도가 매우 높은 상태를 의미합니다.
+    - 의미: 모델이 이미 surface mesh에 맞게 설정되어 있으며, 가우시안들의 붍투명도 값들이 학습할 필요가 없음을 나타냅니다. 따라서 모든 가우시안들의 densities 값을 매우 높은 값으로 설정하여 표면이 거의 완전하게 불투명하게 만듭니다.
 
+- CASE 2: 그 외의 경우 (모델이 표면 메쉬에 바인딩되지 않았거나 불투명도를 학습하는 경우)
+```python
+else:
+    all_densities = inverse_sigmoid(0.1 * torch.ones((n_points, 1), dtype=torch.float, device=points.device))
+    self.learn_opacities = True
+```
+  - 모델이 표면 메쉬에 바인딩되지 않았거나, 불투명도(opacity)를 학습하도록 설정된 경우입니다. 이 경우, 값은 0.1로 초기화됩니다. 역 시그모이드 함수가 적용되어 음의 값이 됩니다. 이는 밀도가 낮은 상태를 의미합니다.
+    - 의미: 모델이 surface mesh에 의존하지 않으며, 가우시안들의 불투명도 값들이 학습을 통해 조정될 필요가 있음을 나타냅니다. 
 
+#### 요약
+- CASE1: self.binded_to_surface_mesh가 참이고 learn_surface_mesh_opacity가 거짓일 때, 값은 0.9999로 설정됩니다. 역 시그모이드 함수가 적용되어 매우 큰 양의 값이 됩니다.
+- CASE2: 그 외의 경우, 값은 0.1로 설정됩니다. 역 시그모이드 함수가 적용되어 음의 값이 됩니다.
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3a4b4613-242f-47cc-a7a7-2ebe3f166608)
 
 
 
