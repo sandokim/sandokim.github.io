@@ -37,6 +37,10 @@ SuGaR 모델에서는 surface mesh의 각 triangle(=face)에 특정 개수의 Ga
     - **Polygon (다각형)**:  다섯 개 이상의 꼭지점과 변으로 구성됩니다. 예를 들어, pentagon(오각형), hexagon(육각형) 등이 있습니다.
 - **Surface Mesh**: 여러 개의 삼각형으로 구성된 3D 모델의 표면을 의미합니다.
 
+------
+
+### `sugar_model.py`에서 triangle에 Gaussian Splats을 배치하는 과정을 봅시다.
+
 ### 1. 1개의 Gaussian splat per 삼각형
 각 삼각형의 무게 중심을 사용하여 Gaussian splat을 배치합니다. 이 경우 단일 Gaussian splat이 삼각형의 전체를 대표하게 됩니다.
 
