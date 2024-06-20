@@ -21,7 +21,7 @@ use_math: true
 classes: wide
 ---
 
-# 3D Modeling and Texturing Maps
+# 3D 모델링과 텍스처링에서 사용되는 다양한 맵들
 
 ## UV Map
 **UV Map**: 3D 모델의 표면을 2D 평면으로 펼친 것입니다. 모델의 3D 좌표(X, Y, Z)를 2D 텍스처 좌표(U, V)로 변환하여 텍스처 이미지를 모델의 각 부분에 정확하게 맞출 수 있도록 합니다.
