@@ -1,5 +1,5 @@
 ---
-title: "[Mesh] Primitives (Triangle, Quad, Polygon, Tetrahedron, etc)"
+title: "[Mesh] Primitives (Point, Line, Triangle, Quad, Polygon, Diamond)"
 last_modified_at: 2024-06-20
 categories:
   - Mesh
@@ -7,11 +7,13 @@ tags:
   - Mesh
   - 메시
   - primitives
+  - point
+  - line
   - triangle
   - quad
   - polygon
-  - tetrahedron
-excerpt: "Primitives (Triangle, Quad, Polygon, Tetrahedron, etc"
+  - diamond
+excerpt: "Primitives (Point, Line, Triangle, Quad, Polygon, Diamond)"
 use_math: true
 classes: wide
 ---
