@@ -11,12 +11,12 @@ tags:
   - triangle
   - diamond
   - square (quad)
-excerpt: "SuGaR에서 Gaussians이 어떻게 Primitives (diamond 또는 square(qaud))로 변형되는지 알아봅시다."
+excerpt: "SuGaR에서 Gaussians이 어떻게 Primitives (diamond 또는 square(=qaud))로 변형되는지 알아봅시다."
 use_math: true
 classes: wide
 ---
 
-# SuGaR에서 Gaussians이 어떻게 Primitives (diamond 또는 square(quad))로 변형되는지 알아봅시다.
+# SuGaR에서 Gaussians이 어떻게 Primitives (diamond 또는 square(=quad))로 변형되는지 알아봅시다.
 
 SuGaR 모델에서는 Gaussian splats를 더 정밀한 다각형(primitive polygon) 형태로 대체하여 3D 표면을 보다 정확하게 표현합니다. 
 
