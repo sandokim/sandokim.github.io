@@ -76,26 +76,28 @@ classes: wide
 #### Smooth Shading (스무스 셰이딩)
 - **정의**: 인접한 폴리곤(i.e. 인접한 삼각형) 사이의 color transition(색상 전이)를 부드럽게 하는 셰이딩 기법.
 - **특징**: **face normal 대신 정점(vertex) 노말을 사용함. vertex normal 인접한 폴리곤들의 페이스 노말의 평균 벡터. 계산량이 많지만 곡면 표현에 적합함.**
+  
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fcac374d-f2fe-4102-82ce-7e6ea270b606)
+
 - **종류**:
   - Gouraud Shading
   - Phong Shading
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fcac374d-f2fe-4102-82ce-7e6ea270b606)
-
+  
 #### Gouraud Shading (구로 셰이딩)
-- **정의**: 각 정점에서 조명을 계산한 후 폴리곤 내부를 보간하여 셰이딩하는 기법.
-- **특징**: 각 정점에서 색을 계산하고, 폴리곤 내부는 보간(interpolation)하여 색을 채움. 이로 인해 색상이 부드러워지지만, specular highlight가 부정확할 수 있음. 폴리곤의 개수를 늘려서 개선할 수 있지만, 계산량이 증가함.
+- **정의**: 각 정점에서 조명을 계산한 후 폴리곤 내부를 보간(interpolation)하여 셰이딩하는 기법.
+- **특징**: 각 정점에서 색을 계산하고, 폴리곤 내부는 vertex들의 색을 보간(interpolation)하여 색을 채움. 이 과정에서 Barycentric interpolation을 이용함. interpolation을 하기 때문에 색상이 부드러워지지만, specular highlight가 평균화되기 때문에 부정확해질 수 있음. 폴리곤의 개수를 늘려서 개선할 수 있지만, 계산량이 증가함.
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49ec18ad-7fcd-4e84-b1b1-de32b4b4f0e9)
 - **사용처**: 실시간 렌더링이 필요한 경우나 부드러운 색 전환이 필요한 경우에 적합.
 
 #### Phong Shading (퐁 셰이딩)
 - **정의**: 각 픽셀에서 노말 벡터를 보간하여 조명을 계산하는 셰이딩 기법.
-- **특징**: 각 정점의 노말을 보간하여 폴리곤 내부의 각 픽셀별로 조명을 계산함. 보간된 노말이 실제 표면 노말에 가깝기 때문에 자연스러운 하이라이트 표현이 가능. 그러나 계산 비용이 큼.
+- **특징**: 각 정점의 노말(vertex normal)을 보간하여 폴리곤 내부의 ***각 픽셀별로 조명을 계산함.*** interpolate된 normal이 실제 surface normal에 인접하기 때문에 훨씬 더 자연스러운 하이라이트 표현이 가능. ***그러나 폴리곤(즉, 삼각형) 내부의 각 픽셀에 대해 조명 계산을 수행해야 하기 때문에 계산량이 많음.***
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dd5476b5-8845-4ede-8081-a499d673b2ea)
 - **사용처**: 고품질의 그래픽 표현이 필요할 때 적합.
 
 ### Gouraud Shading vs. Phong Shading
-- **Gouraud Shading**: 삼각형 하나당 3번의 조명 계산을 수행. 계산량이 적고 빠르지만, 스페큘러 하이라이트가 부정확할 수 있음.
-- **Phong Shading**: 각 픽셀에서 조명 계산을 수행하여 매우 부드러운 결과를 얻을 수 있음. 계산량이 많아지지만 자연스러운 하이라이트를 표현할 수 있음.
-
-
+- **Gouraud Shading**: **삼각형 하나당 3번의 조명 계산을 수행.** 계산량이 적고 빠르지만, specular highlight가 부정확할 수 있음.
+- **Phong Shading**: **각 픽셀에서 조명 계산**을 수행하여 매우 부드러운 결과를 얻을 수 있음. 폴리곤(즉, 삼각형) 내부의 각 픽셀에 대해 조명 계산을 수행하기 때문에 계산량이 많아지지만, 자연스러운 하이라이트를 표현할 수 있음.
 
 ### Reference
 [혼자하는 코딩 님의 Shading 정리 블로그](https://gofo-coding.tistory.com/entry/Shading#title-3)
