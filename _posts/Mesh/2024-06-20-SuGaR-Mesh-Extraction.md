@@ -74,6 +74,42 @@ classes: wide
 
 이 두 스크립트는 3D 모델링의 서로 다른 단계에서 사용되며, 각각의 스크립트는 해당 단계의 목표에 맞추어 최적화되어 있습니다. `coarse_mesh.py`는 초기 재구성 단계에서 사용되고, `refined_mesh.py`는 최종 단계의 세밀한 재구성 및 텍스처링에 사용됩니다.
 
+------
+
+## 코드 분석
+
+### 기본 logging 툴 (CONSOLE)
+
+**CONSOLE은 rich 라이브러리에서 제공하는 Console 객체로, 터미널에서 더 나은 출력을 제공하기 위해 사용됩니다.** rich 라이브러리는 터미널에서 컬러 텍스트, 표, 트리, 로깅 등을 쉽게 출력할 수 있는 기능을 제공합니다.
+
+- CONSOLE 객체는 스크립트 실행 중 주요 정보를 콘솔에 출력하고, 텍스트를 컬러로 출력하거나 특정 너비를 가지는 형식으로 출력할 수 있게 합니다. 예를 들어, Console(width=120)는 출력 너비를 120 글자로 설정하여 가독성을 높입니다. 이를 통해 모델 로드 상태, 메시 생성 상태, 텍스처 추출 상태 등을 사용자에게 알립니다.
+
+  ```python
+  from rich.console import Console
+  
+  def extract_mesh_from_coarse_sugar(args):
+      # Create a Console object with a specific width for better formatting
+      CONSOLE = Console(width=120)
+  
+      # Print some information to the console
+      CONSOLE.print("-----Parameters-----")
+      CONSOLE.print("Source path:", source_path)
+      CONSOLE.print("Gaussian Splatting Checkpoint path:", gs_checkpoint_path)
+      CONSOLE.print("Coarse model Checkpoint path:", sugar_checkpoint_path)
+      CONSOLE.print("Mesh output path:", mesh_output_dir)
+      CONSOLE.print("Surface levels:", surface_levels)
+      CONSOLE.print("Decimation targets:", decimation_targets)
+      CONSOLE.print("Use custom bbox:", use_custom_bbox)
+      CONSOLE.print("Use eval split:", use_train_test_split)
+      CONSOLE.print("GPU:", args.gpu)
+      CONSOLE.print("Use centers to extract mesh:", use_centers_to_extract_mesh)
+      CONSOLE.print("Use marching cubes:", use_marching_cubes)
+      CONSOLE.print("Use vanilla 3DGS:", use_vanilla_3dgs)
+      CONSOLE.print("--------------------")
+  
+      # ... Rest of the code
+  ```
+
 
 
 
