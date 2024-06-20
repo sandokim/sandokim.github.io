@@ -85,30 +85,33 @@ classes: wide
 - CONSOLE 객체는 스크립트 실행 중 주요 정보를 콘솔에 출력하고, 텍스트를 컬러로 출력하거나 특정 너비를 가지는 형식으로 출력할 수 있게 합니다. 예를 들어, Console(width=120)는 출력 너비를 120 글자로 설정하여 가독성을 높입니다. 이를 통해 모델 로드 상태, 메시 생성 상태, 텍스처 추출 상태 등을 사용자에게 알립니다.
 
   ```python
+  # coarse_sdf.py
   from rich.console import Console
   
-  def extract_mesh_from_coarse_sugar(args):
-      # Create a Console object with a specific width for better formatting
+  def coarse_training_with_sdf_regularization(args):
       CONSOLE = Console(width=120)
+
+      ...
   
-      # Print some information to the console
-      CONSOLE.print("-----Parameters-----")
+      CONSOLE.print("-----Parsed parameters-----")
       CONSOLE.print("Source path:", source_path)
-      CONSOLE.print("Gaussian Splatting Checkpoint path:", gs_checkpoint_path)
-      CONSOLE.print("Coarse model Checkpoint path:", sugar_checkpoint_path)
-      CONSOLE.print("Mesh output path:", mesh_output_dir)
-      CONSOLE.print("Surface levels:", surface_levels)
-      CONSOLE.print("Decimation targets:", decimation_targets)
-      CONSOLE.print("Use custom bbox:", use_custom_bbox)
-      CONSOLE.print("Use eval split:", use_train_test_split)
-      CONSOLE.print("GPU:", args.gpu)
-      CONSOLE.print("Use centers to extract mesh:", use_centers_to_extract_mesh)
-      CONSOLE.print("Use marching cubes:", use_marching_cubes)
-      CONSOLE.print("Use vanilla 3DGS:", use_vanilla_3dgs)
-      CONSOLE.print("--------------------")
-  
-      # ... Rest of the code
+      CONSOLE.print("   > Content:", len(os.listdir(source_path)))
+      CONSOLE.print("Gaussian Splatting checkpoint path:", gs_checkpoint_path)
+      CONSOLE.print("   > Content:", len(os.listdir(gs_checkpoint_path)))
+      CONSOLE.print("SUGAR checkpoint path:", sugar_checkpoint_path)
+      CONSOLE.print("Iteration to load:", iteration_to_load)
+      CONSOLE.print("Output directory:", args.output_dir)
+      CONSOLE.print("SDF estimation factor:", sdf_estimation_factor)
+      CONSOLE.print("SDF better normal factor:", sdf_better_normal_factor)
+      CONSOLE.print("Eval split:", use_eval_split)
+      CONSOLE.print("White background:", use_white_background)
+      CONSOLE.print("---------------------------")
+
+      ...
   ```
+#### 출력 결과
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/67447a0c-a5ab-4852-bae0-294f54aceb87)
+
 
 
 
