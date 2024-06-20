@@ -73,10 +73,11 @@ from pytorch3d.renderer import RasterizationSettings
 
 # 메쉬를 래스터화하는 데 사용되는 설정을 정의합니다.
 # 여기에는 이미지 크기, 픽셀 크기, 안티앨리어싱 등을 포함한 다양한 설정이 포함됩니다.
-raster_settings = RasterizationSettings(
-    image_size=512, 
+mesh_raster_settings = RasterizationSettings(
+    image_size=(refined_sugar.image_height, refined_sugar.image_width),
     blur_radius=0.0, 
-    faces_per_pixel=1
+    faces_per_pixel=faces_per_pixel,
+    # max_faces_per_bin=max_faces_per_bin
 )
 ```
 
