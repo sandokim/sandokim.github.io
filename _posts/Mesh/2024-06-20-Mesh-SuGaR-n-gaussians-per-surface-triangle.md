@@ -144,7 +144,7 @@ else:
     all_densities = inverse_sigmoid(0.1 * torch.ones((n_points, 1), dtype=torch.float, device=points.device))
     self.learn_opacities = True
 ```
-  - Gaussian들이 surface mesh에 바인딩되지 않았거나, surface mesh에 존재하는 Gaussian들의 불투명도(opacity)를 학습하도록 설정된 경우입니다. 이 경우, 모든 Gaussian들의 density값은 0.1로 초기화됩니다. 역 시그모이드 함수가 적용되어 음의 값이 됩니다. 이는 밀도가 낮은 상태를 의미합니다. 즉. 모든 Gaussian들의 densities 값을 낮은 값으로 설정하여 Gaussian들의 opacities를 학습하도록 합니다.
+  - Gaussian들이 surface mesh에 바인딩되지 않았거나, surface mesh에 존재하는 Gaussian들의 불투명도(opacity)를 학습하도록 설정된 경우입니다. 이 경우, 모든 Gaussian들의 density값은 0.1로 초기화됩니다. 역 시그모이드 함수가 적용되어 음의 값이 됩니다. 이는 밀도가 낮은 상태를 의미합니다. 즉. 모든 Gaussian들의 densities 값을 낮은 값으로 초기화하여 Gaussian들의 opacities를 학습하도록 합니다.
     - 의미: Gaussian들이 surface mesh에 고정되어 있지 않으며, Gaussian들의 opacieties 값들이 학습을 통해 조정될 필요가 있음을 나타냅니다. 
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3a4b4613-242f-47cc-a7a7-2ebe3f166608)
