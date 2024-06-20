@@ -30,7 +30,7 @@ SuGaR 모델에서는 surface mesh의 각 triangle(=face)에 특정 개수의 Ga
 
 #### 용어 정리
 - **triangle**: surface mesh를 구성하는 기본 단위입니다. 각 삼각형은 세 개의 꼭지점을 가지며, 이 꼭지점을 연결하는 변으로 구성됩니다.
-- **face**: SuGaR에서는 surface mesh의 triangle과 동일한 의미로 사용됩니다.
+- **face**: SuGaR에서는 face가 surface mesh의 triangle과 동일한 의미로 사용됩니다.
   - **face의 종류**:
     - **triangle (삼각형)**: 세 개의 꼭지점과 세 개의 변으로 구성됩니다.
     - **Qaud (사각형)**: 네 개의 꼭지점과 네 개의 변으로 구성됩니다.
