@@ -39,10 +39,13 @@ classes: wide
 5. **Polygon**
    - **정의**: 다수의 점을 연결한 면입니다.
    - **특징**: 복잡한 구조를 만들 수 있으나, 최종적으로 삼각형으로 분할됩니다.
-   
+  
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c73fa0f6-d521-4082-964c-66da384c9c0b)
+
 6. **Diamond**
    - **정의**: 두 개의 삼각형을 결합하여 다이아몬드 형태를 이루는 primitive입니다.
    - **특징**: 특수한 그래픽스 알고리즘이나 렌더링 기법에서 사용됩니다. 복잡한 표면의 세부 사항을 더 정밀하게 표현할 수 있습니다.
+   - OpenGL에서는 Diamond Primitive를 제공하지 않습니다. SuGaR에서는 triangle 2개로 수동으로 정의하여 사용합니다.
 
 ### Primitives의 사용 및 렌더링
 
