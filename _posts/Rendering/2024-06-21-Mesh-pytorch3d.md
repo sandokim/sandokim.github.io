@@ -20,6 +20,7 @@ tags:
   - BlendParams
   - SuGaR
   - 3dgs
+  - textured mesh rendering (flat shading, phong shading, gouraud shading)
 excerpt: "Pytorch3D 소개"
 use_math: true
 classes: wide
@@ -143,6 +144,24 @@ classes: wide
 ![bandicam 2024-06-21 10-39-03-501](https://github.com/sandokim/sandokim.github.io/assets/74639652/c687d214-f316-4790-a65c-a7118c91b02b)
 ![bandicam 2024-06-21 10-39-06-450](https://github.com/sandokim/sandokim.github.io/assets/74639652/727dd06c-b3ef-432f-86f5-180c4359be17)
 ![bandicam 2024-06-21 10-39-09-438](https://github.com/sandokim/sandokim.github.io/assets/74639652/861c0f76-c237-42d0-954c-84aa34c9aed0)
+
+![bandicam 2024-06-21 10-42-02-978](https://github.com/sandokim/sandokim.github.io/assets/74639652/d8507821-24d7-4b34-9b61-4343fc8dfe3c)
+![bandicam 2024-06-21 10-42-08-773](https://github.com/sandokim/sandokim.github.io/assets/74639652/2aeef9db-1d43-4166-8fd7-15a70015dfcf)
+![bandicam 2024-06-21 10-42-12-397](https://github.com/sandokim/sandokim.github.io/assets/74639652/1016dc40-0a7f-46b3-9bca-5107df25ee50)
+![bandicam 2024-06-21 10-42-17-422](https://github.com/sandokim/sandokim.github.io/assets/74639652/96383280-63f4-400e-99df-51e2a13b4f09)
+![bandicam 2024-06-21 10-42-21-040](https://github.com/sandokim/sandokim.github.io/assets/74639652/81eb0e6c-dead-4153-b10e-1a78b26fa347)
+
+#### Textured Mesh Rendering (Flat shading, Phong shading, Gouraud shading)
+![bandicam 2024-06-21 10-42-24-155](https://github.com/sandokim/sandokim.github.io/assets/74639652/5fcb1cd7-3bd7-40a2-a3ac-d0c24cd9fed6)
+
+
+
+
+
+
+
+
+
 
 
 
