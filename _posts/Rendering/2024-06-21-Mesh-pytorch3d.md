@@ -151,7 +151,7 @@ classes: wide
 ![bandicam 2024-06-21 10-42-17-422](https://github.com/sandokim/sandokim.github.io/assets/74639652/96383280-63f4-400e-99df-51e2a13b4f09)
 ![bandicam 2024-06-21 10-42-21-040](https://github.com/sandokim/sandokim.github.io/assets/74639652/81eb0e6c-dead-4153-b10e-1a78b26fa347)
 
-#### Textured Mesh Rendering (Flat shading, Phong shading, Gouraud shading)
+### Textured Mesh Rendering (Flat shading, Phong shading, Gouraud shading)
 ![bandicam 2024-06-21 10-42-24-155](https://github.com/sandokim/sandokim.github.io/assets/74639652/5fcb1cd7-3bd7-40a2-a3ac-d0c24cd9fed6)
 
 
