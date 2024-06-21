@@ -228,17 +228,16 @@ classes: wide
 ![bandicam 2024-06-21 11-09-37-517](https://github.com/sandokim/sandokim.github.io/assets/74639652/01d37085-64a4-4b7f-b993-19f04763a194)
 ![bandicam 2024-06-21 11-09-47-415](https://github.com/sandokim/sandokim.github.io/assets/74639652/49409420-8629-42c2-be3b-50b58f23e63d)
 
+![bandicam 2024-06-21 11-10-42-412](https://github.com/sandokim/sandokim.github.io/assets/74639652/a6c73b5f-0191-49e8-ab33-0b59481e0e25)
+![bandicam 2024-06-21 11-12-35-527](https://github.com/sandokim/sandokim.github.io/assets/74639652/55cb7a29-1ace-493f-a770-e68b68c3ea64)
+![bandicam 2024-06-21 11-12-55-126](https://github.com/sandokim/sandokim.github.io/assets/74639652/ee74aa9b-4e5a-4e0c-ac7e-b6693d88b54b)
+![bandicam 2024-06-21 11-13-05-788](https://github.com/sandokim/sandokim.github.io/assets/74639652/08a6b452-eeab-4ddb-839d-23e20a88c49c)
+![bandicam 2024-06-21 11-13-09-032](https://github.com/sandokim/sandokim.github.io/assets/74639652/5476f823-2d0e-46ec-b6c1-f34860bb39bc)
+![bandicam 2024-06-21 11-13-23-610](https://github.com/sandokim/sandokim.github.io/assets/74639652/633ebc67-eb8f-4866-8bb2-e60d9ee22837)
+![bandicam 2024-06-21 11-13-32-760](https://github.com/sandokim/sandokim.github.io/assets/74639652/0e0ffd8d-28f6-49f2-a27a-3666e3171c93)
+![bandicam 2024-06-21 11-13-53-187](https://github.com/sandokim/sandokim.github.io/assets/74639652/be9f71df-4bc2-419d-9f0d-9078cc2d62e9)
 
-
-
-
-
-
-
-
-
-
-
+![bandicam 2024-06-21 11-14-18-404](https://github.com/sandokim/sandokim.github.io/assets/74639652/6bc9b8e8-838b-464a-9035-b1be21bdd679)
 
 
 
