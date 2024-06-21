@@ -269,6 +269,152 @@ def extract_texture_image_and_uv_from_gaussians(
 ```
 
 - 이제 중요한 부분을 차근차근 알아가봅시다.
+### 1. UV 좌표 계산
+- vertices_uv 생성: 먼저, 각 정사각형 셀의 정점 UV 좌표를 생성합니다. torch.cartesian_prod를 사용하여 각 정점의 좌표를 결정합니다.
+```python
+n_triangles = 1997996  # 주어진 faces의 개수
+n_squares = n_triangles // 2 + 1
+n_square_per_axis = int(np.sqrt(n_squares) + 1)  # n_square_per_axis 계산
+vertices_uv = torch.cartesian_prod(
+    torch.arange(n_square_per_axis, device=rc.device), 
+    torch.arange(n_square_per_axis, device=rc.device)
+)
+```
+- n_triangles = 1,997,996이면 n_squares = 998999, 따라서 n_square_per_axis = 1000 (정수로 올림)
+- `vertices_uv`는 다음과 같이 생성됩니다.
+```css
+tensor([[   0,    0],
+        [   0,    1],
+        [   0,    2],
+        ...,
+        [ 999,  997],
+        [ 999,  998],
+        [ 999,  999]], device=rc.device)
+```
+
+### 2. faces_uv 생성
+- 각 삼각형 면의 UV 좌표 인덱스를 생성합니다. `faces_uv`는 각 삼각형의 정점들이 UV 맵에서 어떤 좌표를 가지는지를 나타냅니다.
+```python
+faces_uv = torch.arange(3 * n_triangles, device=rc.device).view(n_triangles, 3)
+```
+- `n_triangles = 1,997,996`일 때, `faces_uv`는 다음과 같이 생성됩니다:
+
+```css
+tensor([[       0,        1,        2],
+        [       3,        4,        5],
+        [       6,        7,        8],
+        ...,
+        [5993985, 5993986, 5993987],
+        [5993988, 5993989, 5993990],
+        [5993991, 5993992, 5993993]], device=rc.device)
+```
+
+### 3. vertices_uv 정리 및 조정
+- 각 정사각형 셀을 두 개의 삼각형 (Top과 Bottom)으로 나누고, 그 정점들의 UV 좌표를 계산합니다.
+
+```python
+u_shift = torch.tensor([[1, 0]], dtype=torch.int32, device=rc.device)[:, None]
+v_shift = torch.tensor([[0, 1]], dtype=torch.int32, device=rc.device)[:, None]
+bottom_verts_uv = torch.cat(
+    [vertices_uv + u_shift, vertices_uv, vertices_uv + u_shift + v_shift],
+    dim=1
+)
+top_verts_uv = torch.cat(
+    [vertices_uv + v_shift, vertices_uv, vertices_uv + u_shift + v_shift],
+    dim=1
+)
+```
+
+- 각 정사각형 셀에 대해 Bottom 삼각형과 Top 삼각형의 정점 UV 좌표는 다음과 같습니다:
+  - Bottom 삼각형:
+    ```css
+    tensor([[[   1,    0], [   0,    0], [   1,    1]],
+        [[   2,    0], [   1,    0], [   2,    1]],
+        [[   3,    0], [   2,    0], [   3,    1]],
+        ...,
+        [[ 998,  999], [ 997,  999], [ 998, 1000]],
+        [[ 999,  999], [ 998,  999], [ 999, 1000]],
+        [[1000,  999], [ 999,  999], [1000, 1000]]], device=rc.device)
+    ```
+  - Top 삼각형:
+    ```css
+    tensor([[[   0,    1], [   0,    0], [   1,    1]],
+        [[   1,    1], [   1,    0], [   2,    1]],
+        [[   2,    1], [   2,    0], [   3,    1]],
+        ...,
+        [[ 997, 1000], [ 997,  999], [ 998, 1000]],
+        [[ 998, 1000], [ 998,  999], [ 999, 1000]],
+        [[ 999, 1000], [ 999,  999], [1000, 1000]]], device=rc.device)
+    ```
+
+### 4. UV 좌표 스케일링 및 정규화
+- vertices_uv를 텍스처 사이즈에 맞게 스케일링하고, 정규화합니다.
+
+```python
+verts_uv = torch.cat([bottom_verts_uv, top_verts_uv], dim=0)
+verts_uv = verts_uv * square_size
+verts_uv = verts_uv.reshape(-1, 2) / texture_size
+```
+
+- `square_size = 10`, `texture_size = 10000`일 때:
+  - 정규화된 UV 좌표는 다음과 같이 나옵니다:
+    ```css
+    tensor([[0.0010, 0.0000],
+        [0.0000, 0.0000],
+        [0.0010, 0.0010],
+        [0.0020, 0.0000],
+        [0.0010, 0.0000],
+        [0.0020, 0.0010],
+        [0.0030, 0.0000],
+        [0.0020, 0.0000],
+        [0.0030, 0.0010],
+        ...,
+        [0.9990, 0.9990],
+        [0.9980, 0.9990],
+        [0.9990, 1.0000],
+        [1.0000, 0.9990],
+        [0.9990, 0.9990],
+        [1.0000, 1.0000]], device=rc.device)
+    ```
+  
+### 요약
+- **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
+- **faces_uv**: 각 삼각형 면의 UV 좌표 인덱스를 생성합니다.
+- **UV 좌표 스케일링 및 정규화**: `square_size`와 `texture_size`에 따라 UV 좌표를 스케일링하고 정규화하여 텍스처 이미지의 각 픽셀이 텍스처의 어떤 위치에 대응되는지를 결정합니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
