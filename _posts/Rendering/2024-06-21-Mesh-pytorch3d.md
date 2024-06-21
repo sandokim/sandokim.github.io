@@ -128,7 +128,7 @@ classes: wide
   - rasterization 단계에서 non-differentiable한 것을 해결하는 방법은 blur를 하는 것입니다.
   ![bandicam 2024-06-21 10-33-50-035](https://github.com/sandokim/sandokim.github.io/assets/74639652/6919eefc-ed19-4a20-b6ca-4c4289638ca7)
 
-### Pytorch3D에서 달라진점
+### SoftRasterizer와 비교했을 때, Pytorch3D에서 달라진점
 ![bandicam 2024-06-21 10-35-50-341](https://github.com/sandokim/sandokim.github.io/assets/74639652/7c81bfa7-ff6c-42a7-b01f-04e53e458640)
 ![bandicam 2024-06-21 10-35-56-130](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc440dbf-1b60-415e-8571-466ef4487e34)
 ![bandicam 2024-06-21 10-36-00-276](https://github.com/sandokim/sandokim.github.io/assets/74639652/6c120847-73da-4c9c-9952-9562baa17f44)
