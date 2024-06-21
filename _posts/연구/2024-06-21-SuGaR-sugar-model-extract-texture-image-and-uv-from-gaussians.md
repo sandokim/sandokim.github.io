@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] 3DGS SuGaR sugar_model.py extract_texture_image_and_uv_from_gaussians"
-last_modified_at: 2024-06-14
+last_modified_at: 2024-06-21
 categories:
   - 연구
 tags:
