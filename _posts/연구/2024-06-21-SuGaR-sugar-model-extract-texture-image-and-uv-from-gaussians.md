@@ -380,7 +380,7 @@ verts_uv = verts_uv.reshape(-1, 2) / texture_size
         [1.0000, 1.0000]], device=rc.device)
     ```
   - 이 정규화된 UV 좌표에 각 삼각형으로부터 계산한 픽셀 인덱스를 할당하고, 그 후에 각 픽셀이 해당 삼각형 내부에서 가지는 Barycentric Coordinates(무게중심 좌표)를 계산합니다. 이를 통해 local gaussian 불투명도의 합으로 밀도 필드를 계산하고, 렌더링된 픽셀 값을 사용하여 텍스처 픽셀의 값을 설정합니다. 이 과정을 통해 UV 텍스처 이미지를 추출합니다.
-  - texture image (garden scene)
+  - uv texture image (garden scene)
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7c1cdac8-1e89-4f20-b204-f0e66309318a)
 
   
