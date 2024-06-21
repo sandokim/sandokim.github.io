@@ -18,8 +18,18 @@ classes: wide
 
 ### UV map에 texture image를 대응시킬 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d4f5b04b-77e1-44a3-8a21-de2e313691cd)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3873cb81-5caa-4d3d-bf95-03c48a9f6875)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5abc4d7f-60f7-4312-a04d-1711f9f158de)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f9719d96-b64e-4dc1-9f7f-e6b0015f092b)
+
+### UV mapping이란 뭘까요? 
+UV mapping is the 3D modeling process of projecting a 3D model's surface to a 2D image for texture mapping. The letters "U" and "V" denote the axes of the 2D texture because "X", "Y", and "Z" are already used to denote the axes of the 3D object in model space.
+
+### UV mapping에서 가장 기억해야할 점
+- ***The UV mapping process involves assigning pixels in the image to surface mappings on the polygon.***
+- ***When a model is created as a polygon mesh using a 3D modeller, UV coordinates (also known as texture coordinates) can be generated for each vertex in the mesh.***
+- **Once the model is unwrapped, the artist can paint a texture on each triangle individually, using the unwrapped mesh as a template.**
+- **UV coordinates are optionally applied per face.[2]** **This means a shared spatial vertex position can have different UV coordinates for each of its triangles, so adjacent triangles can be cut apart and positioned on different areas of the texture map.**
+- [출처: 위키피디아 UV Mapping 설명](https://en.wikipedia.org/wiki/UV_mapping)
 
 ### SuGaR를 사용하여 gaussian들로부터 texture image와 uv가 어떻게 extract되는지 알아봅시다.
 
