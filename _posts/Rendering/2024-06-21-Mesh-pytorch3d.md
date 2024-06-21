@@ -139,7 +139,7 @@ classes: wide
 
 ![bandicam 2024-06-21 10-39-28-053](https://github.com/sandokim/sandokim.github.io/assets/74639652/0d84460b-698c-479b-9def-15892239f455)
 
-### Unsupervised Shape Prediction_
+### Unsupervised Shape Prediction
 ![bandicam 2024-06-21 10-39-03-501](https://github.com/sandokim/sandokim.github.io/assets/74639652/c687d214-f316-4790-a65c-a7118c91b02b)
 ![bandicam 2024-06-21 10-39-06-450](https://github.com/sandokim/sandokim.github.io/assets/74639652/727dd06c-b3ef-432f-86f5-180c4359be17)
 ![bandicam 2024-06-21 10-39-09-438](https://github.com/sandokim/sandokim.github.io/assets/74639652/861c0f76-c237-42d0-954c-84aa34c9aed0)
