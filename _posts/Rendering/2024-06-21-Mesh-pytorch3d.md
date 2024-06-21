@@ -71,9 +71,6 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/765eb964-0db1-4166-af88-4cb492e94171)
 
-
-
-
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d1b7497d-75c4-4d03-ab5d-10efdf0903a6)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4666775e-ee82-4a7a-ba41-da7dcd3b7331)
@@ -107,4 +104,14 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a7d3e4de-83d5-48c8-baea-4278b71f7892)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4c441b50-afb4-4581-a279-99c9fb938e0f)
+
+### 3D annotation을 구하기 어렵다. 따라서 2D로 render한 이미지에서 loss를 구하여 3D mesh를 학습시킨다.
+
+![bandicam 2024-06-21 10-22-20-681](https://github.com/sandokim/sandokim.github.io/assets/74639652/aee65025-1350-482d-b181-7fb0b249d7a9)
+
+![bandicam 2024-06-21 10-22-17-183](https://github.com/sandokim/sandokim.github.io/assets/74639652/175edbcd-6ac3-422f-922b-41ee94292aae)
+
+
+
+
 
