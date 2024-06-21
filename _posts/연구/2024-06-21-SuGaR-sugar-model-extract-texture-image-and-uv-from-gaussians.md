@@ -34,9 +34,9 @@ UV mapping is the 3D modeling process of projecting a 3D model's surface to a 2D
 ### SuGaR를 사용하여 gaussian들로부터 texture image와 uv가 어떻게 extract되는지 알아봅시다.
 
 - 먼저 다음 사진은 10000 x 10000 의 픽셀을 가지는 texture image입니다.
-  - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1c0faf8c-6863-4b36-b7fb-dcd5ea160023)
+  - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a50eddc9-c908-4a0c-9739-b2ea54a9afda)
 - 이 texture image는 먼저 정의한 uv coordinates위의 좌표에서 정의되었을 것입니다.
-  - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b74b9cf2-1876-42e6-a806-bf1a1d5750dd)
+  - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7c1cdac8-1e89-4f20-b204-f0e66309318a)
 - 그리고 이 texture는 gaussian render를 사용하여 만들어졌습니다.
   - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1cf04a18-d705-4117-977e-637b7afbc0b1)
 
