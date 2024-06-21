@@ -21,6 +21,7 @@ tags:
   - SuGaR
   - 3dgs
   - textured mesh rendering (flat shading, phong shading, gouraud shading)
+  - nerf
 excerpt: "Pytorch3D 소개"
 use_math: true
 classes: wide
