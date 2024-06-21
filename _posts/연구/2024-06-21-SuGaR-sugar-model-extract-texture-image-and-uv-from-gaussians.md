@@ -346,7 +346,7 @@ top_verts_uv = torch.cat(
         [[ 998, 1000], [ 998,  999], [ 999, 1000]],
         [[ 999, 1000], [ 999,  999], [1000, 1000]]], device=rc.device)
     ```
-  - 지금의 상황을 그림으로 그려보면 다음과 같이 vertices_uv coordinates를 만들었고, 각 삼각형의 vertices 3개씩을 vertices_uv coordinates에 할당한 것입니다.
+  - 지금의 상황을 그림으로 그려보면 다음과 같이 vertices_uv coordinates를 만들었고, 각 삼각형의 vertices 3개씩을 vertices_uv coordinates에 할당한 것입니다. (아직은 실제 사용하는 UV map처럼 0~1 값으로 normalize까지 한 상태는 아닙니다.)
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b52f79c0-16d7-43f7-9487-4b8bd2a63674)
 
 
