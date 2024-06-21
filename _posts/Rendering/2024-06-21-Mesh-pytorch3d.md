@@ -156,10 +156,33 @@ classes: wide
 
 ### Pytorch3D는 differentiable mesh renderer 뿐만 아니라 differentiable point cloud renderer도 제공합니다.
 ![bandicam 2024-06-21 10-44-11-183](https://github.com/sandokim/sandokim.github.io/assets/74639652/b9e4b733-96b6-46ea-ae34-69d1f966aac2)
+![bandicam 2024-06-21 10-45-12-376](https://github.com/sandokim/sandokim.github.io/assets/74639652/f1a84bce-8cab-4306-925e-8464f99787af)
 
+### Single Image View Synthesis
+![bandicam 2024-06-21 10-45-25-992](https://github.com/sandokim/sandokim.github.io/assets/74639652/d6022cef-4b4a-4377-9c49-f7533c2e5772)
+![bandicam 2024-06-21 10-45-29-247](https://github.com/sandokim/sandokim.github.io/assets/74639652/b5ebb8d9-195c-4e36-9cd2-6828b4bca9c3)
+![bandicam 2024-06-21 10-45-40-668](https://github.com/sandokim/sandokim.github.io/assets/74639652/670b059b-4d16-4e95-ae50-eb04339d81e4)
+![bandicam 2024-06-21 10-46-15-283](https://github.com/sandokim/sandokim.github.io/assets/74639652/170768b7-da33-4f37-9f58-3e7cce7933bf)
+![bandicam 2024-06-21 10-46-13-426](https://github.com/sandokim/sandokim.github.io/assets/74639652/a871c9f1-1291-4c16-8412-425079504670)
+![bandicam 2024-06-21 10-47-07-910](https://github.com/sandokim/sandokim.github.io/assets/74639652/45c2474c-f4ef-44db-aabd-54c0ab117dfc)
 
-
-
+#### Point cloud의 depth를 예측합니다.
+![bandicam 2024-06-21 10-51-16-256](https://github.com/sandokim/sandokim.github.io/assets/74639652/ebd9599c-f915-4134-9599-ca7f4d18bdc8)
+![bandicam 2024-06-21 10-51-18-811](https://github.com/sandokim/sandokim.github.io/assets/74639652/ebc588c3-e5e5-4e9e-ba7d-eba96ade652e)
+![bandicam 2024-06-21 10-51-23-197](https://github.com/sandokim/sandokim.github.io/assets/74639652/9fc2aa24-0417-490e-97d1-556dd7b81c32)
+![bandicam 2024-06-21 10-51-34-733](https://github.com/sandokim/sandokim.github.io/assets/74639652/0645ad4c-cedf-4817-945b-22bc90a2a278)
+![bandicam 2024-06-21 10-51-38-359](https://github.com/sandokim/sandokim.github.io/assets/74639652/c1dc6669-9213-44be-a29c-2ab730eac8be)
+![bandicam 2024-06-21 10-51-44-558](https://github.com/sandokim/sandokim.github.io/assets/74639652/c7c4e166-dcac-423d-bb03-e1f7c5901104)
+![bandicam 2024-06-21 10-51-47-412](https://github.com/sandokim/sandokim.github.io/assets/74639652/78c173d1-9640-4c63-a2df-6ddedf9aafcd)
+![bandicam 2024-06-21 10-51-50-188](https://github.com/sandokim/sandokim.github.io/assets/74639652/f2dc0d05-6a75-42f2-bcfb-b94b06a0e04f)
+![bandicam 2024-06-21 10-51-55-273](https://github.com/sandokim/sandokim.github.io/assets/74639652/aa654420-1415-469c-b9f7-cbabdd1e35f0)
+![bandicam 2024-06-21 10-48-03-423](https://github.com/sandokim/sandokim.github.io/assets/74639652/08466c19-4574-4ba8-90e3-8f401de2faf7)
+![bandicam 2024-06-21 10-48-30-120](https://github.com/sandokim/sandokim.github.io/assets/74639652/03f93ba9-32cc-45c9-99f1-3b60c754ddc5)
+![bandicam 2024-06-21 10-48-50-250](https://github.com/sandokim/sandokim.github.io/assets/74639652/91a37bf2-53d3-48b4-97f5-7aab4b940c75)
+![bandicam 2024-06-21 10-49-14-482](https://github.com/sandokim/sandokim.github.io/assets/74639652/c2391f2a-c6c4-4b1c-a623-64d4c24b67ad)
+![bandicam 2024-06-21 10-49-23-921](https://github.com/sandokim/sandokim.github.io/assets/74639652/d735f554-a2f1-4f02-ae70-ef2edbaa9448)
+![bandicam 2024-06-21 10-49-43-601](https://github.com/sandokim/sandokim.github.io/assets/74639652/87c13ad2-2893-497d-b2cf-fc5b3b5b743c)
+![bandicam 2024-06-21 10-49-53-741](https://github.com/sandokim/sandokim.github.io/assets/74639652/ceffb70a-6aca-4808-9fc4-bc8be79ee260)
 
 
 
