@@ -154,8 +154,8 @@ classes: wide
 ### Textured Mesh Rendering (Flat shading, Phong shading, Gouraud shading)
 ![bandicam 2024-06-21 10-42-24-155](https://github.com/sandokim/sandokim.github.io/assets/74639652/5fcb1cd7-3bd7-40a2-a3ac-d0c24cd9fed6)
 
-
-
+### Pytorch3D는 differentiable mesh renderer 뿐만 아니라 differentiable point cloud renderer도 제공합니다.
+![bandicam 2024-06-21 10-44-11-183](https://github.com/sandokim/sandokim.github.io/assets/74639652/b9e4b733-96b6-46ea-ae34-69d1f966aac2)
 
 
 
