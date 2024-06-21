@@ -185,35 +185,3 @@ classes: wide
 ![bandicam 2024-06-21 10-49-43-601](https://github.com/sandokim/sandokim.github.io/assets/74639652/87c13ad2-2893-497d-b2cf-fc5b3b5b743c)
 ![bandicam 2024-06-21 10-49-53-741](https://github.com/sandokim/sandokim.github.io/assets/74639652/ceffb70a-6aca-4808-9fc4-bc8be79ee260)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
