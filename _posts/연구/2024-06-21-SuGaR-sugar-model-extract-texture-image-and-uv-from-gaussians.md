@@ -48,8 +48,9 @@ UV mapping is the 3D modeling process of projecting a 3D model's surface to a 2D
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ee2a9686-96ec-4788-aedd-0f66a7fac644)
 - 우측하단에서 Verts: 1,023,699개 / Faces: 1,997,996개임을 확익할 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/826badf1-dd51-46db-be94-20f6f91c06bf)
-- 결론부터 말하면, refined_mesh의 faces는 1,997,996개 vertices는 1,025,032개인걸 감안해서 default sqaure_size가 10일 때, uv map 크기가 10000x10000로 나온 것인데 어떻게 계산된 것인지 이해해봅시다.
-
+- 결론부터 말하면, refined_mesh의 faces는 1,997,996개 vertices는 1,025,032개인걸 감안해서 default sqaure_size가 10일 때, uv map 크기가 10000x10000로 나온 것인데 어떻게 계산된 것인지 아래의 `sugar_model.py`에서 `extract_texture_image_and_uv_from_gaussian` 함수를 보고 이해해봅시다.
+- 먼저 전체 코드를 쭉 훑어보세요.
+  
 ```python
 def extract_texture_image_and_uv_from_gaussians(
     rc:SuGaR,
@@ -267,6 +268,7 @@ def extract_texture_image_and_uv_from_gaussians(
     return verts_uv, faces_uv, texture_img
 ```
 
+- 이제 중요한 부분을 차근차근 알아가봅시다.
 
 
 
