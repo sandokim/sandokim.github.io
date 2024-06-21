@@ -19,7 +19,7 @@ classes: wide
 ### UV map에 texture image를 대응시킬 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d4f5b04b-77e1-44a3-8a21-de2e313691cd)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5abc4d7f-60f7-4312-a04d-1711f9f158de)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f9719d96-b64e-4dc1-9f7f-e6b0015f092b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/88af76c7-78dc-4c0f-bf02-bd1bf10d22cf)
 
 ### UV mapping이란 뭘까요? 
 UV mapping is the 3D modeling process of projecting a 3D model's surface to a 2D image for texture mapping. The letters "U" and "V" denote the axes of the 2D texture because "X", "Y", and "Z" are already used to denote the axes of the 3D object in model space.
@@ -346,6 +346,9 @@ top_verts_uv = torch.cat(
         [[ 998, 1000], [ 998,  999], [ 999, 1000]],
         [[ 999, 1000], [ 999,  999], [1000, 1000]]], device=rc.device)
     ```
+  - 지금의 상황을 그림으로 그려보면 다음과 같이 vertices_uv coordinates를 만들었고, 각 삼각형의 vertices 3개씩을 vertices_uv coordinates에 할당한 것입니다.
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b52f79c0-16d7-43f7-9487-4b8bd2a63674)
+
 
 ### 4. UV 좌표 스케일링 및 정규화
 - vertices_uv를 텍스처 사이즈에 맞게 스케일링하고, 정규화합니다.
