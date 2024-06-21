@@ -34,10 +34,21 @@ UV mapping is the 3D modeling process of projecting a 3D model's surface to a 2D
 ### SuGaR를 사용하여 gaussian들로부터 texture image와 uv가 어떻게 extract되는지 알아봅시다.
 
 - 먼저 다음 사진은 10000 x 10000 의 픽셀을 가지는 texture image입니다.
+  - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1c0faf8c-6863-4b36-b7fb-dcd5ea160023)
 - 이 texture image는 먼저 정의한 uv coordinates위의 좌표에서 정의되었을 것입니다.
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b74b9cf2-1876-42e6-a806-bf1a1d5750dd)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1c0faf8c-6863-4b36-b7fb-dcd5ea160023)
+  - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b74b9cf2-1876-42e6-a806-bf1a1d5750dd)
+- 그리고 이 texture는 gaussian render를 사용하여 만들어졌습니다.
+  - ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1cf04a18-d705-4117-977e-637b7afbc0b1)
 
+### gaussians renderers로 만들어진 texture가 어떻게 만들어졌는지 더 자세히 살펴봅시다.
+
+- 먼저 blender에서 OBJ 파일을 열어주고, Material Preview 모드로 바꿔줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3ee1d753-2de0-497f-ad9f-ec69a0513d7c)
+- 그리고 우측하단에 우클릭을 하여 Scene Statistics를 켜줘서, Vertices, Faces의 개수를 확인할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ee2a9686-96ec-4788-aedd-0f66a7fac644)
+- 우측하단에서 Verts: 1,023,699개 / Faces: 1,997,996개임을 확익할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/826badf1-dd51-46db-be94-20f6f91c06bf)
+- 결론부터 말하면, refined_mesh의 faces는 1,997,996개 vertices는 1,025,032개인걸 감안해서 default sqaure_size가 10일 때, uv map 크기가 10000x10000로 나온 것인데 어떻게 계산된 것인지 이해해봅시다.
 
 ```python
 def extract_texture_image_and_uv_from_gaussians(
