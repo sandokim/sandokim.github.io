@@ -115,6 +115,8 @@ class SuGaR(nn.Module):
 - 위 코드에서 primitive가 `diamond` 혹은 `square`로 결정되는데, 여기서 두 케이스 모두 정점인 vertices의 개수는 4개입니다.
 - len(self.primitive_verts)로 self.n_vertices_per_gaussian으로 설정하는데, 이 말은 gaussian당 vertices를 4개로 정한다는 의미입니다.
 - 즉, `Gaussian의 primitive representation`을 `diamond` 혹은 `sqaure`로 정의합니다.
+- 그리고 `diamond` 혹은 `sqaure`는 top triangle과 bottom triangle 2개로 구성됩니다.
+- 따라서 `diamond` 혹은 `sqaure`에 대한 vertices, edges는 triangle로 모두 계산합니다.
 - triangle_vertices를 정의할 때는, None으로 배치차원 1을 앞에 추가해줍니다.
 - 즉 triangle_vertices는 1개의 triangle에 대하여 vertices는 4개를 가지고 있고, 각 vertices는 3차원 (x,y,z)를 가지므로 shape은 (1, n_vertices_per_gaussian, 3)에서 결과적으로 (1, 4, 3)이 됩니다.
 - 결론적으로 triangle 1개당 local gaussian 1개를 할당하기 위한 작업입니다.
