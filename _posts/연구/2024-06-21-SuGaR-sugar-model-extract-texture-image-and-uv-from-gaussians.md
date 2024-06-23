@@ -522,7 +522,7 @@ This indicates that the ray and the triangle intersect.
   
 $$ P(\beta, \gamma) = a + \beta(b - a) + \gamma(c - a) $$
 
-- 위 식은 다음과 같이 notation을 다르게해서 쓸 수도 있습니다. (triangle의 3개의 정점 A,B,C와 weight w1,w2)
+- 위 식은 다음과 같이 notation을 다르게해서 쓸 수도 있습니다. (triangle의 3개의 정점 A,B,C와 weights인 w1,w2)
   
 $$ P = A+w_1(B-A)+w_2(C-A) $$
 
