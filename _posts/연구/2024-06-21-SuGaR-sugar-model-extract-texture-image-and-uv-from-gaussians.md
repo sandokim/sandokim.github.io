@@ -518,6 +518,17 @@ This indicates that the ray and the triangle intersect.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3de4edc1-f85c-479c-a0e1-f596a932e292)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/673b101a-badf-4677-8870-a8cae00cc64a)
 
+- 점 P가 triangle의 안에 위치하려면 β+γ≤1이어야하고, β,γ≥0이어야 한다고 배웠습니다.
+  
+$$ P(\beta, \gamma) = a + \beta(b - a) + \gamma(c - a) $$
+
+- 위 식은 다음과 같이 notation을 다르게해서 쓸 수도 있습니다. (triangle의 3개의 정점 A,B,C와 weight w1,w2)
+  
+$$ P = A+w_1(B-A)+w_2(C-A) $$
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fc06c787-ca77-4716-b91c-76abf4787650)
+
+[Gamedev Maths: point in triangle](https://youtu.be/HYAgJN3x4GA?si=Pe0IpHp9YeEJTB_5)
 
 ## 다양한 3D 그래픽스 응용 분야에서 Barycentric Coordinates의 사용 예시
 
