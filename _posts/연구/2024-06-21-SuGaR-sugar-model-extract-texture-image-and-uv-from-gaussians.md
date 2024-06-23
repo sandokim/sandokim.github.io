@@ -476,7 +476,7 @@ Basically, --square_size is related to the number of pixels used to map a triang
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/94fe20b1-360a-4a69-94ae-a42602d0cd9a)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49a2b8f5-1911-4db1-8907-3b7ba114e94e)
 
-- 실제로 ray의 함수와 barycentric coordinates의 점 P가 같은 지점을 찾고 linear equation을 풀면 **한번에 ray가 source로부터 얼마나 멀리 떨어져서 traingle과 intersect하는지를 알려주는 `t`와 barycentric coordiantes의 β,γ를 알 수 있고, α 또한 α+β+γ=1로 구할 수 있습니다.**
+- 실제로 ray의 함수와 barycentric coordinates의 점 P가 같은 지점을 찾고 linear equation을 풀면 **한번에 ray가 source로부터 얼마나 멀리 떨어져서 traingle과 intersect하는지를 알려주는 `t`와 barycentric coordiantes의 `β,γ`를 알 수 있고, α 또한 α+β+γ=1로 구할 수 있습니다.**
   
 #### Intersection of Ray and Triangle
 
