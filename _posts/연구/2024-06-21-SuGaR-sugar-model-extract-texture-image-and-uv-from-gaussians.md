@@ -708,47 +708,13 @@ faces_per_pixel = 1
   - 확장된 텐서 모양: `(1, texture_size, texture_size, 2)`
 
 
-### 요약
+### 최종요약
 - **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
 - **faces_uv**: 각 삼각형 면의 UV 좌표 인덱스를 생성합니다.
 - **UV 좌표 스케일링 및 정규화**: `square_size`와 `texture_size`에 따라 UV 좌표를 스케일링하고 정규화하여 텍스처 이미지의 각 픽셀이 텍스처의 어떤 위치에 대응되는지를 결정합니다.
 - **텍스처 이미지 초기화 및 픽셀 인덱스 계산**: 텍스처 이미지를 초기화하고, 각 삼각형의 픽셀 인덱스를 계산합니다.
 - **barycentric coordinate 및 density field 생성**: barycentric coordinate를 계산하고, 이를 통해 local gaussian 불투명도의 합으로 밀도 필드를 생성합니다.
 - **픽셀 특징 계산 및 텍스처 이미지 업데이트**: barycentric coordinate를 사용하여 각 픽셀의 특징을 계산하고, 이를 기반으로 텍스처 이미지를 업데이트합니다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
