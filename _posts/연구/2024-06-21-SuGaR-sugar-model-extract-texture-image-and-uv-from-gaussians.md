@@ -707,6 +707,46 @@ faces_per_pixel = 1
   - 원래 텐서 모양: `(texture_size, texture_size, 2)`
   - 확장된 텐서 모양: `(1, texture_size, texture_size, 2)`
 
+#### 9. 
+
+```python
+    for cam_idx in range(len(rc.nerfmodel.training_cameras)):
+        p3d_cameras = rc.nerfmodel.training_cameras.p3d_cameras[cam_idx]
+        
+        # Render rgb img
+        rgb_img = rc.render_image_gaussian_rasterizer(
+            camera_indices=cam_idx,
+            sh_deg=0,  #rc.sh_levels-1,
+            compute_color_in_rasterizer=True,  #compute_color_in_rasterizer,
+        ).clamp(min=0, max=1)
+        
+        fragments = renderer.rasterizer(idx_mesh, cameras=p3d_cameras)
+        idx_img = renderer.shader(fragments, idx_mesh, cameras=p3d_cameras)[0, ..., :2]
+        # print("Idx img:", idx_img.shape, idx_img.min(), idx_img.max())
+        update_mask = fragments.zbuf[0, ..., 0] > 0
+        idx_to_update = idx_img[update_mask].round().long() 
+
+        use_average = True
+        if not use_average:
+            texture_img[(idx_to_update[..., 0], idx_to_update[..., 1])] = rgb_img[update_mask]
+        else:
+            no_initialize_mask = texture_counter[(idx_to_update[..., 0], idx_to_update[..., 1])][..., 0] != 0
+            texture_img[(idx_to_update[..., 0], idx_to_update[..., 1])] = no_initialize_mask[..., None] * texture_img[(idx_to_update[..., 0], idx_to_update[..., 1])]
+
+            texture_img[(idx_to_update[..., 0], idx_to_update[..., 1])] = texture_img[(idx_to_update[..., 0], idx_to_update[..., 1])] + rgb_img[update_mask]
+            texture_counter[(idx_to_update[..., 0], idx_to_update[..., 1])] = texture_counter[(idx_to_update[..., 0], idx_to_update[..., 1])] + 1
+
+    if use_average:
+        texture_img = texture_img / texture_counter.clamp(min=1)        
+    
+    return verts_uv, faces_uv, texture_img
+```
+
+- 각 카메라에 대해 3D mesh를 렌더링합니다.
+- 렌더링된 RGB 이미지를 사용하여 texture 이미지를 업데이트합니다.
+- `use_average` 플래그에 따라 texture 이미지를 평균 값으로 계산할지 결정합니다.
+- 최종적으로 UV coordinates (verts_uv), UV indices (faces_uv), 그리고 texture image (texture_img)를 반환합니다.
+- 이 과정은 여러 카메라 뷰에서 렌더링된 이미지를 사용하여 최종 texture 이미지를 생성하고, 이를 mesh의 UV map에 적용하는 것을 목표로 합니다.
 
 ### 최종요약
 - **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
