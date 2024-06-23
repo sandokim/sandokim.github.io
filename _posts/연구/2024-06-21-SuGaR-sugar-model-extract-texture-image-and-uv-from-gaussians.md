@@ -458,15 +458,15 @@ Basically, --square_size is related to the number of pixels used to map a triang
 **위 코드를 통해 각 삼각형(top_triangle, bottom_triangle)의 내부 픽셀에 대해 Barycentric coordinates를 계산할 수 있으며, 이를 사용하여 색상이나 텍스처 좌표를 정확하게 보간할 수 있습니다.**
 
 - 아래 영상을 통해 barycentric coordinate가 정확히 뭔지 알 수 있습니다.
-[Introduction to Computer Graphics (Lecture 10): Ray casting 2--barycentric coordinates, CGS, etc.](https://youtu.be/B8Q1nqW3XcE?si=72CiubUgzS7U1JaJ)
-
-- barycentric coordinates가 무게중심으로 번역되어서 하나의 점 P인걸로 오해할 수 있습니다.
-- 사실 골자는 triangle의 3개의 정점(vertcies)으로 ***triangle을 포함하는 plane을 표현***할 수 있고, 여기에 각 정점 A,B,C로부터 구한 α,β,γ의 합이 1이라는 constraint를 줌으로써 그에 해당하는 점 P에서는 손가락으로 그 plane을 들었을 때, 떨어지지 않고 평형을 유지하게 됩니다.
+- [Introduction to Computer Graphics (Lecture 10): Ray casting 2--barycentric coordinates, CGS, etc.](https://youtu.be/B8Q1nqW3XcE?si=72CiubUgzS7U1JaJ)
+- barycentric coordinates가 무게중심으로 번역되어서 하나의 점 P인걸로 오해할 수 있습니다. (다시말해, P는 1개만 있는게 아니라 P는 여러 개로, triangle안에 있을수도 밖에 있을수도 있습니다.)
+- barycentric coordinates의 골자는 triangle의 3개의 정점(vertcies)으로 ***triangle을 포함하는 plane을 표현***할 수 있고, 여기에 각 정점 A,B,C로부터 구한 α,β,γ의 합이 1이라는 constraint를 줌으로써 그에 해당하는 점 P에서는 손가락으로 그 plane을 들었을 때, 떨어지지 않고 평형을 유지하게 됩니다.
 - constraint1: `α+β+γ=1`
 - 이때, **triangle을 포함하는 plane 외부에서도 점 P를 정의할 수 있습니다.**
 - 하지만, **우리는 triangle 내부의 점 P로만 제한하여**, ray가 triangle과 intersect할 때, 그 점 P를 triangle의 3개의 정점(vertices)로 표현하고 싶은 것입니다.
 - 그를 위해 조건 하나를 더 추가합니다. 그 조건은 α,β,γ≥0 입니다.
 - constraint2: `α,β,γ≥0`
+- 이를 통해 triangle과 ray의 intersection을 구할 수 있게 됩니다.
   
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2a8db83b-a033-438c-93f3-b2210f5df259)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d92408e4-f990-4ef7-9d78-057bd50d4b4f)
