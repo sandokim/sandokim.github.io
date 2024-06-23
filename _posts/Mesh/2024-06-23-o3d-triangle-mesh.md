@@ -82,7 +82,34 @@ https://www.open3d.org/docs/release/python_api/open3d.utility.Vector3iVector.htm
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2854550f-481b-4013-bd4e-01beb00926d8)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/50f106e0-3a42-49f1-aba0-679f7130d9da)
 
-### 이제 SuGaR에서 TriangleMesh를 어떻게 정의해서 넘기는지 봅시다.
+### 이제 SuGaR에서 TriangleMesh를 어떻게 불러오는지와 어떻게 새롭게 정의해서 넘기는지 봅시다.
+
+- 저장된 TriangleMesh 객체를 불러오는 법은 `o3d.io.read_triangle_mesh`로 합니다.
+  
+```python
+# sugar_extractors/refined_mesh.py
+
+# --- Loading coarse mesh ---
+o3d_mesh = o3d.io.read_triangle_mesh(sugar_mesh_path)
+    
+# --- Loading refined SuGaR model ---
+checkpoint = torch.load(refined_model_path, map_location=nerfmodel.device)
+
+refined_sugar = SuGaR(
+        nerfmodel=nerfmodel,
+        points=checkpoint['state_dict']['_points'],        colors=SH2RGB(checkpoint['state_dict']['_sh_coordinates_dc'][:, 0, :]),
+        initialize=False,        sh_levels=nerfmodel.gaussians.active_sh_degree+1,
+keep_track_of_knn=False,
+knn_to_track=0,
+beta_mode='average',
+surface_mesh_to_bind=o3d_mesh,    n_gaussians_per_surface_triangle=n_gaussians_per_surface_triangle,
+)
+    refined_sugar.load_state_dict(checkpoint['state_dict'])
+refined_sugar.eval()
+```
+
+- 새로운 TriangleMesh 객체를 만들때는,`o3d.geometry.TriangleMesh()`로 정의하고, 이에 `vertices`, `triangles`, `vertex_normals`, `vertex_colors`를 넘겨줍니다.
+
 ```python
 # sugar_extractors/refined_mesh.py
 
@@ -105,3 +132,44 @@ surface_mesh_to_bind=new_o3d_mesh,
 n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
 )
 ```
+  - 이때, `vertices`, `triangles`, `vertex_normals`, `vertex_colors`는 앞에서 미리 mesh에서 `verts_list()`, `face_list()`, `faces_normals_list()`로 불러와서 만든 정보입니다.
+  ```python
+       if postprocess_mesh:
+        CONSOLE.print("Postprocessing mesh by removing border triangles with low-opacity gaussians...")
+        with torch.no_grad():
+            new_verts = refined_sugar.surface_mesh.verts_list()[0].detach().clone()
+            new_faces = refined_sugar.surface_mesh.faces_list()[0].detach().clone()
+            new_normals = refined_sugar.surface_mesh.faces_normals_list()[0].detach().clone()
+            
+            # For each face, get the 3 edges
+            edges0 = new_faces[..., None, (0,1)].sort(dim=-1)[0]
+            edges1 = new_faces[..., None, (1,2)].sort(dim=-1)[0]
+            edges2 = new_faces[..., None, (2,0)].sort(dim=-1)[0]
+            all_edges = torch.cat([edges0, edges1, edges2], dim=-2)
+            
+            # We start by identifying the inside faces and border faces
+            face_mask = refined_sugar.strengths[..., 0] > -1.
+            for i in range(postprocess_iterations):
+                CONSOLE.print("\nStarting postprocessing iteration", i)
+                # We look for edges that appear in the list at least twice (their NN is themselves)
+                edges_neighbors = knn_points(all_edges[face_mask].view(1, -1, 2).float(), all_edges[face_mask].view(1, -1, 2).float(), K=2)
+                # If all edges of a face appear in the list at least twice, then the face is inside the mesh
+                is_inside = (edges_neighbors.dists[0][..., 1].view(-1, 3) < 0.01).all(-1)
+                # We update the mask by removing border faces
+                face_mask[face_mask.clone()] = is_inside
+
+            # We then add back border faces with high-density
+            face_centers = new_verts[new_faces].mean(-2)
+            face_densities = refined_sugar.compute_density(face_centers[~face_mask])
+            face_mask[~face_mask.clone()] = face_densities > postprocess_density_threshold
+
+            # And we create the new mesh and SuGaR model
+            new_faces = new_faces[face_mask]
+            new_normals = new_normals[face_mask]
+
+            new_scales = refined_sugar._scales.reshape(len(face_mask), -1, 2)[face_mask].view(-1, 2)
+            new_quaternions = refined_sugar._quaternions.reshape(len(face_mask), -1, 2)[face_mask].view(-1, 2)
+            new_densities = refined_sugar.all_densities.reshape(len(face_mask), -1, 1)[face_mask].view(-1, 1)
+            new_sh_coordinates_dc = refined_sugar._sh_coordinates_dc.reshape(len(face_mask), -1, 1, 3)[face_mask].view(-1, 1, 3)
+            new_sh_coordinates_rest = refined_sugar._sh_coordinates_rest.reshape(len(face_mask), -1, 15, 3)[face_mask].view(-1, 15, 3)
+    ```
