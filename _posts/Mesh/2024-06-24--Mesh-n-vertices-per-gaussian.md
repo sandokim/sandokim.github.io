@@ -147,6 +147,67 @@ triangle_vertices = self.primitive_verts[None]  # Shape: (1, n_vertices_per_gaus
         return triangles
 ```
 
+# TexturesUV와 TexturesVertex의 차이
+
+**TexturesUV**:
+- UV 매핑 기반 텍스처링을 사용합니다.
+- 텍스처 맵과 vertices, faces의 UV 좌표를 포함합니다.
+- 이는 텍스처 맵을 각 삼각형에 매핑하여 렌더링합니다.
+- 주로 전체 이미지 기반 텍스처를 사용하는 경우에 적합합니다.
+
+**TexturesVertex**:
+- Vertex 기반 텍스처링을 사용합니다.
+- 각 vertex마다 텍스처 색상 특징을 직접 정의합니다.
+- 이는 각 vertex에 색상을 지정하여 렌더링합니다.
+- 주로 각 vertex에 개별 색상을 지정해야 하는 경우에 적합합니다.
+
+두 방식의 주요 차이는 텍스처가 정의되는 방식과 그에 따른 렌더링 방식입니다. **TexturesUV**는 UV 좌표를 기반으로 텍스처 맵을 매핑하는 반면, **TexturesVertex**는 각 vertex에 직접 색상 정보를 할당합니다.
+
+```python
+# sugar_scene/sugar_model.py
+
+class SuGaR(nn.Module):
+
+...
+
+    @property
+    def texture_features(self):
+        if not self._texture_initialized:
+            self.update_texture_features()
+        return self.sh_coordinates[self.point_idx_per_pixel]
+    
+    @property
+    def mesh(self):        
+        textures_uv = TexturesUV(
+            maps=SH2RGB(self.texture_features[..., 0, :][None]), #texture_img[None]),
+            verts_uvs=self.verts_uv[None],
+            faces_uvs=self.faces_uv[None],
+            sampling_mode='nearest',
+            )
+        
+        return Meshes(
+            verts=[self.triangle_vertices],   
+            faces=[self.triangles],
+            textures=textures_uv,
+        )
+        
+    @property
+    def surface_mesh(self):
+        # Create a Meshes object
+        surface_mesh = Meshes(
+            verts=[self._points.to(self.device)],   
+            faces=[self._surface_mesh_faces.to(self.device)],
+            textures=TexturesVertex(verts_features=self._vertex_colors[None].clamp(0, 1).to(self.device)),
+            # verts_normals=[verts_normals.to(rc.device)],
+            )
+        return surface_mesh
+```
+
+
+
+
+
+
 -----
 
 - SuGaR의 mesh refine에서 사용하는 surface_face에 대해선 barycentric coordinates로 barycentric interpolation을 하는 방식을 사용합니다.
