@@ -173,3 +173,46 @@ n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
             new_sh_coordinates_dc = refined_sugar._sh_coordinates_dc.reshape(len(face_mask), -1, 1, 3)[face_mask].view(-1, 1, 3)
             new_sh_coordinates_rest = refined_sugar._sh_coordinates_rest.reshape(len(face_mask), -1, 15, 3)[face_mask].view(-1, 15, 3)
     ```
+
+- 최종적으로 저장할 mesh에 `verts_list()`, `face_list()`, ~~`faces_normals_list()`~~, `textures.verts_uvs_list()`, `textures.faces_uvs_list()`, `textures.maps_padded()`를 저장해줍니다.
+
+  ```python
+    # Compute texture
+    with torch.no_grad():
+        verts_uv, faces_uv, texture_img = extract_texture_image_and_uv_from_gaussians(
+            refined_sugar, square_size=square_size, n_sh=1, texture_with_gaussian_renders=True)
+        
+        textures_uv = TexturesUV(
+            maps=texture_img[None], #texture_img[None]),
+            verts_uvs=verts_uv[None],
+            faces_uvs=faces_uv[None],
+            sampling_mode='nearest',
+            )
+        textured_mesh = Meshes(
+            verts=[refined_sugar.surface_mesh.verts_list()[0]],   
+            faces=[refined_sugar.surface_mesh.faces_list()[0]],
+            textures=textures_uv,
+            )
+    
+    CONSOLE.print("Texture extracted.")
+    CONSOLE.print("Texture shape:", texture_img.shape)
+    
+    CONSOLE.print("Saving textured mesh...")
+    
+    with torch.no_grad():
+        save_obj(  
+            mesh_save_path,
+            verts=textured_mesh.verts_list()[0],
+            faces=textured_mesh.faces_list()[0],
+            verts_uvs=textured_mesh.textures.verts_uvs_list()[0],
+            faces_uvs=textured_mesh.textures.faces_uvs_list()[0],
+            texture_map=textured_mesh.textures.maps_padded()[0].clamp(0., 1.),
+            )
+        
+    CONSOLE.print("Texture saved at:", mesh_save_path)
+    return mesh_save_path
+
+  ```
+
+
+
