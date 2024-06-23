@@ -450,6 +450,8 @@ Basically, --square_size is related to the number of pixels used to map a triang
         dim=0)  # 2, n_pixels_per_triangle, 3
 ```
 
+**위 코드를 통해 각 삼각형(top_triangle, bottom_triangle)의 내부 픽셀에 대해 Barycentric coordinates를 계산할 수 있으며, 이를 사용하여 색상이나 텍스처 좌표를 정확하게 보간할 수 있습니다.**
+
 ## 다양한 3D 그래픽스 응용 분야에서 Barycentric Coordinates의 사용 예시
 
 Barycentric coordinates는 3D 그래픽스에서 매우 유용하며 다양한 응용 분야에서 사용됩니다. 다음은 그 구체적인 예시들입니다:
