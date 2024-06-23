@@ -401,6 +401,7 @@ Basically, --square_size is related to the number of pixels used to map a triang
 - 즉, 다시 코드를 보면, square_size에 맞게 bottom_triangle_pixel_bary_coords를 결정하는 것을 볼 수 있습니다.
 - sqaure_size가 default인 10이라면, triangle의 barycentric coordinates도 10x10의 pixels에서 결정됩니다.
 - square_size를 5로 줄이면, triangle의 barycentric coordinates도 5x5의 pixels 내에서 결정되므로 texture image의 해상도가 낮아집니다.
+- ***텍스처 해상도는 텍스처 이미지의 크기에 의해 결정되며, Barycentric coordinates는 삼각형 내부의 각 픽셀에 대해 정확한 텍스처 좌표를 할당하는 데 사용됩니다.***
 
 ```python
     # ---Build texture image
@@ -495,7 +496,7 @@ Barycentric coordinates는 shading에 매우 유용합니다. 삼각형은 평�
 
 **vertex 기준으로 정의된 경우, 이 interpolate 기술을 사용하여 삼각형 표면 전체에 걸쳐 매끄러운 shading을 시뮬레이션할 수 있습니다.** 삼각형은 "수학적으로" 평면이지만, 교차점에서의 normal은 vertex normal의 조합이므로, vertex normal이 서로 다르면 이 interpolate의 결과는 삼각형 표면 전체에서 일정하지 않습니다.
 
-**Barycentric coordinates는 texture coordinates를 계산하는 데도 사용됩니다.** 이는 텍스처 매핑(texture mapping)에서 매우 중요합니다. 삼각형의 각 vertex에 텍스처 좌표를 정의하고, Barycentric coordinates를 사용하여 삼각형 내부의 모든 점에 대해 이 텍스처 좌표를 interpolate할 수 있습니다. 텍스처 해상도는 텍스처 이미지의 크기와 관련이 있으며, Barycentric coordinates를 통해 삼각형 내부의 각 픽셀에 정확한 텍스처 좌표를 할당할 수 있습니다.
+**Barycentric coordinates는 texture coordinates를 계산하는 데도 사용됩니다.** 이는 텍스처 매핑(texture mapping)에서 매우 중요합니다. 삼각형의 각 vertex에 텍스처 좌표를 정의하고, Barycentric coordinates를 사용하여 삼각형 내부의 모든 점에 대해 이 텍스처 좌표를 interpolate할 수 있습니다. ***텍스처 해상도는 텍스처 이미지의 크기와 관련이 있으며, Barycentric coordinates를 통해 삼각형 내부의 각 픽셀에 정확한 텍스처 좌표를 할당할 수 있습니다.***
 
 이렇게 Barycentric coordinates는 삼각형 내부의 모든 점에서의 색상이나 텍스처 좌표를 정확하게 계산하는 데 매우 유용합니다.
  
