@@ -505,7 +505,7 @@ This indicates that the ray and the triangle intersect.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/66d5cd50-59d6-458b-9263-01971a9fc1da)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/72601923-8f0d-4f9f-91b5-700222785681)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8dec1f44-fa25-41ae-9790-b03e30a07c5e)
-≤![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8334939f-6616-4104-a9d0-e1dbdce0716b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8334939f-6616-4104-a9d0-e1dbdce0716b)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7db98cf8-919d-41ad-8f6a-904b4d2cc01b)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6a70c8d4-388e-4740-bdec-f2026114faf8)
 
