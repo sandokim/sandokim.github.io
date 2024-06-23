@@ -503,7 +503,88 @@ Barycentric coordinates는 shading에 매우 유용합니다. 삼각형은 평�
 이렇게 Barycentric coordinates는 삼각형 내부의 모든 점에서의 색상이나 텍스처 좌표를 정확하게 계산하는 데 매우 유용합니다.
 
 [How to assign/calculate triangle texture coordinates](https://computergraphics.stackexchange.com/questions/7738/how-to-assign-calculate-triangle-texture-coordinates)
- 
+
+### 6. Texture image 생성과정
+
+이 코드는 각 삼각형의 내부 픽셀에 대해 Barycentric coordinates를 계산하고, 이를 사용하여 입력 모델 파일에서 읽어온 UV 좌표와 정점을 기반으로 텍스처 이미지를 생성하며, 가우시안 중심과 회전 행렬을 사용하여 밀도 필드를 계산하고 각 픽셀의 특징을 보간하여 텍스처 이미지에 반영하는 전체 과정을 설명합니다. 이 과정에서 각 픽셀의 특징은 가우시안 밀도 필드에서 계산된 opacities를 기반으로 가장 영향력 있는 가우시안의 특징을 선택하여 보간되며, 최종적으로 텍스처 이미지를 변환하여 원하는 방향과 형식으로 설정합니다.
+
+- 모든 삼각형에 대해 Barycentric coordinates를 확장 및 재구성합니다.
+- Barycentric coordinates를 사용하여 각 픽셀의 공간 좌표를 계산합니다.
+- 각 삼각형의 가우시안 중심과 스케일 조정 회전 행렬을 계산합니다.
+- 가우시안 중심과 회전 행렬을 사용하여 밀도 필드를 계산합니다.
+- 밀도 필드를 사용하여 각 픽셀의 특징을 보간합니다.
+- 보간된 특징을 텍스처 이미지에 할당합니다.
+- 최종적으로 텍스처 이미지를 변환하여 원하는 방향과 형식으로 설정합니다.
+
+#### 1. 모든 삼각형에 대한 Barycentric coordinates 확장 및 재구성
+```python
+all_triangle_bary_coords = triangle_pixel_bary_coords[None].expand(n_squares, -1, -1, -1).reshape(-1, triangle_pixel_bary_coords.shape[-2], 3)
+all_triangle_bary_coords = all_triangle_bary_coords[:len(faces_verts)]
+```
+- `triangle_pixel_bary_coords`는 각 삼각형의 내부 픽셀에 대한 Barycentric coordinates를 저장합니다.
+- `expand`와 `reshape`를 통해 각 삼각형에 대해 이 좌표들을 확장하고 재구성합니다.
+- `all_triangle_bary_coords`는 모든 삼각형에 대한 Barycentric coordinates를 포함하게 됩니다.
+
+#### 2. 픽셀 공간 위치 계산
+```python
+pixels_space_positions = (all_triangle_bary_coords[..., None] * faces_verts[:, None]).sum(dim=-2)[:, :, None]
+```
+
+- `faces_verts`는 각 삼각형의 정점 좌표를 저장합니다.
+- Barycentric coordinates와 정점 좌표를 곱하고 합산하여 각 픽셀의 공간 좌표를 계산합니다.
+- `pixels_space_positions`는 모든 삼각형의 내부 픽셀에 대한 공간 좌표를 포함합니다.
+
+#### 3. 가우시안 중심 및 스케일 조정 회전 행렬 계산
+```python
+gaussian_centers = rc.points.reshape(-1, 1, rc.n_gaussians_per_surface_triangle, 3)
+gaussian_inv_scaled_rotation = rc.get_covariance(return_full_matrix=True, return_sqrt=True, inverse_scales=True).reshape(-1, 1, rc.n_gaussians_per_surface_triangle, 3, 3)
+```
+
+- `rc.points`는 각 표면 삼각형의 가우시안 중심을 포함합니다.
+- `get_covariance`를 통해 각 가우시안의 스케일 조정 및 회전 행렬을 계산합니다.
+- `gaussian_centers`와 `gaussian_inv_scaled_rotation`은 각 삼각형의 가우시안 정보를 저장합니다.
+
+#### 4. 밀도 필드 계산
+```python
+shift = (pixels_space_positions - gaussian_centers)
+warped_shift = gaussian_inv_scaled_rotation.transpose(-1, -2) @ shift[..., None]
+neighbor_opacities = (warped_shift[..., 0] * warped_shift[..., 0]).sum(dim=-1).clamp(min=0., max=1e8)
+neighbor_opacities = torch.exp(-1. / 2 * neighbor_opacities)
+```
+
+- `pixels_space_positions`와 `gaussian_centers`의 차이를 계산하여 `shift`를 구합니다.
+- `gaussian_inv_scaled_rotation`을 사용하여 `shift`를 스케일 및 회전 변환합니다.
+- 변환된 `shift`를 통해 각 가우시안의 밀도를 계산하고, 이를 `neighbor_opacities`에 저장합니다.
+
+#### 5. 픽셀 특징 보간
+```python
+pixel_features = faces_features[:, None].expand(-1, neighbor_opacities.shape[1], -1, -1).gather(
+    dim=-2,
+    index=neighbor_opacities[..., None].argmax(dim=-2, keepdim=True).expand(-1, -1, -1, 3)
+    )[:, :, 0, :]
+```
+
+- `faces_features`는 각 삼각형의 정점 특징을 저장합니다.
+- `neighbor_opacities`의 최대값 인덱스를 사용하여 가장 영향력 있는 가우시안의 특징을 선택합니다.
+- 선택된 특징을 통해 픽셀의 특징을 보간합니다.
+
+#### 6. 텍스처 이미지 채우기
+```python
+texture_img[(triangle_pixel_idx[..., 0], triangle_pixel_idx[..., 1])] = pixel_features
+```
+
+- 보간된 픽셀 특징을 텍스처 이미지(texture_img)의 적절한 위치에 할당합니다.
+
+#### 7. 최종 텍스처 이미지 변환
+```python
+texture_img = texture_img.transpose(0, 1)
+texture_img = SH2RGB(texture_img.flip(0))
+```
+
+- 텍스처 이미지를 변환하여 최종 결과를 얻습니다. `transpose`와 `flip`을 통해 이미지를 원하는 방향으로 변환합니다.
+- `SH2RGB` 함수를 사용하여 텍스처 이미지를 RGB 형식으로 변환합니다.
+  
+
 ### 요약
 - **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
 - **faces_uv**: 각 삼각형 면의 UV 좌표 인덱스를 생성합니다.
