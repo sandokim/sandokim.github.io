@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] 3DGS SuGaR sugar_model.py extract_texture_image_and_uv_from_gaussians"
-last_modified_at: 2024-06-21
+last_modified_at: 2024-06-23
 categories:
   - 연구
 tags:
@@ -506,7 +506,17 @@ This indicates that the ray and the triangle intersect.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/72601923-8f0d-4f9f-91b5-700222785681)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8dec1f44-fa25-41ae-9790-b03e30a07c5e)
 ≤![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8334939f-6616-4104-a9d0-e1dbdce0716b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7db98cf8-919d-41ad-8f6a-904b4d2cc01b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6a70c8d4-388e-4740-bdec-f2026114faf8)
 
+- barycentric coordinates의 weight인 α,β,γ를 구했으면, 우리는 그 weight를 이용해서 interpolation하여, triangle 내부의 어떤 점에 대해서도 smooth하게 changing하는 value를 얻을 수 있을 것입니다.
+- 방법은 triangle의 3개의 정점(vertices)인 a,b,c에 대해 value로써 v1,v2,v3를 줍니다.
+- 이때 v1,v2,v3는 Colors가 될수도 있고, Normals이 될수도 있고, texture coordinates가 될수도 있고, 다른 어떤 value든 될 수 있습니다.
+- 그리고 barycentric coordinate를 구할 때 사용된 α,β,γ로 v1,v2,v3의 값들을 weighted sum하여 triangle 내부의 어떤 점 P에 대해서도 smooth하게 interpolation된 값을 얻을 수 있습니다.
+- 이를 barycentric interpolation이라고 하며, 컴퓨터 그래픽스에서 매우 유용한 방법입니다.
+  
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3de4edc1-f85c-479c-a0e1-f596a932e292)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/673b101a-badf-4677-8870-a8cae00cc64a)
 
 
 ## 다양한 3D 그래픽스 응용 분야에서 Barycentric Coordinates의 사용 예시
