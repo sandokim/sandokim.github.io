@@ -114,6 +114,7 @@ class SuGaR(nn.Module):
 
 - 위 코드에서 primitive가 `diamond` 혹은 `square`로 결정되는데, 여기서 두 케이스 모두 정점인 vertices의 개수는 4개입니다.
 - len(self.primitive_verts)로 self.n_vertices_per_gaussian으로 설정하는데, 이 말은 gaussian당 vertices를 4개로 정한다는 의미입니다.
+- 즉, `Gaussian의 primitive representation`을 `diamond` 혹은 `sqaure`로 정의합니다.
 - triangle_vertices를 정의할 때는, None으로 배치차원 1을 앞에 추가해줍니다.
 - 즉 triangle_vertices는 1개의 triangle에 대하여 vertices는 4개를 가지고 있고, 각 vertices는 3차원 (x,y,z)를 가지므로 shape은 (1, n_vertices_per_gaussian, 3)에서 결과적으로 (1, 4, 3)이 됩니다.
 - 결론적으로 triangle 1개당 local gaussian 1개를 할당하기 위한 작업입니다.
@@ -125,6 +126,8 @@ triangle_vertices = self.primitive_verts[None]  # Shape: (1, n_vertices_per_gaus
 ```
 
 - triangle당 vertices를 정의했으니, points 수만큼 edges와 triangles을 정의해줍니다.
+- `edges` 속성은 Gaussian과 연관된 각 primitive shape의 wireframe 또는 boundary를 정의하는 데 매우 중요합니다. 이 edges는 rendering 목적이나 도형 표면에서 수행해야 하는 모든 geometric computations에 사용할 수 있습니다.
+- 요약하자면, `edges` 속성은 Gaussian을 대체하는 모든 primitive shapes의 boundary edges를 포함하는 tensor를 구성하고 반환합니다. 이를 통해 모델은 `각 Gaussian의 primitive representation`에서 vertices 간의 구조와 connections을 추적할 수 있습니다.
 
 ```python
     @property
@@ -142,6 +145,7 @@ triangle_vertices = self.primitive_verts[None]  # Shape: (1, n_vertices_per_gaus
         return triangles
 ```
 
+-----
 
 - SuGaR의 mesh refine에서 사용하는 surface_face에 대해선 barycentric coordinates로 barycentric interpolation을 하는 방식을 사용합니다.
 - 즉, triangle의 정점 3개로부터 weights의 조합을 여러개 정의하여 3개 정점에 위치하는 gaussian을 value로 취급하여 barycentric interploation하여 triangle 내부에 gaussian들을 smooth하게 interpolate하여 정의합니다.
