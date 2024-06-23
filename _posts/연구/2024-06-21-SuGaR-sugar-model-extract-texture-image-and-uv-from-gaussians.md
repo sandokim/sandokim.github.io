@@ -501,6 +501,8 @@ Barycentric coordinates는 shading에 매우 유용합니다. 삼각형은 평�
 **Barycentric coordinates는 texture coordinates를 계산하는 데도 사용됩니다.** 이는 텍스처 매핑(texture mapping)에서 매우 중요합니다. 삼각형의 각 vertex에 텍스처 좌표를 정의하고, Barycentric coordinates를 사용하여 삼각형 내부의 모든 점에 대해 이 텍스처 좌표를 interpolate할 수 있습니다. ***텍스처 해상도는 텍스처 이미지의 크기와 관련이 있으며, Barycentric coordinates를 통해 삼각형 내부의 각 픽셀에 정확한 텍스처 좌표를 할당할 수 있습니다.***
 
 이렇게 Barycentric coordinates는 삼각형 내부의 모든 점에서의 색상이나 텍스처 좌표를 정확하게 계산하는 데 매우 유용합니다.
+
+[How to assign/calculate triangle texture coordinates](https://computergraphics.stackexchange.com/questions/7738/how-to-assign-calculate-triangle-texture-coordinates)
  
 ### 요약
 - **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
