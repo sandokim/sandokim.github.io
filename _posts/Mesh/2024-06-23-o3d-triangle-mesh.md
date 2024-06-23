@@ -14,6 +14,10 @@ tags:
   - read_triangle_mesh
   - open3d
   - o3d
+  - closest gaussian
+  - compute density
+  - triangle에 대한 gaussian density
+  - knn
 excerpt: "open3d로 TriangleMesh를 만들고, read_triangle_mesh로 불러오는 법 정리"
 use_math: true
 classes: wide
@@ -175,6 +179,54 @@ n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
             new_sh_coordinates_dc = refined_sugar._sh_coordinates_dc.reshape(len(face_mask), -1, 1, 3)[face_mask].view(-1, 1, 3)
             new_sh_coordinates_rest = refined_sugar._sh_coordinates_rest.reshape(len(face_mask), -1, 15, 3)[face_mask].view(-1, 15, 3)
     ```
+
+- density가 높은 faces(삼각형)은 어떻게 찾을까요?
+- `sugar_scene/sugar_model.py`에서 `compute_density`를 보면 알 수 있습니다.
+```python
+# sugar_scene/sugar_model.py
+
+class SuGaR(nn.Module):
+
+...
+
+    def get_gaussians_closest_to_samples(self, x, n_closest_gaussian=None):
+        if n_closest_gaussian is None:
+            if not hasattr(self, 'knn_to_track'):
+                print("Variable knn_to_track not found. Setting it to 16.")
+                self.knn_to_track = 16
+            n_closest_gaussian = self.knn_to_track
+        
+        closest_gaussians_idx = knn_points(x[None], self.points[None], K=n_closest_gaussian).idx[0]
+        return closest_gaussians_idx
+    
+    def compute_density(self, x, closest_gaussians_idx=None, density_factor=1., 
+                        return_closest_gaussian_opacities=False):
+        
+        if closest_gaussians_idx is None:
+            closest_gaussians_idx = self.get_gaussians_closest_to_samples(x)
+        
+        # Gather gaussian parameters
+        close_gaussian_centers = self.points[closest_gaussians_idx]
+        close_gaussian_inv_scaled_rotation = self.get_covariance(
+            return_full_matrix=True, return_sqrt=True, inverse_scales=True
+            )[closest_gaussians_idx]
+        close_gaussian_strengths = self.strengths[closest_gaussians_idx]
+        
+        # Compute the density field as a sum of local gaussian opacities
+        shift = (x[:, None] - close_gaussian_centers)
+        warped_shift = close_gaussian_inv_scaled_rotation.transpose(-1, -2) @ shift[..., None]
+        neighbor_opacities = (warped_shift[..., 0] * warped_shift[..., 0]).sum(dim=-1).clamp(min=0., max=1e8)
+        neighbor_opacities = density_factor * close_gaussian_strengths[..., 0] * torch.exp(-1. / 2 * neighbor_opacities)
+        densities = neighbor_opacities.sum(dim=-1)
+        
+        if return_closest_gaussian_opacities:
+            return densities, neighbor_opacities
+        else:
+            return densities  # Shape is (n_points, )
+        
+```
+
+
 
 - 최종적으로 저장할 mesh에는 `verts_list()`, `face_list()`, ~~`faces_normals_list()`~~, `textures.verts_uvs_list()`, `textures.faces_uvs_list()`, `textures.maps_padded()`를 포함시켜 저장해줍니다.
 
