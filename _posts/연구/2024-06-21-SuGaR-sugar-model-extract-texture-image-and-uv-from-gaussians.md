@@ -460,7 +460,7 @@ Basically, --square_size is related to the number of pixels used to map a triang
 - 아래 영상을 통해 barycentric coordinate가 정확히 뭔지 알 수 있습니다.
 - [Introduction to Computer Graphics (Lecture 10): Ray casting 2--barycentric coordinates, CGS, etc.](https://youtu.be/B8Q1nqW3XcE?si=72CiubUgzS7U1JaJ)
 - barycentric coordinates가 무게중심으로 번역되어서 하나의 점 P인걸로 오해할 수 있습니다. (다시말해, P는 1개만 있는게 아니라 P는 여러 개로, triangle안에 있을수도 밖에 있을수도 있습니다.)
-- barycentric coordinates의 골자는 triangle의 3개의 정점(vertcies)으로 ***triangle을 포함하는 plane을 표현***할 수 있고, 여기에 각 정점 A,B,C로부터 구한 α,β,γ의 합이 1이라는 constraint를 줌으로써 그에 해당하는 점 P에서는 손가락으로 그 plane을 들었을 때, 떨어지지 않고 평형을 유지하게 됩니다.
+- barycentric coordinates의 골자는 triangle의 3개의 정점(vertcies)으로 ***triangle을 포함하는 plane을 표현***할 수 있고, 여기에 각 정점 a,b,c로부터 구한 α,β,γ의 합이 1이라는 constraint를 줌으로써 그에 해당하는 점 P에서는 손가락으로 그 plane을 들었을 때, 떨어지지 않고 평형을 유지하게 됩니다.
 - constraint1: `α+β+γ=1`
 - 이때, **triangle을 포함하는 plane 외부에서도 점 P를 정의할 수 있습니다.**
 - 하지만, **우리는 triangle 내부의 점 P로만 제한하여**, ray가 triangle과 intersect할 때, 그 점 P를 triangle의 3개의 정점(vertices)로 표현하고 싶은 것입니다.
@@ -476,6 +476,36 @@ Basically, --square_size is related to the number of pixels used to map a triang
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/94fe20b1-360a-4a69-94ae-a42602d0cd9a)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49a2b8f5-1911-4db1-8907-3b7ba114e94e)
 
+- 실제로 ray의 함수와 barycentric coordinates의 점 P가 같은 지점을 찾고 linear equation을 풀면 **한번에 ray가 source로부터 얼마나 멀리 떨어져서 traingle과 intersect하는지를 알려주는 `t`와 barycentric coordiantes의 β,γ를 알 수 있고, α 또한 α+β+γ=1로 구할 수 있습니다.**
+  
+#### Intersection of Ray and Triangle
+
+Given the equations:
+
+The equation for a ray is:
+
+$$ P(t) = R_0 + tR_d $$
+
+The equation for the barycentric coordinates of a triangle is:
+
+$$ P(\beta, \gamma) = a + \beta(b - a) + \gamma(c - a) $$
+
+Equating both expressions for \( P \):
+
+$$ P(t) = P(\beta, \gamma) $$
+
+This indicates that the ray and the triangle intersect.
+
+- 이것이 barycentric coordinate가 유용한 이유입니다.😲
+- 단, triangle 외부가 아닌 내부의 값으로만 intersect하는 것으로 제한하려면, 방정식을 푼다음, 다음을 체크해줍니다.
+- α,β,γ≥0, β+γ≤1
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/aae385be-229f-46df-bae6-a6055edec863)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/23f5b2c4-75c0-42cc-9cbc-cd5f45b5f503)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/66d5cd50-59d6-458b-9263-01971a9fc1da)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/72601923-8f0d-4f9f-91b5-700222785681)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8dec1f44-fa25-41ae-9790-b03e30a07c5e)
+≤![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8334939f-6616-4104-a9d0-e1dbdce0716b)
 
 
 
