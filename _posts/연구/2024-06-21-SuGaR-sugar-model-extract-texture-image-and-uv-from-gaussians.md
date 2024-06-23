@@ -707,7 +707,7 @@ faces_per_pixel = 1
   - 원래 텐서 모양: `(texture_size, texture_size, 2)`
   - 확장된 텐서 모양: `(1, texture_size, texture_size, 2)`
 
-#### 9. 
+#### 9. PyTorch3D를 사용한 3D Mesh 텍스처 업데이트: 평균값 계산 및 렌더링 과정
 
 ```python
     
