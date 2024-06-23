@@ -634,7 +634,79 @@ texture_img = SH2RGB(texture_img.flip(0))
 
 - 텍스처 이미지를 변환하여 최종 결과를 얻습니다. `transpose`와 `flip`을 통해 이미지를 원하는 방향으로 변환합니다.
 - `SH2RGB` 함수를 사용하여 텍스처 이미지를 RGB 형식으로 변환합니다.
-  
+
+#### 8. PyTorch3D에서 Mesh Rasterization 및 Texture Mapping 설정
+
+```python
+faces_per_pixel = 1
+    max_faces_per_bin = 50_000
+    mesh_raster_settings = RasterizationSettings(
+        image_size=(rc.image_height, rc.image_width),
+        blur_radius=0.0, 
+        faces_per_pixel=faces_per_pixel,
+        # max_faces_per_bin=max_faces_per_bin
+    )
+    lights = AmbientLights(device=rc.device)
+    rasterizer = MeshRasterizer(
+            cameras=rc.nerfmodel.training_cameras.p3d_cameras[0], 
+            raster_settings=mesh_raster_settings,
+    )
+    renderer = MeshRenderer(
+        rasterizer=rasterizer,
+        shader=SoftPhongShader(
+            device=rc.device, 
+            cameras=rc.nerfmodel.training_cameras.p3d_cameras[0],
+            lights=lights,
+            blend_params=BlendParams(background_color=(0.0, 0.0, 0.0)),
+        )
+    )
+    texture_idx = torch.cartesian_prod(
+        torch.arange(texture_size, device=rc.device), 
+        torch.arange(texture_size, device=rc.device)
+        ).reshape(texture_size, texture_size, 2
+                    )
+    texture_idx = torch.cat([texture_idx, torch.zeros_like(texture_idx[..., 0:1])], dim=-1)
+    texture_counter = torch.zeros(texture_size, texture_size, 1, device=rc.device)
+    idx_textures_uv = TexturesUV(
+        maps=texture_idx[None].float(), #texture_img[None]),
+        verts_uvs=verts_uv[None],
+        faces_uvs=faces_uv[None],
+        sampling_mode='nearest',
+        )
+    idx_mesh = Meshes(
+        verts=[rc.surface_mesh.verts_list()[0]],   
+        faces=[rc.surface_mesh.faces_list()[0]],
+        textures=idx_textures_uv,
+        )
+```
+
+#### 차원 확장
+
+기본적으로, PyTorch에서 `None`을 사용하여 차원을 확장하면 차원을 하나 더 추가하게 됩니다. 이를 통해 텐서의 배치(batch) 차원을 추가하거나 특정 연산에서 필요한 형태로 텐서를 맞출 수 있습니다.
+
+#### 예시 코드
+
+주어진 코드에서 `verts_uv`, `faces_uv`, `texture_idx`의 차원을 확장하는 부분을 살펴보겠습니다.
+
+#### 원래 텐서의 모양
+- `verts_uv`: UV 좌표를 나타내는 텐서. 모양은 `(N, 2)`입니다.
+- `faces_uv`: 각 얼굴(face)에 대한 UV 인덱스를 나타내는 텐서. 모양은 `(M, 3)`입니다.
+- `texture_idx`: 텍스처 좌표를 나타내는 텐서. 모양은 `(texture_size, texture_size, 2)`입니다.
+
+#### 차원 확장
+
+- `verts_uv[None]`:
+  - 원래 텐서 모양: `(N, 2)`
+  - 확장된 텐서 모양: `(1, N, 2)`
+
+- `faces_uv[None]`:
+  - 원래 텐서 모양: `(M, 3)`
+  - 확장된 텐서 모양: `(1, M, 3)`
+
+- `texture_idx[None]`:
+  - 원래 텐서 모양: `(texture_size, texture_size, 2)`
+  - 확장된 텐서 모양: `(1, texture_size, texture_size, 2)`
+
 
 ### 요약
 - **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
