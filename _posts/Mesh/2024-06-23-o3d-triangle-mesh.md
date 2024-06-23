@@ -75,7 +75,7 @@ o3d.visualization.draw_geometries([mesh])
 - 색상 추가 (선택 사항):각 정점에 색상을 추가할 수 있습니다. 이는 시각화할 때 유용합니다.
 - 시각화:draw_geometries 함수를 사용하여 생성한 메쉬를 시각화합니다.
 
-### 아래의 open3d official document 예제를 보면 확실히 vertex와 triangle이 어떻게 정의되는지 이해됩니다.
+### 아래의 open3d official document 예제의 그림을 보면 vertices와 triangle이 어떻게 정의되어 TriangleMesh 객체를 구성하게 되는지 알 수 있습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2854550f-481b-4013-bd4e-01beb00926d8)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/50f106e0-3a42-49f1-aba0-679f7130d9da)
 
