@@ -11,6 +11,11 @@ tags:
   - SuGaR
   - implementation details
   - extract_texture_image_and_uv_from_gaussians
+  - barycentric coordinates
+  - 무게중심 좌표
+  - triangle
+  - texture image
+  - uv map
 excerpt: "3DGS SuGaR sugar_model.py extract_texture_image_and_uv_from_gaussians"
 use_math: true
 classes: wide
@@ -444,8 +449,55 @@ Basically, --square_size is related to the number of pixels used to map a triang
         dim=0)  # 2, n_pixels_per_triangle, 3
 ```
 
+## 다양한 3D 그래픽스 응용 분야에서 Barycentric Coordinates의 사용 예시
 
+Barycentric coordinates는 3D 그래픽스에서 매우 유용하며 다양한 응용 분야에서 사용됩니다. 다음은 그 구체적인 예시들입니다:
 
+### 1. 쉐이딩 (Shading)
+
+Barycentric coordinates는 삼각형의 내부에서 색상이나 법선(normal)을 보간하는 데 사용됩니다. 이를 통해 매끄러운 쉐이딩을 구현할 수 있습니다. 예를 들어, 각 정점(vertex)에 정의된 색상이나 법선을 삼각형의 내부 점으로 보간하여 표면이 평평하지만 매끄러운 색상 변화를 가지도록 할 수 있습니다. 이를 Phong shading이나 Gouraud shading과 같은 기술에서 사용합니다.
+
+### 2. 텍스처 매핑 (Texture Mapping)
+
+**Barycentric coordinates는 삼각형의 각 정점에 정의된 텍스처 좌표를 삼각형 내부의 점들로 보간하는 데 사용됩니다. 이를 통해 삼각형 표면에 텍스처 이미지를 매끄럽게 적용할 수 있습니다. 각 정점에 텍스처 좌표를 할당하고, 삼각형 내부의 각 픽셀에서 해당 텍스처 좌표를 계산하여 정확한 텍스처 색상을 가져올 수 있습니다.**
+
+### 3. 충돌 감지 (Collision Detection)
+
+물체의 충돌을 감지하는 과정에서, Barycentric coordinates는 삼각형 내부의 특정 점이 충돌 지점인지 확인하는 데 사용됩니다. 예를 들어, 물체가 삼각형 표면과 충돌하는 경우, 충돌 지점을 삼각형의 정점 좌표와 Barycentric coordinates를 사용하여 계산할 수 있습니다.
+
+### 4. 애니메이션 (Animation)
+
+Barycentric coordinates는 스킨닝(skinning) 기법에서 사용됩니다. 캐릭터 애니메이션에서 뼈대(bone)와 피부(skin)의 변형을 매끄럽게 연결하기 위해 각 정점의 영향을 여러 뼈대에 걸쳐 보간합니다. 이 과정에서 각 정점이 여러 뼈대의 영향을 받을 때, Barycentric coordinates를 사용하여 각 뼈대의 변형을 정점에 보간하여 적용합니다.
+
+### 5. 조명 계산 (Lighting Calculation)
+
+조명 계산에서도 Barycentric coordinates가 사용됩니다. 각 정점에서의 조명 정보를 삼각형 내부의 점들로 보간하여 매끄러운 조명 변화를 구현할 수 있습니다. 이를 통해 더 현실감 있는 조명 효과를 구현할 수 있습니다.
+
+### 6. 물리 기반 렌더링 (Physically Based Rendering, PBR)
+
+PBR에서 Barycentric coordinates는 정점 속성(vertex attributes)을 보간하는 데 사용됩니다. 각 정점에 정의된 재질 속성(material properties)을 삼각형 내부의 점으로 보간하여 다양한 광원 조건에서도 일관된 렌더링 결과를 제공합니다.
+
+이러한 예시들은 Barycentric coordinates가 3D 그래픽스에서 얼마나 다양한 방식으로 사용되는지를 보여줍니다. 각 기술들은 Barycentric coordinates의 보간 특성을 활용하여 복잡한 그래픽스를 보다 효율적이고 현실감 있게 구현할 수 있습니다.
+
+### Barycentric Coordinates를 이용한 Shading과 Interpolation
+
+[Using Barycentric Coordinates](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a-triangle/barycentric-coordinates.html)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e0fa5088-b945-42c7-8d3a-5f128019387e)
+
+Figure 3: Barycentric coordinates는 교차점에서 vertex data를 interpolate하는 데 사용할 수 있습니다. 이 예에서는 vertex color를 사용하여 P의 색상을 계산합니다.
+
+Barycentric coordinates는 shading에 매우 유용합니다. 삼각형은 평면이고, 각 vertex에 추가 정보나 데이터를 연관시킬 수 있습니다(점, 색상, 벡터 등). 이러한 정보를 vertex data라고 부릅니다. 예를 들어, vertex A를 빨간색, vertex B를 초록색, vertex C를 파란색으로 하고 싶다고 가정해봅시다.
+
+**교차점이 삼각형의 vertex 중 하나와 일치하면, 교차점에서의 물체 색상은 해당 vertex에 연관된 색상과 동일합니다.** 간단하죠. 문제는 광선이 삼각형의 다른 곳(모서리 또는 내부)과 교차할 때 발생합니다. Barycentric coordinates를 사용하여 삼각형의 vertex를 사용해 점의 위치를 계산하면, 동일한 방식으로 삼각형의 vertex에서 정의된 다른 데이터(예: 색상)를 interpolate 할 수 있습니다.
+
+**즉, Barycentric coordinates는 vertex data를 삼각형의 표면 전체에 걸쳐 interpolate하는 데 사용됩니다**(이 기술은 float, color 등 어떤 데이터 타입에도 적용될 수 있습니다). 이 기술은 예를 들어 교차점에서 normal을 interpolate하기 위해 shading에 매우 유용합니다. 물체의 normal은 face 또는 vertex 기준으로 정의될 수 있습니다(우리는 face normal 또는 vertex normal이라고 합니다).
+
+**vertex 기준으로 정의된 경우, 이 interpolate 기술을 사용하여 삼각형 표면 전체에 걸쳐 매끄러운 shading을 시뮬레이션할 수 있습니다.** 삼각형은 "수학적으로" 평면이지만, 교차점에서의 normal은 vertex normal의 조합이므로, vertex normal이 서로 다르면 이 interpolate의 결과는 삼각형 표면 전체에서 일정하지 않습니다.
+
+**Barycentric coordinates는 texture coordinates를 계산하는 데도 사용됩니다.** 이는 텍스처 매핑(texture mapping)에서 매우 중요합니다. 삼각형의 각 vertex에 텍스처 좌표를 정의하고, Barycentric coordinates를 사용하여 삼각형 내부의 모든 점에 대해 이 텍스처 좌표를 interpolate할 수 있습니다. 텍스처 해상도는 텍스처 이미지의 크기와 관련이 있으며, Barycentric coordinates를 통해 삼각형 내부의 각 픽셀에 정확한 텍스처 좌표를 할당할 수 있습니다.
+
+이렇게 Barycentric coordinates는 삼각형 내부의 모든 점에서의 색상이나 텍스처 좌표를 정확하게 계산하는 데 매우 유용합니다.
  
 ### 요약
 - **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
