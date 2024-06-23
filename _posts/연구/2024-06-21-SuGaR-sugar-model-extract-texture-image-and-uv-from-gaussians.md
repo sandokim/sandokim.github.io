@@ -710,6 +710,11 @@ faces_per_pixel = 1
 #### 9. 
 
 ```python
+    
+    texture_counter = torch.zeros(texture_size, texture_size, 1, device=rc.device)
+
+    ...
+
     for cam_idx in range(len(rc.nerfmodel.training_cameras)):
         p3d_cameras = rc.nerfmodel.training_cameras.p3d_cameras[cam_idx]
         
