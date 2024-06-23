@@ -457,6 +457,28 @@ Basically, --square_size is related to the number of pixels used to map a triang
 
 **위 코드를 통해 각 삼각형(top_triangle, bottom_triangle)의 내부 픽셀에 대해 Barycentric coordinates를 계산할 수 있으며, 이를 사용하여 색상이나 텍스처 좌표를 정확하게 보간할 수 있습니다.**
 
+- 아래 영상을 통해 barycentric coordinate가 정확히 뭔지 알 수 있습니다.
+[Introduction to Computer Graphics (Lecture 10): Ray casting 2--barycentric coordinates, CGS, etc.](https://youtu.be/B8Q1nqW3XcE?si=72CiubUgzS7U1JaJ)
+
+- barycentric coordinates가 무게중심으로 번역되어서 하나의 점 P인걸로 오해할 수 있습니다.
+- 사실 골자는 triangle의 3개의 정점(vertcies)으로 ***triangle을 포함하는 plane을 표현***할 수 있고, 여기에 각 정점 A,B,C로부터 구한 α,β,γ의 합이 1이라는 constraint를 줌으로써 그에 해당하는 점 P에서는 손가락으로 그 plane을 들었을 때, 떨어지지 않고 평형을 유지하게 됩니다.
+- constraint1: `α+β+γ=1`
+- 이때, **triangle을 포함하는 plane 외부에서도 점 P를 정의할 수 있습니다.**
+- 하지만, **우리는 triangle 내부의 점 P로만 제한하여**, ray가 triangle과 intersect할 때, 그 점 P를 triangle의 3개의 정점(vertices)로 표현하고 싶은 것입니다.
+- 그를 위해 조건 하나를 더 추가합니다. 그 조건은 α,β,γ≥0 입니다.
+- constraint2: `α,β,γ≥0`
+  
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2a8db83b-a033-438c-93f3-b2210f5df259)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d92408e4-f990-4ef7-9d78-057bd50d4b4f)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c5d3b3dd-3551-4b3a-a0b2-0731cbce80fe)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/546824ba-fdf5-4f2c-8ea3-9f11972458cd)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/78cec3a7-c0db-45cb-acc1-592a6b6940bd)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/94fe20b1-360a-4a69-94ae-a42602d0cd9a)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/49a2b8f5-1911-4db1-8907-3b7ba114e94e)
+
+
+
+
 ## 다양한 3D 그래픽스 응용 분야에서 Barycentric Coordinates의 사용 예시
 
 Barycentric coordinates는 3D 그래픽스에서 매우 유용하며 다양한 응용 분야에서 사용됩니다. 다음은 그 구체적인 예시들입니다:
