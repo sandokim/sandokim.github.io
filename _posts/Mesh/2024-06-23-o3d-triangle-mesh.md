@@ -82,3 +82,26 @@ https://www.open3d.org/docs/release/python_api/open3d.utility.Vector3iVector.htm
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2854550f-481b-4013-bd4e-01beb00926d8)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/50f106e0-3a42-49f1-aba0-679f7130d9da)
 
+### 이제 SuGaR에서 TriangleMesh를 어떻게 정의해서 넘기는지 봅시다.
+```python
+# sugar_extractors/refined_mesh.py
+
+new_o3d_mesh = o3d.geometry.TriangleMesh()
+new_o3d_mesh.vertices = o3d.utility.Vector3dVector(new_verts.cpu().numpy())
+new_o3d_mesh.triangles = o3d.utility.Vector3iVector(new_faces.cpu().numpy())
+new_o3d_mesh.vertex_normals = o3d.utility.Vector3dVector(new_normals.cpu().numpy())
+new_o3d_mesh.vertex_colors = o3d.utility.Vector3dVector(torch.ones_like(new_verts).cpu().numpy())
+            
+refined_sugar = SuGaR(
+nerfmodel=nerfmodel,
+points=None,
+colors=None,
+initialize=False,
+sh_levels=nerfmodel.gaussians.active_sh_degree+1,
+keep_track_of_knn=False,
+knn_to_track=0,
+beta_mode='average',
+surface_mesh_to_bind=new_o3d_mesh,
+n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
+)
+```
