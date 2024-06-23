@@ -142,4 +142,4 @@ triangle_vertices = self.primitive_verts[None]  # Shape: (1, n_vertices_per_gaus
 
 - SuGaR의 mesh refine에서 사용하는 surface_face에 대해선 barycentric coordinates로 barycentric interpolation을 하는 방식을 사용합니다.
 - 즉, triangle의 정점 3개로부터 weights의 조합을 여러개 정의하여 3개 정점에 위치하는 gaussian을 value로 취급하여 barycentric interploation하여 triangle 내부에 gaussian들을 smooth하게 interpolate하여 정의합니다.
-- 자세한 내용은 barycentric coordinate 참고
+- [자세한 내용은 본인이 직접 정의항 barycentric coordinate 관련 포스트 참고](https://github.com/sandokim/sandokim.github.io/blob/master/_posts/%EC%97%B0%EA%B5%AC/2024-06-21-SuGaR-sugar-model-extract-texture-image-and-uv-from-gaussians.md)
