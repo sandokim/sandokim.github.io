@@ -549,12 +549,58 @@ gaussian_inv_scaled_rotation = rc.get_covariance(return_full_matrix=True, return
 shift = (pixels_space_positions - gaussian_centers)
 warped_shift = gaussian_inv_scaled_rotation.transpose(-1, -2) @ shift[..., None]
 neighbor_opacities = (warped_shift[..., 0] * warped_shift[..., 0]).sum(dim=-1).clamp(min=0., max=1e8)
-neighbor_opacities = torch.exp(-1. / 2 * neighbor_opacities)
 ```
 
 - `pixels_space_positions`와 `gaussian_centers`의 차이를 계산하여 `shift`를 구합니다.
 - `gaussian_inv_scaled_rotation`을 사용하여 `shift`를 스케일 및 회전 변환합니다.
 - 변환된 `shift`를 통해 각 가우시안의 밀도를 계산하고, 이를 `neighbor_opacities`에 저장합니다.
+- `warped_shift`는 가우시안 중심에서 픽셀 공간 위치로의 변위를 스케일 및 회전 변환하여 조정한 값입니다. 이를 통해 각 픽셀이 가우시안에 의해 얼마나 영향을 받는지를 계산하고, 이를 기반으로 픽셀의 특징을 보간하여 텍스처 이미지에 반영합니다.
+- `warped_shift`의 각 요소를 제곱하여 합산한 다음, 음수를 방지하기 위해 clamp로 최소값을 0으로 설정합니다.
+- `warped_shift`의 제곱합을 이용해 각 픽셀의 가우시안 영향을 평가하여 neighbor_opacities를 구합니다. 
+- 그리고 다음과 같이 같이 가우시안 밀도 함수를 적용합니다.
+```python
+neighbor_opacities = torch.exp(-1. / 2 * neighbor_opacities)
+```
+- `torch.exp(-1. / 2 * neighbor_opacities)`는 가우시안 함수로 변위(`warped_shift`)를 밀도로 변환합니다. 이 과정은 가우시안 분포를 기반으로 각 픽셀이 가우시안의 영향을 받는 정도를 계산합니다.
+
+### 원래 가우시안 밀도 함수와 현재 코드에서 계산한 가우시안 밀도 함수의 비교
+
+원래의 가우시안 밀도 함수(정규 분포 함수)는 다음과 같은 형태를 가지고 있습니다:
+
+$$ 
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right) 
+$$
+
+여기서:
+- $x$는 변수
+- $\mu$는 평균 (mean)
+- $\sigma$는 표준편차 (standard deviation)
+- $\exp$는 지수 함수 (exponential function)
+
+현재 코드에서 사용한 가우시안 밀도 함수는 다음과 같이 단순화된 형태로 적용되었습니다:
+
+$$ 
+\mathrm{neighbor\_opacities} = \exp\left(-\frac{1}{2} \sum (\mathrm{warped\_shift}_{ij}^2)\right) 
+$$
+
+여기서:
+- $\mathrm{warped\_shift}_{ij}$는 스케일 및 회전 변환된 변위입니다.
+
+### 차이점
+
+#### 정규화 상수의 부재:
+원래 가우시안 밀도 함수에서는 정규화 상수 $\frac{1}{\sqrt{2\pi\sigma^2}}$가 포함되어 있지만, 현재 코드에서는 생략되었습니다. 이는 단순히 상대적인 밀도 값을 사용하기 때문에 생략된 것으로 보입니다.
+
+#### 분산 ($\sigma^2$)의 생략:
+원래 가우시안 밀도 함수에서는 분산 $\sigma^2$가 포함되지만, 현재 코드에서는 분산을 고려하지 않고 단순히 변위의 제곱 합을 사용합니다. 이는 코드에서 변위가 이미 스케일 조정된 값이기 때문에 가능한 단순화입니다.
+
+#### 변위 계산 방식:
+원래 가우시안 밀도 함수에서는 $(x - \mu)^2$로 변위를 계산하지만, 현재 코드에서는 $\mathrm{warped\_shift}_{ij}^2$로 변위를 계산합니다. $\mathrm{warped\_shift}$는 이미 가우시안 중심과의 차이를 스케일 및 회전 변환한 값입니다.
+
+### 요약
+현재 코드에서 사용한 가우시안 밀도 함수는 원래 가우시안 밀도 함수에서 정규화 상수와 분산을 생략하고 변위의 제곱 합만을 사용하여 상대적인 밀도를 계산하는 단순화된 형태입니다. 이는 계산의 간결성과 효율성을 높이기 위해 사용된 접근 방식입니다.
+
+
 
 #### 5. 픽셀 특징 보간
 ```python
