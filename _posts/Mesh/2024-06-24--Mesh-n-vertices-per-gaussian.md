@@ -1,5 +1,5 @@
 ---
-title: "[Mesh] SuGaR triangle(face), n vertices for gaussian"
+title: "[Mesh] SuGaR triangle(face), n vertices for gaussian, TexturesUV, TexturesVertex"
 last_modified_at: 2024-06-24
 categories:
   - Mesh
@@ -21,7 +21,9 @@ tags:
   - barycentric coordiantes
   - barycentric interpolation
   - n_vertices_per_gaussian
-excerpt: "gaussian을 triangle의 vertices수인 3개에 대해서 정의"
+  - TexturesUV
+  - TexturesVertex
+excerpt: "SuGaR triangle(face), n vertices for gaussian, TexturesUV, TexturesVertex"
 use_math: true
 classes: wide
 ---
