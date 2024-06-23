@@ -487,6 +487,10 @@ PBR에서 Barycentric coordinates는 정점 속성(vertex attributes)을 보간�
 
 이러한 예시들은 Barycentric coordinates가 3D 그래픽스에서 얼마나 다양한 방식으로 사용되는지를 보여줍니다. 각 기술들은 Barycentric coordinates의 보간 특성을 활용하여 복잡한 그래픽스를 보다 효율적이고 현실감 있게 구현할 수 있습니다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e6d10340-d28b-4c80-bb82-0e167138f84b)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4122a4cd-4329-4882-acaf-072eeb9d21c2)
+
 ### Barycentric Coordinates를 이용한 Shading과 Interpolation
 
 [Using Barycentric Coordinates](https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a-triangle/barycentric-coordinates.html)
