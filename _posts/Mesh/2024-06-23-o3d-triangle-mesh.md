@@ -132,7 +132,9 @@ surface_mesh_to_bind=new_o3d_mesh,
 n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
 )
 ```
-- 이때, `vertices`, `triangles`, `vertex_normals`, `vertex_colors`는 앞에서 미리 mesh에서 `verts_list()`, `face_list()`, `faces_normals_list()`로 불러와서 만든 정보입니다.
+- 이때, new TriangleMesh인 new_o3d_mesh에 저장하는 `vertices`, `triangles`, `vertex_normals`, `vertex_colors`는 앞에서 미리 mesh에서 `verts_list()`, `face_list()`, `faces_normals_list()`로 불러와서 postprocess를 한 정보입니다.
+- postprocess를 하면 최종적으로 `face_mask`는 내부 삼각형과 경계 삼각형을 구분하며, 경계 삼각형 중에서 밀도가 높은 삼각형을 다시 포함시킵니다. 이를 통해 후처리된 메쉬는 불필요한 경계 삼각형이 제거되고, 중요한 경계 삼각형은 복구된 형태로 유지됩니다.
+
   ```python
        if postprocess_mesh:
         CONSOLE.print("Postprocessing mesh by removing border triangles with low-opacity gaussians...")
@@ -174,7 +176,7 @@ n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
             new_sh_coordinates_rest = refined_sugar._sh_coordinates_rest.reshape(len(face_mask), -1, 15, 3)[face_mask].view(-1, 15, 3)
     ```
 
-- 최종적으로 저장할 mesh에 `verts_list()`, `face_list()`, ~~`faces_normals_list()`~~, `textures.verts_uvs_list()`, `textures.faces_uvs_list()`, `textures.maps_padded()`를 저장해줍니다.
+- 최종적으로 저장할 mesh에는 `verts_list()`, `face_list()`, ~~`faces_normals_list()`~~, `textures.verts_uvs_list()`, `textures.faces_uvs_list()`, `textures.maps_padded()`를 포함시켜 저장해줍니다.
 
   ```python
     # Compute texture
@@ -211,7 +213,6 @@ n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
         
     CONSOLE.print("Texture saved at:", mesh_save_path)
     return mesh_save_path
-
   ```
 
 
