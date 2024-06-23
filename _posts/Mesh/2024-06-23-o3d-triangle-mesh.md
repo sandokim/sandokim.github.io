@@ -132,7 +132,7 @@ surface_mesh_to_bind=new_o3d_mesh,
 n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
 )
 ```
-  - 이때, `vertices`, `triangles`, `vertex_normals`, `vertex_colors`는 앞에서 미리 mesh에서 `verts_list()`, `face_list()`, `faces_normals_list()`로 불러와서 만든 정보입니다.
+- 이때, `vertices`, `triangles`, `vertex_normals`, `vertex_colors`는 앞에서 미리 mesh에서 `verts_list()`, `face_list()`, `faces_normals_list()`로 불러와서 만든 정보입니다.
   ```python
        if postprocess_mesh:
         CONSOLE.print("Postprocessing mesh by removing border triangles with low-opacity gaussians...")
