@@ -383,7 +383,70 @@ verts_uv = verts_uv.reshape(-1, 2) / texture_size
   - uv texture image (garden scene)
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7c1cdac8-1e89-4f20-b204-f0e66309318a)
 
-  
+### 5. Texture image을 생성시, 기본적으로, `--square_size`는 texture image에서 mesh의 triangle을 매핑하는 데 사용되는 픽셀 수와 관련이 있습니다.
+
+- 그래서 `--square_size`가 클수록, texture의 resolution이 높아집니다.
+
+Basically, --square_size is related to the number of pixels used to map a triangle of the mesh in the texture image. So the higher square_size, the higher the resolution (and the size) of the texture. Because we optimize the texture on GPU, you can have OOM issues if square_size is too high.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/082a7b92-bde6-4e6e-b0d1-ee9a4a734f52)
+
+[Question about coarse and refined mesh #89](https://github.com/Anttwo/SuGaR/issues/89)
+
+- 즉, 다시 코드를 보면, square_size에 맞게 bottom_triangle_pixel_bary_coords를 결정하는 것을 볼 수 있습니다.
+- sqaure_size가 default인 10이라면, triangle의 barycentric coordinates도 10x10의 pixels에서 결정됩니다.
+- square_size를 5로 줄이면, triangle의 barycentric coordinates도 5x5의 pixels 내에서 결정되므로 texture image의 해상도가 낮아집니다.
+
+```python
+    # ---Build texture image
+    # Start by computing pixel indices for each triangle
+    texture_img = torch.zeros(texture_size, texture_size, n_features, device=rc.device)    
+    pixel_idx_inside_bottom_triangle = torch.zeros(0, 2, dtype=torch.int32, device=rc.device)
+    pixel_idx_inside_top_triangle = torch.zeros(0, 2, dtype=torch.int32, device=rc.device)
+    for tri_i in range(0, square_size-1):
+        for tri_j in range(0, tri_i+1):
+            pixel_idx_inside_bottom_triangle = torch.cat(
+                [pixel_idx_inside_bottom_triangle, torch.tensor([[tri_i, tri_j]], dtype=torch.int32, device=rc.device)], dim=0)
+    for tri_i in range(0, square_size):
+        for tri_j in range(tri_i+1, square_size):
+            pixel_idx_inside_top_triangle = torch.cat(
+                [pixel_idx_inside_top_triangle, torch.tensor([[tri_i, tri_j]], dtype=torch.int32, device=rc.device)], dim=0)
+    
+    bottom_triangle_pixel_idx = torch.cartesian_prod(
+        torch.arange(n_square_per_axis, device=rc.device), 
+        torch.arange(n_square_per_axis, device=rc.device))[:, None] * square_size + pixel_idx_inside_bottom_triangle[None]
+    top_triangle_pixel_idx = torch.cartesian_prod(
+        torch.arange(n_square_per_axis, device=rc.device), 
+        torch.arange(n_square_per_axis, device=rc.device))[:, None] * square_size + pixel_idx_inside_top_triangle[None]
+    triangle_pixel_idx = torch.cat(
+        [bottom_triangle_pixel_idx[:, None], 
+        top_triangle_pixel_idx[:, None]],
+        dim=1).view(-1, bottom_triangle_pixel_idx.shape[-2], 2)[:n_triangles]
+    
+    # Then we compute the barycentric coordinates of each pixel inside its corresponding triangle
+    bottom_triangle_pixel_bary_coords = pixel_idx_inside_bottom_triangle.clone().float()
+    bottom_triangle_pixel_bary_coords[..., 0] = -(bottom_triangle_pixel_bary_coords[..., 0] - (square_size - 2))
+    bottom_triangle_pixel_bary_coords[..., 1] = (bottom_triangle_pixel_bary_coords[..., 1] - 1)
+    bottom_triangle_pixel_bary_coords = (bottom_triangle_pixel_bary_coords + 0.) / (square_size - 3)
+    bottom_triangle_pixel_bary_coords = torch.cat(
+        [1. - bottom_triangle_pixel_bary_coords.sum(dim=-1, keepdim=True), bottom_triangle_pixel_bary_coords],
+        dim=-1)
+    top_triangle_pixel_bary_coords = pixel_idx_inside_top_triangle.clone().float()
+    top_triangle_pixel_bary_coords[..., 0] = (top_triangle_pixel_bary_coords[..., 0] - 1)
+    top_triangle_pixel_bary_coords[..., 1] = -(top_triangle_pixel_bary_coords[..., 1] - (square_size - 1))
+    top_triangle_pixel_bary_coords = (top_triangle_pixel_bary_coords + 0.) / (square_size - 3)
+    top_triangle_pixel_bary_coords = torch.cat(
+        [1. - top_triangle_pixel_bary_coords.sum(dim=-1, keepdim=True), top_triangle_pixel_bary_coords],
+        dim=-1)
+    triangle_pixel_bary_coords = torch.cat(
+        [bottom_triangle_pixel_bary_coords[None],
+        top_triangle_pixel_bary_coords[None]],
+        dim=0)  # 2, n_pixels_per_triangle, 3
+```
+
+
+
+ 
 ### 요약
 - **vertices_uv**: 각 정사각형 셀의 정점 UV 좌표를 생성하여 `(0,0)`에서 `(1,1)` 사이의 값을 가집니다.
 - **faces_uv**: 각 삼각형 면의 UV 좌표 인덱스를 생성합니다.
