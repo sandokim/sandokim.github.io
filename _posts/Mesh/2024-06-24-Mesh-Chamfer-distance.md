@@ -35,6 +35,8 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b4d8b27c-7d76-46eb-89b8-49888cbe2271)
 
+### Chamfer distance를 구현시에는 각 target mesh와 new source mesh에서 sampling할 point 개수를 정한다음 그 point 수만큼 sampling하여 chamfer_distance를 구합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2eb9bc8a-5e0e-4be5-b51c-58f343c2492f)
 
 
 
