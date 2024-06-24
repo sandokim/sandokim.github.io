@@ -18,7 +18,7 @@ classes: wide
 ---
 
 ```python
-sugar_extractors/coarse_mesh.py
+# sugar_extractors/coarse_mesh.py
 def extract_mesh_from_coarse_sugar(args):
 
 ...
