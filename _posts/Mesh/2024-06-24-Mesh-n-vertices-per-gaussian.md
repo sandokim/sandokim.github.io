@@ -1,5 +1,5 @@
 ---
-title: "[Mesh] SuGaR triangle(face), n vertices for gaussian, TexturesUV, TexturesVertex"
+title: "[Mesh] SuGaR triangle(face), n vertices for gaussian, mesh texturing, TexturesUV, TexturesVertex"
 last_modified_at: 2024-06-24
 categories:
   - Mesh
@@ -23,6 +23,7 @@ tags:
   - n_vertices_per_gaussian
   - TexturesUV
   - TexturesVertex
+  - mesh texturing
 excerpt: "SuGaR triangle(face), n vertices for gaussian, TexturesUV, TexturesVertex"
 use_math: true
 classes: wide
@@ -164,6 +165,20 @@ triangle_vertices = self.primitive_verts[None]  # Shape: (1, n_vertices_per_gaus
 - 주로 각 vertex에 개별 색상을 지정해야 하는 경우에 적합합니다.
 
 두 방식의 주요 차이는 텍스처가 정의되는 방식과 그에 따른 렌더링 방식입니다. **TexturesUV**는 UV 좌표를 기반으로 텍스처 맵을 매핑하는 반면, **TexturesVertex**는 각 vertex에 직접 색상 정보를 할당합니다.
+
+## Mesh texturing options (Vertex textures, Texture map + Vertex UV coordinates, Texture Atlas)
+
+pytorch3d는 Mesh texturing을 위해 여러 옵션을 제공합니다. 
+
+- **Vertex textures (TexturesVertex)**: 가장 간단한 방법은 각 정점에 대해 d차원 텍스처를 가지는 것입니다. 예를 들어, RGB 색상은 face를 가로질러 보간될 수 있습니다. 이는 N x V x D 텐서로 표현될 수 있습니다.
+
+- **Texture map + Vertex UV coordinates (TexturesUV)**: 두 번째 방법은 정점 UV 좌표와 전체 face에 대한 단일 텍스처 맵을 가지는 것입니다. face의 특정 지점에 대해 색상은 UV 좌표를 보간한 다음 텍스처 맵에서 샘플링하여 계산될 수 있습니다. 이 표현은 두 개의 텐서를 필요로 하며 mesh당 하나의 텍스처 맵만 지원할 수 있습니다.
+
+- **Texture Atlas**: 보다 복잡한 경우, 예를 들어 ShapeNet meshes의 경우, mesh당 여러 개의 텍스처 맵이 있으며 일부 face는 텍스처가 없고 다른 face는 텍스처가 있을 수 있습니다. 이러한 경우, 보다 유연한 표현은 텍스처 아틀라스(texture atlas)입니다. 여기서 각 face는 사용자가 결정한 텍스처 해상도 R에 따른 R x R 텍스처 맵으로 표현됩니다. 이는 소프트 래스터라이저(soft rasterizer) 구현에서 영감을 받았습니다. face의 특정 지점에 대해 텍스처 값은 해당 지점의 중점 좌표(barycentric coordinates)를 사용하여 face의 텍스처 맵에서 샘플링할 수 있습니다. 이 표현은 N x F x R x R x 3 형태의 하나의 텐서를 필요로 합니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9cc14647-ab9d-469c-8e7d-fc703cad2b9f)
+- [Pytorch3D FAIR Vision 유튜브](https://youtu.be/Sb9gCCnSAUg?si=EhRfZjjZOtM7_d9Q&t=1523)
+
 
 ```python
 # sugar_scene/sugar_model.py
