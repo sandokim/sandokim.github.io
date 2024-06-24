@@ -61,9 +61,19 @@ classes: wide
 - As a reminder, fragments are groups of pixels formed from a single rasterized triangle.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4401d2d0-113d-4dfc-aad8-ea1c9de5d43d)
 - 만약 각 pixel fragments에 대해 같은 color를 적용하면 realistic하지 않습니다.
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a9830246-e273-488b-80a7-52bfe052051f)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c4c9d0e5-8fcc-4e12-bbc9-f9bd3a04cb8a)
+- shading을 적용하여 아래는 검정색 위는 하얀색으로 만들거나
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7e6b7130-b876-4175-b12f-48fcd9583836)
+- 그리고 specular highlights를 더하고
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8d7814f3-7ceb-4401-822b-5087fb81b361)
+- shininess를 더하여 lights가 surface에서 bounce off하게 하면
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9c9d486d-b565-4c9e-9e50-dd079affa913)
+- realistic train을 얻습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/998ab25c-15b0-48dd-b409-b0cd195b757d)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/01a82639-746a-4c60-ad31-bf3145134aa2)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a8da6126-4159-44c6-9b13-3225dcf3bd1b)
 
-
+# direction of the light, direction of triangle's surface
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7bad4d50-1e4b-45fc-b2cf-6a46a615d6d1)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33251dea-52a3-4574-a5ca-1779af680aac)
