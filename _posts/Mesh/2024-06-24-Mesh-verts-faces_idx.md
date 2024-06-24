@@ -1,5 +1,5 @@
 ---
-title: "[Mesh] load_obj, verts, faces_idx, verts_rgb, TexturesUV, TexturesVertex, textures"
+title: "[Mesh] load_obj, verts, faces_idx, verts_rgb"
 last_modified_at: 2024-06-24
 categories:
   - Mesh
@@ -12,9 +12,9 @@ tags:
   - open3d
   - o3d
   - pytorch3d
-  - TexturesUV
   - TexturesVertex
-excerpt: "SuGaR triangle(face), n vertices for gaussian, TexturesUV, TexturesVertex"
+  - load_obj
+excerpt: "load_obj, verts, faces_idx, verts_rgb"
 use_math: true
 classes: wide
 ---
