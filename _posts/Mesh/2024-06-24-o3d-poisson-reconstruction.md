@@ -126,6 +126,8 @@ def extract_mesh_from_coarse_sugar(args):
 
 ```
 
+**pcd에서 outlier removal은 다음과 같이 진행합니다.**
+
 ## [Point cloud outlier removal](https://www.open3d.org/docs/latest/tutorial/Advanced/pointcloud_outlier_removal.html)
 
 - `statistical_outlier_removal` removes points that are further away from their neighbors compared to the average for the point cloud. It takes two input parameters:
