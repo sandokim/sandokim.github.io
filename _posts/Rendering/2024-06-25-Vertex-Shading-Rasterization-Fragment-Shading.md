@@ -101,6 +101,21 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f815109d-3b57-4b5f-9aa6-349537f8858f)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/649ba906-2755-409e-ab45-3e34ff0737a8)
 
+- cos(θ)에 light intensity와 material의 color를 곱해줘서 properly shaded된 triangle을 얻습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/535cafbd-6ddc-49ce-afa5-2dba6eade392)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1d86a9cc-0779-4569-96d8-70ade552aaa7)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dfc4227b-23c6-498d-b46d-87b649cf0f67)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4972e7e0-3502-4c92-ab36-786999304cbe)
+
+- 90도에서 270도 사이까진 cos값이 음수이고, RGB color는 음수로 쓸 수 없으므로, minimum을 0으로 제한합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/821c3849-9c4e-4af1-897f-d22a804cc559)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f48750dd-baf6-4b15-8695-58621f2c9a34)
+- 하지만 0으로 제한하더라도, 이 90도에서 270도 사이로light source에 대해 돌아간 triangle은 pitch-black surface를 가집니다.
+- 즉, triangle의 표면이 매우 어두워 빛을 아예 반사하지 않게 되어 이상해보입니다.
+- 이를 해결하기 위해 Ambient light intensity와 surface color를 곱한 값을 더해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d97fa504-6985-4e37-83ef-cd4cd2e58a93)
+
+
 
 
 
