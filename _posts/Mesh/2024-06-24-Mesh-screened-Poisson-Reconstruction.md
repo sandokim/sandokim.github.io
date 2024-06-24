@@ -42,6 +42,11 @@ classes: wide
 
 전체 과정은 최적화 후 여러 각도에서 깊이 맵과 법선 맵을 렌더링하고, 이를 결합(fuse)한 다음, 결합된 데이터를 Screened Poisson Reconstruction 알고리즘에 입력하여 고품질의 글로벌 메쉬를 추출하는 것입니다.
 
+# Screened Poisson Reconstruction에 대해서 좀 더 알아봅시다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1499385a-7b9a-4829-a142-8861cce8adae)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/738a6fb5-ca37-4ccb-b402-baab65badf77)
 
 
 ### Reference
