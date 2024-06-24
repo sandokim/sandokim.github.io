@@ -44,7 +44,7 @@ Monocular normal priors는 단일 이미지(단안 뷰)에서 3D 구조를 추�
 
 ### 차이점
 - **목적과 사용 방식**: Normal map은 주로 그래픽스에서 표면 디테일을 표현하고 조명 효과를 계산하는 데 사용됩니다. 반면, Monocular normal priors는 단일 이미지 기반의 3D 재구성에서 법선 정보를 추정하는 데 사용되는 사전 지식입니다.
-- **데이터 형식**: Normal map은 텍스처 맵 형태로 저장된 법선 정보이고, Monocular normal priors는 법선의 사전 확률 분포에 관한 개념입니다.
+- **데이터 형식**: ***Normal map은 텍스처 맵 형태로 저장된 법선 정보이고, Monocular normal priors는 법선의 사전 확률 분포에 관한 개념입니다.***
 
 ## Monocular Normal Priors와 Specular Reflection의 관계
 
