@@ -62,6 +62,18 @@ Poisson surface reconstruction은 포인트 클라우드 데이터와 해당 데
 - `pcd`에 대해서 points, colors, normals 정보를 넣어주고, outlier를 제거해주고,`o3d.geometry.TriangleMesh.create_from_point_cloud_poisson`로 `pcd`를 주면 mesh와 densities를 구할 수 있습니다.
 - 아래 코드에서 fg_pcd에 fg_points, fg_colors, fg_normals을 Vector로 넣어주고, fg_pcd에서 outlier를 제거한 것을 poisson 함수에 넣고, poisson_depth(=octree depth)를 설정하여, fg_mesh와 fg_densities를 얻습니다.
 - `o3d_fg_mesh, o3d_fg_densities = o3d.geometry.TriangleMesh.create_from_point_cloud_poisson(fg_pcd, depth=poisson_depth)`
+- fg_pcd에서 마지막으로 low density value를 갖는 vertices는 제거해줍니다.
+- 정의상 어떤 vertex가 low density value를 가진다는 것은 input point cloud에서 그 vertex를 참조하는 points수가 적다는 의미입니다.
+- 이 말은 mesh의 경계쪽으로 갈수록 어떤 vertex에 대한 density는 낮아짐을 의미합니다.
+- 이를 잘 표현한 그림이 있습니다.
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/180a0f63-f96f-4d70-88d2-ba814924d9ad)
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/edeac3d5-c92c-491b-96f9-6ae53ab45ec1)
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a62904c3-2b96-44d1-b8e8-6d1a1e9d3ae1)
+
+  ```python
+  vertices_to_remove = o3d_fg_densities < np.quantile(o3d_fg_densities, vertices_density_quantile)
+  o3d_fg_mesh.remove_vertices_by_mask(vertices_to_remove) 
+  ```
 - bg_pcd에 대해서도 동일하게 진행합니다.
 
 ```python
