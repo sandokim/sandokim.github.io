@@ -170,13 +170,19 @@ triangle_vertices = self.primitive_verts[None]  # Shape: (1, n_vertices_per_gaus
 
 pytorch3d는 Mesh texturing을 위해 여러 옵션을 제공합니다. 
 
-- **Vertex textures (TexturesVertex)**: 가장 간단한 방법은 각 정점에 대해 d차원 텍스처를 가지는 것입니다. 예를 들어, RGB 색상은 face를 가로질러 보간될 수 있습니다. 이는 N x V x D 텐서로 표현될 수 있습니다.
+- **Vertex textures (TexturesVertex)**: 가장 간단한 방법은 각 정점에 대해 d차원 텍스처를 가지는 것입니다. 예를 들어, RGB 색상이 d차원이 될 수 있습니다. 그리고 3개의 정점에 존재하는 d차원 텍스처는 face를 가로질러 보간될 수 있습니다. 이는 N x V x D 텐서로 표현될 수 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/44072680-4985-44b8-9994-7cbd404d228b)
+
 
 - **Texture map + Vertex UV coordinates (TexturesUV)**: 두 번째 방법은 정점 UV 좌표와 전체 face에 대한 단일 텍스처 맵을 가지는 것입니다. face의 특정 지점에 대해 색상은 UV 좌표를 보간한 다음 텍스처 맵에서 샘플링하여 계산될 수 있습니다. 이 표현은 두 개의 텐서를 필요로 하며 mesh당 하나의 텍스처 맵만 지원할 수 있습니다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ba9a149a-695e-428f-ab76-02dbdb678959)
+
 - **Texture Atlas**: 보다 복잡한 경우, 예를 들어 ShapeNet meshes의 경우, mesh당 여러 개의 텍스처 맵이 있으며 일부 face는 텍스처가 없고 다른 face는 텍스처가 있을 수 있습니다. 이러한 경우, 보다 유연한 표현은 텍스처 아틀라스(texture atlas)입니다. 여기서 각 face는 사용자가 결정한 텍스처 해상도 R에 따른 R x R 텍스처 맵으로 표현됩니다. 이는 소프트 래스터라이저(soft rasterizer) 구현에서 영감을 받았습니다. face의 특정 지점에 대해 텍스처 값은 해당 지점의 중점 좌표(barycentric coordinates)를 사용하여 face의 텍스처 맵에서 샘플링할 수 있습니다. 이 표현은 N x F x R x R x 3 형태의 하나의 텐서를 필요로 합니다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9cc14647-ab9d-469c-8e7d-fc703cad2b9f)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1ceea645-463a-4fd7-8bb3-1944e37e60d4)
+
 - [Pytorch3D FAIR Vision 유튜브](https://youtu.be/Sb9gCCnSAUg?si=EhRfZjjZOtM7_d9Q&t=1523)
 
 
