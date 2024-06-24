@@ -73,8 +73,16 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/01a82639-746a-4c60-ad31-bf3145134aa2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a8da6126-4159-44c6-9b13-3225dcf3bd1b)
 
-### direction of the light, direction of triangle's surface
+### framgent shading(=triangle shading)
+- 그럼 실제로 shading이 어떻게 진행되는지 알아봅시다.
+- 기본적으로 surface가 light source를 directly하게 pointing at하면 밝아집니다.
+- 반대로 surface가 light source와 perpendicular하거나 반대방향에 있으면 어두워집니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/87722a04-1a62-4111-964f-c1ac49f1092e)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5bcfa32a-e7fc-40f2-b625-450ab2d87b26)
 
+
+- direction of the light, direction of triangle's surface을 가지고 계산합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ddd4ca20-499c-4ff7-88b8-b3eae5b503a5)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7bad4d50-1e4b-45fc-b2cf-6a46a615d6d1)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33251dea-52a3-4574-a5ca-1779af680aac)
 
