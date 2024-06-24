@@ -67,7 +67,7 @@ Poisson surface reconstruction은 포인트 클라우드 데이터와 해당 데
 - 이 말은 mesh의 경계쪽으로 갈수록 어떤 vertex에 대한 density는 낮아짐을 의미합니다.
 - 이를 잘 표현한 그림이 있습니다.
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/180a0f63-f96f-4d70-88d2-ba814924d9ad)
-  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/edeac3d5-c92c-491b-96f9-6ae53ab45ec1)
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/19f34ada-d58e-4a9d-8be6-680663839fef)
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a62904c3-2b96-44d1-b8e8-6d1a1e9d3ae1)
 
   ```python
