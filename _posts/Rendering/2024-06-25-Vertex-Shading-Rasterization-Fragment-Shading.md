@@ -73,7 +73,7 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/01a82639-746a-4c60-ad31-bf3145134aa2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a8da6126-4159-44c6-9b13-3225dcf3bd1b)
 
-# direction of the light, direction of triangle's surface
+### direction of the light, direction of triangle's surface
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7bad4d50-1e4b-45fc-b2cf-6a46a615d6d1)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33251dea-52a3-4574-a5ca-1779af680aac)
