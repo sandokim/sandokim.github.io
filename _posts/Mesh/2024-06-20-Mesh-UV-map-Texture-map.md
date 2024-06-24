@@ -9,6 +9,7 @@ tags:
   - 3D modeling
   - UV map
   - texture map
+  - PBR materials
   - albedo map
   - normal map
   - specular map
@@ -20,6 +21,30 @@ excerpt: "UV map & Texture map (Albedo map, Normal map, Specular map, Displaceme
 use_math: true
 classes: wide
 ---
+
+[PBR Materials Explained](https://www.youtube.com/watch?v=T2K6WXdifGA)
+
+- Color Map
+  ![bandicam 2024-06-24 14-24-33-958](https://github.com/sandokim/sandokim.github.io/assets/74639652/f178953d-930b-4e6b-bdc4-771e232a4cbf)
+
+- Metallic/Metalness Map
+  ![bandicam 2024-06-24 14-24-59-161](https://github.com/sandokim/sandokim.github.io/assets/74639652/c4fd94f2-c601-499a-95d6-d15142ebd865)
+
+- Roughness Map
+  ![bandicam 2024-06-24 14-25-11-055](https://github.com/sandokim/sandokim.github.io/assets/74639652/63fbebb1-e158-42a5-8d49-94d829bb9781)
+
+- Normal Map
+  ![bandicam 2024-06-24 14-25-19-939](https://github.com/sandokim/sandokim.github.io/assets/74639652/0b4d2185-b4f0-4f20-9dc5-bb0d779cdc72)
+
+- Height Map
+  ![bandicam 2024-06-24 14-25-27-219](https://github.com/sandokim/sandokim.github.io/assets/74639652/115a4058-b13c-4e00-82fc-580f9025479f)
+
+- Alpha Map
+  ![bandicam 2024-06-24 14-25-41-547](https://github.com/sandokim/sandokim.github.io/assets/74639652/1b506117-343d-44f7-bad2-5926708a2c4d)
+  ![bandicam 2024-06-24 14-25-48-217](https://github.com/sandokim/sandokim.github.io/assets/74639652/6926ea5b-967f-47ee-987b-639c18a5c8cd)
+
+- Emission Map
+  ![bandicam 2024-06-24 14-25-50-721](https://github.com/sandokim/sandokim.github.io/assets/74639652/f2fb4a04-da44-4b0b-9bae-08e6e27ef920)
 
 # 3D 모델링과 텍스처링에서 사용되는 다양한 맵들
 
