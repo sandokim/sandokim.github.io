@@ -9,6 +9,8 @@ tags:
   - surface reconstruction
   - sdf (signed distance function)
   - eikonal equation
+  - 아이코널 방정식
+  - ray tracing
 excerpt: "Surface Reconstruction, SDF (Signed Distance Function)과 Eikonal Equation의 관계"
 use_math: true
 classes: wide
