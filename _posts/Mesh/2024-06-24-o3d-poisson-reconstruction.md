@@ -53,9 +53,9 @@ Poisson surface reconstruction은 포인트 클라우드 데이터와 해당 데
 
 ### poisson reconstruction을 o3d로 구현시, points와 normals을 모두 가진 pcd를 poisson reconstruction을 수행하는 함수에 넣어줍니다.
 
-- `pcd`에 대해서 points, colors, normals 정보를 넣어주고, `o3d.geometry.TriangleMesh.create_from_point_cloud_poisson`로 `pcd`를 주면 densities를 구할 수 있습니다.
-- 아래 코드에서 fg_pcd에 fg_points, fg_colors, fg_normals을 Vector로 넣어주고, fg_pcd를 poisson 함수에 넣고, poisson_depth(=octree depth)를 설정하여, fg_densities를 얻습니다.
-- `o3d_fg_densities = o3d.geometry.TriangleMesh.create_from_point_cloud_poisson(fg_pcd, depth=poisson_depth)`
+- `pcd`에 대해서 points, colors, normals 정보를 넣어주고, `o3d.geometry.TriangleMesh.create_from_point_cloud_poisson`로 `pcd`를 주면 mesh와 densities를 구할 수 있습니다.
+- 아래 코드에서 fg_pcd에 fg_points, fg_colors, fg_normals을 Vector로 넣어주고, fg_pcd를 poisson 함수에 넣고, poisson_depth(=octree depth)를 설정하여, fg_mesh와 fg_densities를 얻습니다.
+- `o3d_fg_mesh, o3d_fg_densities = o3d.geometry.TriangleMesh.create_from_point_cloud_poisson(fg_pcd, depth=poisson_depth)`
 - bg_pcd에 대해서도 동일하게 진행합니다.
 
 ```python
