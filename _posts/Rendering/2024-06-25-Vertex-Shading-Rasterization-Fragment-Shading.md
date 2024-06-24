@@ -57,6 +57,14 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/234c0971-d3e8-4212-9bf4-f3934a59b7f9)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/aa4e9ae3-e30e-44ae-bd4e-a594cdf5d12a)
 
+###  pixel fragment, Shading
+- As a reminder, fragments are groups of pixels formed from a single rasterized triangle.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4401d2d0-113d-4dfc-aad8-ea1c9de5d43d)
+- 만약 각 pixel fragments에 대해 같은 color를 적용하면 realistic하지 않습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a9830246-e273-488b-80a7-52bfe052051f)
+
+
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7bad4d50-1e4b-45fc-b2cf-6a46a615d6d1)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33251dea-52a3-4574-a5ca-1779af680aac)
 
