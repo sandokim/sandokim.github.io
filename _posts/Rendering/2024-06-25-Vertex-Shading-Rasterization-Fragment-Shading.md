@@ -123,7 +123,13 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b8367b63-9760-44b7-b39c-cb348af7c04d)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d1c2fe38-05af-4336-bf6a-e43cc1691a67)
 
+### flat shaidng, smooth shading 
 
+tbd
+
+### barycentric coordiantes
+
+tbd
 
 
 
