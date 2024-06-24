@@ -110,12 +110,18 @@ classes: wide
 - 90도에서 270도 사이까진 cos값이 음수이고, RGB color는 음수로 쓸 수 없으므로, minimum을 0으로 제한합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/821c3849-9c4e-4af1-897f-d22a804cc559)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f48750dd-baf6-4b15-8695-58621f2c9a34)
-- 하지만 0으로 제한하더라도, 이 90도에서 270도 사이로light source에 대해 돌아간 triangle은 pitch-black surface를 가집니다.
+- 하지만 0으로 제한하더라도, 이 90도에서 270도 사이로 light source에 대해 돌아간 triangle은 pitch-black surface를 가집니다.
 - 즉, triangle의 표면이 매우 어두워 빛을 아예 반사하지 않게 되어 이상해보입니다.
 - 이를 해결하기 위해 Ambient light intensity와 surface color를 곱한 값을 더해줍니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d97fa504-6985-4e37-83ef-cd4cd2e58a93)
 
-
+### 각 triangle에 대해선 다양한 light source와의 계산 결과를 더해줍니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8967e774-3102-40bf-a044-5ddf0b7edb1e)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/eef6cf58-44e1-40b0-a195-b2f636fbbbc5)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a40b5f98-9ca0-440a-b33e-ed7c4c3d2e97)
+- limit the influence of lights을 하여, computational burden을 GPU에서 덜어내기도 합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b8367b63-9760-44b7-b39c-cb348af7c04d)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d1c2fe38-05af-4336-bf6a-e43cc1691a67)
 
 
 
