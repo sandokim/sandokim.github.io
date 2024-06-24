@@ -53,7 +53,7 @@ verts, faces_idx, _ = load_obj(obj_filename)
 faces = faces_idx.verts_idx
 
 # Initialize each vertex to be white in color.
-verts_rgb = torch.ones_like(verts)[None]  # (1, V, 3)
+verts_rgb = torch.ones_like(verts)[None]  # (1, V, 3) --> None으로 배치차원 추가
 textures = TexturesVertex(verts_features=verts_rgb.to(device))
 
 # Create a Meshes object
