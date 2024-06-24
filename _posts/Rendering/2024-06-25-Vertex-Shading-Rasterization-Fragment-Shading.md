@@ -87,6 +87,15 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33251dea-52a3-4574-a5ca-1779af680aac)
 
 ### surface normal
+- 아시다시피 아래 train은 762,000개의 `flat triangle`로 이루어져있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0d49999d-dae4-4e1b-8e87-37be8d4465c4)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1576ea8c-a31e-48f5-befd-1f46ef88c7c2)
+- 그리고 triangle들은 다른 방향을 바라보고 있고, 각각의 triangle이 바라보는 방향을 surface normal이라고 합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4df7c3fd-664c-4fe2-a072-4f50ba26b4b2)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6ba19d2a-2413-40d5-9be6-8fa330310264)
+
+### surface normal과 light source로 cosine 계산
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fac31a35-0e24-452f-9f14-83a7c723cbcd)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/35cef61b-aa13-45dd-bc59-493ac17559d4)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f815109d-3b57-4b5f-9aa6-349537f8858f)
