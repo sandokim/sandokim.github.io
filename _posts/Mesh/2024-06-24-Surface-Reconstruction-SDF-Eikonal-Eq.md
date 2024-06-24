@@ -16,7 +16,9 @@ use_math: true
 classes: wide
 ---
 
+[위키피디아 Eikonal equation 설명](https://en.wikipedia.org/wiki/Eikonal_equation)
 
+- Eikonal equations provide a link between physical (wave) optics and geometric (ray) optics.
 
 
 
