@@ -23,6 +23,8 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5f57748b-b7e7-497c-8415-c3558585e7c9)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/17c89c49-adec-4b48-8849-5e1c956f3021)
+
 위 내용을 해석하면 다음과 같습니다.
 
 ### 1. Multi-view Depth Maps과 Normal Maps을 Render한다
@@ -40,5 +42,5 @@ classes: wide
 
 전체 과정은 최적화 후 여러 각도에서 깊이 맵과 법선 맵을 렌더링하고, 이를 결합(fuse)한 다음, 결합된 데이터를 Screened Poisson Reconstruction 알고리즘에 입력하여 고품질의 글로벌 메쉬를 추출하는 것입니다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/17c89c49-adec-4b48-8849-5e1c956f3021)
+
 
