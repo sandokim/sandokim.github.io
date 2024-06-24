@@ -21,6 +21,12 @@ classes: wide
 
 Poisson surface reconstruction은 주어진 포인트 클라우드 데이터로부터 삼각형 메쉬를 생성하는데, 이 방법은 점의 위치뿐만 아니라 각 점의 노멀 벡터 정보를 사용합니다.
 
+Poisson Surface Reconstruction시 points에 대응하는 normals 정보 또한 존재해야한다는 점은 [open3d의 poisson surface reconstruction official document](https://www.open3d.org/docs/latest/tutorial/Advanced/surface_reconstruction.html)에도 나타나 있습니다.
+
+이는 Poisson Surface Reconstruction이 points의 normals로 surface를 찾기 때문입니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c115a8c5-f170-449e-922f-6ff4616e78a0)
+
 ### 원리
 
 1. **포인트 클라우드 데이터**:
