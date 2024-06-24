@@ -44,9 +44,14 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/aae80475-1180-42aa-ad6d-b83e7b3ab7b8)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5d6c300f-ae13-4d40-88d1-6582699b8621)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4116cc4e-c24a-467e-b4ae-fbf193e4ebf8)
+- lowest z value를 가지는 triangle만 screen에 표시됩니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8c24c9f9-30e3-4fed-87d5-0d14affb758b)
 
-
+- image of the z 혹은 depth buffer로 불리우는 이미지는 아래와 같습니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3577c9be-c9b2-4c12-96e0-787d3705aa53)
+- triangle이 3차원 공간에 존재하므로 triangle의 3개의 vertices도 보통 서로 다른 값을 가지게 됩니다.
+- 이때, triangle 내부의 z value은 3개의 vertices로 interpolation하여 얻습니다.
+- 그러고나면 triangle끼리에서도 z value가 작은 것이 screen에 표시됩니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2e17b3e0-c026-4e8f-9467-df53ad32f954)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1decb903-3abb-4e3b-8284-a13e8484aceb)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/234c0971-d3e8-4212-9bf4-f3934a59b7f9)
