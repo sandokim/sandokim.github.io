@@ -20,11 +20,6 @@ classes: wide
 
 - Eikonal equations provide a link between physical (wave) optics and geometric (ray) optics.
 
-
-
-
-
-
 ### Reference
 - [DeepSDF: Learning Continuous Signed Distance Functions for Shape Reconstruction](https://arxiv.org/abs/1901.05103)
 - [NeuS: Learning Neural Implicit Surfaces by Volume Rendering for Multi-view Reconstruction](https://arxiv.org/abs/2106.10689)
