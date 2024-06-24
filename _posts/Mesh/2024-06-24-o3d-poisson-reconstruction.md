@@ -130,8 +130,22 @@ def extract_mesh_from_coarse_sugar(args):
 
 ## [Point cloud outlier removal](https://www.open3d.org/docs/latest/tutorial/Advanced/pointcloud_outlier_removal.html)
 
-- `statistical_outlier_removal` removes points that are further away from their neighbors compared to the average for the point cloud. It takes two input parameters:
-  - `nb_neighbors`, which specifies how many neighbors are taken into account in order to calculate the average distance for a given point.
-  - `std_ratio`, which allows setting the threshold level based on the standard deviation of the average distances across the point cloud. The lower this number the more aggressive the filter will be.
+### `remove_statistical_outlier` 함수
 
+`remove_statistical_outlier` 함수는 포인트 클라우드(point cloud) 데이터에서 통계적으로 이례적인(outlier) 점들을 제거합니다. 
+
+이 함수는 두 개의 입력 매개변수를 받습니다:
+- `nb_neighbors`: 주어진 점에 대해 평균 거리를 계산하기 위해 고려할 이웃의 수를 지정합니다.
+- `std_ratio`: 포인트 클라우드 전반의 평균 거리의 표준편차를 기반으로 임계값 수준을 설정할 수 있게 합니다. 이 값이 낮을수록 필터가 더 공격적으로 작동합니다.
+
+이 함수는 두 가지 반환 값을 가집니다:
+- `cl`: Clustered point cloud data
+  - 통계적으로 이례적이지 않은 점들로 구성된 새로운 포인트 클라우드 데이터
+  - 원래 포인트 클라우드 데이터에서 이례치가 제거된 포인트 클라우드 데이터
+  
+- `ind`: Index list of inliers
+  - 원래 포인트 클라우드 데이터에서 이례적이지 않은 점들의 인덱스를 나타내는 리스트
+  - 이 인덱스를 사용하여 원래 포인트 클라우드 데이터에서 정상적인 점들을 선택할 수 있음
+
+### `select_by_index` 함수
 - `select_by_index`, which takes a binary mask to output only the selected points.
