@@ -96,12 +96,13 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 ### Volumetric cutting
 - 각 Gaussian surfel로부터 aggregated된 alpha values에 따라 volumetric cutting을 수행합니다.
 - Volumetric cutting. The idea is to mark those voxels far from Gaussian surfels as un-occupied, i.e., cutting them from the grid.
-- 먼저 $512^3$ voxel grid를 bounding box에 construct합니다.
-- 그 다움 모든 Gaussian ellipses를 traverse하며, Gaussian ellipses와 surrounding voxels과의 intersection을 게산하고, 해당 voxels들에 대해 weighted opacity를 계산합니다.
-- computational cost를 줄이기 위해, voxel center의 weighted opacity를 사용하여 Gaussian weights와 opacities를 intersection area 내에서 적분을 근사합니다.
-- 만약 어떤 voexl이 low accumulated weighted opacity를 가진다는건, foreground surface와 background surface 사이의 거리가 크다는 것입니다.
-- 이런 voxels들과 함께 그에 상응하는 3D points를 depth 계산에서 prune 해줍니다.
-- 이와 같은 outlier removal은 단순히 각 pixel에 대한 median depth를 사용하여 outlier를 제거한 것보다 퀄리티가 좋고 computationally efficient합니다.
+- Volumetric cutting은 구체적으로 다음과 같이 수행합니다.
+  - 먼저 $512^3$ voxel grid를 bounding box에 construct합니다.
+  - 그 다움 모든 Gaussian ellipses를 traverse하며, Gaussian ellipses와 surrounding voxels과의 intersection을 게산하고, 해당 voxels들에 대해 weighted opacity를 계산합니다.
+  - computational cost를 줄이기 위해, voxel center의 weighted opacity를 사용하여 Gaussian weights와 opacities를 intersection area 내에서 적분을 근사합니다.
+  - 만약 어떤 voexl이 low accumulated weighted opacity를 가진다는건, foreground surface와 background surface 사이의 거리가 크다는 것입니다.
+  - 이런 voxels들과 함께 그에 상응하는 3D points를 depth 계산에서 prune 해줍니다.
+  - 이와 같은 outlier removal은 단순히 각 pixel에 대한 median depth를 사용하여 outlier를 제거한 것보다 퀄리티가 좋고 computationally efficient합니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/de4a15b6-7ca1-4646-816c-136cfdadb898)
 
