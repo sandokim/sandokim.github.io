@@ -91,8 +91,13 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 
 
 
+## Gaussian Point Cutting and Meshing
 
+### Volumetric cutting
+- 각 Gaussian surfel로부터 aggregated된 alpha values에 따라 volumetric cutting을 수행합니다.
+- Volumetric cutting. The idea is to mark those voxels far from Gaussian surfels as un-occupied, i.e., cutting them from the grid.
 
+tbd..
 
 
 
