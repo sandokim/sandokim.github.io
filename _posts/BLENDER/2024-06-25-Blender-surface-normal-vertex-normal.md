@@ -26,11 +26,11 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/07060b75-fcd2-4ec0-8fc2-275bf901f5a7)
 
-- 인접한 face normal이 90도, 90도를 이루고 있기 때문에, vertex normal은 그의 평균인 45도로 계산됩니다.
-
 Blender에서는 normal의 색깔이 다음과 같습니다.
 - face normal 하늘색
 - vertex normal 보라색
+
+- 인접한 face normal이 90도, 90도를 이루고 있기 때문에, vertex normal은 그의 평균인 45도로 계산됩니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6906bff4-276d-4119-8958-3ffae7042649)
 
