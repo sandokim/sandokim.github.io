@@ -42,6 +42,8 @@ classes: wide
   
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0ff8459d-5f7d-4dc8-90b5-99a8d4111981)
 
+- Implementation에서는 photometric loss가 $R(r_i)[:,2]에 대해 gradient를 가지지 않으므로, $R(r_i)$의 each axis (x-axis, y-axis)을 따른 gradients와 balance를 맞춰주기 위해 normal에 대한 gradient $\partial \tilde{N} / \partial R[:,2]는 10만큼 scaling 해줍니다.
+- 이를 통해 x-axis, y-axis에 대해서도, normal에 대해서도 Gaussian ellipse가 올바른 방향으로 rotate하도록 guide 해주었습니다.
 
 ## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel 
 
