@@ -124,4 +124,9 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 
 
 
+### SuGaR는 3D Gaussians을 flat하게 encourage하긴 하지만, extracted 𝜆−level set에 잘 align 하지 않아서 ellipsoid-like artifacts와 holes이 surface에 생겼다. 주장합니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/161c2844-1b30-4548-997f-3f8e51ad3cd3)
+
+
 
