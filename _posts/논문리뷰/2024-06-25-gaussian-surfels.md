@@ -8,6 +8,13 @@ tags:
   - 3dgs
   - 3d gaussian splatting
   - gaussian surfels
+  - monocular normal priors
+  - foreground masks
+  - screened Poisson reconstruction
+  - SuGaR
+  - shape-radiance ambiguity
+  - 3D ellipsoid into a 2D ellipse
+  - self-supervised normal-depth consistency loss
 excerpt: "[논문리뷰] High-quality Surface Reconstruction using Gaussian Surfels"
 use_math: true
 classes: wide
