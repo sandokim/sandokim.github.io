@@ -139,6 +139,7 @@ classes: wide
 
 - 따라서, smooth shading을 하기 위해서는 surface normals을 사용하는 대신에, 인접한 triangle의 normal의 평균을 사용하여 각 vertex에 대한 하나의 normal을 계산합니다.
 ![bandicam 2024-06-25 10-17-07-267](https://github.com/sandokim/sandokim.github.io/assets/74639652/b05b0a5d-7bb3-474e-809c-766d6566689f)
+- **인접한 triangle의 normal의 평균으로부터 계산된 vertex normal들**은 다음과 같습니다.
 ![bandicam 2024-06-25 10-17-14-352](https://github.com/sandokim/sandokim.github.io/assets/74639652/0b3d9f63-7a28-43a5-b22f-106c3e9e34e2)
 ![bandicam 2024-06-25 10-17-25-262](https://github.com/sandokim/sandokim.github.io/assets/74639652/b85c090c-089d-4ffb-a057-c9dbfda70df2)
 
