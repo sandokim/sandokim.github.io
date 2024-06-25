@@ -123,12 +123,18 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/35dbac1d-faf0-4364-b0ba-a01924ec6e8f)
 
 
-### Comparison
+## Comparison
 
 - SuGaR는 3D Gaussians을 flat하게 encourage하긴 하지만, **extracted 𝜆−level set에 잘 align 하지 않아서** ellipsoid-like artifacts와 holes이 surface에 생긴다 주장합니다.
 - extracted 𝜆−level set가 정확히 무엇인지 알아야합니다.. TBD.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/161c2844-1b30-4548-997f-3f8e51ad3cd3)
 
+### Chamfer distance (mm) 
+
+- Chamfer distance를 측정시, point cloud에서 sample할 point의 개수를 설정하여 target point cloud와 result point cloud가 얼마나 차이가 적은지 측정합니다.
+- 따라서 Table 2에서도 Methods가 24, 37, ..., 122로 많은데, 이는 chamfer distance에서 sample할 point 수를 의미합니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9262c96a-e90f-43f1-b782-637d1383dc51)
 
 
