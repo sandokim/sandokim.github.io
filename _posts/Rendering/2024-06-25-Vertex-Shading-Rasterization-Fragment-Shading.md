@@ -12,11 +12,13 @@ tags:
   - model space
   - wordl space
   - camera space
-  - view space
+  - view screen
   - visibility z buffer depth buffer
   - triangle
   - surface normal
   - vertices
+  - vertex normal
+  - baycentric coordinates
 excerpt: "컴퓨터 그래픽스 전체 프로세스를 설명하는 최고의 영상"
 use_math: true
 classes: wide
@@ -29,7 +31,7 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e8ab0a57-9f95-4bea-bdfa-ab419ac0cf9b)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d8631600-d1b9-4651-b099-8b4a27fa4aca)
 
-### model space -> world space -> camera space -> view space
+### model space -> world space -> camera space -> view screen
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7a894c47-e99c-43f3-af51-cd93d038805a)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/166ef1ec-b325-4c62-86df-448c3ac3815d)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1366dec4-69b8-4e29-a6ab-e0a96ebde7bc)
