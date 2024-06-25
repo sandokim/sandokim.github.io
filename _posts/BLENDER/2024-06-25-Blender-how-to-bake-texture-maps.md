@@ -55,9 +55,11 @@ Alright.
 
 In this tutorial, we will create a **procedural material** for the barrel model, and bake the material into image textures.
 
-### [Procedural texture란? 위키피디아](https://en.wikipedia.org/wiki/Procedural_texture)
+### Procedural texture란?
 
-In computer graphics, **a procedural texture is a texture created using a mathematical description **(i.e. an algorithm) rather than directly stored data. The advantage of this approach is low storage cost, unlimited texture resolution and easy texture mapping. These kinds of textures are often used to model surface or volumetric representations of natural elements such as wood, marble, granite, metal, stone, and others.
+In computer graphics, **a procedural texture is a texture created using a mathematical description**(i.e. an algorithm) rather than directly stored data. The advantage of this approach is low storage cost, unlimited texture resolution and easy texture mapping. These kinds of textures are often used to model surface or volumetric representations of natural elements such as wood, marble, granite, metal, stone, and others.
+
+- [출처: 위키피디아 Procedural texture](https://en.wikipedia.org/wiki/Procedural_texture)
 
 ### Baking Diffuse(Color) Map
 
