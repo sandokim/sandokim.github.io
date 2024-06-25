@@ -51,8 +51,22 @@ $$
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
 
 
+## Depth-normal consistency loss
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/77fefe8b-718d-470a-aa45-60aa592006aa)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/811e6629-8f1d-4eff-848c-8afce09ddf8c)
+
+- the rendered depth $\tilde{D}$
+- the rendered normal $\tilde{N}$
+
+the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3D 점으로 변환하고, N(⋅)로 이웃한 점들로부터 cross product를 사용하여 normal을 계산합니다.
+
+이렇게 rendered depth로부터 이웃한 점들의 cross product로 얻은 normal $𝑁 (𝑉 (\tilde{D})$과 rendered normal $\tilde{N}$이 일치하도록 loss를 줍니다.
+
+만약 Figure 4 (d)의 경우처럼 rendered depth로부터 얻은 normal $𝑁 (𝑉 (\tilde{D})$과 rendered normal $\tilde{N}$이 일치하여 Depth-normal consistency는 유지될 수 있으나, 실제 surfel의 surface에 잘 align되지 않는 경우가 발생할 수도 있습니다.
+
+그러나 이 경우다른 loss와 combine하면 문제가 해결되어, 보통 Figure 4 (a)처럼 잘나오게 됩니다.
 
 
 
