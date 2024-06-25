@@ -24,6 +24,9 @@ classes: wide
 
 ***"affine approximation of the projective transformation": projective transformation 3x3 행렬에서 z축에 따른 perspective distortion이 그냥 없다고 가정하여 affine transformation 3x3 행렬에서 3행을 [0, 0, 1]로 대체하는 것을 의미합니다.***
 
+- 이를 그림으로 표현하면 다음과 같이 표현할 수 있습니다.
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/68481451-8fc8-4355-8b0f-d5476383ce4e)
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3d75cddc-b269-491e-a668-35bcecb036f5)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ae617767-ebd4-4a07-9016-9a9d044b0211)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/17db1224-f9bb-4fa6-8994-665f94d486ce)
