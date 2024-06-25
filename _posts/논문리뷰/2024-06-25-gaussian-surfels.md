@@ -34,6 +34,14 @@ classes: wide
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/444819b1-b933-4806-a4f4-46a01290e75c)
 
+- 나중에 설명하기로, 이처럼 covariance matrix의 gradient 계산시 세번째 column에 해당하는 $R_i$ (normal)에 해당하는 부분은 gradient가 0이 됩니다.
+- 이는 결과적으로 photometric loss를 계산하여 chain rule을 적용할 때, 각 Gaussian surfel의 normal에 해당하는 loss가 gradient를 가지지 않는 결과를 냅니다.
+- 하지만, $R_i$는 SO(3)에 속하는 rotation matrix이므로, normal은 rotation matrix $R_i$의 첫 2개의 axes (x-axis, y-axis)에 따라 여전히 조정되는 상황입니다. 
+- 이와 같은 indirect modification은 error를 불러일으키므로, 저자는 depth-normal consistency loss를 주어, 각 Gaussian surfel의 normal을 조절합니다. 
+- 이는 rendered depth로부터 얻은 gradient를 사용하여 depth-normal consistency loss를 줍니다.
+  
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0ff8459d-5f7d-4dc8-90b5-99a8d4111981)
+
 
 ## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel 
 
