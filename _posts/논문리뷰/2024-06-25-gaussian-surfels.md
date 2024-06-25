@@ -139,4 +139,19 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9262c96a-e90f-43f1-b782-637d1383dc51)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ac6a5d2c-f738-4625-a89c-26e841ff1ed6)
 
+## Ablation
+  
+- Ablation study를 할 때, 현재 페이퍼에는 DTU dataset와 BlendedMVS dataset 2개를 소개하였는데, Ablation study는 모두 DTU dataset에 대해 진행하였습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8d7432e5-4be7-45f3-96c0-37f4487775a9)
+- 그리고 loss에 대한 ablation study를 정성적으로 보여줄 때, DTU dataset 중에서도 아래처럼 scene 별로 가장 그 효과가 잘 드러나는 부분을 보여주었습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9558d7b1-fe03-4993-bfe3-e9f8eae2cf91)
+
+- BlendedMVS dataset의 경우 **challenging한 18개의 scenes들에 대해서만 결과를 report**하였습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/472ebded-caee-45fb-bcab-50d411a80d32)
+
+## Initialization
+- Initialization으로 Structure from Motion (SfM)로 계산된 sparse points를 사용하여, first few steps에서 convergence rate를 높일 수 있습니다.
+- 하지만 본 페이퍼에서는 크게 달라지지 않아서, target object의 bounding box에서 random positions과 roatations으로 Gaussian surfels를 initialize하였습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c1a56685-88f7-4cb7-bcfc-6501ab535c24)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/71fd9dc6-17f0-4109-a165-522b8dac22b5)
 
