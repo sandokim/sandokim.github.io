@@ -97,9 +97,13 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 - 각 Gaussian surfel로부터 aggregated된 alpha values에 따라 volumetric cutting을 수행합니다.
 - Volumetric cutting. The idea is to mark those voxels far from Gaussian surfels as un-occupied, i.e., cutting them from the grid.
 
-tbd..
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/de4a15b6-7ca1-4646-816c-136cfdadb898)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/df4dca03-d6a2-4b4a-b3c4-755a767d8725)
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/7a428892-fe35-455c-8ccc-bc28fd6529de)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/efeb73e5-ed1c-45d1-831c-cf8abbb01df0)
 
 
 
