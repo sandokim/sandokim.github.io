@@ -51,7 +51,7 @@ $$
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
 
 
-## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel! 
+## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel!! :)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f69a78f-eeff-4e77-9d50-c167f34226a5)
 
