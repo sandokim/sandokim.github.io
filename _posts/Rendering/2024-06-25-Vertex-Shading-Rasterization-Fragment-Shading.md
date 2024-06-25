@@ -151,28 +151,17 @@ classes: wide
 - 시각적으로는 triangle 전체에 걸쳐 3가지 다른 색상을 섞는 것과 비슷하지만, 대신 3개의 vertex normal directions을 사용합니다.
 ![bandicam 2024-06-25 10-22-06-642](https://github.com/sandokim/sandokim.github.io/assets/74639652/2ad06b33-311b-43f0-b62f-80e580961837)
 ![bandicam 2024-06-25 10-22-10-524](https://github.com/sandokim/sandokim.github.io/assets/74639652/b401f571-7232-42f7-b5f0-d9e70a297b54)
-![bandicam 2024-06-25 10-22-14-813](https://github.com/sandokim/sandokim.github.io/assets/74639652/81ba0b6e-6ff6-4acc-b6a1-1adfe50b6864)
-![bandicam 2024-06-25 10-22-23-854](https://github.com/sandokim/sandokim.github.io/assets/74639652/8c21be18-a053-4d1e-834c-f34a132e9060)
 
-- pre-rasterized..
-![bandicam 2024-06-25 10-22-14-813](https://github.com/sandokim/sandokim.github.io/assets/74639652/d68b67a8-c235-4f46-a0b5-6dbc84e1d412)
-![bandicam 2024-06-25 10-22-23-854](https://github.com/sandokim/sandokim.github.io/assets/74639652/a4b21366-c08f-4cbc-8853-3f6412186734)
-![bandicam 2024-06-25 10-23-39-323](https://github.com/sandokim/sandokim.github.io/assets/74639652/f8f8478e-6674-43a2-8214-587b2c6ddd74)
-![bandicam 2024-06-25 10-23-46-992](https://github.com/sandokim/sandokim.github.io/assets/74639652/97080a16-2eef-48c9-b4a6-e2e2404b48bf)
+- 주어진 fragment에 대해 각 픽셀의 중심을 잡고, vertex normal과 pre-rasterized triangle의 좌표를 사용하여 해당 픽셀의 barycentric normal을 계산합니다. 
+![bandicam 2024-06-25 10-22-14-813](https://github.com/sandokim/sandokim.github.io/assets/74639652/0415e80a-d585-440e-9cba-d9456c7d7638)
+![bandicam 2024-06-25 10-22-23-854](https://github.com/sandokim/sandokim.github.io/assets/74639652/718439ac-f482-478d-8278-9f79a43055c0)
+![bandicam 2024-06-25 10-23-46-992](https://github.com/sandokim/sandokim.github.io/assets/74639652/d31c4df2-6e41-4ea9-9fbf-98aa85ef9fc8)
 
+- 삼각형 전체에 걸쳐 세 가지 색상을 섞는 것과 마찬가지로, 이 픽셀의 normal은 삼각형의 세 vertex normal을 각 정점에서의 barycentric 좌표에 따라 비율에 맞게 혼합한 것입니다.
+![bandicam 2024-06-25 10-38-51-535](https://github.com/sandokim/sandokim.github.io/assets/74639652/4e5e37a4-5fb9-4b3d-b2df-b07ca265ba94)
+![bandicam 2024-06-25 10-38-55-257](https://github.com/sandokim/sandokim.github.io/assets/74639652/e117a81a-6cab-4d19-9ed2-91e70c500513)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- 그 결과, 삼각형 집합을 사용하여 곡면을 형성할 때 각 픽셀은 normal의 gradient의 일부가 되어 픽셀 단위로 색상이 변하며 표면 전체에 걸쳐 부드러운 shading이 생성됩니다.
+![bandicam 2024-06-25 10-39-06-020](https://github.com/sandokim/sandokim.github.io/assets/74639652/bd26536f-0e7e-4dfb-88de-210d961756e0)
+![bandicam 2024-06-25 10-39-08-175](https://github.com/sandokim/sandokim.github.io/assets/74639652/5dba446a-498f-4d42-a02d-6bd036fd5308)
+![bandicam 2024-06-25 10-39-10-473](https://github.com/sandokim/sandokim.github.io/assets/74639652/2b45a11d-4afc-4a4f-ae78-6f152780b3ed)
