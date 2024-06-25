@@ -118,6 +118,10 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/efeb73e5-ed1c-45d1-831c-cf8abbb01df0)
 
 
+### Gaussian Surfels은, signed distance functions처럼 closed surfaces로 가정해버리지 않기에, open surfaces에 대한 reconstruction도 가능합니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/35dbac1d-faf0-4364-b0ba-a01924ec6e8f)
+
 
 
 
