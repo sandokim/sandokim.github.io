@@ -26,6 +26,15 @@ classes: wide
 > 1State Key Lab of CAD&CG, Zhejiang University; 2Hangzhou Dianzi University; 3Style3D Research
 > 27 Apr 2024
 
+## Gaussian Surfels
+
+- 3d Gaussian인 3x3 covaraince matrix은 scaling matrix $S_i$와 rotation matrix $R(r_i)$로 구성됩니다.
+- 각 Gaussian은 truncate하여 2D ellipse로 나타낼 수 있고
+- 각 Gaussian kernel의 normal은 rotation matrix $R(r_i)$에서 numpy slicing하여 다음처럼 $n_i = R(r_i)[:,2]$로 직접적으로 얻을 수 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/444819b1-b933-4806-a4f4-46a01290e75c)
+
+
 ## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel 
 
 - 놀랍게도 3dgs와 alpha-blending으로 각 pixel 마다의 depth와 normal을 계산할 수 있습니다. 😮
