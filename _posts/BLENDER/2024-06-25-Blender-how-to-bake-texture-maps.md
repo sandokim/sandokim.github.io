@@ -13,7 +13,8 @@ tags:
   - color map diffuse map
   - roughness map
   - normal map
-excerpt: "color map(=diffuse map), roughness map, normal map을 baking 해봅시다."
+  - metallic
+excerpt: "color map(=diffuse map), roughness map, normal map, metallic map을 baking 해봅시다."
 use_math: true
 classes: wide
 ---
