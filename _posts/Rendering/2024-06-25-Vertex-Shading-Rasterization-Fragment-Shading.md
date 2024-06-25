@@ -22,7 +22,9 @@ use_math: true
 classes: wide
 ---
 
-# [How do Video Game Grpahics Work?](https://youtu.be/C8YtdC8mxTU?si=_gpbb-TD1xGGxmrS)
+### [How do Video Game Grpahics Work?](https://youtu.be/C8YtdC8mxTU?si=_gpbb-TD1xGGxmrS) 유튜브 영상을 정리하였습니다.
+
+- 본 포스트를 통해 Computer Graphics의 모든 파이프라인을 대략적으로 이해할 수 있습니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e8ab0a57-9f95-4bea-bdfa-ab419ac0cf9b)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d8631600-d1b9-4651-b099-8b4a27fa4aca)
