@@ -51,6 +51,11 @@ $$
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
 
 
+## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & $\tilde{N}$ for each pixel! 
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f69a78f-eeff-4e77-9d50-c167f34226a5)
+
+
 ## Depth-normal consistency loss
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/77fefe8b-718d-470a-aa45-60aa592006aa)
