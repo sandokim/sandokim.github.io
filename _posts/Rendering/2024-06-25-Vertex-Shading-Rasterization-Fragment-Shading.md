@@ -123,14 +123,41 @@ classes: wide
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b8367b63-9760-44b7-b39c-cb348af7c04d)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d1c2fe38-05af-4336-bf6a-e43cc1691a67)
 
-### flat shaidng, smooth shading 
+### flat shading, smooth shading 
 
-tbd
+![bandicam 2024-06-25 10-07-08-920](https://github.com/sandokim/sandokim.github.io/assets/74639652/b91f09c9-8a69-4bc4-946d-13332fcf62a1)
 
-### barycentric coordiantes
+- fragment shading에서 지금 문제는 object에서 triangle들이 오직 하나의 single normal을 가진다는 점입니다.
+![bandicam 2024-06-25 10-07-31-557](https://github.com/sandokim/sandokim.github.io/assets/74639652/2305f958-1723-4cbf-8c58-3a958af0e5bb)
+![bandicam 2024-06-25 10-12-20-639](https://github.com/sandokim/sandokim.github.io/assets/74639652/ba8b0269-f863-4294-a035-2e3d59e9953c)
 
-tbd
+- 그러므로 각 traingle은 triangle surface를 따라 같은 color를 가지게 됩니다.
+![bandicam 2024-06-25 10-13-04-696](https://github.com/sandokim/sandokim.github.io/assets/74639652/aeb99645-3fff-4b19-ab0a-bd9e1e26014d)
+- 이와 같은 경우를 flat shading이라고 하며, curved surfaces에서 unrealistic하게 보입니다.
+![bandicam 2024-06-25 10-13-48-194](https://github.com/sandokim/sandokim.github.io/assets/74639652/047a4141-d452-4b8a-8ab6-662f00aee8bd)
+![bandicam 2024-06-25 10-14-16-225](https://github.com/sandokim/sandokim.github.io/assets/74639652/f4d24d6f-38fd-4727-8c55-b50fb240e22f)
 
+- 따라서, smooth shading을 하기 위해서는 surface normals을 사용하는 대신에, 인접한 triangle의 normal의 평균을 사용하여 각 vertex에 대한 하나의 normal을 계산합니다.
+![bandicam 2024-06-25 10-17-07-267](https://github.com/sandokim/sandokim.github.io/assets/74639652/b05b0a5d-7bb3-474e-809c-766d6566689f)
+![bandicam 2024-06-25 10-17-14-352](https://github.com/sandokim/sandokim.github.io/assets/74639652/0b3d9f63-7a28-43a5-b22f-106c3e9e34e2)
+![bandicam 2024-06-25 10-17-25-262](https://github.com/sandokim/sandokim.github.io/assets/74639652/b85c090c-089d-4ffb-a057-c9dbfda70df2)
+
+- 다음으로, triangle의 surface 전체에 걸처 smooth한 normal의 gradients를 생성하기 위해 barycentric coordiantes를 사용합니다.
+![bandicam 2024-06-25 10-21-58-771](https://github.com/sandokim/sandokim.github.io/assets/74639652/d4cbe8ae-ce99-4a8e-9c06-1befbf7e337c)
+![bandicam 2024-06-25 10-21-59-728](https://github.com/sandokim/sandokim.github.io/assets/74639652/c3f3d2a8-278c-44a0-90ab-b965a452d596)
+![bandicam 2024-06-25 10-22-01-570](https://github.com/sandokim/sandokim.github.io/assets/74639652/48728dab-6a1e-4067-ae3c-a58868fe75c1)
+
+- 시각적으로는 triangle 전체에 걸쳐 3가지 다른 색상을 섞는 것과 비슷하지만, 대신 3개의 vertex normal directions을 사용합니다.
+![bandicam 2024-06-25 10-22-06-642](https://github.com/sandokim/sandokim.github.io/assets/74639652/2ad06b33-311b-43f0-b62f-80e580961837)
+![bandicam 2024-06-25 10-22-10-524](https://github.com/sandokim/sandokim.github.io/assets/74639652/b401f571-7232-42f7-b5f0-d9e70a297b54)
+![bandicam 2024-06-25 10-22-14-813](https://github.com/sandokim/sandokim.github.io/assets/74639652/81ba0b6e-6ff6-4acc-b6a1-1adfe50b6864)
+![bandicam 2024-06-25 10-22-23-854](https://github.com/sandokim/sandokim.github.io/assets/74639652/8c21be18-a053-4d1e-834c-f34a132e9060)
+
+- pre-rasterized..
+![bandicam 2024-06-25 10-22-14-813](https://github.com/sandokim/sandokim.github.io/assets/74639652/d68b67a8-c235-4f46-a0b5-6dbc84e1d412)
+![bandicam 2024-06-25 10-22-23-854](https://github.com/sandokim/sandokim.github.io/assets/74639652/a4b21366-c08f-4cbc-8853-3f6412186734)
+![bandicam 2024-06-25 10-23-39-323](https://github.com/sandokim/sandokim.github.io/assets/74639652/f8f8478e-6674-43a2-8214-587b2c6ddd74)
+![bandicam 2024-06-25 10-23-46-992](https://github.com/sandokim/sandokim.github.io/assets/74639652/97080a16-2eef-48c9-b4a6-e2e2404b48bf)
 
 
 
