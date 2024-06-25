@@ -103,6 +103,8 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
   - 만약 어떤 voexl이 low accumulated weighted opacity를 가진다는건, foreground surface와 background surface 사이의 거리가 크다는 것입니다.
   - 이런 voxels들과 함께 그에 상응하는 3D points를 depth 계산에서 prune 해줍니다.
   - 이와 같은 outlier removal은 단순히 각 pixel에 대한 median depth를 사용하여 outlier를 제거한 것보다 퀄리티가 좋고 computationally efficient합니다.
+ 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6d7a11bd-b2e2-4d8e-8fce-f1b004833c65)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/de4a15b6-7ca1-4646-816c-136cfdadb898)
 
