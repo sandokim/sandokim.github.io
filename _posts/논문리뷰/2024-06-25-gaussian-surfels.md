@@ -64,9 +64,8 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 
 이렇게 rendered depth로부터 이웃한 점들의 cross product로 얻은 normal $𝑁 (𝑉 (\tilde{D})$과 rendered normal $\tilde{N}$이 일치하도록 loss를 줍니다.
 
-만약 Figure 4 (d)의 경우처럼 rendered depth로부터 얻은 normal $𝑁 (𝑉 (\tilde{D}))$과 rendered normal $\tilde{N}$이 일치하여 Depth-normal consistency는 유지될 수 있으나, 실제 surfel의 surface에 잘 align되지 않는 경우가 발생할 수도 있습니다.
-
-그러나 이 경우다른 loss와 combine하면 문제가 해결되어, 보통 Figure 4 (a)처럼 잘나오게 됩니다.
+- 주의할 점은 rendered depth로부터 얻은 normal $𝑁 (𝑉 (\tilde{D}))$과 rendered normal $\tilde{N}$이 일치하여 Depth-normal consistency는 유지될 수 있으나, 실제 surfel의 surface에 잘 align되지 않는 Figure 4 (d) 경우가 발생할 수 있습니다.
+- 그러나 이 경우다른 loss와 combine하면 문제가 해결되어, 보통 Figure 4 (a)처럼 잘나오게 됩니다.
 
 
 
