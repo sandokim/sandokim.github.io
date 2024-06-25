@@ -133,8 +133,10 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 ### Chamfer distance (mm) 
 
 - Chamfer distance를 측정시, point cloud에서 sample할 point의 개수를 설정하여 target point cloud와 result point cloud가 얼마나 차이가 적은지 측정합니다.
-- 따라서 Table 2에서도 Methods가 24, 37, ..., 122로 많은데, 이는 chamfer distance에서 sample할 point 수를 의미합니다.
+- Table 1에서 Methods인 24, 37, ..., 122는 DTU dataset의 물체 스캔 ID를 의미합니다.
+- Table 2에서 Methods인 Basketball, Bear, ..., Stone은 BlendedMVS dataset의 scene 이름입니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9262c96a-e90f-43f1-b782-637d1383dc51)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ac6a5d2c-f738-4625-a89c-26e841ff1ed6)
 
 
