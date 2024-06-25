@@ -48,7 +48,7 @@ classes: wide
 ## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel 
 
 - 놀랍게도 3dgs와 alpha-blending으로 각 pixel 마다의 depth와 normal을 계산할 수 있습니다. 😮
-- 다만, 저자는 background color를 color rendering 중에 더하는 것과 다르게, blending weight $T_i \alpha_i$로 normalize하는 것이 depth와 normal maps을 rendering하는데 더욱 적합하다는 것을 발견했습니다.
+- 다만, 저자는 background color를 color rendering 중에 더하는 것과 다르게, blending weight $T_i \alpha_i$를 normalize하는 것이 depth와 normal maps을 rendering하는데 더욱 적합하다는 것을 발견했습니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e40b6d48-1153-42b7-847c-2aac7c1150f4)
 
