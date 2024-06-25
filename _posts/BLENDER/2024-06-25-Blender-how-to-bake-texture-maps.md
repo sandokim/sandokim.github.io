@@ -1,4 +1,3 @@
-
 ---
 title: "[BLENDER] How To Bake Texture Maps"
 last_modified_at: 2024-06-25
