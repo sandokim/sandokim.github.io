@@ -26,14 +26,15 @@ classes: wide
 > 1State Key Lab of CAD&CG, Zhejiang University; 2Hangzhou Dianzi University; 3Style3D Research
 > 27 Apr 2024
 
-# Local Taylor Expansion을 이용한 깊이 값 계산
+
+## Local Taylor Expansion을 이용한 깊이 값 계산
 
 Local Taylor expansion은 복잡한 함수의 값을 특정 지점 근처에서 근사하기 위해 사용하는 방법입니다. 이 예제에서는 Gaussian surfel의 깊이 값을 보다 정확하게 계산하기 위해 사용됩니다. 여기서는 Gaussian kernel의 중심 위치에서 깊이 값을 단순히 혼합하는 것이 부정확하다는 문제를 해결하기 위해, 각 픽셀 $u$에서의 깊이 $d_i(u)$를 근사적으로 계산하기 위해 local Taylor expansion을 사용합니다.
 
-## 문제점
+### 문제점
 기본적으로 중심 위치 $u_i$에서의 깊이 값 $d_i(u_i)$를 사용하여 깊이 값을 계산하는 것은 경사진 평면과 일치하지 않는 부정확한 결과를 초래할 수 있습니다. 이는 깊이 렌더링이 표면 법선과 일치하지 않게 되는 원인이 됩니다.
 
-## 해결책
+### 해결책
 이 문제를 해결하기 위해, 각 픽셀 $u$에서의 깊이를 Gaussian ellipse와의 교차점을 계산하여 보다 정확하게 계산합니다. 이를 간단하게 하기 위해, local Taylor expansion을 사용하여 다음과 같이 근사합니다:
 
 $$
