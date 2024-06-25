@@ -26,6 +26,12 @@ classes: wide
 > 1State Key Lab of CAD&CG, Zhejiang University; 2Hangzhou Dianzi University; 3Style3D Research
 > 27 Apr 2024
 
+## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel 
+
+- 놀랍게도 3dgs와 alpha-blending으로 각 pixel 마다의 depth와 normal을 계산할 수 있습니다. 😮
+- 다만, 저자는 background color를 color rendering 중에 더하는 것과 다르게, blending weight $T_i \alpha_i$로 normalize하는 것이 depth와 normal maps을 rendering하는데 더욱 적합하다는 것을 발견했습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f69a78f-eeff-4e77-9d50-c167f34226a5)
 
 ## Local Taylor Expansion을 이용한 깊이 값 계산
 
@@ -49,15 +55,6 @@ $$
 - $(u - u_i)$는 픽셀 $u$와 중심 위치 $u_i$ 간의 차이 벡터입니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
-
-
-## With 3dgs & alpha-blending, we can calculate the rendered depth $\tilde{D}$ & the rendered normal $\tilde{N}$ for each pixel 
-
-- 놀랍게도 3dgs와 alpha-blending으로 각 pixel 마다의 depth와 normal을 계산할 수 있습니다. 😮
-- 다만, 저자는 background color를 color rendering 중에 더하는 것과 다르게, blending weight $T_i \alpha_i$로 normalize하는 것이 depth와 normal maps을 rendering하는데 더욱 적합하다는 것을 발견했습니다.
-
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4f69a78f-eeff-4e77-9d50-c167f34226a5)
-
 
 ## Depth-normal consistency loss
 
