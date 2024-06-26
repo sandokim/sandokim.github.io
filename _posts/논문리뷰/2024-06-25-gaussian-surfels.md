@@ -144,9 +144,10 @@ $$
 - z-axis에 대한 것만 고려하는 것은 $(W_k R_i)$에 대해 numpy slicing으로 [2,:]로 마지막 행만 취하여 수행합니다.
 - 이를 통해 최종적으로 z-axis에 대한 1차 다항식 근사 함수 $d_i (u)$를 얻을 수 있습니다.
 - $d_i (u)$는 gaussian surfel (2D gaussian)까지의 z-axis 거리이고, $d_i (u_i)$는 3d gaussian까지의 z-axis 거리였습니다.
-- 우리는 2d gaussian surfel까지의 z-axis 거리 $d_i (u)$를 정확히 구하기 위해서, 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로  $d_i (u)$를 1차 다항식 함수로 근사한 것입니다.
-- 이를 통해 each gaussian ellipse (2d gaussian surfel)까지의 거리 $d_i (u)$는 depth rendering에서 각 gaussian의 alpha-blending weight $\alpha_i$와 transmittance $T_i$와 같이 사용되어 alpha-blending하여 pixel $u$에 대한 depth를 만듭니다.
-- 모든 pixel에 대해서 depth rendering이 수행되어 최종적으로 rendered depth map $\tilde{D}$이 생성됩니다.
+- 우리는 pixel $u$로부터 2d gaussian surfel까지의 z-axis 거리 $d_i (u)$를 정확히 구하기 위해서, 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로  $d_i (u)$를 1차 다항식 함수로 근사한 것입니다.
+- 이로써 한 pixel $u$에 대해 depth에 대한 alpha-blending시에 contribute하는 모든 2D Gaussian Surfel들의 깊이를 보다 정확히 얻을 수 있습니다.
+- 힌 pixel $u$에 대해 each gaussian ellipse (2d gaussian surfel)까지의 거리 $d_i (u)$는 depth rendering에서 각 gaussian의 alpha-blending weight $\alpha_i$와 transmittance $T_i$와 같이 사용되어 alpha-blending하여, 최종적으로 한 pixel $u$에 대한 depth를 만듭니다.
+- 모든 pixel에 대해서 depth rendering이 수행하여 최종적으로 모든 pixel에 대한 depth 정보를 가지는 rendered depth map $\tilde{D}$이 생성됩니다.
 
 $$
 \tilde{D} = \frac{1}{1 - T_{n+1}} \sum_{i=0}^{n} T_i \alpha_i d_i (u)
