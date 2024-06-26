@@ -154,6 +154,10 @@ $$
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc5ebe64-5f9c-45c1-a0a9-926ad928b8fa)
 
+- 주의할 점은, 3D Gaussians을 이미 2D Gaussian Surfels로 paramter화한 다음 모든 계산을 하고 있다는 점입니다.
+- 즉, 그림에서 볼 때도, 3D Gaussians이 아니라 2D Gaussian Surfels로 그림을 이해합시다.
+- 편의상 3D Gaussians을 표시하여 2D Gaussian Surfels와 비교하긴 했지만, 실제로는 2D Gaussian Surfels로만 표현되어 학습하는 것입니다.
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dff906ed-7944-4336-88fb-1df53be13499)
 
 ## depth-normal consistency loss
