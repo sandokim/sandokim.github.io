@@ -159,7 +159,7 @@ $$
 - 즉, 그림에서 볼 때도, 3D Gaussians이 아니라 2D Gaussian Surfels로 그림을 이해합시다.
 - 편의상 3D Gaussians을 표시하여 2D Gaussian Surfels와 비교하긴 했지만, 실제로는 2D Gaussian Surfels로만 표현되어 학습하는 것입니다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dff906ed-7944-4336-88fb-1df53be13499)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d88a3dce-dba7-4cba-85e5-41b2674ab75e)
 
 ## depth-normal consistency loss
 
