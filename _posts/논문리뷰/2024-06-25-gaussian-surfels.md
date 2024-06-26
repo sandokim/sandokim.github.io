@@ -144,7 +144,7 @@ $$
 - z-axis에 대한 것만 고려하는 것은 $(W_k R_i)$에 대해 numpy slicing으로 [2,:]로 마지막 행만 취하여 수행합니다.
 - 이를 통해 최종적으로 z-axis에 대한 1차 다항식 근사 함수 $d_i (u)$를 얻을 수 있습니다.
 - $d_i (u)$는 gaussian surfel (2D gaussian)까지의 z-axis 거리이고, $d_i (u_i)$는 3d gaussian까지의 z-axis 거리였습니다.
-- 우리는 2d gaussian surfel까지의 z-axis 거리를 정확히 구하기 위해서 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로 1차 다항식 함수로 근사한 것입니다.
+- 우리는 2d gaussian surfel까지의 z-axis 거리 $d_i (u)$를 정확히 구하기 위해서, 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로  $d_i (u)$를 1차 다항식 함수로 근사한 것입니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc5ebe64-5f9c-45c1-a0a9-926ad928b8fa)
 
