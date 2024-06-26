@@ -145,10 +145,16 @@ $$
 - 이를 통해 최종적으로 z-axis에 대한 1차 다항식 근사 함수 $d_i (u)$를 얻을 수 있습니다.
 - $d_i (u)$는 gaussian surfel (2D gaussian)까지의 z-axis 거리이고, $d_i (u_i)$는 3d gaussian까지의 z-axis 거리였습니다.
 - 우리는 2d gaussian surfel까지의 z-axis 거리 $d_i (u)$를 정확히 구하기 위해서, 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로  $d_i (u)$를 1차 다항식 함수로 근사한 것입니다.
+- 이를 통해 each gaussian ellipse (2d gaussian surfel)까지의 거리 $d_i (u)$는 depth rendering에서 각 gaussian의 alpha-blending weight $\alpha_i$와 transmittance $T_i$와 같이 사용되어 alpha-blending하여 pixel $u$에 대한 depth를 만듭니다.
+- 모든 pixel에 대해서 depth rendering이 수행되어 최종적으로 rendered depth map이 생성됩니다.
+
+$$
+\tilde{D} = \frac{1}{1 - T_{n+1}} \sum_{i=0}^{n} T_i \alpha_i d_i (u)
+$$
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc5ebe64-5f9c-45c1-a0a9-926ad928b8fa)
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1dc96ba7-5082-4e9d-bb04-c7c45f92de70)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/98636bde-55bd-4745-b0d9-549779b56e3c)
 
 
 ## depth-normal consistency loss
