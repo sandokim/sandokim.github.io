@@ -76,7 +76,7 @@ $$
 ### Taylor expansion이 무엇일까요?
 - Taylor expansion은 복잡한 함수를 다항식으로 풀어서 전개할 때 매우 유용한 수식입니다.
 - 이유는 복잡한 함수를 다항식으로 표현하면 미분과 계산 측면에서 빠르고 간단하기 때문입니다.
-- Taylor expansion은 함수 f(x)가 주어졌을 때, 함수 f(x)의 특정 한 점 a에서의 그 f(x)의 대한 근사를 다항식의 미분으로 나타낼 수 있습니다.
+- Taylor expansion은 함수 $f(x)$가 주어졌을 때, 함수 $f(x)$의 특정 한 점 $a$에서의 그 $f(x)$의 대한 근사치 $P(x)$를 다항식의 미분으로 나타낼 수 있습니다.
 - [테일러 시리즈 | 제11장 미적분학의 본질](https://www.youtube.com/watch?v=3d6DsjIBzJ4&t=196s)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5a1337d7-e522-4755-afc9-40c14dd48a8a)
 
@@ -87,7 +87,50 @@ $$
 ### local taylor expansion의 의미
 - taylor expansion을 한다는 것은 어떤 관심있는 특정 한 점에서의 그 함수의 다항식 함수로의 근사를 의미합니다.
 - local taylor expansion에서 local도 특정 한 점에 대해서 함수를 다항식 함수로 나타내는 것이라고 해석하면 됩니다.
-- 
+
+다시 각 픽셀 $u$에서의 깊이를 근사하는 식을 살펴봅시다.
+
+$$
+d_i (u) = d_i (u_i) + (W_k R_i) [2,:] J^{-1}_{pr} (u - u_i)
+$$
+
+- 여기서 $d_i (u_i) + (W_k R_i) [2,:] J^{-1}_{pr} (u - u_i)$를 $f(a) + \frac{df}{dx}(a)\frac{(x-a)^1}{1!}$과 식이 형태만 다를 뿐 의미는 동일합니다.
+- 즉, 다항식으로 근사하고자 하는 함수는 $d_i$이고, $f$에 해당합니다.
+- 그리고, 어떤 점 $u_i$가 $a$를 의미합니다.
+- 따라서 $d_i(u_i)$는 $f(a)$와 의미상 동일합니다.
+- 즉, 두 항을 다음과 같이 정리할 수 있습니다.
+- 0차항: $d_i(u_i) = f(a)$
+- 1차항: $(W_k R_i) [2,:] J^{-1}_{pr} (u - u_i) = \frac{df}{dx}(a)\frac{(x-a)^1}{1!}$
+  - 1차항에서 $(u - u_i) = \frac{(x-a)^1}{1!}$으로 보면 됩니다.
+  - 즉, 1차항의 앞의 부분에 해당하는 $(W_k R_i) [2,:] J^{-1}_{pr}$가 1차미분에 해당하는 $\frac{df}{dx}(a)$인 것입니다.
+  - $(W_k R_i) [2,:] J^{-1}_{pr}$에서 Jacobian인 $J$는 1차항에 대한 계수를 가지는 행렬입니다.
+  - 그리고 $u$ pixel의 좌표값에 해당하는 3차원 벡터입니다.
+  - Jacobian에서 3x3일 경우, 3개의 행벡터는 각각 x,y,z의 1차 계수를 가지게 됩니다.
+  - 그 의미는 다음과 같이 행벡터가 존재할 경우,
+  - 1st row vector: $2x + 3y + 4z$
+  - 2nd row vector: $x + y + z$
+  - 3rd row vector: $3x + 2y + 5z$$
+  - Jacobian은 다음과 같습니다.
+    $$
+    J = \begin{bmatrix} 
+    2 & 3 & 4 \\ 
+    1 & 1 & 1 \\ 
+    3 & 2 & 5 
+    \end{bmatrix}
+    $$
+  - Jacobian으로 1차항 x, 1차항 y, 1차항 z를 가지는 벡터의 계수를 행렬로 표현할 수 있는 것입니다.
+    $$
+    J\boldsymbol{x} = \begin{bmatrix} 
+    2 & 3 & 4 \\ 
+    1 & 1 & 1 \\ 
+    3 & 2 & 5 
+    \end{bmatrix}
+    \begin{bmatrix}
+    x \\
+    y \\
+    z
+    \end{bmatrix}
+    $$
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
 
