@@ -107,7 +107,7 @@ $$
   - $(W_k R_i) [2,:] J^{-1}_{pr}$에서 Jacobian인 $J$는 1차항에 대한 계수를 가지는 행렬입니다.
   - 그리고 $u$는 pixel의 좌표에 해당하는 3차원 벡터입니다.
 
-- Jacobian으로 1차항 다항식 함수(벡터)를 표현하는 방법을 잠시 살펴봅시다.
+- Jacobian으로 1차항 다항식 함수를 표현하는 방법을 잠시 살펴봅시다.
   - Jacobian에서 3x3일 경우, 3개의 행벡터는 각각 x,y,z의 1차 계수를 가지게 됩니다.
   - 그 의미는 다음과 같이 행벡터가 존재할 경우,
   - 1st row vector: $2x + 3y + 4z$
@@ -140,13 +140,16 @@ z
 $$
 
 - 1차항 중에서도 $(W_k R_i) [2,:] J^{-1}_{pr}$에서 1차 다항식 근사의 계수를 가지는 Jacobian $J^{-1} _{pr}$까지 계산하였습니다.
-- $(W_k R_i) [2,:]$로는 구한 다항식 근사 함수(벡터) $J^{-1}_{pr} (u - u_i)$에 0,1,2중 마지막 행에 해당하는 z-axis에 대한 rotation 변환 $R_i$와 world to camera 변환 $W_k$를 적용해줍니다.
+- $(W_k R_i) [2,:]$로는 구한 1차 다항식 근사 함수 $J^{-1}_{pr} (u - u_i)$에 0,1,2중 마지막 행에 해당하는 z-axis에 대한 rotation 변환 $R_i$와 world to camera 변환 $W_k$를 적용해줍니다.
 - 이는 numpy slicing으로 [2,:]로 수행해줍니다.
-- 이를 통해 최종적으로 z-axis에 대한 다항식 근사 함수(벡터) $d_i (u)$를 얻을 수 있습니다.
+- 이를 통해 최종적으로 z-axis에 대한 1차 다항식 근사 함수 $d_i (u)$를 얻을 수 있습니다.
 - $d_i (u)$는 gaussian surfel (2D gaussian)까지의 z-axis 거리이고, $d_i (u_i)$는 3d gaussian까지의 z-axis 거리였습니다.
-- 우리는 2d gaussian surfel까지의 z-axis 거리를 정확히 구하기 위해서 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로 1차 다항식으로 근사한 것입니다.
+- 우리는 2d gaussian surfel까지의 z-axis 거리를 정확히 구하기 위해서 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로 1차 다항식 함수로 근사한 것입니다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc5ebe64-5f9c-45c1-a0a9-926ad928b8fa)
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/50a81b39-ab15-4b75-bb6b-2db3b140f9ff)
+
 
 ## Depth-normal consistency loss
 
