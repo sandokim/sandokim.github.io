@@ -154,8 +154,7 @@ $$
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc5ebe64-5f9c-45c1-a0a9-926ad928b8fa)
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/98636bde-55bd-4745-b0d9-549779b56e3c)
-
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dff906ed-7944-4336-88fb-1df53be13499)
 
 ## depth-normal consistency loss
 
