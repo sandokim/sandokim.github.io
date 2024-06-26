@@ -111,26 +111,30 @@ $$
   - 2nd row vector: $x + y + z$
   - 3rd row vector: $3x + 2y + 5z$$
   - Jacobian은 다음과 같습니다.
-    $$
-    J = \begin{bmatrix} 
-    2 & 3 & 4 \\ 
-    1 & 1 & 1 \\ 
-    3 & 2 & 5 
-    \end{bmatrix}
-    $$
+
+$$
+J = \begin{bmatrix} 
+2 & 3 & 4 \\ 
+1 & 1 & 1 \\ 
+3 & 2 & 5 
+\end{bmatrix}
+$$
+    
   - Jacobian으로 1차항 x, 1차항 y, 1차항 z를 가지는 벡터의 계수를 행렬로 표현할 수 있는 것입니다.
-    $$
-    J\boldsymbol{x} = \begin{bmatrix} 
-    2 & 3 & 4 \\ 
-    1 & 1 & 1 \\ 
-    3 & 2 & 5 
-    \end{bmatrix}
-    \begin{bmatrix}
-    x \\
-    y \\
-    z
-    \end{bmatrix}
-    $$
+  - 예를 들어, $u$ 벡터는 1차항의 x,y,z의 선형조합으로 표현이 되고, 아래와 같이 Jacobian으로 표현할 수 있습니다.
+
+$$
+J\boldsymbol{u} = \begin{bmatrix} 
+2 & 3 & 4 \\ 
+1 & 1 & 1 \\ 
+3 & 2 & 5 
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+$$
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
 
