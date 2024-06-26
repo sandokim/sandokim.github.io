@@ -78,6 +78,7 @@ $$
 - 이유는 복잡한 함수를 다항식으로 표현하면 미분과 계산 측면에서 빠르고 간단하기 때문입니다.
 - Taylor expansion은 함수 $f(x)$가 주어졌을 때, 함수 $f(x)$의 특정 한 점 $a$에서의 그 $f(x)$의 대한 근사치 $P(x)$를 다항식의 미분으로 나타낼 수 있습니다.
 - [테일러 시리즈 | 제11장 미적분학의 본질](https://www.youtube.com/watch?v=3d6DsjIBzJ4&t=196s)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc456058-8107-4777-a30f-52166efa0699)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5a1337d7-e522-4755-afc9-40c14dd48a8a)
 
 $$
