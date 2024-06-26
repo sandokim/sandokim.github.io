@@ -112,7 +112,7 @@ $$
   - 그 의미는 다음과 같이 행벡터가 존재할 경우,
   - 1st row vector: $2x + 3y + 4z$
   - 2nd row vector: $x + y + z$
-  - 3rd row vector: $3x + 2y + 5z$$
+  - 3rd row vector: $3x + 2y + 5z$
   - Jacobian은 다음과 같습니다.
 
 $$
