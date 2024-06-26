@@ -148,10 +148,10 @@ $$
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc5ebe64-5f9c-45c1-a0a9-926ad928b8fa)
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/50a81b39-ab15-4b75-bb6b-2db3b140f9ff)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1dc96ba7-5082-4e9d-bb04-c7c45f92de70)
 
 
-## Depth-normal consistency loss
+## depth-normal consistency loss
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/77fefe8b-718d-470a-aa45-60aa592006aa)
 
