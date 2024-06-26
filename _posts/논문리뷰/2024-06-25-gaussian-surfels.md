@@ -141,7 +141,7 @@ $$
 
 - 1차항 중에서도 $(W_k R_i) [2,:] J^{-1}_{pr}$에서 1차 다항식 근사의 계수를 가지는 Jacobian $J^{-1} _{pr}$까지 계산하였습니다.
 - $(W_k R_i) [2,:]$로는 구한 1차 다항식 근사 함수 $J^{-1}_{pr} (u - u_i)$에 0,1,2중 마지막 행에 해당하는 **z-axis에 대한 rotation 변환 $R_i$와 world to camera 변환 $W_k$를 적용해줍니다.**
-- z-axis에 대한 것만 고려하는 것은 $(W_k R_i)$에 대해 numpy slicing으로 [2,:]로 마지막 행만 취하여 수행합니다. (0번째, 1번째, 2번째)
+- z-axis에 대한 것만 고려하는 것은 $(W_k R_i)$에 대해 numpy slicing으로 [2,:]로 마지막 행만 취하여 수행합니다.
 - 이를 통해 최종적으로 z-axis에 대한 1차 다항식 근사 함수 $d_i (u)$를 얻을 수 있습니다.
 - $d_i (u)$는 gaussian surfel (2D gaussian)까지의 z-axis 거리이고, $d_i (u_i)$는 3d gaussian까지의 z-axis 거리였습니다.
 - 우리는 2d gaussian surfel까지의 z-axis 거리를 정확히 구하기 위해서 3d gaussian까지의 z-axis 거리인 $d_i (u_i)$를 이용해 taylor expansion으로 1차 다항식 함수로 근사한 것입니다.
