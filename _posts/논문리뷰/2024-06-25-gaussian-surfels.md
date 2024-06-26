@@ -73,6 +73,22 @@ $$
 - $J^{-1}_{pr}$는 이미지 공간의 픽셀을 Gaussian surfel의 접평면(tangent plane)으로 역 매핑하는 Jacobian 입니다.
 - $(u - u_i)$는 픽셀 $u$와 중심 위치 $u_i$ 간의 차이 벡터입니다.
 
+### Taylor expansion이 무엇일까요?
+- Taylor expansion은 복잡한 함수를 다항식으로 풀어서 전개할 때 매우 유용한 수식입니다.
+- 이유는 복잡한 함수를 다항식으로 표현하면 미분과 계산 측면에서 빠르고 간단하기 때문입니다.
+- Taylor expansion은 함수 f(x)가 주어졌을 때, 함수 f(x)의 특정 한 점 a에서의 그 f(x)의 대한 근사를 다항식의 미분으로 나타낼 수 있습니다.
+- [테일러 시리즈 | 제11장 미적분학의 본질](https://www.youtube.com/watch?v=3d6DsjIBzJ4&t=196s)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5a1337d7-e522-4755-afc9-40c14dd48a8a)
+
+$$
+P(x) = f(a) + \frac{df}{dx}(a)\frac{(x-a)^1}{1!}+\frac{d^2f}{dx^2}(a)\frac{(x-a)^2}{2!}+...
+$$
+
+### local taylor expansion의 의미
+- taylor expansion을 한다는 것은 어떤 관심있는 특정 한 점에서의 그 함수의 다항식 함수로의 근사를 의미합니다.
+- local taylor expansion에서 local도 특정 한 점에 대해서 함수를 다항식 함수로 나타내는 것이라고 해석하면 됩니다.
+- 
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b59e2b5f-c267-43c0-ae54-ce1884cca9eb)
 
 ## Depth-normal consistency loss
@@ -90,8 +106,6 @@ the rendered depth $\tilde{D}$에 대해 V(⋅)로 각 픽셀과 그 깊이를 3
 
 - 주의할 점은 rendered depth로부터 얻은 normal $𝑁 (𝑉 (\tilde{D}))$과 rendered normal $\tilde{N}$이 일치하여 Depth-normal consistency는 유지될 수 있으나, 실제 surfel의 surface에 잘 align되지 않는 Figure 4 (d) 경우가 발생할 수 있습니다.
 - 그러나 이 경우다른 loss와 combine하면 문제가 해결되어, 보통 Figure 4 (a)처럼 잘나오게 됩니다.
-
-
 
 ## Gaussian Point Cutting and Meshing
 
