@@ -142,7 +142,7 @@ $$
 - 1차항 중에서도 $(W_k R_i) [2,:] J^{-1}_{pr}$에서 1차 다항식 근사의 계수인 Jacobian $J^{-1} _{pr}$까지 계산하였습니다.
 - $(W_k R_i) [2,:]$는 구한 1차 다항식 근사 함수 $J^{-1}_{pr} (u - u_i)$에 0,1,2중 마지막 행에 해당하는 **z-axis에 대한 rotation 변환 $R_i$와 world to camera 변환 $W_k$를 적용해줍니다.**
 - z-axis에 대한 것만 고려하는 것은 $(W_k R_i)$에 대해 numpy slicing으로 [2,:]로 마지막 행만 취하여 수행합니다.
-- $(W_k R_i) [2,:] $J^{-1}_{pr}$가 1차 미분 계수에 해당하는 이유는, 3D Gaussian이 본인의 center에서 얼마나 rotate $R_i$되어 있는지를 계산하고, World to Camera 변환하여 camera coordinate system에서 본 상황에서, 마지막 행 z-axis에 해당하는 부분만 numpy slicing [2,:]하였고, 여기에 1차항 계수인 Jacobian으로 matrix 연산해주면, z-axis에 해당 하는 부분의 미소변화를 계산한 것이기 때문입니다.
+- $(W_k R_i) [2,:] J^{-1}_{pr}$가 1차 미분 계수에 해당하는 이유는, 3D Gaussian이 본인의 center에서 얼마나 rotate $R_i$되어 있는지를 계산하고, World to Camera 변환하여 camera coordinate system에서 본 상황에서, 마지막 행 z-axis에 해당하는 부분만 numpy slicing [2,:]하였고, 여기에 1차항 계수인 Jacobian으로 matrix 연산해주면, z-axis에 해당 하는 부분의 미소변화를 계산한 것이기 때문입니다.
 - 즉, depth를 구하는 함수인 $d_i (u)$에서, z-axis에 대한 z의 미소변화를 고려하는 것입니다. 따라서 depth에 해당하는 z-axis의 미소변화량만을 고려하여 더 정확한 depth를 얻을 수 있습니다.
 - 이를 통해 최종적으로 z-axis에 대한 1차 다항식 근사 함수 $d_i (u)$를 얻을 수 있습니다.
 - $d_i (u)$는 gaussian surfel (2D gaussian)까지의 z-axis 거리이고, $d_i (u_i)$는 3d gaussian까지의 z-axis 거리였습니다.
