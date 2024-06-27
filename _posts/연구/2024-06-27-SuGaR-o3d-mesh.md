@@ -120,6 +120,12 @@ np.array([
 ])
 ```
 
+### 이름 그림으로 그려보면 다음과 같습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4c6a1686-cee1-40da-a208-b15f058b48e9)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ad47d7b1-d33f-40cb-96fa-a0235b90a48b)
+
+
 ### 요약
 - `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
 - 이를 사용하여 `self._points`와 `self._vertex_colors`를 인덱싱하면 각 면을 구성하는 꼭짓점의 좌표와 색상을 모을 수 있습니다. 결과적으로, 이 배열들은 각각 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다.
