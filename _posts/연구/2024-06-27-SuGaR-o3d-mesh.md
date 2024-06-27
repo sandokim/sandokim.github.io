@@ -126,6 +126,14 @@ np.array([
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3ef371ba-9f73-4c0a-ab15-5f91a12f7036)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/309c48f9-7bf6-44f9-aabf-ad6ffc14e7e3)
 
+- `vertex의 3차원 coords`와 `color의 rgb 3개 color` 모두 `dim=3`이므로, 같은 이름으로 `n_coords = 3` 으로 주석을 단 것으로 보입니다.
+- `n_coords`는 **실제로 코드에서 변수로 할당되어서 쓰고 있지는 않으며, 단지 주석에서만 사용하고 있습니다.**
+- 즉, 위 코드에서는 rgb color도 n_coords로 주석을 작성하였는데, 정확히 하려면 rgb로 쓰는게 맞습니다.
+  ```python
+  faces_verts = self._points[self._surface_mesh_faces] # n_faces, 3, n_coords
+  faces_colors = self._vertex_colors[self._surface_mesh_faces] # n_faces, 3, rgb <-- n_coords말고 rgb로 주석달기
+  ```
+
 ### 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다양한 연산을 수행할 수 있게 됩니다.
 
 - **아래 코드에서 `face_verts[:, [1, 2, 0]`과 같이 face의 vertices 3개를 재배열한것과 기존의 face의 vertices와의 차이로 각 triangle의 변에 대한 벡터를 구할 수 있습니다.**
