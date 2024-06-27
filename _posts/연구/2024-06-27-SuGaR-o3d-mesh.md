@@ -12,10 +12,15 @@ tags:
   - surface_mesh_to_bind
   - o3d mesh
   - open3d mesh
-excerpt: "o3d_mesh의 "
+  - n_points
+excerpt: "surface_mesh_to_bind = o3d_mesh / n_points = len(triangles * n_gaussians_per_triangle"
 use_math: true
 classes: wide
 ---
+
+- surface_mesh_to_bind는 o3d mesh이고
+- n_points = surface_mesh_to_bind의 triangle 수 * triangle당 gaussian 수 입니다.
+- ***즉, n_points는 triangle들 위에 정의한 gaussian들의 총 개수를 의미합니다.***
 
 ### open3d mesh를 불러와서 initialize하는 법을 알아봅시다.
 
