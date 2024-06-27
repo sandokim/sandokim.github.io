@@ -1,4 +1,4 @@
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/debdea16-b328-4fb4-b4b2-2b47b433f2b3)---
+---
 title: "[3D CV 연구] 3DGS SuGaR surface_mesh_to_bind = o3d_mesh"
 last_modified_at: 2024-06-26
 categories:
