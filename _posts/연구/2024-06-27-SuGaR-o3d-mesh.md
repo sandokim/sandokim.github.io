@@ -104,7 +104,8 @@ for key, path in output_paths.items():
 ```
 
 - Shape: o3d_mesh.triangles, o3d_mesh.vertices, o3d_mesh.vertex_normals, o3d_mesh.vertex_colors
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8bca6098-a1d9-4c84-a5a6-3cfd846af30a)
+  
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8bca6098-a1d9-4c84-a5a6-3cfd846af30a)
 
 - 첫 10개의 triangles
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d3706c88-7f13-4927-b30b-74342714d3ee)
