@@ -122,9 +122,36 @@ np.array([
 
 ### 이름 그림으로 그려보면 다음과 같습니다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8e2b7a22-9db2-46e3-a88d-5a6fb5e4b007)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ad47d7b1-d33f-40cb-96fa-a0235b90a48b)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/96d9bb37-2015-47ef-9600-3f1d5c558b91)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6ef690f5-fa6b-459f-8930-4a63cf47833e)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3ef371ba-9f73-4c0a-ab15-5f91a12f7036)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/309c48f9-7bf6-44f9-aabf-ad6ffc14e7e3)
+
+### 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다양한 연산을 수행할 수 있게 됩니다.
+
+- **아래 코드에서 `face_verts[:, [1, 2, 0]`과 같이 face의 vertices 3개를 재배열한것과 기존의 face의 vertices와의 차이로 각 triangle의 변에 대한 벡터를 구할 수 있습니다.**
+- 그리고 그 벡터의 크기를 구하고, 가장 짧은 변의 길이를 계산할 수 있습니다.
+
+- triangle에서 가장 짧은 변의 길이를 구하는 자세한 순서는 다음과 같습니다.
+  - 꼭짓점 좌표 재배치: faces_verts[:, [1, 2, 0]]을 통해 각 삼각형의 꼭짓점 순서를 재배치합니다.
+  - 벡터 계산: faces_verts - faces_verts[:, [1, 2, 0]]을 통해 각 삼각형의 변 벡터를 계산합니다.
+  - 벡터 크기 계산: .norm(dim=-1)을 사용하여 각 변 벡터의 크기를 계산합니다.
+  - 최소 변 길이 추출: .min(dim=-1)[0]을 통해 각 삼각형에서 가장 짧은 변의 길이를 구합니다.
+
+```python
+# SuGaR/sugar_scene/sugar_model.py
+...
+            # First gather vertices of all triangles
+            faces_verts = self._points[self._surface_mesh_faces]  # n_faces, 3, n_coords
+            
+            # Then, compute initial scales
+            scales = (faces_verts - faces_verts[:, [1, 2, 0]]).norm(dim=-1).min(dim=-1)[0] * self.surface_triangle_circle_radius
+            scales = scales.clamp_min(0.0000001).reshape(len(faces_verts), -1, 1).expand(-1, self.n_gaussians_per_surface_triangle, 2).clone().reshape(-1, 2)
+            self._scales = nn.Parameter(
+                scale_inverse_activation(scales),
+                requires_grad=self.learn_surface_mesh_scales).to(nerfmodel.device)
+```
+
+- triangle에서 가장 짧은 변의 길이를 구하는 것을 그림으로 나타내면 다음과 같습니다.
 
 
 ### 요약
