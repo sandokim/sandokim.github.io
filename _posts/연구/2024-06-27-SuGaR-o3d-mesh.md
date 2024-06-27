@@ -120,15 +120,19 @@ else:
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8bca6098-a1d9-4c84-a5a6-3cfd846af30a)
 
 - 첫 10개의 triangles (v0, v1, v2는 x,y,z를 갖는 vertices의 인덱스)
+  
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d3706c88-7f13-4927-b30b-74342714d3ee)
 
 - 첫 10개의 vertices
+  
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/48c37ec0-47f1-4247-9627-bd72b87c3668)
 
 - 첫 10개의 vertex_normals
+  
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f21648e3-5676-44b2-abc2-033dec9d55fc)
 
 - 첫 10개의 vertex_colors (항상 양수임)
+  
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ac0121aa-f14f-496e-b29d-0a0d90b3e357)
 
 
