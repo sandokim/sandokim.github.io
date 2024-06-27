@@ -200,6 +200,16 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 - `self.surface_triangle_bary_coords[None] # shape (1, n_gaussians_per_surface_triangle, 1)`
 - `faces_verts[:, None] * self.surface_triangle_bary_coords[None] # shape (n_faces, 1, 3, n_coords) * (1, n_gaussians_per_surface_triangle, 1) = (n_faces, n_gaussians_per_surface_triangle, 3, n_coords`
 
+- 다시 정리하면 아래와 같습니다.
+- `faces_verts[:, None]`:
+  - 원래 차원: `(n_faces, 3, n_coords)`
+  - 변환 후 차원: `(n_faces, 1, 3, n_coords)`
+- `self.surface_triangle_bary_coords[None]`:
+  - 원래 차원: `(n_gaussians_per_surface_triangle, 1)`
+  - 변환 후 차원: `(1, n_gaussians_per_surface_triangle, 1)`
+- 브로드캐스팅을 통해 곱셈을 수행하면 결과 차원은 다음과 같이 됩니다:
+  - 결과 차원: `(n_faces, n_gaussians_per_surface_triangle, 3, n_coords)`
+
 ```python
 ...
             print("Binding radiance cloud to surface mesh...")
