@@ -20,6 +20,10 @@ classes: wide
 
 # `self._surface_mesh_faces` 설명
 
+- `self._surface_mesh_faces` = `surface_mesh_to_bind.triangles`
+- 즉, mesh의 faces인 triangles에 대한 인덱스를 가집니다.
+- 이 triangle에 대한 index는 triangle의 vertices, colors 정보를 인덱싱하는데 사용합니다.
+
 ### 모든 삼각형의 꼭짓점을 모으는 부분
 ```python
 faces_verts = self._points[self._surface_mesh_faces]  # n_faces, 3, n_coords
