@@ -124,6 +124,7 @@ np.array([
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8e2b7a22-9db2-46e3-a88d-5a6fb5e4b007)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ad47d7b1-d33f-40cb-96fa-a0235b90a48b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/96d9bb37-2015-47ef-9600-3f1d5c558b91)
 
 
 ### 요약
