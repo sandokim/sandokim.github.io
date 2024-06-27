@@ -151,9 +151,10 @@ np.array([
                 requires_grad=self.learn_surface_mesh_scales).to(nerfmodel.device)
 ```
 
-- triangle에서 가장 짧은 변의 길이를 구하는 것을 그림으로 나타내면 다음과 같습니다.
+- triangle에서 가장 짧은 변의 길이를 구하고자 vertices로 벡터를 구하는 방법을 그림으로 나타내면 다음과 같습니다.
+  - faces_verts - faces_verts[:, [1, 2, 0]]을 통해 각 삼각형의 변 벡터를 계산합니다.
   
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/21494ec8-65c9-40e2-9c64-70978e7efba4)
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/21494ec8-65c9-40e2-9c64-70978e7efba4)
 
 ### 요약
 - `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
