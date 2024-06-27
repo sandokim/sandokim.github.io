@@ -42,10 +42,53 @@ SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
 - o3d_mesh.vertex_colors[o3d_mesh.triangles] --> you obtain an array of the vertex colors organized by faces, which can be useful for operations that need face-wise color information, such as rendering or computing face colors from vertex colors.
 - 아래 코드에서는 `faces_colors = self._vertex_colors[self._surface_mesh_faces]`로 face(triangle)의 각 3개의 vertex에 대한 colors를 얻습니다.
 - 그리고 face(triangle)의 각 3개의 vertex에 대한 colors는 barycentric coordinates를 계산하는데 각 3개의 vertex의 value로써 사용됩니다.
+- 각 triangle당 3개의 vertex colors는 sum된 다음 barycentric coordinates의 weight를 곱해 triangle 내에서 초기화되는 gaussian center들의 colors를 initialize 해줍니다.
 
 ```python
 # SuGaR/sugar_scene/sugar_model.py
-
+...
+            print("Binding radiance cloud to surface mesh...")
+            if n_gaussians_per_surface_triangle == 1:
+                self.surface_triangle_circle_radius = 1. / 2. / np.sqrt(3.)
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[1/3, 1/3, 1/3]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None]
+            
+            if n_gaussians_per_surface_triangle == 3:
+                self.surface_triangle_circle_radius = 1. / 2. / (np.sqrt(3.) + 1.)
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[1/2, 1/4, 1/4],
+                    [1/4, 1/2, 1/4],
+                    [1/4, 1/4, 1/2]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None]
+            
+            if n_gaussians_per_surface_triangle == 4:
+                self.surface_triangle_circle_radius = 1 / (4. * np.sqrt(3.))
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[1/3, 1/3, 1/3],
+                    [2/3, 1/6, 1/6],
+                    [1/6, 2/3, 1/6],
+                    [1/6, 1/6, 2/3]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None]  # n_gaussians_per_face, 3, 1
+                
+            if n_gaussians_per_surface_triangle == 6:
+                self.surface_triangle_circle_radius = 1 / (4. + 2.*np.sqrt(3.))
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[2/3, 1/6, 1/6],
+                    [1/6, 2/3, 1/6],
+                    [1/6, 1/6, 2/3],
+                    [1/6, 5/12, 5/12],
+                    [5/12, 1/6, 5/12],
+                    [5/12, 5/12, 1/6]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None]
 ...
 
             self._surface_mesh_faces = torch.nn.Parameter(
@@ -59,6 +102,7 @@ SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
             colors = colors.reshape(-1, 3)  # n_faces * n_gaussians_per_face, n_colors
 ...
 ```
+
 
 - `n_points` 변수에 o3d_mesh.triangles 개수 x triangle당 gaussian의 개수로, triangles에 bind되어 학습되는 총 triangles의 수를 구합니다.
 
