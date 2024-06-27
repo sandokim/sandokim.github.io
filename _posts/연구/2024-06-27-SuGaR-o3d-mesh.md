@@ -136,6 +136,8 @@ np.array([
 
 ### 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다양한 연산을 수행할 수 있게 됩니다.
 
+#### 가장짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기기
+
 - **아래 코드에서 `face_verts[:, [1, 2, 0]`과 같이 face의 vertices 3개를 재배열한것과 기존의 face의 vertices와의 차이로 각 triangle의 변에 대한 벡터를 구할 수 있습니다.**
 - 그리고 그 벡터의 크기를 구하고, 가장 짧은 변의 길이를 계산할 수 있습니다.
 
@@ -178,6 +180,82 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 - `# (n_faces *  n_gaussians_per_surface_triangle) * 2`를 해석하면 다음과 같습니다.
 - `faces 수 * face 당 gaussian 수 = 모든 triangles에 초기화 되는 총 gaussian 수`마다 scale 차원이 2개로 초기화됩니다.
 - face와 triangle은 같은 의미로 사용되므로 헷갈리지 맙시다.
+
+#### barycentric coordiantes로 gaussian의 center의 위치를 points 변수로 초기화 하기
+
+- `self.surface_triange_bary_coords`의 shape은 `None`으로 차원 1개를 끝에 추가하였으므로 `(n_gaussians_per_surface_triangle, 1)`입니다.
+  
+```python
+            # First gather vertices of all triangles
+            faces_verts = self._points[self._surface_mesh_faces]  # n_faces, 3, n_coords
+            
+            # Then compute the points using barycenter coordinates in the surface triangles
+            points = faces_verts[:, None] * self.surface_triangle_bary_coords[None]  # n_faces, n_gaussians_per_face, 3, n_coords
+            points = points.sum(dim=-2)  # n_faces, n_gaussians_per_face, n_coords
+            
+            return points.reshape(self._n_points, 3)  # n_faces * n_gaussians_per_face, n_coords****
+```
+
+- `faces_verts[:, None] # shape (n_faces, 1, 3, n_coords)`
+- `self.surface_triangle_bary_coords[None] # shape (1, n_gaussians_per_surface_triangle, 1)`
+- `faces_verts[:, None] * self.surface_triangle_bary_coords[None] # shape (n_faces, 1, 3, n_coords) * (1, n_gaussians_per_surface_triangle, 1) = (n_faces, n_gaussians_per_surface_triangle, 3, n_coords`
+
+```python
+...
+            print("Binding radiance cloud to surface mesh...")
+            if n_gaussians_per_surface_triangle == 1:
+                self.surface_triangle_circle_radius = 1. / 2. / np.sqrt(3.)
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[1/3, 1/3, 1/3]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None] 
+            
+            if n_gaussians_per_surface_triangle == 3:
+                self.surface_triangle_circle_radius = 1. / 2. / (np.sqrt(3.) + 1.)
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[1/2, 1/4, 1/4],
+                    [1/4, 1/2, 1/4],
+                    [1/4, 1/4, 1/2]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None]
+            
+            if n_gaussians_per_surface_triangle == 4:
+                self.surface_triangle_circle_radius = 1 / (4. * np.sqrt(3.))
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[1/3, 1/3, 1/3],
+                    [2/3, 1/6, 1/6],
+                    [1/6, 2/3, 1/6],
+                    [1/6, 1/6, 2/3]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None]  # n_gaussians_per_face, 3, 1
+                
+            if n_gaussians_per_surface_triangle == 6:
+                self.surface_triangle_circle_radius = 1 / (4. + 2.*np.sqrt(3.))
+                self.surface_triangle_bary_coords = torch.tensor(
+                    [[2/3, 1/6, 1/6],
+                    [1/6, 2/3, 1/6],
+                    [1/6, 1/6, 2/3],
+                    [1/6, 5/12, 5/12],
+                    [5/12, 1/6, 5/12],
+                    [5/12, 5/12, 1/6]],
+                    dtype=torch.float32,
+                    device=nerfmodel.device,
+                )[..., None]
+...
+
+            # First gather vertices of all triangles
+            faces_verts = self._points[self._surface_mesh_faces]  # n_faces, 3, n_coords
+            
+            # Then compute the points using barycenter coordinates in the surface triangles
+            points = faces_verts[:, None] * self.surface_triangle_bary_coords[None]  # n_faces, n_gaussians_per_face, 3, n_coords
+            points = points.sum(dim=-2)  # n_faces, n_gaussians_per_face, n_coords
+            
+            return points.reshape(self._n_points, 3)  # n_faces * n_gaussians_per_face, n_coords****
+
+```
 
 ### 요약
 - `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
