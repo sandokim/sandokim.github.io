@@ -152,7 +152,7 @@ np.array([
 ```
 
 - triangle에서 가장 짧은 변의 길이를 구하는 것을 그림으로 나타내면 다음과 같습니다.
-
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/21494ec8-65c9-40e2-9c64-70978e7efba4)
 
 ### 요약
 - `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
