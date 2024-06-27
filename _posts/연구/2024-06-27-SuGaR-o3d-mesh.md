@@ -136,7 +136,7 @@ np.array([
 
 ## 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다양한 연산을 수행할 수 있게 됩니다.
 
-### 가장짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기기
+### 가장 짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기기
 
 - **아래 코드에서 `face_verts[:, [1, 2, 0]`과 같이 face의 vertices 3개를 재배열한것과 기존의 face의 vertices와의 차이로 각 triangle의 변에 대한 벡터를 구할 수 있습니다.**
 - 그리고 그 벡터의 크기를 구하고, 가장 짧은 변의 길이를 계산할 수 있습니다.
