@@ -43,6 +43,7 @@ SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
 - 아래 코드에서는 `faces_colors = self._vertex_colors[self._surface_mesh_faces]`로 face(triangle)의 각 3개의 vertex에 대한 colors를 얻습니다.
 - 그리고 face(triangle)의 각 3개의 vertex에 대한 colors는 barycentric coordinates를 계산하는데 각 3개의 vertex의 value로써 사용됩니다.
 - 각 triangle당 3개의 vertex colors는 sum된 다음 barycentric coordinates의 weight를 곱해 triangle 내에서 초기화되는 gaussian center들의 colors를 initialize 해줍니다.
+- 또한 triangle 내부의 gaussian들이 겹치지 않도록 gaussian의 radius를 정해줍니다. 이는 삼각형 내부의 작은원의 반지름과 같다고 볼 수 있습니다.
 
 ```python
 # SuGaR/sugar_scene/sugar_model.py
