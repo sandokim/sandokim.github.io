@@ -1,4 +1,4 @@
----
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bc227780-eb14-4942-acfa-cf277d1aec86)---
 title: "[3D CV 연구] 3DGS SuGaR surface_mesh_to_bind = o3d_mesh"
 last_modified_at: 2024-06-26
 categories:
@@ -60,6 +60,9 @@ vertices = vertices[:10]
 vertex_normals = vertex_normals[:10]
 vertex_colors = vertex_colors[:10]
 
+# Check if vertex colors are always positive
+all_colors_positive = (vertex_colors >= 0).all()
+
 # Convert to DataFrames
 triangles_df = pd.DataFrame(triangles, columns=['v0', 'v1', 'v2'])
 vertices_df = pd.DataFrame(vertices, columns=['x', 'y', 'z'])
@@ -101,7 +104,15 @@ output_paths = {
 print("\nSaved Files Paths:")
 for key, path in output_paths.items():
     print(f"{key}: {path}")
+
+# Display the result of the vertex colors positivity check
+if all_colors_positive:
+    print("All vertex colors are positive.")
+else:
+    print("There are negative values in vertex colors.")
 ```
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3fdb5620-5cd0-4ab2-acbe-0848ef80f4a1)
 
 - Shape: o3d_mesh.triangles, o3d_mesh.vertices, o3d_mesh.vertex_normals, o3d_mesh.vertex_colors
   
@@ -116,7 +127,7 @@ for key, path in output_paths.items():
 - 첫 10개의 vertex_normals
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f21648e3-5676-44b2-abc2-033dec9d55fc)
 
-- 첫 10개의 vertex_colors
+- 첫 10개의 vertex_colors (항상 양수임)
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ac0121aa-f14f-496e-b29d-0a0d90b3e357)
 
 
