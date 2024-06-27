@@ -21,12 +21,57 @@ classes: wide
 
 SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
 
-- o3d_mesh.triangles
-- o3d_mesh.vertices
-- o3d_mesh.vertex_normals
-- o3d_mesh.vertex_colors
+- o3d_mesh.triangles --> self._surface_mesh_faces 변수로 할당 (triangles와 faces는 같은 의미로 사용되기 때문입니다.)
+- o3d_mesh.vertices --> points 변수로 할당
+- o3d_mesh.vertex_normals --> verts_normals 변수로 할
+- o3d_mesh.vertex_colors --> self._vertex_colors 변수로 할당
 
-### SuGaR에서 o3d_mesh로 사용하는 coarse_mesh를 불러와서 그 값들을 확인해봅시다.
+```python
+# SuGaR/sugar_scene/sugar_model.py
+...
+            self._surface_mesh_faces = torch.nn.Parameter(
+                torch.tensor(np.array(surface_mesh_to_bind.triangles)).to(nerfmodel.device), 
+                requires_grad=False).to(nerfmodel.device)
+...
+            points = torch.tensor(np.array(surface_mesh_to_bind.vertices)).float().to(nerfmodel.device)
+            # verts_normals = torch.tensor(np.array(surface_mesh_to_bind.vertex_normals)).float().to(nerfmodel.device)
+            self._vertex_colors = torch.tensor(np.array(surface_mesh_to_bind.vertex_colors)).float().to(nerfmodel.device)
+...
+```
+
+- o3d_mesh.vertex_colors[o3d_mesh.triangles] --> you obtain an array of the vertex colors organized by faces, which can be useful for operations that need face-wise color information, such as rendering or computing face colors from vertex colors.
+- 아래 코드에서는 `faces_colors = self._vertex_colors[self._surface_mesh_faces]`로 face(triangle)의 각 3개의 vertex에 대한 colors를 얻습니다.
+- 그리고 face(triangle)의 각 3개의 vertex에 대한 colors는 barycentric coordinates를 계산하는데 vertex의 value로써 사용됩니다.
+
+```python
+# SuGaR/sugar_scene/sugar_model.py
+
+...
+
+            self._surface_mesh_faces = torch.nn.Parameter(
+                torch.tensor(np.array(surface_mesh_to_bind.triangles)).to(nerfmodel.device), 
+                requires_grad=False).to(nerfmodel.device)
+...
+            self._vertex_colors = torch.tensor(np.array(surface_mesh_to_bind.vertex_colors)).float().to(nerfmodel.device)
+            faces_colors = self._vertex_colors[self._surface_mesh_faces]  # n_faces, 3, n_coords
+            colors = faces_colors[:, None] * self.surface_triangle_bary_coords[None]  # n_faces, n_gaussians_per_face, 3, n_colors
+            colors = colors.sum(dim=-2)  # n_faces, n_gaussians_per_face, n_colors
+            colors = colors.reshape(-1, 3)  # n_faces * n_gaussians_per_face, n_colors
+...
+```
+
+- `n_points` 변수에 o3d_mesh.triangles 개수 x triangle당 gaussian의 개수로, triangles에 bind되어 학습되는 총 triangles의 수를 구합니다.
+
+```python
+# SuGaR/sugar_scene/sugar_model.py
+...
+            n_points = len(np.array(surface_mesh_to_bind.triangles)) * n_gaussians_per_surface_triangle
+            self._n_points = n_points
+...
+```
+
+
+### SuGaR에서 o3d_mesh로 사용하는 coarse_mesh를 불러와서 triangles, vertices, vertex_normals, vertex_colors를 사용하는 전체 코드를 봅시다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1d240062-091f-4373-b5b6-ecc60e3d12ce)
 
