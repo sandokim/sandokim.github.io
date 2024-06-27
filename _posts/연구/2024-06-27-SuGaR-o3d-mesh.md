@@ -122,7 +122,7 @@ np.array([
 
 ### 이름 그림으로 그려보면 다음과 같습니다.
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4c6a1686-cee1-40da-a208-b15f058b48e9)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8e2b7a22-9db2-46e3-a88d-5a6fb5e4b007)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ad47d7b1-d33f-40cb-96fa-a0235b90a48b)
 
 
