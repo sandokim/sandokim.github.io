@@ -24,7 +24,7 @@ classes: wide
 - 즉, mesh의 faces인 triangles에 대한 인덱스를 가집니다.
 - 이 triangle에 대한 index는 triangle의 vertices, colors 정보를 인덱싱하는데 사용합니다.
 
-### 모든 삼각형의 꼭짓점을 모으는 부분
+## 모든 삼각형의 꼭짓점을 모으는 부분
 ```python
 faces_verts = self._points[self._surface_mesh_faces]  # n_faces, 3, n_coords
 ```
@@ -32,7 +32,7 @@ faces_verts = self._points[self._surface_mesh_faces]  # n_faces, 3, n_coords
 - `self._surface_mesh_faces`: 메쉬의 각 면(삼각형)을 구성하는 꼭짓점의 인덱스를 포함하는 배열입니다. 일반적으로 `(n_faces, 3)` 형태를 가지며, `n_faces`는 면의 수, 각 면은 세 개의 꼭짓점 인덱스로 표현됩니다.
 - 인덱싱: `self._points`를 `self._surface_mesh_faces`로 인덱싱함으로써 각 면을 구성하는 꼭짓점의 좌표를 모읍니다. 결과적으로 `faces_verts`는 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다. 즉, 각 면에 대해 세 개의 꼭짓점 좌표를 가지게 됩니다.
 
-### 각 면의 꼭짓점 색상을 얻는 부분
+## 각 면의 꼭짓점 색상을 얻는 부분
 ```python
 faces_colors = self._vertex_colors[self._surface_mesh_faces]  # n_faces, 3, n_coords
 ```
@@ -40,7 +40,7 @@ faces_colors = self._vertex_colors[self._surface_mesh_faces]  # n_faces, 3, n_co
 - `self._surface_mesh_faces`: 메쉬의 각 면을 구성하는 꼭짓점의 인덱스를 포함합니다.
 - 인덱싱: `self._vertex_colors`를 `self._surface_mesh_faces`로 인덱싱하여 각 면을 구성하는 꼭짓점의 색상을 얻습니다. 결과적으로 `faces_colors`는 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다. 즉, 각 면에 대해 세 개의 꼭짓점 색상을 가지게 됩니다.
 
-### `self._surface_mesh_faces`의 역할
+## `self._surface_mesh_faces`의 역할
 - 꼭짓점 인덱스 매핑: `self._surface_mesh_faces`는 각 면을 구성하는 꼭짓점의 인덱스를 매핑합니다. 각 항목은 삼각형 면을 구성하는 세 꼭짓점 인덱스를 제공합니다.
 - **데이터 추출**: `self._surface_mesh_faces`를 사용하여 `self._points` 및 `self._vertex_colors`를 인덱싱함으로써 ***각 면을 구성하는 꼭짓점의 좌표 및 색상을 효율적으로 모을 수 있습니다.***
 
@@ -134,9 +134,9 @@ np.array([
   faces_colors = self._vertex_colors[self._surface_mesh_faces] # n_faces, 3, rgb <-- n_coords말고 rgb로 주석달기
   ```
 
-### 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다양한 연산을 수행할 수 있게 됩니다.
+## 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다양한 연산을 수행할 수 있게 됩니다.
 
-#### 가장짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기기
+### 가장짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기기
 
 - **아래 코드에서 `face_verts[:, [1, 2, 0]`과 같이 face의 vertices 3개를 재배열한것과 기존의 face의 vertices와의 차이로 각 triangle의 변에 대한 벡터를 구할 수 있습니다.**
 - 그리고 그 벡터의 크기를 구하고, 가장 짧은 변의 길이를 계산할 수 있습니다.
@@ -181,7 +181,7 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 - `faces 수 * face 당 gaussian 수 = 모든 triangles에 초기화 되는 총 gaussian 수`마다 scale 차원이 2개로 초기화됩니다.
 - face와 triangle은 같은 의미로 사용되므로 헷갈리지 맙시다.
 
-#### barycentric coordiantes로 gaussian의 center의 위치를 points 변수로 초기화 하기
+### barycentric coordiantes로 gaussian의 center의 위치를 points 변수로 초기화 하기
 
 - `self.surface_triange_bary_coords`의 shape은 `None`으로 차원 1개를 끝에 추가하였으므로 `(n_gaussians_per_surface_triangle, 1)`입니다.
   
@@ -257,7 +257,7 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 
 ```
 
-### 요약
+## 요약
 - `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
 - 이를 사용하여 `self._points`와 `self._vertex_colors`를 인덱싱하면 각 면을 구성하는 꼭짓점의 좌표와 색상을 모을 수 있습니다. 결과적으로, 이 배열들은 각각 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다.
 
