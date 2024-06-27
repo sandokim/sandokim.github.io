@@ -115,6 +115,7 @@ else:
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3fdb5620-5cd0-4ab2-acbe-0848ef80f4a1)
 
 - Shape: o3d_mesh.triangles, o3d_mesh.vertices, o3d_mesh.vertex_normals, o3d_mesh.vertex_colors
+- vertices, vertex_normals, vertex_colors의 shape은 같아야 합니다.
   
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8bca6098-a1d9-4c84-a5a6-3cfd846af30a)
 
