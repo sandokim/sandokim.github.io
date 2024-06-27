@@ -210,6 +210,14 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
   - 브로드캐스팅을 통해 곱셈을 수행하면 결과 차원은 다음과 같이 됩니다:
     - 결과 차원: `(n_faces, n_gaussians_per_surface_triangle, 3, n_coords)`
 
+- `points.sum(dim=-2)`로 `shape (n_faces, n_gaussians_per_face, 3, n_coords)`에서 `3`에 해당하는 `vertices 3개`에 대한 barycentric coordinates으로 face_verts를 weight 합하여, triangle 내에서 각 gaussian의 center에 해당하는 점들을 계산합니다.
+- 이로써 `barycentric coordiantes에 해당하는 triangle 내의 위치에 모든 gaussian들의 center`를 `points`라는 변수로써 정의해주었습니다.
+  ```python
+            points = faces_verts[:, None] * self.surface_triangle_bary_coords[None]  # n_faces, n_gaussians_per_face, 3, n_coords
+            points = points.sum(dim=-2)  # n_faces, n_gaussians_per_face, n_coords
+  ```
+
+
 ```python
 ...
             print("Binding radiance cloud to surface mesh...")
