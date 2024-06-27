@@ -41,7 +41,7 @@ SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
 
 - o3d_mesh.vertex_colors[o3d_mesh.triangles] --> you obtain an array of the vertex colors organized by faces, which can be useful for operations that need face-wise color information, such as rendering or computing face colors from vertex colors.
 - 아래 코드에서는 `faces_colors = self._vertex_colors[self._surface_mesh_faces]`로 face(triangle)의 각 3개의 vertex에 대한 colors를 얻습니다.
-- 그리고 face(triangle)의 각 3개의 vertex에 대한 colors는 barycentric coordinates를 계산하는데 vertex의 value로써 사용됩니다.
+- 그리고 face(triangle)의 각 3개의 vertex에 대한 colors는 barycentric coordinates를 계산하는데 각 3개의 vertex의 value로써 사용됩니다.
 
 ```python
 # SuGaR/sugar_scene/sugar_model.py
