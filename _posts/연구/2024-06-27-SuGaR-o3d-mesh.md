@@ -167,7 +167,8 @@ scales = scales.clamp_min(0.0000001).reshape(len(faces_verts), -1, 1)  # (n_face
 scales = scales.expand(-1, self.n_gaussians_per_surface_triangle, 2)  # (n_faces, n_gaussians_per_surface_triangle, 2)
 scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_triangle, 2)
 ```
-- 이로써 faces 수 * face 당 gaussian 수 = triangle들에 초기화 되는 총 gaussian 수마다 scale 차원이 2개로 초기화됩니다.
+- `# (n_faces *  n_gaussians_per_surface_triangle) * 2`를 해석하면 다음과 같습니다.
+- `faces 수 * face 당 gaussian 수 = 모든 triangles에 초기화 되는 총 gaussian 수`마다 scale 차원이 2개로 초기화됩니다.
 - face와 triangle은 같은 의미로 사용되므로 헷갈리지 맙시다.
 
 ### 요약
