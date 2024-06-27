@@ -109,8 +109,7 @@ SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
 ...
 ```
 
-
-- `n_points` 변수에 o3d_mesh.triangles 개수 x triangle당 gaussian의 개수로, triangles에 bind되어 학습되는 총 triangles의 수를 구합니다.
+- `n_points` 변수에 o3d_mesh.triangles 개수 * triangle당 gaussian의 개수로, triangles에 bind되어 학습되는 총 triangles의 수를 구합니다.
 
 ```python
 # SuGaR/sugar_scene/sugar_model.py
