@@ -1,4 +1,4 @@
----
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/debdea16-b328-4fb4-b4b2-2b47b433f2b3)---
 title: "[3D CV 연구] 3DGS SuGaR surface_mesh_to_bind = o3d_mesh"
 last_modified_at: 2024-06-26
 categories:
@@ -18,11 +18,113 @@ use_math: true
 classes: wide
 ---
 
+# `self._surface_mesh_faces` 설명
+
+### 모든 삼각형의 꼭짓점을 모으는 부분
+```python
+faces_verts = self._points[self._surface_mesh_faces]  # n_faces, 3, n_coords
+```
+- `self._points`: 메쉬의 모든 꼭짓점의 좌표를 포함하는 배열입니다. 일반적으로 `(n_vertices, n_coords)` 형태를 가지며, `n_vertices`는 꼭짓점의 수, `n_coords`는 좌표의 차원(일반적으로 3D에서 x, y, z)을 의미합니다.
+- `self._surface_mesh_faces`: 메쉬의 각 면(삼각형)을 구성하는 꼭짓점의 인덱스를 포함하는 배열입니다. 일반적으로 `(n_faces, 3)` 형태를 가지며, `n_faces`는 면의 수, 각 면은 세 개의 꼭짓점 인덱스로 표현됩니다.
+- 인덱싱: `self._points`를 `self._surface_mesh_faces`로 인덱싱함으로써 각 면을 구성하는 꼭짓점의 좌표를 모읍니다. 결과적으로 `faces_verts`는 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다. 즉, 각 면에 대해 세 개의 꼭짓점 좌표를 가지게 됩니다.
+
+### 각 면의 꼭짓점 색상을 얻는 부분
+```python
+faces_colors = self._vertex_colors[self._surface_mesh_faces]  # n_faces, 3, n_coords
+```
+- `self._vertex_colors`: 메쉬의 각 꼭짓점에 대한 색상 정보를 포함하는 배열입니다. 일반적으로 `(n_vertices, n_coords)` 형태를 가지며, `n_coords`는 색상 구성 요소의 수(일반적으로 RGB의 경우 3)를 의미합니다.
+- `self._surface_mesh_faces`: 메쉬의 각 면을 구성하는 꼭짓점의 인덱스를 포함합니다.
+- 인덱싱: `self._vertex_colors`를 `self._surface_mesh_faces`로 인덱싱하여 각 면을 구성하는 꼭짓점의 색상을 얻습니다. 결과적으로 `faces_colors`는 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다. 즉, 각 면에 대해 세 개의 꼭짓점 색상을 가지게 됩니다.
+
+### `self._surface_mesh_faces`의 역할
+- 꼭짓점 인덱스 매핑: `self._surface_mesh_faces`는 각 면을 구성하는 꼭짓점의 인덱스를 매핑합니다. 각 항목은 삼각형 면을 구성하는 세 꼭짓점 인덱스를 제공합니다.
+- **데이터 추출**: `self._surface_mesh_faces`를 사용하여 `self._points` 및 `self._vertex_colors`를 인덱싱함으로써 ***각 면을 구성하는 꼭짓점의 좌표 및 색상을 효율적으로 모을 수 있습니다.***
+
+### 예시
+간단한 예를 통해 설명드리겠습니다:
+
+**가정:**
+- `self._points`:
+```python
+np.array([
+    [0.0, 0.0, 0.0],  # 꼭짓점 0
+    [1.0, 0.0, 0.0],  # 꼭짓점 1
+    [0.0, 1.0, 0.0],  # 꼭짓점 2
+    [1.0, 1.0, 0.0]   # 꼭짓점 3
+])
+```
+각 행은 꼭짓점의 좌표를 나타냅니다.
+
+- `self._vertex_colors`:
+```python
+np.array([
+    [1.0, 0.0, 0.0],  # 빨강 (꼭짓점 0)
+    [0.0, 1.0, 0.0],  # 초록 (꼭짓점 1)
+    [0.0, 0.0, 1.0],  # 파랑 (꼭짓점 2)
+    [1.0, 1.0, 0.0]   # 노랑 (꼭짓점 3)
+])
+```
+각 행은 꼭짓점의 색상을 나타냅니다.
+
+- `self._surface_mesh_faces`:
+```python
+np.array([
+    [0, 1, 2],  # 면 1 (꼭짓점 0, 1, 2)
+    [1, 2, 3]   # 면 2 (꼭짓점 1, 2, 3)
+])
+```
+
+**연산:**
+
+- **모든 삼각형의 꼭짓점을 모으기:**
+```python
+faces_verts = self._points[self._surface_mesh_faces]
+```
+- 결과:
+```python
+np.array([
+    [
+        [0.0, 0.0, 0.0],  # 꼭짓점 0
+        [1.0, 0.0, 0.0],  # 꼭짓점 1
+        [0.0, 1.0, 0.0]   # 꼭짓점 2
+    ],
+    [
+        [1.0, 0.0, 0.0],  # 꼭짓점 1
+        [0.0, 1.0, 0.0],  # 꼭짓점 2
+        [1.0, 1.0, 0.0]   # 꼭짓점 3
+    ]
+])
+```
+
+- **각 면의 꼭짓점 색상을 얻기:**
+```python
+faces_colors = self._vertex_colors[self._surface_mesh_faces]
+```
+- 결과:
+```python
+np.array([
+    [
+        [1.0, 0.0, 0.0],  # 빨강 (꼭짓점 0)
+        [0.0, 1.0, 0.0],  # 초록 (꼭짓점 1)
+        [0.0, 0.0, 1.0]   # 파랑 (꼭짓점 2)
+    ],
+    [
+        [0.0, 1.0, 0.0],  # 초록 (꼭짓점 1)
+        [0.0, 0.0, 1.0],  # 파랑 (꼭짓점 2)
+        [1.0, 1.0, 0.0]   # 노랑 (꼭짓점 3)
+    ]
+])
+```
+
+### 요약
+- `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
+- 이를 사용하여 `self._points`와 `self._vertex_colors`를 인덱싱하면 각 면을 구성하는 꼭짓점의 좌표와 색상을 모을 수 있습니다. 결과적으로, 이 배열들은 각각 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다.
+
+### open3d mesh를 불러와서 initialize하는 법을 알아봅시다.
+
 - surface_mesh_to_bind는 o3d mesh이고
 - n_points = surface_mesh_to_bind의 triangle 수 * triangle당 gaussian 수 입니다.
 - ***즉, n_points는 triangle들 위에 정의한 gaussian들의 총 개수를 의미합니다.***
-
-### open3d mesh를 불러와서 initialize하는 법을 알아봅시다.
 
 SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
 
