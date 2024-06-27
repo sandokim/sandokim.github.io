@@ -156,6 +156,20 @@ np.array([
   
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/21494ec8-65c9-40e2-9c64-70978e7efba4)
 
+
+- `scales`은 reshape, expand, reshape을 거쳐 최종적으로는 gaussian당 2개의 scale factor를 가지도록 학습파라미터가 초기화됩니다.
+```python
+scales = scales.clamp_min(0.0000001).reshape(len(faces_verts), -1, 1).expand(-1, self.n_gaussians_per_surface_triangle, 2).clone().reshape(-1, 2)
+```
+- 위 코드를 단계별로 쪼개보면 아래와 같습니다.
+```python
+scales = scales.clamp_min(0.0000001).reshape(len(faces_verts), -1, 1)  # (n_faces, 1, 1)
+scales = scales.expand(-1, self.n_gaussians_per_surface_triangle, 2)  # (n_faces, n_gaussians_per_surface_triangle, 2)
+scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_triangle, 2)
+```
+- 이로써 faces 수 * face 당 gaussian 수 = triangle들에 초기화 되는 총 gaussian 수마다 scale 차원이 2개로 초기화됩니다.
+- face와 triangle은 같은 의미로 사용되므로 헷갈리지 맙시다.
+
 ### 요약
 - `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
 - 이를 사용하여 `self._points`와 `self._vertex_colors`를 인덱싱하면 각 면을 구성하는 꼭짓점의 좌표와 색상을 모을 수 있습니다. 결과적으로, 이 배열들은 각각 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다.
