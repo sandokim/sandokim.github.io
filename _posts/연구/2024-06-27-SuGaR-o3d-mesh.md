@@ -128,7 +128,7 @@ np.array([
 
 - `vertex의 3차원 coords`와 `color의 rgb 3개 color` 모두 `dim=3`이므로, 같은 이름으로 `n_coords = 3` 으로 주석을 단 것으로 보입니다.
 - `n_coords`는 **실제로 코드에서 변수로 할당되어서 쓰고 있지는 않으며, 단지 주석에서만 사용하고 있습니다.**
-- 즉, 위 코드에서는 rgb color도 n_coords로 주석을 작성하였는데, 정확히 하려면 rgb로 쓰는게 맞습니다.
+- 즉, 위 코드에서는 rgb color도 `n_coords`로 주석을 작성하였는데, 정확히 하려면 `rgb`로 주석을 쓰는게 맞습니다.
   ```python
   faces_verts = self._points[self._surface_mesh_faces] # n_faces, 3, n_coords
   faces_colors = self._vertex_colors[self._surface_mesh_faces] # n_faces, 3, rgb <-- n_coords말고 rgb로 주석달기
