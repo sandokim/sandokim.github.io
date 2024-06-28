@@ -803,9 +803,10 @@ def load_refined_model(refined_sugar_path, nerfmodel:GaussianSplattingWrapper):
 
 ```
 - **Tensor의 경우, len 함수는 첫 번째 차원의 길이를 반환**합니다. 따라서 **shape이 (n_points, 1, 3)인 텐서에서 len 함수는 n_points를 반환**합니다.
-- Tensor에서 각 차원에 대한 길이 접근은 다음과 같이 수행합니다.
-  - `len(gaussian_centers) == n_points`
-  - `len(gaussian_centers[0]) == 1`
-  - `len(gaussian_centers[0][0]) == 3`
+- Tensor에서 각 차원에 대한 길이는 다음과 같습니다.
+  - `gaussian_centers # (n_points, 1, 3)`
+  - `len(gaussian_centers) # n_points`
+  - `len(gaussian_centers[0]) # 1`
+  - `len(gaussian_centers[0][0]) # 3`
 
 - 튜플의 경우, len 함수는 튜플의 전체 요소 개수를 반환합니다.
