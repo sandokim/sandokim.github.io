@@ -145,6 +145,10 @@ refined_sugar = SuGaR(
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ca39cd00-13a2-4768-8e6b-ed9e84642e64)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ef673656-c0c3-43be-8332-93fecc56a334)
 
+- 아래와 같이 `0번째 mesh`만 `verts_list()[0]`, `faces_list()[0]`, `faces_normals_list()`에서 인덱싱하여 사용합니다.
+- `new_verts = refined_sugar.surface_mesh.verts_list()[0].detach().clone()`
+- `new_faces = refined_sugar.surface_mesh.faces_list()[0].detach().clone()`
+- `new_normals = refined_sugar.surface_mesh.faces_normals_list()[0].detach().clone()`
 - postprocess를 하면 최종적으로 `face_mask`는 내부 삼각형과 경계 삼각형을 구분하며, 경계 삼각형 중에서 밀도가 높은 삼각형을 다시 포함시킵니다. 이를 통해 후처리된 메쉬는 불필요한 경계 삼각형이 제거되고, 중요한 경계 삼각형은 복구된 형태로 유지됩니다.
 
   ```python
