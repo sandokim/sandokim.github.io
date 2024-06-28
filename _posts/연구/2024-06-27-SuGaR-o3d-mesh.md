@@ -187,6 +187,9 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 
 ### quaternions 계산하기
 
+- `faces_verts`의 `vertices의 간의 뺄셈`을 통해 triangle의 변에 해당하는 `vector`를 구할 수 있습니다.
+- `base_R_1 = torch.nn.functional.normalize(faces_verts[:, 0] - faces_verts[:, 1], dim=-1)`
+
 ```python
 @property
 def quaternions(self):
