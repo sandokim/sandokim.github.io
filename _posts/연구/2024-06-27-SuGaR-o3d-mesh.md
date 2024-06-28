@@ -138,6 +138,7 @@ np.array([
 
 - 가장 짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기
 - quaternions 계산하기
+- scaling 계산하기기
 - barycentric coordiantes로 gaussian의 center의 위치를 points 변수로 초기화 하기
 
 ### 가장 짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기
@@ -227,6 +228,45 @@ def quaternions(self):
                 self.edited_cache = scales
         
     return torch.nn.functional.normalize(quaternions, dim=-1)
+```
+
+### scaling 계산하기
+
+- 간단하게는 SuGaR의 old_method에서 triangle 3개의 vertices의 index 정보를 가진 `self._surface_mesh_faces`로 traingle을 구성하는 3개의 vertices의 3d coords 정보인 `self._points[self._surface_mesh_faces`를 불러옵니다.
+  - `faces_verts = self._points[self._surface_mesh_faces]`
+  - `faces_centers = faces_verts.mean(dim=1, keepdim=True)`
+  - `scaling_factor = (faces_verts - faces_centers).norm(dim=-1).mean(dim=-1, keepdim=True) / self.reference_scaling_factor`
+  - `plane_scales = plane_scales * scaling_factor[:, None].expand(-1, self.n_gaussians_per_surface_triangle, -1).reshape(-1, 1)`
+
+```python
+    @property
+    def scaling(self):
+        if not self.binded_to_surface_mesh:
+            scales = self.scale_activation(self._scales)
+        else:
+            plane_scales = self.scale_activation(self._scales)
+            if self.editable:
+                if use_old_method:
+                    # Old method described in the original SuGaR paper
+                    faces_verts = self._points[self._surface_mesh_faces]
+                    faces_centers = faces_verts.mean(dim=1, keepdim=True)
+                    scaling_factor = (faces_verts - faces_centers).norm(dim=-1).mean(dim=-1, keepdim=True) / self.reference_scaling_factor
+                    plane_scales = plane_scales * scaling_factor[:, None].expand(-1, self.n_gaussians_per_surface_triangle, -1).reshape(-1, 1)
+                else:
+                    # New method with better scaling
+                    if (self.edited_cache is not None) and self.edited_cache.shape[-1]==3:
+                        scales = self.edited_cache
+                        self.edited_cache = None
+                    else:
+                        quaternions, scales = self.get_edited_quaternions_and_scales()
+                        self.edited_cache = quaternions
+                    return scales
+
+            scales = torch.cat([
+                self.surface_mesh_thickness * torch.ones(len(self._scales), 1, device=self.device), 
+                plane_scales,
+                ], dim=-1)
+        return scales
 ```
 
 ### barycentric coordiantes로 gaussian의 center의 위치를 points 변수로 초기화 하기
