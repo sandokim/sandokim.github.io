@@ -42,7 +42,7 @@ faces_colors = self._vertex_colors[self._surface_mesh_faces]  # n_faces, 3, n_co
 
 ## `self._surface_mesh_faces`의 역할
 - 꼭짓점 인덱스 매핑: `self._surface_mesh_faces`는 각 면을 구성하는 꼭짓점의 인덱스를 매핑합니다. 각 항목은 삼각형 면을 구성하는 세 꼭짓점 인덱스를 제공합니다.
-- **데이터 추출**: `self._surface_mesh_faces`를 사용하여 `self._points` 및 `self._vertex_colors`를 인덱싱함으로써 ***각 면을 구성하는 꼭짓점의 좌표 및 색상을 효율적으로 모을 수 있습니다.***
+- **데이터 추출**: `self._surface_mesh_faces`를 사용하여 `self._points` 및 `self._vertex_colors`를 인덱싱함으로써 ***각 면을 구성하는 꼭짓점의 좌표와 색상을 효율적으로 모을 수 있습니다.***
 
 ### 예시
 간단한 예를 통해 설명드리겠습니다:
