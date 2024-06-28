@@ -788,4 +788,17 @@ def load_refined_model(refined_sugar_path, nerfmodel:GaussianSplattingWrapper):
 
 ```
 
+------
 
+## n_gaussians
+
+```python
+# SuGaR/sugar_scene/sugar_model.py
+
+        gaussian_centers = self.points.view(-1, 1, 3)  # Shape (n_points, 1, 3)
+        
+        n_gaussians = len(gaussian_centers)
+
+```
+- **텐서의 경우, len 함수는 첫 번째 차원의 길이를 반환**합니다. 따라서 **shape이 (n_points, 1, 3)인 텐서에서 len 함수는 n_points를 반환**합니다.
+- 튜플의 경우, len 함수는 튜플의 전체 요소 개수를 반환합니다.
