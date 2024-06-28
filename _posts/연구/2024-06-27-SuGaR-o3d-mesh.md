@@ -334,6 +334,15 @@ Spherical Harmonics(SH)은 구면 좌표계에서 정의되는 함수의 집합�
 - n_points = surface_mesh_to_bind의 triangle 수 * triangle당 gaussian 수 입니다.
 - ***즉, n_points는 triangle들 위에 정의한 gaussian들의 총 개수를 의미합니다.***
 
+```python
+    @property
+    def n_points(self):
+        if not self.binded_to_surface_mesh:
+            return len(self._points)
+        else:
+            return self._n_points
+```
+
 ### n_points에서 spherical harmonics (sh)의 dc와 rest를 정의하는 코드를 봅시다.
 
 - `colors # shape (n_vertices, n_coords)` 입니다.
