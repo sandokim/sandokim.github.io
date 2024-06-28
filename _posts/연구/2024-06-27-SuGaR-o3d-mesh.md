@@ -326,6 +326,8 @@ Spherical Harmonics(SH)은 구면 좌표계에서 정의되는 함수의 집합�
 - **SH Levels와 계수**: 각 Level에 따라 DC 성분을 포함한 총 계수의 수가 결정됨.
 - **RGB 채널별 독립적 계수**: ***각 RGB 채널에 대해 SH 계수들이 개별적으로 존재***하여 컬러 정보를 정확히 표현함.
 
+-----
+
 ### open3d mesh를 불러와서 initialize하는 법을 알아봅시다.
 
 - surface_mesh_to_bind는 o3d mesh이고
