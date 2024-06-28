@@ -134,9 +134,13 @@ np.array([
   faces_colors = self._vertex_colors[self._surface_mesh_faces] # n_faces, 3, rgb <-- n_coords말고 rgb로 주석달기
   ```
 
-## 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다양한 연산을 수행할 수 있게 됩니다.
+## 위의 원리를 이해하면, triangle의 index 정보인 o3d_mesh.triangles을 통해 우리는 다음과 같은은 다양한 연산을 수행할 수 있게 됩니다. 
 
-### 가장 짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기기
+- 가장 짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기
+- quaternions 계산하기
+- barycentric coordiantes로 gaussian의 center의 위치를 points 변수로 초기화 하기
+
+### 가장 짧은 triangle 변의 길이를 구하고, scale factor로 초기화 하기
 
 - **아래 코드에서 `face_verts[:, [1, 2, 0]`과 같이 face의 vertices 3개를 재배열한것과 기존의 face의 vertices와의 차이로 각 triangle의 변에 대한 벡터를 구할 수 있습니다.**
 - 그리고 그 벡터의 크기를 구하고, 가장 짧은 변의 길이를 계산할 수 있습니다.
@@ -180,6 +184,47 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 - `# (n_faces *  n_gaussians_per_surface_triangle) * 2`를 해석하면 다음과 같습니다.
 - `faces 수 * face 당 gaussian 수 = 모든 triangles에 초기화 되는 총 gaussian 수`마다 scale 차원이 2개로 초기화됩니다.
 - face와 triangle은 같은 의미로 사용되므로 헷갈리지 맙시다.
+
+### quaternions 계산하기
+
+```python
+@property
+def quaternions(self):
+    if not self.binded_to_surface_mesh:
+        quaternions = self._quaternions
+    else:
+        if (not self.editable) or (use_old_method):                
+            # 표면 메시의 법선 벡터를 첫 번째 축으로 사용하여 쿼터니언을 계산합니다.
+            R_0 = torch.nn.functional.normalize(self.surface_mesh.faces_normals_list()[0], dim=-1)
+
+            # 삼각형의 첫 번째 변을 두 번째 축으로 사용합니다.
+            faces_verts = self._points[self._surface_mesh_faces]
+            base_R_1 = torch.nn.functional.normalize(faces_verts[:, 0] - faces_verts[:, 1], dim=-1)
+
+            # 첫 번째 축과 두 번째 축의 외적을 세 번째 축으로 사용합니다.
+            base_R_2 = torch.nn.functional.normalize(torch.cross(R_0, base_R_1, dim=-1))
+
+            # 학습된 2D 회전을 기본 쿼터니언에 적용합니다.
+            complex_numbers = torch.nn.functional.normalize(self._quaternions, dim=-1).view(len(self._surface_mesh_faces), self.n_gaussians_per_surface_triangle, 2)
+            R_1 = complex_numbers[..., 0:1] * base_R_1[:, None] + complex_numbers[..., 1:2] * base_R_2[:, None]
+            R_2 = -complex_numbers[..., 1:2] * base_R_1[:, None] + complex_numbers[..., 0:1] * base_R_2[:, None]
+
+            # 세 가지 벡터를 결합하여 회전 행렬을 만듭니다.
+            R = torch.cat([R_0[:, None, ..., None].expand(-1, self.n_gaussians_per_surface_triangle, -1, -1).clone(),
+                        R_1[..., None],
+                        R_2[..., None]],
+                        dim=-1).view(-1, 3, 3)
+            quaternions = matrix_to_quaternion(R)
+        else:
+            if (self.edited_cache is not None) and self.edited_cache.shape[-1]==4:
+                quaternions = self.edited_cache
+                self.edited_cache = None
+            else:
+                quaternions, scales = self.get_edited_quaternions_and_scales()
+                self.edited_cache = scales
+        
+    return torch.nn.functional.normalize(quaternions, dim=-1)
+```
 
 ### barycentric coordiantes로 gaussian의 center의 위치를 points 변수로 초기화 하기
 
