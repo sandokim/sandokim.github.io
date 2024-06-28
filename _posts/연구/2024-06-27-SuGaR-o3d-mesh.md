@@ -285,12 +285,55 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 - n_points = surface_mesh_to_bind의 triangle 수 * triangle당 gaussian 수 입니다.
 - ***즉, n_points는 triangle들 위에 정의한 gaussian들의 총 개수를 의미합니다.***
 
-SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
+### n_points에서 spherical harmonics (sh)의 dc와 rest를 정의하는 코드를 봅시다.
 
-- o3d_mesh.triangles --> self._surface_mesh_faces 변수로 할당 (triangles와 faces는 같은 의미로 사용되기 때문입니다.)
-- o3d_mesh.vertices --> points 변수로 할당
-- o3d_mesh.vertex_normals --> verts_normals 변수로 할
-- o3d_mesh.vertex_colors --> self._vertex_colors 변수로 할당
+- `colors # shape (n_vertices, n_coords)` 입니다.
+- 이때 `n_coords`는 `vertices에 color 정보`입니다!! 정확히 주석을 표현하면 `n_coords`가 아니라 `rgb`로 표시해야 합니다.
+- 하지만 `colors`의 rgb 3차원과, `vertices`의 xyz 3차원 정보가 차원이 같아서 주석도 `n_coords`로 통일한 것으로 보입니다.
+  ```python
+  colors # shape (n_vertices, n_coords) <-- vertices에 대한 rgb 3차원 color 값 = n_coords로 표현
+  vertices # shape (n_vertices, n_coords) <-- vertices에 대한 xyz 3차원 좌표값 = n_coords로 표현
+  ```
+- `colors`에서 `sh_coordinates_dc`를 만드는 과정을 봅시다.
+```python
+def RGB2SH(rgb):
+    return (rgb - 0.5) / C0
+
+def SH2RGB(sh):
+    return sh * C0 + 0.5
+```
+- `sh_coordinates_dc = RGB2SH(colors).unsqueeze(dim=1) # shape (n_vertices, 1, n_coords)`
+- 주석을 제대로 쓰면 다음과 같습니다.
+- `sh_coordinates_dc = RGB2SH(colors).unsqueeze(dim=1) # shape (n_vertices, 1, rgb)`
+- 즉, `마지막 rgb 3개의 차원`에 대해, `sh_coordiantes_dc`는 각각 sh를 1개씩 가지게 됩니다.
+
+- `self._sh_coordinates_rest`는 다음과 같습니다.
+- `self._sh_coordinates_rest = torch.zeros(n_points, sh_levels**2 - 1, 3) # shape (n_points, sh_levels**2 - 1, 3)`
+- 즉, `마지막 rgb 3개의 차원`에 대해, `self._sh_coordinates_rest`는 각각 `sh_levels**2-1 개`만큼을 가지게 됩니다.
+- 즉, `rgb 각 채널별`로 `sh 계수가 할당`됩니다.
+
+```python
+        # Initialize color features
+        self.sh_levels = sh_levels
+        sh_coordinates_dc = RGB2SH(colors).unsqueeze(dim=1)
+        self._sh_coordinates_dc = nn.Parameter(
+            sh_coordinates_dc.to(self.nerfmodel.device),
+            requires_grad=True and (not freeze_gaussians)
+        ).to(self.nerfmodel.device)
+        
+        self._sh_coordinates_rest = nn.Parameter(
+            torch.zeros(n_points, sh_levels**2 - 1, 3).to(self.nerfmodel.device),
+            requires_grad=True and (not freeze_gaussians)
+        ).to(self.nerfmodel.device)
+```
+
+
+### SuGaR에서 사용하는 o3d_mesh의 properties는 다음과 같습니다.
+
+- `o3d_mesh.triangles` --> `self._surface_mesh_faces` 변수로 할당 (triangles와 faces는 같은 의미로 사용되기 때문입니다.)
+- `o3d_mesh.vertices` --> `points` 변수로 할당
+- `o3d_mesh.vertex_normals` --> `verts_normals` 변수로 할
+- `o3d_mesh.vertex_colors` --> `self._vertex_colors` 변수로 할당
 
 ```python
 # SuGaR/sugar_scene/sugar_model.py
