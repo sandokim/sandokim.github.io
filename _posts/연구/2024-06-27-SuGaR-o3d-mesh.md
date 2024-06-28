@@ -279,6 +279,8 @@ scales = scales.clone().reshape(-1, 2)  # (n_faces * n_gaussians_per_surface_tri
 - `self._surface_mesh_faces`는 메쉬의 각 면을 구성하는 꼭짓점 인덱스를 매핑합니다.
 - 이를 사용하여 `self._points`와 `self._vertex_colors`를 인덱싱하면 각 면을 구성하는 꼭짓점의 좌표와 색상을 모을 수 있습니다. 결과적으로, 이 배열들은 각각 `(n_faces, 3, n_coords)` 형태를 가지게 됩니다.
 
+-----
+
 ### open3d mesh를 불러와서 initialize하는 법을 알아봅시다.
 
 - surface_mesh_to_bind는 o3d mesh이고
