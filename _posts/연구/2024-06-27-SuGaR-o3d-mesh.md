@@ -13,6 +13,7 @@ tags:
   - o3d mesh
   - open3d mesh
   - n_points
+  - n_gaussians
 excerpt: "surface_mesh_to_bind = o3d_mesh & n_points = len(triangles * n_gaussians_per_triangle"
 use_math: true
 classes: wide
