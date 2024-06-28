@@ -101,14 +101,17 @@ checkpoint = torch.load(refined_model_path, map_location=nerfmodel.device)
 
 refined_sugar = SuGaR(
         nerfmodel=nerfmodel,
-        points=checkpoint['state_dict']['_points'],        colors=SH2RGB(checkpoint['state_dict']['_sh_coordinates_dc'][:, 0, :]),
-        initialize=False,        sh_levels=nerfmodel.gaussians.active_sh_degree+1,
-keep_track_of_knn=False,
-knn_to_track=0,
-beta_mode='average',
-surface_mesh_to_bind=o3d_mesh,    n_gaussians_per_surface_triangle=n_gaussians_per_surface_triangle,
+        points=checkpoint['state_dict']['_points'],
+        colors=SH2RGB(checkpoint['state_dict']['_sh_coordinates_dc'][:, 0, :]),
+        initialize=False,
+        sh_levels=nerfmodel.gaussians.active_sh_degree+1,
+        keep_track_of_knn=False,
+        knn_to_track=0,
+        beta_mode='average',
+        surface_mesh_to_bind=o3d_mesh,
+        n_gaussians_per_surface_triangle=n_gaussians_per_surface_triangle,
 )
-    refined_sugar.load_state_dict(checkpoint['state_dict'])
+refined_sugar.load_state_dict(checkpoint['state_dict'])
 refined_sugar.eval()
 ```
 
@@ -124,17 +127,17 @@ new_o3d_mesh.vertex_normals = o3d.utility.Vector3dVector(new_normals.cpu().numpy
 new_o3d_mesh.vertex_colors = o3d.utility.Vector3dVector(torch.ones_like(new_verts).cpu().numpy())
             
 refined_sugar = SuGaR(
-nerfmodel=nerfmodel,
-points=None,
-colors=None,
-initialize=False,
-sh_levels=nerfmodel.gaussians.active_sh_degree+1,
-keep_track_of_knn=False,
-knn_to_track=0,
-beta_mode='average',
-surface_mesh_to_bind=new_o3d_mesh,
-n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
-)
+                nerfmodel=nerfmodel,
+                points=None,
+                colors=None,
+                initialize=False,
+                sh_levels=nerfmodel.gaussians.active_sh_degree+1,
+                keep_track_of_knn=False,
+                knn_to_track=0,
+                beta_mode='average',
+                surface_mesh_to_bind=new_o3d_mesh,
+                n_gaussians_per_surface_triangle=refined_sugar.n_gaussians_per_surface_triangle,
+                )
 ```
 - 이때, new TriangleMesh인 new_o3d_mesh에 저장하는 `vertices`, `triangles`, `vertex_normals`, `vertex_colors`는 앞에서 미리 mesh에서 `verts_list()`, `face_list()`, `faces_normals_list()`로 불러와서 postprocess를 한 정보입니다.
 - postprocess를 하면 최종적으로 `face_mask`는 내부 삼각형과 경계 삼각형을 구분하며, 경계 삼각형 중에서 밀도가 높은 삼각형을 다시 포함시킵니다. 이를 통해 후처리된 메쉬는 불필요한 경계 삼각형이 제거되고, 중요한 경계 삼각형은 복구된 형태로 유지됩니다.
