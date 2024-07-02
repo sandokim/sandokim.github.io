@@ -39,7 +39,14 @@ Weight Paint Mode로 들어가면 Mesh가 파란색으로 변하는 것을 확�
 
 0의 Weight값을 가지는 정점은 이처럼 파란색으로 표시됩니다.﻿
 
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/43c7236c-92c8-4e15-a870-58c97450934c)
+#### 선택된 Bone에 대한 Weight를 아래와 같이 확인할 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6aa55071-0803-45f1-989a-93d7e6f5ec3b)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33e69658-ff8d-48f9-a4df-d4acb7b1a221)
+
+#### 캐릭터 Rig에서 예제에서도 자세히 보시면 얇은 Bone이 선택되어 파란색인 상태고, 이에 대한 Weights가 허벅지 주변에서 빨갛게 나타나고 있습니다.
+- 즉, 선택된 Bone을 움직일 때, 허벅지 주변의 vertex groups이 같이 유기적으로 움직일 수 있도록 해줍니다.
+  
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/43c7236c-92c8-4e15-a870-58c97450934c)
 
 
 ### Reference
