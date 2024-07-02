@@ -98,8 +98,8 @@ def build_rotation(r):
     return R
 ```
 
-- 이때 quaternion에 해당하는 `r`은 모든 points에 대해 회전성분이 없는 [0,0,0,1]로 초기화 됩니다.
-  - 아래에서 `rots`는 n_points 수인 `fused_point_cloud.shape[0]`와 quaternion을 구성하는 4개의 성분으로 정의하고 모든 points에 대해 [0,0,0,1]로 초기화합니다.
+- 이때 quaternion에 해당하는 `r`은 모든 points에 대해 회전성분이 없는 [1,0,0,0]로 초기화 됩니다.
+  - 아래에서 `rots`는 n_points 수인 `fused_point_cloud.shape[0]`와 quaternion을 구성하는 4개의 성분으로 정의하고 모든 points에 대해 [1,0,0,0]로 초기화합니다.
   - `rots # shape (n_points, 4)`
   ```python
       def create_from_pcd(self, pcd : BasicPointCloud, spatial_lr_scale : float):
