@@ -62,36 +62,49 @@ $$
 
 - 이와 같이 camera center를 다룰 때에는 World Coordinate System로 기준 좌표계로 바꿔주고 계산을 해야합니다.
 - 그런 다음 다시 Camera Coordinate System으로 좌표계를 변경해줘야 합니다.
-- **즉, 카메라의 포즈를 조작할 때는**
-  1) 먼저 `C2W (camera to world)`에서 Rotation과 Translation을 변경해주고,
-  2) `C2W (camera to world)`에 inverse를 취하여 다시 `W2C (world to camera)` 변환을 얻어주어 사용합니다.
+### 즉, 카메라의 포즈를 조작할 때는
+1) 먼저 `C2W (camera to world)`에서 Rotation과 Translation을 변경해주고,
+2) `C2W (camera to world)`에 inverse를 취하여 다시 `W2C (world to camera)` 변환을 얻어주어 사용합니다.
 
-  - `getWorld2View(R, t)`는 단순히 `W2C`을 구성하는 `R`, `t`로 `W2C (world to camera)` 4x4 변환을 반환하는 함수
-  - `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`은 `W2C`을 구성하는 `R`, `t`로 `W2C (world to camera)` 4x4 변환을 구성하고, inverse를 취하여 `C2W (camera to world)`로 변환한 후에 camera center에 대해 translate와 scale을 조정하고, 다시 inverse를 취한 `W2C (world to camera)` 4x4 변환을 반환하는 함수
-  ```python
-  # 3dgs/utils/graphics_utils.py
+- `getWorld2View(R, t)`는 단순히 `W2C`을 구성하는 `R`, `t`로 `W2C (world to camera)` 4x4 변환을 반환하는 함수
+```python
+# 3dgs/utils/graphics_utils.py
 
-  def getWorld2View(R, t):
+def getWorld2View(R, t):
+  Rt = np.zeros((4, 4))
+  Rt[:3, :3] = R.transpose()
+  Rt[:3, 3] = t
+  Rt[3, 3] = 1.0
+  return np.float32(Rt)
+```
+
+- `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`은 `W2C`을 구성하는 `R`, `t`로 `W2C (world to camera)` 4x4 변환을 구성하고, inverse를 취하여 `C2W (camera to world)`로 변환한 후에 camera center에 대해 translate와 scale을 조정하고, 다시 inverse를 취한 `W2C (world to camera)` 4x4 변환을 반환하는 함수
+
+```python
+# 3dgs/utils/graphics_utils.py
+
+def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
     Rt = np.zeros((4, 4))
     Rt[:3, :3] = R.transpose()
     Rt[:3, 3] = t
     Rt[3, 3] = 1.0
-    return np.float32(Rt)
 
-  def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
-      Rt = np.zeros((4, 4))
-      Rt[:3, :3] = R.transpose()
-      Rt[:3, 3] = t
-      Rt[3, 3] = 1.0
-  
-      C2W = np.linalg.inv(Rt)
-      cam_center = C2W[:3, 3]
-      cam_center = (cam_center + translate) * scale
-      C2W[:3, 3] = cam_center
-      Rt = np.linalg.inv(C2W)
-      return np.float32(Rt)
-    
-  ```
+    C2W = np.linalg.inv(Rt)
+    cam_center = C2W[:3, 3]
+    cam_center = (cam_center + translate) * scale
+    C2W[:3, 3] = cam_center
+    Rt = np.linalg.inv(C2W)
+    return np.float32(Rt)
+```
+
+- 카메라 포즈를 조작하는 예시를 살펴봅시다.
+- 아래 코드에선 `getWorld2View2(cam.R, cam.T, translate=np.array([.0, .0, .0]), scale=1.0)`이므로 따로 camera center에 대한 translate과 scale을 조절하지 않았습니다.
+- `get_center_and_diag(cam_centers)`
+  - `cam_centers`는 `C2W[:3, 3:4]`로 모든 카메라에 대한 cam_centers를 list 형태로 모아줍니다.
+  - `C2W`의 모든 translation에 대한 평균을 구하여, `avg_cam_center`를 구합니다.
+  - `avg_cam_center`와 가장 거리가 멀리 떨어진 카메라까지의 거리를 `diagonal`로 구합니다.
+    - 반환된 `avg_cam_center`은 `center`로 반환되어 평균적으로 카메라까지의 거리를 구할 때 `translate = -center`로써 사용됩니다.
+    - 반환된 `diagonal`은 `avg_cam_center`에서 가장 멀리 떨어진 카메라까지의 거리이고, 이에 1.1을 곱하여 scene의 최대 반지름 반경을 설정하는데 사용합니다.
 
 ```python
 # 3dgs/scene/dataset_reader.py
@@ -119,7 +132,6 @@ def getNerfppNorm(cam_info):
 
     return {"translate": translate, "radius": radius}
 ```
-
 
 
 <p align="center">
