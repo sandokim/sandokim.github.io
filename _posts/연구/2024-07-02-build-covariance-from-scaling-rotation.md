@@ -20,6 +20,17 @@ classes: wide
 
 ## 3D Gaussian을 표현하는 covariance matrix를 scaling & rotation으로 만들어줍니다.
 
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/857b5a13-c828-4860-829d-888942474543)
+
+$RS = L$, $S^TR^T=(RS)^T=L^T$ 이므로 $RSS^TR^T=LL^T$이고 코드에서 actual_covariance는 $RSS^TR^T$에 해당합니다.
+
+```python
+            L = build_scaling_rotation(scaling_modifier * scaling, rotation)
+            actual_covariance = L @ L.transpose(1, 2)
+```
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a1b61388-b2da-4655-9ea0-1b5ba2518db2)
+
 ```python
 # 3dgs/scene/gaussian_model.py
 
@@ -104,7 +115,6 @@ def strip_lowerdiag(L):
 def strip_symmetric(sym):
     return strip_lowerdiag(sym)
 ```
-
 
 
 
