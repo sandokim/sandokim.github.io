@@ -129,8 +129,10 @@ def build_rotation(r):
   ```
 - 혹은 학습후 `output.ply`에서 quaternion인 `rots`를 불러오면 다음과 같은 형태입니다.
   - `rots # shape (n_points, 4)`
-  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2272383a-0375-465e-bcd4-f13d249b09f2)
-  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ec422b5a-836a-4558-a3e6-8153dd787d01)
+  - `rot_names`:
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2af1a453-a6b4-42e8-91fe-6a15b5bb09d2)
+  - `rot_0`, `rot_1`, `rot_2`, `rot_3`:
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ec422b5a-836a-4558-a3e6-8153dd787d01)
 
 
 ```python
