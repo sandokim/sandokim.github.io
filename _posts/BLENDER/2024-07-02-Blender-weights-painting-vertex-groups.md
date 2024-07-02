@@ -41,6 +41,7 @@ Weight Paint Mode로 들어가면 Mesh가 파란색으로 변하는 것을 확�
 
 #### 선택된 Bone에 대한 Weight를 아래와 같이 확인할 수 있습니다.
 - Bone이 선택되면 Bone 겉이 하늘색으로 표시됩니다.
+- 
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6aa55071-0803-45f1-989a-93d7e6f5ec3b)
 
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33e69658-ff8d-48f9-a4df-d4acb7b1a221)
