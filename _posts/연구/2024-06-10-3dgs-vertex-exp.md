@@ -68,75 +68,12 @@ classes: wide
 - x, y, z (position)
 - nx, ny, nz (normal)
 - f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 x,y,z에 대한 동일한 색상 값)
-- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능할 것으로 보임, 3dgs original code에서는 이를 사용하지 않고 0의 값으로 출력됨을 확인함)
+- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함)
 - opacity (불투명도)
 - scale_n (스케일 정보)
 - rot_n (회전 정보)
 
 3dgs의 output인 point_cloud.ply의 첫 번째 Vert(정점) 데이터를 출력하면 다음과 같습니다.
-
-**nx, ny, nz, f_rest_3 ~ f_rest_44는 값이 0이고, rot_1, rot_2, rot_3, rot_4는 1.0, 0.0, 0.0, 0.0의 값을 가집니다.**
-
-```python
-# output.ply
-[x, y, z, nx, ny, nz, f_dc_0, f_dc_1, f_dc_2, f_rest_0, f_rest_1, f_rest_2, f_rest_3, f_rest_4, f_rest_5, f_rest_6, f_rest_7, f_rest_8, f_rest_9, f_rest_10, f_rest_11, f_rest_12, f_rest_13, f_rest_14, f_rest_15, f_rest_16, f_rest_17, f_rest_18, f_rest_19, f_rest_20, f_rest_21, f_rest_22, f_rest_23, f_rest_24, f_rest_25, f_rest_26, f_rest_27, f_rest_28, f_rest_29, f_rest_30, f_rest_31, f_rest_32, f_rest_33, f_rest_34, f_rest_35, f_rest_36, f_rest_37, f_rest_38, f_rest_39, f_rest_40, f_rest_41, f_rest_42, f_rest_43, f_rest_44, opacity, scale_0, scale_1, scale_2, rot_0, rot_1, rot_2, rot_3]
-[ 0.12691511,  0.55949235,  0.26718476,  0.0,  0.0,  0.0, -0.0069508, -0.0069508, -0.0069508,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, -4.59511995, -3.30952573, -3.30952573, -3.30952573,  1.0,  0.0,  0.0,  0.0]
-[-0.16227326,  1.01860976,  1.20552313,  0.0,  0.0,  0.0, -0.0069508, -0.0069508, -0.0069508,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, -4.59511995, -3.57876754, -3.57876754, -3.57876754,  1.0,  0.0,  0.0,  0.0]
-[-0.30305204,  0.75848508,  0.07512679,  0.0,  0.0,  0.0, -0.0069508, -0.0069508, -0.0069508,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, -4.59511995, -2.97908568, -2.97908568, -2.97908568,  1.0,  0.0,  0.0,  0.0]
-[ 0.17691585,  1.10655129, -1.11530626,  0.0,  0.0,  0.0, -0.0069508, -0.0069508, -0.0069508,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, -4.59511995, -3.00402117, -3.00402117, -3.00402117,  1.0,  0.0,  0.0,  0.0]
-[-1.0734638 , -1.24743211,  0.8648116 ,  0.0,  0.0,  0.0, -0.0069508, -0.0069508, -0.0069508,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, -4.59511995, -3.3899107 , -3.3899107 , -3.3899107 ,  1.0,  0.0,  0.0,  0.0]
-...
-```
-
-Meshlab에서 .ply를 visualize해보면 
-
-input은 color에 대해 Vert를 가지고 있으나, output.ply는 color에 대해 Vert를 가지고 있지 않습니다.
-
-1) Random initialization input.ply
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bda5d8a8-1ec5-403d-8e4c-18a71378f1b2)
-
-2) Depth camera로 얻은 input.ply
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/97d1ce00-d53d-4bd0-8d6a-0d00edb7e279)
-
-3) 3dgs output인 point_cloud.ply
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4b63bd79-95da-48b6-82d8-5c4b682907d8)
-
-3dgs code에서 output.ply는 point_cloud.ply 이름으로 저장됩니다.
-
-### Color에 대한 Vert
-- **input.ply**: 각 정점(Vertex)에 색상 정보(RGB)이 포함되어 있습니다. 정점마다 고유한 색상 정보가 있어, 메쉬 또는 포인트 클라우드가 컬러로 시각화됩니다.
-- **output.ply**: 각 정점(Vertex)에 색상 정보가 포함되어 있지 않습니다. 색상 정보가 없으므로, Meshlab에서 시각화할 때 회색조로 표시될 가능성이 큽니다.
-  
-### Shading에 대한 Vert
-**input.ply와 output.ply 모두**: 각 정점(Vertex)에 법선 벡터(normal) 정보가 포함되어 있습니다.
-- 법선 벡터는 표면의 방향을 나타내며, 조명과 음영(Shading)을 계산하는 데 사용됩니다.
-- 이를 통해 3D 모델이 보다 현실적으로 시각화됩니다.
-
-## 요약
-### Color에 대한 Vert
-
-**input.ply**: 색상 정보가 포함되어 있어 컬러로 시각화됨.
-
-**output.ply**: 색상 정보가 없어 회색조로 시각화될 가능성이 큼.
-
-### Shading에 대한 Vert
-**input.ply와 output.ply** 모두: 법선 벡터 정보가 포함되어 있어 조명과 음영 효과를 통해 3D 모델이 현실적으로 시각화됨.
-- 이 차이는 파일 생성 과정에서 색상 정보를 포함시켰는지 여부에 따라 결정됩니다.
-- **input.ply**는 색상 정보를 포함하여 시각적으로 더 풍부한 정보를 제공하는 반면,
-- **output.ply**는 색상 정보를 제외하여 회색조로 시각화됩니다.
-- 법선 벡터 정보는 두 파일 모두 포함하고 있어, 조명과 음영 효과를 통해 3D 모델을 보다 현실적으로 시각화하는 데 도움을 줍니다.
-
-## Spherical Harmonics는 orignal 3dgs paper & code에서 사용하고 있지 않습니다. RGB로만 색상 값을 최적화 했습니다.
-
-Q) Spherical Harmonics를 사용하지 않을 경우 색상을 표현하는 방법은 무엇일까요?
-
-A) 모든 방향에 대해 일정한 색상을 가지는 0번째 band를 사용하는 것입니다. 이를 통해 단순히 RGB 색상 값을 최적화하였습니다.
-
-앞서 original 3dgs code에서 출력한 output.ply에서 f_dc_0, f_dc_1, f_dc_2의 값이 모두 동일한 값을 가졌습니다.
-
-이는 Spherical Harmonics (SH)의 0번째 band의 변수로써 f_dc_0, f_dc_1, f_dc_2가 사용되고,
-
-f_dc_0, f_dc_1, f_dc_2가 x, y, z 축에 대한 동일한 상수 색상 값을 출력함을 결과에서 볼 수 있습니다.
 
 #### output.ply
 ```python
@@ -219,12 +156,56 @@ model.load_ply(ply_file_path)
 # 각 파라미터 값을 출력합니다.
 model.print_parameters()
 ```
+
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/83cad61a-a3c7-4406-b43f-db8245b0f695)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/657dbd42-0a63-416c-b9b1-6fe9d348e355)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/29bde592-e182-440d-b92c-870fb261df69)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/454ed660-bad3-4e8c-8e37-0ed55920c7f2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c109a1f6-28bb-4c2d-901f-79f9ed3ab535)
 
+Meshlab에서 .ply를 visualize해보면 
+
+input은 color에 대해 Vert를 가지고 있으나, output.ply는 color에 대해 Vert를 가지고 있지 않습니다.
+
+1) Random initialization input.ply
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/bda5d8a8-1ec5-403d-8e4c-18a71378f1b2)
+
+2) Depth camera로 얻은 input.ply
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/97d1ce00-d53d-4bd0-8d6a-0d00edb7e279)
+
+3) 3dgs output인 point_cloud.ply
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4b63bd79-95da-48b6-82d8-5c4b682907d8)
+
+3dgs code에서 output.ply는 point_cloud.ply 이름으로 저장됩니다.
+
+### Color에 대한 Vert
+- **input.ply**: 각 정점(Vertex)에 색상 정보(RGB)이 포함되어 있습니다. 정점마다 고유한 색상 정보가 있어, 메쉬 또는 포인트 클라우드가 컬러로 시각화됩니다.
+- **output.ply**: 각 정점(Vertex)에 색상 정보가 포함되어 있지 않습니다. 색상 정보가 없으므로, Meshlab에서 시각화할 때 회색조로 표시될 가능성이 큽니다.
+  
+### Shading에 대한 Vert
+**input.ply와 output.ply 모두**: 각 정점(Vertex)에 법선 벡터(normal) 정보가 포함되어 있으나 0으로 초기화 됩니다.
+- 법선 벡터는 표면의 방향을 나타내며, 조명과 음영(Shading)을 계산하는 데 사용됩니다.
+- 이를 통해 3D 모델이 보다 현실적으로 시각화됩니다.
+
+## 요약
+### Color에 대한 Vert
+
+**input.ply**: 색상 정보가 포함되어 있어 컬러로 시각화됨.
+
+**output.ply**: 색상 정보가 없어 회색조로 시각화될 가능성이 큼.
+
+### Shading에 대한 Vert
+**input.ply와 output.ply** 모두: 법선 벡터 정보가 포함되어 있어 조명과 음영 효과를 통해 3D 모델이 현실적으로 시각화됨.
+- 이 차이는 파일 생성 과정에서 색상 정보를 포함시켰는지 여부에 따라 결정됩니다.
+- **input.ply**는 색상 정보를 포함하여 시각적으로 더 풍부한 정보를 제공하는 반면,
+- **output.ply**는 색상 정보를 제외하여 회색조로 시각화됩니다.
+- 법선 벡터 정보는 두 파일 모두 포함하고 있어, 조명과 음영 효과를 통해 3D 모델을 보다 현실적으로 시각화하는 데 도움을 줍니다.
+
+## Spherical Harmonics는 orignal 3dgs paper & code에서 사용하고 있지 않습니다. RGB로만 색상 값을 최적화 했습니다.
+
+Q) Spherical Harmonics를 사용하지 않을 경우 색상을 표현하는 방법은 무엇일까요?
+
+A) 모든 방향에 대해 일정한 색상을 가지는 0번째 band를 사용하는 것입니다. 이를 통해 단순히 RGB 색상 값을 최적화하였습니다.
 
 
 https://github.com/graphdeco-inria/gaussian-splatting/issues/73
