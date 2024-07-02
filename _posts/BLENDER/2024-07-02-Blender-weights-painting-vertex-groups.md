@@ -15,15 +15,6 @@ use_math: true
 classes: wide
 ---
 
-## [Blender 4.0 - Weight Paint Workflow (& Techniques!!)](https://www.youtube.com/watch?v=PLWv9yjVaoU)
-
-Weight Paint Mode로 들어가면 Mesh가 파란색으로 변하는 것을 확인할 수 있습니다. 0의 Weight값을 가지는 정점은 이처럼 파란색으로 표시됩니다.﻿
-
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/43c7236c-92c8-4e15-a870-58c97450934c)
-
-이러한 색상은 각 정점이 활성화된 그룹에 얼마의 영향력을 갖는지를 나타냅니다. 위의 사진처럼 파란색으로 표시되는 정점은 해당 정점이 0의 weight값을 갖거나 활성화된 정점 그룹에 속해 있지 않다는 것을 나타냅니다.
-
-
 ## Armature in Blender
 
 Armature는 Blender에서 애니메이터가 캐릭터를 애니메이팅하기 위해 사용하는 특수한 오브젝트 타입입니다. 
@@ -33,3 +24,19 @@ Blender 공식 매뉴얼에서 Armature는 골격(骨格, skeleton) 뼈대입니
 #### Armature는 아래와 같이 여러 개의 뼈(bone)으로 구성됩니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2f4770ba-3dd2-4cde-af72-d97e29d7a89f)
+
+블렌더에서 Armature는 캐릭터 애니메이션을 위한 중요한 구성 요소로, 여러 개의 뼈대(Bone)로 구성됩니다. 각 뼈대는 연결되어 캐릭터의 움직임과 변형을 제어할 수 있습니다
+
+## Weight Painting
+
+Weight Paint Mode에서 각 정점이 특정 뼈대에 의해 얼마나 영향을 받는지를 색상으로 표시합니다. 이 색상은 파란색에서 빨간색까지 다양하며, 파란색은 0의 weight 값을 가지며, 빨간색은 최대 weight 값을 가집니다.
+
+Weight Paint Mode로 들어가면 Mesh가 파란색으로 변하는 것을 확인할 수 있습니다. 0의 Weight값을 가지는 정점은 이처럼 파란색으로 표시됩니다.﻿
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/43c7236c-92c8-4e15-a870-58c97450934c)
+
+
+### Reference
+- [Blender 4.0 - Weight Paint Workflow (& Techniques!!)](https://www.youtube.com/watch?v=PLWv9yjVaoU)
+- [Vertex Groups - Blender 2.80 Fundamentals](https://www.youtube.com/watch?v=dKZrzG5r13g)
+
