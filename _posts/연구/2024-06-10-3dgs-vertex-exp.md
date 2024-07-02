@@ -31,18 +31,41 @@ classes: wide
 
 첫 5개의 Vert(정점) 데이터를 출력하면 다음과 같습니다
 
+#### input.ply
+
 ```python
-# input.ply
-[x, y, z, nx, ny, nz, red, green, blue]
-[ 0.126915112,  0.55949235,  0.267184764, 0.0, 0.0, 0.0, 127, 127, 127]
-[ 0.116696276, -0.198497519,  0.379324704, 0.0, 0.0, 0.0, 127, 127, 127]
-[-0.162273258,  1.01860976,  1.20552313, 0.0, 0.0, 0.0, 127, 127, 127]
-[-0.303052038,  0.758485079,  0.0751267895, 0.0, 0.0, 0.0, 127, 127, 127]
-[ 0.176915854,  1.10655129, -1.11530626, 0.0, 0.0, 0.0, 127, 127, 127]
-...
+import numpy as np
+from plyfile import PlyData
+
+def fetchPly(path):
+    plydata = PlyData.read(path)
+    vertices = plydata['vertex']
+    positions = np.vstack([vertices['x'], vertices['y'], vertices['z']]).T
+    colors = np.vstack([vertices['red'], vertices['green'], vertices['blue']]).T / 255.0
+    normals = np.vstack([vertices['nx'], vertices['ny'], vertices['nz']]).T
+
+    # 첫 5개의 요소 출력
+    print("First 5 elements:")
+    print("x:", vertices['x'][:5])
+    print("y:", vertices['y'][:5])
+    print("z:", vertices['z'][:5])
+    print("nx:", vertices['nx'][:5])
+    print("ny:", vertices['ny'][:5])
+    print("nz:", vertices['nz'][:5])
+    print("red:", vertices['red'][:5])
+    print("green:", vertices['green'][:5])
+    print("blue:", vertices['blue'][:5])
+
+# PLY 파일 경로를 지정합니다.
+ply_file_path = "C:/Users/MNL/KHS/gaussian-splatting/output/realsense_d435/180deg@15/input.ply"
+
+# PLY 파일을 읽어오고 첫 5개 요소를 출력합니다.
+fetchPly(ply_file_path)
 ```
 
-### 2) Depth camera로 촬영하여 얻은 point cloud .ply 데이터는 다음을 포함합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9e952ea5-62df-47aa-a41c-6464021c5757)
+
+### 2) Depth camera로 촬영하여 얻은 input.ply 데이터는 다음을 포함합니다.
 
 - x, y, z (position)
 - nx, ny, nz (normal)
@@ -50,16 +73,39 @@ classes: wide
 
 첫 5개의 Vert(정점) 데이터를 출력하면 다음과 같습니다.
 
+#### input.ply
+
 ```python
-# input.ply
-[x, y, z, nx, ny, nz, red, green, blue]
-[-0.02453409, 0.11095615, 0.05512903, 0.01242013, 0.56303861, 0.82633723, 0.0, 0.0, 0.0]
-[-0.02339740, 0.11094624, 0.05511869, 0.01242013, 0.56303861, 0.82633723, 0.0, 235.0, 254.0]
-[-0.02226834, 0.11093641, 0.05510842, 0.01242013, 0.56303861, 0.82633729, 0.0, 235.0, 254.0]
-[-0.03917740, 0.10962883, 0.05625351, 0.01245886, 0.57928908, 0.81502695, 0.0, 229.0, 254.0]
-[-0.03804834, 0.10961899, 0.05624324, 0.01245886, 0.57928908, 0.81502695, 0.0, 229.0, 254.0]
-...
+import numpy as np
+from plyfile import PlyData
+
+def fetchPly(path):
+    plydata = PlyData.read(path)
+    vertices = plydata['vertex']
+    positions = np.vstack([vertices['x'], vertices['y'], vertices['z']]).T
+    colors = np.vstack([vertices['red'], vertices['green'], vertices['blue']]).T / 255.0
+    normals = np.vstack([vertices['nx'], vertices['ny'], vertices['nz']]).T
+
+    # 첫 5개의 요소 출력
+    print("First 5 elements:")
+    print("x:", vertices['x'][:5])
+    print("y:", vertices['y'][:5])
+    print("z:", vertices['z'][:5])
+    print("nx:", vertices['nx'][:5])
+    print("ny:", vertices['ny'][:5])
+    print("nz:", vertices['nz'][:5])
+    print("red:", vertices['red'][:5])
+    print("green:", vertices['green'][:5])
+    print("blue:", vertices['blue'][:5])
+
+# PLY 파일 경로를 지정합니다.
+ply_file_path = "C:/Users/MNL/KHS/gaussian-splatting/output/realsense_d435/180deg@15_cam_poses_bbox_pcd/input.ply"
+
+# PLY 파일을 읽어오고 첫 5개 요소를 출력합니다.
+fetchPly(ply_file_path)
 ```
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/166a6b04-8c8e-400e-a435-c795f8c3c3e9)
 
 ***즉, random initialization으로 생성하는 input.ply와 depth camera로 depth 정보까지 얻어 생성한 input.ply가 가지는 정보의 종류는 같습니다.***
 
