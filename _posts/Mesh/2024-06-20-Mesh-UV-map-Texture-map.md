@@ -48,7 +48,11 @@ classes: wide
 
 # Texturing
 
+- RGB value인 경우
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c722feef-31f4-4d5b-a56a-ba8e54313cc9)
+
+- Gray Scale value인 경우
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/18cd91a7-ee23-45d0-b6cb-7286897c6e66)
 
 # 3D 모델링과 텍스처링에서 사용되는 다양한 맵들
 
