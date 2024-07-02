@@ -111,9 +111,11 @@ fetchPly(ply_file_path)
 
 ### 3) 3dgs output인 point_cloud.ply를 구성하는 요소와 default shape은 다음과 같습니다.
 
+#### default max_sh_degree = 3이고 총 15 x 3 = 45개의 f_rest 0 ~ f_rest 44의 features를 가집니다.
+
 - x, y, z (position) # (n_points, 3)
 - f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값) # (n_points, 1, 3)
-- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함) # (n_points, 15, 3) # max_sh_degree = 3
+- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함) # (n_points, 15, 3) # 앞의 15는 max_sh_degree = 3일 때 15개, **뒤에 3은 rgb 채널을 의미**
 - opacity (불투명도) # (n_points, 1)
 - scale_n (스케일 정보) # (n_points, 3)
 - rot_n (회전 정보) # (n_points, 4) # quaternion이라서 4
