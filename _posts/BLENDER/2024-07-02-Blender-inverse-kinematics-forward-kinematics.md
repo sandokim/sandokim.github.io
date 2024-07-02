@@ -11,6 +11,7 @@ tags:
   - forward kinematics
   - fk
   - skinning
+  - human mesh
 excerpt: "fk는 parent bone이 child bone에 영향을, ik는 child bone이 parent bone에 역으로 영향을 미칩니다."
 use_math: true
 classes: wide
@@ -45,9 +46,9 @@ Blender에서의 주요 skinning 방식은 다음과 같습니다:
 
 **Skinning과 Kinematics의 관계**에 대해 설명하자면:
 
-- **Forward Kinematics (FK)**와 **Forward Skinning**은 동일한 개념을 가리키는 것이 아닙니다. FK는 뼈대의 움직임을 제어하는 방법 중 하나이며, Forward Skinning이라는 용어는 사용되지 않습니다.
+- `Forward Kinematics (FK)`와 `Forward Skinning`은 동일한 개념을 가리키는 것이 아닙니다. FK는 뼈대의 움직임을 제어하는 방법 중 하나이며, Forward Skinning이라는 용어는 사용되지 않습니다.
   
-- **Inverse Kinematics (IK)**와 **Inverse Skinning**도 동일한 개념을 가리키지 않습니다. IK는 특정 지점을 이동시키면 나머지 관절이 자동으로 조정되는 방식입니다. Inverse Skinning이라는 용어도 사용되지 않습니다.
+- `Inverse Kinematics (IK)`와 `Inverse Skinning`도 동일한 개념을 가리키지 않습니다. IK는 특정 지점을 이동시키면 나머지 관절이 자동으로 조정되는 방식입니다. Inverse Skinning이라는 용어도 사용되지 않습니다.
 
 결론적으로, Forward Kinematics = Forward Skinning, Inverse Kinematics = Inverse Skinning 이라는 등식은 성립하지 않습니다. Kinematics는 뼈대의 움직임을 제어하는 방식이고, Skinning은 뼈대와 메쉬를 결합하는 과정입니다.
 
