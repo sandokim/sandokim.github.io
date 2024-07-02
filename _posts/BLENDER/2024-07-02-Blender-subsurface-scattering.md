@@ -17,4 +17,5 @@ classes: wide
 ## Subsurface Scattering
 
 skin produces intricate reflections due to micro-geometry as well as significant subsurface scattering.
+
 출처: [Relightable Gaussian Codec Avatars](https://arxiv.org/abs/2312.03704)
