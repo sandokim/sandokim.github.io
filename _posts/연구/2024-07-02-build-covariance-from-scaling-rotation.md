@@ -71,7 +71,7 @@ def build_scaling_rotation(s, r):
     return L
 ```
 
-- `build_rotation(r)`에서 r은 self._rotation은 shape (n_points, 4)를 가지는 quaternion을 생성합니다.
+- `build_rotation(r)`에서 `r`에 해당하는 것은 `self._rotation # shape (n_points, 4)`인 quaternion입니다.
 ```python
 # utils/general_utils
 def build_rotation(r):
