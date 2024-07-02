@@ -122,10 +122,12 @@ fetchPly(ply_file_path)
 3dgs의 output인 point_cloud.ply의 첫 번째 Vert(정점) 데이터를 출력하면 다음과 같습니다. 
 - 불러오는 코드는 gaussian_model.py에서 불러오는 코드를 그대로 사용하여 print문만 출력하였습니다.
 - `plydata.elements[0]`에서 0번째만 인덱싱하는 이유는 하나의 point cloud data만 저장하고 있는 ply 파일이기 때문입니다.
-  
+  #### `print(plydata.elements)`
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b122dd59-39e4-4710-a7f1-955ccbe25ebf)
+  #### `print(len(plydata.elements))`
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/89cd114c-c3f9-4d73-8d9a-ab42d2a7df81)
+  #### `print(plydata.elements[0])`
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/261cbc4f-7765-4768-ad85-b69ee555ca4b)
-
 
 #### output.ply
 ```python
@@ -141,6 +143,7 @@ class GaussianModel:
     def load_ply(self, path):
         plydata = PlyData.read(path)
         # print("plydata.elements:", plydata.elements)
+        # print("len(plydata.elements):", len(plydata.elements))
         # print("plydata.elements[0]:", plydata.elements[0])
         
         xyz = np.stack((np.asarray(plydata.elements[0]["x"]),
@@ -209,6 +212,7 @@ model.load_ply(ply_file_path)
 
 # 각 파라미터 값을 출력합니다.
 model.print_parameters()
+
 ```
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/83cad61a-a3c7-4406-b43f-db8245b0f695)
