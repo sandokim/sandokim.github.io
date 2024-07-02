@@ -1,5 +1,5 @@
 ---
-title: "[Mesh] UV map & Texture map (Albedo map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map)"
+title: "[Mesh] UV map & Texture map (Diffuse(Color) map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map)"
 last_modified_at: 2024-06-20
 categories:
   - Mesh
@@ -17,7 +17,7 @@ tags:
   - ambient occlusion map
   - metalness map
   - roughness map
-excerpt: "UV map & Texture map (Albedo map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map)"
+excerpt: "UV map & Texture map (Diffuse(Color) map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map)"
 use_math: true
 classes: wide
 ---
@@ -54,7 +54,11 @@ classes: wide
 ## Texture Maps
 **Texture Maps**: 3D 모델의 표면에 적용되는 이미지 파일로, 모델의 외형을 더욱 현실적으로 보이게 합니다. 주요 텍스처 맵의 종류는 다음과 같습니다:
 
-- **Albedo Map**: 모델의 기본 색상 정보를 포함한 이미지. **조명 효과를 배제한 순수한 색상**을 제공합니다.
+- **Diffuse(Color) Map**: 모델의 기본 색상 정보를 포함한 이미지. **조명 효과를 배제한 순수한 색상**을 제공합니다.
+  - Diffuse Color determines **the overall Hue of the material without any shading or highlight.**
+  - Diffuse color is typically specified using RGB values between 0 and 1.
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/61ffe6d4-1bc7-44b6-834c-795a712d4d2f)
+
 - **Normal Map**: 표면의 요철이나 세부 질감을 표현하는 이미지. **픽셀 단위로 표면의 방향 정보**를 제공하여 입체감을 추가합니다.
 - **Specular Map**: 표면의 반사 특성을 정의하는 이미지. 모델의 특정 부분이 얼마나 빛을 반사할지를 결정합니다.
 - **Displacement Map**: **모델의 표면을 실제로 변형시키는 이미지**. 텍스처 정보를 기반으로 모델의 geometry를 변형하여 더 높은 세부 사항을 제공합니다.
