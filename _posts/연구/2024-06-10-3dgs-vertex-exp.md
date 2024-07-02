@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] 3DGS input & output .ply vertex properties & Meshlab Vert & Spherical Harmonics (SH) & Mesh"
-last_modified_at: 2024-06-10
+last_modified_at: 2024-07-02
 categories:
   - 연구
 tags:
@@ -119,7 +119,13 @@ fetchPly(ply_file_path)
 - scale_n (스케일 정보) # (n_points, 3)
 - rot_n (회전 정보) # (n_points, 4) # quaternion이라서 4
 
-3dgs의 output인 point_cloud.ply의 첫 번째 Vert(정점) 데이터를 출력하면 다음과 같습니다.
+3dgs의 output인 point_cloud.ply의 첫 번째 Vert(정점) 데이터를 출력하면 다음과 같습니다. 
+- 불러오는 코드는 gaussian_model.py에서 불러오는 코드를 그대로 사용하여 print문만 출력하였습니다.
+- `plydata.elements[0]`에서 0번째만 인덱싱하는 이유는 하나의 point cloud data만 저장하고 있는 ply 파일이기 때문입니다.
+  
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b122dd59-39e4-4710-a7f1-955ccbe25ebf)
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/261cbc4f-7765-4768-ad85-b69ee555ca4b)
+
 
 #### output.ply
 ```python
@@ -134,7 +140,9 @@ class GaussianModel:
 
     def load_ply(self, path):
         plydata = PlyData.read(path)
-
+        # print("plydata.elements:", plydata.elements)
+        # print("plydata.elements[0]:", plydata.elements[0])
+        
         xyz = np.stack((np.asarray(plydata.elements[0]["x"]),
                         np.asarray(plydata.elements[0]["y"]),
                         np.asarray(plydata.elements[0]["z"])),  axis=1)
@@ -160,7 +168,7 @@ class GaussianModel:
             scales[:, idx] = np.asarray(plydata.elements[0][attr_name])
 
         rot_names = [p.name for p in plydata.elements[0].properties if p.name.startswith("rot")]
-        rot_names = sorted(rot_names, key=lambda x: int(x.split('_')[-1]))
+        # rot_names = sorted(rot_names, key=lambda x: int(x.split('_')[-1]))
         rots = np.zeros((xyz.shape[0], len(rot_names)))
         for idx, attr_name in enumerate(rot_names):
             rots[:, idx] = np.asarray(plydata.elements[0][attr_name])
