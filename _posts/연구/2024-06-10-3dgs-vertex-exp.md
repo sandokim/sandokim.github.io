@@ -1,5 +1,5 @@
 ---
-title: "[3D CV 연구] 3DGS input & output .ply properties & Meshlab Vert & Spherical Harmonics (SH) & Mesh"
+title: "[3D CV 연구] 3DGS input & output .ply vertex properties & Meshlab Vert & Spherical Harmonics (SH) & Mesh"
 last_modified_at: 2024-06-10
 categories:
   - 연구
@@ -138,11 +138,94 @@ A) 모든 방향에 대해 일정한 색상을 가지는 0번째 band를 사용�
 
 f_dc_0, f_dc_1, f_dc_2가 x, y, z 축에 대한 동일한 상수 색상 값을 출력함을 결과에서 볼 수 있습니다.
 
+#### output.ply
 ```python
-# output.ply
-[x, y, z, nx, ny, nz, f_dc_0, f_dc_1, f_dc_2, f_rest_0, f_rest_1, f_rest_2, f_rest_3, f_rest_4, f_rest_5, f_rest_6, f_rest_7, f_rest_8, f_rest_9, f_rest_10, f_rest_11, f_rest_12, f_rest_13, f_rest_14, f_rest_15, f_rest_16, f_rest_17, f_rest_18, f_rest_19, f_rest_20, f_rest_21, f_rest_22, f_rest_23, f_rest_24, f_rest_25, f_rest_26, f_rest_27, f_rest_28, f_rest_29, f_rest_30, f_rest_31, f_rest_32, f_rest_33, f_rest_34, f_rest_35, f_rest_36, f_rest_37, f_rest_38, f_rest_39, f_rest_40, f_rest_41, f_rest_42, f_rest_43, f_rest_44, opacity, scale_0, scale_1, scale_2, rot_0, rot_1, rot_2, rot_3]
-[ 0.12691511,  0.55949235,  0.26718476,  0.0,  0.0,  0.0, -0.0069508, -0.0069508, -0.0069508,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, -4.59511995, -3.30952573, -3.30952573, -3.30952573,  1.0,  0.0,  0.0,  0.0]
+import numpy as np
+import torch
+from torch import nn
+from plyfile import PlyData
+
+class GaussianModel:
+    def __init__(self, max_sh_degree):
+        self.max_sh_degree = max_sh_degree
+
+    def load_ply(self, path):
+        plydata = PlyData.read(path)
+
+        xyz = np.stack((np.asarray(plydata.elements[0]["x"]),
+                        np.asarray(plydata.elements[0]["y"]),
+                        np.asarray(plydata.elements[0]["z"])),  axis=1)
+        opacities = np.asarray(plydata.elements[0]["opacity"])[..., np.newaxis]
+
+        features_dc = np.zeros((xyz.shape[0], 3, 1))
+        features_dc[:, 0, 0] = np.asarray(plydata.elements[0]["f_dc_0"])
+        features_dc[:, 1, 0] = np.asarray(plydata.elements[0]["f_dc_1"])
+        features_dc[:, 2, 0] = np.asarray(plydata.elements[0]["f_dc_2"])
+
+        extra_f_names = [p.name for p in plydata.elements[0].properties if p.name.startswith("f_rest_")]
+        extra_f_names = sorted(extra_f_names, key=lambda x: int(x.split('_')[-1]))
+        assert len(extra_f_names) == 3 * (self.max_sh_degree + 1) ** 2 - 3
+        features_extra = np.zeros((xyz.shape[0], len(extra_f_names)))
+        for idx, attr_name in enumerate(extra_f_names):
+            features_extra[:, idx] = np.asarray(plydata.elements[0][attr_name])
+        features_extra = features_extra.reshape((features_extra.shape[0], 3, (self.max_sh_degree + 1) ** 2 - 1))
+
+        scale_names = [p.name for p in plydata.elements[0].properties if p.name.startswith("scale_")]
+        scale_names = sorted(scale_names, key=lambda x: int(x.split('_')[-1]))
+        scales = np.zeros((xyz.shape[0], len(scale_names)))
+        for idx, attr_name in enumerate(scale_names):
+            scales[:, idx] = np.asarray(plydata.elements[0][attr_name])
+
+        rot_names = [p.name for p in plydata.elements[0].properties if p.name.startswith("rot")]
+        rot_names = sorted(rot_names, key=lambda x: int(x.split('_')[-1]))
+        rots = np.zeros((xyz.shape[0], len(rot_names)))
+        for idx, attr_name in enumerate(rot_names):
+            rots[:, idx] = np.asarray(plydata.elements[0][attr_name])
+
+        self._xyz = nn.Parameter(torch.tensor(xyz, dtype=torch.float, device="cuda").requires_grad_(True))
+        self._features_dc = nn.Parameter(torch.tensor(features_dc, dtype=torch.float, device="cuda").transpose(1, 2).contiguous().requires_grad_(True))
+        self._features_rest = nn.Parameter(torch.tensor(features_extra, dtype=torch.float, device="cuda").transpose(1, 2).contiguous().requires_grad_(True))
+        self._opacity = nn.Parameter(torch.tensor(opacities, dtype=torch.float, device="cuda").requires_grad_(True))
+        self._scaling = nn.Parameter(torch.tensor(scales, dtype=torch.float, device="cuda").requires_grad_(True))
+        self._rotation = nn.Parameter(torch.tensor(rots, dtype=torch.float, device="cuda").requires_grad_(True))
+
+        self.active_sh_degree = self.max_sh_degree
+
+    def print_parameters(self):
+        parameters = {
+            "XYZ": self._xyz.cpu().detach().numpy(),
+            "Features DC": self._features_dc.cpu().detach().numpy(),
+            "Features Rest": self._features_rest.cpu().detach().numpy(),
+            "Opacity": self._opacity.cpu().detach().numpy(),
+            "Scaling": self._scaling.cpu().detach().numpy(),
+            "Rotation": self._rotation.cpu().detach().numpy(),
+        }
+        
+        for key, value in parameters.items():
+            print(f"{key} shape: {value.shape}")
+            print(f"{key} first 5 elements:\n{value[:5]}\n")
+
+# 클래스 외부에서 객체 생성 및 PLY 파일 로드 및 출력
+
+# max_sh_degree 값을 지정합니다. 예를 들어 3으로 설정합니다.
+model = GaussianModel(max_sh_degree=3)
+
+# PLY 파일 경로를 지정합니다.
+ply_file_path = "C:/Users/MNL/KHS/gaussian-splatting/output/realsense_d435/180deg@15_cam_poses_bbox_pcd/point_cloud/iteration_30000/point_cloud.ply"
+
+# PLY 파일을 읽어옵니다.
+model.load_ply(ply_file_path)
+
+# 각 파라미터 값을 출력합니다.
+model.print_parameters()
 ```
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/83cad61a-a3c7-4406-b43f-db8245b0f695)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/657dbd42-0a63-416c-b9b1-6fe9d348e355)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/29bde592-e182-440d-b92c-870fb261df69)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/454ed660-bad3-4e8c-8e37-0ed55920c7f2)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c109a1f6-28bb-4c2d-901f-79f9ed3ab535)
+
+
 
 https://github.com/graphdeco-inria/gaussian-splatting/issues/73
 
