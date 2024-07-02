@@ -112,13 +112,23 @@ fetchPly(ply_file_path)
 
 ## 3) 3dgs output인 point_cloud.ply를 구성하는 요소와 default shape은 다음과 같습니다.
 
-- x, y, z (position) # (n_points, 3)
-- f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값) # (n_points, 1, 3)
-- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함) # (n_points, 15, 3)
+- **x, y, z** (position) # (n_points, 3)
+- **f_dc_0, f_dc_1, f_dc_2** (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값) # (n_points, 1, 3)
+- **f_rest_0 ~ f_rest_44** (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함) # (n_points, 15, 3)
   - **f_rest shape에서 앞의 15는 max_sh_degree = 3일 때 15개, 뒤에 3은 rgb 채널을 의미**
-- opacity (불투명도) # (n_points, 1)
-- scale_n (스케일 정보) # (n_points, 3)
-- rot_n (회전 정보) # (n_points, 4) # quaternion이라서 4
+
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3a4347b6-9c31-4d29-9789-ffbb68eb29e7)
+
+- **opacity** (불투명도) # (n_points, 1)
+  
+- **scale_n** (스케일 정보) # (n_points, 3)
+
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c1baacbf-5bae-4643-845a-ab125971430f)
+  
+- **rot_n** (회전 정보) # (n_points, 4) # quaternion이라서 4개로 rot_0, rot_1, rot_2, rot_3
+  
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/51fa805d-fba9-48c7-bd88-2d5668142e88)
+
 
 3dgs의 output인 point_cloud.ply의 첫 번째 Vert(정점) 데이터를 출력하면 다음과 같습니다. 
 - 불러오는 코드는 3dgs/scene/gaussian_model.py에서 `load_ply`를 그대로 사용하여 print문만 출력하였습니다.
@@ -159,6 +169,7 @@ class GaussianModel:
 
         extra_f_names = [p.name for p in plydata.elements[0].properties if p.name.startswith("f_rest_")]
         extra_f_names = sorted(extra_f_names, key=lambda x: int(x.split('_')[-1]))
+        print(extra_f_names)
         assert len(extra_f_names) == 3 * (self.max_sh_degree + 1) ** 2 - 3
         features_extra = np.zeros((xyz.shape[0], len(extra_f_names)))
         for idx, attr_name in enumerate(extra_f_names):
@@ -167,12 +178,14 @@ class GaussianModel:
 
         scale_names = [p.name for p in plydata.elements[0].properties if p.name.startswith("scale_")]
         scale_names = sorted(scale_names, key=lambda x: int(x.split('_')[-1]))
+        print(scale_names)
         scales = np.zeros((xyz.shape[0], len(scale_names)))
         for idx, attr_name in enumerate(scale_names):
             scales[:, idx] = np.asarray(plydata.elements[0][attr_name])
 
         rot_names = [p.name for p in plydata.elements[0].properties if p.name.startswith("rot")]
-        # rot_names = sorted(rot_names, key=lambda x: int(x.split('_')[-1]))
+        rot_names = sorted(rot_names, key=lambda x: int(x.split('_')[-1]))
+        print(rot_names)
         rots = np.zeros((xyz.shape[0], len(rot_names)))
         for idx, attr_name in enumerate(rot_names):
             rots[:, idx] = np.asarray(plydata.elements[0][attr_name])
@@ -213,7 +226,6 @@ model.load_ply(ply_file_path)
 
 # 각 파라미터 값을 출력합니다.
 model.print_parameters()
-
 ```
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/83cad61a-a3c7-4406-b43f-db8245b0f695)
