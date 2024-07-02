@@ -29,7 +29,8 @@ classes: wide
 - nx, ny, nz (normal)
 - red, green, blue (color)
 
-첫 5개의 Vert(정점) 데이터를 출력하면 다음과 같습니다
+첫 5개의 Vert(정점) 데이터를 출력하면 다음과 같습니다.
+- 불러오는 코드는 3dgs/scene/dataset_readers.py에서 `fecthPly`을 그대로 사용하고 print문만 추가하여 출력하였습니다.
 
 ### input.ply
 
@@ -84,43 +85,7 @@ def fetchPly(path):
     vertices = plydata['vertex']
     positions = np.vstack([vertices['x'], vertices['y'], vertices['z']]).T
     colors = np.vstack([vertices['red'], vertices['green'], vertices['blue']]).T / 255.0
-    normals = np.vstack([vertices['nx'], vertices['ny'], vertices['nz']]).T
-
-    # 첫 5개의 요소 출력
-    print("First 5 elements:")
-    print("x:", vertices['x'][:5])
-    print("y:", vertices['y'][:5])
-    print("z:", vertices['z'][:5])
-    print("nx:", vertices['nx'][:5])
-    print("ny:", vertices['ny'][:5])
-    print("nz:", vertices['nz'][:5])
-    print("red:", vertices['red'][:5])
-    print("green:", vertices['green'][:5])
-    print("blue:", vertices['blue'][:5])
-
-# PLY 파일 경로를 지정합니다.
-ply_file_path = "C:/Users/MNL/KHS/gaussian-splatting/output/realsense_d435/180deg@15_cam_poses_bbox_pcd/input.ply"
-
-# PLY 파일을 읽어오고 첫 5개 요소를 출력합니다.
-fetchPly(ply_file_path)
-```
-
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/166a6b04-8c8e-400e-a435-c795f8c3c3e9)
-
-***즉, random initialization으로 생성하는 input.ply와 depth camera로 depth 정보까지 얻어 생성한 input.ply가 가지는 정보의 종류는 같습니다.***
-
-## 3) 3dgs output인 point_cloud.ply를 구성하는 요소와 default shape은 다음과 같습니다.
-
-- x, y, z (position) # (n_points, 3)
-- f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값) # (n_points, 1, 3)
-- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함) # (n_points, 15, 3)
-  - **f_rest shape에서 앞의 15는 max_sh_degree = 3일 때 15개, 뒤에 3은 rgb 채널을 의미**
-- opacity (불투명도) # (n_points, 1)
-- scale_n (스케일 정보) # (n_points, 3)
-- rot_n (회전 정보) # (n_points, 4) # quaternion이라서 4
-
-3dgs의 output인 point_cloud.ply의 첫 번째 Vert(정점) 데이터를 출력하면 다음과 같습니다. 
-- 불러오는 코드는 gaussian_model.py에서 불러오는 코드를 그대로 사용하여 print문만 출력하였습니다.
+    normals = np.vstack([vertices['nx'], vertice여 출력하였습니다.
 - `plydata.elements[0]`에서 0번째만 인덱싱하는 이유는 하나의 point cloud data만 저장하고 있는 ply 파일이기 때문입니다.
   #### `print(plydata.elements)`
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b122dd59-39e4-4710-a7f1-955ccbe25ebf)
