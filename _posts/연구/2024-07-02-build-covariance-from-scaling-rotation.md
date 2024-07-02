@@ -71,6 +71,7 @@ def build_scaling_rotation(s, r):
     return L
 ```
 
+- `build_rotation(r)`에서 r은 self._rotation은 shape (n_points, 4)를 가지는 quaternion을 생성합니다.
 ```python
 # utils/general_utils
 def build_rotation(r):
@@ -96,6 +97,39 @@ def build_rotation(r):
     R[:, 2, 2] = 1 - 2 * (x*x + y*y)
     return R
 ```
+
+- 이때 quaternion에 해당하는 `r`은 모든 points에 대해 회전성분이 없는 [0,0,0,1]로 초기화 됩니다.
+  - 아래에서 rots는 n_points 수인 `fused_point_cloud.shape[0]`와 quaternion을 구성하는 4개의 성분으로 정의하고 모든 points에 대해 [0,0,0,1]로 초기화합니다.
+  - rots # shape (n_points, 4)
+  ```python
+      def create_from_pcd(self, pcd : BasicPointCloud, spatial_lr_scale : float):
+        self.spatial_lr_scale = spatial_lr_scale
+        fused_point_cloud = torch.tensor(np.asarray(pcd.points)).float().cuda()
+        fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
+        features = torch.zeros((fused_color.shape[0], 3, (self.max_sh_degree + 1) ** 2)).float().cuda()
+        features[:, :3, 0 ] = fused_color
+        features[:, 3:, 1:] = 0.0
+
+        print("Number of points at initialisation : ", fused_point_cloud.shape[0])
+
+        dist2 = torch.clamp_min(distCUDA2(torch.from_numpy(np.asarray(pcd.points)).float().cuda()), 0.0000001)
+        scales = torch.log(torch.sqrt(dist2))[...,None].repeat(1, 3)
+        rots = torch.zeros((fused_point_cloud.shape[0], 4), device="cuda")
+        rots[:, 0] = 1
+
+        opacities = inverse_sigmoid(0.1 * torch.ones((fused_point_cloud.shape[0], 1), dtype=torch.float, device="cuda"))
+
+        self._xyz = nn.Parameter(fused_point_cloud.requires_grad_(True))
+        self._features_dc = nn.Parameter(features[:,:,0:1].transpose(1, 2).contiguous().requires_grad_(True))
+        self._features_rest = nn.Parameter(features[:,:,1:].transpose(1, 2).contiguous().requires_grad_(True))
+        self._scaling = nn.Parameter(scales.requires_grad_(True))
+        self._rotation = nn.Parameter(rots.requires_grad_(True))
+        self._opacity = nn.Parameter(opacities.requires_grad_(True))
+        self.max_radii2D = torch.zeros((self.get_xyz.shape[0]), device="cuda")
+  ```
+- 혹은 학습후 output된 PlyData에서 quaternion을 불러오면 다음과 같은 형태입니다.
+  - rots # shape (n_points, 4)
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ec422b5a-836a-4558-a3e6-8153dd787d01)
 
 
 ```python
