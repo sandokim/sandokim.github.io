@@ -227,6 +227,8 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
 
 --------
 
+## W2C, C2W 시각화
+
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f7a817d0-9ee1-4cdf-9a0d-71d2deb1df18" alt="Image">
 </p>
