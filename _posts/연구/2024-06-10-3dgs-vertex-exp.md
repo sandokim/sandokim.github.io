@@ -23,7 +23,7 @@ classes: wide
 
 3dgs에서 각 Vert(정점) 데이터는 다음과 같습니다.
 
-### 1) Random initialization으로 생성한 input.ply는 다음을 포함합니다.
+## 1) Random initialization으로 생성한 input.ply는 다음을 포함합니다.
 
 - x, y, z (position)
 - nx, ny, nz (normal)
@@ -31,7 +31,7 @@ classes: wide
 
 첫 5개의 Vert(정점) 데이터를 출력하면 다음과 같습니다
 
-#### input.ply
+### input.ply
 
 ```python
 import numpy as np
@@ -65,7 +65,7 @@ fetchPly(ply_file_path)
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/9e952ea5-62df-47aa-a41c-6464021c5757)
 
-### 2) Depth camera로 촬영하여 얻은 input.ply 데이터는 다음을 포함합니다.
+## 2) Depth camera로 촬영하여 얻은 input.ply 데이터는 다음을 포함합니다.
 
 - x, y, z (position)
 - nx, ny, nz (normal)
@@ -73,7 +73,7 @@ fetchPly(ply_file_path)
 
 첫 5개의 Vert(정점) 데이터를 출력하면 다음과 같습니다.
 
-#### input.ply
+### input.ply
 
 ```python
 import numpy as np
@@ -109,7 +109,7 @@ fetchPly(ply_file_path)
 
 ***즉, random initialization으로 생성하는 input.ply와 depth camera로 depth 정보까지 얻어 생성한 input.ply가 가지는 정보의 종류는 같습니다.***
 
-### 3) 3dgs output인 point_cloud.ply를 구성하는 요소와 default shape은 다음과 같습니다.
+## 3) 3dgs output인 point_cloud.ply를 구성하는 요소와 default shape은 다음과 같습니다.
 
 - x, y, z (position) # (n_points, 3)
 - f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값) # (n_points, 1, 3)
@@ -129,7 +129,7 @@ fetchPly(ply_file_path)
   #### `print(plydata.elements[0])`
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/261cbc4f-7765-4768-ad85-b69ee555ca4b)
 
-#### output.ply
+### output.ply
 ```python
 import numpy as np
 import torch
@@ -220,6 +220,8 @@ model.print_parameters()
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/29bde592-e182-440d-b92c-870fb261df69)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/454ed660-bad3-4e8c-8e37-0ed55920c7f2)
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c109a1f6-28bb-4c2d-901f-79f9ed3ab535)
+
+-------------
 
 Meshlab에서 .ply를 visualize해보면 
 
