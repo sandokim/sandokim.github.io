@@ -113,7 +113,7 @@ fetchPly(ply_file_path)
 
 - x, y, z (position)
 - nx, ny, nz (normal)
-- f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에 마다 다른 색상 값)
+- f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값)
 - f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함)
 - opacity (불투명도)
 - scale_n (스케일 정보)
