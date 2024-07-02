@@ -44,6 +44,7 @@ Weight Paint Mode로 들어가면 Mesh가 파란색으로 변하는 것을 확�
   #### Wireframe Mode & Weight Paint Mode
   - 예시에선 Vertex Groups에서 각 Bone에 대한 이름을 Top, Mid, Bot으로 지어주었습니다.
   - 각 Bone마다 Vertex Groups이 생성됨을 알 수 있습니다.
+    
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/6aa55071-0803-45f1-989a-93d7e6f5ec3b)
   #### Object Mode & Weight Paint Mode
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/33e69658-ff8d-48f9-a4df-d4acb7b1a221)
