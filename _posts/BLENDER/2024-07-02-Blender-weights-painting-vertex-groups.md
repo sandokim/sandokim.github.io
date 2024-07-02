@@ -14,7 +14,7 @@ use_math: true
 classes: wide
 ---
 
-## [Vertex Groups - Blender 2.80 Fundamentals](https://www.youtube.com/watch?v=dKZrzG5r13g)
+## [Blender 4.0 - Weight Paint Workflow (& Techniques!!)](https://www.youtube.com/watch?v=PLWv9yjVaoU)
 
 Weight Paint Mode로 들어가면 Mesh가 파란색으로 변하는 것을 확인할 수 있습니다. 0의 Weight값을 가지는 정점은 이처럼 파란색으로 표시됩니다.﻿
 
