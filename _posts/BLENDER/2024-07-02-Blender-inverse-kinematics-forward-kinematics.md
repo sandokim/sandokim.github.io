@@ -10,6 +10,7 @@ tags:
   - ik
   - forward kinematics
   - fk
+  - skinning
 excerpt: "fk는 parent bone이 child bone에 영향을, ik는 child bone이 parent bone에 역으로 영향을 미칩니다."
 use_math: true
 classes: wide
@@ -30,6 +31,11 @@ classes: wide
   - 꼬리의 윗부분이 움직이면 꼬리의 아랫부분까지 같이 움직입니다.
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a3b661dc-ae7e-4c81-89e2-e82e5f7cfebb)
 
+## skinning
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/b95a1af7-1a05-4a32-afc9-a97eb1c36ff1)
+
 
 ### Reference
 - [Inverse Kinematics - Blender 2.80 Fundamentals](https://youtu.be/S-2v_CKmVE8?si=OAjBisfIKsLhEnM_)
+- [Blender 4.1 Manual](https://docs.blender.org/manual/en/latest/animation/armatures/skinning/introduction.html)
