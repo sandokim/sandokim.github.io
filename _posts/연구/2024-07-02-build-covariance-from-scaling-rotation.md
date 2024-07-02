@@ -99,8 +99,8 @@ def build_rotation(r):
 ```
 
 - 이때 quaternion에 해당하는 `r`은 모든 points에 대해 회전성분이 없는 [0,0,0,1]로 초기화 됩니다.
-  - 아래에서 rots는 n_points 수인 `fused_point_cloud.shape[0]`와 quaternion을 구성하는 4개의 성분으로 정의하고 모든 points에 대해 [0,0,0,1]로 초기화합니다.
-  - rots # shape (n_points, 4)
+  - 아래에서 `rots`는 n_points 수인 `fused_point_cloud.shape[0]`와 quaternion을 구성하는 4개의 성분으로 정의하고 모든 points에 대해 [0,0,0,1]로 초기화합니다.
+  - `rots # shape (n_points, 4)`
   ```python
       def create_from_pcd(self, pcd : BasicPointCloud, spatial_lr_scale : float):
         self.spatial_lr_scale = spatial_lr_scale
@@ -127,8 +127,8 @@ def build_rotation(r):
         self._opacity = nn.Parameter(opacities.requires_grad_(True))
         self.max_radii2D = torch.zeros((self.get_xyz.shape[0]), device="cuda")
   ```
-- 혹은 학습후 output된 PlyData에서 quaternion을 불러오면 다음과 같은 형태입니다.
-  - rots # shape (n_points, 4)
+- 혹은 학습후 `output.ply`에서 quaternion인 `rots`를 불러오면 다음과 같은 형태입니다.
+  - `rots # shape (n_points, 4)`
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/ec422b5a-836a-4558-a3e6-8153dd787d01)
 
 
