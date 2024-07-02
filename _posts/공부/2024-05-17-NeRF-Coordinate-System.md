@@ -63,8 +63,8 @@ $$
 - 이와 같이 camera center를 다룰 때에는 World Coordinate System로 기준 좌표계로 바꿔주고 계산을 해야합니다.
 - 그런 다음 다시 Camera Coordinate System으로 좌표계를 변경해줘야 합니다.
 - **즉, 카메라의 포즈를 조작할 때는**
-  1. 먼저 `C2W (camera to world)`에서 Rotation과 Translation을 변경해주고,
-  2. `C2W (camera to world)`에 inverse를 취하여 다시 `W2C (world to camera)` 변환을 얻어주어 사용합니다.
+  1) 먼저 `C2W (camera to world)`에서 Rotation과 Translation을 변경해주고,
+  2) `C2W (camera to world)`에 inverse를 취하여 다시 `W2C (world to camera)` 변환을 얻어주어 사용합니다.
 
   - `getWorld2View(R, t)`는 단순히 `W2C`을 구성하는 `R`, `t`로 `W2C (world to camera)` 4x4 변환을 반환하는 함수
   - `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`은 `W2C`을 구성하는 `R`, `t`로 `W2C (world to camera)` 4x4 변환을 구성하고, inverse를 취하여 `C2W (camera to world)`로 변환한 후에 camera center에 대해 translate와 scale을 조정하고, 다시 inverse를 취한 `W2C (world to camera)` 4x4 변환을 반환하는 함수
