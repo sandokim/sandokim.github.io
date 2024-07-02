@@ -54,6 +54,15 @@ classes: wide
 - Gray Scale value인 경우
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/18cd91a7-ee23-45d0-b6cb-7286897c6e66)
 
+# Procedural Texturing
+
+- Procedural Texturing은 수학적으로 텍스처맵을 모델링하는 것입니다.
+- 생성된 텍스처맵은 3D 모델링에 Texture mapd으로 사용됩니다.
+- Procedural Texture는 Blender에서도 직접 만들 수 있습니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/81d9ab00-cc62-45f8-a8d4-ec3a003693e9)
+- 수학식으로 모델링된 Procedural texture 예시
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/3e141095-707f-487a-8267-077a46e26a60)
+
 # 3D 모델링과 텍스처링에서 사용되는 다양한 맵들
 
 ## UV Map
