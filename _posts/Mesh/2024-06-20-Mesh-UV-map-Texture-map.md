@@ -68,7 +68,7 @@ classes: wide
 
   ### 예시
   3D 모델이 자동차라면:
-  - **Albedo Map**: 자동차의 기본 색상과 패턴을 포함합니다.
+  - **Diffuse(Color) Map**: 자동차의 기본 색상과 패턴을 포함합니다.
   - **Normal Map**: 자동차 표면의 세부 질감과 요철을 표현합니다.
   - **Specular Map**: 자동차의 광택과 반사 특성을 정의합니다.
   - **Displacement Map**: 타이어의 트레드 패턴이나 차체의 굴곡을 실제로 변형합니다.
