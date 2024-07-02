@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] NeRF Coordinate System"
+title: "[3D CV] NeRF, 3dgs, C2W, W2C 카메라 포즈 조작"
 last_modified_at: 2024-07-02
 categories:
   - 공부
@@ -7,9 +7,15 @@ tags:
   - Multiple View Geometry
   - NeRF
   - coordinate system
+  - NeRF custom dataset
   - COLMAP
-  - viewing frustum
-  - viewing direction
+  - c2w
+  - w2c
+  - getWorld2View
+  - getWorld2View2
+  - avg_cam_center
+  - radius
+  - diagonal
 excerpt: "NeRF Coordinate system 이해 정리"
 use_math: true
 classes: wide
