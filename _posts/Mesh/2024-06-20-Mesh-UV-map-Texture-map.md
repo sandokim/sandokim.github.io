@@ -22,7 +22,7 @@ use_math: true
 classes: wide
 ---
 
-[PBR Materials Explained](https://www.youtube.com/watch?v=T2K6WXdifGA)
+# PBR Materials
 
 - Color Map
   ![bandicam 2024-06-24 14-24-33-958](https://github.com/sandokim/sandokim.github.io/assets/74639652/f178953d-930b-4e6b-bdc4-771e232a4cbf)
@@ -45,6 +45,10 @@ classes: wide
 
 - Emission Map
   ![bandicam 2024-06-24 14-25-50-721](https://github.com/sandokim/sandokim.github.io/assets/74639652/f2fb4a04-da44-4b0b-9bae-08e6e27ef920)
+
+# Texturing
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c722feef-31f4-4d5b-a56a-ba8e54313cc9)
 
 # 3D 모델링과 텍스처링에서 사용되는 다양한 맵들
 
@@ -76,8 +80,9 @@ classes: wide
   - **Metalness Map**: 자동차의 금속 부분과 비금속 부분을 구분합니다.
   - **Roughness Map**: 자동차 표면의 거칠기 정도를 정의합니다.
 
-
-
+### Reference
+- [PBR Materials Explained](https://www.youtube.com/watch?v=T2K6WXdifGA)
+- [This is how texturing really works | Procedural Texturing](https://youtu.be/HlrT9oa7fwA?si=fAEaAuKJlSjM7GC3)
 
 
 
