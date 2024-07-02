@@ -24,6 +24,8 @@ classes: wide
 
 ## Forward Kinematics (FK)
 
+현재 Bone에서의 transfromation이 Bone chain에서 오직 아래에 존재하는 Bone에만 영향을 미치므로 Forward Kinematics라 합니다.
+
 - FK 예시
   - 꼬리의 윗부분이 움직이면 꼬리의 아랫부분까지 같이 움직입니다.
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/a3b661dc-ae7e-4c81-89e2-e82e5f7cfebb)
