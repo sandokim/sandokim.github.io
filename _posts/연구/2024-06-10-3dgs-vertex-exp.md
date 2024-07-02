@@ -109,15 +109,14 @@ fetchPly(ply_file_path)
 
 ***즉, random initialization으로 생성하는 input.ply와 depth camera로 depth 정보까지 얻어 생성한 input.ply가 가지는 정보의 종류는 같습니다.***
 
-### 3) 3dgs output인 point_cloud.ply는 다음을 포함합니다.
+### 3) 3dgs output인 point_cloud.ply를 구성하는 요소와 default shape은 다음과 같습니다.
 
-- x, y, z (position)
-- nx, ny, nz (normal)
-- f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값)
-- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함)
-- opacity (불투명도)
-- scale_n (스케일 정보)
-- rot_n (회전 정보)
+- x, y, z (position) # (n_points, 3)
+- f_dc_0, f_dc_1, f_dc_2 (Spherical Harmonics 0번째 band의 rgb에서 채널마다 다른 색상 값) # (n_points, 1, 3)
+- f_rest_0 ~ f_rest_44 (사용 가능한 다양한 추가 속성, i.e. Spherical Harmonics로 사용가능함) # (n_points, 15, 3) # max_sh_degree = 3
+- opacity (불투명도) # (n_points, 1)
+- scale_n (스케일 정보) # (n_points, 3)
+- rot_n (회전 정보) # (n_points, 4) # quaternion이라서 4
 
 3dgs의 output인 point_cloud.ply의 첫 번째 Vert(정점) 데이터를 출력하면 다음과 같습니다.
 
