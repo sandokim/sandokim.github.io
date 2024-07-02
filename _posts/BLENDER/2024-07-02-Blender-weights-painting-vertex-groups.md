@@ -19,7 +19,9 @@ classes: wide
 
 Armature는 Blender에서 애니메이터가 캐릭터를 애니메이팅하기 위해 사용하는 특수한 오브젝트 타입입니다. 
 
-Blender 공식 매뉴얼에서 Armature는 골격(骨格, skeleton) 뼈대입니다. 하나의 Armature는 여러 개의 뼈(bone)로 구성되고, 각 뼈는 서로 연결되거나 연관되어 유사한 방식으로 움직이거나 변형됩니다.
+Blender 공식 매뉴얼에서 Armature는 골격(骨格, skeleton) 뼈대입니다. 
+
+하나의 Armature는 여러 개의 뼈(bone)로 구성되고, 각 뼈는 서로 연결되거나 연관되어 유사한 방식으로 움직이거나 변형됩니다.
 
 #### Armature는 아래와 같이 여러 개의 뼈(bone)으로 구성됩니다.
 
@@ -29,7 +31,9 @@ Blender 공식 매뉴얼에서 Armature는 골격(骨格, skeleton) 뼈대입니
 
 ## Weight Painting
 
-Weight Paint Mode에서 각 정점이 특정 뼈대에 의해 얼마나 영향을 받는지를 색상으로 표시합니다. 이 색상은 파란색에서 빨간색까지 다양하며, 파란색은 0의 weight 값을 가지며, 빨간색은 최대 weight 값을 가집니다.
+Weight Paint Mode에서 각 정점이 특정 뼈대에 의해 얼마나 영향을 받는지를 색상으로 표시합니다. 
+
+이 색상은 파란색에서 빨간색까지 다양하며, 파란색은 0의 weight 값을 가지며, 빨간색은 최대 weight 값을 가집니다.
 
 Weight Paint Mode로 들어가면 Mesh가 파란색으로 변하는 것을 확인할 수 있습니다. 0의 Weight값을 가지는 정점은 이처럼 파란색으로 표시됩니다.﻿
 
