@@ -225,34 +225,21 @@ input은 color에 대해 Vert를 가지고 있으나, output.ply는 color에 대
 3dgs code에서 output.ply는 point_cloud.ply 이름으로 저장됩니다.
 
 ### Color에 대한 Vert
-- **input.ply**: 각 정점(Vertex)에 색상 정보(RGB)이 포함되어 있습니다. 정점마다 고유한 색상 정보가 있어, 메쉬 또는 포인트 클라우드가 컬러로 시각화됩니다.
-- **output.ply**: 각 정점(Vertex)에 색상 정보가 포함되어 있지 않습니다. 색상 정보가 없으므로, Meshlab에서 시각화할 때 회색조로 표시될 가능성이 큽니다.
+- **input.ply**: 각 정점(Vertex)에 색상 정보 red, green, blue (color)가 포함되어 있습니다. 정점마다 고유한 색상 정보가 있어, 메쉬 또는 포인트 클라우드가 컬러로 시각화됩니다.
+- **output.ply**: 각 정점(Vertex)에 색상 정보 red, green, blue (color)가 포함되어 있지 않습니다. 색상 정보가 없으므로, Meshlab에서 시각화할 때 회색조로 표시될 가능성이 큽니다.
   
 ### Shading에 대한 Vert
 **input.ply와 output.ply 모두**: 각 정점(Vertex)에 법선 벡터(normal) 정보가 포함되어 있으나 0으로 초기화 됩니다.
 - 법선 벡터는 표면의 방향을 나타내며, 조명과 음영(Shading)을 계산하는 데 사용됩니다.
-- 이를 통해 3D 모델이 보다 현실적으로 시각화됩니다.
+- 법선 벡터는 조명과 음영 효과를 통해 3D 모델을 보다 현실적으로 시각화하는 데 도움을 줍니다.
 
-## 요약
-### Color에 대한 Vert
-
-**input.ply**: 색상 정보가 포함되어 있어 컬러로 시각화됨.
-
-**output.ply**: 색상 정보가 없어 회색조로 시각화될 가능성이 큼.
-
-### Shading에 대한 Vert
-**input.ply와 output.ply** 모두: 법선 벡터 정보가 포함되어 있어 조명과 음영 효과를 통해 3D 모델이 현실적으로 시각화됨.
-- 이 차이는 파일 생성 과정에서 색상 정보를 포함시켰는지 여부에 따라 결정됩니다.
-- **input.ply**는 색상 정보를 포함하여 시각적으로 더 풍부한 정보를 제공하는 반면,
-- **output.ply**는 색상 정보를 제외하여 회색조로 시각화됩니다.
-- 법선 벡터 정보는 두 파일 모두 포함하고 있어, 조명과 음영 효과를 통해 3D 모델을 보다 현실적으로 시각화하는 데 도움을 줍니다.
+----------
 
 ## Spherical Harmonics는 orignal 3dgs paper & code에서 사용하고 있지 않습니다. RGB로만 색상 값을 최적화 했습니다.
 
 Q) Spherical Harmonics를 사용하지 않을 경우 색상을 표현하는 방법은 무엇일까요?
 
 A) 모든 방향에 대해 일정한 색상을 가지는 0번째 band를 사용하는 것입니다. 이를 통해 단순히 RGB 색상 값을 최적화하였습니다.
-
 
 https://github.com/graphdeco-inria/gaussian-splatting/issues/73
 
