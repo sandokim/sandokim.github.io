@@ -158,7 +158,7 @@ for group in self.optimizer.param_groups:
         optimizable_tensors[group["name"]] = group["params"][0]
 ```
 - 가져온 `extension_tensor`를 사용하여 기존 파라미터를 확장합니다.
-- 확장된 파라미터는 학습 가능한 파라미터로 설정되고, optimizer의 상태가 갱신됩니다.
+- 확장된 파라미터는 학습 가능한 파라미터로 설정되고, `optimizer`의 상태가 갱신됩니다.
 
 ### 최종 요약
 - `group["name"]`을 통해 `tensors_dict`에서 올바른 확장 텐서를 가져옵니다.
