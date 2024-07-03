@@ -153,7 +153,7 @@ for group in optimizer.param_groups:
 
 --------
 
-## 3dgs에서 `cat_tensors_to_optimizer` 함수수를 해석해봅시다.
+## 3dgs에서 `cat_tensors_to_optimizer` 함수를 해석해봅시다.
 
 - 3D Gaussian Splatting에서는 아래와 같이 param_groups를 정의하여 gaussian property 별로 optimize를 수행합니다.
 - opacity에 대한 threshold를 설정하여 pruning하는 것, mask를 씌워 pruning하는 것도 모두 `optimizer.param_groups`에서 각 `group`의 `name`에 해당하는   `optimizer`에 대한 업데이트를 진행하게 됩니다.
@@ -200,6 +200,8 @@ for group in self.optimizer.param_groups:
       {'params': [self._scaling], 'lr': training_args.scaling_lr, "name": "scaling"},
       {'params': [self._rotation], 'lr': training_args.rotation_lr, "name": "rotation"}
   ]
+
+  self.optimizer = torch.optim.Adam(l, lr=0.0, eps=1e-15)
   ```
   ```python
   for group in self.optimizer.param_groups:
@@ -322,7 +324,6 @@ class GaussianModel:
         return optimizable_tensors
 ```
 
-- 
 
 
 ### Reference
