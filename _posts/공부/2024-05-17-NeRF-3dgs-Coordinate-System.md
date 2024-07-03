@@ -259,7 +259,13 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/b255e68d-bfd9-48e0-a1e1-61e0fbec1820" alt="Image">
 </p>
 
-- Custom dataset에서 구한 것도 `camera to face`를 `wcs=np.eyes(4)`인 좌표에서 plot한 것이므로 `c2f`은 nerf 용어로는 `c2w`와 같습니다.
+- Custom dataset에서 camera는 고정하고 face가 돌아가는 상태로 촬영하였습니다.
+- 여기서 `f2c`이라고 정의한 것은 `c2f = c2w @ w2g @ g2f`의 연산을 정의한 것입니다.
+- `c2f`를 inverse하여 `f2c`인 `face to camera`라고 정의하고 `wcs=np.eyes(4)`인 월드좌표계에서 plot 했습니다.
+- 결과를 보면, world를 기준으로 `camera`의 pose들이 plot 됐습니다.
+- 결론적으론, `camera의 좌표계 혹은 pose`를 `world 좌표계`에서 봤을 때, 카메라들이 어디에 위치하는지 plot한 것입니다.
+- 이는 `c2w`와 같은 말입니다.
+- 즉, 구한 `f2c`는 이름만 다를 뿐, 역할은 `c2w`의 변환과 동일합니다.
 
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f87d491e-1d43-4c81-a019-590f5e5b5124" alt="Image">
@@ -267,7 +273,7 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
 
 - `wcs=np.eyes(4)`로 Identity matrix로 정의하고, nerf의 `transform_matrix`를 그대로 plot해보면 `pose`가 `wcs`를 빙 둘러싼 모양으로 나옵니다.
 - 방금 우리가 plot한 것은 **`wcs`에서 camera의 위치는 어디인가?** 라는 것과 같습니다.
-- 따라서 이는 camera의 좌표계를 world 좌표계에서 봤을 때, 어디에 위치하는지를 plot한 것입니다.
+- 따라서 이는 `camera의 좌표계 혹은 pose`를 `world 좌표계`에서 봤을 때, 카메라들이 어디에 위치하는지를 plot한 것입니다.
 - 결론적으로, `camera to world, c2w`로 해석됩니다.
 - 3dgs에서는 주석으로 `camera-to-world`에 대한 변환인 `transform_matrix`를 `c2w`라는 주석으로 달아놓은 것을 확인가능합니다.
   
