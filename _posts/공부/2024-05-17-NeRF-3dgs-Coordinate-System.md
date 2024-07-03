@@ -263,3 +263,35 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f87d491e-1d43-4c81-a019-590f5e5b5124" alt="Image">
 </p>
+
+- nerf의 `transform_matrix`는 `camera to world`가 아닌 `world to camera`로 정의되어 있음을 확인가능합니다.
+- 3dgs에서는 근데 주석으로 `world to camera`에 대한 변환인 `transform_matrix`를 `c2w`라는 주석으로 달아놔서 혼란을 가중시킵니다.
+```python
+# 3dgs/scene/dataset_readers.py
+
+...
+
+def readCamerasFromTransforms(path, transformsfile, white_background, extension=".png"):
+    cam_infos = []
+
+    with open(os.path.join(path, transformsfile)) as json_file:
+        contents = json.load(json_file)
+        fovx = contents["camera_angle_x"]
+
+        frames = contents["frames"]
+        for idx, frame in enumerate(frames):
+            cam_name = os.path.join(path, frame["file_path"] + extension)
+
+            # NeRF 'transform_matrix' is a camera-to-world transform
+            c2w = np.array(frame["transform_matrix"])
+            # change from OpenGL/Blender camera axes (Y up, Z back) to COLMAP (Y down, Z forward)
+            c2w[:3, 1:3] *= -1
+
+            # get the world-to-camera transform and set R, T
+            w2c = np.linalg.inv(c2w)
+            R = np.transpose(w2c[:3,:3])  # R is stored transposed due to 'glm' in CUDA code
+            T = w2c[:3, 3]
+```
+
+- 이는 사람에 따라 `world에서 camera로의 변환`을 `camera-to-world, c2w`라고 표기하기도 하므로 나타나는 차이입니다.
+- 따라서 항상 `c2w`, `w2c`이 의미하는게 무엇인지 제대로 체크하고 넘어가야합니다.
