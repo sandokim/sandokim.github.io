@@ -265,7 +265,7 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
 </p>
 
 - nerf의 `transform_matrix`는 `camera to world`가 아닌 `world to camera`로 정의되어 있음을 확인가능합니다.
-- 3dgs에서는 근데 주석으로 `world to camera`에 대한 변환인 `transform_matrix`를 `c2w`라는 주석으로 달아놔서 혼란을 가중시킵니다.
+- 그러나 3dgs에서는 주석으로 `world to camera`에 대한 변환인 `transform_matrix`를 `c2w`라는 주석으로 달아놔서 혼란을 가중시킵니다.
 ```python
 # 3dgs/scene/dataset_readers.py
 
