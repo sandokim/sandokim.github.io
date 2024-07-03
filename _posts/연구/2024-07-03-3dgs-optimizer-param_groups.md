@@ -159,7 +159,7 @@ for group in self.optimizer.param_groups:
   ```
   - 여기서 `params`는 `[self._xyz]`로, **리스트 안에 단 하나의 파라미터 `self._xyz`만 포함**하고 있습니다.
   - 다른 항목들도 마찬가지로 params 리스트에 하나의 파라미터만 포함하고 있습니다.
-  
+  - 하나의 파라미터만 포함하므로 이 파라미터에 접근할 때는 `group["params"][0]`로 0번째로 인덱싱합니다.
 
 #### 2. `tensors_dict`에서 확장 텐서 가져오기:
 ```python
