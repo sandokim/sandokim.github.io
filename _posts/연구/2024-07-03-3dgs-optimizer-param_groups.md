@@ -22,6 +22,52 @@ classes: wide
 - optimizer를 정의할 때 모델 파라미터를 서로 다른 그룹으로 분할할 수 있으며, 이를 param groups라고 합니다. 
 - 각 param group은 서로 다른 optimizer 설정을 가질 수 있습니다. 예를 들어, 한 그룹의 파라미터는 learning rate를 0.1로 설정하고, 다른 그룹은 learning rate를 0.01로 설정할 수 있습니다.
 
+## PyTorch에서 모델 파라미터 그룹 설정 및 학습률 조절
+
+### 모델 정의
+- PyTorch에서 Sequential 컨테이너를 사용하여 간단한 신경망을 정의할 수 있습니다. 예를 들어, 아래와 같은 모델을 정의해 보겠습니다:
+
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# 모델의 파라미터 정의
+model = nn.Sequential(
+    nn.Linear(2, 2),
+    nn.ReLU(),
+    nn.Linear(2, 1),
+)
+```
+
+### 파라미터 그룹 설정
+- **모델의 각 레이어에 대해 다른 학습률을 설정하기 위해 파라미터 그룹을 사용할 수 있습니다.** 
+- 예를 들어, 첫 번째 선형 레이어와 두 번째 선형 레이어의 학습률을 다르게 설정해 보겠습니다.
+
+```python
+# 각 레이어의 파라미터를 다른 그룹으로 분류
+optimizer = optim.SGD([
+    {'params': model[0].parameters(), 'lr': 0.01},  # 첫 번째 Linear 레이어의 학습률을 0.01로 설정
+    {'params': model[2].parameters(), 'lr': 0.001}  # 두 번째 Linear 레이어의 학습률을 0.001로 설정
+], lr=0.01)
+```
+
+- model[0]은 첫 번째 Linear 레이어를 나타내며, 이 레이어의 파라미터는 학습률 0.01로 설정됩니다.
+- model[2]은 두 번째 Linear 레이어를 나타내며, 이 레이어의 파라미터는 학습률 0.001로 설정됩니다.
+
+### 학습률 확인
+- 각 파라미터 그룹에 설정된 학습률을 확인하려면 다음과 같이 할 수 있습니다:
+
+```python
+# 첫 번째 param group의 learning rate 출력
+print("첫 번째 그룹 lr: ", optimizer.param_groups[0]['lr'])
+# 두 번째 param group의 learning rate 출력
+print("두 번째 그룹 lr: ", optimizer.param_groups[1]['lr'])
+```
+
+- 이런 방식으로 PyTorch에서 모델의 학습률을 세밀하게 조절하여 효율적인 학습을 수행할 수 있습니다.
+
+
 ## 3dgs에서 optimizer
 
 ```python
