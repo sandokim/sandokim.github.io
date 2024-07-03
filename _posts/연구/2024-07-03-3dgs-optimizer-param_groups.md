@@ -47,11 +47,11 @@ model = nn.Sequential(
 ```python
 # 각 레이어의 파라미터를 다른 그룹으로 분류
 optimizer = optim.SGD([
-    {'params': model[0].parameters(), 'lr': 0.01},  # 첫 번째 Linear 레이어의 학습률을 0.01로 설정
-    {'params': model[2].parameters(), 'lr': 0.001}  # 두 번째 Linear 레이어의 학습률을 0.001로 설정
+    {'params': model[0].parameters(), 'lr': 0.01, 'name': 'layer1'},  # 첫 번째 Linear 레이어
+    {'params': model[2].parameters(), 'lr': 0.001, 'name': 'layer2'}  # 두 번째 Linear 레이어
 ], lr=0.01)
 ```
-
+- group["name"]은 각 파라미터 그룹에 이름을 부여하여 식별할 수 있도록 합니다. 
 - model[0]은 첫 번째 Linear 레이어를 나타내며, 이 레이어의 파라미터는 학습률 0.01로 설정됩니다.
 - model[2]은 두 번째 Linear 레이어를 나타내며, 이 레이어의 파라미터는 학습률 0.001로 설정됩니다.
 
@@ -59,16 +59,24 @@ optimizer = optim.SGD([
 - 각 파라미터 그룹에 설정된 학습률을 확인하려면 다음과 같이 할 수 있습니다:
 
 ```python
-# 첫 번째 param group의 learning rate 출력
-print("첫 번째 그룹 lr: ", optimizer.param_groups[0]['lr'])
-# 두 번째 param group의 learning rate 출력
-print("두 번째 그룹 lr: ", optimizer.param_groups[1]['lr'])
+# 첫 번째 param group 출력
+print("첫 번째 그룹:", optimizer.param_groups[0])
+# 두 번째 param group 출력
+print("두 번째 그룹:", optimizer.param_groups[1])
 ```
 
+- 출력값:
+```css
+첫 번째 그룹: {'params': [Parameter containing: tensor([...])], 'lr': 0.01, 'name': 'layer1'}
+두 번째 그룹: {'params': [Parameter containing: tensor([...])], 'lr': 0.001, 'name': 'layer2'}
+```
+
+- 첫 번째 param group은 params, lr, name 키를 포함하고 있습니다. params 키는 이 그룹에 포함된 파라미터를 나타내고, lr은 학습률, name은 그룹의 이름입니다.
+- 두 번째 param group도 동일한 구조를 가지며, 각각의 설정이 다릅니다.
 - 이런 방식으로 PyTorch에서 모델의 학습률을 세밀하게 조절하여 효율적인 학습을 수행할 수 있습니다.
 
 
-## 3dgs에서 optimizer
+## 3dgs에서 cat_tensors_to_optimizer를 해석해봅시다.
 
 ```python
 # 3dgs/scene/gaussian_model.py
