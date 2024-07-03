@@ -22,7 +22,26 @@ classes: wide
 
 ## 3D gaussian의 x,y,z의 scale을 초기화 할때, K-Nearest Neighbor (knn) 알고리즘 사용
 - 3개의 nearest neighbor points를 사용하여 평균거리를 계산하고, 그 값으로 3D gaussian의 scale을 isotropic으로 초기화 합니다.
-- **knn**은 `simple_knn` 라이브러리의 `distCUDA2`로 구현되어 있는 것을 사용합니다.
+- **knn**은 `simple_knn` 라이브러리에서`spatial.cu`에서 `SimpleKNN::knn`를 사용하여 `distCUDA2`로 구현되어 있는 것을 사용합니다.
+```cuda
+#include "spatial.h"
+#include "simple_knn.h"
+
+torch::Tensor
+distCUDA2(const torch::Tensor& points)
+{
+  const int P = points.size(0);
+
+  auto float_opts = points.options().dtype(torch::kFloat32);
+  torch::Tensor means = torch::full({P}, 0.0, float_opts);
+  
+  SimpleKNN::knn(P, (float3*)points.contiguous().data<float>(), means.contiguous().data<float>());
+
+  return means;
+}
+```
+- `SimpleKNN::knn`은 `simple_knn.cu`에 정의되어 있으며, 최근접 `K`개의 이웃을 구할땐 `updateKBest<K>` 호출을 통해 이루어집니다.
+- 이때 `updateKBest<3>`을 호출하도록 하드코딩되어 있고 이 부분에서 **3개의 최근접 이웃을 사용**하고 있음을 확인 가능합니다.
 
 ```python
 # 3dgs/scene/gaussian_model.py
