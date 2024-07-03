@@ -159,14 +159,16 @@ for group in optimizer.param_groups:
 - opacity에 대한 threshold를 설정하여 pruning하는 것, mask를 씌워 pruning하는 것도 모두 `optimizer.param_groups`에서 각 `group`의 `name`에 해당하는   `optimizer`에 대한 업데이트를 진행하게 됩니다.
 
 ```python
-        l = [
-            {'params': [self._xyz], 'lr': training_args.position_lr_init * self.spatial_lr_scale, "name": "xyz"},
-            {'params': [self._features_dc], 'lr': training_args.feature_lr, "name": "f_dc"},
-            {'params': [self._features_rest], 'lr': training_args.feature_lr / 20.0, "name": "f_rest"},
-            {'params': [self._opacity], 'lr': training_args.opacity_lr, "name": "opacity"},
-            {'params': [self._scaling], 'lr': training_args.scaling_lr, "name": "scaling"},
-            {'params': [self._rotation], 'lr': training_args.rotation_lr, "name": "rotation"}
-        ]
+l = [
+{'params': [self._xyz], 'lr': training_args.position_lr_init * self.spatial_lr_scale, "name": "xyz"},
+{'params': [self._features_dc], 'lr': training_args.feature_lr, "name": "f_dc"},
+{'params': [self._features_rest], 'lr': training_args.feature_lr / 20.0, "name": "f_rest"},
+{'params': [self._opacity], 'lr': training_args.opacity_lr, "name": "opacity"},
+{'params': [self._scaling], 'lr': training_args.scaling_lr, "name": "scaling"},
+{'params': [self._rotation], 'lr': training_args.rotation_lr, "name": "rotation"}
+]
+
+self.optimizer = torch.optim.Adam(l, lr=0.0, eps=1e-15)
 ```
 
 ### `tensors_dict`와 `group["name"]`을 통한 텐서 추가 과정 요약
