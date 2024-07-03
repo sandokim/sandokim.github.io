@@ -343,8 +343,8 @@ l = [
 self.optimizer = torch.optim.Adam(l, lr=0.0, eps=1e-15)
 ```
 
-- "name"으로 특정 param_group에 접근하여 optimize 합니다.
-- 아래 예시에서는 `xyz`의 `name`을 가진 param_group에서 `iteration`을 조건으로 `lr`을 업데이트합니다.
+- `"name"`으로 특정 param_group에 접근하여 optimize 합니다.
+- 아래 예시에서는 `xyz`의 `"name"`을 가진 param_group에서 `iteration`을 조건으로 `lr`을 업데이트합니다.
 
 ```python
 # 3dgs/scene/gaussian_model.py
@@ -360,8 +360,7 @@ class GaussianModel:
                 lr = self.xyz_scheduler_args(iteration)
                 param_group['lr'] = lr
                 return lr
-
-
+```
 
 ### Reference
 - [What exactly is meant by param_groups in pytorch?](https://stackoverflow.com/questions/73629330/what-exactly-is-meant-by-param-groups-in-pytorch)
