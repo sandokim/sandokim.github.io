@@ -122,10 +122,10 @@ print("세 번째 그룹:", optimizer.param_groups[2])
 
 ## 3dgs에서 `cat_tensors_to_optimizer` 함수수를 해석해봅시다.
 
-### tensors_dict와 group["name"]을 통한 텐서 추가 과정 요약
+### `tensors_dict`와 `group["name"]`을 통한 텐서 추가 과정 요약
 
-- 이 과정은 tensors_dict에서 확장할 텐서를 가져와 optimizer의 각 param group에 추가하는 작업을 수행합니다.
-- 여기서 중요한 점은 group["name"]을 사용하여 tensors_dict에서 올바른 확장 텐서를 가져오는 것입니다.
+- 이 과정은 `tensors_dict`에서 확장할 텐서를 가져와 `optimizer`의 각 `param group`에 추가하는 작업을 수행합니다.
+- 여기서 중요한 점은 `group["name"]`을 사용하여 `tensors_dict`에서 올바른 확장 텐서를 가져오는 것입니다.
 
 ### 과정 요약
 
@@ -136,12 +136,12 @@ for group in self.optimizer.param_groups:
 ```
 - 각 param group을 순회하면서, 해당 그룹에 하나의 파라미터만 있는지 확인합니다.
 
-2. tensors_dict에서 확장 텐서 가져오기:
+2. `tensors_dict`에서 확장 텐서 가져오기:
 ```python
     extension_tensor = tensors_dict[group["name"]]
 ```
-- group["name"]을 사용하여 tensors_dict에서 일치하는 키의 확장 텐서를 가져옵니다.
-- 예를 들어, group["name"]이 'layer1'이면, tensors_dict['layer1']의 값을 extension_tensor로 가져옵니다.
+- `group["name"]`을 사용하여 `tensors_dict`에서 일치하는 키의 확장 텐서를 가져옵니다.
+- 예를 들어, `group["name"]`이 `'layer1'`이면, `tensors_dict['layer1']`의 값을 `extension_tensor`로 가져옵니다.
 
 3. 파라미터 확장 및 추가:
 ```python
@@ -157,13 +157,13 @@ for group in self.optimizer.param_groups:
         group["params"][0] = nn.Parameter(torch.cat((group["params"][0], extension_tensor), dim=0).requires_grad_(True))
         optimizable_tensors[group["name"]] = group["params"][0]
 ```
-- 가져온 extension_tensor를 사용하여 기존 파라미터를 확장합니다.
+- 가져온 `extension_tensor`를 사용하여 기존 파라미터를 확장합니다.
 - 확장된 파라미터는 학습 가능한 파라미터로 설정되고, optimizer의 상태가 갱신됩니다.
 
 ### 최종 요약
-- group["name"]을 통해 tensors_dict에서 올바른 확장 텐서를 가져옵니다.
-- 가져온 확장 텐서를 기존 파라미터에 추가하여 학습 가능한 파라미터로 설정합니다.
-- 이 과정을 통해 각 param group은 tensors_dict에서 가져온 확장 텐서를 포함하게 되어, 학습 과정에서 사용할 수 있게 됩니다.
+- `group["name"]`을 통해 `tensors_dict`에서 올바른 확장 텐서를 가져옵니다.
+- **가져온 확장 텐서를 기존 파라미터에 추가하여 학습 가능한 파라미터로 설정합니다.**
+- 이 과정을 통해 각 `param group`은 `tensors_dict`에서 가져온 확장 텐서를 포함하게 되어, 학습 과정에서 사용할 수 있게 됩니다.
 - 전체 `cat_tensor_to_optimizer` 코드는 아래와 같습니다.
 ```python
 # 3dgs/scene/gaussian_model.py
