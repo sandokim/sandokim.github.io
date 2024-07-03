@@ -129,21 +129,46 @@ print("세 번째 그룹:", optimizer.param_groups[2])
 
 ### 과정 요약
 
-1. Param Group 순회:
+#### 1. Param Group 순회:
 ```python
 for group in self.optimizer.param_groups:
     assert len(group["params"]) == 1
 ```
 - 각 param group을 순회하면서, 해당 그룹에 하나의 파라미터만 있는지 확인합니다.
+  - 각 항목은 다음과 같이 구성되어 있습니다:
+  - params: 하나의 파라미터(리스트 형태로 감싸져 있음).
+  - lr: 학습률.
+  - name: 파라미터 그룹의 이름.
+  ```python
+  l = [
+      {'params': [self._xyz], 'lr': training_args.position_lr_init * self.spatial_lr_scale, "name": "xyz"},
+      {'params': [self._features_dc], 'lr': training_args.feature_lr, "name": "f_dc"},
+      {'params': [self._features_rest], 'lr': training_args.feature_lr / 20.0, "name": "f_rest"},
+      {'params': [self._opacity], 'lr': training_args.opacity_lr, "name": "opacity"},
+      {'params': [self._scaling], 'lr': training_args.scaling_lr, "name": "scaling"},
+      {'params': [self._rotation], 'lr': training_args.rotation_lr, "name": "rotation"}
+  ]
+  ```
+  ```python
+  for group in self.optimizer.param_groups:
+    assert len(group["params"]) == 1
+  ```
+  - 이 조건이 성립하는 이유는, 각 param group의 params 항목이 항상 하나의 파라미터 리스트를 포함하고 있기 때문입니다. 예를 들어, 첫 번째 항목을 보면:
+  ```css
+  {'params': [self._xyz], 'lr': training_args.position_lr_init * self.spatial_lr_scale, "name": "xyz"}
+  ```
+  - 여기서 `params`는 `[self._xyz]`로, **리스트 안에 단 하나의 파라미터 `self._xyz`만 포함**하고 있습니다.
+  - 다른 항목들도 마찬가지로 params 리스트에 하나의 파라미터만 포함하고 있습니다.
+  
 
-2. `tensors_dict`에서 확장 텐서 가져오기:
+#### 2. `tensors_dict`에서 확장 텐서 가져오기:
 ```python
     extension_tensor = tensors_dict[group["name"]]
 ```
 - `group["name"]`을 사용하여 `tensors_dict`에서 일치하는 키의 확장 텐서를 가져옵니다.
 - 예를 들어, `group["name"]`이 `'layer1'`이면, `tensors_dict['layer1']`의 값을 `extension_tensor`로 가져옵니다.
 
-3. 파라미터 확장 및 추가:
+#### 3. 파라미터 확장 및 추가:
 ```python
     stored_state = self.optimizer.state.get(group['params'][0], None)
     if stored_state is not None:
