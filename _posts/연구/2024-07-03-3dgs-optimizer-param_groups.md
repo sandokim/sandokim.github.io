@@ -116,7 +116,40 @@ print("세 번째 그룹:", optimizer.param_groups[2])
 ```css
 세 번째 그룹: {'params': [Parameter containing: tensor([...]), Parameter containing: tensor([...]), Parameter containing: tensor([...])], 'lr': 0.01, 'name': 'shared_weights'}
 ```
-- 위 출력은 **세 번째 param group에 여러 파라미터가 포함되**어 있는 것을 보여줍니다. **이 그룹 내 모든 파라미터는 동일한 학습률 0.01을 사용합니다.**
+- 위 출력은 **세 번째 param group에 여러 파라미터가 포함**되어 있는 것을 보여줍니다. **이 그룹 내 모든 파라미터는 동일한 학습률 0.01을 사용합니다.**
+
+### Optimizer의 param_groups 초기화 및 초기 상태
+
+- **PyTorch에서 optimizer를 초기화할 때, 각 param_group에 대한 텐서의 초기 상태는 보통 0으로 시작합니다. **
+- 이는 특히 Adam과 같은 모멘텀 기반 Optimizer에서 중요합니다. 
+- 이런 Optimizer들은 파라미터 업데이트를 위해 과거 그라디언트의 지수 이동 평균(exponential moving average)을 추적하기 때문입니다.
+
+```python
+import torch.optim as optim
+
+# 모델 정의
+model = torch.nn.Linear(2, 2)
+
+# Optimizer 초기화
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+```
+
+- 이 초기화 과정에서 Adam 옵티마이저는 각 파라미터에 대해 다음과 같은 상태 값을 생성합니다:
+
+- exp_avg (그라디언트의 지수 이동 평균): 0으로 초기화
+- exp_avg_sq (그라디언트 제곱의 지수 이동 평균): 0으로 초기화
+
+#### optimizer.state의 초기 상태
+- 초기화된 옵티마이저의 상태는 다음과 같습니다:
+
+```python
+for group in optimizer.param_groups:
+    for param in group['params']:
+        state = optimizer.state[param]
+        state['exp_avg'] = torch.zeros_like(param)
+        state['exp_avg_sq'] = torch.zeros_like(param)
+```
+
 
 --------
 
@@ -126,6 +159,11 @@ print("세 번째 그룹:", optimizer.param_groups[2])
 
 - 이 과정은 `tensors_dict`에서 확장할 텐서를 가져와 `optimizer`의 각 `param group`에 추가하는 작업을 수행합니다.
 - 여기서 중요한 점은 `group["name"]`을 사용하여 `tensors_dict`에서 올바른 확장 텐서를 가져오는 것입니다.
+- Optimizer가 초기화될 때, 각 파라미터의 상태는 0으로 초기화됩니다.
+- **`optimizer.state`는 각 파라미터의 모멘텀, 지수 이동 평균 등을 포함하며, 초기값은 0입니다.**
+- `cat_tensors_to_optimizer` 메서드에서 `stored_state`가 존재하면 확장 텐서를 추가하고, 초기 상태를 업데이트합니다.
+- `stored_state`가 없으면 새로운 파라미터를 생성하고 초기 상태를 설정합니다.
+- 이렇게 초기화된 상태는 모델 학습 초기에 `optimizer`가 적절하게 파라미터를 업데이트할 수 있도록 합니다.
 
 ### 과정 요약
 
@@ -184,12 +222,40 @@ for group in self.optimizer.param_groups:
 ```
 - 가져온 `extension_tensor`를 사용하여 기존 파라미터를 확장합니다.
 - 확장된 파라미터는 학습 가능한 파라미터로 설정되고, `optimizer`의 상태가 갱신됩니다.
+- 초기화 설명
+  - `stored_state`가 `None`인 경우:
+   ```python
+    group["params"][0] = nn.Parameter(torch.cat((group["params"][0], extension_tensor), dim=0).requires_grad_(True))
+    optimizable_tensors[group["name"]] = group["params"][0]
+   ```
+   - 새로운 파라미터가 생성됩니다:
+     - torch.cat((group["params"][0], extension_tensor), dim=0)를 통해 기존 파라미터와 확장 텐서가 결합됩니다.
+     - 이 결합된 텐서는 새로운 파라미터로 정의됩니다.
+   - requires_grad_(True)를 호출하여 이 파라미터가 학습 가능하도록 설정합니다.
+   - 이 새로운 파라미터는 optimizable_tensors 딕셔너리에 추가됩니다.
+
+  - `stored_state`가 존재하는 경우:
+    ```python
+    stored_state["exp_avg"] = torch.cat((stored_state["exp_avg"], torch.zeros_like(extension_tensor)), dim=0)
+    stored_state["exp_avg_sq"] = torch.cat((stored_state["exp_avg_sq"], torch.zeros_like(extension_tensor)), dim=0)
+    del self.optimizer.state[group['params'][0]]
+    group["params"][0] = nn.Parameter(torch.cat((group["params"][0], extension_tensor), dim=0).requires_grad_(True))
+    self.optimizer.state[group['params'][0]] = stored_state
+    optimizable_tensors[group["name"]] = group["params"][0]
+    ```
+    - 기존 파라미터의 상태(stored_state)가 존재하는 경우:
+      - exp_avg와 exp_avg_sq를 확장하여 추가합니다.
+      - 기존 파라미터를 삭제하고 확장된 텐서로 대체합니다.
+      - 새로운 파라미터를 optimizer 상태에 추가하여 갱신합니다.
+    - 이렇게 하면 기존의 학습 상태를 유지하면서 새로운 파라미터가 추가됩니다.
+
 
 ### 최종 요약
 - `group["name"]`을 통해 `tensors_dict`에서 올바른 확장 텐서를 가져옵니다.
 - **가져온 확장 텐서를 기존 파라미터에 추가하여 학습 가능한 파라미터로 설정합니다.**
 - 이 과정을 통해 각 `param group`은 `tensors_dict`에서 가져온 확장 텐서를 포함하게 되어, 학습 과정에서 사용할 수 있게 됩니다.
 - 전체 `cat_tensor_to_optimizer` 코드는 아래와 같습니다.
+  
 ```python
 # 3dgs/scene/gaussian_model.py
 
