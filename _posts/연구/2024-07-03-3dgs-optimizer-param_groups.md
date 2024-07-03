@@ -106,16 +106,18 @@ optimizer = optim.SGD([
 print("세 번째 그룹:", optimizer.param_groups[2])
 ```
 
+- 출력값:
+```css
+세 번째 그룹: {'params': [Parameter containing: tensor([...]), Parameter containing: tensor([...]), Parameter containing: tensor([...])], 'lr': 0.01, 'name': 'shared_weights'}
+```
+- 위 출력은 **세 번째 param group에 여러 파라미터가 포함되**어 있는 것을 보여줍니다. **이 그룹 내 모든 파라미터는 동일한 학습률 0.01을 사용합니다.**
+
 - model은 네 개의 레이어를 가진 신경망입니다.
 - optimizer는 세 개의 param group을 가지고 있습니다.
 - 첫 번째 그룹(layer1): model[0]의 파라미터를 포함하며, 학습률이 0.01로 설정됩니다.
 - 두 번째 그룹(layer2): model[2]의 파라미터를 포함하며, 학습률이 0.001로 설정됩니다.
-- 세 번째 그룹(shared_weights): model[0].weight, model[2].weight, model[3].weight 파라미터를 포함하며, 학습률이 0.01로 설정됩니다.
+- **세 번째 그룹(shared_weights): model[0].weight, model[2].weight, model[3].weight 파라미터를 포함하며, 학습률이 0.01로 설정됩니다.**
 
-```css
-세 번째 그룹: {'params': [Parameter containing: tensor([...]), Parameter containing: tensor([...]), Parameter containing: tensor([...])], 'lr': 0.01, 'name': 'shared_weights'}
-```
-- 위 출력은 세 번째 param group에 여러 파라미터가 포함되어 있는 것을 보여줍니다. 이 그룹 내 모든 파라미터는 동일한 학습률 0.01을 사용합니다.
 
 
 ## 3dgs에서 cat_tensors_to_optimizer를 해석해봅시다.
