@@ -63,6 +63,7 @@ optimizer = optim.SGD([
 print("첫 번째 그룹:", optimizer.param_groups[0])
 # 두 번째 param group 출력
 print("두 번째 그룹:", optimizer.param_groups[1])
+
 ```
 
 - 출력값:
@@ -74,6 +75,47 @@ print("두 번째 그룹:", optimizer.param_groups[1])
 - 첫 번째 param group은 params, lr, name 키를 포함하고 있습니다. params 키는 이 그룹에 포함된 파라미터를 나타내고, lr은 학습률, name은 그룹의 이름입니다.
 - 두 번째 param group도 동일한 구조를 가지며, 각각의 설정이 다릅니다.
 - 이런 방식으로 PyTorch에서 모델의 학습률을 세밀하게 조절하여 효율적인 학습을 수행할 수 있습니다.
+
+### 여러 파라미터가 있는 경우 예시
+- PyTorch에서 optimizer의 param group에 여러 파라미터를 포함할 수도 있습니다.
+- 이를 통해 특정 하이퍼파라미터(예: learning rate)를 동일하게 적용하고자 하는 경우에 유용합니다.
+  
+아래는 여러 파라미터를 하나의 param group에 포함시키는 예시입니다:
+
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# 모델 정의
+model = nn.Sequential(
+    nn.Linear(2, 2),
+    nn.ReLU(),
+    nn.Linear(2, 1),
+    nn.Linear(2, 1)
+)
+
+# 여러 파라미터를 하나의 그룹으로 설정
+optimizer = optim.SGD([
+    {'params': model[0].parameters(), 'lr': 0.01, 'name': 'layer1'},  # 첫 번째 Linear 레이어
+    {'params': model[2].parameters(), 'lr': 0.001, 'name': 'layer2'},  # 두 번째 Linear 레이어
+    {'params': [model[0].weight, model[2].weight, model[3].weight], 'lr': 0.01, 'name': 'shared_weights'}  # 여러 파라미터 그룹
+], lr=0.01)
+
+# 세 번째 param group 출력
+print("세 번째 그룹:", optimizer.param_groups[2])
+```
+
+- model은 네 개의 레이어를 가진 신경망입니다.
+- optimizer는 세 개의 param group을 가지고 있습니다.
+- 첫 번째 그룹(layer1): model[0]의 파라미터를 포함하며, 학습률이 0.01로 설정됩니다.
+- 두 번째 그룹(layer2): model[2]의 파라미터를 포함하며, 학습률이 0.001로 설정됩니다.
+- 세 번째 그룹(shared_weights): model[0].weight, model[2].weight, model[3].weight 파라미터를 포함하며, 학습률이 0.01로 설정됩니다.
+
+```css
+세 번째 그룹: {'params': [Parameter containing: tensor([...]), Parameter containing: tensor([...]), Parameter containing: tensor([...])], 'lr': 0.01, 'name': 'shared_weights'}
+```
+- 위 출력은 세 번째 param group에 여러 파라미터가 포함되어 있는 것을 보여줍니다. 이 그룹 내 모든 파라미터는 동일한 학습률 0.01을 사용합니다.
 
 
 ## 3dgs에서 cat_tensors_to_optimizer를 해석해봅시다.
@@ -130,6 +172,7 @@ class GaussianModel:
         return optimizable_tensors
 ```
 
+- 
 
 
 ### Reference
