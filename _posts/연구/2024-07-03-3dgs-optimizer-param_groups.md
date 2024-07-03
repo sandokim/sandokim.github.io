@@ -120,7 +120,7 @@ print("세 번째 그룹:", optimizer.param_groups[2])
 
 ### Optimizer의 param_groups 초기화 및 초기 상태
 
-- **PyTorch에서 optimizer를 초기화할 때, 각 param_group에 대한 텐서의 초기 상태는 보통 0으로 시작합니다. **
+- **PyTorch에서 optimizer를 초기화할 때, 각 param_group에 대한 텐서의 초기 상태는 보통 0으로 시작합니다.**
 - 이는 특히 Adam과 같은 모멘텀 기반 Optimizer에서 중요합니다. 
 - 이런 Optimizer들은 파라미터 업데이트를 위해 과거 그라디언트의 지수 이동 평균(exponential moving average)을 추적하기 때문입니다.
 
@@ -325,6 +325,41 @@ class GaussianModel:
 
         return optimizable_tensors
 ```
+
+## optimizer.param_groups의 "name'을 알고 있으면, 우리가 원하는 3d gaussian들의 property만 골라서 학습률 업데이트가 가능합니다.
+
+- 모든 3d gaussian들의 property는 이처럼 optimizer의 param_group으로 나누고
+
+```python
+l = [
+{'params': [self._xyz], 'lr': training_args.position_lr_init * self.spatial_lr_scale, "name": "xyz"},
+{'params': [self._features_dc], 'lr': training_args.feature_lr, "name": "f_dc"},
+{'params': [self._features_rest], 'lr': training_args.feature_lr / 20.0, "name": "f_rest"},
+{'params': [self._opacity], 'lr': training_args.opacity_lr, "name": "opacity"},
+{'params': [self._scaling], 'lr': training_args.scaling_lr, "name": "scaling"},
+{'params': [self._rotation], 'lr': training_args.rotation_lr, "name": "rotation"}
+]
+
+self.optimizer = torch.optim.Adam(l, lr=0.0, eps=1e-15)
+```
+
+- "name"으로 특정 param_group에 접근하여 optimize 합니다.
+- 아래 예시에서는 `xyz`의 `name`을 가진 param_group에서 `iteration`을 조건으로 `lr`을 업데이트합니다.
+
+```python
+# 3dgs/scene/gaussian_model.py
+
+class GaussianModel:
+
+...
+
+    def update_learning_rate(self, iteration):
+        ''' Learning rate scheduling per step '''
+        for param_group in self.optimizer.param_groups:
+            if param_group["name"] == "xyz":
+                lr = self.xyz_scheduler_args(iteration)
+                param_group['lr'] = lr
+                return lr
 
 
 
