@@ -274,6 +274,7 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f87d491e-1d43-4c81-a019-590f5e5b5124" alt="Image">
 </p>
 
+- 위 그림에서 `w2c`이란 설명은 틀렸고, `c2w`가 맞습니다. 이유는 다음과 같습니다.
 - `wcs=np.eyes(4)`로 Identity matrix로 정의하고, nerf의 `transform_matrix`를 그대로 plot해보면 `pose`가 `wcs`를 빙 둘러싼 모양으로 나옵니다.
 - 방금 우리가 plot한 것은 **`wcs`에서 camera의 위치는 어디인가?** 라는 것과 같습니다.
 - 따라서 이는 `camera의 좌표계 혹은 pose`를 `world 좌표계`에서 봤을 때, 카메라들이 어디에 위치하는지를 plot한 것입니다.
