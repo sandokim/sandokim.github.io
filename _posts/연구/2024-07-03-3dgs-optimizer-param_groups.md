@@ -223,18 +223,18 @@ for group in self.optimizer.param_groups:
 - 가져온 `extension_tensor`를 사용하여 기존 파라미터를 확장합니다.
 - 확장된 파라미터는 학습 가능한 파라미터로 설정되고, `optimizer`의 상태가 갱신됩니다.
 - 초기화 설명
-  - `stored_state`가 `None`인 경우:
+  #### 1. `stored_state`가 `None`인 경우:
    ```python
     group["params"][0] = nn.Parameter(torch.cat((group["params"][0], extension_tensor), dim=0).requires_grad_(True))
     optimizable_tensors[group["name"]] = group["params"][0]
    ```
    - 새로운 파라미터가 생성됩니다:
-     - torch.cat((group["params"][0], extension_tensor), dim=0)를 통해 기존 파라미터와 확장 텐서가 결합됩니다.
+     - `torch.cat((group["params"][0], extension_tensor), dim=0)`를 통해 기존 파라미터와 확장 텐서가 결합됩니다.
      - 이 결합된 텐서는 새로운 파라미터로 정의됩니다.
-   - requires_grad_(True)를 호출하여 이 파라미터가 학습 가능하도록 설정합니다.
-   - 이 새로운 파라미터는 optimizable_tensors 딕셔너리에 추가됩니다.
+   - `requires_grad_(True)`를 호출하여 이 파라미터가 학습 가능하도록 설정합니다.
+   - 이 새로운 파라미터는 `optimizable_tensors` 딕셔너리에 추가됩니다.
 
-  - `stored_state`가 존재하는 경우:
+  #### 2. `stored_state`가 존재하는 경우:
     ```python
     stored_state["exp_avg"] = torch.cat((stored_state["exp_avg"], torch.zeros_like(extension_tensor)), dim=0)
     stored_state["exp_avg_sq"] = torch.cat((stored_state["exp_avg_sq"], torch.zeros_like(extension_tensor)), dim=0)
@@ -243,10 +243,10 @@ for group in self.optimizer.param_groups:
     self.optimizer.state[group['params'][0]] = stored_state
     optimizable_tensors[group["name"]] = group["params"][0]
     ```
-    - 기존 파라미터의 상태(stored_state)가 존재하는 경우:
-      - exp_avg와 exp_avg_sq를 확장하여 추가합니다.
+    - 기존 파라미터의 상태(`stored_state`)가 존재하는 경우:
+      - `exp_avg`와 `exp_avg_sq`를 확장하여 추가합니다.
       - 기존 파라미터를 삭제하고 확장된 텐서로 대체합니다.
-      - 새로운 파라미터를 optimizer 상태에 추가하여 갱신합니다.
+      - 새로운 파라미터를 `optimizer` 상태에 추가하여 갱신합니다.
     - 이렇게 하면 기존의 학습 상태를 유지하면서 새로운 파라미터가 추가됩니다.
 
 
