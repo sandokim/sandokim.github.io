@@ -73,6 +73,7 @@ $$
 2) `C2W (camera to world)`에 inverse를 취하여 다시 `W2C (world to camera)` 변환을 얻어주어 사용합니다.
 
 - `getWorld2View(R, t)`는 단순히 `W2C`을 구성하는 `R`, `t`로 `W2C (world to camera)` 4x4 변환을 반환하는 함수
+  
 ```python
 # 3dgs/utils/graphics_utils.py
 
