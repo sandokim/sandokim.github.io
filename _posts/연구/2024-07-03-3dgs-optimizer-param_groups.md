@@ -155,6 +155,20 @@ for group in optimizer.param_groups:
 
 ## 3dgs에서 `cat_tensors_to_optimizer` 함수수를 해석해봅시다.
 
+- 3D Gaussian Splatting에서는 아래와 같이 param_groups를 정의하여 gaussian property 별로 optimize를 수행합니다.
+- opacties에 대한 threshold를 설정하여 pruning하는 것, mask를 씌워 pruning하는 것도 모두 optimizer.param_groups에서 group의 name에 해당하는 optmizer에 대한 업데이트를 진행하게 됩니다.
+
+```python
+        l = [
+            {'params': [self._xyz], 'lr': training_args.position_lr_init * self.spatial_lr_scale, "name": "xyz"},
+            {'params': [self._features_dc], 'lr': training_args.feature_lr, "name": "f_dc"},
+            {'params': [self._features_rest], 'lr': training_args.feature_lr / 20.0, "name": "f_rest"},
+            {'params': [self._opacity], 'lr': training_args.opacity_lr, "name": "opacity"},
+            {'params': [self._scaling], 'lr': training_args.scaling_lr, "name": "scaling"},
+            {'params': [self._rotation], 'lr': training_args.rotation_lr, "name": "rotation"}
+        ]
+```
+
 ### `tensors_dict`와 `group["name"]`을 통한 텐서 추가 과정 요약
 
 - 이 과정은 `tensors_dict`에서 확장할 텐서를 가져와 `optimizer`의 각 `param group`에 추가하는 작업을 수행합니다.
