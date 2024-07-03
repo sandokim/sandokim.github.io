@@ -42,6 +42,10 @@ distCUDA2(const torch::Tensor& points)
 ```
 - `SimpleKNN::knn`은 `simple_knn.cu`에 정의되어 있으며, 최근접 `K`개의 이웃을 구할땐 `updateKBest<K>` 호출을 통해 이루어집니다.
 - 이때 `updateKBest<3>`을 호출하도록 하드코딩되어 있고 이 부분에서 **3개의 최근접 이웃을 사용**하고 있음을 확인 가능합니다.
+- 결론적으로 아래 코드에서 `dist2`는 `distCUDA2`로 point마다 3개의 nearest neighbor point의 평균 거를 의미합니다.
+- `dist2`로 3d gaussian의 scale을 isotropic하게 initialize하고 있습니다.
+
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/031fa214-d612-487f-956c-bf2923c6695b)
 
 ```python
 # 3dgs/scene/gaussian_model.py
@@ -76,9 +80,6 @@ class GaussianModel:
         self._rotation = nn.Parameter(rots.requires_grad_(True))
         self._opacity = nn.Parameter(opacities.requires_grad_(True))
         self.max_radii2D = torch.zeros((self.get_xyz.shape[0]), device="cuda")
-
-
-
 ```
 
 
