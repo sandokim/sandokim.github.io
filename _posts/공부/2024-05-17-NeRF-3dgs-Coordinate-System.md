@@ -259,13 +259,18 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/b255e68d-bfd9-48e0-a1e1-61e0fbec1820" alt="Image">
 </p>
 
+- Custom dataset에서 구한 것도 `camera to face`를 `wcs=np.eyes(4)`인 좌표에서 plot한 것이므로 `c2f`은 nerf 용어로는 `c2w`와 같습니다.
 
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f87d491e-1d43-4c81-a019-590f5e5b5124" alt="Image">
 </p>
 
-- nerf의 `transform_matrix`는 `camera to world`가 아닌 `world to camera`로 정의되어 있음을 확인가능합니다.
-- 그러나 3dgs에서는 주석으로 `world to camera`에 대한 변환인 `transform_matrix`를 `c2w`라는 주석으로 달아놔서 혼란을 가중시킵니다.
+- `wcs=np.eyes(4)`로 Identity matrix로 정의하고, nerf의 `transform_matrix`를 그대로 plot해보면 `pose`가 `wcs`를 빙 둘러싼 모양으로 나옵니다.
+- 방금 우리가 plot한 것은 **`wcs`에서 camera의 위치는 어디인가?** 라는 것과 같습니다.
+- 따라서 이는 camera의 좌표계를 world 좌표계에서 봤을 때, 어디에 위치하는지를 plot한 것입니다.
+- 결론적으로, `camera to world, c2w`로 해석됩니다.
+- 3dgs에서는 주석으로 `camera-to-world`에 대한 변환인 `transform_matrix`를 `c2w`라는 주석으로 달아놓은 것을 확인가능합니다.
+  
 ```python
 # 3dgs/scene/dataset_readers.py
 
@@ -293,5 +298,5 @@ def readCamerasFromTransforms(path, transformsfile, white_background, extension=
             T = w2c[:3, 3]
 ```
 
-- 이는 사람에 따라 `world에서 camera로의 변환`을 `camera-to-world, c2w`라고 표기하기도 하므로 나타나는 차이입니다.
+- 중요한 점은 사람에 따라 `world에서 camera로의 변환`을 `c2w`라고 표기할수도 있으므로 주의해야합니다.
 - 따라서 항상 `c2w`, `w2c`이 의미하는게 무엇인지 제대로 체크하고 넘어가야합니다.
