@@ -24,7 +24,7 @@ classes: wide
 
 ## NeRF의 Coordinate System을 이해해보자
 
-### 주의: $^{C}{T}_W$ = world-to-camera = `w2c`, $^{W}{T}_C$ = camera-to-world = `c2w `
+### 주의: $^{C}{T}_W$ = world-to-camera = `w2c`, $^{W}{T}_C$ = camera-to-world = `c2w`
 
 - 좌표계 변환에서 수식을 읽을 때는, 우측하단의 좌표계에서 좌측상단의 좌표계로 이동하는 변환으로 정의됩니다.
 - $^{C}{T}_W$는 따라서 우측하단의 World Coordinate System에서 좌측상단의 Camera Coordinate System으로의 변환입니다.
