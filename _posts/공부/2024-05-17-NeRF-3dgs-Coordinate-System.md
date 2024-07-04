@@ -398,7 +398,8 @@ def readCamerasFromTransforms(path, transformsfile, white_background, extension=
 ```
 - 위처럼 CUDA code 연산을 위해, `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms`에서 불러온 `R`을 `R.transpose()`해버린 상태입니다.
 - 따라서 CUDA code가 아닌` transpose`되지 않은 4x4 일반적인 카메라 포즈 연산을 하기위해 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose()`하여 사용합니다.  
-- 즉, `getWorld2View`, `getWorld2View2`에서는 `R`이 `transpose`가 되지 않은 일반직인 4x4 카메라 포즈처럼 계산하기 위해, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
+- 즉, `getWorld2View`에서는 `R`이 `transpose`를 하여 4x4 카메라 포즈로써 계산하기 위해, `dataset_readers.py`에서 `transpose`되었던 `R`을 다시 `R.transpose()`를 하고, `W2C` 형태로 구성하여 반환합니다.
+- `getWorld2View2`는 `R`이 `getWorld2View`처럼 `R.transpose()`하고 최종적으로 `W2C`을 반환하는 것은 동일하지만, 중간에 `W2C`을 `C2W`로 inverse하여 `world coordinate system`에서 `camera의 pose`의 `translate`, `scale` 값으로 조절하고, 이를 다시 inverse한 `W2C`로 반환합니다.
 - `transpose`되지 않은 일반적인 4x4 `W2C`의 형태는 아래와 같습니다.
   
 $$
@@ -409,6 +410,30 @@ R_{31} & R_{32} & R_{33} & T_z \\
 0 & 0 & 0 & 1
 \end{bmatrix}
 $$
+
+```python
+# 3dgs/utils/graphics_utils.py
+
+def getWorld2View(R, t):
+    Rt = np.zeros((4, 4))
+    Rt[:3, :3] = R.transpose()
+    Rt[:3, 3] = t
+    Rt[3, 3] = 1.0
+    return np.float32(Rt)
+
+def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
+    Rt = np.zeros((4, 4))
+    Rt[:3, :3] = R.transpose()
+    Rt[:3, 3] = t
+    Rt[3, 3] = 1.0
+
+    C2W = np.linalg.inv(Rt)
+    cam_center = C2W[:3, 3]
+    cam_center = (cam_center + translate) * scale
+    C2W[:3, 3] = cam_center
+    Rt = np.linalg.inv(C2W)
+    return np.float32(Rt)
+```
 
 - `utils/camera_utils.py`에서도 dataset_readers.py에서 불러올따 `transpose`했던 `R`을 다시 `R.transpose()`하여 일반적인 4X4 형태의 `W2C`으로 저장하고 있습니다.
 - 이때, 이 함수가 넘겨받는 `R,t`는 `C2W`에 해당하므로 inverse를 취하면 `W2C`이 됩니다.
@@ -441,30 +466,6 @@ def camera_to_JSON(id, camera : Camera):
     return camera_entry
 ```
 
-
-```python
-# 3dgs/utils/graphics_utils.py
-
-def getWorld2View(R, t):
-    Rt = np.zeros((4, 4))
-    Rt[:3, :3] = R.transpose()
-    Rt[:3, 3] = t
-    Rt[3, 3] = 1.0
-    return np.float32(Rt)
-
-def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
-    Rt = np.zeros((4, 4))
-    Rt[:3, :3] = R.transpose()
-    Rt[:3, 3] = t
-    Rt[3, 3] = 1.0
-
-    C2W = np.linalg.inv(Rt)
-    cam_center = C2W[:3, 3]
-    cam_center = (cam_center + translate) * scale
-    C2W[:3, 3] = cam_center
-    Rt = np.linalg.inv(C2W)
-    return np.float32(Rt)
-```
 
 ### `getWorld2View`, `getWorld2View2`로 반환된 일반적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`에  `transpose(0, 1)`가 행해집니다.
 ```python
