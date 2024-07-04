@@ -410,6 +410,37 @@ R_{31} & R_{32} & R_{33} & T_z \\
 \end{bmatrix}
 $$
 
+- `utils/camera_utils.py`에서도 dataset_readers.py에서 불러올따 `transpose`했던 `R`을 다시 `R.transpose()`하여 일반적인 4X4 형태의 `W2C`으로 저장하고 있습니다.
+
+```python
+# 3dgs/utils/camera_utils.py
+
+...
+
+def camera_to_JSON(id, camera : Camera):
+    Rt = np.zeros((4, 4))
+    Rt[:3, :3] = camera.R.transpose()
+    Rt[:3, 3] = camera.T
+    Rt[3, 3] = 1.0
+
+    W2C = np.linalg.inv(Rt)
+    pos = W2C[:3, 3]
+    rot = W2C[:3, :3]
+    serializable_array_2d = [x.tolist() for x in rot]
+    camera_entry = {
+        'id' : id,
+        'img_name' : camera.image_name,
+        'width' : camera.width,
+        'height' : camera.height,
+        'position': pos.tolist(),
+        'rotation': serializable_array_2d,
+        'fy' : fov2focal(camera.FovY, camera.height),
+        'fx' : fov2focal(camera.FovX, camera.width)
+    }
+    return camera_entry
+```
+
+
 ```python
 # 3dgs/utils/graphics_utils.py
 
