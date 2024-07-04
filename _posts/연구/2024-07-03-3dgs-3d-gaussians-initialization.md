@@ -128,7 +128,7 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
 
 ```
 
-## `features_dc`에서 RGB 3 channel에 대한 sh 0번째 계수는 `f_dc_0`, `f_dc_1`, `f_dc_2`입니다.
+## `features_dc`에서 `RGB 3 channel에 대한 sh 0번째 계수`는 `f_dc_0`, `f_dc_1`, `f_dc_2`입니다.
 
 - `load_ply`를 보면 sh 0번째 계수에 대한 `features_dc`를 RGB 3 channel에 대해 초기화할 때, `(n_points, RGB 3 channel, 0번째 sh 계수의 수)`를 `(n_points, 3, 1)`로 초기화 하고 있습니다.
 - 그리고 `RGB 3 channel`을 `0, 1, 2`로 인덱싱하여 sh 0번째 계수에 대한값으로 각각 `"f_dc_0"`, `"f_dc_1"`, `"f_dc_2"`로 넣어줍니다.
@@ -155,29 +155,5 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
         features_dc[:, 1, 0] = np.asarray(plydata.elements[0]["f_dc_1"]) # (n_points, G, G에 대한 sh 0번째 계수)
         features_dc[:, 2, 0] = np.asarray(plydata.elements[0]["f_dc_2"]) # (n_points, B, B에 대한 sh 0번째 계수)
 ...
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
