@@ -328,7 +328,7 @@ class Camera(nn.Module):
 - inverse를 취하면 `self.world_view_transform.inverse()`은 `c2w`를 의미하게 됩니다.
 - `c2w`는 **`camera`를 `world coordinate system`으로 좌표변환을 했을 때 camera가 어디에 어떻게 좌표축이 돌아간 상태로 위치하는가?** 를 의미합니다. 이는 `world coordinate system`에서 `camera의 pose`를 의미합니다.
 - `self.world_view_transform.inverse()[3, :3]`는 `world coordinate system`에서 `camera의 pose`중, 마지막 열에 해당하는 `translate`성분이므로, `world coordinate system`에서 `camera_center`를 의미합니다.
-- 이때 일반적으로 4x4 행렬에서 마지막 열인 `translate`를 인덱싱하는 `[:3, 3]`가 아니라 `[3, :3]`으로 코딩된 이유는, CUDA code 연산을 위해 앞에서 `self.world_view_transform`를 `transpose(0, 1)`하였기 때문입니다.
+- 이때 일반적으로 4x4 행렬에서 마지막 열인 `translate`를 인덱싱하는 `[:3, 3]`가 아니라 `[3, :3]`으로 코딩된 이유는, 앞에서 `self.world_view_transform`를 `transpose(0, 1)`하였기 때문입니다.
   ```python
         self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
   ...
@@ -421,12 +421,11 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
     return np.float32(Rt)
 ```
 
-- `getWorld2View`, `getWorld2View2`로 반환된 일반적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`은 또다시 CUDA code 연산을 위해 `transpose()`가 행해집니다.
-- 아래와 같이 `transpose(0, 1)`이후 `cuda()`에 올려지는 것을 확인할 수 있습니다.
+- `getWorld2View`, `getWorld2View2`로 반환된 일반적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`에  `transpose(0, 1)`가 행해집니다.
 ```python
       self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
 ```
-- 같은 맥락으로 `getProjectionMatrix`도 CUDA code 연산을 위해 일반적인 4x4 행렬 형태에서 `transpose(0, 1)`이 됩니다.
+- 같은 맥락으로 `getProjectionMatrix`도 일반적인 4x4 행렬 형태에서 `transpose(0, 1)`가 행해집니다.
 ```python
         self.projection_matrix = getProjectionMatrix(znear=self.znear, zfar=self.zfar, fovX=self.FoVx, fovY=self.FoVy).transpose(0,1).cuda()
 ```
