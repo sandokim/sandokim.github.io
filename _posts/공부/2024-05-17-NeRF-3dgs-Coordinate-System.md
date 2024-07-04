@@ -435,7 +435,7 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
     return np.float32(Rt)
 ```
 
-- `utils/camera_utils.py`에서도 dataset_readers.py에서 불러올따 `transpose`했던 `R`을 다시 `R.transpose()`하여 일반적인 4X4 형태의 `W2C`으로 저장하고 있습니다.
+- `utils/camera_utils.py`에서도 dataset_readers.py에서 불러올때 `transpose`했던 `R`을 다시 `R.transpose()`하여 일반적인 4X4 형태의 `W2C`으로 저장하고 있습니다.
 - 이때, 이 함수가 넘겨받는 `R,t`는 `C2W`에 해당하므로 inverse를 취하면 `W2C`이 됩니다.
 
 ```python
@@ -466,47 +466,73 @@ def camera_to_JSON(id, camera : Camera):
     return camera_entry
 ```
 
+## 4x4 변환행렬에 대해 `transpose(0, 1)`하는 이유 & `batch matrix multiplication`을 하는 이유
 
-### `getWorld2View`, `getWorld2View2`로 반환된 일반적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`에  `transpose(0, 1)`가 행해집니다.
-```python
-      self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
-```
-- transpose된 `w2c`은 아래와 같습니다.
-
-$$
-W2C^T = \begin{bmatrix}
-R_{11} & R_{21} & R_{31} & 0 \\
-R_{12} & R_{22} & R_{32} & 0 \\
-R_{13} & R_{23} & R_{33} & 0 \\
-T_x & T_y & T_z & 1
-\end{bmatrix}
-$$
-
-### 같은 맥락으로 `getProjectionMatrix`도 일반적인 4x4 행렬 형태에서 `transpose(0, 1)`가 행해집니다.
-```python
-        self.projection_matrix = getProjectionMatrix(znear=self.znear, zfar=self.zfar, fovX=self.FoVx, fovY=self.FoVy).transpose(0,1).cuda()
-```
-
-$$
-projection \ matrix ^T = \begin{bmatrix}
-P_{11} & P_{21} & P_{31} & P_{41} \\
-P_{12} & P_{22} & P_{32} & P_{42} \\
-P_{13} & P_{23} & P_{33} & P_{43} \\
-P_{14} & P_{24} & P_{34} & P_{44}
-\end{bmatrix}
-$$
-
-- `self.world_view_transform`는 `world to view`입니다.
-- `self.projection_matrx`는 `view to clip space`입니다.
-- `self.full_proj_transform`은 `world to clip space = world to view @ view to clip space`입니다.
-- 즉, `self.full_proj_transform`은 `wolrd to clip space`입니다.
-- `self.world_view_transform`, `self.projection_matrix`는 모두 `transpose(0, 1)`이 된 상태에서 이 둘을 `batch matrix multilplication, bmm` 연산하여 `self.full_proj_transform`을 얻습니다.
+- `getWorld2View2(R, T, trans, scale)`은 `W2C: World to Camera(=View Space)`인 `(4,4) 변환행렬`을 반환합니다.
+- `self.world_view_transform`는 `W2C`을 받아 `transpose(0, 1)`을 한 `W2C.transpose(0, 1)`인 `(4,4) 변환행렬` 입니다.
+- 이처럼 `transpose(0, 1)`를 하는 이유는 컴퓨터 그래픽스에서 `열 벡터(column vector)`를 연산으로 사용하는 규칙을 따르기 위해서입니다.
 
 ```python
         self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
         self.projection_matrix = getProjectionMatrix(znear=self.znear, zfar=self.zfar, fovX=self.FoVx, fovY=self.FoVy).transpose(0,1).cuda()
         self.full_proj_transform = (self.world_view_transform.unsqueeze(0).bmm(self.projection_matrix.unsqueeze(0))).squeeze(0)
 ```
+
+- `self.world_view_transform`는 `world to view space`입니다.
+  - `view space`랑 `camera space`는 같은 말입니다.
+- `self.projection_matrx`는 `view to clip space`입니다.
+- `self.full_proj_transform`은 `world to clip space = world to view space @ view to clip space`입니다.
+  - 즉, `self.full_proj_transform`은 `world to clip space`입니다.
+- `self.world_view_transform`, `self.projection_matrix`는 모두 컴퓨터 그래픽스 관례에 따라 `transpose(0, 1)`이 된 상태에서 `unsqueeze(0)`하여 배치차원을 추가하고 `batch matrix multilplication, bmm` 연산하고 `squeeze(0)`으로 배치차원을 제거하여 `self.full_proj_transform` `(4,4) 변환행렬`을 얻습니다.
+
+### `transpose(0, 1)을 하는 이유
+- 행렬의 전치(transpose)하는 이유는 그래픽스에서는 보통 좌표 변환을 행렬 곱셈으로 처리합니다.
+- 그러나 연산 규칙상 행 벡터(row vector)를 사용할 때와 열 벡터(column vector)를 사용할 때 차이가 있습니다.
+- OpenGL 등의 그래픽스 라이브러리에서는 열 벡터를 사용하는데, 이 경우 변환 행렬이 오른쪽에 곱해지도록 합니다.
+- 이와 맞추기 위해 변환 행렬을 전치하여 사용하는 경우가 많습니다.
+
+### batch 차원을 굳이 1개 추가하고 bmm을 사용하는 이유
+- `unsqueeze(0)`를 사용하여 `(4, 4)`에서 `(1, 4, 4)`로 변환한 후 `bmm`을 사용하는 이유:
+
+- **통일된 연산 방식**: PyTorch에서 bmm (batch matrix-matrix multiplication) 연산은 (b, n, m)과 (b, m, p) 크기의 텐서 두 개를 입력으로 받아서 (b, n, p) 크기의 텐서를 출력합니다. 여기서 b는 배치 크기를 나타냅니다.
+  - 연산의 일관성을 유지하고 코드의 일반성을 높이기 위해, 단일 행렬 곱셈의 경우에도 배치 차원을 추가하여 bmm을 사용할 수 있습니다.
+- **확장성**: 코드가 단일 행렬 곱셈뿐만 아니라 다수의 행렬 곱셈을 동시에 처리하도록 쉽게 확장될 수 있습니다.
+  - 예를 들어, 여러 개의 world_view_transform과 projection_matrix를 한 번에 곱셈하고자 할 때 유용합니다. 이 경우 배치 크기 b는 곱할 행렬 쌍의 수가 됩니다.
+- **CUDA 효율성**: 배치 연산은 GPU의 병렬 처리 능력을 극대화할 수 있도록 도와줍니다.
+  bmm을 사용하면 여러 행렬 곱셈을 병렬로 수행할 수 있어 계산 속도가 빨라집니다.
+
+코드 예시
+여기서는 단일 행렬 곱셈을 예로 들어 설명합니다:
+
+```python
+import torch
+
+# 예제 행렬
+world_view_transform = torch.tensor([[-7.8894e-01, -1.5001e-01,  5.9588e-01,  0.0000e+00],
+                                     [-6.1447e-01,  1.9260e-01, -7.6507e-01,  0.0000e+00],
+                                     [ 1.9804e-09, -9.6974e-01, -2.4413e-01,  0.0000e+00],
+                                     [ 5.2340e-08, -3.5459e-10,  4.0311e+00,  1.0000e+00]]).cuda()
+
+projection_matrix = torch.tensor([[ 2.7778,  0.0000,  0.0000,  0.0000],
+                                  [ 0.0000,  2.7778,  0.0000,  0.0000],
+                                  [ 0.0000,  0.0000,  1.0001,  1.0000],
+                                  [ 0.0000,  0.0000, -0.0100,  0.0000]]).cuda()
+
+# batch dimension 추가
+world_view_transform = world_view_transform.unsqueeze(0)  # shape: (1, 4, 4)
+projection_matrix = projection_matrix.unsqueeze(0)        # shape: (1, 4, 4)
+
+# bmm을 사용하여 행렬 곱셈 수행
+full_proj_transform = world_view_transform.bmm(projection_matrix)  # shape: (1, 4, 4)
+
+# batch dimension 제거
+full_proj_transform = full_proj_transform.squeeze(0)  # shape: (4, 4)
+
+print(full_proj_transform)
+```
+- **추가 설명**
+  - **단일 행렬 곱셈의 경우**: torch.matmul이나 @ 연산자를 사용해도 되지만, **일관성을 위해 batch 차원을 추가하고 bmm을 사용**합니다.
+  - **여러 행렬 곱셈의 경우**: batch 차원을 추가한 후 bmm을 사용하면 여러 행렬 곱셈을 한 번에 처리할 수 있어 효율적입니다.
 
 
 ------------------
