@@ -250,7 +250,7 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
     return scene_info
 ```
 
---------
+------------------
 
 ## W2C, C2W 시각화
 
