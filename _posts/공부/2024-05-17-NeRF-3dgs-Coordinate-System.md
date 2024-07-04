@@ -334,6 +334,17 @@ class Camera(nn.Module):
   ...
         self.camera_center = self.world_view_transform.inverse()[3, :3]
   ```
+  - `transpose`된 `w2c`인 `self.world_view_transform`에서 `[3, :3]`으로 인덱싱하면 마지막 행을 얻으므로 `translate` 정보를 얻을 수 있습니다.
+  - 아래와 같은 행렬에서 `[T_x, T_y, T_z]`을 인덱싱하여 얻어 `self.camera_center`를 정의하는 것입니다.
+
+$$
+W2C^T = \begin{bmatrix}
+R_{11} & R_{21} & R_{31} & 0 \\
+R_{12} & R_{22} & R_{32} & 0 \\
+R_{13} & R_{23} & R_{33} & 0 \\
+T_x & T_y & T_z & 1
+\end{bmatrix}
+$$
 
 #### 중요한 점은 애초에 불러온 `R`에서부터 CUDA code 연산을 위해 미리 `transpose()`가 되어있습니다.
 - `R`이 `transpose()`된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
