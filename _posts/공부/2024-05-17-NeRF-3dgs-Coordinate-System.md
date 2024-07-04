@@ -347,7 +347,9 @@ T_x & T_y & T_z & 1
 $$
 
 ### `dataset_readers.py`은 `R`에서부터 CUDA code 연산을 위해 미리 `R`이 `transpose()`가 되어있습니다.
+
 - `R`이 `transpose()`된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
+  
 ```python
 # 3dgs/scene/dataset_readers.py
 
