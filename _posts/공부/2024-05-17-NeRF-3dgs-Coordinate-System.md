@@ -22,7 +22,17 @@ use_math: true
 classes: wide
 ---
 
-### NeRF의 Coordinate System을 이해해보자
+## NeRF의 Coordinate System을 이해해보자
+
+### 주의: $^{C}{T}_W$ = world-to-camera = w2c, $^{W}{T}_C$ = camera-to-world = c2w 
+
+- 좌표계 변환에서 수식을 읽을 때는, 우측하단의 좌표계에서 좌측상단의 좌표계로 이동하는 변환으로 정의됩니다.
+- $^{C}{T}_W$는 따라서 우측하단의 World Coordinate System에서 좌측상단의 Camera Coordinate System으로의 변환입니다.
+- 그 의미로 인해 $^{C}{T}_W$는 변수명으로는 world-to-camera인 w2c으로 정의합니다.
+- 반대의 경우도 마찬가지입니다.
+- $^{W}{T}_C$은 우측하단의 Camera Coordinate System에서 좌측상단의 World Coordinate System으로의 변환입니다.
+- 그 의미로 인해 $^{W}{T}_C$는 변수명으로는 camera-to-world인 c2w으로 정의합니다.
+- 코딩 스타일에 따라 w2c를 W2C, c2w를 C2W처럼 대문자로 변수를 쓰는 사람도 있습니다.
 
 ### NeRF 데이터셋은 기본적으로 각 카메라 포즈에 대한 정보는 World에서 각 Camera까지의 변환을 모은 것이라고 생각하면 됩니다.
 
@@ -266,7 +276,7 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f87d491e-1d43-4c81-a019-590f5e5b5124" alt="Image">
 </p>
 
-## $^{C}{T}_W$  = w2c = world-to-camera, $^{W}{T}_C$ = c2w = camera-to-world
+## $^{C}{T}_W$ = world-to-camera = w2c, $^{W}{T}_C$ = camera-to-world = c2w 
 
 - `wcs=np.eyes(4)`로 Identity matrix로 정의하고, nerf의 `transform_matrix`를 그대로 plot해보면 `pose`가 `wcs`를 빙 둘러싼 모양으로 나옵니다.
 - 방금 우리가 plot한 것은 **`wcs`에서 camera의 위치는 어디인가?** 라는 것과 같습니다.
