@@ -151,10 +151,9 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
         opacities = np.asarray(plydata.elements[0]["opacity"])[..., np.newaxis]
 
         features_dc = np.zeros((xyz.shape[0], 3, 1)) # (n_points, RGB 3 channel, (0 + 1) ** 2) = (n_points, 3, 1)
-        features_dc[:, 0, 0] = np.asarray(plydata.elements[0]["f_dc_0"])
-        features_dc[:, 1, 0] = np.asarray(plydata.elements[0]["f_dc_1"])
-        features_dc[:, 2, 0] = np.asarray(plydata.elements[0]["f_dc_2"])
-
+        features_dc[:, 0, 0] = np.asarray(plydata.elements[0]["f_dc_0"]) # (n_points, R, R에 대한 sh 0번쩨 계수)
+        features_dc[:, 1, 0] = np.asarray(plydata.elements[0]["f_dc_1"]) # (n_points, G, G에 대한 sh 0번째 계수)
+        features_dc[:, 2, 0] = np.asarray(plydata.elements[0]["f_dc_2"]) # (n_points, B, B에 대한 sh 0번째 계수)
 ...
 
 ```
