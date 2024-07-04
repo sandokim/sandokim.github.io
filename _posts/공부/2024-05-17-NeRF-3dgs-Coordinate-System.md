@@ -328,7 +328,56 @@ class Camera(nn.Module):
 - inverse를 취하면 `self.world_view_transform.inverse()`은 `c2w`를 의미하게 됩니다.
 - `c2w`는 **`camera`를 `world coordinate system`으로 좌표변환을 했을 때 camera가 어디에 어떻게 좌표축이 돌아간 상태로 위치하는가?** 를 의미합니다. 이는 `world coordinate system`에서 `camera의 pose`를 의미합니다.
 - `self.world_view_transform.inverse()[3, :3]`는 `world coordinate system`에서 `camera의 pose`중, 마지막 열에 해당하는 `translate`성분이므로, `world coordinate system`에서 `camera_center`를 의미합니다.
-- 이때 `[:3, 3]`이 아니라 `[3, :3]`인 이유는, CUDA 연산을 위해 transpose되었기 때문입니다.
+- 이때 `[:3, 3]`이 아니라 `[3, :3]`인 이유는, CUDA 연산을 위해 `R`이 transpose되었기 때문입니다.
+- `R`이 transpose된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
+  ```python
+  # 3dgs/scene/dataset_readers.py
+  
+  def readColmapCameras(cam_extrinsics, cam_intrinsics, images_folder):
+      cam_infos = []
+      for idx, key in enumerate(cam_extrinsics):
+          sys.stdout.write('\r')
+          # the exact output you're looking for:
+          sys.stdout.write("Reading camera {}/{}".format(idx+1, len(cam_extrinsics)))
+          sys.stdout.flush()
+  
+          extr = cam_extrinsics[key]
+          intr = cam_intrinsics[extr.camera_id]
+          height = intr.height
+          width = intr.width
+  
+          uid = intr.id
+          R = np.transpose(qvec2rotmat(extr.qvec))
+          T = np.array(extr.tvec)
+  
+  ...
+  
+  def readCamerasFromTransforms(path, transformsfile, white_background, extension=".png"):
+      cam_infos = []
+  
+      with open(os.path.join(path, transformsfile)) as json_file:
+          contents = json.load(json_file)
+          fovx = contents["camera_angle_x"]
+  
+          frames = contents["frames"]
+          for idx, frame in enumerate(frames):
+              cam_name = os.path.join(path, frame["file_path"] + extension)
+  
+              # NeRF 'transform_matrix' is a camera-to-world transform
+              c2w = np.array(frame["transform_matrix"])
+              # change from OpenGL/Blender camera axes (Y up, Z back) to COLMAP (Y down, Z forward)
+              c2w[:3, 1:3] *= -1
+  
+              # get the world-to-camera transform and set R, T
+              w2c = np.linalg.inv(c2w)
+              R = np.transpose(w2c[:3,:3])  # R is stored transposed due to 'glm' in CUDA code
+              T = w2c[:3, 3]
+  
+  ...
+
+  ```
+
+
 
 ------------------
 
