@@ -328,8 +328,15 @@ class Camera(nn.Module):
 - inverse를 취하면 `self.world_view_transform.inverse()`은 `c2w`를 의미하게 됩니다.
 - `c2w`는 **`camera`를 `world coordinate system`으로 좌표변환을 했을 때 camera가 어디에 어떻게 좌표축이 돌아간 상태로 위치하는가?** 를 의미합니다. 이는 `world coordinate system`에서 `camera의 pose`를 의미합니다.
 - `self.world_view_transform.inverse()[3, :3]`는 `world coordinate system`에서 `camera의 pose`중, 마지막 열에 해당하는 `translate`성분이므로, `world coordinate system`에서 `camera_center`를 의미합니다.
-- 이때 `[:3, 3]`이 아니라 `[3, :3]`인 이유는, CUDA 연산을 위해 `R`이 transpose되었기 때문입니다.
-- `R`이 transpose된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
+- 이때 일반적으로 4x4 행렬에서 마지막 열인 `translate`를 인덱싱하는 `[:3, 3]`가 아니라 `[3, :3]`으로 코딩된 이유는, CUDA code 연산을 위해 앞에서 `self.world_view_transform`를 `transpose(0, 1)`하였기 때문입니다.
+  ```python
+        self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
+  ...
+        self.camera_center = self.world_view_transform.inverse()[3, :3]
+  ```
+
+#### 애초에 불러온 `R`에서부터 `transpose()`가 되어있습니다.
+- `R`이 `transpose()`된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
 - `R`은 그래서 `getWorld2View`, `getWorld2View2`를 계산할 때, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
   ```python
   # 3dgs/scene/dataset_readers.py
@@ -402,7 +409,6 @@ class Camera(nn.Module):
       Rt = np.linalg.inv(C2W)
       return np.float32(Rt)
   ```
-
 
 
 ------------------
