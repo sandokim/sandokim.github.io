@@ -425,10 +425,31 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
 ```python
       self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
 ```
+- transpose된 `w2c`은 아래와 같습니다.
+
+$$
+W2C^T = \begin{bmatrix}
+R_{11} & R_{21} & R_{31} & 0 \\
+R_{12} & R_{22} & R_{32} & 0 \\
+R_{13} & R_{23} & R_{33} & 0 \\
+T_x & T_y & T_z & 1
+\end{bmatrix}
+$$
+
 - 같은 맥락으로 `getProjectionMatrix`도 일반적인 4x4 행렬 형태에서 `transpose(0, 1)`가 행해집니다.
 ```python
         self.projection_matrix = getProjectionMatrix(znear=self.znear, zfar=self.zfar, fovX=self.FoVx, fovY=self.FoVy).transpose(0,1).cuda()
 ```
+
+$$
+projection \ matrix ^T = \begin{bmatrix}
+R_{11} & R_{21} & R_{31} & 0 \\
+R_{12} & R_{22} & R_{32} & 0 \\
+R_{13} & R_{23} & R_{33} & 0 \\
+T_x & T_y & T_z & 1
+\end{bmatrix}
+$$
+
 
 - `self.world_view_transform`는 `world to view`입니다.
 - `self.projection_matrx`는 `view to clip space`입니다.
