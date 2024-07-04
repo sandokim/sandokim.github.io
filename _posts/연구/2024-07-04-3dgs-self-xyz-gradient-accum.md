@@ -19,9 +19,7 @@ use_math: true
 classes: wide
 ---
 
-## `self.xyz_gradient_accum`은 `add_densification_stats`에서 업데이트 됩니다.
-
-- `self.xyz_gradient_accum`은 `self.get_xyz.shape[0]`로 point cloud에서 point의 수인 `n_points 만큼 정의`됩니다.
+## `self.xyz_gradient_accum`은 `self.get_xyz.shape[0]`로 point cloud에서 point의 수인 `n_points 만큼 정의`됩니다.
 
 ```python
 # 3dgs/scene/gaussian_model.py
@@ -41,6 +39,7 @@ class GaussianModel:
         self.xyz_gradient_accum = torch.zeros((self.get_xyz.shape[0], 1), device="cuda")
 ```
 
+## pruning은 optimizable_tensors에 대해 각 param_group을 masking하여 수행합니다.
 
 - `self.xyz_gradient_accum`은 `prune_points()`에서 `valid_points_mask`로 masking이 가능합니다.
   - `_prune_optimizer()`에선 `valid_points_mask`로 prune된 `optimizable_tensors`는 point cloud에서 point 수인 `n_point`의 수에는 변화가 없고 단순히 `[mask]`하여 0으로 만듭니다.
@@ -80,6 +79,8 @@ class GaussianModel:
           self.denom = self.denom[valid_points_mask]
           self.max_radii2D = self.max_radii2D[valid_points_mask]
   ```
+
+## 새로운 3D gaussian properties인 tensor를 추가할 때는, 기존의 optimizer에 각 properties `"name"`에 해당하는는 param_group별로 concat하여 추가합니다.
 
 - `self.xyz_gradient_accum`은 `densification_postfix()`에서 `cat_tensors_to_optimizer(d)`로 확장된 `self._xyz`에 해당하는 point cloud에서 point 수인 `n_points + 추가된 3d gaussian 수만큼 정의`됩니다.
 - `densification_postfix`에서 `new_xyz`, `new_features_dc`, `new_features_rest`, `new_opacities`, `new_scaling`, `new_rotation`을 학습에 추가할 학습가능한 tensor로써 정의합니다
@@ -173,7 +174,7 @@ densification 과정에서 일부 점들이 제거될 수 있습니다. 이 경�
 ### 3. 그래디언트의 정확성 유지
 그래디언트 누적 값을 초기화하지 않으면, 이전 단계에서 누적된 그래디언트 값이 계속 남아있게 되어 새로운 점들에 대한 올바른 그래디언트를 계산하는 데 문제가 생길 수 있습니다. 따라서, densification 후에 xyz_gradient_accum을 초기화하여 다음 최적화 단계에서 정확한 그래디언트를 다시 누적할 수 있도록 합니다.
 
-#### densification_postfix는 `densify_and_clone`과 `densify_and_split`에서 사용됩니다.
+#### `densification_postfix`는 `densify_and_clone`과 `densify_and_split`에서 사용됩니다.
 
 **즉, `densification` 후에 새로운 점들이 추가되거나 기존 점들이 제거된 후에, 기존의 그래디언트 누적 값을 0으로 초기화하여 다음 단계에서 정확한 그래디언트를 다시 누적할 수 있게 합니다.**
 
@@ -256,10 +257,7 @@ class GaussianModel:
 
 ```
 
-
-
-  
-
+## `self.xyz_gradient_accum`은 `add_densification_stats`에서 업데이트 됩니다.
 
 ```python
 # 3dgs/scene/gaussian_model.py
