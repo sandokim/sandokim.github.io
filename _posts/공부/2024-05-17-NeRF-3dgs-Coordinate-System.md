@@ -346,7 +346,7 @@ T_x & T_y & T_z & 1
 \end{bmatrix}
 $$
 
-#### 중요한 점은 애초에 불러온 `R`에서부터 CUDA code 연산을 위해 미리 `transpose()`가 되어있습니다.
+### `dataset_readers.py`은 `R`에서부터 CUDA code 연산을 위해 미리 `R`이 `transpose()`가 되어있습니다.
 - `R`이 `transpose()`된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
 ```python
 # 3dgs/scene/dataset_readers.py
@@ -432,7 +432,7 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
     return np.float32(Rt)
 ```
 
-- `getWorld2View`, `getWorld2View2`로 반환된 일반적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`에  `transpose(0, 1)`가 행해집니다.
+### `getWorld2View`, `getWorld2View2`로 반환된 일반적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`에  `transpose(0, 1)`가 행해집니다.
 ```python
       self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
 ```
@@ -447,7 +447,7 @@ T_x & T_y & T_z & 1
 \end{bmatrix}
 $$
 
-- 같은 맥락으로 `getProjectionMatrix`도 일반적인 4x4 행렬 형태에서 `transpose(0, 1)`가 행해집니다.
+### 같은 맥락으로 `getProjectionMatrix`도 일반적인 4x4 행렬 형태에서 `transpose(0, 1)`가 행해집니다.
 ```python
         self.projection_matrix = getProjectionMatrix(znear=self.znear, zfar=self.zfar, fovX=self.FoVx, fovY=self.FoVy).transpose(0,1).cuda()
 ```
@@ -460,7 +460,6 @@ R_{13} & R_{23} & R_{33} & 0 \\
 T_x & T_y & T_z & 1
 \end{bmatrix}
 $$
-
 
 - `self.world_view_transform`는 `world to view`입니다.
 - `self.projection_matrx`는 `view to clip space`입니다.
