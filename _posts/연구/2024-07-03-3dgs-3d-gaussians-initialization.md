@@ -107,9 +107,9 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
 ### `features_dc`, `features_rest`
 - `features_dc`는 각 점의 색상 정보를 Spherical Harmonics 계수로 변환하여 저장한 텐서입니다.
 - `features_dc`는 초기화 시 RGB 색상의 DC(Direct Component) 계수만을 포함하며, 나머지 SH 계수들은 features_rest에 저장됩니다.
-- `features`는 `(n_points, RGB 3 channel, sh 계수의 수)`의 shape으로 0으로 초기화됩니다.
+- `features`는 `(fused_colors.shape[0], 3, (self.max_sh_degree + 1) ** 2)`인 `(n_points, RGB 3 channel, sh 계수의 수)`의 shape으로 0으로 초기화됩니다.
 - `features[:, :3, 0 ] = fused_color`는 sh 0번째 계수에 대한 값을 `RGB2SH`로 넣어줍니다.
-- `features[:, 3:, 1:] = 0.0`는 사실상 RGB 3 channel에 대한 인덱싱을 넘어갔으므로 아무효과가 없습니다. 단순히 sh 1번째~44번째 계수에 대한 초기값이 0.0이라는 것을 명시하는 것으로 보입니다.
+- `features[:, 3:, 1:] = 0.0`는 사실상 RGB 3 channel에 대해 3차원 이상으로 인덱싱이 넘어갔으므로 아무효과가 없습니다. 마지막에 `1:`의 인덱싱을 명시하여 단순히 sh 1번째~44번째 계수에 대한 초기값이 0.0이라는 것을 `features`를 `zeros`로 초기화했음에도, 한번 더 명시하는 것으로 보입니다.
 
 ```python
 # 3dgs/scene/gaussian_model.py
@@ -123,6 +123,8 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
         features = torch.zeros((fused_color.shape[0], 3, (self.max_sh_degree + 1) ** 2)).float().cuda()
         features[:, :3, 0 ] = fused_color # (n_points, RGB 3 channel, sh 0번째 계수)
         features[:, 3:, 1:] = 0.0 # (n_points, RGB 3 channel의 인덱싱 범위를 넘어감, sh 1번째~44번째 계수)
+
+...
 
 ```
 
