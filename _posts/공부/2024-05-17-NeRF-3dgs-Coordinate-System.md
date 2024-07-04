@@ -435,7 +435,7 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
 - `self.projection_matrx`는 `view to clip space`입니다.
 - `self.full_proj_transform`은 `world to clip space = world to view @ view to clip space`입니다.
 - 즉, `self.full_proj_transform`은 `wolrd to clip space`입니다.
-- `self.world_view_transform`, `self.projection_matrix`는 모두 `transpose(0, 1)`이 된 상태이므로, 이 상태에서 둘을 `batch matrix multilplication, bmm` 연산하여 `self.full_proj_transform`을 얻습니다.
+- `self.world_view_transform`, `self.projection_matrix`는 모두 `transpose(0, 1)`이 된 상태에서 이 둘을 `batch matrix multilplication, bmm` 연산하여 `self.full_proj_transform`을 얻습니다.
 
 ```python
         self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
