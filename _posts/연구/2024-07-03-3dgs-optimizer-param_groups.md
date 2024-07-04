@@ -401,45 +401,45 @@ def replace_tensor_to_optimizer(self, tensor, name):
   - name: 교체할 파라미터 그룹의 이름입니다.
 
 ### 동작 과정
-1. 초기화: 최종적으로 반환할 딕셔너리를 초기화합니다.
+**1. 초기화**: 최종적으로 반환할 딕셔너리를 초기화합니다.
 ```python
 optimizable_tensors = {}
 ```
 
-2. 옵티마이저 파라미터 그룹 순회: 옵티마이저의 파라미터 그룹을 하나씩 순회합니다.
+**2. 옵티마이저 파라미터 그룹 순회**: 옵티마이저의 파라미터 그룹을 하나씩 순회합니다.
 ```python
 for group in self.optimizer.param_groups:
 ```
 
-3. 지정된 이름과 일치하는 그룹 찾기: 현재 그룹의 이름이 지정된 `name`과 일치하는지 확인합니다.
+**3. 지정된 이름과 일치하는 그룹 찾기**: 현재 그룹의 이름이 지정된 `name`과 일치하는지 확인합니다.
 ```python
 if group["name"] == name:
 ```
 
-4. 기존 상태 저장: 현재 파라미터의 옵티마이저 상태(모멘텀 등)를 가져옵니다.
+**4. 기존 상태 저장**: 현재 파라미터의 옵티마이저 상태(모멘텀 등)를 가져옵니다.
 ```python
 stored_state = self.optimizer.state.get(group['params'][0], None)
 ```
 
-5. 상태 초기화: 새로운 텐서 크기에 맞춰 모멘텀 등의 상태를 초기화합니다.
+**5. 상태 초기화**: 새로운 텐서 크기에 맞춰 모멘텀 등의 상태를 초기화합니다.
 ```python
 stored_state["exp_avg"] = torch.zeros_like(tensor)
 stored_state["exp_avg_sq"] = torch.zeros_like(tensor)
 ```
 
-6. 기존 파라미터 제거 및 교체: 기존 파라미터를 옵티마이저 상태에서 제거하고, 새로운 텐서로 교체합니다. 새로운 파라미터를 옵티마이저 상태에 추가합니다.
+**6. 기존 파라미터 제거 및 교체**: 기존 파라미터를 옵티마이저 상태에서 제거하고, 새로운 텐서로 교체합니다. 새로운 파라미터를 옵티마이저 상태에 추가합니다.
 ```python
 del self.optimizer.state[group['params'][0]]
 group["params"][0] = nn.Parameter(tensor.requires_grad_(True))
 self.optimizer.state[group['params'][0]] = stored_state
 ```
 
-7. 교체된 텐서 저장: 교체된 파라미터를 딕셔너리에 저장합니다.
+**7. 교체된 텐서 저장**: 교체된 파라미터를 딕셔너리에 저장합니다.
 ```python
 교체된 파라미터를 딕셔너리에 저장합니다.
 ```
 
-8. 딕셔너리 반환: 최종적으로 교체된 텐서를 포함한 딕셔너리를 반환합니다.
+**8. 딕셔너리 반환**: 최종적으로 교체된 텐서를 포함한 딕셔너리를 반환합니다.
 ```python
 return optimizable_tensors
 ```
