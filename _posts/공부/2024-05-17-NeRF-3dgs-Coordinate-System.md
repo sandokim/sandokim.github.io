@@ -411,6 +411,7 @@ R_{31} & R_{32} & R_{33} & T_z \\
 $$
 
 - `utils/camera_utils.py`에서도 dataset_readers.py에서 불러올따 `transpose`했던 `R`을 다시 `R.transpose()`하여 일반적인 4X4 형태의 `W2C`으로 저장하고 있습니다.
+- 이때, 이 함수가 넘겨받는 `R,t`는 `C2W`에 해당하므로 inverse를 취하면 `W2C`이 됩니다.
 
 ```python
 # 3dgs/utils/camera_utils.py
