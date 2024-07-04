@@ -330,6 +330,7 @@ class Camera(nn.Module):
 - `self.world_view_transform.inverse()[3, :3]`는 `world coordinate system`에서 `camera의 pose`중, 마지막 열에 해당하는 `translate`성분이므로, `world coordinate system`에서 `camera_center`를 의미합니다.
 - 이때 `[:3, 3]`이 아니라 `[3, :3]`인 이유는, CUDA 연산을 위해 `R`이 transpose되었기 때문입니다.
 - `R`이 transpose된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
+- `R`은 그래서 `getWorld2View`, `getWorld2View2`를 계산할 때, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
   ```python
   # 3dgs/scene/dataset_readers.py
   
@@ -375,6 +376,29 @@ class Camera(nn.Module):
   
   ...
 
+  ```
+  - 위처럼 CUDA code 연산을 위해, `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms`에서 불러온 `R`을 `R.transpose()`해버린 상태입니다.
+  - 따라서 CUDA code가 아닌 일반적인 카메라 포즈 연산을 하는 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose`하여 사용합니다.
+  ```python
+  def getWorld2View(R, t):
+      Rt = np.zeros((4, 4))
+      Rt[:3, :3] = R.transpose()
+      Rt[:3, 3] = t
+      Rt[3, 3] = 1.0
+      return np.float32(Rt)
+  
+  def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
+      Rt = np.zeros((4, 4))
+      Rt[:3, :3] = R.transpose()
+      Rt[:3, 3] = t
+      Rt[3, 3] = 1.0
+  
+      C2W = np.linalg.inv(Rt)
+      cam_center = C2W[:3, 3]
+      cam_center = (cam_center + translate) * scale
+      C2W[:3, 3] = cam_center
+      Rt = np.linalg.inv(C2W)
+      return np.float32(Rt)
   ```
 
 
