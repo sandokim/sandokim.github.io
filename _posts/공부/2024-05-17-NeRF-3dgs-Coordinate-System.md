@@ -122,7 +122,9 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
     return np.float32(Rt)
 ```
 
-- 카메라 포즈를 조작하는 예시를 살펴봅시다.
+## 카메라 포즈의 translate와 scale을 조작할 수 있는 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`의 활용 예시를 알아봅시다.
+
+### 1. 먼저 SceneInfo에서 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`로 계산한 `nerf_normalization` 변수로 Scene의 범위를 조작하는 예시를 살펴봅시다.
 - 아래 코드에선 `getWorld2View2(cam.R, cam.T, translate=np.array([.0, .0, .0]), scale=1.0)`이므로 따로 camera center에 대한 translate과 scale을 조절하지 않았습니다.
 - `get_center_and_diag(cam_centers)`
   - `cam_centers`는 `C2W[:3, 3:4]`로 모든 카메라에 대한 cam_centers를 list 형태로 모아줍니다.
@@ -250,6 +252,84 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
     return scene_info
 ```
 
+### 2. CameraInfo에서 카메라 포즈를 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`로 계산하여 world view transform에서 translate와 scale을 조작할 수 있습니다.
+
+- `self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()`에서 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)` 함수에서 `translate`와 `scale`로 world coordinate system에서 카메라의 포즈의 `translate`와 `scale`을 조작할 수 있습니다.
+
+```python
+# 3dgs/utils/graphcis_utils.py
+
+def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
+    Rt = np.zeros((4, 4))
+    Rt[:3, :3] = R.transpose()
+    Rt[:3, 3] = t
+    Rt[3, 3] = 1.0
+
+    C2W = np.linalg.inv(Rt)
+    cam_center = C2W[:3, 3]
+    cam_center = (cam_center + translate) * scale
+    C2W[:3, 3] = cam_center
+    Rt = np.linalg.inv(C2W)
+    return np.float32(Rt)
+```
+
+```python
+# 3dgs/scene/cameras.py
+
+from utils.graphics_utils import getWorld2View2, getProjectionMatrix
+
+class Camera(nn.Module):
+    def __init__(self, colmap_id, R, T, FoVx, FoVy, image, gt_alpha_mask,
+                 image_name, uid,
+                 trans=np.array([0.0, 0.0, 0.0]), scale=1.0, data_device = "cuda"
+                 ):
+        super(Camera, self).__init__()
+
+        self.uid = uid
+        self.colmap_id = colmap_id
+        self.R = R
+        self.T = T
+        self.FoVx = FoVx
+        self.FoVy = FoVy
+        self.image_name = image_name
+
+        try:
+            self.data_device = torch.device(data_device)
+        except Exception as e:
+            print(e)
+            print(f"[Warning] Custom device {data_device} failed, fallback to default cuda device" )
+            self.data_device = torch.device("cuda")
+
+        self.original_image = image.clamp(0.0, 1.0).to(self.data_device)
+        self.image_width = self.original_image.shape[2]
+        self.image_height = self.original_image.shape[1]
+
+        if gt_alpha_mask is not None:
+            self.original_image *= gt_alpha_mask.to(self.data_device)
+        else:
+            self.original_image *= torch.ones((1, self.image_height, self.image_width), device=self.data_device)
+
+        self.zfar = 100.0
+        self.znear = 0.01
+
+        self.trans = trans
+        self.scale = scale
+
+        self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
+        self.projection_matrix = getProjectionMatrix(znear=self.znear, zfar=self.zfar, fovX=self.FoVx, fovY=self.FoVy).transpose(0,1).cuda()
+        self.full_proj_transform = (self.world_view_transform.unsqueeze(0).bmm(self.projection_matrix.unsqueeze(0))).squeeze(0)
+        self.camera_center = self.world_view_transform.inverse()[3, :3]
+
+```
+
+- 추가적으로 `self.camera_cetner`는 `self.world_view_transform.inverse()[3, :3]`로 얻는 것을 볼 수 있습니다.
+- `camera`와 `view`는 같은 의미로 사용됩니다.
+- 따라서 `self.world_view_transform`은 `w2c`를 의미합니다.
+- inverse를 취하면 `self.world_view_transform.inverse()`은 `c2w`를 의미하게 됩니다.
+- `c2w`는 **`camera`를 `world coordinate system`으로 좌표변환을 했을 때 camera가 어디에 어떻게 좌표축이 돌아간 상태로 위치하는가?** 를 의미합니다. 이는 `world coordinate system`에서 `camera의 pose`를 의미합니다.
+- `self.world_view_transform.inverse()[3, :3]`는 `world coordinate system`에서 `camera의 pose`중, 마지막 열에 해당하는 `translate`성분이므로, `world coordinate system`에서 `camera_center`를 의미합니다.
+- 이때 `[:3, 3]`이 아니라 `[3, :3]`인 이유는, CUDA 연산을 위해 transpose되었기 때문입니다.
+
 ------------------
 
 ## W2C, C2W 시각화
@@ -268,7 +348,7 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
 - 여기서 `f2c`이라고 정의한 것은 `c2f = c2w @ w2g @ g2f`의 연산을 정의한 것입니다.
 - `c2f`를 inverse하여 `f2c`인 `face to camera`라고 정의하고 `wcs=np.eyes(4)`인 월드좌표계에서 plot 했습니다.
 - 결과를 보면, world를 기준으로 `camera`의 pose들이 plot 됐습니다.
-- 결론적으론, `camera의 좌표계 혹은 pose`를 `world 좌표계`에서 봤을 때, 카메라들이 어디에 위치하는지 plot한 것입니다.
+- 결론적으론, `camera의 좌표계 혹은 pose`를 `world 좌표계`에서 봤을 때, 카메라들이 어디에 어떻게 좌표축이 돌아간 상태로 위치하는지 plot한 것입니다.
 - 이는 `c2w`와 같은 말입니다.
 - 즉, 구한 `f2c`는 이름만 다를 뿐, 역할은 `c2w`의 변환과 동일합니다.
 - `f2c`은 **얼굴좌표계에서 카메라좌표계까지의 변환을 수행했을 때, 변환된 pose의 위치**라고 생각하시면 편합니다.
