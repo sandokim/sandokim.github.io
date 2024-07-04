@@ -378,7 +378,7 @@ class Camera(nn.Module):
 
   ```
   - 위처럼 CUDA code 연산을 위해, `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms`에서 불러온 `R`을 `R.transpose()`해버린 상태입니다.
-  - 따라서 CUDA code가 아닌 일반적인 카메라 포즈 연산을 하는 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose`하여 사용합니다.
+  - 따라서 CUDA code가 아닌 일반적인 카메라 포즈 연산을 하는 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose()`하여 사용합니다.
   ```python
   # 3dgs/utils/graphics_utils.py
   
