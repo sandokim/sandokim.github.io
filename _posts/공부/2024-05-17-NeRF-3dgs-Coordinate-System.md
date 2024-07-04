@@ -335,9 +335,9 @@ class Camera(nn.Module):
         self.camera_center = self.world_view_transform.inverse()[3, :3]
   ```
 
-#### 애초에 불러온 `R`에서부터 `transpose()`가 되어있습니다.
+#### 중요한 점은 애초에 불러온 `R`에서부터 CUDA code 연산을 위해 미리 `transpose()`가 되어있습니다.
 - `R`이 `transpose()`된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
-- `R`은 그래서 `getWorld2View`, `getWorld2View2`를 계산할 때, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
+- `R`은 그래서 `getWorld2View`, `getWorld2View2`를 카메라 포즈를 계산할 때, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
   ```python
   # 3dgs/scene/dataset_readers.py
   
@@ -410,6 +410,11 @@ class Camera(nn.Module):
       return np.float32(Rt)
   ```
 
+  - `getWorld2View`, `getWorld2View2`로 반환된 기본적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`은 또다시 CUDA code 연산을 위해 `transpose()`가 행해집니다.
+  - 아래와 같이 `transpose()`이후 `cuda()`에 올려지는 것을 확인할 수 있습니다.
+  ```python
+        self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
+  ```
 
 ------------------
 
