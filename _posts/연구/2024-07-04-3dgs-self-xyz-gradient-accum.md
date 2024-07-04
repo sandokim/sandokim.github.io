@@ -89,6 +89,14 @@ class GaussianModel:
 - 처음에  `"xyz"`, `"f_dc"`, `"f_rest"`, `"opacity"`, `"scaling"`, `"rotation`"는 `l`로 정의하여 각 param_group별로 `"name"`을 지어준 것을 확인할 수 있습니다.
 - 여기서 `'params'`는 각 param_group에 해당합니다.
 - **즉, 우리는 3d gaussian의 properties를 param_group 별로 쪼개어 학습률을 다르게 설정하여 학습할 수 있습니다.**
+- 그리고 새로운 3d gaussian properties를 tensor인  `new_xyz`, `new_features_dc`, `new_features_rest`, `new_opacities`, `new_scaling`, `new_rotation`로 정의하여 처음의 `l`을 넘겨받은 Adam optimizer에 param_group별로 concat하여 추가해줍니다.
+- 정리하면 다음과 같습니다.
+  -  `new_xyz`는 `"name" : "xyz"`인 param_group에 추가
+  -  `new_features_dc`는 `"name" : "f_dc"`인 param_group에 추가
+  -  `new_features_rest`는 `"name" : "f_rest"`인 param_group에 추가
+  -  `new_opacities`는 `"name" : "opacity"`인 param_group에 추가
+  -  `new_scaling`는 `"name" : "scaling"`인 param_group에 추가
+  -  `new_rotation`는 `"name" : "rotation"`인 param_group에 추가
 ```python
 # 3dgs/scene/gaussian_model.py
 
