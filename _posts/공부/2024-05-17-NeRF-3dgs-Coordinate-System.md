@@ -46,7 +46,7 @@ classes: wide
 - 즉, `C2W (camera to world)`는 World Coordinate System이 기준일 때, 카메라의 Rotation과 Translation을 포함하는 행렬입니다.
 - 따라서, `C2W (camera to world)`에서 마지막 열을 인덱싱하면 World Coordinate System에서 카메라의 center 위치를 얻는 것입니다.
 
-### C2W를 수식으로 쓰면 다음과 같습니다.
+### `C2W`를 수식으로 쓰면 다음과 같습니다.
 
 - `C2W` 변환 행렬은 카메라 좌표계에서 월드 좌표계로 변환하는 행렬입니다. 이 행렬은 보통 회전 행렬 $R$과 변환 벡터 $T$로 구성됩니다.
   
