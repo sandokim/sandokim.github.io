@@ -124,6 +124,13 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
         features[:, :3, 0 ] = fused_color # (n_points, RGB 3 channel, sh 0번째 계수)
         features[:, 3:, 1:] = 0.0 # (n_points, RGB 3 channel의 인덱싱 범위를 넘어감, sh 1번째~44번째 계수)
 
+```
+
+- `load_ply`를 보면 sh 0번째 계수에 대한 features_dc를 RGB 3 channel에 대해 초기화할 때, `(n_points, RGB 3 channel, 0번째 sh 계수의 수)`를 `(n_points, 3, 1)`로 초기화 하고 있습니다.
+
+```python
+# 3dgs/scene/gaussian_model.py
+
 ...
 
     def load_ply(self, path):
@@ -134,7 +141,7 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
                         np.asarray(plydata.elements[0]["z"])),  axis=1)
         opacities = np.asarray(plydata.elements[0]["opacity"])[..., np.newaxis]
 
-        features_dc = np.zeros((xyz.shape[0], 3, 1))
+        features_dc = np.zeros((xyz.shape[0], 3, 1)) # (n_points, RGB 3 channel, (0 + 1) ** 2) = (n_points, 3, 1)
         features_dc[:, 0, 0] = np.asarray(plydata.elements[0]["f_dc_0"])
         features_dc[:, 1, 0] = np.asarray(plydata.elements[0]["f_dc_1"])
         features_dc[:, 2, 0] = np.asarray(plydata.elements[0]["f_dc_2"])
