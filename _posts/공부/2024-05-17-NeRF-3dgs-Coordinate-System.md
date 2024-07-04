@@ -124,7 +124,7 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
 
 ## 카메라 포즈의 translate와 scale을 조작할 수 있는 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`의 활용 예시를 알아봅시다.
 
-### 1. 먼저 SceneInfo에서 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`로 계산한 `nerf_normalization` 변수로 Scene의 범위를 조작하는 예시를 살펴봅시다.
+### 1. 먼저 `SceneInfo`에서 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`로 계산한 `nerf_normalization` 변수로 Scene의 범위를 조작하는 예시를 살펴봅시다.
 - 아래 코드에선 `getWorld2View2(cam.R, cam.T, translate=np.array([.0, .0, .0]), scale=1.0)`이므로 따로 camera center에 대한 translate과 scale을 조절하지 않았습니다.
 - `get_center_and_diag(cam_centers)`
   - `cam_centers`는 `C2W[:3, 3:4]`로 모든 카메라에 대한 cam_centers를 list 형태로 모아줍니다.
