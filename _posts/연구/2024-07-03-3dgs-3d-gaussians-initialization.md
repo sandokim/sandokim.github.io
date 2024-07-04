@@ -128,7 +128,14 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
 
 ```
 
-- `load_ply`를 보면 sh 0번째 계수에 대한 features_dc를 RGB 3 channel에 대해 초기화할 때, `(n_points, RGB 3 channel, 0번째 sh 계수의 수)`를 `(n_points, 3, 1)`로 초기화 하고 있습니다.
+## 'features_dc`
+
+- `load_ply`를 보면 sh 0번째 계수에 대한 `features_dc`를 RGB 3 channel에 대해 초기화할 때, `(n_points, RGB 3 channel, 0번째 sh 계수의 수)`를 `(n_points, 3, 1)`로 초기화 하고 있습니다.
+- 그리고 `RGB 3 channel`을 `0, 1, 2`로 인덱싱하여 sh 0번째 계수에 대한값으로 각각 `"f_dc_0"`, `"f_dc_1"`, `"f_dc_2"`로 넣어줍니다.
+- 정리하면 다음과 같습니다.
+  - `"f_dc_0"`는 `R에 해당하는 sh 0번째 계수 값`
+  - `"f_dc_1"`는 `G에 해당하는 sh 0번째 계수 값`
+  - `"f_dc_2"`는 `B에 해당하는 sh 0번째 계수 값`
 
 ```python
 # 3dgs/scene/gaussian_model.py
