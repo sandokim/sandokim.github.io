@@ -466,7 +466,7 @@ def camera_to_JSON(id, camera : Camera):
     return camera_entry
 ```
 
-## 4x4 변환행렬에 대해 `transpose(0, 1)`하는 이유 & `batch matrix multiplication`을 하는 이유
+## `(4,4) 변환행렬`에 대해 `transpose(0, 1)`하는 이유 & `batch matrix multiplication`을 하는 이유
 
 - `getWorld2View2(R, T, trans, scale)`은 `W2C: World to Camera(=View Space)`인 `(4,4) 변환행렬`을 반환합니다.
 - `self.world_view_transform`는 `W2C`을 받아 `transpose(0, 1)`을 한 `W2C.transpose(0, 1)`인 `(4,4) 변환행렬` 입니다.
