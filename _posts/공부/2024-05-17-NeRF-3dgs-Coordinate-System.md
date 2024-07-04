@@ -337,7 +337,55 @@ class Camera(nn.Module):
 
 #### 중요한 점은 애초에 불러온 `R`에서부터 CUDA code 연산을 위해 미리 `transpose()`가 되어있습니다.
 - `R`이 `transpose()`된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
-- `R`은 그래서 `getWorld2View`, `getWorld2View2`로 `transpose`가 되지 않은 일반직인 4x4 카메라 포즈처럼 계산하기 위해, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
+```python
+# 3dgs/scene/dataset_readers.py
+
+def readColmapCameras(cam_extrinsics, cam_intrinsics, images_folder):
+    cam_infos = []
+    for idx, key in enumerate(cam_extrinsics):
+        sys.stdout.write('\r')
+        # the exact output you're looking for:
+        sys.stdout.write("Reading camera {}/{}".format(idx+1, len(cam_extrinsics)))
+        sys.stdout.flush()
+
+        extr = cam_extrinsics[key]
+        intr = cam_intrinsics[extr.camera_id]
+        height = intr.height
+        width = intr.width
+
+        uid = intr.id
+        R = np.transpose(qvec2rotmat(extr.qvec))
+        T = np.array(extr.tvec)
+
+...
+
+def readCamerasFromTransforms(path, transformsfile, white_background, extension=".png"):
+    cam_infos = []
+
+    with open(os.path.join(path, transformsfile)) as json_file:
+        contents = json.load(json_file)
+        fovx = contents["camera_angle_x"]
+
+        frames = contents["frames"]
+        for idx, frame in enumerate(frames):
+            cam_name = os.path.join(path, frame["file_path"] + extension)
+
+            # NeRF 'transform_matrix' is a camera-to-world transform
+            c2w = np.array(frame["transform_matrix"])
+            # change from OpenGL/Blender camera axes (Y up, Z back) to COLMAP (Y down, Z forward)
+            c2w[:3, 1:3] *= -1
+
+            # get the world-to-camera transform and set R, T
+            w2c = np.linalg.inv(c2w)
+            R = np.transpose(w2c[:3,:3])  # R is stored transposed due to 'glm' in CUDA code
+            T = w2c[:3, 3]
+
+...
+
+```
+- 위처럼 CUDA code 연산을 위해, `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms`에서 불러온 `R`을 `R.transpose()`해버린 상태입니다.
+- 따라서 CUDA code가 아닌` transpose`되지 않은 4x4 일반적인 카메라 포즈 연산을 하기위해 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose()`하여 사용합니다.  
+- 즉, `getWorld2View`, `getWorld2View2`에서는 `R`이 `transpose`가 되지 않은 일반직인 4x4 카메라 포즈처럼 계산하기 위해, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
 - `transpose`되지 않은 일반적인 4x4 `W2C`의 형태는 아래와 같습니다.
   
 $$
@@ -349,83 +397,35 @@ R_{31} & R_{32} & R_{33} & T_z \\
 \end{bmatrix}
 $$
 
-  ```python
-  # 3dgs/scene/dataset_readers.py
-  
-  def readColmapCameras(cam_extrinsics, cam_intrinsics, images_folder):
-      cam_infos = []
-      for idx, key in enumerate(cam_extrinsics):
-          sys.stdout.write('\r')
-          # the exact output you're looking for:
-          sys.stdout.write("Reading camera {}/{}".format(idx+1, len(cam_extrinsics)))
-          sys.stdout.flush()
-  
-          extr = cam_extrinsics[key]
-          intr = cam_intrinsics[extr.camera_id]
-          height = intr.height
-          width = intr.width
-  
-          uid = intr.id
-          R = np.transpose(qvec2rotmat(extr.qvec))
-          T = np.array(extr.tvec)
-  
-  ...
-  
-  def readCamerasFromTransforms(path, transformsfile, white_background, extension=".png"):
-      cam_infos = []
-  
-      with open(os.path.join(path, transformsfile)) as json_file:
-          contents = json.load(json_file)
-          fovx = contents["camera_angle_x"]
-  
-          frames = contents["frames"]
-          for idx, frame in enumerate(frames):
-              cam_name = os.path.join(path, frame["file_path"] + extension)
-  
-              # NeRF 'transform_matrix' is a camera-to-world transform
-              c2w = np.array(frame["transform_matrix"])
-              # change from OpenGL/Blender camera axes (Y up, Z back) to COLMAP (Y down, Z forward)
-              c2w[:3, 1:3] *= -1
-  
-              # get the world-to-camera transform and set R, T
-              w2c = np.linalg.inv(c2w)
-              R = np.transpose(w2c[:3,:3])  # R is stored transposed due to 'glm' in CUDA code
-              T = w2c[:3, 3]
-  
-  ...
+```python
+# 3dgs/utils/graphics_utils.py
 
-  ```
-  - 위처럼 CUDA code 연산을 위해, `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms`에서 불러온 `R`을 `R.transpose()`해버린 상태입니다.
-  - 따라서 CUDA code가 아닌 일반적인 카메라 포즈 연산을 하는 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose()`하여 사용합니다.
-  ```python
-  # 3dgs/utils/graphics_utils.py
-  
-  def getWorld2View(R, t):
-      Rt = np.zeros((4, 4))
-      Rt[:3, :3] = R.transpose()
-      Rt[:3, 3] = t
-      Rt[3, 3] = 1.0
-      return np.float32(Rt)
-  
-  def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
-      Rt = np.zeros((4, 4))
-      Rt[:3, :3] = R.transpose()
-      Rt[:3, 3] = t
-      Rt[3, 3] = 1.0
-  
-      C2W = np.linalg.inv(Rt)
-      cam_center = C2W[:3, 3]
-      cam_center = (cam_center + translate) * scale
-      C2W[:3, 3] = cam_center
-      Rt = np.linalg.inv(C2W)
-      return np.float32(Rt)
-  ```
+def getWorld2View(R, t):
+    Rt = np.zeros((4, 4))
+    Rt[:3, :3] = R.transpose()
+    Rt[:3, 3] = t
+    Rt[3, 3] = 1.0
+    return np.float32(Rt)
 
-  - `getWorld2View`, `getWorld2View2`로 반환된 기본적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`은 또다시 CUDA code 연산을 위해 `transpose()`가 행해집니다.
-  - 아래와 같이 `transpose()`이후 `cuda()`에 올려지는 것을 확인할 수 있습니다.
-  ```python
-        self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
-  ```
+def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
+    Rt = np.zeros((4, 4))
+    Rt[:3, :3] = R.transpose()
+    Rt[:3, 3] = t
+    Rt[3, 3] = 1.0
+
+    C2W = np.linalg.inv(Rt)
+    cam_center = C2W[:3, 3]
+    cam_center = (cam_center + translate) * scale
+    C2W[:3, 3] = cam_center
+    Rt = np.linalg.inv(C2W)
+    return np.float32(Rt)
+```
+
+- `getWorld2View`, `getWorld2View2`로 반환된 일반적인 4x4 `w2c = world-to-camera = world-to-view = self.world_view_transform`은 또다시 CUDA code 연산을 위해 `transpose()`가 행해집니다.
+- 아래와 같이 `transpose(0, 1)`이후 `cuda()`에 올려지는 것을 확인할 수 있습니다.
+```python
+      self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()
+```
 
 ------------------
 
