@@ -1,6 +1,6 @@
 ---
 title: "[3D CV] NeRF, 3dgs, C2W, W2C 카메라 포즈 조작"
-last_modified_at: 2024-07-02
+last_modified_at: 2024-07-04
 categories:
   - 공부
 tags:
