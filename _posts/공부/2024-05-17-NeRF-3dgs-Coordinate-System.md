@@ -397,7 +397,7 @@ def readCamerasFromTransforms(path, transformsfile, white_background, extension=
 
 ```
 - 위처럼 CUDA code 연산을 위해, `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms`에서 불러온 `R`을 `R.transpose()`해버린 상태입니다.
-- 따라서 CUDA code가 아닌` transpose`되지 않은 4x4 일반적인 카메라 포즈 연산을 하기위해 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose()`하여 사용합니다.  
+- 따라서 CUDA code가 아닌 `transpose`되지 않은 4x4 일반적인 카메라 포즈 연산을 하기위해 `getWorld2View`, `getWorld2View2`에서는 `R`을 다시 `transpose()`하여 사용합니다.  
 - 즉, `getWorld2View`에서는 `R`이 `transpose`를 하여 4x4 카메라 포즈로써 계산하기 위해, `dataset_readers.py`에서 `transpose`되었던 `R`을 다시 `R.transpose()`를 하고, `W2C` 형태로 구성하여 반환합니다.
 - `getWorld2View2`는 `R`이 `getWorld2View`처럼 `R.transpose()`하고 최종적으로 `W2C`을 반환하는 것은 동일하지만, 중간에 `W2C`을 `C2W`로 inverse하여 `world coordinate system`에서 `camera의 pose`의 `translate`, `scale` 값으로 조절하고, 이를 다시 inverse한 `W2C`로 반환합니다.
 - `transpose`되지 않은 일반적인 4x4 `W2C`의 형태는 아래와 같습니다.
