@@ -81,7 +81,7 @@ $$
 - 이와 같이 camera center를 다룰 때에는 World Coordinate System로 기준 좌표계로 바꿔주고 계산을 해야합니다.
 - 그런 다음 다시 Camera Coordinate System으로 좌표계를 변경해줘야 합니다.
 
-### 즉, 카메라의 포즈를 조작할 때는
+### 즉, World Coordinate System에서 카메라의 포즈를 조작할 때는
 
 1. 먼저 `C2W (camera to world)`에서 Rotation과 Translation을 변경해주고,
 2. `C2W (camera to world)`에 inverse를 취하여 다시 `W2C (world to camera)` 변환을 얻어주어 사용합니다.
