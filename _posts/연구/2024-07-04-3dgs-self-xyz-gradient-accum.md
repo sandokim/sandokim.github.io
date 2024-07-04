@@ -278,6 +278,19 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
 
 ...
 
+    for iteration in range(first_iter, opt.iterations + 1):
+
+...
+
+        # 학습률 업데이트
+        gaussians.update_learning_rate(iteration)
+
+        # SH degree 증가
+        if iteration % 1000 == 0:
+            gaussians.oneupSHdegree()
+
+...
+
         render_pkg = render(viewpoint_cam, gaussians, pipe, bg)
         image, viewspace_point_tensor, visibility_filter, radii = render_pkg["render"], render_pkg["viewspace_points"], render_pkg["visibility_filter"], render_pkg["radii"]
 
@@ -292,6 +305,13 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
                 # Keep track of max radii in image-space for pruning
                 gaussians.max_radii2D[visibility_filter] = torch.max(gaussians.max_radii2D[visibility_filter], radii[visibility_filter])
                 gaussians.add_densification_stats(viewspace_point_tensor, visibility_filter)
+
+
+...
+
+            if iteration < opt.iterations:
+                gaussians.optimizer.step()
+                gaussians.optimizer.zero_grad(set_to_none=True)
 
 
 ```
