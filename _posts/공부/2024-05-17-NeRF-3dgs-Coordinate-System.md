@@ -252,9 +252,9 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
     return scene_info
 ```
 
-### 2. CameraInfo에서 카메라 포즈를 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`로 계산하여 world view transform에서 translate와 scale을 조작할 수 있습니다.
+### 2. CameraInfo에서 카메라 포즈를 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`로 계산하여 `world view transform`에서 `translate`와 `scale`을 조작할 수 있습니다.
 
-- `self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()`에서 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)` 함수에서 `translate`와 `scale`로 world coordinate system에서 카메라의 포즈의 `translate`와 `scale`을 조작할 수 있습니다.
+- `self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()`에서 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)` 함수에서 `translate`와 `scale`로 `world coordinate system`에서 카메라의 포즈의 `translate`와 `scale`을 조작할 수 있습니다.
 
 ```python
 # 3dgs/utils/graphcis_utils.py
