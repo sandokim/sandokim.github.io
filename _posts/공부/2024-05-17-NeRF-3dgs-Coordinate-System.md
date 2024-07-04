@@ -258,6 +258,8 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/e9a689f2-0c24-4094-9565-b619e0bb156c" alt="Image">
 </p>
 
+### Custom Camera Poses 시각화
+
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/b255e68d-bfd9-48e0-a1e1-61e0fbec1820" alt="Image">
 </p>
@@ -272,6 +274,8 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
 - `f2c`은 **얼굴좌표계에서 카메라좌표계까지의 변환을 수행했을 때, 변환된 pose의 위치**라고 생각하시면 편합니다.
 - 즉, `c2w`와 같이 `world를 기준`으로한 `camera pose들`과 같은 맥락으로
 - `f2c`은 `face의 위치를 world로써 기준`으로한 `camera pose들`로 해석하면 됩니다.
+
+### NeRF `transform_matrix`인 `c2w` 시각화
 
 <p align="center">
   <img src="https://github.com/sandokim/sandokim.github.io/assets/74639652/f87d491e-1d43-4c81-a019-590f5e5b5124" alt="Image">
