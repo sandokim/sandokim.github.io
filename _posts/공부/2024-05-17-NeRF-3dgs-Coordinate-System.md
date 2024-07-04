@@ -17,7 +17,15 @@ tags:
   - avg_cam_center
   - radius
   - diagonal
-excerpt: "NeRF Coordinate system 이해 정리"
+  - batch matrix multiplication
+  - bmm
+  - transpose(0, 1)
+  - row vector 연산
+  - 행벡터 연산
+  - 컴퓨터 그래픽스 계산 관례
+  - column vector 연산
+  - 열벡터 연산
+excerpt: "NeRF, 3dgs C2W, W2C 카메라 포즈 변환 & Coordinate system & 카메라변환 batch matrix multplication 연산 정리글"
 use_math: true
 classes: wide
 ---
@@ -485,13 +493,13 @@ def camera_to_JSON(id, camera : Camera):
   - 즉, `self.full_proj_transform`은 `world to clip space`입니다.
 - `self.world_view_transform`, `self.projection_matrix`는 모두 컴퓨터 그래픽스 관례에 따라 `transpose(0, 1)`이 된 상태에서 `unsqueeze(0)`하여 배치차원을 추가하고 `batch matrix multilplication, bmm` 연산하고 `squeeze(0)`으로 배치차원을 제거하여 `self.full_proj_transform` `(4,4) 변환행렬`을 얻습니다.
 
-### `transpose(0, 1)을 하는 이유
+### `transpose(0, 1)`을 하는 이유
 - 행렬의 전치(transpose)하는 이유는 그래픽스에서는 보통 좌표 변환을 행렬 곱셈으로 처리합니다.
 - 그러나 연산 규칙상 행 벡터(row vector)를 사용할 때와 열 벡터(column vector)를 사용할 때 차이가 있습니다.
 - OpenGL 등의 그래픽스 라이브러리에서는 열 벡터를 사용하는데, 이 경우 변환 행렬이 오른쪽에 곱해지도록 합니다.
 - 이와 맞추기 위해 변환 행렬을 전치하여 사용하는 경우가 많습니다.
 
-### batch 차원을 굳이 1개 추가하고 bmm을 사용하는 이유
+### batch 차원을 굳이 1개 추가하고 `bmm`을 사용하는 이유
 - `unsqueeze(0)`를 사용하여 `(4, 4)`에서 `(1, 4, 4)`로 변환한 후 `bmm`을 사용하는 이유:
 
 - **통일된 연산 방식**: PyTorch에서 bmm (batch matrix-matrix multiplication) 연산은 (b, n, m)과 (b, m, p) 크기의 텐서 두 개를 입력으로 받아서 (b, n, p) 크기의 텐서를 출력합니다. 여기서 b는 배치 크기를 나타냅니다.
