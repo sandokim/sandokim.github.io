@@ -104,7 +104,7 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
 - SH 변환은 주로 저차수에서 고차수로 진행되며, 각 색상 채널에 대해 여러 계수를 갖게 됩니다.
 
 
-### `features_dc`, `features_rest`
+## `features_dc`, `features_rest`
 - `features_dc`는 각 점의 색상 정보를 Spherical Harmonics 계수로 변환하여 저장한 텐서입니다.
 - `features_dc`는 초기화 시 RGB 색상의 DC(Direct Component) 계수만을 포함하며, 나머지 SH 계수들은 features_rest에 저장됩니다.
 - `features`는 `(fused_colors.shape[0], 3, (self.max_sh_degree + 1) ** 2)`인 `(n_points, RGB 3 channel, sh 계수의 수)`의 shape으로 0으로 초기화됩니다.
@@ -128,7 +128,7 @@ fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
 
 ```
 
-## 'features_dc`
+## `features_dc`에서 RGB 3 channel에 대한 sh 0번째 계수는 `f_dc_0`, `f_dc_1`, `f_dc_2`입니다.
 
 - `load_ply`를 보면 sh 0번째 계수에 대한 `features_dc`를 RGB 3 channel에 대해 초기화할 때, `(n_points, RGB 3 channel, 0번째 sh 계수의 수)`를 `(n_points, 3, 1)`로 초기화 하고 있습니다.
 - 그리고 `RGB 3 channel`을 `0, 1, 2`로 인덱싱하여 sh 0번째 계수에 대한값으로 각각 `"f_dc_0"`, `"f_dc_1"`, `"f_dc_2"`로 넣어줍니다.
