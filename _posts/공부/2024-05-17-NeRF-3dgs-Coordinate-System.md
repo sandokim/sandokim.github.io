@@ -337,7 +337,7 @@ class Camera(nn.Module):
 
 #### 중요한 점은 애초에 불러온 `R`에서부터 CUDA code 연산을 위해 미리 `transpose()`가 되어있습니다.
 - `R`이 `transpose()`된 부분은 아래의 `dataset_readers.py`의 `readColmapCameras`와 `readCamerasFromTransforms` 함수에서 모두 확인 가능합니다.
-- `R`은 그래서 `getWorld2View`, `getWorld2View2`를 카메라 포즈를 계산할 때, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
+- `R`은 그래서 `getWorld2View`, `getWorld2View2`로 일반직인 4x4 카메라 포즈처럼 계산하기 위해, 다시 `R.transpose()`를 하여 연산한다음 `W2C`형태로 반환합니다.
   ```python
   # 3dgs/scene/dataset_readers.py
   
