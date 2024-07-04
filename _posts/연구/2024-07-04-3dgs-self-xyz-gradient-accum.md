@@ -14,7 +14,7 @@ tags:
   - viewspace_point_tensor
   - update_filter
   - denom
-excerpt: "self.xyz_gradient_accum 설"
+excerpt: "self.xyz_gradient_accum 설명"
 use_math: true
 classes: wide
 ---
