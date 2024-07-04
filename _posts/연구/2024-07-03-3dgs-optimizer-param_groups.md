@@ -374,6 +374,78 @@ class GaussianModel:
                 return lr
 ```
 
+## 3dgs에서 `replace_tensor_to_optimizer` 함수를 해석해봅시다.
+
+- `replace_tensor_to_optimizer` 함수는 지정된 이름을 가진 텐서를 옵티마이저의 파라미터 그룹에서 교체하는 기능을 합니다. 이 함수는 특히 모델의 파라미터를 새로운 텐서로 교체하고, 옵티마이저의 상태를 새 텐서에 맞춰 초기화하는 데 사용됩니다.
+- 예를 들어, 학습 도중 특정 파라미터를 재설정하거나 새로운 값으로 교체해야 하는 경우 사용할 수 있습니다.
+
+```python
+def replace_tensor_to_optimizer(self, tensor, name):
+    optimizable_tensors = {}
+    for group in self.optimizer.param_groups:
+        if group["name"] == name:
+            stored_state = self.optimizer.state.get(group['params'][0], None)
+            stored_state["exp_avg"] = torch.zeros_like(tensor)
+            stored_state["exp_avg_sq"] = torch.zeros_like(tensor)
+
+            del self.optimizer.state[group['params'][0]]
+            group["params"][0] = nn.Parameter(tensor.requires_grad_(True))
+            self.optimizer.state[group['params'][0]] = stored_state
+
+            optimizable_tensors[group["name"]] = group["params"][0]
+    return optimizable_tensors
+```
+
+- 파라미터 설명
+  - tensor: 새로 교체될 텐서입니다.
+  - name: 교체할 파라미터 그룹의 이름입니다.
+
+### 동작 과정
+1. 초기화: 최종적으로 반환할 딕셔너리를 초기화합니다.
+```python
+optimizable_tensors = {}
+```
+
+2. 옵티마이저 파라미터 그룹 순회: 옵티마이저의 파라미터 그룹을 하나씩 순회합니다.
+```python
+for group in self.optimizer.param_groups:
+```
+
+3. 지정된 이름과 일치하는 그룹 찾기: 현재 그룹의 이름이 지정된 `name`과 일치하는지 확인합니다.
+```python
+if group["name"] == name:
+```
+
+4. 기존 상태 저장: 현재 파라미터의 옵티마이저 상태(모멘텀 등)를 가져옵니다.
+```python
+stored_state = self.optimizer.state.get(group['params'][0], None)
+```
+
+5. 상태 초기화: 새로운 텐서 크기에 맞춰 모멘텀 등의 상태를 초기화합니다.
+```python
+stored_state["exp_avg"] = torch.zeros_like(tensor)
+stored_state["exp_avg_sq"] = torch.zeros_like(tensor)
+```
+
+6. 기존 파라미터 제거 및 교체: 기존 파라미터를 옵티마이저 상태에서 제거하고, 새로운 텐서로 교체합니다. 새로운 파라미터를 옵티마이저 상태에 추가합니다.
+```python
+del self.optimizer.state[group['params'][0]]
+group["params"][0] = nn.Parameter(tensor.requires_grad_(True))
+self.optimizer.state[group['params'][0]] = stored_state
+```
+
+7. 교체된 텐서 저장: 교체된 파라미터를 딕셔너리에 저장합니다.
+```python
+교체된 파라미터를 딕셔너리에 저장합니다.
+```
+
+8. 딕셔너리 반환: 최종적으로 교체된 텐서를 포함한 딕셔너리를 반환합니다.
+```python
+return optimizable_tensors
+```
+
+
+
 ### Reference
 - [What exactly is meant by param_groups in pytorch?](https://stackoverflow.com/questions/73629330/what-exactly-is-meant-by-param-groups-in-pytorch)
 
