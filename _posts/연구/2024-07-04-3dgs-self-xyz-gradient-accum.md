@@ -21,8 +21,29 @@ classes: wide
 
 ## `self.xyz_gradient_accum`은 `add_densification_stats`에서 업데이트 됩니다.
 
+- `self.xyz_gradient_accum`은 `self.get_xyz.shape[0]`로 point cloud에서 point의 수인 `n_points 만큼 정의`됩니다.
+
+```python
+# 3dgs/scene/gaussian_model.py
+
+class GaussianModel:
+
+...
+
+    @property
+    def get_xyz(self):
+        return self._xyz
+
+...
+
+    def training_setup(self, training_args):
+        self.percent_dense = training_args.percent_dense
+        self.xyz_gradient_accum = torch.zeros((self.get_xyz.shape[0], 1), device="cuda")
+```
+
+
 - `self.xyz_gradient_accum`은 `prune_points()`에서 `valid_points_mask`로 masking이 가능합니다.
-  - `_prune_optimizer()`에선 `valid_points_mask`로 prune된 `optimizable_tensors`는 point cloud에서 point 수인 `n_point`의 수에는 변화가 없고 단순히 0으로 masking합니다.
+  - `_prune_optimizer()`에선 `valid_points_mask`로 prune된 `optimizable_tensors`는 point cloud에서 point 수인 `n_point`의 수에는 변화가 없고 단순히 `[mask]`하여 0으로 만듭니다.
   ```python
   
       def _prune_optimizer(self, mask):
@@ -59,26 +80,6 @@ classes: wide
           self.denom = self.denom[valid_points_mask]
           self.max_radii2D = self.max_radii2D[valid_points_mask]
   ```
-
-- `self.xyz_gradient_accum`은 `self.get_xyz.shape[0]`로 point cloud에서 point의 수인 `n_points 만큼 정의`됩니다.
-
-```python
-# 3dgs/scene/gaussian_model.py
-
-class GaussianModel:
-
-...
-
-    @property
-    def get_xyz(self):
-        return self._xyz
-
-...
-
-    def training_setup(self, training_args):
-        self.percent_dense = training_args.percent_dense
-        self.xyz_gradient_accum = torch.zeros((self.get_xyz.shape[0], 1), device="cuda")
-```
 
 - `self.xyz_gradient_accum`은 `densification_postfix()`에서 `cat_tensors_to_optimizer(d)`로 확장된 `self._xyz`에 해당하는 point cloud에서 point 수인 `n_points + 추가된 3d gaussian 수만큼 정의`됩니다.
 
