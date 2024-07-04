@@ -257,7 +257,7 @@ class GaussianModel:
 
 ```
 
-## viewspace의 gradient는 render하는 view에서 viewing frustum에 포함되는 points를 viewspace_point_tensor로 정의하여 `self.xyz_gradient_accum`의 gradient 업데이트에 추가합니다.
+## viewspace의 gradient는 render하는 view에서 viewing frustum에 포함되는 points를 `viewspace_point_tensor`로 정의하여 `self.xyz_gradient_accum`의 gradient 업데이트에 추가합니다.
 
 ```python
 # 3dgs/scene/gaussian_model.py
