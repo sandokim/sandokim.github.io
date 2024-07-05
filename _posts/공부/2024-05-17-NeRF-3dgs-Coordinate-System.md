@@ -260,6 +260,61 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
     return scene_info
 ```
 
+- `nerf_normalization`은 `scene_info.nerf_normalization["radius"]`로 접근하여 `self.cameras_extent`로 사용합니다.
+- `self.cameras_extent`는 `self.spatial_lr_scale`로 사용되어 `position_lr_init`의 learning rate를 조절하는데 사용합니다.
+- `self.spatial_lr_scale`을 정의하면 `class GaussianModel`의 어떤 함수에서든 `self.spatial_lr_scale`로 접근하여 사용이 가능합니다.
+- 즉, scene의 크기에 따라서 xyz에 대한 3d gaussian의 학습률을 조절하는 것입니다.
+  - lr이 크면 3d gaussian의 xyz가 optimize될 때 크게 움직입니다.
+  - lr이 작으면 3d gaussian의 xyz가 optimize될 때 작게 움직입니다.
+
+```python
+# 3dgs/scene/__init__.py
+
+class Scene:
+...
+    gaussians : GaussianModel
+...
+        self.cameras_extent = scene_info.nerf_normalization["radius"]
+
+        for resolution_scale in resolution_scales:
+            print("Loading Training Cameras")
+            self.train_cameras[resolution_scale] = cameraList_from_camInfos(scene_info.train_cameras, resolution_scale, args)
+            print("Loading Test Cameras")
+            self.test_cameras[resolution_scale] = cameraList_from_camInfos(scene_info.test_cameras, resolution_scale, args)
+
+        if self.loaded_iter:
+            self.gaussians.load_ply(os.path.join(self.model_path,
+                                                           "point_cloud",
+                                                           "iteration_" + str(self.loaded_iter),
+                                                           "point_cloud.ply"))
+        else:
+            self.gaussians.create_from_pcd(scene_info.point_cloud, self.cameras_extent)
+```
+
+```python
+# 3dgs/scene/gaussian_model.py
+
+class GaussianModel:
+...
+    def create_from_pcd(self, pcd : BasicPointCloud, spatial_lr_scale : float):
+        self.spatial_lr_scale = spatial_lr_scale
+...
+    def training_setup(self, training_args):
+        self.percent_dense = training_args.percent_dense
+        self.xyz_gradient_accum = torch.zeros((self.get_xyz.shape[0], 1), device="cuda")
+        self.denom = torch.zeros((self.get_xyz.shape[0], 1), device="cuda")
+
+        l = [
+            {'params': [self._xyz], 'lr': training_args.position_lr_init * self.spatial_lr_scale, "name": "xyz"},
+...
+        self.optimizer = torch.optim.Adam(l, lr=0.0, eps=1e-15)
+        self.xyz_scheduler_args = get_expon_lr_func(lr_init=training_args.position_lr_init*self.spatial_lr_scale,
+                                                    lr_final=training_args.position_lr_final*self.spatial_lr_scale,
+                                                    lr_delay_mult=training_args.position_lr_delay_mult,
+                                                    max_steps=training_args.position_lr_max_steps)
+...
+```
+
 ### 2. `CameraInfo`에서 카메라 포즈를 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)`로 계산하여 `world view transform`에서 `translate`와 `scale`을 조작할 수 있습니다.
 
 - `self.world_view_transform = torch.tensor(getWorld2View2(R, T, trans, scale)).transpose(0, 1).cuda()`에서 `getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0)` 함수에서 `translate`와 `scale`로 `world coordinate system`에서 카메라의 포즈의 `translate`와 `scale`을 조작할 수 있습니다.
