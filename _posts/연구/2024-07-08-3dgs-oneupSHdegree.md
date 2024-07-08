@@ -18,7 +18,7 @@ classes: wide
 
 # 3dgs에서 1,000 iters마다 SH의 degree를 올려서 `features_rest`의 값을 추가적으로 학습합니다.
 
-- 3dgs/train.py에서 `iteration` 1000마다 `oneupSHdegree()`를 하고 있습니다.
+## 3dgs/train.py에서 `iteration` 1000마다 `oneupSHdegree()`를 하고 있습니다.
   
 ```python
 # 3dgs/train.py
@@ -36,8 +36,46 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
         render_pkg = render(viewpoint_cam, gaussians, pipe, bg)
 ```
 
-- `oneupSHdegree()`는 `self.max_sh_degree`보다 작을 경우, `self.active_sh_degree`를 `1`만큼 올려줍니다.
-- 만약 `self.max_sh_degree`인 `self.sh_degree`가 default인 3이고, `iterations`이 30,000이라면
+## `self.max_sh_degree`에 따른 `self._features_dc`, `self._features_rest`의 shape
+- 만약 `self.max_sh_degree`인 `self.sh_degree`가 default인 3이면 그에 맞게 `features`가 정의가 됩니다.
+- 이때 `features`의 shape은 `(n_points, RGB, (self.max_sh_degree + 1) ** 2) = (n_points, 3, (self.max_sh_degree + 1) ** 2)`입니다.
+- `features`는 `self._features_dc`와 `self._features_rest`로 분리되고, `transpose(1, 2)`되면서 shape이 다음과 같아집니다.
+  - `self._features_dc # (n_points, sh 0 degree, RGB) = (n_points, 1, 3)`
+  - `self._features_rest # (n_points, (sh 0 ~ sh max degree) - sh 0 degree, RGB) = (n_points, (self.max_sh_degree + 1) ** 2 - 1, 3) = (n_points, (3 + 1) ** 2 - 1, 3) = (n_points, 15, 3)`
+
+## `self._features_dc`, `self._feature_rest`의 초기값
+- `self._features_dc`는 `pcd.colors`의 `RGB2SH`함수로 초기화
+- `self._features_rest`는 `0`로 초기화
+
+```python
+# 3dgs/scene/gaussian_model.py
+
+class GaussianModel:
+...
+    def create_from_pcd(self, pcd : BasicPointCloud, spatial_lr_scale : float):
+        self.spatial_lr_scale = spatial_lr_scale
+        fused_point_cloud = torch.tensor(np.asarray(pcd.points)).float().cuda()
+        fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())
+        features = torch.zeros((fused_color.shape[0], 3, (self.max_sh_degree + 1) ** 2)).float().cuda()
+        features[:, :3, 0 ] = fused_color
+        features[:, 3:, 1:] = 0.0
+
+        print("Number of points at initialisation : ", fused_point_cloud.shape[0])
+
+        dist2 = torch.clamp_min(distCUDA2(torch.from_numpy(np.asarray(pcd.points)).float().cuda()), 0.0000001)
+        scales = torch.log(torch.sqrt(dist2))[...,None].repeat(1, 3)
+        rots = torch.zeros((fused_point_cloud.shape[0], 4), device="cuda")
+        rots[:, 0] = 1
+
+        opacities = inverse_sigmoid(0.1 * torch.ones((fused_point_cloud.shape[0], 1), dtype=torch.float, device="cuda"))
+
+        self._xyz = nn.Parameter(fused_point_cloud.requires_grad_(True))
+        self._features_dc = nn.Parameter(features[:,:,0:1].transpose(1, 2).contiguous().requires_grad_(True))
+        self._features_rest = nn.Parameter(features[:,:,1:].transpose(1, 2).contiguous().requires_grad_(True))
+```
+
+## `oneupSHdegree()`는 `self.max_sh_degree`보다 작을 경우, `self.active_sh_degree`를 `1`만큼 올려줍니다.
+***`self.max_sh_degree = 3`일때, `iterations`이 30,000이면, 1,000 iters 마다의 `features_rest`는 다음과 같이 학습에 추가됩니다.***
   - 0\~999까지는 sh 0까지 학습 (`features_rest`의 값이 모두 초기값 `0`입니다.)
     
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dc77da22-6407-4a3c-97b9-7d4920acd41c)
