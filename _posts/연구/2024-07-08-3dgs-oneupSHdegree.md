@@ -80,7 +80,7 @@ class GaussianModel:
     
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dc77da22-6407-4a3c-97b9-7d4920acd41c)
 
-  - 1000\~1999까지는 sh 0/~1까지 학습 (`features_rest`의 값이 학습되기 시작함, 이 중에서도 sh_degree = 1에 해당하는 3개의 features에 대해서만 학습이 되고, 3개 이후의 값은 여전히 초기값인 `0`입니다.)
+  - 1000\~1999까지는 sh 0~1까지 학습 (`features_rest`의 값이 학습되기 시작함, 이 중에서도 sh_degree = 1에 해당하는 3개의 features에 대해서만 학습이 되고, 3개 이후의 값은 여전히 초기값인 `0`입니다.)
 
     - 0\~2 features dim에 대해서는 학습되기 시작하여, `0`이 아닙니다.
 
@@ -90,7 +90,7 @@ class GaussianModel:
     
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d6480c18-fab8-4382-9b62-74adf3ceeafd)
 
-  - 2000\~2999까지는 sh 0~2까지 학습 (sh_degree=2에 해당하는 8개의 features에 대해서만 학습이 되고, 8개 이후의 값은 여전히 초기값인 `0`입니다.)
+  - 2000\~2999까지는 sh 0~2까지 학습 (sh_degree = 2에 해당하는 8개의 features에 대해서만 학습이 되고, 8개 이후의 값은 여전히 초기값인 `0`입니다.)
     
     - 0\~7 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
    
