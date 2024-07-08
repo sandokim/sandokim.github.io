@@ -100,23 +100,14 @@ class GaussianModel:
       
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/781e9a5c-e245-4353-8801-e163833c4033)
 
-  - 3000\~3999까지는 `self.active_sh_degree = 3`이므로 sh 3을 추가로 학습 (`(self.active_sh_degree + 1) ** 2 - 1 = (3 + 1) ** 2 - 1 = 15`인 15개의 features에 대해서만 학습이 되고, 15개 이후의 값은 여전히 초기값인 `0`입니다.)
+  - 3000\~3999까지는 `self.active_sh_degree = 3`이므로 sh 3을 추가로 학습 (`(self.active_sh_degree + 1) ** 2 - 1 = (3 + 1) ** 2 - 1 = 15`인 15개의 features에 대해서 모두 학습이 됩니다.)
 
-    - 0\~14 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
+    - 0\~14 features dim에 대해서 모두 학습에 포함되므로, `0`이 아닙니다.
 
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/221d04a1-dbaa-4100-a16e-a686a2cbac24)
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e89571e9-afce-4bed-8ce2-2df872727d20)
-
-    - 15 이상 features dim에 대해서는 아직 학습이 진행되지 않아, 모두 `0`입니다.
-   
-      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2652e12e-59e8-49d2-883a-ef330a03bcb7)
     
-  - 4000\~30000까지는 sh 0~3까지 학습 (`self.active_sh_degree`가 `self.max_sh_degree = 3`에 도달하였으므로 `features_rest`에서 sh가 3보다 큰 feature에 대해서는 처음에 initialize한 `0`로 유지됩니다.)
- 
-    - 0\~14 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
-    - 15 이상 features dim에 대해서는 `self.max_sh_degree = 3`을 초과하는 features이므로 `iterations`을 늘려도 학습이 진행되지 않아, 모두 `0`입니다.
-
-      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/35f9260a-6051-4a31-8e50-d95db47535fc)
+  - 4000\~30000에서는 sh 0, 1, 2, 3에 대해 계속 학습 (`self.active_sh_degree`가 `self.max_sh_degree = 3`에 도달하였고, 앞서 초기화 할 때, `features_rest`에서 sh가 3보다 큰 features dim은 애초에 존재하지 않습니다.)
 
 
 ```python
