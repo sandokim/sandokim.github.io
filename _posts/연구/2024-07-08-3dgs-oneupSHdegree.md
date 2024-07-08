@@ -44,26 +44,42 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
 
   - 1000\~1999까지는 sh 0~1까지 학습 (`features_rest`의 값이 학습되기 시작함, 이 중에서도 sh_degree=1에 해당하는 3개의 features에 대해서만 학습이 되고, 3개 이후의 값은 여전히 초기값인 `0`입니다.)
 
-    - 0\~3 features dim에 대해서는 학습되기 시작하여, `0`이 아닙니다.
+    - 0\~2 features dim에 대해서는 학습되기 시작하여, `0`이 아닙니다.
 
        ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/785a52aa-d613-46bd-b16a-efa53d9f5565)
 
-    - 3 이후 features dim에 대해서는 아직 학습이 진행되지 않아, 모두 `0`입니다.
+    - 3 이상 features dim에 대해서는 아직 학습이 진행되지 않아, 모두 `0`입니다.
     
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d6480c18-fab8-4382-9b62-74adf3ceeafd)
 
   - 2000\~2999까지는 sh 0~2까지 학습 (sh_degree=2에 해당하는 8개의 features에 대해서만 학습이 되고, 8개 이후의 값은 여전히 초기값인 `0`입니다.)
     
-  - 0\~7 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
- 
-    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fe52b193-4de9-40c8-8f22-d99b23335e0b)
- 
-  - 7 이후 features dim에 대해서는 아직 학습이 진행되지 않아, 모두 `0`입니다.
-    
-    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/781e9a5c-e245-4353-8801-e163833c4033)
+    - 0\~7 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
+   
+      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fe52b193-4de9-40c8-8f22-d99b23335e0b)
+   
+    - 8 이상 features dim에 대해서는 아직 학습이 진행되지 않아, 모두 `0`입니다.
+      
+      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/781e9a5c-e245-4353-8801-e163833c4033)
 
   - 3000\~3999까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였습니다.)
+
+    - 0\~14 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
+
+      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/221d04a1-dbaa-4100-a16e-a686a2cbac24)
+      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e89571e9-afce-4bed-8ce2-2df872727d20)
+
+    - 15 이상 features dim에 대해서는 아직 학습이 진행되지 않아, 모두 `0`입니다.
+   
+      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2652e12e-59e8-49d2-883a-ef330a03bcb7)
+    
   - 4000\~30000까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였으므로 `features_rest`에서 `sh`가 3보다 큰 feature에 대해서는 처음에 initialize한 `0`로 유지됩니다.)
+ 
+    - 0\~14 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
+    - 15 이상 features dim에 대해서는 `self.max_sh_degree = 3`을 초과하는 features이므로 `iterations`을 늘려도 학습이 진행되지 않아, 모두 `0`입니다.
+
+      ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/35f9260a-6051-4a31-8e50-d95db47535fc)
+
 
 ```python
 # 3dgs/scene/gaussian_model.py
