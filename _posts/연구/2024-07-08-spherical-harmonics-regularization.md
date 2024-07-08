@@ -20,7 +20,7 @@ classes: wide
 
 # Spherical Harmonics Regularization
 
-저품질 입력 조건에서, 주변 뷰로부터 얻은 LDR 이미지들이 크게 동적인 노출 차이를 가지는 경우, 위의 초기화는 초기 최적화 단계를 안정화시킵니다. 만약 화이트 밸런스의 최적화 속도가 SH 계수의 최적화 속도와 맞지 않으면, 최적화의 후반 단계에서 모호성이 다시 발생할 수 있습니다. 이를 정규화하기 위해, 우리는 SH coefficient masking을 도입합니다. 이는 먼저 확산 반사 속성(view direction invariant radiance)을 학습하고, 그 후 뷰 방향에 민감한 특성(view direction sensitive ones)을 학습하도록 일정을 조정할 수 있게 합니다. 즉, 저주파수 차수 SH에서 고주파수 차수 SH로 학습을 진행합니다.
+저품질 입력 조건에서, 주변 뷰로부터 얻은 LDR 이미지들이 크게 동적인 노출 차이를 가지는 경우, 위의 초기화는 초기 최적화 단계를 안정화시킵니다. 만약 화이트 밸런스의 최적화 속도가 SH 계수의 최적화 속도와 맞지 않으면, 최적화의 후반 단계에서 모호성이 다시 발생할 수 있습니다. 이를 정규화하기 위해, 우리는 SH coefficient masking을 도입합니다. 이는 먼저 확산 반사 속성(diffuse reflectance property, view direction invariant radiance)을 학습하고, 그 후 뷰 방향에 민감한 특성(view direction sensitive ones)을 학습하도록 일정을 조정할 수 있게 합니다. 즉, 저주파수 차수 SH에서 고주파수 차수 SH로 학습을 진행합니다.
 
 ## 방법
 
