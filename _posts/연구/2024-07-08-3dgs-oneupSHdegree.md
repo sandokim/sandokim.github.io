@@ -90,7 +90,7 @@ class GaussianModel:
     
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d6480c18-fab8-4382-9b62-74adf3ceeafd)
 
-  - 2000\~2999까지는 `self.active_sh_degree = 2`이므로 sh 2을 추가로 학습 (`(self.active_sh_degree + 1) ** 2 - 1 = (2 + 1) ** 2 - 1 = 3`인 8개의 features에 대해서만 학습이 되고, 8개 이후의 값은 여전히 초기값인 `0`입니다.)
+  - 2000\~2999까지는 `self.active_sh_degree = 2`이므로 sh 2을 추가로 학습 (`(self.active_sh_degree + 1) ** 2 - 1 = (2 + 1) ** 2 - 1 = 8`인 8개의 features에 대해서만 학습이 되고, 8개 이후의 값은 여전히 초기값인 `0`입니다.)
     
     - 0\~7 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
    
