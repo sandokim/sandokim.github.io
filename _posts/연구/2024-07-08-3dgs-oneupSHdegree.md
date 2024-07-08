@@ -76,11 +76,11 @@ class GaussianModel:
 
 ## `oneupSHdegree()`는 `self.max_sh_degree`보다 작을 경우, `self.active_sh_degree`를 `1`만큼 올려줍니다.
 ***`self.max_sh_degree = 3`일때, `iterations`이 30,000이면, 1,000 iters 마다의 `features_rest`는 다음과 같이 학습에 추가됩니다.***
-  - 0\~999까지는 sh 0까지 학습 (`features_rest`의 값이 모두 초기값 `0`입니다.)
+  - 0\~999까지는 sh 0만 학습 (`features_rest`의 값이 모두 초기값 `0`입니다.)
     
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dc77da22-6407-4a3c-97b9-7d4920acd41c)
 
-  - 1000\~1999까지는 sh 0~1까지 학습 (`features_rest`의 값이 학습되기 시작함, 이 중에서도 sh_degree = 1에 해당하는 3개의 features에 대해서만 학습이 되고, 3개 이후의 값은 여전히 초기값인 `0`입니다.)
+  - 1000\~1999까지는 `self.active_sh_degree = 1`이므로 sh 1을 추가로 학습 (`features_rest`의 값이 학습되기 시작함, 이 중에서도 `(self.active_sh_degree + 1) ** 2 - 1 = (1 + 1) ** 2 - 1 = 3`인 3개의 features에 대해서만 학습이 되고, 3개 이후의 값은 여전히 초기값인 `0`입니다.)
 
     - 0\~2 features dim에 대해서는 학습되기 시작하여, `0`이 아닙니다.
 
@@ -90,7 +90,7 @@ class GaussianModel:
     
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/d6480c18-fab8-4382-9b62-74adf3ceeafd)
 
-  - 2000\~2999까지는 sh 0~2까지 학습 (sh_degree = 2에 해당하는 8개의 features에 대해서만 학습이 되고, 8개 이후의 값은 여전히 초기값인 `0`입니다.)
+  - 2000\~2999까지는 `self.active_sh_degree = 2`이므로 sh 2을 추가로 학습 (`(self.active_sh_degree + 1) ** 2 - 1 = (2 + 1) ** 2 - 1 = 3`인 8개의 features에 대해서만 학습이 되고, 8개 이후의 값은 여전히 초기값인 `0`입니다.)
     
     - 0\~7 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
    
@@ -100,7 +100,7 @@ class GaussianModel:
       
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/781e9a5c-e245-4353-8801-e163833c4033)
 
-  - 3000\~3999까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였습니다.)
+  - 3000\~3999까지는 `self.active_sh_degree = 3`이므로 sh 3을 추가로 학습 (`(self.active_sh_degree + 1) ** 2 - 1 = (3 + 1) ** 2 - 1 = 15`인 15개의 features에 대해서만 학습이 되고, 15개 이후의 값은 여전히 초기값인 `0`입니다.)
 
     - 0\~14 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
 
@@ -111,7 +111,7 @@ class GaussianModel:
    
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/2652e12e-59e8-49d2-883a-ef330a03bcb7)
     
-  - 4000\~30000까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였으므로 `features_rest`에서 `sh`가 3보다 큰 feature에 대해서는 처음에 initialize한 `0`로 유지됩니다.)
+  - 4000\~30000까지는 sh 0~3까지 학습 (`self.active_sh_degree`가 `self.max_sh_degree = 3`에 도달하였으므로 `features_rest`에서 sh가 3보다 큰 feature에 대해서는 처음에 initialize한 `0`로 유지됩니다.)
  
     - 0\~14 features dim에 대해서는 학습에 포함되므로, `0`이 아닙니다.
     - 15 이상 features dim에 대해서는 `self.max_sh_degree = 3`을 초과하는 features이므로 `iterations`을 늘려도 학습이 진행되지 않아, 모두 `0`입니다.
