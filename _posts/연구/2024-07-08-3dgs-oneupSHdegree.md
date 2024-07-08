@@ -38,11 +38,11 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
 
 - `oneupSHdegree()`는 `self.max_sh_degree`보다 작을 경우, `self.active_sh_degree`를 `1`만큼 올려줍니다.
 - 만약 `self.max_sh_degree`인 `self.sh_degree`가 default인 3이고, `iterations`이 30,000이라면
-  - 0~999까지는 sh 0까지 학습
-  - 1000~1999까지는 sh 0~1까지 학습
-  - 2000~2999까지는 sh 0~2까지 학습
-  - 3000~3999까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였음)
-  - 4000~30000까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였으므로 `features_rest`에서 `sh`가 3보다 큰 feature에 대해서는 처음에 initialize한 `0`로 유지됨)
+  - 0\~999까지는 sh 0까지 학습
+  - 1000\~1999까지는 sh 0~1까지 학습
+  - 2000\~2999까지는 sh 0~2까지 학습
+  - 3000\~3999까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였음)
+  - 4000\~30000까지는 sh 0~3까지 학습 (`self.max_sh_degree = 3`에 도달하였으므로 `features_rest`에서 `sh`가 3보다 큰 feature에 대해서는 처음에 initialize한 `0`로 유지됨)
 
 ```python
 # 3dgs/scene/gaussian_model.py
