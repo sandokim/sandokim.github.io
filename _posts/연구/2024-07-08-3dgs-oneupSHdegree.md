@@ -41,7 +41,13 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
 - 이때 `features`의 shape은 `(n_points, RGB, (self.max_sh_degree + 1) ** 2) = (n_points, 3, (self.max_sh_degree + 1) ** 2)`입니다.
 - `features`는 `self._features_dc`와 `self._features_rest`로 분리되고, `transpose(1, 2)`되면서 shape이 다음과 같아집니다.
   - `self._features_dc # (n_points, sh 0 degree, RGB) = (n_points, 1, 3)`
+    
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/93d2ce7b-c25e-42f8-a503-fcdc155f325a)
+    
   - `self._features_rest # (n_points, (sh 0 ~ sh max degree) - sh 0 degree, RGB) = (n_points, (self.max_sh_degree + 1) ** 2 - 1, 3) = (n_points, (3 + 1) ** 2 - 1, 3) = (n_points, 15, 3)`
+    
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/8feb8223-160b-40b6-b059-154745ace22c)
+
 
 ## `self._features_dc`, `self._feature_rest`의 초기값
 - `self._features_dc`는 `pcd.colors`의 `RGB2SH`함수로 초기화
@@ -108,6 +114,8 @@ class GaussianModel:
       ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e89571e9-afce-4bed-8ce2-2df872727d20)
     
   - 4000\~30000에서는 sh 0, 1, 2, 3에 대해 계속 학습 (`self.active_sh_degree`가 `self.max_sh_degree = 3`에 도달하였고, 앞서 초기화 할 때, `features_rest`에서 sh가 3보다 큰 features dim은 애초에 존재하지 않습니다.)
+
+    ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/46accb62-7430-41c0-9d79-a4c3dee8da0e)
 
 
 ```python
