@@ -76,7 +76,7 @@ class GaussianModel:
 
 ## `oneupSHdegree()`는 `self.max_sh_degree`보다 작을 경우, `self.active_sh_degree`를 `1`만큼 올려줍니다.
 ***`self.max_sh_degree = 3`일때, `iterations`이 30,000이면, 1,000 iters 마다의 `features_rest`는 다음과 같이 학습에 추가됩니다.***
-  - `0\~999`까지는 `sh 0`까지 학습 (`features_rest`의 값이 모두 초기값 `0`입니다.)
+  - 0\~999까지는 `sh 0`까지 학습 (`features_rest`의 값이 모두 초기값 `0`입니다.)
     
     ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/dc77da22-6407-4a3c-97b9-7d4920acd41c)
 
