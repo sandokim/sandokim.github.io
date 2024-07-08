@@ -1,6 +1,6 @@
 ---
 title: "[3D CV 연구] NeRF Spherical Harmonics Coarse-to-Fine training"
-last_modified_at: 2024-07-03
+last_modified_at: 2024-07-08
 categories:
   - 연구
 tags:
