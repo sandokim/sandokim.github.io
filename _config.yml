@@ -23,7 +23,7 @@ name                     : "Hyseong Kim"
 description              : "An amazing website."
 url                      :  "https://sandokim.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "sandokim/blog-comments" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "sandokim/sandokim.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # "/assets/img/profile/sandokim.jpg"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
