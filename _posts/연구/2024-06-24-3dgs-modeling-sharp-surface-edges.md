@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS alpha blending & inaccurate surface edge & Modeling sharp surface edges"
 use_math: true
 classes: wide
+comments: true
 ---
 
 [High-quality Surface Reconstruction using Gaussian Surfels](https://arxiv.org/abs/2404.17774)에서 주장하기로 Gaussian들의 alpha blending process에서 reconstructed되는 surface edge에 bias가 생겨, edge 부분이 날카롭지 않고 부드럽게 나타나는 문제가 발생한다고 합니다.
