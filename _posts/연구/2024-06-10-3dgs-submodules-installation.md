@@ -14,6 +14,7 @@ tags:
 excerpt: "3DGS submodules 설치방법"
 use_math: true
 classes: wide
+comments: true
 ---
 
 submodules에 대한 directory가 있다고 해서 그것이 설치가 되었다는 걸 의미하지는 않습니다. 
