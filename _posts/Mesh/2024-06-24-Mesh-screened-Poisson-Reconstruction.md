@@ -15,6 +15,7 @@ tags:
 excerpt: "Surface Reconstruction, multi-view depth maps and normal maps, screened Poisson Reconstruction"
 use_math: true
 classes: wide
+comments: true
 ---
 
 # Multi-view Depth Maps and Normal Maps Rendering and Fusion
