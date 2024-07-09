@@ -11,6 +11,7 @@ tags:
 excerpt: "camera calibration"
 use_math: true
 classes: wide
+comments: true
 ---
 
 > RealSense D435 Camera와 OpenCV로 구한 Camera Calibration에서 focal length는 pixel 단위로 저장 됩니다.
