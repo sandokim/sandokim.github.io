@@ -23,6 +23,7 @@ tags:
 excerpt: "3D Gaussian들의 properties를 initilize하는 법을 정리합니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## 3D gaussian의 x,y,z의 scale을 초기화 할때, K-Nearest Neighbor (knn) 알고리즘 사용
