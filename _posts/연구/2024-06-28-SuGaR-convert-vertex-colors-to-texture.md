@@ -21,6 +21,7 @@ tags:
 excerpt: "3DGS SuGaR sugar_model.py _covert_vertex_colors_to_texture"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## faces_uv를 정의하여 texture_img로 저장할 때, triangle의 vertices가 서로 겹치지 않게 하기 위하여 4씩 offset을 줍니다.
