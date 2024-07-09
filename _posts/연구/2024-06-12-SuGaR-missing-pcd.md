@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS SuGaR position_lr_init & spatial_lr_scale"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### SuGaR는 먼저 학습하고 output mesh를 생성하고, 이후 mesh와 gaussian에 대한 joint-refinement를 수행해야하므로 command를 두번 나눠서 쳐줍니다.
