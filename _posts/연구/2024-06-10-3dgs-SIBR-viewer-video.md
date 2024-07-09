@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS 결과 비디오 만드는 방법"
 use_math: true
 classes: wide
+comments: true
 ---
 
 https://github.com/graphdeco-inria/gaussian-splatting/issues/59
