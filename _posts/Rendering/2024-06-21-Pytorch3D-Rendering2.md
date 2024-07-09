@@ -25,6 +25,7 @@ tags:
 excerpt: "Pytorch3D 소개 2"
 use_math: true
 classes: wide
+comments: true
 ---
 
 [Pytorch3D](https://youtu.be/MOBAJb5nJRI?si=uN_ITZQe1Tn4WpVI)
