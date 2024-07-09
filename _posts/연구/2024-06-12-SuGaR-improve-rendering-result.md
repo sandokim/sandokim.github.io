@@ -16,6 +16,7 @@ tags:
 excerpt: "3DGS SuGaR how to improve rendering result of simple object in monochrome background"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## background가 단색이고 특정한 details이 없는 경우, 필연적으로 background에 small artifacts가 발생하게 됩니다.
