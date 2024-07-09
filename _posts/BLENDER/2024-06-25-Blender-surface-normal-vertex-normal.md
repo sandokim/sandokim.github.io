@@ -16,6 +16,7 @@ tags:
 excerpt: "Vertex Normal은 인접한 Surface Normal의 평균으로 계산됩니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 [3D Basics - What are Normals?](https://www.youtube.com/watch?app=desktop&v=hkTjreiookM)
