@@ -14,6 +14,7 @@ tags:
 excerpt: "optimizer.param_groups로 파라미터별로 다른 lr 설정이 가능합니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## optimizer.param_groups로 optimize하는 parameter들의 learning rate 조작이 가능합니다.
