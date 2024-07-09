@@ -15,6 +15,7 @@ tags:
 excerpt: "PSNR, SSIM, LPIPS, MSE metrics.py"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### PSNR, SSIM, LPIPS, MSE metric 구하는 코드 출처: https://github.com/albertpumarola/D-NeRF/blob/main/metrics.ipynb
