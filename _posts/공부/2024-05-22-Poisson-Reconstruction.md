@@ -12,6 +12,7 @@ tags:
 excerpt: "Poisson Reconstruction 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Poisson Reconstruction 빠른 사용 방법
