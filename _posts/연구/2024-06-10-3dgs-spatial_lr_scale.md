@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS spatial_lr_scale"
 use_math: true
 classes: wide
+comments: true
 ---
 
 **spatial_lr_scale**: position 및 scaling learning rate에 대한 곱셈자로 작용합니다. 
