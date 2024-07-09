@@ -11,6 +11,7 @@ tags:
 excerpt: "가우시안 함수 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Gaussian 함수의 본질을 이해해봅시다
