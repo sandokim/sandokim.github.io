@@ -14,6 +14,7 @@ tags:
 excerpt: "SuGaR에서 Gaussians이 어떻게 Primitives (diamond 또는 square(=qaud))로 변형되는지 알아봅시다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 # SuGaR에서 Gaussians이 어떻게 Primitives (diamond 또는 square(=quad))로 변형되는지 알아봅시다.
