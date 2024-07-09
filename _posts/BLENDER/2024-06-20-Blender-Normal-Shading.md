@@ -21,6 +21,7 @@ tags:
 excerpt: "Surface Normal, Face Normal, Flat Shading, Smooth Shading, Gouraud Shading, Phong Shading"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Polygon (폴리곤)
