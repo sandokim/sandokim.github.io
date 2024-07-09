@@ -14,6 +14,7 @@ tags:
 excerpt: "3DGS SuGaR equations"
 use_math: true
 classes: wide
+comments: true
 ---
 
 https://github.com/Anttwo/SuGaR/issues/2
