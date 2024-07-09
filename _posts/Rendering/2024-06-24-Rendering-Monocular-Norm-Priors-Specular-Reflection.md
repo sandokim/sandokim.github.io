@@ -12,6 +12,7 @@ tags:
 excerpt: "Monocular Normal Priors can mitigate specular reflections"
 use_math: true
 classes: wide
+comments: true
 ---
 
 [High-quality Surface Reconstruction using Gaussian Surfels](https://arxiv.org/abs/2404.17774)에서 다음과 같은 문장이 나옵니다.
