@@ -15,6 +15,7 @@ tags:
 excerpt: "fk는 parent bone이 child bone에 영향을, ik는 child bone이 parent bone에 역으로 영향을 미칩니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Inverse Kinematics (IK)
