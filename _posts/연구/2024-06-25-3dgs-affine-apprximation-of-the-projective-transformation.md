@@ -12,6 +12,7 @@ tags:
 excerpt: "3DGG affine apprximiation of the projective transformation"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### 3dgs의 original paper 혹은 3dgs의 관련 페이퍼를 찾아보면 affine apprxomiation 이라는 개념이 나옵니다.
