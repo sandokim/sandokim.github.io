@@ -14,6 +14,7 @@ tags:
 excerpt: "fovx에 해당하는 camera_angle_x만 있으면 image의 height, width로 fovy도 계산이 가능합니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## `fovx`에 해당하는 `camera_angle_x`만 있으면 `image의 height, width`로 `fovy`도 계산이 가능합니다.
