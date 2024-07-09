@@ -10,6 +10,8 @@ tags:
   - modules
   - .gitmodules
   - 특정 커밋
+  - 커밋 해시
+  - commit hash
   - version
 excerpt: "github의 submodules을 특정 커밋 맞게 설치하는 법을 알아봅시다."
 use_math: true
