@@ -17,6 +17,7 @@ tags:
 excerpt: "self.xyz_gradient_accum 설명"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## `self.xyz_gradient_accum`은 `self.get_xyz.shape[0]`로 point cloud에서 point의 수인 `n_points 만큼 정의`됩니다.
