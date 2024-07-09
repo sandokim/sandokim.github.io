@@ -11,6 +11,7 @@ tags:
 excerpt: "Blender animation"
 use_math: true
 classes: wide
+comments: true
 ---
 
 아래 웹사이트에서 Blender Animation을 위한 rig(character)를 무료로 다운받을 수 있습니다.
