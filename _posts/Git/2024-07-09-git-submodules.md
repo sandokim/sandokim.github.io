@@ -9,11 +9,12 @@ tags:
   - submodules
   - modules
   - .gitmodules
-  - 특정 커밋
-  - 커밋 해시
   - commit hash
   - heads/main
-excerpt: "github의 submodules을 특정 커밋(커밋 해시)에 맞게 설치하는 법을 알아봅시다."
+  - 특정 커밋
+  - 커밋 해시
+  - 서브모듈
+excerpt: "GitHub에서 메인 레포지토리의 서브모듈을 특정 커밋(커밋 해시)에 맞게 설치하는 법을 알아봅시다."
 use_math: true
 classes: wide
 ---
