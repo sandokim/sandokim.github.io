@@ -1,5 +1,5 @@
 ---
-title: "[Git] Submodules installation"
+title: "[Git] Submodule installation"
 last_modified_at: 2024-07-09
 categories:
   - Git
