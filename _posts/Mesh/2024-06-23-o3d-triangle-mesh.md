@@ -21,6 +21,7 @@ tags:
 excerpt: "open3d로 TriangleMesh를 만들고, read_triangle_mesh로 불러오는 법 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 # Open3D에서 TriangleMesh 직접 생성하기
