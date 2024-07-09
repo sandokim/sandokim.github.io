@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS positional gradient는 NDC/view space에서 계산됩니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 3DGS positional gradient는 NDC/view space에서 계산됩니다. 
