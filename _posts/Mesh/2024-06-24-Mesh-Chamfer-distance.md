@@ -10,6 +10,7 @@ tags:
 excerpt: "Chamfer distance"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### [PyTorch3D @ SIGGRAPH ASIA 2020 Course: Chamfer Distance 유튜브 설명](https://youtu.be/MOBAJb5nJRI?si=3D74eTL2r6C7DYdl&t=1847)
