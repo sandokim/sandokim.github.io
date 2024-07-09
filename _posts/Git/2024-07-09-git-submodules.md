@@ -54,6 +54,15 @@ git submodule status
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/59fb47aa-edca-4b49-ba1c-c42a258934ea)
 
+### `(heads/main)` = `main` 브랜치의 최신 커밋
+- `(heads/main)`은 서브모듈이 현재 가리키고 있는 커밋이 main 브랜치의 최신 커밋임을 의미합니다. 이 정보가 출력되는 경우, 해당 서브모듈이 main 브랜치를 트래킹하고 있음을 나타냅니다.
+
+### `(heads/main)`이 없음 = 특정 커밋애 고정
+- `(heads/main)`와 같은 브랜치 정보가 없는 경우, 서브모듈이 특정 브랜치를 트래킹하고 있지 않거나, 단순히 특정 커밋에 고정되어 있음을 의미합니다.
+- 예를 들어:
+  - `SIBR_viewers`: 특정 브랜치 정보 없이 **특정 커밋 해시 `4ae964a267cd7a844d9766563cf9d0b500131a22`에 고정**되어 있습니다.
+  - `ubmodules/simple-knn`: 특정 브랜치 정보 없이 **특정 커밋 해시 `44f764299fa305faf6ec5ebd99939e0508331503`에 고정**되어 있습니다.
+
 ### 요약
 - 서브모듈의 특정 커밋 해시 정보는 메인 레포지토리의 .git 디렉토리 내에서 관리됩니다.
 - 이를 확인하기 위해서는 git submodule status 명령어를 사용하거나, 메인 레포지토리의 .git/modules 디렉토리를 살펴보아야 합니다.
