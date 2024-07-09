@@ -23,6 +23,7 @@ tags:
 excerpt: "Shader Fundamentals & Normal mapping & PBR (Physically Based Rendering) texture"
 use_math: true
 classes: wide
+comments: true
 ---
 
 - vector가 normalize된다는 것은 vector의 값의 크기가 1인 unit length를 가진다는 의미입니다.
