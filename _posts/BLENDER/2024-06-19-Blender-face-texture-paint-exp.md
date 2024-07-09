@@ -12,6 +12,7 @@ tags:
 excerpt: "Blender Texture Painting Experiment"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### 복원한 scene들을 모아놓은 상태에서 하나의 object에 대해서만 texture paint 작업을 해봅시다.
