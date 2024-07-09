@@ -20,6 +20,7 @@ tags:
 excerpt: "UV map & Texture map (Diffuse(Color) map, Normal map, Specular map, Displacement map, Ambient Occlusion map, Metalness map, Roughness map)"
 use_math: true
 classes: wide
+comments: true
 ---
 
 # PBR Materials
