@@ -37,3 +37,7 @@ html {
 - 따라서 해당부분에 원하는 만큼의 크기로 수정하면 적용됩니다.
 
 #### [깃허브 블로그 댓글 기능 추가하기(minimal-mistakes)](https://0530hwi.github.io/custom_blog/Custom_GitBlog5/)
+
+- `_config.yml` 파일에서 `utterances`, `repository`, `theme`, `issue_term`를 설정합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4fc8941a-7812-40db-a749-25b132f51e41)
+
