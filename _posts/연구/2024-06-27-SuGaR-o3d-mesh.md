@@ -18,6 +18,7 @@ tags:
 excerpt: "surface_mesh_to_bind = o3d_mesh & n_points = len(triangles * n_gaussians_per_triangle"
 use_math: true
 classes: wide
+comments: true
 ---
 
 # `self._surface_mesh_faces` 설명
