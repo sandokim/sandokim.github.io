@@ -10,6 +10,7 @@ tags:
 excerpt: "Blender donut tutorial"
 use_math: true
 classes: wide
+comments: true
 ---
 
 1. `shift+a`로 torus를 선택해 생성하고 default값을 low poly로 생성합니다. (나중에 subdivision을 하여 high res로 만들 것입니다.)
