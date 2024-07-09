@@ -56,7 +56,7 @@
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/연구">💻 연구 ({{sum}})</a></span>
 
         {% assign sum = site.categories['Docker'] | size %}
-        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/Git">🐳 Docker ({{sum}})</a></span>
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/Docker">🐳 Docker ({{sum}})</a></span>
 
         {% assign sum = site.categories['Git'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/Git">😺 Git ({{sum}})</a></span>
