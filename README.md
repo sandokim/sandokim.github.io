@@ -36,6 +36,8 @@ html {
 - 나머지 세가지 크기(18,20,22px)는 PC에서 윈도우의 크기에 따라 medium, large, x-large로 구분하고 그에 맞추어 폰트의 사이즈를 변경하도록 되어 있습니다.
 - 따라서 해당부분에 원하는 만큼의 크기로 수정하면 적용됩니다.
 
+-------
+
 ### [깃허브 블로그 댓글 기능 추가하기(minimal-mistakes)](https://0530hwi.github.io/custom_blog/Custom_GitBlog5/)
 
 #### Utterances 깃허브 앱을 설치합니다.
@@ -61,3 +63,5 @@ html {
   max-width: 100% !important;
 }
 ```
+
+-------
