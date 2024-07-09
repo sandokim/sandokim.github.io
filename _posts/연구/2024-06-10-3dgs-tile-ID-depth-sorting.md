@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS tile ID와 depth keys 기반 sorting을 .cu 파일에서 합니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 tile ID와 depth keys로 각 gaussian을 묶어서, key에 따라 depth가 가까운 순으로 Gaussian들을 sorting 합니다.
