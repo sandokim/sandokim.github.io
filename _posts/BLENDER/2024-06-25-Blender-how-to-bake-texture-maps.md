@@ -20,6 +20,7 @@ tags:
 excerpt: "diffuse map(=color map), roughness map, normal map, metallic map을 baking 해봅시다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 [How To Bake Texture Maps | Blender 3.5 Beginners Tutorial](https://www.youtube.com/watch?v=zFLxWRfs4Ak)
