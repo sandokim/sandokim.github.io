@@ -27,6 +27,7 @@ tags:
 excerpt: "SuGaR triangle(face), n vertices for gaussian, TexturesUV, TexturesVertex"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ```python
