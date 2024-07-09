@@ -15,6 +15,7 @@ tags:
 excerpt: "Lie Algebra & Lie Group 세부 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 > [[Spinors for Beginners 16: Lie Groups and Lie Algebras](https://www.youtube.com/watch?v=IPzwqAVfce4&ab_channel=eigenchris)]
