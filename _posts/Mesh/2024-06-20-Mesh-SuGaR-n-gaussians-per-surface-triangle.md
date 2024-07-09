@@ -17,6 +17,7 @@ tags:
 excerpt: "SuGaR에서 coarse mesh와 refined mesh를 extraction하는 방법"
 use_math: true
 classes: wide
+comments: true
 ---
 
 
