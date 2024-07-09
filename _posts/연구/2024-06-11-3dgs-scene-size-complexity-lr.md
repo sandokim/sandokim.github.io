@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS scene size & scene complexity and spatial learning rate"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### 3dgs 알고리즘과 장면 크기 및 복잡성
