@@ -16,6 +16,7 @@ tags:
 excerpt: "3DGS SuGaR implementation details of coarse mesh extraction and joint refinement"
 use_math: true
 classes: wide
+comments: true
 ---
 
 
