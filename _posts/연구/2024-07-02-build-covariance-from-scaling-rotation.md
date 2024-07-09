@@ -16,6 +16,7 @@ tags:
 excerpt: "3DGS SH2RGB"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## 3D Gaussian을 표현하는 covariance matrix를 scaling & rotation으로 만들어줍니다.
