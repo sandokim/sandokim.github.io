@@ -16,6 +16,7 @@ tags:
 excerpt: "Transformer의 Attention을 시각적으로 이해해봅시다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 [[But what is a GPT? Visual intro to transformers Chapter 5, Deep Learning](https://www.youtube.com/watch?v=wjZofJX0v4M)]
