@@ -14,6 +14,7 @@ tags:
 excerpt: "3DGS Gaussian Surfels Poisson Reconstruction"
 use_math: true
 classes: wide
+comments: true
 ---
 
 
