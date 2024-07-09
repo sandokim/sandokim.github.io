@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS The number of points is decreasing when training large-scale scenes"
 use_math: true
 classes: wide
+comments: true
 ---
 
 large-scale scenes에 대해서 gaussian의 수가 크게 줄어드는 경우, 어떻게 해결하나요?
