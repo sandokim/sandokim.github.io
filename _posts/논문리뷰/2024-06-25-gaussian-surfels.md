@@ -18,6 +18,7 @@ tags:
 excerpt: "[논문리뷰] High-quality Surface Reconstruction using Gaussian Surfels"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### High-quality Surface Reconstruction using Gaussian Surfels
