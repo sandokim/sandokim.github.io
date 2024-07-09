@@ -14,6 +14,7 @@ tags:
 excerpt: "3DGS SuGaR equations"
 use_math: true
 classes: wide
+comments: true
 ---
 
 저자의 Paper Sec.5.1에 따르면
