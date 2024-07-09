@@ -14,6 +14,7 @@ tags:
 excerpt: "3DGS SuGaR Rendering, composition and animation"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Rendering, Composition, and Animation in SuGaR
