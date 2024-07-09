@@ -13,6 +13,7 @@ tags:
 excerpt: "weights는 vertex groups과 같은 말이고, weights를 조절하여 함께 움직일 vertex groups를 만듭니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Armature in Blender
