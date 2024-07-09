@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS background color removal & RGBA"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### Background는 0으로 Masking하여 Background의 reconstrution은 무시하고, Foreground의 rendering quality에 집중하여 학습하도록 만들어줄 수 있습니다.
