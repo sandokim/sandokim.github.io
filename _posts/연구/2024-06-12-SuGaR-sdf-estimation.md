@@ -14,6 +14,7 @@ tags:
 excerpt: "3DGS SuGaR sdf estimation"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### `sdf_values는 3D points의 calculated sdf이고, `sdf_estimation`은 projection depth와 depth-map depth의 difference를 나타내는데, 왜 `sdf_estimation`이 `abs()`를 필요로 하나요?
