@@ -17,6 +17,7 @@ tags:
 excerpt: "load_obj, verts, faces_idx, verts_rgb"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ```python
