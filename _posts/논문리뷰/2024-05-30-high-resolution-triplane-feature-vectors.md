@@ -23,6 +23,7 @@ tags:
 excerpt: "triplane feature vector, optical flow, marching cube"
 use_math: true
 classes: wide
+comments: true
 ---
 
 > [[Youtube](https://www.youtube.com/watch?v=IsRHGf2rGCs)] [[Docs](https://github.com/hu-po/docs)]
