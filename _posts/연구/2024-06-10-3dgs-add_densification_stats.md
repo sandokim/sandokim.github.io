@@ -14,6 +14,7 @@ tags:
 excerpt: "3DGS add_densification_stats accumulates the gradient to every Gaussian in the visible frustum"
 use_math: true
 classes: wide
+comments: true
 ---
 
 **add_densification_stats**: accumulates the gradient to every Gaussian in the visible frustum
