@@ -19,6 +19,7 @@ tags:
 excerpt: "3DGS SuGaR sugar_model.py extract_texture_image_and_uv_from_gaussians"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### UV map에 texture image를 대응시킬 수 있습니다.
