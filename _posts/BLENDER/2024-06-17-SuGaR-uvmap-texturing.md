@@ -17,6 +17,7 @@ tags:
 excerpt: "3DGS SuGaR UV map texturing with Blender"
 use_math: true
 classes: wide
+comments: true
 ---
 
 - **OBJ 파일**
