@@ -16,6 +16,7 @@ tags:
 excerpt: "3DGS Tips for using COLMAP"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Estimating Camera Poses with COLMAP
