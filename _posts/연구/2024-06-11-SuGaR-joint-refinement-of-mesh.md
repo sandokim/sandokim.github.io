@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS SuGaR joint refinement of mesh and gaussians"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## 최적화 과정에서 새로운 Gaussian을 메시에 바인딩한 후 최적화 과정에 대한 질문 요약
