@@ -1,6 +1,6 @@
 ---
 title: "[논문리뷰] Deblurring 3D Gaussian Splatting"
-last_modified_at: 2024-06-25
+last_modified_at: 2024-07-09
 categories:
   - 논문리뷰
 tags:
