@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS jacobian w2c matrix"
 use_math: true
 classes: wide
+comments: true
 ---
 
 3dgs에서 나오는 jacobian 관련 수식은 w2c transromation입니다.
