@@ -12,6 +12,7 @@ tags:
 excerpt: "3DGS How can I get the points' indices which contribute to the pixels?"
 use_math: true
 classes: wide
+comments: true
 ---
 
 CUDA rasterization을 수정하여 특정 pixels에 기여하는 points를 알아내기 위해서는 last_contributor 변수에 기록된 값을 추적하면 됩니다.
