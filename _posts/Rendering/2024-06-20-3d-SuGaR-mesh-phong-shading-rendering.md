@@ -23,6 +23,7 @@ tags:
 excerpt: "SuGaR에서 3D mesh를 load하고 Phong Shading을 사용하여 Rendering하는 전체 프로세스"
 use_math: true
 classes: wide
+comments: true
 ---
 
 https://github.com/Anttwo/SuGaR/blob/main/view_sugar_results.ipynb
