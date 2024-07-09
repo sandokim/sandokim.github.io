@@ -16,6 +16,7 @@ tags:
 excerpt: "Baking은 3D 그래픽스에서 복잡한 계산을 미리 수행하여 텍스처 맵에 저장하는 과정입니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 # Bake (굽기)란 무엇인가?
