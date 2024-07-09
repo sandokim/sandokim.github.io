@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS SuGaR synthetic datasets"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## SuGaR는 오직 real scenes에 대해서만 test되었고, masked background 그리고 random initial point cloud를 사용하는 synthetic datasets에 대해서는 test되지 않았습니다.
