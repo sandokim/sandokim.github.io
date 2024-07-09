@@ -28,6 +28,7 @@ tags:
 excerpt: "NeRF, 3dgs C2W, W2C 카메라 포즈 변환 & Coordinate system & 카메라변환 batch matrix multplication 연산 정리글"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## NeRF의 Coordinate System을 이해해보자
