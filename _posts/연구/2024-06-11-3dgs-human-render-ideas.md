@@ -12,6 +12,7 @@ tags:
 excerpt: "3DGS human rendering ideas"
 use_math: true
 classes: wide
+comments: true
 ---
 
 https://github.com/graphdeco-inria/gaussian-splatting/issues/63
