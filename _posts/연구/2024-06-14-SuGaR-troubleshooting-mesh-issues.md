@@ -18,6 +18,7 @@ tags:
 excerpt: "3DGS SuGaR Troublshooting Mesh Issues & Poisson Surface Reconstruction"
 use_math: true
 classes: wide
+comments: true
 ---
 
 https://github.com/Anttwo/SuGaR?tab=readme-ov-file
