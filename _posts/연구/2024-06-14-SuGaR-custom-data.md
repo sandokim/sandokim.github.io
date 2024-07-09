@@ -16,6 +16,7 @@ tags:
 excerpt: "3DGS Tips for using SuGaR your custom data and obtain better reconstructions"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Tips for 3D Scene Reconstruction
