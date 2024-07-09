@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS SuGaR Adapt the scale and the bounding box of the scene"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Adapting Scale and Bounding Box for Scene Reconstruction in SuGaR
