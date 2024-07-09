@@ -38,6 +38,9 @@ html {
 
 #### [깃허브 블로그 댓글 기능 추가하기(minimal-mistakes)](https://0530hwi.github.io/custom_blog/Custom_GitBlog5/)
 
-- `_config.yml` 파일에서 `utterances`, `repository`, `theme`, `issue_term`를 설정합니다.
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/4fc8941a-7812-40db-a749-25b132f51e41)
+- Utterances 깃허브 앱을 설치합니다.
+- 댓글을 관리할 Repository로 `github.io`를 선택합니다.
+- `github.io`의 `_config.yml` 파일에서 `utterances`, `repository`, `theme`, `issue_term`를 설정합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f84c1955-1eea-4aa0-82cc-380d424ca506)
 
+- 블로그 포스트 시 `comments: true`로 설정합니다.
