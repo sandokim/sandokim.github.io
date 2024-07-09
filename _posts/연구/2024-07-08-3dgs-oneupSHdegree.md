@@ -14,6 +14,7 @@ tags:
 excerpt: "3dgs spherical harmonics"
 use_math: true
 classes: wide
+comments: true
 ---
 
 # 3dgs에서 1,000 iters마다 SH의 degree를 올려서 `features_rest`의 값을 추가적으로 학습합니다.
