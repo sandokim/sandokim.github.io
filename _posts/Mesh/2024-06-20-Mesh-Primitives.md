@@ -16,6 +16,7 @@ tags:
 excerpt: "Primitives (Point, Line, Triangle, Quad, Polygon, Diamond)"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### Primitives 정의 및 특징
