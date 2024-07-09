@@ -46,3 +46,10 @@ html {
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f84c1955-1eea-4aa0-82cc-380d424ca506)
 
 - 블로그 포스트 시 `comments: true`로 설정합니다.
+
+- `_sass/minimal-mistakes/_page.scss`에 다음 코드를 아무 곳에나 추가하여 글씨 크기를 조정합니다.
+```css
+.utterances {
+  max-width: 100% !important;
+}
+```
