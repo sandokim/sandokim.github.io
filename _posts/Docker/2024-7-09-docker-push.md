@@ -7,6 +7,7 @@ tags:
   - docker
   - push
   - pull
+  - docker image
 excerpt: "Docker 사용법에 대해 알아봅시다."
 use_math: true
 classes: wide
