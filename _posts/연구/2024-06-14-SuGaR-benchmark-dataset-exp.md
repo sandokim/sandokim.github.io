@@ -17,6 +17,7 @@ tags:
 excerpt: "3DGS SuGaR benchmark dataset 360_v2 experiments"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### SuGaR는 기본적으로 coarse_mesh PLY file, refine_mesh OBJ file, refined_ply PLY file을 output 합니다.
