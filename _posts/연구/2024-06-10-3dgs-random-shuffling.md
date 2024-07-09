@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS random shuffling으로 input images들을 shuffle하지 않으면 performance가 하락합니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 scene_info.train_camera에서 random.shuffle을 하지 않으면 성능이 크게 하락합니다.
