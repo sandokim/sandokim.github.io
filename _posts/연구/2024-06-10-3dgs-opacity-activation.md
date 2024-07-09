@@ -12,6 +12,7 @@ tags:
 excerpt: "3DGS opacity activation은 sigmoid를 사용합니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 training에서 각 gaussian의 opacity인 self._opacity가 negative value로 나올 수 있지만, 이는 get_opacity 함수를 통해서 sigmoid로 0~1 사이의 값으로 만들어서 사용합니다.
