@@ -15,6 +15,7 @@ tags:
 excerpt: "o3d poisson reconstruction"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Poisson Surface Reconstruction의 원리
