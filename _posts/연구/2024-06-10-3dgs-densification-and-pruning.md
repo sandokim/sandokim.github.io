@@ -15,6 +15,7 @@ tags:
 excerpt: "3DGS densify_until_iter"
 use_math: true
 classes: wide
+comments: true
 ---
 
 **--densify_until_iter**: 0으로 설정하면 densification과 pruning이 모두 일어나지 않습니다.
