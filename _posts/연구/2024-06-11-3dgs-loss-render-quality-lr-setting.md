@@ -17,6 +17,7 @@ tags:
 excerpt: "3DGS Loss not going down and renders look bad, scene에 따른 learning rate 조절"
 use_math: true
 classes: wide
+comments: true
 ---
 
 loss가 잘 떨어지지 않고, rendering quality가 나쁘다면,
