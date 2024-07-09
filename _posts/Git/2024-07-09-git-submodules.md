@@ -13,7 +13,7 @@ tags:
   - 커밋 해시
   - commit hash
   - heads/main
-excerpt: "github의 submodules을 특정 커밋 맞게 설치하는 법을 알아봅시다."
+excerpt: "github의 submodules을 특정 커밋(커밋 해시)에 맞게 설치하는 법을 알아봅시다."
 use_math: true
 classes: wide
 ---
