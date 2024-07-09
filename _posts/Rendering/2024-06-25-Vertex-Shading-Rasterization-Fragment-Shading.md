@@ -22,6 +22,7 @@ tags:
 excerpt: "컴퓨터 그래픽스 전체 프로세스를 설명하는 최고의 영상"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### [How do Video Game Grpahics Work?](https://youtu.be/C8YtdC8mxTU?si=_gpbb-TD1xGGxmrS) 유튜브 영상을 정리하였습니다.
