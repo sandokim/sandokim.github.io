@@ -17,6 +17,7 @@ tags:
 excerpt: "Inkscape을 사용하여 svg 벡터 이미지 파일을 그릴 수 있습니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### inkscape을 사용하면 아래와 같은 svg 벡터 파일을 만들 수 있습니다.
