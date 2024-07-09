@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS rasterization은 cuda를 사용합니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 파이썬 자체는 항상 GPU를 사용하여 계산을 수행하기 위해 다른 인터페이스가 필요합니다. 가장 쉬운 방법은 CUDA를 사용하는 것입니다.
