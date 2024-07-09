@@ -68,7 +68,7 @@ html {
 }
 ```
 
-#### Iusses 탭이 없으면, 블로그에 댓글이 달리지 않으므로 `owner.github.io` 레퍼지토리의 `Settings`에 들어가서 `Features`에서 `Issue`를 켜줍니다.
+#### Iusses 탭이 없으면, 블로그에 댓글이 달리지 않으므로 `owner.github.io` 레퍼지토리의 `Settings`에 들어가서 `Features`에서 `Issues`를 켜줍니다.
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/c271815e-f3c0-4c35-b677-ba8c438642cf)
 
