@@ -13,6 +13,7 @@ tags:
 excerpt: "마할라노비스 거리 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### Mahalanobis distance (마할라노비스 거리)
