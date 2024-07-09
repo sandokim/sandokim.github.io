@@ -14,6 +14,7 @@ tags:
 excerpt: "Surface Reconstruction, SDF (Signed Distance Function)과 Eikonal Equation의 관계"
 use_math: true
 classes: wide
+comments: true
 ---
 
 [위키피디아 Eikonal equation 설명](https://en.wikipedia.org/wiki/Eikonal_equation)
