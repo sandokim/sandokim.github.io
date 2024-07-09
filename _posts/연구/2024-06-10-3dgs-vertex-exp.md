@@ -17,6 +17,7 @@ tags:
 excerpt: "3DGS input & output .ply properties & Meshlab Vert & Spherical Harmonics (SH) & Mesh"
 use_math: true
 classes: wide
+comments: true
 ---
 
 **Meshlab**에서 표현되는 Vert의 의미는 일반적으로 point cloud 또는 3D mesh에 있어서 각각의 점(정점, vertex)를 의미합니다. 이 점들은 공간 내 위치와 해당 위치의 속성(i.e. color, normal vector)을 나타냅니다.
