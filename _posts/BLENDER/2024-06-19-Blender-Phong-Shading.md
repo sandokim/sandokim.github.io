@@ -12,6 +12,7 @@ tags:
 excerpt: "Blender Phong Shading & Normals"
 use_math: true
 classes: wide
+comments: true
 ---
 
 #### phong shading이랑 thong shading이랑 헷갈리면 안됩니다.
