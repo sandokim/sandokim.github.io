@@ -12,6 +12,7 @@ tags:
 excerpt: "3DGS batch rendering using gaussian rasterizer"
 use_math: true
 classes: wide
+comments: true
 ---
 
 **현재 3dgs에서 differentiable rasterizer는 오직 single image에 대해서만 loss를 계산하고 있습니다.**
