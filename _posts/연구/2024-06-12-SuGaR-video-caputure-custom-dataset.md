@@ -20,6 +20,7 @@ tags:
 excerpt: "3DGS SuGaR video capture & custom dataset"
 use_math: true
 classes: wide
+comments: true
 ---
 
 - SuGaR (또는 3dgs) 코드는 어떠한 image resolution도 process가 가능합니다. 다만 HD resolution (such as 1080x1920)에서 잘됩니다.
