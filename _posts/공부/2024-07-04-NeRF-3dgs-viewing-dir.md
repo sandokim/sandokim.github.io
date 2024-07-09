@@ -16,6 +16,7 @@ tags:
 excerpt: "NeRF, 3dgs에서 viewing direction d의 의미"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## NeRF, 3dgs에서 viewing direction d는 현재 카메라 좌표계를 기준으로 합니다.
