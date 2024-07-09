@@ -12,6 +12,7 @@ tags:
 excerpt: "HDR Plenoxel에서는 coarse-to-fine으로 spherical harmonics를 학습시킵니다."
 use_math: true
 classes: wide
+comments: true
 ---
 
 # HDR Plenoxel에서는 coarse-to-fine으로 학습을 진행합니다.
