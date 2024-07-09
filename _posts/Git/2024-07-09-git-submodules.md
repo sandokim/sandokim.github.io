@@ -1,4 +1,4 @@
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f72c9e59-92cd-4b8c-9055-6b2d8917e875)---
+---
 title: "[Git] Submodules installation"
 last_modified_at: 2024-07-09
 categories:
