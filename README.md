@@ -44,7 +44,11 @@ html {
 - 댓글을 관리할 Repository로 `owner/owner.github.io`를 선택합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/0c281be4-03df-4fbf-981f-3b65d194bf1e)
 
-- `owner.github.io`의 `_config.yml` 파일에서 `utterances`, `repository`, `theme`, `issue_term`를 설정합니다.
+
+####  `owner.github.io`의 `_config.yml` 파일에서 `comments: true`로 설정합니다.
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/1f73fd56-c716-4a1a-936b-231e01855884)
+
+#### `owner.github.io`의 `_config.yml` 파일에서 `utterances`, `repository`, `theme`, `issue_term`를 설정합니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/f84c1955-1eea-4aa0-82cc-380d424ca506)
 
 - pathname 지정 시 유의사항
