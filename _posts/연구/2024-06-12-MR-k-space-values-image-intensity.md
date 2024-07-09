@@ -12,6 +12,7 @@ tags:
 excerpt: "fastMRI & skm-tea Real & Simulation 데이터셋 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### k-space의 center point는 모든 이미지의 intensity를 더한것과 같습니다.
