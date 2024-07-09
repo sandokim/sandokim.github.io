@@ -16,6 +16,7 @@ tags:
 excerpt: "3DGS Tips for using SuGaR regularization sdf or density"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Regularization Methods for SuGaR
