@@ -12,6 +12,7 @@ tags:
 excerpt: "Depth map & Normal map 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 <p align="center">
