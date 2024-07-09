@@ -10,6 +10,7 @@ tags:
 excerpt: "Marching Cubes 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 [[WIKIPEDIA Marching cubes](https://en.wikipedia.org/wiki/Marching_cubes)]
