@@ -12,6 +12,7 @@ tags:
 excerpt: "subsurface scattering"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Subsurface Scattering
