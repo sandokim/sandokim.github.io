@@ -13,6 +13,7 @@ tags:
 excerpt: "fastMRI & skm-tea Real & Simulation 데이터셋 정리"
 use_math: true
 classes: wide
+comments: true
 ---
 
 > [[fastMRI Dataset](https://fastmri.med.nyu.edu/)] [[fastMRI Github](https://github.com/facebookresearch/fastMRI?tab=readme-ov-file)] [[skm-tea Dataset](https://stanfordaimi.azurewebsites.net/datasets/4aaeafb9-c6e6-4e3c-9188-3aaaf0e0a9e7)] [[skm-tea Github](https://github.com/StanfordMIMI/skm-tea)]
