@@ -16,6 +16,7 @@ tags:
 excerpt: "3DGS SuGaR position_lr_init & spatial_lr_scale"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ## Scene Scaling and Learning Rate in Gaussian Splatting
