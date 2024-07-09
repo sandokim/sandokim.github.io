@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS point cloud coordinate systems"
 use_math: true
 classes: wide
+comments: true
 ---
 
 3dgs에서 사용하는 모든 카메라 모델은 COLMAP(OpenCV coordinate system)인 right, down, forward의 축방향을 가지도록 만들어서 사용합니다.
