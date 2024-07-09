@@ -13,6 +13,7 @@ tags:
 excerpt: "3DGS SuGaR entropy loss"
 use_math: true
 classes: wide
+comments: true
 ---
 
 ### entropy loss 계산시 ground truth density를 어떻게 계산하나요?
