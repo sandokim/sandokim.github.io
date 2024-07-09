@@ -20,6 +20,7 @@ tags:
 excerpt: "3DGS original code has a bug for big gaussians culling"
 use_math: true
 classes: wide
+comments: true
 ---
 
 3dgs original paper에서 view-space size culling이랑 world-space size culling으로 big gaussians을 제거하는 방식을 취한다고 설명하는데,
