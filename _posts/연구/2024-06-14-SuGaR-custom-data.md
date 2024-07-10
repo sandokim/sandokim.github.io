@@ -20,6 +20,69 @@ classes: wide
 comments: true
 ---
 
+# Converting Video to Images with ffmpeg
+
+##  Install ffmpeg
+비디오를 이미지로 변환하려면 ffmpeg을 설치합니다.
+
+## Run `ffmpeg` command
+```python
+ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
+```
+- 여기서 <FPS>는 비디오 이미지의 샘플링 속도를 나타냅니다.
+- FPS 값이 1이면 초당 하나의 이미지를 샘플링합니다.
+- **-qscale:v**는 비디오 품질을 제어하는 옵션입니다.
+  - 값이 낮을수록 품질이 높고 파일 크기가 커집니다. 여기서 **1은 최고 품질을 의미**합니다.
+- **-qmin**은 비디오의 최소 품질 수준을 설정합니다.
+  - **1로 설정하면 최소 품질을 최고로 설정**합니다.  
+-**vf fps=60**:
+  - -vf 옵션은 다양한 비디오 필터를 적용할 수 있도록 하며, 그 중 하나가 fps=60인 것입니다.
+  - fps=60은 비디오의 프레임 속도를 초당 60 프레임으로 설정하는 필터입니다.
+ 
+## 샘플링 속도는 비디오 길이에 맞추어 조정하여 샘플링된 이미지 수가 100에서 300 사이가 되도록 하는 것이 좋습니다.
+
+### 60fps로 촬영된 21초의 비디오인 경우
+- **총 프레임 수 계산**: 60 fps × 21 seconds = 1260 frames
+- **프레임 간격 계산**: 원하는 이미지 수 \(N\)가 100 ~ 300 사이여야 하므로,
+  - $1260 / 300 ≤ 프레임 간격 ≤ 1260 / 100$
+  - 즉, $4.2 ≤ 프레임 간격 ≤ 12.6$
+  - 프레임 간격을 정수로 만들어야 하므로,
+  - $5 ~ 12 프레임 간격$이 될 수 있습니다.
+  - ffmpeg에서 fps=5로 $5 프레임 간격$으로 추출하는 경우는 다음과 같은 코드를 사용합니다.
+    
+    ```python
+    ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 %04d.jpg
+    ```
+
+  - Ouput frame 저장 경로를 지정하려면 다음과 같이 해줍니다.
+
+    ```python
+    ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 <Path to the Output frame folder / %04d.jpg>
+    ```
+
+### 결과
+- $5 프레임 간격$으로 추출한 경우 109개의 이미지가 추출되었습니다.
+
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/068c765c-c18d-4217-be1b-a7a9d07935ac)
+
+- $12 프레임 간격$으로 추출한 경우 261개의 이미지가 추출되었습니다.
+  
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/efcf5e66-f15c-4cd9-ae28-5b7d87b5d03f)
+
+
+## 추출하는 Video의 해상도를 변경하고 싶으면 `-vf`의 인자 `fps`와 함께 `,`로 연결하여 줍니다.
+- 즉, `"-scale=Width:Height, fps=5"`을 줍니다.
+  
+```python
+  ffmpeg -i C:/Users/MNL/KHS/nerfs/data/test_video.mp4 -qscale:v 1 -qmin 1 -vf "scale=1280:720, fps=5" C:/Users/MNL/KHS/nerfs/data/frames_5/%04d.jpg
+```
+
+### 해상도가 변환되어 추출된 이미지들
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/549d921a-5fd1-4c4b-9f9a-6c2071abaa19)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5d716d5a-1d43-4969-bcb7-4bf6ac2944e2)
+
+--------
+
 ## Tips for 3D Scene Reconstruction
 
 ### Capture images or a video
@@ -73,70 +136,6 @@ comments: true
 ### Adding camera poses
 - Poisson reconstruction을 적용할 때 포인트 샘플링에 사용되는 카메라 세트에 이러한 카메라 포즈를 추가합니다.
 - 이러한 아이디어를 코드에 반영하여 곧 업데이트할 예정입니다.
-
-## Converting Video to Images with ffmpeg
-
-###  Install ffmpeg
-비디오를 이미지로 변환하려면 ffmpeg을 설치합니다.
-
-### Run command
-```python
-ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
-```
-- 여기서 <FPS>는 비디오 이미지의 샘플링 속도를 나타냅니다.
-- FPS 값이 1이면 초당 하나의 이미지를 샘플링합니다.
-- **-qscale:v**는 비디오 품질을 제어하는 옵션입니다.
-  - 값이 낮을수록 품질이 높고 파일 크기가 커집니다. 여기서 **1은 최고 품질을 의미**합니다.
-- **-qmin**은 비디오의 최소 품질 수준을 설정합니다.
-  - **1로 설정하면 최소 품질을 최고로 설정**합니다.  
--**vf fps=60**:
-  - -vf 옵션은 다양한 비디오 필터를 적용할 수 있도록 하며, 그 중 하나가 fps=60인 것입니다.
-  - fps=60은 비디오의 프레임 속도를 초당 60 프레임으로 설정하는 필터입니다.
- 
-### 샘플링 속도는 비디오 길이에 맞추어 조정하여 샘플링된 이미지 수가 100에서 300 사이가 되도록 하는 것이 좋습니다.
-
-#### 60fps로 촬영된 21초의 비디오인 경우
-- **총 프레임 수 계산**: 60 fps × 21 seconds = 1260 frames
-- **프레임 간격 계산**: 원하는 이미지 수 \(N\)가 100 ~ 300 사이여야 하므로,
-  - $1260 / 300 ≤ 프레임 간격 ≤ 1260 / 100$
-  - 즉, $4.2 ≤ 프레임 간격 ≤ 12.6$
-  - 프레임 간격을 정수로 만들어야 하므로,
-  - $5 ~ 12 프레임 간격$이 될 수 있습니다.
-  - ffmpeg에서 fps=5로 $5 프레임 간격$으로 추출하는 경우는 다음과 같은 코드를 사용합니다.
-    
-    ```python
-    ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 %04d.jpg
-    ```
-
-  - Ouput frame 저장 경로를 지정하려면 다음과 같이 해줍니다.
-
-    ```python
-    ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 <Path to the Output frame folder / %04d.jpg>
-    ```
-
-
-#### 결과
-- $5 프레임 간격$으로 추출한 경우 109개의 이미지가 추출되었습니다.
-
-  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/068c765c-c18d-4217-be1b-a7a9d07935ac)
-
-- $12 프레임 간격$으로 추출한 경우 261개의 이미지가 추출되었습니다.
-  
-  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/efcf5e66-f15c-4cd9-ae28-5b7d87b5d03f)
-
-
-### 추출하는 Video의 해상도를 변경하고 싶으면 `-vf`의 인자 `fps`와 함께 `,`로 연결하여 줍니다.
-- 즉, `"-scale=Width:Height, fps=5"`을 줍니다.
-  
-```python
-  ffmpeg -i C:/Users/MNL/KHS/nerfs/data/test_video.mp4 -qscale:v 1 -qmin 1 -vf "scale=1280:720, fps=5" C:/Users/MNL/KHS/nerfs/data/frames_5/%04d.jpg
-```
-
-#### 해상도가 변환되어 추출된 이미지들
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/549d921a-5fd1-4c4b-9f9a-6c2071abaa19)
-![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5d716d5a-1d43-4969-bcb7-4bf6ac2944e2)
-
-
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/16d933ba-53b7-4e1e-a7e7-91b2ea8db85a)
 
