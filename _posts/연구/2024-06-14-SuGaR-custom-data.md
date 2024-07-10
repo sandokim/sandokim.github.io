@@ -69,6 +69,7 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
   
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/efcf5e66-f15c-4cd9-ae28-5b7d87b5d03f)
 
+- 갤럭시 S23+로 촬영한 비디오에서 추출된 프레임의 해상도는 `Width x Height = 3840 x 2160`입니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fb175082-de03-4e99-abb4-6eda5c2f33ec)
 
 ## 추출하는 Video의 해상도를 변경하고 싶으면 `-vf`의 인자 `fps`와 함께 `,`로 연결하여 줍니다.
