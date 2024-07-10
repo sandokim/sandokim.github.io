@@ -115,6 +115,19 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
     ```
 
 
+#### 결과
+- $5 프레임 간격$으로 추출한 경우 109개의 이미지가 추출되었습니다.
+
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/068c765c-c18d-4217-be1b-a7a9d07935ac)
+
+- $12 프레임 간격$으로 추출한 경우 261개의 이미지가 추출되었습니다.
+
+  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/e03f5a83-4da3-4f26-8822-3e2575724ee3)
+
+
+
+
+
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/16d933ba-53b7-4e1e-a7e7-91b2ea8db85a)
 
