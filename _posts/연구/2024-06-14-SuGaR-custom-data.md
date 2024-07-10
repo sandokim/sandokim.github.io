@@ -108,6 +108,13 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
     ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 %04d.jpg
     ```
 
+  - Ouput frame 저장 경로를 지정하려면 다음과 같이 해줍니다.
+
+    ```python
+    ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 <Path to the Output frame folder / %04d.jpg>
+    ```
+
+
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/16d933ba-53b7-4e1e-a7e7-91b2ea8db85a)
 
