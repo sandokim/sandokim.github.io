@@ -32,7 +32,7 @@ comments: true
 python gaussian_splatting/convert.py -s <location>
 ```
 
-- `gaussian-splatting/convert.py`를 보시면, **촬영한 input 이미지들에 대해 Image undistortion까지 수행**하는 것을 볼 수 있습니다.
+- `gaussian-splatting/convert.py`를 보시면, ***촬영한 input 이미지들에 대해 Image undistortion까지 수행***하는 것을 볼 수 있습니다.
   
 ```python
 ### Image undistortion
