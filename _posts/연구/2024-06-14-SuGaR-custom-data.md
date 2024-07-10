@@ -48,7 +48,8 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
   - 즉, $4.2 ≤ 프레임 간격 ≤ 12.6$
   - 프레임 간격을 정수로 만들어야 하므로,
   - $5 ~ 12 프레임 간격$이 될 수 있습니다.
-  - ffmpeg에서 fps=5로 $5 프레임 간격$으로 추출하는 경우는 다음과 같은 코드를 사용합니다.
+  - 60fps 비디오에서 프레임 간격이 12인 경우 샘플링 속도는 $60/12=5fps$가 됩니다.
+  - ffmpeg에서 fps=5로 추출하는 경우는 다음과 같은 코드를 사용합니다.
     
     ```python
     ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 %04d.jpg
@@ -61,13 +62,9 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
     ```
 
 ### 결과
-- $5 프레임 간격$으로 추출한 경우 109개의 이미지가 추출되었습니다.
+- $12 프레임 간격$으로 추출한 경우 109개의 이미지가 추출되었습니다.
 
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/068c765c-c18d-4217-be1b-a7a9d07935ac)
-
-- $12 프레임 간격$으로 추출한 경우 261개의 이미지가 추출되었습니다.
-  
-  ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/efcf5e66-f15c-4cd9-ae28-5b7d87b5d03f)
 
 - 갤럭시 S23+로 촬영한 비디오에서 추출된 프레임의 해상도는 `Width x Height = 3840 x 2160`입니다.
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/fb175082-de03-4e99-abb4-6eda5c2f33ec)
