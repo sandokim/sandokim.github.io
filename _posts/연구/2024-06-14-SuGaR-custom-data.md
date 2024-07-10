@@ -125,10 +125,11 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
   ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/efcf5e66-f15c-4cd9-ae28-5b7d87b5d03f)
 
 
-### 추출하는 Video의 해상도를 변경하고 싶으면 `-vf`인자와 함께 `-scale=Width:Height`을 줍니다.
-
+### 추출하는 Video의 해상도를 변경하고 싶으면 `-vf`의 인자 `fps`와 함께 `,`로 연결하여 줍니다.
+- 즉, `"-scale=Width:Height, fps=5"`을 줍니다.
+  
 ```python
-  ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf -scale=1280:720 fps=5 %04d.jpg
+  ffmpeg -i C:/Users/MNL/KHS/nerfs/data/test_video.mp4 -qscale:v 1 -qmin 1 -vf "scale=1280:720, fps=5" C:/Users/MNL/KHS/nerfs/data/frames_5/%04d.jpg
 ```
 
 
