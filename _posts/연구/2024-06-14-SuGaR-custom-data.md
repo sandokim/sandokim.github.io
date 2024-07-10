@@ -132,6 +132,10 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
   ffmpeg -i C:/Users/MNL/KHS/nerfs/data/test_video.mp4 -qscale:v 1 -qmin 1 -vf "scale=1280:720, fps=5" C:/Users/MNL/KHS/nerfs/data/frames_5/%04d.jpg
 ```
 
+#### 해상도가 변환되어 추출된 이미지들
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/549d921a-5fd1-4c4b-9f9a-6c2071abaa19)
+![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/5d716d5a-1d43-4969-bcb7-4bf6ac2944e2)
+
 
 
 ![image](https://github.com/sandokim/sandokim.github.io/assets/74639652/16d933ba-53b7-4e1e-a7e7-91b2ea8db85a)
