@@ -32,6 +32,23 @@ comments: true
 python gaussian_splatting/convert.py -s <location>
 ```
 
+- `gaussian-splatting/convert.py`를 보시면, **촬영한 input 이미지들에 대해 Image undistortion까지 수행**하는 것을 볼 수 있습니다.
+  
+```python
+### Image undistortion
+## We need to undistort our images into ideal pinhole intrinsics.
+img_undist_cmd = (colmap_command + " image_undistorter \
+    --image_path " + args.source_path + "/input \
+    --input_path " + args.source_path + "/distorted/sparse/0 \
+    --output_path " + args.source_path + "\
+    --output_type COLMAP")
+exit_code = os.system(img_undist_cmd)
+if exit_code != 0:
+    logging.error(f"Mapper failed with code {exit_code}. Exiting.")
+    exit(exit_code)
+```
+
+
 ## Handling multiple sub-models
 - COLMAP이 모든 이미지를 동일한 모델로 재구성하지 못하고 여러 서브 모델을 생성하는 경우가 있습니다.
 - ***기본적으로 convert.py 스크립트는 첫 번째 서브 모델에만 이미지 왜곡 제거를 적용합니다.***
