@@ -105,7 +105,7 @@ ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=<FPS> %04d.jpg
   - ffmpeg에서 fps=5로 $5 프레임 간격$으로 추출하는 경우는 다음과 같은 코드를 사용합니다.
     
     ```python
-    ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 <Path to the Output frame folder + %04d.jpg>
+    ffmpeg -i <Path to the video file> -qscale:v 1 -qmin 1 -vf fps=5 %04d.jpg
     ```
 
 
