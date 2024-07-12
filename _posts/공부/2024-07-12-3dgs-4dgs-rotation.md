@@ -35,7 +35,7 @@ comments: true
    - world space에서 회전의 차이를 구하려면:
      - world space에서 회전을 원래대로 되돌립니다.
      - 새로운 회전을 적용합니다.
-   - 벡터는 단순히 차이를 구하면 됩니다.
+   - Rotation과 다르게 vector는 단순히 차이를 구하면 됩니다.
 
 2. **Distance Between Gaussians**:
    - t-1 시점에서 i-th Gaussian과 j-th Gaussian 간의 거리는 다음과 같이 계산합니다:
