@@ -19,4 +19,9 @@ classes: wide
 comments: true
 ---
 
-##
+## 3D Gaussian Splatting
+
+
+## Dynamic 3D Gaussians
+
+
