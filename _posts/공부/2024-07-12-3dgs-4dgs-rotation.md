@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] 3DGS, Dynamic 3DGS에서 Rotation 역변환을 곱하는 이유"
+title: "[3D CV] 3DGS, Dynamic 3DGS, 4DGS에서 Rotation 역변환을 곱하는 이유"
 last_modified_at: 2024-07-12
 categories:
   - 공부
@@ -34,11 +34,9 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/31fd94c1-461e-4de5-bf34-d613ef1ccac0)
 
-## 3D Gaussian Splatting
-
-![image](https://github.com/user-attachments/assets/c5e7e21a-0961-4761-9342-f32b9b4f73da)
-
 ## Dynamic 3D Gaussians
+
+![image](https://github.com/user-attachments/assets/f1bfff65-0911-4937-a587-2d15a43a5c67)
 
 ![image](https://github.com/user-attachments/assets/803557f0-8e88-41ad-938c-69e0f1db07bb)
 
