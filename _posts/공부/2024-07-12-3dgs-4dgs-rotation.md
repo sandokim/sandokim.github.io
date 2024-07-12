@@ -19,6 +19,21 @@ classes: wide
 comments: true
 ---
 
+## World Space에서 회전변환의 차이를 구할 때는 기존의 Rotation을 제거하고, 현재의 Rotation을 적용하여 그 둘의 차이를 구해야합니다.
+
+### Dynamic Scene에서 time step `t-1`과 `t` 사이에서 `i-th` 3D point에 대하여 Rotation 차이를 구하는 경우
+
+- 아래 그림에서 점선 왼쪽 부분
+  - 먼저 World Space에서 time step `t`의 Rotation $R_{i,t}$ 성분을 $R_{i,t}^{-1}$로 Rotation을 Identity로 만들어줍니다.
+  - 그 다음 time step `t-1`로의 Rotation $R_{i,t-1}$을 적용합니다.
+  - 이를 통해 time step `t-1`에서의 `i-th` 3D point의 Rotation을 `t`에서의 `i-th` 3D point를 변환하여 얻을 수가 있습니다.
+
+- 아래 그림에서 점선 오른쪽 부분
+  - time step `t-1`에서 `i-th` 3D point의 Rotation $R_{i,t-1}$과 time step `t`에서 `i-th` 3D point의 Rotation $R_{i,t}를 단순히 곱하는 방식으로는 World Space에서 `t-1`에서의 `i-th` 3D point의 Rotation과 `t`에서 `i-th` 3D point의 Rotation $R_{i,t}$의 차이를 구할 수 없습니다.
+  - 이유는 3D point가 time step `t`와 `t-1`에서의 Rotation을 나타내는 성분의 차를 World Space 기준으로 회전한 성분에 대해 각각 계산하여 정확히 그 관계로부터 구하고 싶기 때문입니다.
+
+![image](https://github.com/user-attachments/assets/31fd94c1-461e-4de5-bf34-d613ef1ccac0)
+
 ## 3D Gaussian Splatting
 
 ![image](https://github.com/user-attachments/assets/c5e7e21a-0961-4761-9342-f32b9b4f73da)
