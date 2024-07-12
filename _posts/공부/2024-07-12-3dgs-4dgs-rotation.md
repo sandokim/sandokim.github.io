@@ -27,9 +27,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/803557f0-8e88-41ad-938c-69e0f1db07bb)
 
-![image](https://github.com/user-attachments/assets/473dafb1-b678-45e5-8288-7285b504c5a3)
-
-![image](https://github.com/user-attachments/assets/48479f55-acff-46f8-ba4f-d2413184a95e)
+![image](https://github.com/user-attachments/assets/14ff85de-9348-43c8-8990-3f80cc5df67e)
 
 1. **Rotation and Difference Calculation**:
    - world space에서 회전의 차이를 구하려면:
@@ -59,14 +57,20 @@ comments: true
    - 0 시점에서 i-th Gaussian과 가장 가까운 20개의 Gaussians 간의 거리를 가중치로 사용합니다.
    - 이 가중치는 i-th Gaussian이 가장 가까운 20개의 이웃과 일정한 거리를 유지하도록 강제합니다.
    - 거리가 멀어지면 가중치가 증가하여 손실 값이 커집니다.
+
+    ![image](https://github.com/user-attachments/assets/8ae89b02-219a-4ac3-be17-59472c99dd23)
+
    - 손실을 최소화하려면 i-th Gaussian과 가장 가까운 20개의 이웃 간의 거리를 유지하도록 모델이 학습됩니다.
 
-2. **Quaternion Rotation and Loss**:
+1. **Quaternion Rotation and Loss**:
    - i-th Gaussian과 가장 가까운 20개의 이웃 Gaussians에 대해:
      - t-1 시점의 inverse quaternion rotation을 적용하여 회전을 identity로 만듭니다.
      - t 시점의 quaternion으로 회전시킵니다.
      - 이 손실은 t-1 시점에서 t 시점으로의 i-th Gaussian과 가장 가까운 20개의 Gaussians 각각의 rotation 차이가 없도록 보장합니다.
    - i-th Gaussian과 가장 가까운 20개의 이웃 Gaussians이 동일한 회전 방향을 가질 때 손실 값은 0이 되어 로컬 회전 일관성을 보장합니다.
+
+    ![image](https://github.com/user-attachments/assets/48479f55-acff-46f8-ba4f-d2413184a95e)
+     
 
 ### 초록색 실선과 점선에 대한 설명
 
