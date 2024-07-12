@@ -36,7 +36,7 @@ comments: true
 
 ## Dynamic 3D Gaussians
 
-![image](https://github.com/user-attachments/assets/f1bfff65-0911-4937-a587-2d15a43a5c67)
+$\mu_i$는 `i-th` Gaussian의 Center 입니다. 여기에 time step `t`를 추가하면, $\mu_{i,t}$가 됩니다.
 
 ![image](https://github.com/user-attachments/assets/803557f0-8e88-41ad-938c-69e0f1db07bb)
 
