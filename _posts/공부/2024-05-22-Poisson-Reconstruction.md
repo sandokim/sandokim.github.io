@@ -7,6 +7,9 @@ tags:
   - Poisson Surface Reconstruction
   - Poisson reconstruction
   - Screened Poisson Surface Reconstruction
+  - oriented pointset
+  - normals
+  - 3d points
   - Octree
   - poisson depth
 excerpt: "Poisson Reconstruction 정리"
@@ -16,6 +19,8 @@ comments: true
 ---
 
 3D points랑 각 3D point마다 normal이 있으면 surface를 만들 수 있고, 이때 사용하는 것이 poisson reconstruction입니다.
+
+포인트(Points)가 법선(normals)을 가지고 있으면 이를 "oriented point set"이라고 부릅니다. "Oriented"라는 용어는 각 포인트가 특정 방향으로 정렬되어 있다는 의미를 내포하며, 이 방향 정보는 법선 벡터로 제공됩니다
 
 ## Poisson Reconstruction 빠른 사용 방법
 
