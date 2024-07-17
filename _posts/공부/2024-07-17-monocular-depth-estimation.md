@@ -33,7 +33,7 @@ comments: true
 - depth sensor (realsense depth camera, LiDAR, etc.)는 항상 scene에 존재하는 material properties에 의하여 reflect되는 빛이 영향을 받습니다.
 - 이때 반사되는 빛이 IR sensor에 도달할 때, 그 값이 너무 크게 반사되면 IR sensor가 capture할 수 있는 value range를 넘어가서 하얗게 나옵니다.
 ![image](https://github.com/user-attachments/assets/9cbe65ad-940f-4b18-a415-1b78a4fb8116)
-- 예시로, 아래 Ground Truth에서 relect가 심한 material에 대해선 하얗게 표시된 것을 볼 수 있습니다.
+- 예시로, 아래 Ground Truth에서 relect가 심한 즉, shiny한 material에 대해선 하얗게 표시된 것을 볼 수 있습니다.
 ![image](https://github.com/user-attachments/assets/75c1fbc8-b8d7-4266-8482-3402c4fb260b)
 
 ### 사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
