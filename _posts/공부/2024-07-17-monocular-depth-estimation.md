@@ -38,6 +38,12 @@ comments: true
 - realsense depth sensor같은걸로 얻은 Ground Truth normal도 굉장히 퀄리티가 떨어집니다.
 ![image](https://github.com/user-attachments/assets/c59e838e-6f79-4728-8d07-75255d0eb653)
 
+### true depth needs scale
+
+- fake depth로 표현하고, depth를 rgb color로 표현하면 아래와 같습니다.
+- 문제는 카메라부터 강아지까지 거리와 카메라부터 건물까지 거리는 단위부터가 다른데, fake depth에서는 -1 ~ 1로 normalize하여 표현하므로, true depth를 알 수가 없습니다.
+![image](https://github.com/user-attachments/assets/314cd810-3ca9-48bc-b73a-74e68806e648)
+
 
 ### 사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
 
