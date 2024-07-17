@@ -18,7 +18,7 @@ classes: wide
 comments: true
 ---
 
-# $\bold{d} \in \mathbb{R}^{H \times W}$
+# $\bf{d} \in \mathbb{R}^{H \times W}$
 
 - depth는 $H \times W$로 표현됩니다. 실제 코드에서도 `(H,W)` 2개의 채널을 가집니다.
 
