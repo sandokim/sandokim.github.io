@@ -7,7 +7,7 @@ tags:
   - Poisson Surface Reconstruction
   - Poisson reconstruction
   - Screened Poisson Surface Reconstruction
-  - oriented pointset
+  - oriented point set
   - normals
   - 3d points
   - Octree
