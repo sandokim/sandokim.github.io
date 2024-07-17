@@ -29,7 +29,7 @@ comments: true
 - near plane이 0.1 cm이면 0.1cm이내에 있는 점들에 대해서는 real value를 주지 않습니다.
 
 
-### depth sensor로 얻는 ground truth는 Light Sensor로 빔을 쏘고 반사되어 나오는 것을 IR (Infrared, 적외선) sensor로 depth를 얻습니다.
+### depth sensor로 얻는 ground truth는 Light Sensor로 빔을 쏘고 반사되어 나오는 것을 IR sensor (Infrared sensor, 적외선 센서)로 capture하여 depth를 얻습니다.
 - depth sensor (realsense depth camera, LiDAR, etc.)는 항상 scene에 존재하는 material properties에 의하여 reflect되는 빛이 영향을 받습니다.
 - 이때 반사되는 빛이 IR sensor에 도달할 때, 그 값이 너무 크게 반사되면 IR sensor가 capture할 수 있는 value range를 넘어가서 하얗게 나옵니다.
 ![image](https://github.com/user-attachments/assets/9cbe65ad-940f-4b18-a415-1b78a4fb8116)
