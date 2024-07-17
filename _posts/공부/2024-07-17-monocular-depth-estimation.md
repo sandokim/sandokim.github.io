@@ -23,7 +23,13 @@ comments: true
 - depth는 $H \times W$로 표현됩니다. 실제 코드에서도 `(H,W)` 2개의 채널을 가집니다.
 - depth value는 카메라로부터 3D point까지의 거리입니다. (일반적으로 -1 ~ 1의 값은 아님)
 
-사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
+### 대부분의 depth sensor도 near plane, far plane개념이 있습니다.
+![image](https://github.com/user-attachments/assets/2366f3a5-fc28-4071-a32b-52fe54c4162e)
+- LiDAR sensor도 minimum distance, max distance가 있습니다.
+- near plane이 0.1 cm이면 0.1cm이내에 있는 점들에 대해서는 real value를 주지 않습니다.
+
+
+### 사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
 
 사람처럼 scene에 대한 이해가 있으면, 한쪽 눈만으로도 깊이를 어느정도 추정할 수는 있긴 하지만 어렵다고 합니다.
 
