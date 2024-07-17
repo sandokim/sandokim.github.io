@@ -30,7 +30,7 @@ comments: true
 
 
 ### depth sensor로 얻는 ground truth는 Light Sensor로 빔을 쏘고 반사되어 나오는 것을 IR sensor (Infrared sensor, 적외선 센서)로 capture하여 depth를 얻습니다.
-- depth sensor (realsense depth camera, LiDAR, etc.)는 항상 scene에 존재하는 material properties에 의하여 reflect되는 빛이 영향을 받습니다.
+- depth sensor (realsense depth camera, LiDAR, etc.)는 항상 scene에 존재하는 material properties에 의하여 반사되는 빛의 영향을 받습니다.
 - 이때 반사되는 빛이 IR sensor에 도달할 때, 그 값이 너무 크게 반사되면 IR sensor가 capture할 수 있는 value range를 넘어가서 하얗게 나옵니다.
 ![image](https://github.com/user-attachments/assets/9cbe65ad-940f-4b18-a415-1b78a4fb8116)
 - 예시로, 아래 Ground Truth에서 relect가 심한 즉, shiny한 material에 대해선 하얗게 표시된 것을 볼 수 있습니다.
