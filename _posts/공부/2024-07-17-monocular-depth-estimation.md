@@ -29,6 +29,12 @@ comments: true
 - near plane이 0.1 cm이면 0.1cm이내에 있는 점들에 대해서는 real value를 주지 않습니다.
 
 
+### depth sensor로 얻는 ground truth는 적외선을 쏘고 반사되어 나오는 것으로 depth를 얻습니다.
+- depth sensor (realsense depth camera, LiDAR, etc.)는 material reflection에 의해 IR sensor에 도달하지 않아 missing value가 생기는 문제가 항상 발생합니다.
+![image](https://github.com/user-attachments/assets/9cbe65ad-940f-4b18-a415-1b78a4fb8116)
+- missing value는 아래 Ground Truth에서 하얗게 표시된 것을 볼 수 있습니다.
+![image](https://github.com/user-attachments/assets/75c1fbc8-b8d7-4266-8482-3402c4fb260b)
+
 ### 사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
 
 사람처럼 scene에 대한 이해가 있으면, 한쪽 눈만으로도 깊이를 어느정도 추정할 수는 있긴 하지만 어렵다고 합니다.
