@@ -27,6 +27,8 @@ comments: true
 ### monocular depth estimation is a dense, structured regression task
 
 - monocular depth estimation은 **모든 pixel에 대해 depth value를 prediction해야하므로 dense한 task**입니다.
+- -1 ~ 1 사이의 값 중에 맞는 depth value로 regress해야하므로 regression task입니다.
+
 
 ### Reference
 [monocular depth estimation](https://www.youtube.com/live/WoiI_Pn9yHw?si=TWAW4JpuLppNH5I9)
