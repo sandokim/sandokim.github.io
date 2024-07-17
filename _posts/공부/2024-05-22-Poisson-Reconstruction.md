@@ -15,6 +15,8 @@ classes: wide
 comments: true
 ---
 
+3D points랑 각 3D point마다 normal이 있으면 surface를 만들 수 있고, 이때 사용하는 것이 poisson reconstruction입니다.
+
 ## Poisson Reconstruction 빠른 사용 방법
 
 ### Poisson detph
