@@ -58,6 +58,8 @@ comments: true
 
 ### Depth Evaluation Metrics
 
+![image](https://github.com/user-attachments/assets/8d7f9350-b8c9-4752-8519-efdafa7cb36f)
+
 ![image](https://github.com/user-attachments/assets/407d6802-f723-4e73-806b-1f087d5940f0)
 
 
