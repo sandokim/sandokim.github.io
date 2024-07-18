@@ -44,6 +44,15 @@ comments: true
 - 문제는 카메라부터 강아지까지 거리와 카메라부터 건물까지 거리는 단위부터가 다른데, fake depth에서는 -1 ~ 1로 normalize하여 표현하므로, true depth를 알 수가 없습니다.
 ![image](https://github.com/user-attachments/assets/314cd810-3ca9-48bc-b73a-74e68806e648)
 
+### 'scale ambiguity problem'(스케일 모호성 문제)은 깊이 추정에서 자주 발생하는 문제입니다.
+- 이 문제는 장면에서 개체의 크기나 거리를 추정할 때 실제 물리적 크기나 거리와 비교할 수 있는 기준이 없을 때 발생합니다.
+- 다시 말해, 깊이 추정 모델은 물체 간의 상대적인 거리는 잘 알 수 있지만, 이 거리들이 실제 세계에서 얼마나 큰지, 즉 절대적인 스케일을 알 수 없다는 것입니다.
+- ZoeDepth와 DepthAnything 같은 모델들은 장면의 각 픽셀마다 깊이를 추정하는 데 집중하고 있습니다. 하지만 이 깊이 정보는 상대적일 뿐, 절대적인 거리를 제공하지 않습니다.
+- 그래서 이러한 깊이 정보를 실제 세계의 스케일과 맞추기 위해 비교 기준이 필요합니다. 여기서 'sparse SfM points'와 비교하는 방법이 사용됩니다.
+- 이는 SfM(Structure from Motion) 알고리즘을 통해 얻은 장면의 일부 포인트들의 절대적인 깊이 정보를 활용하여 전체 깊이 지도의 스케일을 조정하는 방식입니다.
+![image](https://github.com/user-attachments/assets/88903602-bda8-4b8f-9a97-b08869f411bd)
+[DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://arxiv.org/abs/2403.17822)
+
 
 ### 사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
 
