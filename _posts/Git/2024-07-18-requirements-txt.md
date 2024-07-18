@@ -22,7 +22,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/5f92c7a4-7211-4e85-9e6f-c75e0b01670f)
 
-### 위의 에러는 CUDA 11.8에 맞게 pytorch를 먼저 설치하고, requirments.txt에서 torch 관련 주석을 모두 지우고 깔았을 때 발생한 현상입니다.
+### 위의 에러는 CUDA 11.8에 맞게 pytorch를 먼저 설치하고, requirments.txt에서 torch 관련 주석을 모두 지우고 깔았음에도 발생한 현상입니다.
 
 ```python
 conda create -n omnidata -y python=3.8
