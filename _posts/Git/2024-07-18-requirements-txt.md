@@ -18,7 +18,7 @@ classes: wide
 comments: true
 ---
 
-# pip install -r requirements.txt로 설치할 때, library의 version들에 따라서 torch가 저절로 uninstall 되고 다른 torch version으로 재설치가 되는 경우가 있습니다.
+### pip install -r requirements.txt로 설치할 때, library의 version들에 따라서 torch가 저절로 uninstall 되고 다른 torch version으로 재설치가 되는 경우가 있습니다.
 
 ![image](https://github.com/user-attachments/assets/5f92c7a4-7211-4e85-9e6f-c75e0b01670f)
 
