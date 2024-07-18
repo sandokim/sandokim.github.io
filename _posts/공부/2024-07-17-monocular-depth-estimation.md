@@ -89,7 +89,7 @@ comments: true
 - 물체의 가장자리와 같이 이미지 gradient가 큰 영역에서는 depth loss가 낮아지며, 매끄러운 영역에서 정규화가 더 강화됩니다.
   
 $$
-L_\hat{D} = g_{rgb} \frac{1}{|\hat{D}|} \sum \log \left( 1 + \| \hat{D} - D \|_1 \right)
+L_\hat{D} = g_{rgb} \frac{1}{|\hat{D}|} \sum \log \left( 1 + \|\| \hat{D} - D \|\|_1 \right)
 $$
 
 여기서
