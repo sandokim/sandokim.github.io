@@ -51,7 +51,7 @@ comments: true
 - 그래서 이러한 깊이 정보를 실제 세계의 스케일과 맞추기 위해 비교 기준이 필요합니다. 여기서 'sparse SfM points'와 비교하는 방법이 사용됩니다.
 - 이는 SfM(Structure from Motion) 알고리즘을 통해 얻은 장면의 일부 포인트들의 절대적인 깊이 정보를 활용하여 전체 깊이 지도의 스케일을 조정하는 방식입니다.
 ![image](https://github.com/user-attachments/assets/88903602-bda8-4b8f-9a97-b08869f411bd)
-[DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://arxiv.org/abs/2403.17822)
+- [DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://arxiv.org/abs/2403.17822)
 
 
 ### 사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
