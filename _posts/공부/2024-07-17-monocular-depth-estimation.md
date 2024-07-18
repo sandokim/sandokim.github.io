@@ -98,6 +98,8 @@ $$
 g_{rgb} = \exp \left( - \nabla I \right)
 $$
 
+![image](https://github.com/user-attachments/assets/afc66479-7936-496d-b8ae-03b6ccb44c5d)
+
   
 ### Reference
 - [[논문리뷰] DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://kimjy99.github.io/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/dn-splatter/)
