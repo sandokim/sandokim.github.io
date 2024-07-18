@@ -74,6 +74,8 @@ comments: true
 
 ### Ground Truth Depth는 depth sensor로 촬영한 것을 사용합니다. (i.e. iPhone으로 capture한 depth를 gt로 사용함)
 
+![image](https://github.com/user-attachments/assets/d76f4ddb-6371-46b0-8aac-15f39b298e7a)
+
 ![image](https://github.com/user-attachments/assets/7ac53c4e-3ad2-4e35-8bd5-c619a2c93b77)
 
 
