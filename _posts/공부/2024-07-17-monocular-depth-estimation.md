@@ -81,5 +81,14 @@ comments: true
 ![image](https://github.com/user-attachments/assets/7ac53c4e-3ad2-4e35-8bd5-c619a2c93b77)
 
 
+# Sensor depth
+
+- LiDAR 또는 센서로 측정한 깊이가 포함된 데이터셋의 depth map에 깊이 정규화를 직접 적용합니다..
+- 일반적인 상업용 깊이 센서는 물체 경계에 가장자리가 매끄럽지 않으며 매끄러운 표면에서 부정확한 값을 제공하는 경우가 많습니다.
+- 따라서 저자들은 RGB 이미지를 기반으로 적응형 깊이 정규화를 위한 gradient-aware depth loss를 제안하였습니다.
+
+  
 ### Reference
-[monocular depth estimation](https://www.youtube.com/live/WoiI_Pn9yHw?si=TWAW4JpuLppNH5I9)
+- [[논문리뷰] DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://kimjy99.github.io/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/dn-splatter/)
+- [DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://arxiv.org/abs/2403.17822)
+- [monocular depth estimation](https://www.youtube.com/live/WoiI_Pn9yHw?si=TWAW4JpuLppNH5I9)
