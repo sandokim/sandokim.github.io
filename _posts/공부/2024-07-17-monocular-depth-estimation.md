@@ -72,6 +72,10 @@ comments: true
 - monocular depth estimation은 **모든 pixel에 대해 depth value를 prediction해야하므로 dense한 task**입니다.
 - -1 ~ 1 사이의 값 중에 맞는 depth value로 regress해야하므로 regression task입니다.
 
+### Ground Truth Depth는 depth sensor로 촬영한 것을 사용합니다. (i.e. iPhone으로 capture한 depth를 gt로 사용함)
+
+![image](https://github.com/user-attachments/assets/7ac53c4e-3ad2-4e35-8bd5-c619a2c93b77)
+
 
 ### Reference
 [monocular depth estimation](https://www.youtube.com/live/WoiI_Pn9yHw?si=TWAW4JpuLppNH5I9)
