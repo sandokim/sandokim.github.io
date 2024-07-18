@@ -56,6 +56,11 @@ comments: true
 - [DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://arxiv.org/abs/2403.17822)
 
 
+### Depth Evaluation Metrics
+
+![image](https://github.com/user-attachments/assets/407d6802-f723-4e73-806b-1f087d5940f0)
+
+
 ### 사람이 한쪽 눈을 잃어서 다른 한쪽 눈으로만 물체를 보면, 그 물체에 대한 깊이를 추정하는데 굉장히 어렵다고 합니다.
 
 사람처럼 scene에 대한 이해가 있으면, 한쪽 눈만으로도 깊이를 어느정도 추정할 수는 있긴 하지만 어렵다고 합니다.
