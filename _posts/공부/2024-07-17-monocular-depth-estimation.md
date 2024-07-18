@@ -86,6 +86,17 @@ comments: true
 - LiDAR 또는 센서로 측정한 깊이가 포함된 데이터셋의 depth map에 깊이 정규화를 직접 적용합니다..
 - 일반적인 상업용 깊이 센서는 물체 경계에 가장자리가 매끄럽지 않으며 매끄러운 표면에서 부정확한 값을 제공하는 경우가 많습니다.
 - 따라서 저자들은 RGB 이미지를 기반으로 적응형 깊이 정규화를 위한 gradient-aware depth loss를 제안하였습니다.
+- 물체의 가장자리와 같이 이미지 gradient가 큰 영역에서는 depth loss가 낮아지며, 매끄러운 영역에서 정규화가 더 강화됩니다.
+  
+$$
+L_\hat{D} = g_{rgb} \frac{1}{|\hat{D}|} \sum \log \left( 1 + \| \hat{D} - D \|_1 \right)
+$$
+
+여기서
+
+$$
+g_{rgb} = \exp \left( - \nabla I \right)
+$$
 
   
 ### Reference
