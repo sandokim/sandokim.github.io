@@ -50,6 +50,8 @@ comments: true
 - ZoeDepth와 DepthAnything 같은 모델들은 장면의 각 픽셀마다 깊이를 추정하는 데 집중하고 있습니다. 하지만 이 깊이 정보는 상대적일 뿐, 절대적인 거리를 제공하지 않습니다.
 - 그래서 이러한 깊이 정보를 실제 세계의 스케일과 맞추기 위해 비교 기준이 필요합니다. 여기서 'sparse SfM points'와 비교하는 방법이 사용됩니다.
 - 이는 SfM(Structure from Motion) 알고리즘을 통해 얻은 장면의 일부 포인트들의 절대적인 깊이 정보를 활용하여 전체 깊이 지도의 스케일을 조정하는 방식입니다.
+- SfM 포인트를 카메라 뷰에 투영하여 얻은 sparse depth map의 스케일과 일치하도록 정렬합니다.
+- 이를 위해, 각 이미지에 대해 scale parameter(a)와 shift parameter(b)를 닫힌 형태의 선형 회귀 솔루션을 사용하여 해결합니다
 ![image](https://github.com/user-attachments/assets/88903602-bda8-4b8f-9a97-b08869f411bd)
 - [DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://arxiv.org/abs/2403.17822)
 
