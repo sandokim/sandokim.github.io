@@ -25,7 +25,7 @@ comments: true
 
 `from . import _C`로 rasterization관련 `.cu` 쿠다 코드를 가져와서 사용합니다.
 
-### [diff_gaussian_rasterization/__init__.py](https://github.com/robot0321/diff-gaussian-rasterization-depth-acc/blob/c63d79dc4d59b2965eaf7bada5dda2eae68c08af/diff_gaussian_rasterization_depth_acc/__init__.py)
+### [diff_gaussian_rasterization/\_\_init\_\_.py](https://github.com/robot0321/diff-gaussian-rasterization-depth-acc/blob/c63d79dc4d59b2965eaf7bada5dda2eae68c08af/diff_gaussian_rasterization_depth_acc/__init__.py)
 
 ```python
 from . import _C
@@ -84,7 +84,7 @@ from . import _C
 ...
 ```
 
-### [diff_gaussian_rasterization_depth_acc/__init__.py](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/diff_gaussian_rasterization/__init__.py)
+### [diff_gaussian_rasterization_depth_acc/\_\_init\_\_.py](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/diff_gaussian_rasterization/__init__.py)
 
 - depth가 추가된 모듈의 경우 depth, acc도 같이 rasterize 합니다.
 
