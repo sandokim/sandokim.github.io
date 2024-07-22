@@ -116,13 +116,13 @@ $$
 - gaussian의 position과 color는 아무 상관이 없어보이지만, $\alpha$는 gaussian의 position $dg_{position}$과 관련이 있습니다.
 
 $$
-\frac{dL}{dg_{position}} = \frac{dL}{dc} \ times \frac{dc}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times \frac{d\alpha}{dg_{position}}
+\frac{dL}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times \frac{d\alpha}{dg_{position}}
 $$
 
 - $\alpha$에 대한 식을 먼저 찾고 다시 chain rule을 전개해봅시다.
 
 $$
-\alpha = g_{opacitiy} \times \exp^{-\frac{1}{2}(x-\mu)^2\sigma(x-\mu)} = \exp^{-\frac{1}{2}(c_0d^2x + 2c_1dxdy + c_2d^2y)}
+\alpha = g_{opacitiy} \times \exp^{-\frac{1}{2}(x-\mu)^T\Sigma(x-\mu)} = \exp^{-\frac{1}{2}(c_0d^2x + 2c_1dxdy + c_2d^2y)}
 $$
 
 - `forward.cu`, `backward.cu`에서 사용하는 `preprocess CUDA`에서 gaussian의 지수는 아래처럼 정의하여 사용합니다.
@@ -134,5 +134,5 @@ $$
 - 이제 다시 처음 식을 전개하면
 
 $$
-\frac{dL}{dg_{position}} = \frac{dL}{dc} \ times \frac{dc}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times \frac{d\alpha}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times g_{opacity} \ times \frac{d\exp^{power}}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times g_{opacity} \ times \exp^{power} \times \frac{dpower}}{dg_{position}}
+\frac{dL}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times \frac{d\alpha}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times g_{opacity} \times \frac{d\exp^{power}}{dg_{position}} = \frac{dL}{dc} \times \frac{dc}{d\alpha} \times g_{opacity} \times \exp^{power} \times \frac{dpower}{dg_{position}}
 $$
