@@ -146,6 +146,7 @@ from . import _C
 ## Rasterization 관련된 Cuda 코드는 `cuda_rasterizer/xxx.cu`, `rasterize_points.cu` 관련 코드를 변경하여 작성하고 `setup.py`에서 build 합니다.
 
 - 실제로 `cuda_rasterizer/rasterizer_impl.cu`, `cuda_rasterizer/forward.cu`, `cuda_rasterizer.backward.cu`, `rasterize_points.cu` 코드에 모두 depth를 rasterize하기 위한 코드가 추가되었음을 확인해볼 수 있습니다.
+- `diff-gaussian-rasterization-depth-acc`에 해당하는 cuda 코드는 `out_depth`, `out_acc`와 같은 depth 관련 텐서가 추가적으로 생성되었고, backpropagation 계산에 `accum_acc`, `accum_depth` 인자를 포함합니다.
 
 ### [diff-gaussian-rasterization/setup.py](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/setup.py)
 
