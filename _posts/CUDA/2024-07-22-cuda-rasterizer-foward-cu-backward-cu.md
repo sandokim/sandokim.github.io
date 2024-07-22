@@ -70,5 +70,15 @@ $$
 
 ### `backward.cu`는 output인 pixel의 rgb가 gaussian properties에 대한 backprop을 계산합니다.
 
+#### output ; p개의 pixel
+- p_rgb # (p, 3)
+
+#### input ; G개의 gaussain
+- g_point_3D # (G, 3)
+- g_rgb # (G, 3)
+- g_scale # (G, 3)
+- g_rotation # (G, 4)
+- g_opacity # (G, 1)
+
 
 
