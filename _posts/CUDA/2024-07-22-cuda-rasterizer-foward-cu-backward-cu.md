@@ -18,8 +18,11 @@ classes: wide
 comments: true
 ---
 
-## Original 3D Gaussian Splatting의 submodules/diff-gaussian-rasterization의 forward.cu
+# Original 3D Gaussian Splatting의 submodules/diff-gaussian-rasterization의 forward.cu
 
+### `forward.cu`는 gaussian splat이 Tile-based Rendering을 하는 코드입니다.
+- block = tile
+- thread = pixel
 - `cuda_rasterizer/forward.cu`에서 2D gaussian의 center로부터 현재 pixel까지의 거리 `d`를 구하고,
 - 그 2D gaussian 함수이 `d`만큼 떨어진 위치의 pixel에 contribution하는 정도를 weight로 나타냅니다.
 - gaussian 함수의 수식은 아래와 같습니다.
@@ -63,4 +66,9 @@ $$
 			}
 ...
 ```
+
+
+### `backward.cu`는 output인 pixel의 rgb가 gaussian properties에 대한 backprop을 계산합니다.
+
+
 
