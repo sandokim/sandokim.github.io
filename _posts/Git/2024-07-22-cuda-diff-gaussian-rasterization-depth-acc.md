@@ -6,6 +6,7 @@ categories:
 tags:
   - git
   - github
+  - cuda programming
   - cuda rasterization
   - diff-gaussian-rasterization
   - diff-gaussian-rasterization-depth-acc
