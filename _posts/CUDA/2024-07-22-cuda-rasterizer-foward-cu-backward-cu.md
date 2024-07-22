@@ -33,6 +33,9 @@ $$
 
 - `forward.cu`에서는 위 수식을 `x,y`를 갖는 2차원 가우시안 분포로 표현하여, `power` 변수로 정의하였음을 확인 가능합니다.
 
+![image](https://github.com/user-attachments/assets/981a7e5a-79d9-4f26-b0ee-c71acafc0c1c)
+
+
 ```cuda
 # diff-gaussian-rasterization/cuda_rasterizer/foward.cu
 ...
@@ -107,8 +110,6 @@ $$
 $$
 
 ### output color c가 나머지 gaussian properties들인 g_point_3D, g_scale, g_rotation에 chain rule로 연결하는 과정도 동일합니다.
-
-![image](https://github.com/user-attachments/assets/41956f2a-84e4-497d-a184-c732feb62d87)
 
 
 
