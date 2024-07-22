@@ -22,12 +22,13 @@ comments: true
 
 - `cuda_rasterizer/forward.cu`에서 2D gaussian의 center로부터 현재 pixel까지의 거리 `d`를 구하고,
 - 그 2D gaussian 함수이 `d`만큼 떨어진 위치의 pixel에 contribution하는 정도를 weight로 나타냅니다.
+- gaussian 함수의 수식은 아래와 같습니다.
   
 $$
 \exp^{-(x-\mu)^2/(2\sigma^2)}
 $$
 
-- `forward.cu`에서는 위 수식을 `power` 변수로 정의하였음을 확인 가능합니다.
+- `forward.cu`에서는 위 수식을 `x,y`를 갖는 2차원 가우시안 분포로 표현하여, `power` 변수로 정의하였음을 확인 가능합니다.
 
 ```cuda
 # diff-gaussian-rasterization/cuda_rasterizer/foward.cu
