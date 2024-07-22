@@ -96,7 +96,7 @@ $$
 
 $\frac{dc}{dc_0} = \alpha_0, \\ \frac{dc}{dc_1} = \alpha_1(1-\alpha_0)$, ... 이고
 
-$c_0, c_1, ... , c_n$는 camera에서 가까운 순서대로 0번째, 1번째, ... n번째의 각 gaussian의 color를 의미하므로
+$c_0, c_1, ... , c_n$는 현재 camera에서 가까운 순서대로 0번째, 1번째, ... n번째의 각 gaussian의 color를 의미하므로
 
 Each gaussian 별로 color에 contribution하는 정도를 output color c와 chain rule로 연결하여 표현할 수 있습니다.
 
