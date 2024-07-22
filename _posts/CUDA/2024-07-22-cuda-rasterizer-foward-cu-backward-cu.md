@@ -111,5 +111,5 @@ $$
 
 ### output color c가 나머지 gaussian properties들인 g_point_3D, g_scale, g_rotation에 chain rule로 연결하는 과정도 동일합니다.
 
-
+#### Tip: Write what you have on the left and write what you have on the right
 
