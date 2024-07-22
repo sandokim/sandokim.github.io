@@ -80,7 +80,7 @@ $$
 - g_rotation # (G, 4)
 - g_opacity # (G, 1)
 
-### output가 input을 chain rule로 연결하여 각 gaussian properties를 tile 별로 계산합니다.
+## output가 input을 chain rule로 연결하여 각 gaussian properties를 tile 별로 계산합니다.
 
 먼저 output color c는
 
@@ -88,17 +88,19 @@ $$
 c = c_0\alpha_0 + c_1\alpha_1(1-\alpha_0) + ...
 $$
 
-- output color c가 gaussian g_rgb에 chain rule로 연결
+### output color c가 gaussian g_rgb에 chain rule로 연결
 
 $$
 \frac{dL}{dg_{rgb}} = \frac{dL}{dc} \times \frac{dc}{dg_{rgb}}
 $$
 
-$$
-where, \\ \frac{dc}{dc_0} = \alpha_0, \\ \frac{dc}{dc_1} = \alpha_1(1-\alpha_0), ...
-$$
+$\frac{dc}{dc_0} = \alpha_0$, $\frac{dc}{dc_1} = \alpha_1(1-\alpha_0)$, ... 이고
 
-- output color c가 gaussian g_opacity에 chain rule로 연결
+c_0, c_1, ...는 각 gaussian의 color를 의미하므로
+
+Each gaussian 별로 color에 contribution하는 정도를 output color c와 chain rule로 연결하여 표현할 수 있습니다.
+
+### 마찬가지로 output color c가 gaussian g_opacity에 chain rule로 연결
   
 $$
 \frac{dL}{dg_{opacity}} = \frac{dL}{dc} \times \frac{dc}{dg_{opacity}}
