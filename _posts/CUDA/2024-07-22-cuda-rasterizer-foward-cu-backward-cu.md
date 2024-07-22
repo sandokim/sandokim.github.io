@@ -92,8 +92,10 @@ $$
 
 $$
 \frac{dL}{dg_{rgb}} = \frac{dL}{dc} \times \frac{dc}{dg_{rgb}}
+$$
 
-where \\ \frac{dc}{dc_0} = \alpha_0, \frac{dc}{dc_1} = \alpha_1(1-\alpha_0), ...
+$$
+where, \\ \frac{dc}{dc_0} = \alpha_0, \\ \frac{dc}{dc_1} = \alpha_1(1-\alpha_0), ...
 $$
 
 - output color c가 gaussian g_opacity에 chain rule로 연결
