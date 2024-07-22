@@ -25,8 +25,7 @@ comments: true
 
 `from . import _C`로 rasterization관련 `.cu` 쿠다 코드를 가져와서 사용합니다.
 
-### [diff_gaussian_rasterization/__init__.py](https://github.com/robot0321/diff-gaussian-rasterization-depth-acc/blob/c63d79dc4d59b2965eaf7bada5dda2eae68c08af/diff_gaussian_rasterization_depth_acc/__init__.py
-)
+### [diff_gaussian_rasterization/__init__.py](https://github.com/robot0321/diff-gaussian-rasterization-depth-acc/blob/c63d79dc4d59b2965eaf7bada5dda2eae68c08af/diff_gaussian_rasterization_depth_acc/__init__.py)
 
 ```python
 from . import _C
