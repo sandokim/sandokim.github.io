@@ -61,6 +61,9 @@
         {% assign sum = site.categories['Git'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/Git">😺 Git ({{sum}})</a></span>
 
+        {% assign sum = site.categories['CUDA'] | size %}
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/CUDA">🍏 CUDA ({{sum}})</a></span>
+
         {% assign sum = site.categories['영어일기'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/영어일기">🔠 영어일기 ({{sum}})</a></span>
 
