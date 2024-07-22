@@ -100,11 +100,11 @@ $c_0, c_1, ... , c_n$는 현재 camera에서 가까운 순서대로 0번째, 1�
 
 Each gaussian 별로 color에 contribution하는 정도를 output color c와 chain rule로 연결하여 표현할 수 있습니다.
 
-### 마찬가지로 output color c가 gaussian g_opacity에 chain rule로 연결
+### output color c가 gaussian g_opacity에 chain rule로 연결
   
 $$
 \frac{dL}{dg_{opacity}} = \frac{dL}{dc} \times \frac{dc}{dg_{opacity}}
 $$
 
-
+### output color c가 나머지 gaussian properties들인 g_point_3D, g_scale, g_rotation에 chain rule로 연결하는 과정도 동일합니다.
 
