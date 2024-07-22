@@ -73,7 +73,7 @@ $$
 #### output ; p개의 pixel
 - p_rgb # (p, 3)
 
-#### input ; G개의 gaussain
+#### input ; G개의 gaussian
 - g_point_3D # (G, 3)
 - g_rgb # (G, 3)
 - g_scale # (G, 3)
