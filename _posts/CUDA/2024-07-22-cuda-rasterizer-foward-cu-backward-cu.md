@@ -125,7 +125,7 @@ $$
 \alpha = g_{opacitiy} \times \exp^{-\frac{1}{2}(x-\mu)^T\Sigma(x-\mu)} = \exp^{-\frac{1}{2}(c_0d^2x + 2c_1dxdy + c_2d^2y)}
 $$
 
-- `forward.cu`, `backward.cu`에서 사용하는 `preprocess CUDA`에서 gaussian의 지수는 아래처럼 정의하여 사용합니다.
+- `forward.cu`, `backward.cu`에서 사용하는 gaussian의 지수는 아래처럼 변수 `power`로 정의하여 사용합니다.
 
 $$
 power = -\frac{1}{2}(c_0d^2x + 2c_1dxdy + c_2d^2y)
