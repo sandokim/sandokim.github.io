@@ -70,7 +70,11 @@ comments: true
 - 위 예시에서는 tensor가 아닌 `bool a`를 정의하고, kernel function `trilinear_fw_kernel`에 `a`를 넣었습니다.
 
 
+## Launch a kernel까지 끝냈으니, 사용될 kenerl function 코드를 실제로 짜봅시다.
 
+- 위에서 kernel function으로 사용된 `trilinear_fw_kernel`을 짜봅시다.
+
+  
 
 
 감사합니다.
