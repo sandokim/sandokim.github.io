@@ -29,8 +29,16 @@ comments: true
 
 - kernel은 `AT_DISPTACH_FLOATING_TYPES` 내부에 쓰여있으니, copy & paste 하고 arguments만 바꾸면 됩니다.
 
+- First we place the kernel that we want to call. We will code this function later. `triliner_fw_kernel` 
+- Next, the `<scalar_t>` is a "template" for the data type. This allows the kernel to do computation for different data types.
+  
+  ![image](https://github.com/user-attachments/assets/7b587889-dab6-4674-9be2-fc99cdb696e0)
 
-
+  - 예를 들어, 우리는 `AT_DISPATCH_FLOATING_TYPES`로 `FLOATING_TYPES`로 float32, float64에 대한 연산으로 정의했습니다.
+  - 만약 우리가 input인 `feats`의 type을 모르는 상황이라면, 우리는 `scalar_t`를 사용할 수 있습니다.
+    - `feats`가 float32 --> `scalar_t`도 float32
+    - `feats`가 float64 --> `scalar_t`도 float64
+       
 
 
 
