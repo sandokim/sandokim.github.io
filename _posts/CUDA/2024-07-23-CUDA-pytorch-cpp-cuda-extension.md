@@ -31,7 +31,7 @@ c++ is only a bridge that connect pytorch and cuda.
 
 ## 본 tutorial 1에서는 NeRF의 volume rendering을 쉬운 버전으로 만들어볼 것입니다.
 
-- trilinear interpolation으로 8 vertices로부터 feature f를 얻습니다.
+- trilinear interpolation으로 8 vertices로부터 feature f를 얻는 것을 구현할 것입니다.
 
 ![image](https://github.com/user-attachments/assets/7537f3cc-c49b-4806-b70a-85df1bfd4099)
 
@@ -62,6 +62,28 @@ c++ is only a bridge that connect pytorch and cuda.
 
 ![image](https://github.com/user-attachments/assets/7faac12c-ca66-418b-a1af-8b24cc04b02f)
 
+- trilinear interpolation으로 function name과 input인 feats, point와 output인 return feats를 Tensor로 아래와 같이 작성합니다.
+
+![image](https://github.com/user-attachments/assets/797b3312-d898-454d-b087-5003afa2e405)
+
+![image](https://github.com/user-attachments/assets/c6d96b65-9c37-47d6-ac57-0c3988f77981)
+
+- c++은 cuda execution을 call하기 위한 함수를 정의합니다.
+- c++은 python을 call하기 위한 interface를 제공합니다. (이것이 cpp에서 정의한 함수를 python에서 call할 수 있는 이유입니다.)
+  
+### 만약 python에서 c++를 call해봤다면, pybind라는 library를 아실텐데, 이 library는 python으로부터 c++ code를 불러오는 방법을 제공합니다. 
+
+이 pybind라는 library는 pytorch와 관련될 필요는 없습니다. 예를 들어, opencv code가 사용될 수도 있습니다.
+
+***우리가 할일은 이런 pybind interface를 사용해 python에서 c++ 함수를 call할 수 있도록 방법을 제공해주는 것입니다.***
+
+- 첫번째 인자는 python으로부터 불려질 function name: `"trilinear_interpolation"`
+- 두번째 인자는 불려진 c++ function인 `trilinear_interpolation`입니다.
+- 아래처럼 PYBIND11_MODULE로 첫번째 인자, 두번째 인자를 넣어주면 c++ bridge를 성공적으로 만든 것입니다.
+  
+![image](https://github.com/user-attachments/assets/1a1797e9-c9ba-45ba-830f-1abcf6fc627d)
+
+  
 
 
 
