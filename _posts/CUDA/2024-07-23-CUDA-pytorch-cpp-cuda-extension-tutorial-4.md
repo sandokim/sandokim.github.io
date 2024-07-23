@@ -72,9 +72,18 @@ comments: true
 
 ## Launch a kernel까지 끝냈으니, 사용될 kenerl function 코드를 실제로 짜봅시다.
 
-- 위에서 kernel function으로 사용된 `trilinear_fw_kernel`을 짜봅시다.
+### 위에서 kernel function으로 사용된 `trilinear_fw_kernel`을 짜봅시다.
 
+![image](https://github.com/user-attachments/assets/3bb10d60-c997-46bd-a159-178bbc492d16)
+
+- kernel function을 수행시켰던 `interpolation_kernel.cu`에 `trilinear_fw_kernel`을 정의해봅시다.
+- `triliner_fw_kernel`
+  - 먼저 자동으로 input의 데이터 타입들에 맞게 사용하기 위해서 `scalar_t`를 사용합니다.
   
+
+
+
+
 
 
 감사합니다.
