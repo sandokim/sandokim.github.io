@@ -158,6 +158,20 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
 
   ![image](https://github.com/user-attachments/assets/7fb48f68-3124-4ee9-b26d-5b6a2d177002)
 
+### Naturally, you can imagine how parallel computation works: each output element is computed by the thread that covers that place.
+
+- i.e. 좌측상단 맨 첫번째 element는 first block의 first thread에 의해 계산됩니다.
+
+  ![image](https://github.com/user-attachments/assets/f93ad9d8-badd-469c-83c0-b754c5a08b75)
+
+- the number of threads와 blocks를 가지게 되면, 우리는 그림처럼 kernel을 launch할 수 있습니다.
+
+  ![image](https://github.com/user-attachments/assets/9ca226ad-bad1-4aff-8c7a-e443d98cbfaa)
+
+
+
+
+
 
 
 감사합니다.
