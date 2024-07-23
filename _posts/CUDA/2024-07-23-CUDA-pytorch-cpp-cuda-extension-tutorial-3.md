@@ -40,7 +40,7 @@ comments: true
   - N points
   - Each point's feature is the interpolation of the 8 vertices of the cube that contains that point, and each point has F features, so after interpolation, each point has F features too.
 
-## inputs과 outputs의 shape을 안 상태에서 `interpolation_kernel.cu`에서 `trilinear_fw_cu` cuda 코드를 작성해봅시다.
+## `interpolation_kernel.cu`에서 `trilinear_fw_cu` cuda 코드를 작성해봅시다.
 
 
 
