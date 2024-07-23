@@ -128,7 +128,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/f600af4d-998a-4ab4-9b0a-8835d64171b5)
 
-## So, we need to know each element is computed by which thread in which block***
+## So, we need to know each element is computed by which thread in which block.
 
 ### But How?
   
