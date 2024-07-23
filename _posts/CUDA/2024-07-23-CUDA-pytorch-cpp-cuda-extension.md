@@ -28,6 +28,9 @@ So the actual important part is on cuda, not c++.
 
 c++ is only a bridge that connect pytorch and cuda.
 
+본 실습에서는 NeRF의 volume rendering을 쉬운 버전으로 만들어볼 것입니다.
+
+
 
 ### Reference
 [Pytorch+cpp/cuda extension 教學 tutorial 1 - English CC -](https://youtu.be/l_Rpk6CRJYI?si=VUe9psNzk60F7iO6&t=478)
