@@ -136,6 +136,13 @@ comments: true
     
     ![image](https://github.com/user-attachments/assets/7e0d1a67-ab1a-4f24-a1b4-0d7bc7d76186)
 
+    - 2-dimensional로 parallel computation을 하는 경우, 아래 코드를 copy & paste 하여 사용하면 됩니다.
+      
+      ```css
+      const int n = blockIdx.x * blockDim.x + threadIdx.x;
+      const int f = blockIdx.y * blockDim.y + threadIdx.y;
+      ```
+
     ![image](https://github.com/user-attachments/assets/c673968d-6eb0-4cac-a0e8-f3613cde1c5f)
 
   - ### step 2: we need to exclude redundant threads from the computation.
