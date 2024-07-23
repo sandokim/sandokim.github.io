@@ -27,7 +27,7 @@ comments: true
 
 #### pytorch code와 cuda code로 작성한 것의 속도를 비교해 볼 것입니다.
 
-- 만약 pytorch code와 cuda code의 outputs이 같다면, cuda code가 올바르게 작성되었다고 판단할 수 있습니다.
+만약 pytorch code와 cuda code의 outputs이 같다면, cuda code가 올바르게 작성되었다고 판단할 수 있습니다.
 
 
 
