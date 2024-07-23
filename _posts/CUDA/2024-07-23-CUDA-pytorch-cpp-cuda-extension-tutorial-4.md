@@ -53,7 +53,7 @@ comments: true
 - 일반적으로 우리는 variable을 function에 pass 합니다.
 - cuda는 "tensor" type을 recognize하지 못하므로, cuda가 recognizes할 수 있는 type으로 바꿔줘야 합니다.
 - "tensor"를 `.packed_accessor`로 변환하여, kernel에서 사용될 수 있는 type으로 바꿉니다.
-- `.packed_accessor`에 이어 나오는 것
+- `.packed_accessor`에 이어 나오는 것으로는...
   - `scalar_t` 위에서와 동일하게, 들어오는 데이터 타입과 같은 데이터 타입으로 만들어줍니다. (`scalar_t` 대신 명시적으로 float32 타입인 `float`로 정의할 수도 있긴 합니다, 하지만 kenerl function에 들어오는 inputs이 float32가 아니면 에러가 발생합니다. Flexibility를 위해 `scalar_t`로 사용하는게 일반적입니다.)
     
     ![image](https://github.com/user-attachments/assets/f6761312-ac8a-4ad4-b0cd-b8fc84a53cea)
