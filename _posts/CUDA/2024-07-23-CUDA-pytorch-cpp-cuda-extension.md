@@ -44,8 +44,18 @@ c++ is only a bridge that connect pytorch and cuda.
 
 - code가 pytorch로부터 tensors를 받으므로, c++가 tensor가 뭔지 알게 하도록 하기 위해, `#include <torch/extension.h>`를 작성해줍니다.
   - 이때 빨간줄이 나오는데, `ctrl+shift+p`를 누르고 C/C++: Edit Configurations (UI)를 선택해주어, 빨간줄을 없앱니다.
-      
+
     ![image](https://github.com/user-attachments/assets/a51f3578-c241-40b8-bce1-b75aefaf9ed9)
+    
+  - `C/C++: Edit Configuration (JSON)`을 선택하고 `includePath`에 python과 pytorch path를 conda environment에 경로로 추가해줍니다.
+    
+    ![image](https://github.com/user-attachments/assets/dade4568-2014-4e7a-9c9b-d9b9766d9749)
+
+
+
+
+
+
 
 
 
