@@ -54,7 +54,10 @@ comments: true
 - cuda는 "tensor" type을 recognize하지 못하므로, cuda가 recognizes할 수 있는 type으로 바꿔줘야 합니다.
 - "tensor"를 `.packed_accessor`로 변환하여, kernel에서 사용될 수 있는 type으로 바꿉니다.
 - `.packed_accessor`에 이어 나오는 것
-  - `scalar_t` 위에서와 동일하게, 들어오는 데이터 타입과 같은 데이터 타입으로 만들어줌
+  - `scalar_t` 위에서와 동일하게, 들어오는 데이터 타입과 같은 데이터 타입으로 만들어줍니다. (명시적으로 float32 타입인 `float`로 정의할 수도 있긴 합니다.)
+    
+    ![image](https://github.com/user-attachments/assets/f6761312-ac8a-4ad4-b0cd-b8fc84a53cea)
+
   - `3`은 tensor의 dimensions, 이때 "feats" # (N, 8, F)의 shape을 가지는 `three-dimensional tensor`이므로 `3`.
   - 나머지 2개 인자인 `torch::RestrictPtrTraits, size_t`는 대부분의 경우 바뀌지 않습니다.
     - `torch::RestrictPtrTraits`는 "feats"가 다른 어떤 tensors와도 overlay되지 않도록 합니다.
