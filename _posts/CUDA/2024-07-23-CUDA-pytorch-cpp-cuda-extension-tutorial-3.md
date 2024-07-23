@@ -110,7 +110,17 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
   
   ![image](https://github.com/user-attachments/assets/35e1e655-276e-4aa1-a957-a683c37e7580)
 
+- If you only have one dimension to do parallel computation, there is a simpler syntax, you can just write `const int threads = 256` or `const dim3 threads(256)`
+  
+  ```css
+  const int threads = 256;
+  ```
 
+  ```css
+  const dim3 threads(256);
+  ```
+
+  
 
 
 
