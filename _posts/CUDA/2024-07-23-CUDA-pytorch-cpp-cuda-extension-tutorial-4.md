@@ -207,6 +207,26 @@ comments: true
   
   ![image](https://github.com/user-attachments/assets/5a77babb-e331-4b31-ac11-a65a916fe767)
 
+#### 만약 return 되는 output이 2개 이상이면, {}로 묶어서 return하고, return type을 `std::vector<torch::Tensor>로 써줍니다.
+
+![image](https://github.com/user-attachments/assets/0795ee8b-0253-4ac1-b802-e518ed35d12d)
+
+- `std::vector<torch::Tensor>`로 `trilinear_fw_cu` 함수의 return type을 바꿨으면 `.h`, `.cpp`에서도 똑같이 return type을 `std::vector<torch::Tensor>`로 바꿔줘야합니다.
+
+  - i.e. `utils.h`
+    
+    ![image](https://github.com/user-attachments/assets/30052f90-67a7-47bf-a389-3ede96d26bc0)
+
+    - 위 내용을 아래와 같이 수정합니다.
+    
+      ```css
+      std::vector<torch::Tensor trilinear_fw_cu(
+          torch::Tensor feats,
+          torch::Tensor points
+      );
+      ```
+
+
 감사합니다.
 
 ### Reference
