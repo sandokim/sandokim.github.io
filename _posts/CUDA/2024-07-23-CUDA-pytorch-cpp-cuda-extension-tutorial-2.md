@@ -78,12 +78,24 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
 ![image](https://github.com/user-attachments/assets/fac85e28-21e1-4482-b7d6-79fee5e32627)
 
+## trilinear interpolation을 하기 위해 feats와 points의 shape을 정의합니다.
 
+- feats # (N, 8, F)
+  - N is the number of cubes
+  - 8 is the number of vertices
+  - F is the number of features on each vertex
 
+- points # (N, 3)
+  - point coordinates
+  - N is the number of points and each of them corresponds to one cube in the "feats" tensor
 
+## Shape을 알았으니 이제 어떻게 parallelize computation을 수행할지 생각해볼 수 있습니다.
 
-
-
+- Parallelize하는 2가지 방법이 있습니다.
+   1. Since the interpolation of each point doesn't depend on any other points, we can parallelize N.
+   2. We can parallelize F, if we have multiple features, the interpolation of each feature doesn't depend on any other feature either, so we can parallelize.
+ 
+### 이제 Parallize를 코딩해봅시다.
 
 
 
