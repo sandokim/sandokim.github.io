@@ -1,5 +1,5 @@
 ---
-title: "[CUDA] Pytorch c++/cuda extenstion"
+title: "[CUDA] Pytorch c++/cuda extenstion tutorial 1"
 last_modified_at: 2024-07-23
 categories:
   - CUDA
@@ -10,7 +10,8 @@ tags:
   - backward
   - c++/cuda
   - cuda extension
-excerpt: "Pytorch c++/cuda extension"
+  - cuda tutorial 1
+excerpt: "Pytorch c++/cuda extension tutorial 1"
 use_math: true
 classes: wide
 comments: true
@@ -55,8 +56,9 @@ c++ is only a bridge that connect pytorch and cuda.
 
 ![image](https://github.com/user-attachments/assets/b9b54b95-35b7-4ba7-80c4-9113d8330c43)
 
+### tutorial 1에서는 `placeholder`만 작성할 것입니다. 왜냐하면 실제 computation은 cpp 파일이 아니라 cuda 파일에서 실행되기 때문입니다.
 
-
+![image](https://github.com/user-attachments/assets/7faac12c-ca66-418b-a1af-8b24cc04b02f)
 
 
 
