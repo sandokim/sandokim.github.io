@@ -83,7 +83,7 @@ c++ is only a bridge that connect pytorch and cuda.
   
 ![image](https://github.com/user-attachments/assets/1a1797e9-c9ba-45ba-830f-1abcf6fc627d)
 
-### 마지막으로 이 함수를 python에서 어떻게 불러오는지 해봅시다.
+### c++에서 작성한 이 함수를 python에서 어떻게 불러오는지 해봅시다.
 
 - ***c++에서 작성한 함수를 불러오기 위해서는 작성한 c++ 코드를 먼저 `build` 해야합니다.***
 - c++는 다른 곳에서 call 되기 위해서는 compiling과 building을 요구합니다.
@@ -104,6 +104,22 @@ c++ is only a bridge that connect pytorch and cuda.
 
   - 마지막으로 `cmdclass`는 우리가 code를 building한 다는 것을 알려주는 부분입니다.
 
+### 마지막으로 pip version을 `python -m pip install pip -U`로 업그레이드하고, `setup.py`로 c++ 코드를 build 해봅시다.
+
+- path는 `setup.py`가 위치한 곳입니다. 우리는 현재 current folder에 `setup.py`가 위치하므로 그냥 현재위치를 나타내는 `.`을 path로 넣어주면 됩니다.
+- `pip install .`을 입력하면 시간이 좀 걸리면서 build가 완료됩니다.
+
+![image](https://github.com/user-attachments/assets/866e768a-1c28-40cd-871e-7280360f0053)
+
+### `setup.py`로 c++ 파일이 build가 완료되면 python test.py 파일에서 불러와서 함수를 사용해봅시다.
+
+- cppcuda_tutorial에서 torch를 import했으므로 torch를 import 안해도 될 거라 생각할 수 있지만, torch부터 import를 해줘야 합니다.
+- 만약 그렇지 않으면 우리가 c++ 코드로 짠 custom package가 import되지 않습니다.
+- 직접 짠 `cppcuda_tutorial` c++ 코드에서 `trilinear_interpolation` 함수를 불러와서 python `test.py`에서 사용하여 결과까지 성공적으로 도출하였습니다.
+
+![image](https://github.com/user-attachments/assets/f3652d69-9c72-46ba-a038-22307f24eb6d)
+
+감사합니다.
 
 ### Reference
 [Pytorch+cpp/cuda extension 教學 tutorial 1 - English CC -](https://youtu.be/l_Rpk6CRJYI?si=VUe9psNzk60F7iO6&t=478)
