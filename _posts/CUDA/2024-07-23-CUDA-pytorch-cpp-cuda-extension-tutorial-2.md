@@ -169,7 +169,13 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
   ![image](https://github.com/user-attachments/assets/8ff0664c-81d8-428c-a091-bef676fe4a93)
 
+### `pip install .`로 `setup.py` 파일로 build를 하고, python `test.py` 파일에서 cuda로 작성한 함수를 import하여 사용해봅시다.
 
+- `setup.py`에서 build한 custom package의 `name`인 `cppcuda_tutorial`을 `test.py`에서 `import cppcuda_tutorial`를 해줍니다.
+
+![image](https://github.com/user-attachments/assets/a16b6b5d-0eef-490d-a263-cada85898c7a)
+
+![image](https://github.com/user-attachments/assets/ab4b1b0d-5ea8-49b3-b862-0935b7da8cdc)
 
 감사합니다.
 
