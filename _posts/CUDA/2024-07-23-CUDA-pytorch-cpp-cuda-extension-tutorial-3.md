@@ -71,8 +71,9 @@ comments: true
 ```css
 torch::Tensor feat_interp = torch::zeros({N, F}, feats.options());
 torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).device(feats.device));
-``
+```
 
+- 이로써 output에 대한 placeholder까지 생성한 상황이고, correct values로 채워넣어야 합니다.
 
 
 
