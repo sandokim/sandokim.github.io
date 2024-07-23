@@ -45,11 +45,20 @@ comments: true
 #### 그 다음은 우리의 inputs과 outputs 입니다.
 - ***강조드릴 점은 kernel function은 return하는 것이 없습니다.*** return type이 항상 void 입니다.
 - 우리의 모든 inputs과 outputs을 kernel function에 넣어줍니다. (inputs인 feats, points, output인 feat_interp)
+- computation을 하면, correct outputs이 output tensor에 채워지게 됩니다. (this is how kernel works)
+- We need to pass the output tensor as argument, and fill it in gradually.
 
+#### tensor vairables에 `.packed_accessor`는 cuda에서 tensor를 manipulate 가능하도록 type을 바꿉니다.
 
-
-
-
+- 일반적으로 우리는 variable을 function에 pass 합니다.
+- cuda는 "tensor" type을 recognize하지 못하므로, cuda가 recognizes할 수 있는 type으로 바꿔줘야 합니다.
+- "tensor"를 `.packed_accessor`로 변환하여, kernel에서 사용될 수 있는 type으로 바꿉니다.
+- `.packed_accessor`에 이어 나오는 것
+  - `scalar_t` 위에서와 동일하게, 들어오는 데이터 타입과 같은 데이터 타입으로 만들어줌
+  - `3`은 tensor의 dimensions, 이때 "feats" # (N, 8, F)의 shape을 가지는 `three-dimensional tensor`이므로 `3`.
+  - 나머지 2개 인자인 `torch::RestrictPtrTraits, size_t`는 대부분의 경우 바뀌지 않습니다.
+    - `torch::RestrictPtrTraits`는 "feats"가 다른 어떤 tensors와도 overlay되지 않도록 합니다.
+    - `size_t` means how many "steps" to take between each elements. We can think of this packed accessor as a 3D array. To access elements, we do a bracket indexing and `size_t` means what data type we use for these indices, basically just leave as `size_t`, we don't change this.
 
 
 감사합니다.
