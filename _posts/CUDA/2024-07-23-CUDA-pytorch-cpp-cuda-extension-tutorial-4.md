@@ -202,7 +202,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/3968ef61-a242-448b-b8f0-822f1d22ad49)
 
-- return 되는 feat_interp의 type은 `torch::Tensor` 타입이므로 `trilinear_fw_cu` 앞에 return output의 타입을 명시해줍니다.
+- return 되는 `feat_interp`의 type은 `torch::Tensor` type이므로, `trilinear_fw_cu` 앞에 return output의 type인 `torch::Tensor`를 명시해줍니다.
 - `torch::Tensor trilinear_fw_cu`
   
   ![image](https://github.com/user-attachments/assets/5a77babb-e331-4b31-ac11-a65a916fe767)
