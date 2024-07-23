@@ -27,6 +27,15 @@ Tutorial 1에서 ***c++는 오직 pytorch과 cuda만을 연결하는 bridge 역�
 
 Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
+### 먼저 cuda에서 parallelism이 어떻게 되는지 알아봅시다.
+
+![image](https://github.com/user-attachments/assets/63efeadb-2754-44bd-ac37-fafbc6261f7c)
+
+- host(=cpu)에서 c++ program이 cuda function을 call 하면, functiona call마다 하나의 kernel을 instantiate 합니다.
+- cuda가 하는 것은 host(=cpu)로부터 device(=gpu)로 data를 transfer합니다. 이때, 동시에 grid가 생성됩니다. (grid는 나중에 parallel computation에 책임을 가집니다.)
+- grid는 multiple "units"을 가지며 이들은 parallel computation이 가능합니다.
+- grid는 multiple "blocks"를 가지고, blocks의 수는 program에 의해 결정됩니다.
+- 
 
 감사합니다.
 
