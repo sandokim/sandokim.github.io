@@ -164,15 +164,40 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
 
   ![image](https://github.com/user-attachments/assets/f93ad9d8-badd-469c-83c0-b754c5a08b75)
 
-- the number of threads와 blocks를 가지게 되면, 우리는 그림처럼 kernel을 launch할 수 있습니다.
+- **the number of threads와 blocks를 가지게 되면, 우리는 그림처럼 kernel을 launch할 수 있습니다.**
 
   ![image](https://github.com/user-attachments/assets/9ca226ad-bad1-4aff-8c7a-e443d98cbfaa)
 
 
+### Launch a kernel
 
+- `FLOATING_TYPES`는 kenerl 이 floating type operations을 할 것이라는 의미입니다.
+- `FLOATING`은 float32, float64를 포함합니다. default pytorch floating은 float32이지만, higher precision computation을 원하면 float64도 가능합니다.
+- float16으로 speed up하고 reduce memory usage를 줄이기도 하는데, `AS_DISPATCH_FLOATING_TYPES_HALF`로 수행할 수 있습니다.
 
+![image](https://github.com/user-attachments/assets/cdb72bce-817b-4b69-b965-68f4484c35a0)
 
+- `AT_DISPATCH_FLOATING_TYPES`에서 첫번째 argument는 operate하고 싶은 data type입니다.
+  - `feats.type()`
+  - input인 feats의 data type으로 feats.type()을 넣어줍니다.
+  - "feats"는 float32이므로 이 kernel은 float32 operation을 수행합니다.
 
+- `AT_DISPATCH_FLOATING_TYPES`에서 두번째 argument는 string인데, 기본적으로 cuda function의 이름을 여기에 써줍니다.
+  - `"trilinear_fw_cu"`
+  - 이 string은 indicator로서 사용되며, kernel launch fails일 때, 이 이름과 함계 error를 띄웁니다.
+  - 이로써 어떤 function이 fails했는지 알 수 있습니다.
+  - 따라서 cuda function 이름과 같게 써주면, 어떤 function이 fails 했는지 빠르게 알 수 있습니다.
+
+- `AT_DISPATCH_FLOATING_TYPES`에서 나머지 이어지는 부분은 kernel을 실제로 launch하는 코드입니다.
+
+  ![image](https://github.com/user-attachments/assets/9ee701de-dfae-430a-a9bb-61178782f34e)
+
+  - To launch a kernel, first we define a kernel name. `trilinear_fw_kernel`
+  - `trilinear_fw_kernel`의 argments는 3개의 inputs을 받습니다
+    - 2개는 cuda function inputs (feats, points)이고
+    - 1개는 우리가 채우고 싶은 output (feat_interp)입니다.
+    - 위 3개 다 kernel inputs으로 넣으면, `trilinear_fw_kernel`이 trilinear interpolation을 수행합니다.
+    - kenrel takes the inputs, does the interpolation, and fill the outputs to the output tensor.
 
 감사합니다.
 
