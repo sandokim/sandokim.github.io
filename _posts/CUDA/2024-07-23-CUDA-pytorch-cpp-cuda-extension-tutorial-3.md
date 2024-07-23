@@ -23,6 +23,26 @@ comments: true
 
 # CUDA Programming Tutorial 3
 
+## trilinear interpolation
+
+### inputs 
+- feats # (N, 8, F)
+  - N is the number of cubes
+  - 8 is the number of vertices
+  - F is the number of features on each vertex
+
+- points # (N, 3)
+  - point coordinates
+  - N is the number of points and each of them corresponds to one cube in the "feats" tensor
+
+### outputs
+- feat_interp # (N, F)
+  - N points
+  - Each point's feature is the interpolation of the 8 vertices of the cube that contains that point, and each point has F features, so after interpolation, each point has F features too.
+
+## inputs과 outputs의 shape을 안 상태에서 `interpolation_kernel.cu`에서 `trilinear_fw_cu` cuda 코드를 작성해봅시다.
+
+
 
 
 감사합니다.
