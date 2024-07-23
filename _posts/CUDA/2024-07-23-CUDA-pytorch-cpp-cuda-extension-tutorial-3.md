@@ -84,7 +84,7 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
 
     ![image](https://github.com/user-attachments/assets/297f328d-6774-48cb-a0f6-8e2924c3318e)
 
-### computation을 하기에 앞서 blocks과 threads의 size를 알아야 합니다.
+## computation을 하기에 앞서 blocks과 threads의 size를 알아야 합니다.
 
 - 사실 blocks 수는 formula에 의해 결정됩니다. blocks 수를 계산하는 formula는 나중에 살펴보겠습니다.
 - 따라서 block 당 threads 수만 결정해주면 됩니다.
@@ -131,7 +131,7 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
   ```
   
 
-### 이제 아까 넘어 the number of blocks는 어떻게 계산하는지 알아봅시다.
+## 이제 아까 넘어갔던 the number of blocks는 어떻게 계산하는지 알아봅시다.
 
 - 이 컨셉은 매우 중요하므로 100% 이해해야합니다.
 - N=20, F=10 일때, 20 points를 interpolate 해야하고, each point는 10개의 features를 가집니다.
@@ -145,11 +145,18 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
 
   ![image](https://github.com/user-attachments/assets/f43e67d2-7a89-40c2-a4f3-025319d890ef)
 
+### the principle to compute the number of blocks is that we want to tile "threads" so that all of them cover all output elements
 
+- In order to cover all elements, there is a formula to do this based on the shape of inputs and threads
+- In our example, since x axis is already covered by 1 "threads", so we need 1 block along this dimension.
+- As for y-axis, we need another (16x16) "threads" to cover all the elements, therefore we need 2 blocks along this dimension
+- 즉 block size (2, 1)이면 모든 elements를 cover할 수 있습니다.
 
+  ![image](https://github.com/user-attachments/assets/64bee9c1-03d5-4a33-8254-40ea719426b4)
 
+- the number of blocks을 계산하는 건 되게 이처럼 생각보다 되게 쉽고, 그냥 식을 copy & paste 하면 해결됩니다.
 
-
+  ![image](https://github.com/user-attachments/assets/7fb48f68-3124-4ee9-b26d-5b6a2d177002)
 
 
 
