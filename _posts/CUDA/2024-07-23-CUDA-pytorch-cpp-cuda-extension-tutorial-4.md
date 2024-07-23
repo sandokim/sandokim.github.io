@@ -130,7 +130,25 @@ comments: true
 
 ***So, we need to know each element is computed by which thread in which block***
 
+
+
 ![image](https://github.com/user-attachments/assets/c673968d-6eb0-4cac-a0e8-f3613cde1c5f)
+
+- But How?
+  
+  - step 1: compute the id for each thread.
+    
+    ![image](https://github.com/user-attachments/assets/7e0d1a67-ab1a-4f24-a1b4-0d7bc7d76186)
+
+  - step 2: we need to exclude redundant threads from the computation.
+
+    ![image](https://github.com/user-attachments/assets/cd692f73-6562-4e62-a2e5-6e2f12f526bb)
+
+    ![image](https://github.com/user-attachments/assets/9647294d-6bb1-467f-a385-e030cba7f170)
+
+    ![image](https://github.com/user-attachments/assets/676a8509-1a8c-4624-9b02-d545256be122)
+
+    ![image](https://github.com/user-attachments/assets/0bd7ba00-c15e-4bc3-889b-064d90c474f7)
 
 
 
