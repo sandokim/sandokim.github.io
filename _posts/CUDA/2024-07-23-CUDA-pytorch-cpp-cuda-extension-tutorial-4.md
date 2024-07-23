@@ -120,6 +120,13 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/609cbf3f-9c7c-44bb-8d08-fefbd9cc968c)
 
+Recap: the process of parallel programming is, each element of the output tensor is calculated by the thread that covers that element.
+
+![image](https://github.com/user-attachments/assets/13d7e21c-ae4e-4b42-a047-5a8c06c2a26b)
+
+![image](https://github.com/user-attachments/assets/6280a6a7-cb34-4e4b-9da3-1d39de41d04a)
+
+![image](https://github.com/user-attachments/assets/f600af4d-998a-4ab4-9b0a-8835d64171b5)
 
 
 감사합니다.
