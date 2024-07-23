@@ -23,9 +23,12 @@ comments: true
 
 # CUDA Programming Tutorial 4
 
-### After calculating threads and blocks, we call a function `AT_DISPATCH_FLOATING_TYPES` which is reponsible for instantiating a kernel
+### After calculating threads and blocks, we call a function `AT_DISPATCH_FLOATING_TYPES` which is reponsible for instantiating a kernel.
 
 ![image](https://github.com/user-attachments/assets/66688969-08c3-4f5a-b734-061fa0ce7fd5)
+
+- kernel은 `AT_DISPTACH_FLOATING_TYPES` 내부에 쓰여있으니, copy & paste 하고 arguments만 바꾸면 됩니다.
+
 
 
 
