@@ -63,6 +63,15 @@ comments: true
     - `torch::RestrictPtrTraits`는 "feats"가 다른 어떤 tensors와도 overlay되지 않도록 합니다.
     - `size_t` means how many "steps" to take between each elements. We can think of this packed accessor as a 3D array. To access elements, we do a bracket indexing and `size_t` means what data type we use for these indices, basically just leave as `size_t`, we don't change this.
 
+#### tensor가 아니라면 kernel function에 `.packed_accessor`같은 convertion 없이 그냥 넣으면 됩니다.
+
+![image](https://github.com/user-attachments/assets/59051439-961b-487c-83b4-75ca4bdafea0)
+
+- 위 예시에서는 tensor가 아닌 `bool a`를 정의하고, kernel function `trilinear_fw_kernel`에 `a`를 넣었습니다.
+
+
+
+
 
 감사합니다.
 
