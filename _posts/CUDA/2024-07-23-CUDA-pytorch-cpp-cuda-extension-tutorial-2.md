@@ -41,7 +41,9 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
 - Each block은 multiple "threads"를 가지고 있고, threads는 finest computation units이라고 보면 됩니다.
 
-### The secret behind parallelism is that when we call a function, it instantiate a grid that contains multiple blocks which contain again many threads.
+### The secret behind parallelism is that when we call a function, it instantiate a grid that contains multiple blocks which contain again many threads and each thread can do its operation in parallel.
+
+
 
 
 
