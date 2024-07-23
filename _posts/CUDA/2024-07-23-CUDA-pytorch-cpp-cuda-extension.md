@@ -22,7 +22,11 @@ CUDA is a programming language for GPU, so it enables faster parallel computatio
 
 ![image](https://github.com/user-attachments/assets/1dc62636-0a44-4772-ae17-7ed120a1db29)
 
-CUDA does parallel computation and return the output to pytorch
+CUDA does parallel computation and return the output to pytorch.
+
+So the actual important part is on cuda, not c++.
+
+c++ is only a bridge that connect pytorch and cuda.
 
 
 ### Reference
