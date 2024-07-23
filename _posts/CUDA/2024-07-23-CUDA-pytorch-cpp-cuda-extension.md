@@ -22,5 +22,8 @@ CUDA is a programming language for GPU, so it enables faster parallel computatio
 
 ![image](https://github.com/user-attachments/assets/1dc62636-0a44-4772-ae17-7ed120a1db29)
 
+CUDA does parallel computation and return the output to pytorch
+
+
 ### Reference
 [Pytorch+cpp/cuda extension 教學 tutorial 1 - English CC -](https://youtu.be/l_Rpk6CRJYI?si=VUe9psNzk60F7iO6&t=478)
