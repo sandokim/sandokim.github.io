@@ -93,6 +93,37 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
 - Tutorial 2에서 parallelize될 수 있는 경우는 2가지였습니다.
 1. N point can be parallelized
 2. the interpolation of F features can be parallelized
+- 따라서 현재 2개의 dimensions이 parallelized 될 수 있습니다.
+- 이걸 알면, the number of threads를 정의할 수 있습니다.
+- threads는 최대 3개의 dimensions을 가질 수 있습니다.
+- Each dimension correspond to one of the dimension that your algorithm is doing parallel computation
+- ***In other words, it also means that your algorithm can only have at most three dimensions for parallel computation.***
+- If you algorithm has more than three dimensions for parallel computation, then you need to redesign it.
+
+### To set the number of threads, there is a rule of thumb that is to set the total number of threads as 256.
+
+- So if now we have two dimensions for parallel computation, we can "evenly" divide the threads into these dimensions.
+- Of course you can experiment different numbers according to the balance of N and F and the computation complexity on different dimensions.
+- But here I'll show example of "evenely distributed" threads.
+- Since I want to divide 256 into two dimensions, both of them will have $\sqrt{256}=16$
+- In our case, there are 16 threads in each dimension in total 256 threads.
+  
+  ![image](https://github.com/user-attachments/assets/35e1e655-276e-4aa1-a957-a683c37e7580)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
