@@ -120,7 +120,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/609cbf3f-9c7c-44bb-8d08-fefbd9cc968c)
 
-**Recap: the process of parallel programming is, each element of the output tensor is calculated by the thread that covers that element.**
+## Recap: the process of parallel programming is, each element of the output tensor is calculated by the thread that covers that element.**
 
 ![image](https://github.com/user-attachments/assets/13d7e21c-ae4e-4b42-a047-5a8c06c2a26b)
 
@@ -128,19 +128,17 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/f600af4d-998a-4ab4-9b0a-8835d64171b5)
 
-***So, we need to know each element is computed by which thread in which block***
+## So, we need to know each element is computed by which thread in which block***
 
-
-
-![image](https://github.com/user-attachments/assets/c673968d-6eb0-4cac-a0e8-f3613cde1c5f)
-
-- But How?
+### But How?
   
-  - step 1: compute the id for each thread.
+  - ### step 1: compute the id for each thread.
     
     ![image](https://github.com/user-attachments/assets/7e0d1a67-ab1a-4f24-a1b4-0d7bc7d76186)
 
-  - step 2: we need to exclude redundant threads from the computation.
+    ![image](https://github.com/user-attachments/assets/c673968d-6eb0-4cac-a0e8-f3613cde1c5f)
+
+  - ### step 2: we need to exclude redundant threads from the computation.
 
     ![image](https://github.com/user-attachments/assets/cd692f73-6562-4e62-a2e5-6e2f12f526bb)
 
@@ -150,6 +148,9 @@ comments: true
 
     ![image](https://github.com/user-attachments/assets/0bd7ba00-c15e-4bc3-889b-064d90c474f7)
 
+    ![image](https://github.com/user-attachments/assets/c9035983-61a0-4b5b-91d8-5c119d181d82)
+
+    ![image](https://github.com/user-attachments/assets/2a34d010-25c5-48ce-b7fd-6cc46d294608)
 
 
 
