@@ -155,8 +155,19 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
   ![image](https://github.com/user-attachments/assets/f48ae0f4-d76e-482b-8c26-c74f6d8eda7c)
 
 
+### `interpolation_kernel.cu`에서 `trilinear_fw_cu`에 대한 코드는 Tutorial 3에서 짜는 것으로 하고 마지막으로, build를 알아봅시다.
 
+- Tutorial 1에서는 CppExtension으로 cpp code를 build 하고 python으로부터 call 하였습니다.
 
+  ![image](https://github.com/user-attachments/assets/4d10d908-961c-41f5-b5c6-4cdf369e8f64)
+
+- 지금은 cpp code가 cuda를 사용하고 있으므로, `setup.py`에서도 이에 맞게 바꿔줘야합니다.
+- CppExtenssion을 CUDAExtension으로 바꿔줍니다.
+- name도 cuda를 넣은 것으로 바꿔줍니다.
+- build 할 sources가 `.cpp`, `.cu`로 여러개가 되었는데, 이를 콤마로 연결하여 하나하나 치면 실수를 할 수도 있으니, `glob.glob`으로 `.cpp`, `.cu` 관련 파일을 찾아 리스트 다 넣어줄 수 있습니다.
+- `extra_compile_args`는 code optimization으로 complied files의 file size를 낮춥니다. program speed와는 아무런 상관이 없고 오직 file size만 줄이는 옵션입니다.
+
+  ![image](https://github.com/user-attachments/assets/8ff0664c-81d8-428c-a091-bef676fe4a93)
 
 
 
