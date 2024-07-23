@@ -129,84 +129,13 @@ c++ is only a bridge that connect pytorch and cuda.
 
 ### [`diff-gaussian-rasterization/ext.cpp`](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/ext.cpp)에서 c++ bridge는 다음과 같이 작성하였습니다.
 - 기본적인 `#include <torch/extension.h>`로 torch가 무엇인지 cpp 파일에게 알려줍니다.
-- [`rasterize_points.h`](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/rasterize_points.h)에 c++ 코드로 function name, input, output에 대한 정의를 합니다.
-  
-  ```cpp
-    /*
-   * Copyright (C) 2023, Inria
-   * GRAPHDECO research group, https://team.inria.fr/graphdeco
-   * All rights reserved.
-   *
-   * This software is free for non-commercial, research and evaluation use 
-   * under the terms of the LICENSE.md file.
-   *
-   * For inquiries contact  george.drettakis@inria.fr
-   */
-  
-  #pragma once
-  #include <torch/extension.h>
-  #include <cstdio>
-  #include <tuple>
-  #include <string>
-  	
-  std::tuple<int, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor>
-  RasterizeGaussiansCUDA(
-  	const torch::Tensor& background,
-  	const torch::Tensor& means3D,
-      const torch::Tensor& colors,
-      const torch::Tensor& opacity,
-  	const torch::Tensor& scales,
-  	const torch::Tensor& rotations,
-  	const float scale_modifier,
-  	const torch::Tensor& cov3D_precomp,
-  	const torch::Tensor& viewmatrix,
-  	const torch::Tensor& projmatrix,
-  	const float tan_fovx, 
-  	const float tan_fovy,
-      const int image_height,
-      const int image_width,
-  	const torch::Tensor& sh,
-  	const int degree,
-  	const torch::Tensor& campos,
-  	const bool prefiltered,
-  	const bool debug);
-  
-  std::tuple<torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor>
-   RasterizeGaussiansBackwardCUDA(
-   	const torch::Tensor& background,
-  	const torch::Tensor& means3D,
-  	const torch::Tensor& radii,
-      const torch::Tensor& colors,
-  	const torch::Tensor& scales,
-  	const torch::Tensor& rotations,
-  	const float scale_modifier,
-  	const torch::Tensor& cov3D_precomp,
-  	const torch::Tensor& viewmatrix,
-      const torch::Tensor& projmatrix,
-  	const float tan_fovx, 
-  	const float tan_fovy,
-      const torch::Tensor& dL_dout_color,
-  	const torch::Tensor& sh,
-  	const int degree,
-  	const torch::Tensor& campos,
-  	const torch::Tensor& geomBuffer,
-  	const int R,
-  	const torch::Tensor& binningBuffer,
-  	const torch::Tensor& imageBuffer,
-  	const bool debug);
-  		
-  torch::Tensor markVisible(
-  		torch::Tensor& means3D,
-  		torch::Tensor& viewmatrix,
-  		torch::Tensor& projmatrix);
-  ```
-  
-### `ext.cpp`파일을 `setup.py`로 `pip install .`로 build하면 이제 python 파일에서 CUDA로 작성한 함수를 import하여 사용가능합니다.
+- `ext.cpp`파일을 `setup.py`로 `pip install .`로 build하면 이제 python 파일에서 c++, cuda로 작성한 함수를 import하여 사용가능합니다.
   - CUDA로 작성한 `RasterizeGaussianCUDA`는 python 파일에서 `rasterize_gaussians`로 함수로 불러 사용합니다.
   - CUDA로 작성한 `RasterizeGaussiansBackwardCUDA`는 python 파일에서 `rasterize_gaussians_backward`로 함수로 불러 사용합니다.
   - CUDA로 작성한 `markVisible`는 python 파일에서 `mark_visible`로 함수로 불러 사용합니다.
 
   ```cpp
+  # ext.cpp
   /*
    * Copyright (C) 2023, Inria
    * GRAPHDECO research group, https://team.inria.fr/graphdeco
@@ -228,9 +157,82 @@ c++ is only a bridge that connect pytorch and cuda.
   }
   ```
 
-### `diff-gaussian-rasterization/setup.py`
+  - [`rasterize_points.h`](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/rasterize_points.h)에서는 c++ 코드로 function name, input, output에 대한 정의를 합니다.
+    
+    ```cpp
+    # rasterize_points.h`
+      /*
+     * Copyright (C) 2023, Inria
+     * GRAPHDECO research group, https://team.inria.fr/graphdeco
+     * All rights reserved.
+     *
+     * This software is free for non-commercial, research and evaluation use 
+     * under the terms of the LICENSE.md file.
+     *
+     * For inquiries contact  george.drettakis@inria.fr
+     */
+    
+    #pragma once
+    #include <torch/extension.h>
+    #include <cstdio>
+    #include <tuple>
+    #include <string>
+    	
+    std::tuple<int, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor>
+    RasterizeGaussiansCUDA(
+    	const torch::Tensor& background,
+    	const torch::Tensor& means3D,
+        const torch::Tensor& colors,
+        const torch::Tensor& opacity,
+    	const torch::Tensor& scales,
+    	const torch::Tensor& rotations,
+    	const float scale_modifier,
+    	const torch::Tensor& cov3D_precomp,
+    	const torch::Tensor& viewmatrix,
+    	const torch::Tensor& projmatrix,
+    	const float tan_fovx, 
+    	const float tan_fovy,
+        const int image_height,
+        const int image_width,
+    	const torch::Tensor& sh,
+    	const int degree,
+    	const torch::Tensor& campos,
+    	const bool prefiltered,
+    	const bool debug);
+    
+    std::tuple<torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor>
+     RasterizeGaussiansBackwardCUDA(
+     	const torch::Tensor& background,
+    	const torch::Tensor& means3D,
+    	const torch::Tensor& radii,
+        const torch::Tensor& colors,
+    	const torch::Tensor& scales,
+    	const torch::Tensor& rotations,
+    	const float scale_modifier,
+    	const torch::Tensor& cov3D_precomp,
+    	const torch::Tensor& viewmatrix,
+        const torch::Tensor& projmatrix,
+    	const float tan_fovx, 
+    	const float tan_fovy,
+        const torch::Tensor& dL_dout_color,
+    	const torch::Tensor& sh,
+    	const int degree,
+    	const torch::Tensor& campos,
+    	const torch::Tensor& geomBuffer,
+    	const int R,
+    	const torch::Tensor& binningBuffer,
+    	const torch::Tensor& imageBuffer,
+    	const bool debug);
+    		
+    torch::Tensor markVisible(
+    		torch::Tensor& means3D,
+    		torch::Tensor& viewmatrix,
+    		torch::Tensor& projmatrix);
+    ```
+  
+### `diff-gaussian-rasterization/setup.py`에서 실제 build하는 코드는 c++ bridge 코드인 `ext.cpp` 이외에도 cuda 코드가 여러개 존재합니다.
 
-- `setup.py`에서 가장 중요한 `ext_modules`에서 `sources` list에 들어있는 `cpp`, `cu` 파일을 build 합니다.
+- `setup.py`에서 가장 중요한 부분인 `ext_modules`에서 `sources` list에 들어있는 `cpp`, `cu` 파일을 build 합니다.
 - 이로써 `"cuda_rasterizer/rasterizer_impl.cu", "cuda_rasterizer/forward.cu", "cuda_rasterizer/backward.cu", "rasterize_points.cu", "ext.cpp"`에 정의된 함수를 python에서 불러와 사용할 수 있습니다.
 
 ```cpp
