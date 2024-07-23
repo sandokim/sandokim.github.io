@@ -141,6 +141,9 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
 
   ![image](https://github.com/user-attachments/assets/203c840f-7afa-4bd9-b06f-2a6722126e7f)
 
+- 지금 그림에서는 하나의 차원은 threads로 fully covered 되고, 나머지 하나는 아닙니다.
+
+  ![image](https://github.com/user-attachments/assets/f43e67d2-7a89-40c2-a4f3-025319d890ef)
 
 
 
