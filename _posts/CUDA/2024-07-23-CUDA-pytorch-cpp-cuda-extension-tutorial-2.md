@@ -24,5 +24,10 @@ comments: true
 # CUDA Programming Tutorial 2
 
 
+
+
+
+감사합니다.
+
 ### Reference
-[Pytorch+cpp/cuda extension 教學 tutorial 1 - English CC -](https://youtu.be/l_Rpk6CRJYI?si=VUe9psNzk60F7iO6&t=478)
+[Pytorch+cpp/cuda extension 教學 tutorial 2 - English CC -](https://www.youtube.com/watch?v=_QqG_I8nfH0&list=PLDV2CyUo4q-LKuiNltBqCKdO9GH4SS_ec&index=2)
