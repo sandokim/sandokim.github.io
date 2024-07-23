@@ -128,11 +128,27 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
     ![image](https://github.com/user-attachments/assets/7ca25f28-cb17-4675-98c4-6a0d71293c7a)
 
+### 지금까지 한건 function content를 cuda에 넣은 것 뿐이고, 지금부터 놀라운 일을 할 것입니다.
 
+- `.cpp`에서 `utils.h`에 정의한 함수를 불러오기 전에 inputs를 먼저 "check" 해줍시다.
+- `utils.h`에 `CHECK_CUDA, CHECK_CONTIGUOUS, CHECK_INPUT`에 관련된 라인을 copy & paste 합시다.
 
+  ![image](https://github.com/user-attachments/assets/18b62644-7f17-4717-8843-8abdd3abbe36)
 
+  - `CHECK_CUDA`는 tensor가 cuda 위에 있는지 확인합니다. cuda에서 computation을 하기 위해서는 tensor를 cuda로 옮겨야만 합니다.
+  - `CHECK_CONTIGUOUS`는 if a tensor's storage is the same after flattening the tensor를 체크합니다. Because in parallel computation, the workers are one after another, their positions in the memory must be continuous so that each worker can access the data correctly. So the tensor must be contiguous
+  - `CHECK_INPUT`은 위의 2개의 conditions을 check합니다.
+ 
+```cpp
+#define CHECK_CUDA(x) TORCH_CHECK(x.is_cuda(), #x " must be a CUDA tensor")
+#define CHECK_CONTIGUOUS(x) TORCH_CHECK(x.is_contiguous(), #x " must be contiguous")
+#define CHECK_INPUT(x) CHECK_CUDA(x); CHECK_CONTIGUOUS(x)
+```
 
+- 위 3개의 magic line들을 `utils.h`에 추가하고, `.cpp`에 `#include utils.h`함으로써
+- 각 c++ function에 대해 우리가 cuda 위에서 실행하고 싶으면, `CHECK_INPUT`을 call하여 각 input이 tensor라면 이 tensor가 cuda위에 있는지 확인할 수 있습니다.
 
+  ![image](https://github.com/user-attachments/assets/2c0affed-e2f0-4cc5-922e-ee12f0df8732)
 
 
 
