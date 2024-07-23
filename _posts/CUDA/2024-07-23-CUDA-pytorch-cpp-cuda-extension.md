@@ -28,7 +28,17 @@ So the actual important part is on cuda, not c++.
 
 c++ is only a bridge that connect pytorch and cuda.
 
-본 실습에서는 NeRF의 volume rendering을 쉬운 버전으로 만들어볼 것입니다.
+## 본 tutorial 1에서는 NeRF의 volume rendering을 쉬운 버전으로 만들어볼 것입니다.
+
+- trilinear interpolation으로 8 vertices로부터 feature f를 얻습니다.
+
+![image](https://github.com/user-attachments/assets/7537f3cc-c49b-4806-b70a-85df1bfd4099)
+
+![image](https://github.com/user-attachments/assets/7d417c2f-5267-4fda-a299-9387da733f42)
+
+- tutorial 1에서는 cuda없이 c++ bridge만 써볼 것입니다.
+
+
 
 
 
