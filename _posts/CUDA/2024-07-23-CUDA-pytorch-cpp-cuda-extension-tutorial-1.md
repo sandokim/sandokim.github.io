@@ -127,7 +127,11 @@ c++ is only a bridge that connect pytorch and cuda.
 
 # 실전 에제
 
-- [`diff-gaussian-rasterization/ext.cpp`](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/ext.cpp)에서 c++ bridge는 다음과 같이 작성하였음을 확인가능합니다.
+- [`diff-gaussian-rasterization/ext.cpp`](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/ext.cpp)에서 c++ bridge는 다음과 같이 작성하였습니다.
+- 이를 통해 python 파일에서 CUDA로 작성한 함수를 import하여 사용가능합니다.
+  - CUDA로 작성한 `RasterizeGaussianCUDA`는 python 파일에서 `rasterize_gaussians`로 함수로 불러 사용합니다.
+  - CUDA로 작성한 `RasterizeGaussiansBackwardCUDA`는 python 파일에서 `rasterize_gaussians_backward`로 함수로 불러 사용합니다.
+  - CUDA로 작성한 `markVisible`는 python 파일에서 `mark_visible`로 함수로 불러 사용합니다.
 
 ```cpp
 /*
