@@ -23,8 +23,9 @@ comments: true
 
 # CUDA Programming Tutorial 2
 
+Tutorial 1에서 ***c++는 오직 pytorch과 cuda만을 연결하는 bridge 역할만 한다***고 배웠습니다.
 
-
+Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
 
 감사합니다.
