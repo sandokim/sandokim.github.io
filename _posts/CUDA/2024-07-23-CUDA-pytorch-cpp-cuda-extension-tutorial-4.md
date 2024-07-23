@@ -92,7 +92,7 @@ comments: true
     - `__global__`만 알아도 충분합니다.
     - `__host__`: the function is called and executed both on cpu.
     - `__device__`: the function is called and executed both on the gpu.
- 
+    - Again, basically you only need this `__global__`, since everything called by `AT_DISPATCH` is called from cpu and executed on gpu. So we always have this `__global__` keyword.
     
   - **the return type is `void`**, the kernel function doesn't return anything, it fills the correct values into the output tensor. No matter what your kernel is, the return type is always void. You need to pass the input and output tensors as arguments, and fill in the output tensors inside the function.
 
@@ -102,6 +102,13 @@ comments: true
 
     ![image](https://github.com/user-attachments/assets/2a37b862-1ac7-4082-975c-057209392330)
 
+  - inputs are packed accessors that we just converted, it is a data type under torch namespace(`torch::`) which we need to write the full name (`PackedTensorAccesor`)
+
+    ![image](https://github.com/user-attachments/assets/3c0a444d-a7be-4629-a6c5-422eb732f5a4)
+
+    - `PackedTensorAccesor`의 뒷 부분은 kernel function인 `trilinear_fw_kernel`을 `AT_DISPATCH_FLOATING_TYPES`에서 수행할 때 사용한 것과 동일한 것을 copy & past 하면 됩니다.
+      
+      ![image](https://github.com/user-attachments/assets/e025a933-16b4-4dd2-98db-f0d95797de21)
 
 
 
