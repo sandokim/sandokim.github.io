@@ -88,7 +88,7 @@ comments: true
     ![image](https://github.com/user-attachments/assets/bf582a92-0067-459c-b7a6-30c2b148f92c)
 
     - ***So basically when you call the kernel using `AT_DISPATCH`, you always need this `__global__` keyword, since you call it from cpu and the execution is on gpu.***
-    - `__global__`: the function is called on cpu and executed on gpu.
+    - **`__global__`: the function is called on cpu and executed on gpu.**
     - `__global__`만 알아도 충분합니다.
     - `__host__`: the function is called and executed both on cpu.
     - `__device__`: the function is called and executed both on the gpu.
