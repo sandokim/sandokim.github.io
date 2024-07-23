@@ -229,7 +229,7 @@ comments: true
 #### 코드를 변경했으면, `pip install <path/to/your/setup.py>`로 re-compile하는 것도 까먹지 맙시다. 
 
 ```cmd
-`pip install .`
+pip install .
 ```
 
 감사합니다.
