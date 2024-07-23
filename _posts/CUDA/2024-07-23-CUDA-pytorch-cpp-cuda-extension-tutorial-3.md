@@ -120,6 +120,15 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
   const dim3 threads(256);
   ```
 
+- The dimension that we didn't specify is defaulted to 1. You can omit it.
+
+  ```css
+  const dim3 threads(16, 16);
+  ```
+
+  ```css
+  const dim3 threads(16, 16, 1);
+  ```
   
 
 
