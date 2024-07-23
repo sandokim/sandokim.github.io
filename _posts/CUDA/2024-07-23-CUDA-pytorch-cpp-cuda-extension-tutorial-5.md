@@ -29,6 +29,11 @@ comments: true
 
 만약 pytorch code와 cuda code의 outputs이 같다면, cuda code가 올바르게 작성되었다고 판단할 수 있습니다.
 
+### Call the function in python
+
+
+### Check the correctness with the same function in pytorch code
+
 
 
 감사합니다.
