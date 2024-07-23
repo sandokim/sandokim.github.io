@@ -143,7 +143,7 @@ comments: true
       const int f = blockIdx.y * blockDim.y + threadIdx.y;
       ```
 
-    ![image](https://github.com/user-attachments/assets/c673968d-6eb0-4cac-a0e8-f3613cde1c5f)
+      ![image](https://github.com/user-attachments/assets/c673968d-6eb0-4cac-a0e8-f3613cde1c5f)
 
   - ### step 2: we need to exclude redundant threads from the computation.
 
