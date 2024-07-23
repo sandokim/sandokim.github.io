@@ -58,6 +58,8 @@ c++ is only a bridge that connect pytorch and cuda.
 
 ### tutorial 1에서는 `placeholder`만 작성할 것입니다. 왜냐하면 실제 computation은 cpp 파일이 아니라 cuda 파일에서 실행되기 때문입니다.
 
+- ***따라서 cpp 파일에서는 function name, input and output만 작성하면 됩니다.***
+
 ![image](https://github.com/user-attachments/assets/7faac12c-ca66-418b-a1af-8b24cc04b02f)
 
 
