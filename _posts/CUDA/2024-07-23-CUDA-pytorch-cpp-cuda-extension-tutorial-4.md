@@ -160,7 +160,7 @@ comments: true
 
       ![image](https://github.com/user-attachments/assets/6224ee75-4632-42fa-a1ce-62b7ec8b6d37)
 
-## 위 조건을 만족하면 드디어 valid한 threads에 대해서만 parallel computation하는 코드가 이어집니다.
+### 위 조건을 만족하면 드디어 valid한 threads에 대해서만 parallel computation하는 코드가 이어집니다.
 
 ![image](https://github.com/user-attachments/assets/df50e6ed-8af5-4cea-994b-ebcf29845cf6)
 
