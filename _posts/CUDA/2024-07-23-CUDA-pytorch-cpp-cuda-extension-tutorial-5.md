@@ -48,9 +48,22 @@ comments: true
 
 # Check the correctness with the same function in pytorch code
 
-pytorch로 작성한 `trilinear_interpolation_py`과, cuda로 작성한 `trilinear_interpolation`의 output이 같음을 `torch.allclose()` 함수로 확인했습니다.
+- pytorch로 작성한 `trilinear_interpolation_py`과, cuda로 작성한 `trilinear_interpolation`의 output이 같음을 확인했습니다.
+- `torch.allclose()`는 두 tensor가 일정 에러 미만의 차이면 True를 return 합니다.
 
 ![image](https://github.com/user-attachments/assets/b18d36e2-7001-489e-afbb-d4b321079e43)
+
+
+## CUDA에서 Deep Learning에서의 forward pass와 backward pass 
+
+- ***If you write in cuda, it doesn't provide "autograd" automatically. It cannot compute gradient automatically.***
+- No matter your inputs are trainable or not, the output is always not trainable.
+- If we compute loss based on "out_cuda" and backpropagate, it cannot update "feats" correctly.
+
+  ![image](https://github.com/user-attachments/assets/a702c667-79ed-45e8-8673-31f64894d59c)
+
+- ***So we need to implement the backward pass as well in CUDA.***
+- **We need to compute the gradients manually and implement.**
 
 
 감사합니다.
