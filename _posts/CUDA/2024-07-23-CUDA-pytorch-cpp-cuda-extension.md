@@ -51,6 +51,9 @@ c++ is only a bridge that connect pytorch and cuda.
     
     ![image](https://github.com/user-attachments/assets/dade4568-2014-4e7a-9c9b-d9b9766d9749)
 
+- 파일을 저장하면 `#include <torch/extension.h>`의 빨간 밑줄이 사라졌습니다.
+
+![image](https://github.com/user-attachments/assets/b9b54b95-35b7-4ba7-80c4-9113d8330c43)
 
 
 
