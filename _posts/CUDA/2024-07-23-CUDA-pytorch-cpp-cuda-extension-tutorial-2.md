@@ -41,13 +41,12 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
 - Each block은 multiple "threads"를 가지고 있고, threads는 finest computation units이라고 보면 됩니다.
 
-### The secret behind parallelism is that when we call a function, it instantiate a grid that contains multiple blocks which contain again many threads and each thread can do its operation in parallel.
-
-- For example, a matrix addition is addition of two elements at the same position, the program generates a grid that contains as many threads as the elements in the matrix, and each thread performs one addition of two elements at its position.
-  - You can think of "threads" as "workers", each worker performs a task that requires roughly the same amount of time.
-  - Each worker performs only one addition of two numbers, no one needs more resource or more computational time than others.
-
-
+### THIS IS HOW CUDA WORKS
+- **The secret behind parallelism is that when we call a function, it instantiate a grid that contains multiple blocks which contain again many threads and each thread can do its operation in parallel.**
+  - For example, a matrix addition is addition of two elements at the same position, the program generates a grid that contains as many threads as the elements in the matrix, and each thread performs one addition of two elements at its position.
+    - You can think of "threads" as "workers", each worker performs a task that requires roughly the same amount of time.
+    - Each worker performs only one addition of two numbers, no one needs more resource or more computational time than others.
+  - Since we divide the taks to multiple sub-tasks that can be done in parallel with each task requiring the same resource and amount of time, we can accelerate the entire process.
 
 
 
