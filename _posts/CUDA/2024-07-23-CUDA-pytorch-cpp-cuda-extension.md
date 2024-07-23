@@ -37,7 +37,9 @@ c++ is only a bridge that connect pytorch and cuda.
 ![image](https://github.com/user-attachments/assets/7d417c2f-5267-4fda-a299-9387da733f42)
 
 - tutorial 1에서는 cuda없이 c++ bridge만 써볼 것입니다.
-
+- interpolation.cpp 파일을 만들고, c++ bridge를 여기에 작성해서 pytorch와 cuda를 연결할 것입니다.
+  
+![image](https://github.com/user-attachments/assets/dc1da146-5f0c-4a20-9bf7-a0b8e82310a2)
 
 
 
