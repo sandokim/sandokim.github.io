@@ -25,7 +25,7 @@ comments: true
 
 ### tutorial 4에서 작성한 trilinear interpolation을 python에서 call 하여 사용하여 학습해봅시다. (쉬움)
 
-
+- pytorch code와 cuda code로 작성한 것의 속도를 비교해 볼 것입니다.
 
 
 
