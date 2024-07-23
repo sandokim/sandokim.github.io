@@ -91,9 +91,9 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
 ## Shape을 알았으니 이제 어떻게 parallelize computation을 수행할지 생각해볼 수 있습니다.
 
-- Parallelize하는 2가지 방법이 있습니다.
-   1. Since the interpolation of each point doesn't depend on any other points, we can parallelize N.
-   2. We can parallelize F, if we have multiple features, the interpolation of each feature doesn't depend on any other feature either, so we can parallelize.
+- Parallelize하는 2가지 방법이 있습니다. (N parallelize, F parallelize)
+1. Since the interpolation of each point doesn't depend on any other points, we can parallelize N.
+2. We can parallelize F, if we have multiple features, the interpolation of each feature doesn't depend on any other feature either, so we can parallelize.
  
 ### 이제 Parallize를 코딩해봅시다.
 
