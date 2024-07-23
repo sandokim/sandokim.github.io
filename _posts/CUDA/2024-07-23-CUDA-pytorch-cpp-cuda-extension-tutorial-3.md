@@ -131,12 +131,15 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
   ```
   
 
+### 이제 아까 넘어 the number of blocks는 어떻게 계산하는지 알아봅시다.
 
+- 이 컨셉은 매우 중요하므로 100% 이해해야합니다.
+- N=20, F=10 일때, 20 points를 interpolate 해야하고, each point는 10개의 features를 가집니다.
+- output shape은 (20, 10)이 됩니다.
+- 우리는 threads가 16x16이라고 했습니다.
+- thread가 cover하는 region은 다음 그림과 같습니다.
 
-
-
-
-
+  ![image](https://github.com/user-attachments/assets/203c840f-7afa-4bd9-b06f-2a6722126e7f)
 
 
 
