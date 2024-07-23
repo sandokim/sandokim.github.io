@@ -32,4 +32,4 @@ comments: true
 감사합니다.
 
 ### Reference
-[Pytorch+cpp/cuda extension 教學 tutorial 5 - English CC -](https://www.youtube.com/watch?v=jXQxF5FnR5Q&list=PLDV2CyUo4q-LKuiNltBqCKdO9GH4SS_ec&index=4)
+[Pytorch+cpp/cuda extension 教學 tutorial 5 - English CC -](https://www.youtube.com/watch?v=XpHwMriwe-I&list=PLDV2CyUo4q-LKuiNltBqCKdO9GH4SS_ec&index=5)
