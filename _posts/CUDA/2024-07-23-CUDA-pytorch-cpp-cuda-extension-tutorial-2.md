@@ -80,6 +80,7 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
 ## trilinear interpolation을 하기 위해 feats와 points의 shape을 정의합니다.
 
+### inputs 
 - feats # (N, 8, F)
   - N is the number of cubes
   - 8 is the number of vertices
@@ -88,6 +89,11 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 - points # (N, 3)
   - point coordinates
   - N is the number of points and each of them corresponds to one cube in the "feats" tensor
+
+### outputs
+- feat_interp # (N, F)
+  - N points
+  - Each point's feature is the interpolation of the 8 vertices of the cube that contains that point, and each point has F features, so after interpolation, each point has F features too.
 
 ## Shape을 알았으니 이제 어떻게 parallelize computation을 수행할지 생각해볼 수 있습니다.
 
