@@ -130,13 +130,6 @@ comments: true
 
 ***So, we need to know each element is computed by which thread in which block***
 
-쉽게 하려면 그냥 아래 내용을 붙여넣으면 됩니다.
-
-```css
-const int n = blockIdx.x * blockDim.x + threadIdx.x;
-const int f = blockIdx.y * blockDim.y + threadIdx.y;
-```
-
 ![image](https://github.com/user-attachments/assets/c673968d-6eb0-4cac-a0e8-f3613cde1c5f)
 
 
