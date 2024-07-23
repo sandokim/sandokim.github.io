@@ -79,9 +79,18 @@ comments: true
 - kernel function을 수행시켰던 `interpolation_kernel.cu`에 `trilinear_fw_kernel`을 정의해봅시다.
 - `triliner_fw_kernel`
   - 먼저 자동으로 input의 데이터 타입들에 맞게 사용하기 위해서 `scalar_t`를 사용합니다.
-  
+  - In order to apply this setting to the kernel, we have this line above the function (`template <typename scalar_t>`) to tell that the data type is actually variable.
 
+    ![image](https://github.com/user-attachments/assets/2017af81-de5e-425c-8d61-1165af0fd586)
 
+  - Next is the function definition, let's ignore this `__global__` now.
+  - **the return type is `void`**, the kernel function doesn't return anything, it fills the correct values into the output tensor. No matter what your kernel is, the return type is always void. You need to pass the input and output tensors as arguments, and fill in the output tensors inside the function.
+
+    ![image](https://github.com/user-attachments/assets/9c0bbd94-44b9-43ef-b37d-be1a2ad6a63e)
+
+  - `trilinear_fw_kernel`은 kernel의 name.
+
+    ![image](https://github.com/user-attachments/assets/2a37b862-1ac7-4082-975c-057209392330)
 
 
 
