@@ -10,8 +10,8 @@ tags:
   - c++
   - cpp bridge
   - c++ bridge
-  - forward
-  - backward
+  - forward pass
+  - backward pass
   - c++/cuda
   - cuda extension
   - cuda tutorial 4
