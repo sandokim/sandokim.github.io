@@ -164,7 +164,31 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/df50e6ed-8af5-4cea-994b-ebcf29845cf6)
 
+![image](https://github.com/user-attachments/assets/5755460e-692f-4324-b1b2-0e660b33a5fe)
 
+![image](https://github.com/user-attachments/assets/a64b52e9-ac70-4735-b89e-c13c1eb254d0)
+
+#### xyz에 대한 trilinear interpolation weight로 u,v,w를 사용합니다.
+
+![image](https://github.com/user-attachments/assets/08b05fd4-165f-4230-a377-e89a8aef23ea)
+
+#### input (local) coordinate가 -1 ~ 1에 존재하므로, normalize를 하기 위해, 1을 더하고 2로 나눠줍니다.
+
+![image](https://github.com/user-attachments/assets/276f05c9-53cc-4af6-b083-897118fa87d7)
+
+#### n,f로 각 thread의 위치를 정의해주었으므로, n,f로 points와 features에 대해 indexing을 할 수 있습니다.
+
+![image](https://github.com/user-attachments/assets/73b1d21c-b192-44a2-a117-c27789f5fe21)
+
+![image](https://github.com/user-attachments/assets/b51905ea-0acb-4d7e-a6b3-5b78974d3430)
+
+#### interpolation의 weights를 구해줍니다.
+
+![image](https://github.com/user-attachments/assets/ceb8d6d1-d636-4fa7-a965-8f2f7d074429)
+
+#### output tensor인 feat_interp에 trilinear interpolation으로 구한 value를 채워줍니다.
+
+![image](https://github.com/user-attachments/assets/49b0e492-b0e4-442d-8dea-6ae16fe1af15)
 
 
 감사합니다.
