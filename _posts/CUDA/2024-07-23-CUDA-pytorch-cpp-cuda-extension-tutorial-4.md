@@ -106,9 +106,19 @@ comments: true
 
     ![image](https://github.com/user-attachments/assets/3c0a444d-a7be-4629-a6c5-422eb732f5a4)
 
-    - `PackedTensorAccesor`의 뒷 부분은 kernel function인 `trilinear_fw_kernel`을 `AT_DISPATCH_FLOATING_TYPES`에서 수행할 때 사용한 것과 동일한 것을 copy & past 하면 됩니다.
+    - `PackedTensorAccesor`의 뒷 부분은 kernel function인 `trilinear_fw_kernel`을 `AT_DISPATCH_FLOATING_TYPES`에서 수행할 때 사용한 것과 동일한 것을 copy & paste 하면 됩니다.
       
       ![image](https://github.com/user-attachments/assets/e025a933-16b4-4dd2-98db-f0d95797de21)
+      
+    - 맨 뒤에는 variable name을 써줍니다. (feats, points, feat_interp)
+      
+      ![image](https://github.com/user-attachments/assets/6f36b144-8a27-4c70-a758-fd71ea18516c)
+
+      - output인 feat_interp에는 const를 넣지 않았는데, 이유는 const인 input과 다르게 output은 correct output으로 one by one으로 fill 할 것이기 때문입니다.
+
+## 지금까지 kernel function인 `trilinear_fw_kernel`의 input을 살펴보았고, 이제 이 함수의 기능을 펼쳐서 봅시다.
+
+![image](https://github.com/user-attachments/assets/609cbf3f-9c7c-44bb-8d08-fefbd9cc968c)
 
 
 
