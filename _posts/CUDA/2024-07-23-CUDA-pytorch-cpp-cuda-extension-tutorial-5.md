@@ -23,7 +23,7 @@ comments: true
 
 # CUDA Programming Tutorial 5
 
-
+### tutorial 4에서 작성한 trilinear interpolation을 python에서 call 하여 사용하여 학습해봅시다. (쉬움)
 
 
 
