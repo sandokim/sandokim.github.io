@@ -35,7 +35,9 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 - cuda가 하는 것은 host(=cpu)로부터 device(=gpu)로 data를 transfer합니다. 이때, 동시에 grid가 생성됩니다. (grid는 나중에 parallel computation에 책임을 가집니다.)
 - grid는 multiple "units"을 가지며 이들은 parallel computation이 가능합니다.
 - grid는 multiple "blocks"를 가지고, blocks의 수는 program에 의해 결정됩니다.
-- 
+- 각 block은 더 divide될 수 있습니다.
+![image](https://github.com/user-attachments/assets/4204a994-88ac-4485-8df0-40c99ad7ddc9)
+
 
 감사합니다.
 
