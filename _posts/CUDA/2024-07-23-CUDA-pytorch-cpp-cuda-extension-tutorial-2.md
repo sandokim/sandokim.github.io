@@ -150,6 +150,9 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
 
   ![image](https://github.com/user-attachments/assets/2c0affed-e2f0-4cc5-922e-ee12f0df8732)
 
+- tensor말고 다른 inputs을 넣는 경우, i.e. `const float x`와 같은 inputs에 대해서는 `CHECK_INPUT`이 필요없습니다.
+
+  ![image](https://github.com/user-attachments/assets/f48ae0f4-d76e-482b-8c26-c74f6d8eda7c)
 
 
 
