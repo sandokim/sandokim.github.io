@@ -83,9 +83,26 @@ c++ is only a bridge that connect pytorch and cuda.
   
 ![image](https://github.com/user-attachments/assets/1a1797e9-c9ba-45ba-830f-1abcf6fc627d)
 
-  
+### 마지막으로 이 함수를 python에서 어떻게 불러오는지 해봅시다.
 
+- ***c++에서 작성한 함수를 불러오기 위해서는 작성한 c++ 코드를 먼저 `build` 해야합니다.***
+- c++는 다른 곳에서 call 되기 위해서는 compiling과 building을 요구합니다.
+- `setup.py`로 c++ 코드를 compiling과 building을 할 수 있습니다.
 
+![image](https://github.com/user-attachments/assets/030aab50-357d-4b1a-8a16-03b909127947)
+
+![image](https://github.com/user-attachments/assets/767d4ff1-c27c-424b-b596-e27db8028c2c)
+
+### `setup.py`에서 c++ 코드가 어떻게 bulit 될 것인지 정의합니다.
+
+- 아래 내용을 copy and paste해서 수정하면 됩니다.
+- `name`은 package의 이름을 설정하는 것이고, 나머지는 부가적입니다.
+- 가장 중요한 부분은 `ext_modules`입니다.
+  - 먼저 build하고 싶은 c++ 코드를 sources의 리스트 안에 써줍니다. (여러개 있으면, 콤마로 이어서 다른 cpp 파일도 써줍니다.)
+    
+    ![image](https://github.com/user-attachments/assets/63ce2152-8e77-49d1-b781-2bfb74eb0511)
+
+  - 마지막으로 `cmdclass`는 우리가 code를 building한 다는 것을 알려주는 부분입니다.
 
 
 ### Reference
