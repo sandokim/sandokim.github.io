@@ -23,7 +23,14 @@ comments: true
 
 # CUDA Programming Tutorial 6
 
+- Tutorial 5에서 trilinear interpolation을 forward pass로 구현했지만, 아직까진 backward pass는 못합니다.
+- So if we want to calculate some loss based on this variable, it is not able to compute the correct gradient to update our features,
 
+## backward pass를 implement하여 gradient가 back으로 passed 되도록 cuda code를 작성해보겠습니다.
+
+### cuda backward implementation에서 가장 중요한 2가지 스텝은 다음과 같습니다.
+
+- First, we need to compute all outputs' partial derivatives w.r.t. all trainable inputs
 
 
 감사합니다.
