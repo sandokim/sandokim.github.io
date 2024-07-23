@@ -75,9 +75,24 @@ torch::Tensor feat_interp = torch::zeros({N, F}, torch::dtype(torch::kInt32).dev
 
 - 이로써 output에 대한 placeholder까지 생성한 상황이고, correct values로 채워넣어야 합니다.
 
+## 여기서부터 parallel computation이 등장합니다.
 
+- parallel computation 과정은 다음과 같습니다.
+  - cpu creates a kernel, which creates a grid on gpu
+  - a grid contains multiple blocks, each of them containing multiple threads
+  - a thread does a parallel computation, in our case it's doing interpolation of a point from its 8 vertices' features
 
+    ![image](https://github.com/user-attachments/assets/297f328d-6774-48cb-a0f6-8e2924c3318e)
 
+### computation을 하기에 앞서 blocks과 threads의 size를 알아야 합니다.
+
+- 사실 blocks 수는 formula에 의해 결정됩니다. blocks 수를 계산하는 formula는 나중에 살펴보겠습니다.
+- 따라서 block 당 threads 수만 결정해주면 됩니다.
+- 우리는 현재 얼마나 많은 threads가 필요가요?
+- 우리의 알고리즘을 볼 때, 얼마나 많은 dimensions이 parallel computation에 사용되는지 알아야 합니다. (input, output 계산확인)
+- Tutorial 2에서 parallelize될 수 있는 경우는 2가지였습니다.
+1. N point can be parallelized
+2. the interpolation of F features can be parallelized
 
 
 
