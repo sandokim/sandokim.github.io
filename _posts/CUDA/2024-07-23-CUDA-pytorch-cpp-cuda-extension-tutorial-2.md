@@ -124,6 +124,7 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
     ![image](https://github.com/user-attachments/assets/453dbf2e-b131-4532-9c17-15b9b964de1a)
 
   - 이것을 `.cpp` 파일에 `.h`로 include를 해주면 됩니다. 예시에서는 `#include "utils.h"`로 include 했습니다.
+  - c++는 이제 header 파일을 보고 `trilinear_fw_cu`가 어떤 함수인지 알 수 있습니다.
 
     ![image](https://github.com/user-attachments/assets/7ca25f28-cb17-4675-98c4-6a0d71293c7a)
 
