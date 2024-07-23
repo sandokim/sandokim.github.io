@@ -83,7 +83,17 @@ comments: true
 
     ![image](https://github.com/user-attachments/assets/2017af81-de5e-425c-8d61-1165af0fd586)
 
-  - Next is the function definition, let's ignore this `__global__` now.
+  - Next is the function definition, `__global__` means a keyword for cuda function. `__global__` means the function is called by the host(=cpu) and it is executed on the gpu. 
+     
+    ![image](https://github.com/user-attachments/assets/bf582a92-0067-459c-b7a6-30c2b148f92c)
+
+    - ***So basically when you call the kernel using `AT_DISPATCH`, you always need this `__global__` keyword, since you call it from cpu and the execution is on gpu.***
+    - `__global__`: the function is called on cpu and executed on gpu.
+    - `__global__`만 알아도 충분합니다.
+    - `__host__`: the function is called and executed both on cpu.
+    - `__device__`: the function is called and executed both on the gpu.
+ 
+    
   - **the return type is `void`**, the kernel function doesn't return anything, it fills the correct values into the output tensor. No matter what your kernel is, the return type is always void. You need to pass the input and output tensors as arguments, and fill in the output tensors inside the function.
 
     ![image](https://github.com/user-attachments/assets/9c0bbd94-44b9-43ef-b37d-be1a2ad6a63e)
