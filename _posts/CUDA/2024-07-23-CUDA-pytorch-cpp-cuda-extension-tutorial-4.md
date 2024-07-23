@@ -148,9 +148,21 @@ comments: true
 
     ![image](https://github.com/user-attachments/assets/0bd7ba00-c15e-4bc3-889b-064d90c474f7)
 
-    ![image](https://github.com/user-attachments/assets/c9035983-61a0-4b5b-91d8-5c119d181d82)
+    - Redundant한 영역에 존재하는 threads의 computation을 중단하는 방법은 2개가 있습니다.
 
-    ![image](https://github.com/user-attachments/assets/2a34d010-25c5-48ce-b7fd-6cc46d294608)
+      ![image](https://github.com/user-attachments/assets/c9035983-61a0-4b5b-91d8-5c119d181d82)
+
+    - input의 shape으로 valid range를 설정할 수도 있
+    
+      ![image](https://github.com/user-attachments/assets/2a34d010-25c5-48ce-b7fd-6cc46d294608)
+
+    - valid range를 넘어가는 것에 대해서는 return하여 computation을 중단시킬 수도 있습니다.
+
+      ![image](https://github.com/user-attachments/assets/6224ee75-4632-42fa-a1ce-62b7ec8b6d37)
+
+## 위 조건을 만족하면 드디어 valid한 threads에 대해서만 parallel computation하는 코드가 이어집니다.
+
+![image](https://github.com/user-attachments/assets/df50e6ed-8af5-4cea-994b-ebcf29845cf6)
 
 
 
