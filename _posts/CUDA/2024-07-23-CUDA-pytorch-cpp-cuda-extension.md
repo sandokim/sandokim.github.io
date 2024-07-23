@@ -37,10 +37,15 @@ c++ is only a bridge that connect pytorch and cuda.
 ![image](https://github.com/user-attachments/assets/7d417c2f-5267-4fda-a299-9387da733f42)
 
 - tutorial 1에서는 cuda없이 c++ bridge만 써볼 것입니다.
+- vscode에서 conda로 python 가상환경을 만듭니다.
 - interpolation.cpp 파일을 만들고, c++ bridge를 여기에 작성해서 pytorch와 cuda를 연결할 것입니다.
   
-![image](https://github.com/user-attachments/assets/dc1da146-5f0c-4a20-9bf7-a0b8e82310a2)
+  ![image](https://github.com/user-attachments/assets/dc1da146-5f0c-4a20-9bf7-a0b8e82310a2)
 
+- code가 pytorch로부터 tensors를 받으므로, c++가 tensor가 뭔지 알게 하도록 하기 위해, `#include <torch/extension.h>`를 작성해줍니다.
+  - 이때 빨간줄이 나오는데, `ctrl+shift+p`를 누르고 C/C++: Edit Configurations (UI)를 선택해주어, 빨간줄을 없앱니다.
+      
+    ![image](https://github.com/user-attachments/assets/a51f3578-c241-40b8-bce1-b75aefaf9ed9)
 
 
 
