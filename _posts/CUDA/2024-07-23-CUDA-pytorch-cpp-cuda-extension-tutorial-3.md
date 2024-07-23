@@ -44,8 +44,6 @@ comments: true
 
 - 꼭 `const`로 정의해야만 하는 건 아니지만, `const`로 정의하면 variable이 변하지 않는다는 것을 알려주므로 `const`를 넣어 변수를 정의하는 것이 좋습니다.
 
-  ![image](https://github.com/user-attachments/assets/371f4e63-8f79-4172-92d6-413e9fbd5eb7)
-  
   ![image](https://github.com/user-attachments/assets/9fa57d2e-500e-4512-98b8-d3295066ef68)
 
 
