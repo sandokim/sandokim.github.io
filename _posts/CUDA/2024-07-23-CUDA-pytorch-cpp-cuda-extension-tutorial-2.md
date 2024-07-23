@@ -97,6 +97,40 @@ Tutorial 2에서부터는 cuda programming을 배워보겠습니다.
  
 ### 이제 Parallize를 코딩해봅시다.
 
+- Tutorial 1에서 만들었던 `interpolation.cpp`
+  
+  ![image](https://github.com/user-attachments/assets/c6e31b5e-b6fa-40ce-a89e-8ce9508ddb5d)
+
+- cuda code를 작성하기 위해 `interpolation_kernel.cu`를 만들고, 여기 parallelism을 코딩한 다음, 이를 c++ 코드인 `interpolation.cpp`로부터 call 할 것입니다.
+- 항상 그랬듯이 `#include <torch/extension.h>`를 먼저 작성하여, cuda가 tensor가 무엇인지 알려줍니다.
+- `interpolation.cpp`에서 `trilinear_interpolation`으로 정의한 함수를, `interpolation_kernel.cu`에서는 `triliner_fw_cu`로 이름만 바꿔줘서 foward 문을 만듭시다.
+- `fw`는 `forward`, `bw`는 `backward`를 의미합니다.
+- `_cu`는 `cuda code`를 의미합니다.
+- 우리가 each vertex의 `"feats"`의 weights를 train하려면, 나중에 trilinear_interpolation의 backward pass도 implement 해야합니다.
+
+  ![image](https://github.com/user-attachments/assets/733e6291-b1b7-46a8-aa9e-b46f8f39693f)
+
+- `interpolation_kernel.cu`에서 작성한 `trilinear_fw_cu` 함수를 c++ 파일인 `interpolation.cpp` 불러오려면 c++ project에서 하는 것처럼 `.cpp`파일 말고도
+- function들을 정의하는 `.h` 헤더파일을 가지고 있습니다.
+- cuda programming에서도 함수를 정의하는 `.h` 파일이 필요합니다.
+- 먼저 함수를 declare 하여, c++가 함수가 존재하는 것을 알게 해줘야 합니다.
+- 당연히 같은 `.cpp` 파일 안에 함수를 정의할 수도 있지만, 더 좋은 방법은 `include` 폴더를 새로 만들고, 그 안에 `.h` 파일을 만드는 것입니다.
+
+  ![image](https://github.com/user-attachments/assets/f0202bba-083c-4783-9e78-7282b477fab8)
+
+  - 여기에 역시 `#include <torch/extension.h>`를 쓰고,
+  - 다음으로 function delcaration (function name, inputs and output types)를 써줍니다.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
