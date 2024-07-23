@@ -6,6 +6,10 @@ categories:
 tags:
   - cuda programming
   - cuda
+  - cpp
+  - c++
+  - cpp bridge
+  - c++ bridge
   - forward
   - backward
   - c++/cuda
@@ -17,7 +21,7 @@ classes: wide
 comments: true
 ---
 
-# CUDA Programming Tutorial
+# CUDA Programming Tutorial 1
 
 CUDA is a programming language for GPU, so it enables faster parallel computation, thus making pytorch faster.
 
