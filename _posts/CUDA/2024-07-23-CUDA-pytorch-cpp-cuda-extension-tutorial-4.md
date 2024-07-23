@@ -198,6 +198,11 @@ comments: true
 ![image](https://github.com/user-attachments/assets/49b0e492-b0e4-442d-8dea-6ae16fe1af15)
 
 
+### `trilinear_fw_kernel`에서 `return feat_inter`를 해줘야 합니다. (본 튜토리얼 진행에서 까먹고 안넣었음)
+
+![image](https://github.com/user-attachments/assets/3968ef61-a242-448b-b8f0-822f1d22ad49)
+
+
 감사합니다.
 
 ### Reference
