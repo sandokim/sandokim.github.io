@@ -29,7 +29,7 @@ comments: true
 
 ### 직관적으로 cuda function이 pytorch에서 사용되는 법은 CUDA tutorial 6을 참고하세요.
 
-- CUDA tutorial 6으로 아래 내용을 해석할 수 있습니다.
+- [CUDA tutorial 6](https://github.com/sandokim/sandokim.github.io/blob/master/_posts/CUDA/2024-07-23-CUDA-pytorch-cpp-cuda-extension-tutorial-6.md)으로 아래 내용을 해석할 수 있습니다.
 
 [diff_gaussian_rasterization/\_\_init\_\_.py](https://github.com/graphdeco-inria/diff-gaussian-rasterization/blob/59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d/diff_gaussian_rasterization/__init__.py)
 
