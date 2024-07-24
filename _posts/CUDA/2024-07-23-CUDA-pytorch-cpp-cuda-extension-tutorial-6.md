@@ -82,12 +82,14 @@ This is why we did the $df/d_{inputs}$ in the first place.
   
 - 마지막으로 `setup.py`의 current working dir에서 `pip install .`로 library를 build 해주는 것을 잊지 맙시다.
 
-### Pytorch에서 `torch.autograd.Function`을 call하여 `fw`, `bw` functions을 wrap 해주어야 합니다.
+## Pytorch에서 `torch.autograd.Function`을 call하여 `fw`, `bw` functions을 wrap 해주어야 합니다.
 
 ![image](https://github.com/user-attachments/assets/cf3b8892-53c5-44f1-b2fe-66d4c9b2eb9f)
 
 - `ctx`: the abbreviation of context, it is used to store some variables that we need for the backward pass.
 - `ctx` is an argument that is always required and should be the first argument.
+
+### forward pass
 - intuitively we only need to return the output
 - but since in the backward partial derivatives, we need both the points and feats variables (c.f. for formulae).
 - in the formulae there are u,v which can only be calculated from points, so we need to save them.
@@ -99,9 +101,13 @@ This is why we did the $df/d_{inputs}$ in the first place.
   ```css
   ctx.save_for_backward(feats, points)
   ```
-  
 
+### backward pass
 
+![image](https://github.com/user-attachments/assets/e20f4d89-2449-4f28-9148-741ed0a97674)
+
+- the following argument(s) is what we imagined earlier, $\frac{dL}{d_{output(s)}}$.
+- 즉, backprop에 사용되는 Loss term $L$에 output `feat_interp`이 주는 미소 변화량 $\frac{dL}{dfeat \ interp}$를 backward pass에 넣습니다.
 
 
 
