@@ -93,6 +93,10 @@ $$
 
 ### output color c가 gaussian g_rgb에 chain rule로 연결
 
+여기서 $L$ 은 Loss이고, 미분에서는 변화량으로 $dL$ 로 씁니다.
+
+미소 변화량 $dg_{rgb}$ 가 Loss의 미소 변화량 $dL$ 에 미치는 미분 관계는 다음과 같이 풀어쓸 수 있습니다.
+
 $$
 \frac{dL}{dg_{rgb}} = \frac{dL}{dc} \times \frac{dc}{dg_{rgb}}
 $$
