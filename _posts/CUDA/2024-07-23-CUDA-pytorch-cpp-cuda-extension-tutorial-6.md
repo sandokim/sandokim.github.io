@@ -30,7 +30,26 @@ comments: true
 
 ### cuda backward implementation에서 가장 중요한 2가지 스텝은 다음과 같습니다.
 
-- First, we need to compute all outputs' partial derivatives w.r.t. all trainable inputs
+- First, we need to compute all outputs' partial derivatives w.r.t. all trainable inputs.
+
+![image](https://github.com/user-attachments/assets/decf0757-6b08-406f-938b-d58d0a2b4abd)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 감사합니다.
