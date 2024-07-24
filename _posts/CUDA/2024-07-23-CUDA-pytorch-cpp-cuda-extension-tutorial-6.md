@@ -84,6 +84,22 @@ This is why we did the $df/d_{inputs}$ in the first place.
 
 ### Pytorch에서 `torch.autograd.Function`을 call하여 `fw`, `bw` functions을 wrap 해주어야 합니다.
 
+![image](https://github.com/user-attachments/assets/cf3b8892-53c5-44f1-b2fe-66d4c9b2eb9f)
+
+- `ctx`: the abbreviation of context, it is used to store some variables that we need for the backward pass.
+- `ctx` is an argument that is always required and should be the first argument.
+- intuitively we only need to return the output
+- but since in the backward partial derivatives, we need both the points and feats variables (c.f. for formulae).
+- in the formulae there are u,v which can only be calculated from points, so we need to save them.
+  
+  ![image](https://github.com/user-attachments/assets/c616ce64-ecbc-449b-843e-87a877dbfdb0)
+
+  다음 코드로 `fw`에서 partial derivatives에 관련된 inputs (`feats`, `points`)를 저장합니다.
+  
+  ```css
+  ctx.save_for_backward(feats, points)
+  ```
+  
 
 
 
