@@ -15,6 +15,7 @@ tags:
   - c++/cuda
   - cuda extension
   - cuda tutorial 6
+  - pybind11
 excerpt: "Pytorch c++/cuda extension tutorial 6"
 use_math: true
 classes: wide
@@ -75,8 +76,9 @@ This is why we did the $df/d_{inputs}$ in the first place.
   ![image](https://github.com/user-attachments/assets/cdc001ee-f30a-4ffa-8adf-e32ebd984374)
 
 - 그리고 fowrad function에서 해준 것처럼 `.cpp`, `.h` 파일들에 backward function을 선언해줍니다.
-
+- PYBIND11로 forward pass, backward pass가 python과 연동될 수 있도록 이름을 정의해줍니다.
   ![image](https://github.com/user-attachments/assets/96f9e41f-cd34-4f36-b51f-cc6443de0ce0)
+
 
   ![image](https://github.com/user-attachments/assets/c702cc5e-0683-4e67-a420-52d6daa295e5)
   
