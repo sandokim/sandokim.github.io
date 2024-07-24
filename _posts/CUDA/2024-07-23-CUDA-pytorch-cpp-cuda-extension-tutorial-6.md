@@ -48,7 +48,7 @@ This is why we did the $df/d_{inputs}$ in the first place.
 
 ### Loss에 대해서 모든 inputs에 대한 $dL$, 즉, $\frac{dL}{df_1}$, $\frac{dL}{df_2}$, $\frac{dL}{df_3}$, $\frac{dL}{df_4}$을 정의하였으니까, backward pass를 코딩할 수 있습니다.
 
-**For $\frac{dL}{d_{feats}$, the original feats has shape (N,8,F), $dL/d_{feats}$ has the same shape (a tensor always has the same shape as its gradient).**
+**For $\frac{dL}{d_{feats}$, the original feats has shape (N,8,F), $\frac{dL}{d_{feats}}$ has the same shape (a tensor always has the same shape as its gradient).**
  
 
 
