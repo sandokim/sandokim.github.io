@@ -128,6 +128,21 @@ backward pass에서는 먼저 forward pass에서 저장된 tensors들을 가져�
   ![image](https://github.com/user-attachments/assets/17d136b6-60a0-4411-a9e3-40cbcb212790)
 
 
+### 이제 backward pass 까지 `required_grad = True`가 되는지 확인해봅시다.
+
+![image](https://github.com/user-attachments/assets/0d067646-3f6b-44e9-a940-c03f2caaf655)
+
+- `Trilinear_interpolation_cuda.apply(feats2, points)`는 forward pass와 backward pass를 `torch.autograd.Function`로 상속받은 class로 구현한 함수 입니다.
+- `trilinear_interpolation_py(feats, points)`는 pytorch로 구현한 함수입니다.
+  
+- 둘의 값 차이는 없음을 `torch.allclose(out_py, out_cuda)`로 확인했습니다.
+  - `out_py`는 pytorch로 구현한 함수의 output
+  - `out_cuda`는 cuda로 forward pass, backward pass를 구현한 함수의 output
+
+- 속도에서 forward에는 pytoch나 cuda나 거의 속도 차이가 없지만, backward pass에서 cuda가 pytorch보다 10배 빠름을 확인했습니다.
+
+![image](https://github.com/user-attachments/assets/dc4f7af2-8d1a-4205-bebb-a0cd69c5ef90)
+
 
 감사합니다.
 
