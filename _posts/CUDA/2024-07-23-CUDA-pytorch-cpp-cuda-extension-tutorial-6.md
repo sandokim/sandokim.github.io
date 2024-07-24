@@ -40,6 +40,8 @@ trainable inputs인 $f_1$ ~ $f_4$의 미소 변화량과 Loss의 관계에서 �
 
 Since we already computed all partial derivaties of "all outputs" w.r.t. "all trainable inputs", we certainly can represent all these $dL/d_{something}$.
 
+This is why we did the $df/d_{inputs}$ in the first place.
+
 ![image](https://github.com/user-attachments/assets/febd6796-5c0f-4665-be3f-c10266217d98)
 
 ![image](https://github.com/user-attachments/assets/9e54fbf4-f3b3-4a61-bcc2-ab65b985384d)
