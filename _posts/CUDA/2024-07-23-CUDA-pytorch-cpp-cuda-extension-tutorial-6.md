@@ -50,7 +50,7 @@ This is why we did the $df/d_{inputs}$ in the first place.
 
 **For $\frac{dL}{d_{feats}}$, the original feats has shape (N,8,F), $\frac{dL}{d_{feats}}$ has the same shape (a tensor always has the same shape as its gradient).**
  
-**tensor와 tensor의 gradient는 항상 같은 shape을 가짐을 기억합시다.**
+**tensor와 tensor의 gradient는 항상 같은 shape과 같음을 기억합시다.**
 
 
 
