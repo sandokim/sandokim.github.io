@@ -15,9 +15,9 @@ tags:
   - c++/cuda
   - cuda extension
   - cuda tutorial 4
-  - \_\_global\_\_
-  - \_\_device\_\_
-  - \_\_host\_\_
+  - __global__
+  - __device__
+  - __host__
 excerpt: "Pytorch c++/cuda extension tutorial 4"
 use_math: true
 classes: wide
