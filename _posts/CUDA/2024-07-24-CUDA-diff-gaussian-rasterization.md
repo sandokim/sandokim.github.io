@@ -1,6 +1,6 @@
 ---
 title: "[CUDA] Pytorch c++/cuda extenstion diff-gaussian-rasterization 실습"
-last_modified_at: 2024-07-23
+last_modified_at: 2024-07-24
 categories:
   - CUDA
 tags:
