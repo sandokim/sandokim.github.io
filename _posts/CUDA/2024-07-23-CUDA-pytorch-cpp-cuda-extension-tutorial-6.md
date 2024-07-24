@@ -79,8 +79,13 @@ This is why we did the $df/d_{inputs}$ in the first place.
   ![image](https://github.com/user-attachments/assets/96f9e41f-cd34-4f36-b51f-cc6443de0ce0)
 
   ![image](https://github.com/user-attachments/assets/c702cc5e-0683-4e67-a420-52d6daa295e5)
+  
+- 마지막으로 `setup.py`의 current working dir에서 `pip install .`로 library를 build 해주는 것을 잊지 맙시다.
 
-### 마지막으로 `setup.py`의 current working dir에서 `pip install .`로 library를 build 해주는 것을 잊지 맙시다.
+### Pytorch에서 `torch.autograd.Function`을 call하여 `fw`, `bw` functions을 wrap 해주어야 합니다.
+
+
+
 
 
 
