@@ -114,6 +114,20 @@ This is why we did the $df/d_{inputs}$ in the first place.
 - If you have multiple outputs, your backward function will have as many arguments as your outputs, all with the form $\frac{dL}{d_{output}}.
 - Loss term $L$과 관련된 outputs이 여러 개면, backward pass에 $L$에 대한 outputs의 미소 변화량들을 모두 넣어줍니다.
 
+backward pass에서는 먼저 forward pass에서 저장된 tensors들을 가져옵니다.
+
+![image](https://github.com/user-attachments/assets/fb03a50a-6323-4f8f-8744-da7747d7a3f3)
+
+- backward pass에 inputs으로 작성한 3개의 inputs을 넣어주어 $\frac{dL}{d_{feats}}$인 the partial derivatives of the loss w.r.t the inputs을 얻습니다.
+
+- backward pass에서 return하는 value는 forward pass의 inputs의 수와 같습니다.
+- `feats`, `points`가 input인데, backward pass에서 return 되는 value는 partial derivative of the loss w.r.t that input 입니다.
+- Because the first input ins `feats`, the first return value is $\frac{dL}{d_{feats}}$.
+- Why is the second None? That's because we said that in the problem definition, we assume that the points are fixed, so never changed. So the None here means we won't have any gradient for the second input, `points`.
+
+  ![image](https://github.com/user-attachments/assets/17d136b6-60a0-4411-a9e3-40cbcb212790)
+
+
 
 감사합니다.
 
