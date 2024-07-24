@@ -15,6 +15,7 @@ tags:
   - c++/cuda
   - cuda extension
   - cuda tutorial 2
+  - extra_compile_args
 excerpt: "Pytorch c++/cuda extension tutorial 2"
 use_math: true
 classes: wide
