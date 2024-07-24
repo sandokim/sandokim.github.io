@@ -36,7 +36,7 @@ comments: true
 
 ### 사용할 Loss를 $L$이라고 합시다.
 
-trainable inputs인 $f_1 ~ f_4$의 미소 변화량과 Loss의 관계에서 미분인 $\frac{dL}{df_1}$, $\frac{dL}{df_2}$, $\frac{dL}{df_3}$, $\frac{dL}{df_4}$을 구합니다.
+trainable inputs인 $f_1$ ~ $f_4$의 미소 변화량과 Loss의 관계에서 미분인 $\frac{dL}{df_1}$, $\frac{dL}{df_2}$, $\frac{dL}{df_3}$, $\frac{dL}{df_4}$을 구합니다.
 
 
 
