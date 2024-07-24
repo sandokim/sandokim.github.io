@@ -74,9 +74,15 @@ This is why we did the $df/d_{inputs}$ in the first place.
 
   ![image](https://github.com/user-attachments/assets/cdc001ee-f30a-4ffa-8adf-e32ebd984374)
 
-- 그리고 fowrad function에서 해준 것처럼 `.cpp`, `.h` 파일들에 backward function을 정의해줍니다.
+- 그리고 fowrad function에서 해준 것처럼 `.cpp`, `.h` 파일들에 backward function을 선언해줍니다.
 
   ![image](https://github.com/user-attachments/assets/96f9e41f-cd34-4f36-b51f-cc6443de0ce0)
+
+  ![image](https://github.com/user-attachments/assets/c702cc5e-0683-4e67-a420-52d6daa295e5)
+
+### 마지막으로 `setup.py`의 current working dir에서 `pip install .`로 library를 build 해주는 것을 잊지 맙시다.
+
+
 
 
 감사합니다.
