@@ -34,7 +34,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/decf0757-6b08-406f-938b-d58d0a2b4abd)
 
-### 사용할 Loss를 $L$ 이라고 합시다.
+### 사용할 Loss를 $L$이라고 합시다.
 
 trainable inputs인 $f_1~f_4$과 관련하여 미분값인 $\frac{dL}{df_1}$, $\frac{dL}{df_2}$, $\frac{dL}{df_3}$, $\frac{dL}{df_4}$을 구합니다.
 
