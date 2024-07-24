@@ -136,6 +136,7 @@ backward pass에서는 먼저 forward pass에서 저장된 tensors들을 가져�
 ![image](https://github.com/user-attachments/assets/0d067646-3f6b-44e9-a940-c03f2caaf655)
 
 - `Trilinear_interpolation_cuda.apply(feats2, points)`는 forward pass와 backward pass를 `torch.autograd.Function`로 상속받은 class로 구현한 함수 입니다.
+  - 이 class는 pytorch에서 `.apply()`로 사용합니다.
 - `trilinear_interpolation_py(feats, points)`는 pytorch로 구현한 함수입니다.
   
 - 둘의 값 차이는 없음을 `torch.allclose(out_py, out_cuda)`로 확인했습니다.
