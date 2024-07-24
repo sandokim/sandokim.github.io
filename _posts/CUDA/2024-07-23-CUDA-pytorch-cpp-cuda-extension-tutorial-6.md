@@ -52,10 +52,14 @@ This is why we did the $df/d_{inputs}$ in the first place.
  
 **tensor와 tensor의 gradient는 항상 같은 shape을 가짐을 기억합시다.**
 
+### backward pass 미분계산 요약
 
+- To calculate partial derivates, we imagine a virtual Loss $L$
+- then there will be the partial derivates(s) of this $L$ w.r.t the output(s), in our case $\frac{dL}{f}$
 
+  ![image](https://github.com/user-attachments/assets/da4aadd0-28d6-4ceb-a293-7b932d1ca5fb)
 
-
+- We need to establish, from $\frac{dL}}{df}, the formulae of the partial derivates of $L$ w.r.t the inputs, so $\frac{dL}{df_1}$ ~ $\frac{dL}{df_4}$.
 
 
 
