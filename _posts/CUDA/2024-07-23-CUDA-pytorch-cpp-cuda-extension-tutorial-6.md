@@ -109,7 +109,10 @@ This is why we did the $df/d_{inputs}$ in the first place.
 - the following argument(s) is what we imagined earlier, $\frac{dL}{d_{output(s)}}$.
 - 즉, backprop에 사용되는 Loss term $L$에 output `feat_interp`이 주는 미소 변화량 $\frac{dL}{dfeat \ interp}$를 backward pass에 넣습니다.
 
+  ![image](https://github.com/user-attachments/assets/2250cc52-59ee-44ba-85ab-d9efcac3caff)
 
+- If you have multiple outputs, your backward function will have as many arguments as your outputs, all with the form $\frac{dL}{d_{output}}.
+- Loss term $L$과 관련된 outputs이 여러 개면, backward pass에 $L$에 대한 outputs의 미소 변화량들을 모두 넣어줍니다.
 
 
 감사합니다.
