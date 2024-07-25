@@ -60,7 +60,7 @@ This is why we did the $df/d_{inputs}$ in the first place.
 
   ![image](https://github.com/user-attachments/assets/da4aadd0-28d6-4ceb-a293-7b932d1ca5fb)
 
-- We need to establish, from $\frac{dL}}{df}$, the formulae of the partial derivates of $L$ w.r.t the inputs, so $\frac{dL}{df_1}$ ~ $\frac{dL}{df_4}$.
+- We need to establish, from $\frac{dL}{df}$, the formulae of the partial derivates of $L$ w.r.t the inputs, so $\frac{dL}{df_1}$ ~ $\frac{dL}{df_4}$.
   - This can be achieved using chain rule and the partial derivates of the output(s) w.r.t the input(s).
 
     ![image](https://github.com/user-attachments/assets/ac491b9c-7ee5-4a73-97fe-eb43c50f4650)
