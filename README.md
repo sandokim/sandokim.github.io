@@ -74,3 +74,17 @@ html {
 
 
 -------
+
+### Github Post가 보이지 않을 때
+
+- `_config.yaml`에 다음 한줄을 추가해줍니다. (미래 날짜로 포스팅한 경우 반영이 안될 수 있습니다.)
+
+  ```css
+  future : true
+  ```
+
+- `_posts`에 추가할 때, title 위에 다음을 추가해줍니다.
+
+  ```css
+  published : true
+  ```
