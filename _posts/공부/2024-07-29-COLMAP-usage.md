@@ -37,3 +37,19 @@ comments: true
   - project
 
     ![image](https://github.com/user-attachments/assets/3fc17588-64f7-44df-9d21-5e6679446726)
+
+
+### output/dense/0
+
+![image](https://github.com/user-attachments/assets/252fbbbb-a28f-41d9-be2f-f00d6f854062)
+
+  - images
+  - sparse
+  - stereo
+  - fused.ply
+  - fused.ply.vis
+  - run-colmap-geometric
+  - run-colmap-photometric
+
+    ![image](https://github.com/user-attachments/assets/9ece5936-d0e3-418a-8ecf-c01f0a9af5ac)
+
