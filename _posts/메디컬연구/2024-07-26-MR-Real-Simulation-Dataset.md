@@ -1,4 +1,5 @@
 ---
+published: true
 title: "[MR 연구] k-space value ranges & image intensity value ranges"
 last_modified_at: 2024-07-26
 categories:
