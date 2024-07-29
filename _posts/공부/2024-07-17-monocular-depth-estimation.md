@@ -105,7 +105,7 @@ $$
 
 - Scene scale
 - Dense Depth Priors for Neural Radiance Fields from Sparse Input Views 그림 참조
-- SfM과 Sparse Depth map 관계도
+- SfM과 Sparse Depth map 관계
 
   ![image](https://github.com/user-attachments/assets/541c97f8-9b28-4ee7-b9da-1819846e60dd)
 
