@@ -83,7 +83,7 @@ html {
   future : true
   ```
 
-- `_posts`에 추가할 때, title 위에 다음을 추가해줍니다.
+- `_posts`에 포스트로 `YEAR-MONTH-DAY-title.md`을 추가할 때, title 위에 다음을 추가해줍니다.
 
   ```css
   published: true
