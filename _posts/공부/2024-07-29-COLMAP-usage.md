@@ -23,3 +23,17 @@ comments: true
 3. Run
 
 
+### output
+
+![image](https://github.com/user-attachments/assets/ad85e759-3777-46bd-b862-5c7582a7fb53)
+
+### output/sparse/0
+
+![image](https://github.com/user-attachments/assets/019457fc-ca45-40e4-9bdb-055274b4c085)
+
+  - cameras.bin
+  - images.bin
+  - points3D.bin
+  - project
+
+  ![image](https://github.com/user-attachments/assets/3fc17588-64f7-44df-9d21-5e6679446726)
