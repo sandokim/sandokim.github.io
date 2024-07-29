@@ -86,5 +86,5 @@ html {
 - `_posts`에 추가할 때, title 위에 다음을 추가해줍니다.
 
   ```css
-  published : true
+  published: true
   ```
