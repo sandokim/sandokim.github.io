@@ -17,7 +17,7 @@ comments: true
 1. 윈도우에서 COLMAP.exe 실행
 2. Reconstruction -> Automatic reconstruction
    
-   - **Workspace folder**: C:/Users/KHS/nerfs/data
+   - **Workspace folder**: C:/Users/KHS/nerfs/data/output
    - **Image folder**: C:/Users/KHS/nerfs/data/images
 
 3. Run
