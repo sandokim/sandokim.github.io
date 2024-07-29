@@ -2,9 +2,9 @@
 title: "[MR 연구] k-space value ranges & image intensity value ranges"
 last_modified_at: 2024-07-26
 categories:
-  - 메디컬연구
+  - Medical Research
 tags:
-  - 메디컬연구
+  - Medical Research
   - MR Reconstruction
   - MR image domain
   - MR k-space domain
