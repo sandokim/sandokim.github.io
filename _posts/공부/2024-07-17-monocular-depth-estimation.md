@@ -100,8 +100,17 @@ $$
 
 ![image](https://github.com/user-attachments/assets/afc66479-7936-496d-b8ae-03b6ccb44c5d)
 
-  
+
+### DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization
+
+- Scene scale
+- Dense Depth Priors for Neural Radiance Fields from Sparse Input Views 그림 참조
+- SfM과 Sparse Depth map 관계도
+
+  ![image](https://github.com/user-attachments/assets/541c97f8-9b28-4ee7-b9da-1819846e60dd)
+
 ### Reference
 - [[논문리뷰] DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://kimjy99.github.io/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/dn-splatter/)
 - [DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://arxiv.org/abs/2403.17822)
 - [monocular depth estimation](https://www.youtube.com/live/WoiI_Pn9yHw?si=TWAW4JpuLppNH5I9)
+- [DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization](https://fictionarry.github.io/DNGaussian/)
