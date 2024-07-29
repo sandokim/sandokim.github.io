@@ -36,4 +36,4 @@ comments: true
   - points3D.bin
   - project
 
-  ![image](https://github.com/user-attachments/assets/3fc17588-64f7-44df-9d21-5e6679446726)
+    ![image](https://github.com/user-attachments/assets/3fc17588-64f7-44df-9d21-5e6679446726)
