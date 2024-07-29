@@ -2,9 +2,9 @@
 title: "[CT 연구] CT projection toobox TIGRE for NeRF dataset"
 last_modified_at: 2024-07-26
 categories:
-  - 메디컬연구
+  - Medical Research
 tags:
-  - 메디컬연구
+  - Medical Research
   - CT projection
   - TIGRE
   - NeRF
