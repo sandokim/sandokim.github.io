@@ -14,6 +14,8 @@
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "mint" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+future: true
+
 # Site Settings
 locale                   : "en-US"
 title                    : "📷 cam2world는 camera pose를 world space에서 보는 것 🤳"
