@@ -1,4 +1,5 @@
 ---
+published: true
 title: "[MR 연구] fastMRI & skm-tea Real & Simulation 데이터셋 정리"
 last_modified_at: 2024-07-26
 categories:
