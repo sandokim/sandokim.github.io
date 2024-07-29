@@ -2,9 +2,9 @@
 title: "[MR 연구] fastMRI & skm-tea Real & Simulation 데이터셋 정리"
 last_modified_at: 2024-07-26
 categories:
-  - 메디컬연구
+  - Medical Research
 tags:
-  - 메디컬연구
+  - Medical Research
   - MR Reconstruction
   - fastMRI
   - skm-tea
