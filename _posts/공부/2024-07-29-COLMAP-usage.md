@@ -28,6 +28,10 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/ad85e759-3777-46bd-b862-5c7582a7fb53)
 
+- dense
+- sparse
+- database.db
+
 ### output/sparse/0
 
 ![image](https://github.com/user-attachments/assets/019457fc-ca45-40e4-9bdb-055274b4c085)
@@ -56,11 +60,20 @@ comments: true
 
 ------
 
-# 3DGS 폴더구성
+# 3DGS 폴더 구성 및 Undistortion with 3DGS `convert.py` 
 
-- images
-- sparse
+![image](https://github.com/user-attachments/assets/ff579e07-5422-4035-b67f-80b26c6e3e74)
 
-  ![image](https://github.com/user-attachments/assets/63cd72a4-a59c-44cb-8a40-ffed2956c638)
+- input <-- images 폴더의 이미지들 넣기
+- distorted <-- output/sparse, output/database.db 넣기
 
-Run 3DGS training
+Undistort images for 3DGS using `convert.py`
+
+Then run 
+```shell
+python convert.py -s <location> --skip_matching [--resize] #If not resizing, ImageMagick is not needed
+```
+
+
+
+
