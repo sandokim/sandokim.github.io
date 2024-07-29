@@ -73,7 +73,9 @@ Then run
 ```shell
 python convert.py -s <location> --skip_matching [--resize] #If not resizing, ImageMagick is not needed
 ```
+- `--skip_matching` 인자를 꼭 넣어야 합니다. (여기서는 COLMAP info로 image Undistortion만 하기 때문입니다.)
 
+  ![image](https://github.com/user-attachments/assets/32847fbe-3e19-4ee1-81a1-646240caafa9)
 
 
 
