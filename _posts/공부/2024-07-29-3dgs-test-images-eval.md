@@ -58,7 +58,7 @@ sceneLoadTypeCallbacks = {
 ```
 
 - `readColmapSceneInfo`를 불러쓰는 `scene/__init__.py`를 보면, `llffhold` 인자를 따로 주고 있지 않습니다.
-- `llffhold`의 default 값을 바꾸어주어 사용합시다.
+- `readColmapSceneInfo`의 `llffhold`의 default 값을 바꾸어주어 사용합시다.
 
 ```python
 # scene/__init__.py
