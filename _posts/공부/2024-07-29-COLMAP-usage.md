@@ -78,4 +78,15 @@ python convert.py -s <location> --skip_matching [--resize] #If not resizing, Ima
   ![image](https://github.com/user-attachments/assets/32847fbe-3e19-4ee1-81a1-646240caafa9)
 
 
+### 최종 데이터 트리구조
+- input 
+- distorted
+- images (생성됨)
+- sparse (생성됨)
+- stereo (생성됨)
+- run-colmap-photometric.sh (생성됨)
+- run-colmap-geometric.sh (생성됨) 
+
+  ![image](https://github.com/user-attachments/assets/4a4eed7d-dff4-4470-9044-0adbd73377dd)
+
 
