@@ -14,6 +14,12 @@ classes: wide
 comments: true
 ---
 
+# 동영상 촬영 후 fps 설정하여 이미지를 먼저 추출
+
+```css
+ffmpeg -i "C:\Users/KHS/nerfs/data/colmap/rgb_vid.mp4" -qscale:v 1 -qmin 1 -vf "scale=1280:720, fps=1" C:/Users/KHS/nerfs/data/colmap\FaceHS_10_views/images/%04d.jpg
+```
+
 # COLMAP 사용법
 
 1. 윈도우에서 COLMAP.exe 실행
