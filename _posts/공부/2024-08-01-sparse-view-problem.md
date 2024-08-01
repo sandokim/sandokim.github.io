@@ -15,6 +15,7 @@ tags:
   - camera pose
   - fewshot
   - few views
+  - few-input setting
 excerpt: "Sparse View setting에서 카메라 포즈는 전체 이미지를 COLMAP으로 돌려서 얻습니다."
 use_math: true
 classes: wide
@@ -33,6 +34,7 @@ comments: true
 - `We show that our approach improves over recent and concurrent work that uses a sprase depth from SfM or multi-view stereo (MVS) in NeRF [10, 26].`
   - `[10] Kangle Deng, Andrew Liu, Jun-Yan Zhu, and Deva Ramanan. Depth-supervised nerf: Fewer views and faster training for free. ArXiv, abs/2107.02791, 2021.`
   - `[26] YiWei, Shaohui Liu, Yongming Rao,Wang Zhao, Jiwen Lu, and Jie Zhou. Nerfingmvs: Guided optimization of neural radiance fields for indoor multi-view stereo. In ICCV, 2021.`
+- `In this work, we directly address the few-input setting, proposing a strategy that ...`
 -----
 
 ### Sparse Views에 대한 카메라 포즈
