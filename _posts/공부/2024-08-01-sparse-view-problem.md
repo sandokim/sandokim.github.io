@@ -28,6 +28,9 @@ comments: true
 - **train views**: 3 views, 4 views, 5 views, 6 views 
 - **test views**: test set에서 사용하는 views
 
+### 페이퍼에서 사용하기 좋은 표현
+- `... , using only a handful of input images.`
+
 -----
 
 ### Sparse Views에 대한 카메라 포즈
