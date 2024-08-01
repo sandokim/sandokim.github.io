@@ -28,6 +28,8 @@ comments: true
 - **train views**: 3 views, 4 views, 5 views, 6 views 
 - **test views**: test set에서 사용하는 views
 
+-----
+
 ### Sparse Views에 대한 카메라 포즈
 
 [CVPRW 2024: Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images](https://openaccess.thecvf.com/content/CVPR2024W/3DMV/papers/Chung_Depth-Regularized_Optimization_for_3D_Gaussian_Splatting_in_Few-Shot_Images_CVPRW_2024_paper.pdf)
@@ -35,6 +37,8 @@ comments: true
 - Fair comparison을 위해서, **scene을 촬영한 모든 이미지를 사용하여 COLMAP을 돌려서 각 이미지에 대한 카메라 포즈를 얻어서 사용합니다.**
    
   ![image](https://github.com/user-attachments/assets/dfe565f3-1e30-4bd0-a2e5-af3472f3d484)
+
+-----
 
 ### data-efficient novel view synthesis (18 views)
 
@@ -58,6 +62,14 @@ comments: true
 위의 이유들로 인해 correspondences를 제대로 찾지 못하여, very sparse SfM reconstructions이 되며, 대부분 severe outliers를 가지게 됩니다.
    
 ![image](https://github.com/user-attachments/assets/91159b42-b7b6-42f2-8b3a-11ac9b655389)
+
+### dense depth priors, without the need for additional depth inpu (e.g., from an RGB-D sensor) of the scene
+
+- Sparse view problem에서는 NeRF를 guide하기 위해 depth input을 주기 위해, RGB-D sensor를 사용할 수 있습니다.
+- 추가적인 RGB-D sensor 사용하지 않고도 dense depth priors를 주는 것이 novelty가 될 수 있습니다.
+
+  ![image](https://github.com/user-attachments/assets/54b6644e-264d-42e7-9888-d592bc248a05)
+
 
 -----
 
