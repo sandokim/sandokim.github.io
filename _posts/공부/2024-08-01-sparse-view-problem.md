@@ -13,6 +13,8 @@ tags:
   - 3d gaussian splatting
   - sparse view
   - camera pose
+  - fewshot
+  - few views
 excerpt: "Sparse View setting에서 카메라 포즈는 전체 이미지를 COLMAP으로 돌려서 얻습니다."
 use_math: true
 classes: wide
