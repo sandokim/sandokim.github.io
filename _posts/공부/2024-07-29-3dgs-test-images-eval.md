@@ -104,7 +104,7 @@ def readColmapCameras(cam_extrinsics, cam_intrinsics, images_folder):
  
     - `cam_extrinsics`에 key를 주어 모두 출력해보면 다음과 같습니다.
       - `cam_extrinsics[1]: Image(id=1, qvec, tvec, camera_id=1, name='_DSC8679.JPG', xyz, point3D_ids)`
-      - `cam_extrinsics[1]: Image(id=2, qvec, tvec, camera_id=1, name='_DSC8680.JPG', xyz, point3D_ids)`
+      - `cam_extrinsics[2]: Image(id=2, qvec, tvec, camera_id=1, name='_DSC8680.JPG', xyz, point3D_ids)`
       - ...
       - `cam_extrinsics[194]: Image(id=194, qvec, tvec, camera_id, name='_DSC8873.JPG', xyz, point3D_ids)`
 
