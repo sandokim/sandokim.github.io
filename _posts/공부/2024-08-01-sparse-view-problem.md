@@ -55,7 +55,7 @@ comments: true
 2. large areas with minimal texture.
 3. inconsistent color values across views, e.g., due to white balance or lens shading artifacts.
 
-위의 이유들로 인해 correspondence를 제대로 찾지 못하여, very sparse SfM reconstructions이 되며, 대부분 severe outliers를 가지게 됩니다.
+위의 이유들로 인해 correspondences를 제대로 찾지 못하여, very sparse SfM reconstructions이 되며, 대부분 severe outliers를 가지게 됩니다.
    
 ![image](https://github.com/user-attachments/assets/91159b42-b7b6-42f2-8b3a-11ac9b655389)
 
