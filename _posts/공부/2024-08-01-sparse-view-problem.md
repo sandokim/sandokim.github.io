@@ -43,6 +43,13 @@ comments: true
 
   ![image](https://github.com/user-attachments/assets/29b6d82a-3d50-4efa-af78-dc49dfd71ced)
 
+-  "10개의 views만 주어졌을 때, 몇 가지 이유로 인해, desirable한 results를 produce하지 못합니다."
+  -  NeRF는 RGB values에만 의존하여, input images 간의 correspondences를 determine 합니다. 결론적으로, 충분한 수의 이미지들이 주어져야, NeRF는 correspondence problem의 inherent ambiguity를 극복할 수 있습니다.
+  
+      ![image](https://github.com/user-attachments/assets/d7a3da3e-1a69-4363-a46b-bd2e8ce5ee06)
+      ![image](https://github.com/user-attachments/assets/4388306e-9576-4c78-b409-572bc30816be)
+
+
   [CVPR 2022: Dense Depth Priors for Neural Radiance Fields from Sparse Input Views](https://openaccess.thecvf.com/content/CVPR2022/papers/Roessle_Dense_Depth_Priors_for_Neural_Radiance_Fields_From_Sparse_Input_CVPR_2022_paper.pdf)
 
 
