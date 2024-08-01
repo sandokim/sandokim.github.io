@@ -37,6 +37,7 @@ comments: true
 - `In this work, we directly address the few-input setting, proposing a strategy that ...`
 - `... in the few-input setting without ...`
 - `To handle inaccuracy in the sparse reconstruction, the 3D points are weighted according to their reprojection error.`
+- `0 values of the sparse depth indicate invalid pixels, and ...`
 
 ### References for my paper
 - COLMAP 
