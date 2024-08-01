@@ -44,6 +44,10 @@ comments: true
 - `Specifically, a SIFT feature extractor, e.g., from COLMAP [23], is used to determine locations where sparse depth points would exist in a SfM reconstruction.`
 - `, and n is the number of valid pixels in the dense sensor depth map.`
 
+#### 페이퍼에서 사용하기 좋은 few input views의 문제점
+
+- `"Floaters" are a common problem when applying NeRF approaches in a setting with few input views.`
+
 ### 페이퍼에서 사용하기 좋은 Experimental Setup
 
 #### COLMAP SfM, camera parameters, point cloud, sparse depth maps
