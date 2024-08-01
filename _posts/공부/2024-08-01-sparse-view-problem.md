@@ -35,6 +35,7 @@ comments: true
   - `[10] Kangle Deng, Andrew Liu, Jun-Yan Zhu, and Deva Ramanan. Depth-supervised nerf: Fewer views and faster training for free. ArXiv, abs/2107.02791, 2021.`
   - `[26] YiWei, Shaohui Liu, Yongming Rao,Wang Zhao, Jiwen Lu, and Jie Zhou. Nerfingmvs: Guided optimization of neural radiance fields for indoor multi-view stereo. In ICCV, 2021.`
 - `In this work, we directly address the few-input setting, proposing a strategy that ...`
+- `... in the few-input setting without ...`
 
 ### References for my paper
 - COLMAP 
