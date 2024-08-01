@@ -34,8 +34,16 @@ comments: true
    
   ![image](https://github.com/user-attachments/assets/dfe565f3-1e30-4bd0-a2e5-af3472f3d484)
 
+  [CVPRW 2024: Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images](https://openaccess.thecvf.com/content/CVPR2024W/3DMV/papers/Chung_Depth-Regularized_Optimization_for_3D_Gaussian_Splatting_in_Few-Shot_Images_CVPRW_2024_paper.pdf)
 
-### Reference
-- [Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images](https://openaccess.thecvf.com/content/CVPR2024W/3DMV/papers/Chung_Depth-Regularized_Optimization_for_3D_Gaussian_Splatting_in_Few-Shot_Images_CVPRW_2024_paper.pdf)
+
+### data-efficient novel view synthesis (18 views)
+
+- "18개의 images만으로 entire scene에 대한 novel view synthesis를 했습니다."
+
+  ![image](https://github.com/user-attachments/assets/29b6d82a-3d50-4efa-af78-dc49dfd71ced)
+
+  [CVPR 2022: Dense Depth Priors for Neural Radiance Fields from Sparse Input Views](https://openaccess.thecvf.com/content/CVPR2022/papers/Roessle_Dense_Depth_Priors_for_Neural_Radiance_Fields_From_Sparse_Input_CVPR_2022_paper.pdf)
+
 
 
