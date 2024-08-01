@@ -9,7 +9,11 @@ tags:
   - coordinate system
   - NeRF custom dataset
   - COLMAP
-
+  - 3dgs
+  - 3d gaussian splatting
+  - sparse view
+  - sparse views
+  - camera pose
 excerpt: "Sparse View setting에서 카메라 포즈는 전체 이미지를 COLMAP으로 돌려서 얻습니다."
 use_math: true
 classes: wide
