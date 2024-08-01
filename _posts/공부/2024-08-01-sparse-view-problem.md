@@ -40,6 +40,7 @@ comments: true
 - `To handle inaccuracy in the sparse reconstruction, the 3D points are weighted according to their reprojection error.`
 - `0 values of the sparse depth indicate invalid pixels, and ...`
 - `, the density of SfM point clouds varies significantly across space, depending on the number of image features. E.g., SfM reconstructions from 18-20 images per ScanNet scene lead to sparse depth maps with 0.04% valid pixels on average.`
+- `To avoid both the effort of running SfM on a large dataset and the possibility of SfM failures in the training data, the sparse depth input is sampled from the range sensor depth.`
 - `Specifically, a SIFT feature extractor, e.g., from COLMAP [23], is used to determine locations where sparse depth points would exist in a SfM reconstruction.`
 
 ### References for my paper
