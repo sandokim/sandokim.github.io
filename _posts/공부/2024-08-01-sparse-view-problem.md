@@ -30,7 +30,9 @@ comments: true
 
 ### 페이퍼에서 사용하기 좋은 표현
 - `... , using only a handful of input images.`
-
+- `We show that our approach improves over recent and concurrent work that uses a sprase depth from SfM or multi-view stereo (MVS) in NeRF [10, 26].`
+  - `[10] Kangle Deng, Andrew Liu, Jun-Yan Zhu, and Deva Ramanan. Depth-supervised nerf: Fewer views and faster training for free. ArXiv, abs/2107.02791, 2021.`
+  - `[26] YiWei, Shaohui Liu, Yongming Rao,Wang Zhao, Jiwen Lu, and Jie Zhou. Nerfingmvs: Guided optimization of neural radiance fields for indoor multi-view stereo. In ICCV, 2021.`
 -----
 
 ### Sparse Views에 대한 카메라 포즈
