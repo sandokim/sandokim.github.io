@@ -107,7 +107,33 @@ def readColmapCameras(cam_extrinsics, cam_intrinsics, images_folder):
       - `cam_extrinsics[2]: Image(id=2, qvec, tvec, camera_id=1, name='_DSC8680.JPG', xyz, point3D_ids)`
       - ...
       - `cam_extrinsics[194]: Image(id=194, qvec, tvec, camera_id, name='_DSC8873.JPG', xyz, point3D_ids)`
+     
+- 원하는 key값을 설정하여 일정 범위의 camera_extrinsics만 불러오도록 코드를 구성하면 아래와 같습니다.
 
+```python
+def readColmapSceneInfo(path, images, eval, llffhold=2): # default llffhold=8
+    print(f'llffhold sets to {llffhold}..')
+    try:
+        cameras_extrinsic_file = os.path.join(path, "sparse/0", "images.bin")
+        cameras_intrinsic_file = os.path.join(path, "sparse/0", "cameras.bin")
+        cam_extrinsics = read_extrinsics_binary(cameras_extrinsic_file)
+        cam_intrinsics = read_intrinsics_binary(cameras_intrinsic_file)
+    except:
+        cameras_extrinsic_file = os.path.join(path, "sparse/0", "images.txt")
+        cameras_intrinsic_file = os.path.join(path, "sparse/0", "cameras.txt")
+        cam_extrinsics = read_extrinsics_text(cameras_extrinsic_file)
+        cam_intrinsics = read_intrinsics_text(cameras_intrinsic_file)
+
+    reading_dir = "images" if images == None else images
+    # Get first few views
+    # 원하는 범위의 key값 (예: 1부터 30까지)
+    start_key = 1
+    end_key = 30
+    # 새로운 dictionary로 선택한 key값 범위의 값들만 할당
+    new_cam_extrinsics = {k: cam_extrinsics[k] for k in range(start_key, end_key + 1)}
+    cam_extrinsics = new_cam_extrinsics
+...
+```
 
 ### llffhold=8 을 default로 8개 간격마다 test image를 사용하고, 나머지는 train image로 사용합니다.
 
