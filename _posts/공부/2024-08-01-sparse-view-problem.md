@@ -39,7 +39,7 @@ comments: true
 - `... in the few-input setting without ...`
 - `To handle inaccuracy in the sparse reconstruction, the 3D points are weighted according to their reprojection error.`
 - `0 values of the sparse depth indicate invalid pixels, and ...`
-- `, the density of SfM point clouds varies significantly across space, depending on the number of image features.`
+- `, the density of SfM point clouds varies significantly across space, depending on the number of image features. E.g., SfM reconstructions from 18-20 images per ScanNet scene lead to sparse depth maps with 0.04% valid pixels on average.`
 
 ### References for my paper
 - COLMAP 
