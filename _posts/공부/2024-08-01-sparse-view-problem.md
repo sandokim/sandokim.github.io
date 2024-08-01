@@ -30,14 +30,15 @@ comments: true
 
 ### Sparse Views에 대한 카메라 포즈
 
+[CVPRW 2024: Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images](https://openaccess.thecvf.com/content/CVPR2024W/3DMV/papers/Chung_Depth-Regularized_Optimization_for_3D_Gaussian_Splatting_in_Few-Shot_Images_CVPRW_2024_paper.pdf)
+
 - Fair comparison을 위해서, **scene을 촬영한 모든 이미지를 사용하여 COLMAP을 돌려서 각 이미지에 대한 카메라 포즈를 얻어서 사용합니다.**
    
   ![image](https://github.com/user-attachments/assets/dfe565f3-1e30-4bd0-a2e5-af3472f3d484)
 
-  [CVPRW 2024: Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images](https://openaccess.thecvf.com/content/CVPR2024W/3DMV/papers/Chung_Depth-Regularized_Optimization_for_3D_Gaussian_Splatting_in_Few-Shot_Images_CVPRW_2024_paper.pdf)
-
-
 ### data-efficient novel view synthesis (18 views)
+
+[CVPR 2022: Dense Depth Priors for Neural Radiance Fields from Sparse Input Views](https://openaccess.thecvf.com/content/CVPR2022/papers/Roessle_Dense_Depth_Priors_for_Neural_Radiance_Fields_From_Sparse_Input_CVPR_2022_paper.pdf)
 
 - "18개의 images만으로 entire scene에 대한 novel view synthesis를 했습니다."
 
@@ -50,7 +51,6 @@ comments: true
       ![image](https://github.com/user-attachments/assets/4388306e-9576-4c78-b409-572bc30816be)
 
 
-  [CVPR 2022: Dense Depth Priors for Neural Radiance Fields from Sparse Input Views](https://openaccess.thecvf.com/content/CVPR2022/papers/Roessle_Dense_Depth_Priors_for_Neural_Radiance_Fields_From_Sparse_Input_CVPR_2022_paper.pdf)
 
 
 
