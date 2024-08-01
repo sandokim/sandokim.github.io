@@ -50,7 +50,7 @@ comments: true
 [CVPR 2022: Dense Depth Priors for Neural Radiance Fields from Sparse Input Views](https://openaccess.thecvf.com/content/CVPR2022/papers/Roessle_Dense_Depth_Priors_for_Neural_Radiance_Fields_From_Sparse_Input_CVPR_2022_paper.pdf)
 
 - "18개의 images만으로 entire scene에 대한 novel view synthesis를 했습니다."
-- 18~36 images로 NVS를 했으면, sparse view, few view라기 보다는 data-efficient approach라고 표현합니다.
+- 18~36 images로 Novel View Synthesis (NVS)를 했으면, sparse view, few view라기 보다는 data-efficient approach라고 표현합니다.
 
   ![image](https://github.com/user-attachments/assets/29b6d82a-3d50-4efa-af78-dc49dfd71ced)
   ![image](https://github.com/user-attachments/assets/bb8cc48c-56d4-46d6-bf0d-69be3c4af408)
