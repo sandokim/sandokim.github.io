@@ -44,6 +44,12 @@ comments: true
 - `Specifically, a SIFT feature extractor, e.g., from COLMAP [23], is used to determine locations where sparse depth points would exist in a SfM reconstruction.`
 - `, and n is the number of valid pixels in the dense sensor depth map.`
 
+### 페이퍼에서 사용하기 좋은 Experimental Setup
+
+#### Dataset
+- `We run COLMAP SfM [23] to obtain camera parameters and sparse depth. Specifically, we run SfM on all images to obtain camera parameters. To ensure a clean split between train and test data, we withhold the test images when computing the point cloud used for rendering the sparse depth maps`
+  - sparse depth maps을 만들기 위한, point cloud를 computing할 때는 test images를 withhold하여 배제하였습니다.
+
 ### References for my paper
 - COLMAP 
   - `Schonberger, Johannes L., and Jan-Michael Frahm. "Structure-from-motion revisited." Proceedings of the IEEE conference on computer vision and pattern recognition. 2016.`
