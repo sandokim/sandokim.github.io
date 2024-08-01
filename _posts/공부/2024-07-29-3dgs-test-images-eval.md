@@ -101,6 +101,12 @@ def readColmapCameras(cam_extrinsics, cam_intrinsics, images_folder):
   - `keys`는 0이 아닌 1부터 시작하고 있습니다.
     
     ![image](https://github.com/user-attachments/assets/2b9459cc-8df1-4ca0-b15f-a80802a0ed77)
+ 
+    - `cam_extrinsics`에 key를 주어 모두 출력해보면 다음과 같습니다.
+      - `cam_extrinsics[1]: Image(id=1, qvec, tvec, camera_id=1, name='_DSC8679.JPG', xyz, point3D_ids)`
+      - `cam_extrinsics[1]: Image(id=2, qvec, tvec, camera_id=1, name='_DSC8680.JPG', xyz, point3D_ids)`
+      - ...
+      - `cam_extrinsics[194]: Image(id=194, qvec, tvec, camera_id, name='_DSC8873.JPG', xyz, point3D_ids)`
 
 
 ### llffhold=8 을 default로 8개 간격마다 test image를 사용하고, 나머지는 train image로 사용합니다.
