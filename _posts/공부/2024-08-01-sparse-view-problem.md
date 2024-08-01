@@ -61,12 +61,14 @@ comments: true
 ### References for my paper
 - COLMAP 
   - `Schonberger, Johannes L., and Jan-Michael Frahm. "Structure-from-motion revisited." Proceedings of the IEEE conference on computer vision and pattern recognition. 2016.`
-- PSNR
+- peak signal-to-noise ratio (PSNR)
   - No need reference
-- SSIM
+- Structure Similarity Index Measure (SSIM)
   - `Zhou Wang, Alan Conrad Bovik, Hamid R. Sheikh, and Eero P. Simoncelli. Image quality assessment: from error visibility to structural similarity. IEEE Transactions on Image Processing, 13:600–612, 2004. 5`
-- LPIPS
+- Learned Perceptual Image Patch Similarity (LPIPS)
   - `Richard Zhang, Phillip Isola, Alexei A. Efros, Eli Shechtman, and Oliver Wang. The unreasonable effectiveness of deep features as a perceptual metric. 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 586–595, 2018. 5`
+- root-mean-square error (RMSE) for depth
+  - No need reference
 
 -----
 
