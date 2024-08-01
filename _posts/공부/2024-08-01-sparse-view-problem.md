@@ -16,6 +16,7 @@ tags:
   - fewshot
   - few views
   - few-input setting
+  - SfM point clouds
 excerpt: "Sparse View setting에서 카메라 포즈는 전체 이미지를 COLMAP으로 돌려서 얻습니다."
 use_math: true
 classes: wide
@@ -38,6 +39,7 @@ comments: true
 - `... in the few-input setting without ...`
 - `To handle inaccuracy in the sparse reconstruction, the 3D points are weighted according to their reprojection error.`
 - `0 values of the sparse depth indicate invalid pixels, and ...`
+- `, the density of SfM point clouds varies significantly across space, depending on the number of image features.`
 
 ### References for my paper
 - COLMAP 
