@@ -50,7 +50,13 @@ comments: true
       ![image](https://github.com/user-attachments/assets/d7a3da3e-1a69-4363-a46b-bd2e8ce5ee06)
       ![image](https://github.com/user-attachments/assets/4388306e-9576-4c78-b409-572bc30816be)
 
+### correspondence를 찾기 어려운 대표적인 몇가지 이유
+1. images with siginificantly less overlap with each other.
+2. large areas with minimal texture.
+3. inconsistent color values across views, e.g., due to white balance or lens shading artifacts.
+   
+![image](https://github.com/user-attachments/assets/91159b42-b7b6-42f2-8b3a-11ac9b655389)
 
-
+-----
 
 
