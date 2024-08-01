@@ -49,6 +49,10 @@ comments: true
 #### Dataset
 - `We run COLMAP SfM [23] to obtain camera parameters and sparse depth. Specifically, we run SfM on all images to obtain camera parameters. To ensure a clean split between train and test data, we withhold the test images when computing the point cloud used for rendering the sparse depth maps`
   - sparse depth maps을 만들기 위한, point cloud를 computing할 때는 test images를 withhold하여 배제하였습니다.
+ 
+#### Dataset train / test split
+- **ScanNet**: 18~20 train images and 8 test images
+- **Matterport3D**: 24~26 train images and 8 test images
 
 ### References for my paper
 - COLMAP 
