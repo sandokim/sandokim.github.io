@@ -36,6 +36,7 @@ comments: true
   - `[26] YiWei, Shaohui Liu, Yongming Rao,Wang Zhao, Jiwen Lu, and Jie Zhou. Nerfingmvs: Guided optimization of neural radiance fields for indoor multi-view stereo. In ICCV, 2021.`
 - `In this work, we directly address the few-input setting, proposing a strategy that ...`
 - `... in the few-input setting without ...`
+- `To handle inaccuracy in the sparse reconstruction, the 3D points are weighted according to their reprojection error.`
 
 ### References for my paper
 - COLMAP 
