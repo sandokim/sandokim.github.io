@@ -129,10 +129,10 @@ def readColmapSceneInfo(path, images, eval, llffhold=2): # default llffhold=8
     # 원하는 범위의 key값 (예: 1부터 30까지)
     start_key = 1
     end_key = 30
-    print(f'Get few views according to dictionary start_key: {start_key} ~ end_key: {end_key}')
     # 새로운 dictionary로 선택한 key값 범위의 값들만 할당
     new_cam_extrinsics = {k: cam_extrinsics[k] for k in range(start_key, end_key + 1)}
     cam_extrinsics = new_cam_extrinsics
+    print(f'Get few views according to dictionary start_key: {start_key} ~ end_key: {end_key}')
 
     cam_infos_unsorted = readColmapCameras(cam_extrinsics=cam_extrinsics, cam_intrinsics=cam_intrinsics, images_folder=os.path.join(path, reading_dir))
     cam_infos = sorted(cam_infos_unsorted.copy(), key = lambda x : x.image_name)
