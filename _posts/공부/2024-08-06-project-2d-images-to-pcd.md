@@ -62,7 +62,7 @@ comments: true
         o3d.io.write_point_cloud(os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + ".ply"), pcd)
 ```
 
-- meshgrid로 $x_{pixel}, y_{pixel}$의 모든 좌표를 구성합니다.
+- `meshgrid`로 $x_{pixel}, y_{pixel}$의 모든 좌표를 구성합니다.
 
 ![image](https://github.com/user-attachments/assets/b90c7dc4-6f3e-47fd-8adf-9daa48a932c8)
 
@@ -71,7 +71,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/cbffa03b-8cb1-443c-a6a6-e9567db0ecd3)
 
-2. 아래처럼 `width/2, height/2, focal_length_x, focal_length_y`로 구성된 Camera Intrinsics의 역행렬을 $x_{pixel}$, $y_{pixel}$에 매트릭스 연산으로 $x_{hom}, y_{hom}$을 구해도 됩니다.
+2. 아래처럼 `width/2, height/2, focal_length_x, focal_length_y`로 구성된 Camera Intrinsics의 역행렬 $K^{-1}$을 $x_{pixel}$, $y_{pixel}$에 매트릭스 연산으로 $x_{hom}, y_{hom}$을 구해도 됩니다.
 
 ![image](https://github.com/user-attachments/assets/b50127fb-dc11-4a67-9888-5d9757bf3123)
 
