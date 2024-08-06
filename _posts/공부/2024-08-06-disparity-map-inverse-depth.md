@@ -117,7 +117,7 @@ Depth $Z$와 disparity $d$ 사이에는 역수 관계가 존재합니다.
 기본적인 수식은 다음과 같습니다.
 
 $$
-Z = \frac{fN}{d}
+Z = \frac{fB}{d}
 $$
 
 - $Z$는 depth (깊이)입니다.
@@ -129,6 +129,24 @@ $$
 즉, disparity 값이 크면 물체는 카메라에 가깝고, disparity 값이 작으면 물체는 카메라에서 멀리 떨어져 있음을 의미합니다.
 
 수학적으로 depth와 disparity는 **단순한 역수 관계는 아니지만**, depth가 disparity **역수에 비례합니다.** 구체적인 관계는 focal length와 baseline에 따라 달라집니다.
+
+# Inverse Depth와 Disparity
+
+$$
+inverse \ depth = \frac{1}{Z} = \frac{d}{fB}
+$$
+
+- Depth의 역수인 Inverse Depth는 disparity에 비례하게 됩니다.
+- stereo camera로 획득된 dataset은 stereo rig의 calibration data가 없기 때문에, disparity(불일치)만 얻을 수 있습니다.
+- disparity는 inverse depth (깊이의 역수)에 비례합니다.
+- depth에서 inverse depth로 가는 것은 간단하게 역수를 취하면 되지만, disparity에서 depth로 가는 것은 $f$ focal length, $B$ baseline인 stereo camera에서 calibration data가 필요합니다.
+
+$$
+disparity = d = \frac{fB}{Z} = \frac{1}{Z} \cdot fB = \frac{1}{Z} \cdot f(x-x') = \frac{1}{Z} \cdot fx - \frac{1}{Z} \cdot fx'
+$$
+
+위 식을 통해, 우리가 stereo camera로 focal length와 baseline을 모르는 상태에서 disparity를 사용하여 inverse depth를 예측합니다.얻을 수 있지만, 물리적 의미를 가지는 Metric Depth인 $D$를 얻기 위해서는 $s = f \cdot x$와 $t = - f \cdot x'$ 를 알아야합니다.
+
 
 # scale invaraince & shift invariance
 
