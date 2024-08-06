@@ -195,6 +195,9 @@ $$
 ### Depth 관련 상식
 - dataset이 monocular cameras로 filmed 되었다면, ground-truth depth information이 존재할 수 없습니다.
 - [MiDaS] The model shows a surprising capability to estimate plausible relative depth even on relatively abstract inputs. This seems to be true as long as **some (coarse) depth cues such as shading or vanishing points** are present in the artwork.
+- [MiDaS] We identify common failure cases and biases of our model. Images have a natural bias where the lower parts of the image are closer to the camera than the higher image regions. This bias has also been learned by our network and can be observed in some extreme cases that are shown in the first row of Figure 9. In the example on the left, the model fails to recover the ground plane, likely because the input image was rotated by 90 degrees. In the right image, pellets at approximately the same distance to the camera are reconstructed closer to the camera in the lower part of the image.
+
+  ![image](https://github.com/user-attachments/assets/6a1c3bb1-0198-47bb-94e6-2fd34efa7e50)
 
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
