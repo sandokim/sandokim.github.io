@@ -193,7 +193,7 @@ $$
 
 
 ### Depth 관련 상식
-- dataset이 monocular cameras로 filmed되었다면, ground-truth depth information이 존재할 수 없습니다.
+- dataset이 monocular cameras로 filmed 되었다면, ground-truth depth information이 존재할 수 없습니다.
 
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
