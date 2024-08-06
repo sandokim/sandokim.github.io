@@ -49,6 +49,9 @@ comments: true
 - depth up to an unknown scale (from SfM)
 - disparity maps (from stereo cameras **with unknown calibration**)
 
+The main requirement for a sensible training scheme is to carry out computations in an appropriate output space that is compatible with all ground-truth representations and is numerically well-behaved. We further need to design a loss function that is flexible enough to handle diverse sources of data while making optimal use of all available information
+
+
 # ZoeDepth
 
 - ZoeDepth는 MiDaS로 먼저 large datasets으로 Relative Depth Estimation을 학습하여, 일반화 성능을 얻고, 특정 데이터셋들에 대해 fine-tuning하여 Metric Depth Estimation을 학습하였습니다.
