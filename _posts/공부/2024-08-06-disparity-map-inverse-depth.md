@@ -37,6 +37,13 @@ comments: true
 - 따라서 RDE는 disparity만 supervision으로 주어져도 충분하며, scale과 camera parameters가 요구되지 않습니다.
 - In RDE, depth predictions per pixel are only consistent relative to each other across image frames and the scale factor is unknown.
 
+# Metric Depth & Relative Depth 데이터셋 취득 방법
+
+![image](https://github.com/user-attachments/assets/b62b95d2-daad-4108-9929-52ce2e27fd28)
+
+- **Metric Depth**: RGB-D, Laser, Synthetic, Laser/Stereo 로 데이터를 얻습니다.
+- **Relative Depth**: SfM (No scale), Stereo (No scale & shift) 로 데이터를 얻습니다.
+
 # ZoeDepth
 
 - ZoeDepth는 MiDaS로 먼저 large datasets으로 Relative Depth Estimation을 학습하여, 일반화 성능을 얻고, 특정 데이터셋들에 대해 fine-tuning하여 Metric Depth Estimation을 학습하였습니다.
