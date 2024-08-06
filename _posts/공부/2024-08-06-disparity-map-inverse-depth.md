@@ -168,7 +168,7 @@ $$
 - baseline, $B$: 두 카메라 간의 물리적 거리로, 이 값 역시 정확히 알려지지 않은 경우 시프트 파라미터 $t$를 통해 보정합니다.
 
 $$
-Loss = d_{gt} - d_{pred} = \frac{D_{gt}}{fB} - \frac{D_{pred}}{f_{pred}B_{pred}} = 0
+Loss = d_{gt} - d_{pred} = \frac{D_{gt}}{f_{gt}B_{gt}} - \frac{D_{pred}}{f_{pred}B_{pred}} = 0
 $$
 
 $$
