@@ -208,6 +208,8 @@ $$
 - [ZoeDepth] **After pre-training the MiDaS model for relative depth prediction**, **we add one or more heads for metric depth estimation** by attaching our proposed metric bins module to the decoder (see Fig. 2 for the overall architecture)
   - 다양한 데이터셋으로 먼저 Relative Depth Prediction (RDE)을 학습하고, 새로운 레이어를 더해서 Metric Depth Estimation (MDE)으로 fine-tuning하여 scale과 shift를 추가적으로 학습하는 것이 일반적입니다.
   - i.e. RDE로 학습을 하고, indoor 또는 outdoor datasets에 MDE로 fine-tuning.
+ 
+- Indoor scenes are usually limited to a maximum depth of 10 meters while outdoor scenes can have infinite depth (capped at 80 meters in most prior works).
 
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
