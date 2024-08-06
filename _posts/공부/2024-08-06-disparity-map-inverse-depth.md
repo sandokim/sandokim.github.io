@@ -132,24 +132,55 @@ $$
 
 # Inverse Depth와 Disparity
 
+stereo camera with unknown calibration data에서는 disparity만 구할 수 있습니다. 
+
+inverse depth와 disparity $d$와의 수식은 다음과 같습니다. (inverse depth는 단순히 depth $Z$의 역수입니다.)
+
 $$
-inverse \ depth = \frac{1}{Z} = \frac{d}{fB}
+inverse \ depth = \frac{1}{Z}  = \frac{d}{fB} = D
 $$
 
-- Depth의 역수인 Inverse Depth는 disparity에 비례하게 됩니다.
+- Depth $Z$의 역수인 Inverse Depth $D$는 disparity에 비례하게 됩니다.
 - stereo camera로 획득된 dataset은 stereo rig의 calibration data가 없기 때문에, disparity(불일치)만 얻을 수 있습니다.
 - disparity는 inverse depth (깊이의 역수)에 비례합니다.
 - depth에서 inverse depth로 가는 것은 간단하게 역수를 취하면 되지만, disparity에서 depth로 가는 것은 $f$ focal length, $B$ baseline인 stereo camera에서 calibration data가 필요합니다.
 
+원래 depth를 구하려면 disparity와 함께 calibration data인 focal length $f$, baseline $B$가 있어야 하지만, **unknown calibration 상황에서는 disparity만 얻을 수 있습니다.**
+
+따라서 stereo camera with unknown calibration data에 대한 ground truth는 disparity만 존재하고, 딥러닝 모델 또한 disparity를 예측하는 모델로 설계하게 됩니다.
+
+disparity gt는 다음과 같고, $f$, $B$에 대한 것은 실제로는 모르는 상황입니다.
+
 $$
-disparity = d = \frac{fB}{Z} = \frac{1}{Z} \cdot fB = \frac{1}{Z} \cdot f(x-x') = \frac{1}{Z} \cdot fx - \frac{1}{Z} \cdot fx'
+d_{gt} = \frac{D}{fB} = \frac{D}{f(x-x')}
 $$
 
-위 식을 통해, 우리가 stereo camera로 focal length와 baseline을 모르는 상태에서 disparity를 사용하여 inverse depth를 예측합니다.얻을 수 있지만, 물리적 의미를 가지는 Metric Depth인 $D$를 얻기 위해서는 $s = f \cdot x$와 $t = - f \cdot x'$ 를 알아야합니다.
+where unknown focal length $f$ and unknown baseline $B = (x-x')$.
+
+딥러닝 모델이 predict한 disparity $d_{pred}$와 gt disparity $d_{gt}$ 사이의 Loss를 구합니다.
+
+$$
+Loss = d_{pred} - d_{gt}
+$$
+
+단, 이 상황에서는 $f$와 $B$를 모르기 때문에 정확한 depth를 구할 수 없습니다.
+
+$$
+d_{gt} = \frac{fB}{Z} = \frac{f(x-x')}{Z} = \frac{1}{Z} \cdot f(x-x') 
+$$
+
+
+- 위 식을 통해, 우리가 stereo camera로 focal length와 baseline을 모르는 상태에서 disparity를 사용하여 inverse depth를 예측합니다.
+- 물리적 의미를 가지는 Metric Depth인 $Z$를 얻기 위해서는 $s = f \cdot x$와 $t = - f \cdot x'$ 를 알아야합니다.
+
+$$
+\frac{1}{Z} \cdot s + t
+$$
+
+
 
 
 # scale invaraince & shift invariance
-
 
 
 ### Reference
