@@ -157,7 +157,7 @@ $$
 
 where unknown focal length $f$ and unknown baseline $B = (x-x')$.
 
-***딥러닝 모델이 predict한 disparity $d_{pred}$와 gt disparity $d_{gt}$ 사이의 Loss를 구합니다.***
+***딥러닝 모델이 predict한 disparity*** $d_{pred}$ ***와 gt disparity*** $d_{gt}$ ***사이의 Loss를 구합니다.***
 
 $$
 Loss = d_{gt} - d_{pred}
