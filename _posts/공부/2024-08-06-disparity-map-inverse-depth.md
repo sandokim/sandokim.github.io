@@ -17,6 +17,9 @@ tags:
   - metric depth estimation (MDE)
   - relative depth estimation (RED)
   - global disparity shift
+  - scale invariance
+  - shift invariance
+  - disparity space
 excerpt: "Depth map visualize는 inverse depth로 표현합니다."
 use_math: true
 classes: wide
@@ -113,6 +116,7 @@ $$
 
 수학적으로 depth와 disparity는 **단순한 역수 관계는 아니지만**, depth가 disparity **역수에 비례합니다.** 구체적인 관계는 focal length와 baseline에 따라 달라집니다.
 
+# scale invaraince & shift invariance
 
 
 
