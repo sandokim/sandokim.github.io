@@ -5,26 +5,28 @@ categories:
   - 공부
 tags:
   - Multiple View Geometry
-  - disparity map
-  - inverse depth map
   - depth map
-  - depth budget
-  - disparity range
-  - stereo matching
-  - single-image depth estimation
   - metric depth estimation (MDE)
   - relative depth estimation (RED)
   - reprojection
   - unprojection
   - metric depth
   - depth map reprojection
-excerpt: "Depth map visualize는 inverse depth로 표현합니다."
+  - homogeneous coordinate
+  - point clouds
+  - camera intrinsics
+  - pcd
+excerpt: "2D image coordinates에 대한 z value를 알면, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다."
 use_math: true
 classes: wide
 comments: true
 ---
 
 # Unprojection depth map (Project 2D images to point clouds)
+
+**2D image coordinates에 대한 z value를 알면**, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
+
+다시말해, **detph map이 있으면**, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
 
 [Project 2D images to point clouds github code](https://github.com/DepthAnything/Depth-Anything-V2/blob/main/metric_depth/depth_to_pointcloud.py)
 
