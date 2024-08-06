@@ -140,7 +140,7 @@ $$
 inverse \ depth = \frac{1}{Z}  = \frac{d}{fB} = D
 $$
 
-- Depth $Z$의 역수인 Inverse Depth $D$는 disparity에 비례하게 됩니다.
+- Depth $Z$의 역수인 **Inverse Depth $D$는 disparity에 비례**하게 됩니다.
 - stereo camera로 획득된 dataset은 stereo rig의 calibration data가 없기 때문에, disparity(불일치)만 얻을 수 있습니다.
 - disparity는 inverse depth (깊이의 역수)에 비례합니다.
 - depth에서 inverse depth로 가는 것은 간단하게 역수를 취하면 되지만, disparity에서 depth로 가는 것은 $f$ focal length, $B$ baseline인 stereo camera에서 calibration data가 필요합니다.
@@ -181,6 +181,7 @@ $$
 Loss = \frac{1}{N}\sum_{i=1}|D_i-(s \cdot (\hat{D})_i + t)|
 $$
 
+여기서 $D$는 inverse depth입니다.
 
 # scale invaraince & shift invariance
 
