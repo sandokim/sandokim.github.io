@@ -75,7 +75,7 @@ $$
 
 즉, disparity 값이 크면 물체는 카메라에 가깝고, disparity 값이 작으면 물체는 카메라에서 멀리 떨어져 있음을 의미합니다.
 
-하지만 depth와 disparity는 **단순한 역수 관계는 아니지만**, 수학적으로 depth가 disparity의 **역수에 비례합니다.** 구체적인 관계는 focal length와 baseline에 따라 달라집니다.
+수학적으로 depth와 disparity는 **단순한 역수 관계는 아니지만**, depth가 disparity **역수에 비례합니다.** 구체적인 관계는 focal length와 baseline에 따라 달라집니다.
 
 
 
