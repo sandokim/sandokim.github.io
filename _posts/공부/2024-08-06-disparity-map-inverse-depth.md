@@ -44,6 +44,11 @@ comments: true
 - **Metric Depth**: RGB-D, Laser, Synthetic, Laser/Stereo 로 데이터를 얻습니다.
 - **Relative Depth**: SfM (No scale), Stereo (No scale & shift) 로 데이터를 얻습니다.
 
+#### Training models for monocular depth estimation on diverse datasets presents a challenge because the ground truth comes in different forms (see Table 1).
+- absolute depth (from laser-based measurements or stereo cameras with known calibration)
+- depth up to an unknown scale (from SfM)
+- disparity maps (from stereo cameras **with unknown calibration**)
+
 # ZoeDepth
 
 - ZoeDepth는 MiDaS로 먼저 large datasets으로 Relative Depth Estimation을 학습하여, 일반화 성능을 얻고, 특정 데이터셋들에 대해 fine-tuning하여 Metric Depth Estimation을 학습하였습니다.
