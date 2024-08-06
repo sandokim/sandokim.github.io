@@ -62,7 +62,11 @@ comments: true
 - Depth map은 이미지의 각 픽셀에 대해 그 깊이 값을 나타내는 맵입니다. 이는 픽셀 수준에서 물체의 거리를 반영합니다.
 
 
-Depth $Z$와 disparity $d$ 사이에는 역수 관계가 존재합니다. 기본적인 수식은 다음과 같습니다.
+Depth $Z$와 disparity $d$ 사이에는 역수 관계가 존재합니다. 
+
+![image](https://github.com/user-attachments/assets/c4ad7034-9c39-4be7-9df7-32f8ea6fc96f)
+
+기본적인 수식은 다음과 같습니다.
 
 $$
 Z = \frac{fN}{d}
@@ -72,6 +76,7 @@ $$
 - $f$는 focal length (카메라의 초점 거리)입니다.
 - $B$는 baseline (두 카메라 간의 간격)입니다.
 - $d$는 disparity (불일치)입니다.
+- $d = x-x'$입니다.
 
 즉, disparity 값이 크면 물체는 카메라에 가깝고, disparity 값이 작으면 물체는 카메라에서 멀리 떨어져 있음을 의미합니다.
 
