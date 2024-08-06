@@ -212,7 +212,7 @@ $$
 - **Indoor scenes are usually limited to a maximum depth of 10 meters while outdoor scenes can have infinite depth (capped at 80 meters in most prior works).**
 - [ZoeDepth] We hypothesize that **a backbone pre-trained for relative depth estimation**, alleviates the issues of **fine-tuning on multiple datasets to some extent.** We can also equip the model with multiple metric bins modules, one for each scene type (indoor versus outdoor). **Different metric heads can be thought of as scene-type experts.**
   - ZoeDepth는 RDE를 학습한 backbone에 metric heads를 multiple datasets에 추가적으로 fine-tuning 합니다. 즉, metric heads로 scene의 scale과 shift에 맞게 fitting되는 모델로 fine-tuning 합니다.
-
+- [ZoeDepth] input image의 bottleneck features를 통해 scene-type(indoor or outdoor)을 먼저 classifier MLP를 통해 알아내고, 예측된 scene-type을 바탕으로 scene scale과 shift을 고려한 depth를 predict합니다.
 
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
