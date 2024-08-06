@@ -42,6 +42,7 @@ comments: true
 - 따라서 RDE는 disparity만 supervision으로 주어져도 충분하며, scale과 camera parameters가 요구되지 않습니다.
 - In RDE, depth predictions per pixel are only consistent relative to each other across image frames and the scale factor is unknown.
 - Relative depth models tend to generalize better as they can be trained on more diverse datasets with relative depth annotations **using scale-invariant losses.**
+- Yet, their utility for downstream tasks requiring metric depth is limited, as **relative depth models regress depth with unknown scale and shift**.
 
 # Metric Depth & Relative Depth 데이터셋 취득 방법
 
