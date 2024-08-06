@@ -48,6 +48,10 @@ comments: true
 - **Metric Depth**: RGB-D, Laser, Synthetic, Laser/Stereo 로 데이터를 얻습니다.
 - **Relative Depth**: SfM (No scale), Stereo (No scale & shift) 로 데이터를 얻습니다.
 
+#### Depth Estimation 평가방법
+- Relative depth를 gt로 갖는 datasets은 disparity space에서 root mean sqaure error를 측정합니다.
+- accruate absolute depth를 gt로 갖는 datasetes은 depth space에서 mean absolute value of the realtive error (AbsRel)인 $(1/M) \Sigma^{M}_{i=1}|z_i-z_i^*|/z_i^*$ 을 측정합니다.
+
 #### Training models for monocular depth estimation on diverse datasets presents a challenge because the ground truth comes in different forms (see Table 1).
 
 아래와 같이 depth에 대한 ground truth 정보가 다릅니다.
@@ -117,7 +121,6 @@ $$
 수학적으로 depth와 disparity는 **단순한 역수 관계는 아니지만**, depth가 disparity **역수에 비례합니다.** 구체적인 관계는 focal length와 baseline에 따라 달라집니다.
 
 # scale invaraince & shift invariance
-
 
 
 
