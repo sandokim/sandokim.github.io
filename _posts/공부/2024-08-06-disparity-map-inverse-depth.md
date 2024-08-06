@@ -172,7 +172,7 @@ Loss = d_{gt} - d_{pred} = \frac{D_{gt}}{fB} - \frac{D_{pred}}{f_{pred}B_{pred}}
 $$
 
 $$
-D_{gt} - (s \cdot D_pred + t)
+D_{gt} - (s \cdot D_{pred} + t)
 $$
 
 이를 모든 valid pixel $N$개에 대해 식을 쓰면 Metric Depth를 얻을 수 있습니다.
