@@ -203,7 +203,7 @@ $$
 
   ![image](https://github.com/user-attachments/assets/6a1c3bb1-0198-47bb-94e6-2fd34efa7e50)
 
-- [MiDaS] We use the MiDaS training strategy for **relative depth prediction.** MiDaS uses a **loss that is invariant to scale and shift.**
+- [ZoeDepth] We use the MiDaS training strategy for **relative depth prediction.** MiDaS uses a **loss that is invariant to scale and shift.**
   - Relative Depth Prediction은 scale과 shift를 고려하지 않습니다.
 
 ### Reference
