@@ -45,11 +45,20 @@ comments: true
 - **Relative Depth**: SfM (No scale), Stereo (No scale & shift) 로 데이터를 얻습니다.
 
 #### Training models for monocular depth estimation on diverse datasets presents a challenge because the ground truth comes in different forms (see Table 1).
+
+아래와 같이 depth에 대한 ground truth 정보가 다릅니다.
+
 - absolute depth (from laser-based measurements or stereo cameras with known calibration)
 - depth up to an unknown scale (from SfM)
 - disparity maps (from stereo cameras **with unknown calibration**)
 
 The main requirement for a sensible training scheme is to carry out computations in an appropriate output space that is compatible with all ground-truth representations and is numerically well-behaved. We further need to design a loss function that is flexible enough to handle diverse sources of data while making optimal use of all available information
+
+
+#### depth의 ground truth의 form이 다른 것을 해결하려면 다음과 같은 3가지 major challenges를 풀어야합니다.
+1. **Inherently different representations of depth**: direct vs. inverse depth representations.
+2. **Scale ambiguity**: for some data sources, depth is only given up to an **unknown scale**.
+3. **Shift ambiguity**: some datasets provide **disparity only up to an unkonwn scale** and global disparity shift that is a function of the unknown baseline and a horizontal shift of the principal points due to post-processing.
 
 
 # ZoeDepth
