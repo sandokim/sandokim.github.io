@@ -51,6 +51,35 @@ comments: true
 ![image](https://github.com/user-attachments/assets/55ccbb24-c2fc-4741-92f1-7f22340ec691)
 
 
+# Disparity와 Depth의 차이
+
+### Disparity Map
+- Disparity는 스테레오 비전에서 두 개의 카메라로 촬영한 이미지 사이의 동일한 물체의 위치 차이를 의미합니다.
+- Disparity map은 이미지의 각 픽셀에 대해 disparity 값을 나타내는 맵입니다. 이는 픽셀 수준에서 두 이미지 간의 이동 차이를 반영합니다.
+
+### Depth Map
+- Depth는 카메라로부터 물체까지의 거리를 의미합니다.
+- Depth map은 이미지의 각 픽셀에 대해 그 깊이 값을 나타내는 맵입니다. 이는 픽셀 수준에서 물체의 거리를 반영합니다.
+
+
+Depth $Z$와 disparity $d$ 사이에는 역수 관계가 존재합니다. 기본적인 수식은 다음과 같습니다.
+
+$$
+Z = \frac{fN}{d}
+$$
+
+- $Z$는 depth (깊이)입니다.
+- $f$는 focal length (카메라의 초점 거리)입니다.
+- $B$는 baseline (두 카메라 간의 간격)입니다.
+- $d$는 disparity (불일치)입니다.
+
+즉, disparity 값이 크면 물체는 카메라에 가깝고, disparity 값이 작으면 물체는 카메라에서 멀리 떨어져 있음을 의미합니다.
+
+하지만 depth와 disparity는 **단순한 역수 관계는 아니지만**, 수학적으로 depth가 disparity의 **역수에 비례합니다.** 구체적인 관계는 focal length와 baseline에 따라 달라집니다.
+
+
+
+
 
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
