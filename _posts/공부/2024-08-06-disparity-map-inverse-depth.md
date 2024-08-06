@@ -183,6 +183,12 @@ $$
 
 여기서 $D$는 inverse depth입니다.
 
+
+# Inverse Depth를 쓰는 이유
+
+![image](https://github.com/user-attachments/assets/8315701b-aac6-4081-b89a-2a5932ba1d45)
+
+
 # scale invaraince & shift invariance
 
 
