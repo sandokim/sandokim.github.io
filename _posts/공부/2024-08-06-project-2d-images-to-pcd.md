@@ -71,7 +71,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/cbffa03b-8cb1-443c-a6a6-e9567db0ecd3)
 
-2. 아래처럼 `width/2, height/2, focal_length_x, focal_length_y`로 구성된 Camera Intrinsics의 역행렬 $K^{-1}$을 $x_{pixel}$, $y_{pixel}$에 매트릭스 연산으로 $x_{hom}, y_{hom}$을 구해도 됩니다.
+2. 아래처럼 `width/2, height/2, focal_length_x, focal_length_y`로 구성된 Camera Intrinsics의 역행렬 $K^{-1}$을 $x_{pixel}$, $y_{pixel}$에 matrix multiplication하여 $x_{hom}, y_{hom}$을 구해도 됩니다.
 
 ![image](https://github.com/user-attachments/assets/b50127fb-dc11-4a67-9888-5d9757bf3123)
 
