@@ -213,6 +213,7 @@ $$
 - [ZoeDepth] We hypothesize that **a backbone pre-trained for relative depth estimation**, alleviates the issues of **fine-tuning on multiple datasets to some extent.** We can also equip the model with multiple metric bins modules, one for each scene type (indoor versus outdoor). **Different metric heads can be thought of as scene-type experts.**
   - ZoeDepth는 RDE를 학습한 backbone에 metric heads를 multiple datasets에 추가적으로 fine-tuning 합니다. 즉, metric heads로 scene의 scale과 shift에 맞게 fitting되는 모델로 fine-tuning 합니다.
 - [ZoeDepth] input image의 bottleneck features를 통해 scene-type(indoor or outdoor)을 먼저 classifier MLP를 통해 알아내고, 예측된 scene-type을 바탕으로 scene scale과 shift을 고려한 depth를 predict합니다.
+- [ZoeDepth] Our proposed framework, ZoeDepth, bridges the gap between relative and metric depth estimation. In the first stage, we pre-train an encoder-decoder architecture using relative depth on a collection of datasets. In the second stage, we add domain-specific heads based on our new metric bins module to the decoder and fine-tune the model on one or more datasets for metric depth prediction.
 
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
