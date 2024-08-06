@@ -53,8 +53,9 @@ comments: true
 - accruate absolute depth를 gt로 갖는 datasetes은 depth space에서 mean absolute value of the realtive error (AbsRel)을 측정합니다.
 
 $$
-AbsRel = (1/M) \Sigma^{M}_{i=1}|z_i-z_i^*|/z_i^*
+AbsRel = \frac{1}{M} \sum_{i=1}^{M} \frac{|z_i - z_i^{\*}|}{z_i^{\*}}
 $$
+
 
 #### Training models for monocular depth estimation on diverse datasets presents a challenge because the ground truth comes in different forms (see Table 1).
 
