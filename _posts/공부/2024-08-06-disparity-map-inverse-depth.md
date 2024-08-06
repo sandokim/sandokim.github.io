@@ -60,6 +60,12 @@ The main requirement for a sensible training scheme is to carry out computations
 2. **Scale ambiguity**: for some data sources, depth is only given up to an **unknown scale**.
 3. **Shift ambiguity**: some datasets provide **disparity only up to an unkonwn scale** and global disparity shift that is a function of the unknown baseline and a horizontal shift of the principal points due to post-processing.
 
+We propose to perform prediction in disparity space (inverse depth **up to scale and shift**) together with a family of scale- and shift-invariant dense losses to handle the aforementioned ambiguities.
+여기서 up to는 제외하고라는 의미로 사용되었습니다.
+
+"우리는 스케일과 시프트 변환을 제외하고, disparity space(역수 깊이)에서 예측을 수행할 것을 제안합니다."
+
+이는 예측 모델이 disparity space에서 작업을 수행하지만, 그 결과는 특정한 스케일(비율)과 시프트(이동)을 통해 조정될 수 있음을 의미합니다. 예를 들어, 예측된 disparity 값들은 일정한 상수 배율로 스케일 조정되거나, 일정한 값만큼 이동될 수 있지만, 그 외의 변환 없이 정확히 disparity space에서 예측이 이루어진다는 뜻입니다.
 
 # ZoeDepth
 
