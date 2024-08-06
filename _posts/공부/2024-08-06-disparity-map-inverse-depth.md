@@ -39,7 +39,7 @@ comments: true
 
 # Metric Depth & Relative Depth 데이터셋 취득 방법
 
-![image](https://github.com/user-attachments/assets/b62b95d2-daad-4108-9929-52ce2e27fd28)
+![image](https://github.com/user-attachments/assets/859a649c-e4c9-483a-8706-800e9d2fd540)
 
 - **Metric Depth**: RGB-D, Laser, Synthetic, Laser/Stereo 로 데이터를 얻습니다.
 - **Relative Depth**: SfM (No scale), Stereo (No scale & shift) 로 데이터를 얻습니다.
