@@ -64,10 +64,11 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/07341c68-d990-45ec-881f-7abca72fd2fa)
 
+위 코드에서 주어진 것처럼 width, height, focal_length_x, focal_length_y의 관계로 명시적으로 써서 변환을 수행해도 되고,
 
+아래처럼 width/2, height/2, focal_length_x, focal_length_y로 구성된 Camera Intrinsics의 역행렬을 x_pixel, y_pixel에 매트릭스 연산을 해도 됩니다.
 
-
-
+![image](https://github.com/user-attachments/assets/190f3f27-3b62-42e7-9a6b-4a3f8ddccf8e)
 
 ### Reference
 - [Depth Anything V2 for Metric Depth Estimation](https://github.com/DepthAnything/Depth-Anything-V2/tree/main/metric_depth)
