@@ -41,7 +41,7 @@ comments: true
 - RDE는 scale factor를 고려하지 않음으로써, 다양한 환경에서 depth scale variation이 크게 다른 것들을 고려할 수 있습니다.
 - 따라서 RDE는 disparity만 supervision으로 주어져도 충분하며, scale과 camera parameters가 요구되지 않습니다.
 - In RDE, depth predictions per pixel are only consistent relative to each other across image frames and the scale factor is unknown.
-- Relative depth models tend to generalize better as they can be trained on more diverse datasets with relative depth annotations using scale-invariant losses.
+- Relative depth models tend to generalize better as they can be trained on more diverse datasets with relative depth annotations **using scale-invariant losses.**
 
 # Metric Depth & Relative Depth 데이터셋 취득 방법
 
@@ -72,7 +72,7 @@ $$
 - depth up to an unknown scale (from SfM)
 - disparity maps (from stereo cameras **with unknown calibration**)
 
-The main requirement for a sensible training scheme is to carry out computations in an appropriate output space that is compatible with all ground-truth representations and is numerically well-behaved. We further need to design a loss function that is flexible enough to handle diverse sources of data while making optimal use of all available information
+The main requirement for a sensible training scheme is to carry out computations in an appropriate output space that is compatible with all ground-truth representations and is numerically well-behaved. We further need to design a loss function that is flexible enough to handle diverse sources of data while making optimal use of all available information.
 
 
 #### depth의 ground truth의 form이 다른 것을 해결하려면 다음과 같은 3가지 major challenges를 풀어야합니다.
