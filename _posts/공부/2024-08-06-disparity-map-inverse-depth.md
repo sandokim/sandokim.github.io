@@ -35,11 +35,13 @@ comments: true
 - 그러나, single metric depth estimation model을 다양한 datasets에 대해 학습시키면 성능이 떨어집니다.
 - 특히, image collection에서 depth scale에서 큰차이를 보이는 indoor and outdoor images를 포함한 경우 MDE 성능이 떨어져 depth를 잘 추정하지 못합니다.
 - 결과적으로 MDE models은 보통 특정한 datasets에 overfit하고 다른 datasets으로 generalize를 잘하지 못합니다.
+- Metric depth models are typically trained on singular datasets, are more prone to overfitting, and typically generalize poorly to unseen environments or across varying depth ranges.
 
 ### Relative Depth Estimation (RDE)는 image frame 내에서 상대적인 depth만 표현합니다.
 - RDE는 scale factor를 고려하지 않음으로써, 다양한 환경에서 depth scale variation이 크게 다른 것들을 고려할 수 있습니다.
 - 따라서 RDE는 disparity만 supervision으로 주어져도 충분하며, scale과 camera parameters가 요구되지 않습니다.
 - In RDE, depth predictions per pixel are only consistent relative to each other across image frames and the scale factor is unknown.
+- Relative depth models tend to generalize better as they can be trained on more diverse datasets with relative depth annotations using scale-invariant losses.
 
 # Metric Depth & Relative Depth 데이터셋 취득 방법
 
