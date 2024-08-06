@@ -16,6 +16,7 @@ tags:
   - single-image depth estimation
   - metric depth estimation (MDE)
   - relative depth estimation (RED)
+  - global disparity shift
 excerpt: "Depth map visualize는 inverse depth로 표현합니다."
 use_math: true
 classes: wide
