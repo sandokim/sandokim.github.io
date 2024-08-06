@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] Project 2D images to point clouds, depth unprojection"
+title: "[3D CV] Project 2D images to point clouds, depth map unprojection"
 last_modified_at: 2024-08-06
 categories:
   - 공부
@@ -24,9 +24,9 @@ comments: true
 
 # Unprojection depth map (Project 2D images to point clouds)
 
-**2D image coordinates에 대한 z value를 알면**, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
+***2D image coordinates에 대한 z value를 알면***, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
 
-다시말해, **detph map이 있으면**, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
+다시말해, ***detph map이 있으면***, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
 
 [Project 2D images to point clouds github code](https://github.com/DepthAnything/Depth-Anything-V2/blob/main/metric_depth/depth_to_pointcloud.py)
 
