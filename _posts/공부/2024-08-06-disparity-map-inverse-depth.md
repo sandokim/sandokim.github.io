@@ -205,6 +205,7 @@ $$
 
 - [ZoeDepth] We use the MiDaS training strategy for **relative depth prediction.** MiDaS uses a **loss that is invariant to scale and shift.**
   - Relative Depth Prediction은 scale과 shift를 고려하지 않습니다.
+- [ZoeDepth] **After pre-training the MiDaS model for relative depth prediction**, **we add one or more heads for metric depth estimation** by attaching our proposed metric bins module to the decoder (see Fig. 2 for the overall architecture)
 
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
