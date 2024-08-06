@@ -192,6 +192,9 @@ $$
 # scale invaraince & shift invariance
 
 
+### Depth 관련 상식
+- dataset이 monocular cameras로 filmed되었다면, ground-truth depth information이 존재할 수 없습니다.
+
 ### Reference
 - [ZoeDepth: Zero-shot Transfer by Combining Relative and Metric Depth](https://arxiv.org/abs/2302.12288)
 - [Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-shot Cross-dataset Transfer, MiDaS model](https://arxiv.org/abs/1907.01341)
