@@ -178,7 +178,7 @@ $$
 이를 모든 valid pixel $N$개에 대해 식을 쓰면 Metric Depth를 얻을 수 있습니다.
 
 $$
-Loss = \frac{1}{N}\sum_{i=1}|D_i-(s \cdot \hat(D)_i + t)|
+Loss = \frac{1}{N}\sum_{i=1}|D_i-(s \cdot (\hat{D})_i + t)|
 $$
 
 
