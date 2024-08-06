@@ -60,6 +60,13 @@ comments: true
         o3d.io.write_point_cloud(os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + ".ply"), pcd)
 ```
 
+![image](https://github.com/user-attachments/assets/b90c7dc4-6f3e-47fd-8adf-9daa48a932c8)
+
+![image](https://github.com/user-attachments/assets/07341c68-d990-45ec-881f-7abca72fd2fa)
+
+
+
+
 
 
 ### Reference
