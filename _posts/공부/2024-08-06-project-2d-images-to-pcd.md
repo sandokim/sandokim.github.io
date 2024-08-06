@@ -67,11 +67,11 @@ comments: true
 ![image](https://github.com/user-attachments/assets/b90c7dc4-6f3e-47fd-8adf-9daa48a932c8)
 
 
-1. 코드에서 주어진 것처럼 $width, height, focal\_length\_x, focal\_length\_y$의 관계로 명시적으로 써서 $x_{pixel}$, $y_{pixel}$에서 $x_{hom}$, $y_{hom}$으로의 변환을 수행해도 되고,
+1. 코드에서 주어진 것처럼 `width, height, focal_length_x, focal_length_y`의 관계로 명시적으로 써서 $x_{pixel}$, $y_{pixel}$에서 $x_{hom}$, $y_{hom}$으로의 변환을 수행해도 되고,
 
 ![image](https://github.com/user-attachments/assets/cbffa03b-8cb1-443c-a6a6-e9567db0ecd3)
 
-2. 아래처럼 $width/2, height/2, focal\_length\_x, focal\_length\_y$로 구성된 Camera Intrinsics의 역행렬을 $x_{pixel}$, $y_{pixel}$에 매트릭스 연산으로 $x_{hom}, y_{hom}$을 구해도 됩니다.
+2. 아래처럼 `width/2, height/2, focal_length_x, focal_length_y`로 구성된 Camera Intrinsics의 역행렬을 $x_{pixel}$, $y_{pixel}$에 매트릭스 연산으로 $x_{hom}, y_{hom}$을 구해도 됩니다.
 
 ![image](https://github.com/user-attachments/assets/b50127fb-dc11-4a67-9888-5d9757bf3123)
 
