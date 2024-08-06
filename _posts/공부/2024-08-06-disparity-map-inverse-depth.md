@@ -160,24 +160,26 @@ where unknown focal length $f$ and unknown baseline $B = (x-x')$.
 딥러닝 모델이 predict한 disparity $d_{pred}$와 gt disparity $d_{gt}$ 사이의 Loss를 구합니다.
 
 $$
-Loss = d_{pred} - d_{gt}
+Loss = d_{gt} - d_{pred}
 $$
 
 단, 이 상황에서는 $f$와 $B$를 모르기 때문에 정확한 depth를 구할 수 없습니다.
+- focal length, $f$: 예측된 disparity가 정확한 깊이로 변환되기 위해서는 초점 거리가 필요하지만, 이 값이 정확히 알려지지 않은 경우 스케일 파라미터 $s$를 통해 보정합니다.
+- baseline, $B$: 두 카메라 간의 물리적 거리로, 이 값 역시 정확히 알려지지 않은 경우 시프트 파라미터 $t$를 통해 보정합니다.
 
 $$
-d_{gt} = \frac{fB}{Z} = \frac{f(x-x')}{Z} = \frac{1}{Z} \cdot f(x-x') 
+Loss = d_{gt} - d_{pred} = \frac{D_{gt}}{fB} - \frac{D_{pred}}{f_{pred}B_{pred}} = 0
 $$
 
-
-- 위 식을 통해, 우리가 stereo camera로 focal length와 baseline을 모르는 상태에서 disparity를 사용하여 inverse depth를 예측합니다.
-- 물리적 의미를 가지는 Metric Depth인 $Z$를 얻기 위해서는 $s = f \cdot x$와 $t = - f \cdot x'$ 를 알아야합니다.
-
 $$
-\frac{1}{Z} \cdot s + t
+D_{gt} - (s \cdot D_pred + t)
 $$
 
+이를 모든 valid pixel $N$개에 대해 식을 쓰면 Metric Depth를 얻을 수 있습니다.
 
+$$
+Loss = \frac{1}{N}\sum_{i=1}|D_i-(s \cdot \hat(D)_i + t)|
+$$
 
 
 # scale invaraince & shift invariance
