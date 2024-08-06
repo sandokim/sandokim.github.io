@@ -60,17 +60,22 @@ comments: true
         o3d.io.write_point_cloud(os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + ".ply"), pcd)
 ```
 
-1. 코드에서 주어진 것처럼 width, height, focal_length_x, focal_length_y의 관계로 명시적으로 써서 x_pixel, y_pixel에서 x_hom, y_hom으로의 변환을 수행해도 되고,
+- meshgrid로 x_pixel, y_pixel의 모든 좌표를 구성합니다.
 
 ![image](https://github.com/user-attachments/assets/b90c7dc4-6f3e-47fd-8adf-9daa48a932c8)
 
+
+1. 코드에서 주어진 것처럼 width, height, focal_length_x, focal_length_y의 관계로 명시적으로 써서 x_pixel, y_pixel에서 x_hom, y_hom으로의 변환을 수행해도 되고,
+
+![image](https://github.com/user-attachments/assets/cbffa03b-8cb1-443c-a6a6-e9567db0ecd3)
+
 2. 아래처럼 width/2, height/2, focal_length_x, focal_length_y로 구성된 Camera Intrinsics의 역행렬을 x_pixel, y_pixel에 매트릭스 연산으로 x_hom, y_hom을 구해도 됩니다.
 
-![image](https://github.com/user-attachments/assets/190f3f27-3b62-42e7-9a6b-4a3f8ddccf8e)
+![image](https://github.com/user-attachments/assets/b50127fb-dc11-4a67-9888-5d9757bf3123)
 
 - 최종적으로 [x_hom, y_hom, 1]에 z를 곱하여 3D points를 구합니다.
 
-![image](https://github.com/user-attachments/assets/07341c68-d990-45ec-881f-7abca72fd2fa)
+![image](https://github.com/user-attachments/assets/d10cefc5-a4bf-4f7e-b8db-518c66d2627a)
 
 
 ### Reference
