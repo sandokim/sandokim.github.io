@@ -75,7 +75,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/b50127fb-dc11-4a67-9888-5d9757bf3123)
 
-- 최종적으로 $[x_{hom}, y_{hom}, 1]$에 $z$를 곱하여 3D points를 구합니다.
+- 최종적으로 $[x_{hom}, y_{hom}, 1]$에 $z$를 곱하여 3D `points`를 구합니다.
 
 ![image](https://github.com/user-attachments/assets/d10cefc5-a4bf-4f7e-b8db-518c66d2627a)
 
