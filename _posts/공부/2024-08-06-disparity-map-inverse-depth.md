@@ -56,6 +56,8 @@ $$
 AbsRel = \frac{1}{M} \sum_{i=1}^{M} \frac{|z_i - z_i^{\*}|}{z_i^{\*}}
 $$
 
+- $M$: the number of pixels in an image with valid ground truth.
+- $\theta$: the parameters of the prediction model.
 - $d = d(\theta) \in \mathbb{R}^M$: a disparity prediction.
 - $d^{\*} \in \mathbb{R}^M$: the corresponding ground-truth disparity.
 - $z_i = d_i^{-1}$ and $z_i^{\*} = (d_i^{\*})^{-1}$ are depths up to unknown scale. (unknown scale을 고려하지 않는 depths)
