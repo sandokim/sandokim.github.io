@@ -56,6 +56,9 @@ $$
 AbsRel = \frac{1}{M} \sum_{i=1}^{M} \frac{|z_i - z_i^{\*}|}{z_i^{\*}}
 $$
 
+- $d = d(\theta) \in \mathbb{R}^M$: a disparity prediction.
+- $d^{\*} \in \mathbb{R}^M$: the corresponding ground-truth disparity.
+- $z_i = d_i^{-1}$ and $z_i^{\*} = (d_i^{\*})^{-1}$ are depths up to unknown scale. (unknown scale을 고려하지 않는 depths)
 
 #### Training models for monocular depth estimation on diverse datasets presents a challenge because the ground truth comes in different forms (see Table 1).
 
