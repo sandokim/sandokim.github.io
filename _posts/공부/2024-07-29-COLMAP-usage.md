@@ -90,7 +90,9 @@ python convert.py -s <location> --skip_matching [--resize] #If not resizing, Ima
 - images (input folder의 이미지들이 undistortion된 이미지들이 생성됨, 사이즈가 제 각각 다름)
   - 추후에 3dgs에 사용되는 RGB 이미지들은 readColmapSceneInfo에서 images 폴더에서 불러옵니다.
   
-    ![image](https://github.com/user-attachments/assets/ab1bfe17-73ea-43f5-abfa-122ff6cb24be)
+    ![image](https://github.com/user-attachments/assets/9c1203b8-acfe-40aa-b074-ac6a673608f6)
+
+    ![image](https://github.com/user-attachments/assets/735710ce-72c2-432c-a18a-4887bda01af7)
 
 - sparse (생성됨)
 - stereo (생성됨)
