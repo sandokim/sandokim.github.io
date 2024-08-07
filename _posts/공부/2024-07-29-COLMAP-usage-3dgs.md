@@ -108,4 +108,4 @@ python convert.py -s <location> --skip_matching [--resize] #If not resizing, Ima
 
 - `gaussian_splatting/scene/dataset_readers.py` (read 하는 부분)
 - `gaussian_splatting/utils/camera_utils.py` (resize 및 torch.tensor로 바꾸는 부분)
-- `gaussian_splatting/scene/cameras.py` (torch.clamp로 normalize하는 부분)
+- `gaussian_splatting/scene/cameras.py` (cuda로 올리는 부분, 필요한 경우 normalize를 수행하는 부분)
