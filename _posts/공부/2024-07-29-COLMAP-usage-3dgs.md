@@ -102,3 +102,10 @@ python convert.py -s <location> --skip_matching [--resize] #If not resizing, Ima
   ![image](https://github.com/user-attachments/assets/4a4eed7d-dff4-4470-9044-0adbd73377dd)
 
 
+### 3dgs image load 하는법
+
+아래 코드를 순서대로 수정합니다.
+
+- `gaussian_splatting/scene/dataset_readers.py` (read 하는 부분)
+- `gaussian_splatting/utils/camera_utils.py` (resize 및 torch.tensor로 바꾸는 부분)
+- `gaussian_splatting/scene/cameras.py` (torch.clamp로 normalize하는 부분)
