@@ -87,7 +87,11 @@ python convert.py -s <location> --skip_matching [--resize] #If not resizing, Ima
 ### 최종 데이터 트리구조
 - input 
 - distorted
-- images (input folder의 이미지들이 undistortion된 이미지들이 생성됨, 사이즈가 제 각각 다름) --> 추후에 3dgs의 readColmapSceneInfo에서 images 폴더에서 불러옵니다.
+- images (input folder의 이미지들이 undistortion된 이미지들이 생성됨, 사이즈가 제 각각 다름)
+  - 추후에 3dgs에 사용되는 RGB 이미지들은 readColmapSceneInfo에서 images 폴더에서 불러옵니다.
+  
+    ![image](https://github.com/user-attachments/assets/ab1bfe17-73ea-43f5-abfa-122ff6cb24be)
+
 - sparse (생성됨)
 - stereo (생성됨)
 - run-colmap-photometric.sh (생성됨)
