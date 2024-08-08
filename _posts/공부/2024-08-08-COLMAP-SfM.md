@@ -124,7 +124,10 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 2. incremental reconstruction 과정의 robustness와 accuracy를 최대화하는 **next best view selection 방법**입니다.
 3. 기존 최첨단 기법보다 낮은 계산 비용으로 훨씬 더 complete한 scene structure를 생성하는 **robust triangulation 방법**입니다.
 4. drift 효과를 완화하여 completeness와 accuracy를 크게 향상시키는 **iterative BA, retriangulation, 및 outlier filtering 전략**입니다.
-5. redundant view mining을 통해 **dense photo collections에 대한 더 효율적인 BA parameterization**입니다. 이는 robustness와 completeness 측면에서 현재 최첨단 기법을 명확히 능가하면서도 효율성을 유지하는 시스템을 결과로 도출합니다. 
+5. redundant view mining을 통해 **dense photo collections에 대한 더 효율적인 BA parameterization**입니다.
+   - redundant view mining은 3D 재구성 작업에서 중복된 뷰(이미지)를 찾아내고 활용하는 과정을 의미합니다.
+   - 이는 robustness와 completeness 측면에서 현재 최첨단 기법을 명확히 능가하면서도 효율성을 유지하는 시스템을 결과로 도출합니다.
+   
 
 
 
