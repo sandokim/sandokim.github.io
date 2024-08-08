@@ -104,9 +104,13 @@ $$
 예를 들어, matching approximations로 인해 완전한 모델에 필요한 연결성을 제공하지 못하거나 신뢰할 수 있는 추정을 위한 충분한 redundancy를 제공하지 못합니다.
 
 ### 두 번째 원인은 reconstruction 단계에서 scene structure가 누락되거나 부정확해서 images를 register하지 못하는 경우일 수 있습니다.
-Image registration과 triangulation은 상호보완적 관계에 있어, **images는 기존 scene structure에만 register될 수 있고** **scene structure는 registered images에서만 triangulate될 수 있습니다.**
+Image registration과 triangulation은 상호보완적 관계에 있어,
+
+- **images는 기존 scene structure에만 register될 수 있고**,
+- **scene structure는 registered images에서만 triangulate될 수 있습니다.**
 
 Incremental reconstruction 과정에서 각 단계에서 accuracy와 completeness를 극대화하는 것이 SfM의 주요 과제입니다. 
+
 본 논문에서는 이 과제를 해결하고 현재 최첨단 기술에 비해 completeness, robustness, accuracy 측면에서 결과를 크게 개선하면서 효율성을 높였습니다 (Sec. 5).
 
 
