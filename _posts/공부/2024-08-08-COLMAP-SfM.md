@@ -120,6 +120,12 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 
 본 페이퍼에서 주장하고자 하는 바는, SfM의 main challenges를 푸는 새로운 알고리즘을 제안하는 것입니다. 
 
+크게 2가지로 나눠볼 수 있습니다.
+- **Corresspondence search를 잘하게 하여 Scene Graph를 보강하여**, Corresspondence search의 다음 스텝인 Incremental Reconstruction에 좋은 Scene Graph를 넘겨줄 수 있도록 하거나
+- **Scene Graph에 추가되는 새로운 이미지의 Image Registration과 Traingulation을 잘하게 하거나**
+
+본 페이퍼에서는 이에 대한 5가지 Contribution을 제안합니다.
+
 ### Scene Graph Augmentation, Next Best View Selection, Robust and Efficient Triangulation, Bundle Adjustment, Redundant View Mining
 
 1. **Scene Graph Augmentation**: 초기화 및 triangulation 구성 요소의 robustness를 향상시키는 정보를 추가하여 **scene graph를 보강하는 geometric verification 전략**을 소개합니다.
