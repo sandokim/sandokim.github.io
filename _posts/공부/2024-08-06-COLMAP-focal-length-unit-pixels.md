@@ -1,6 +1,6 @@
 ---
 title: "[3D CV] COLMAP focal length unit pixels"
-last_modified_at: 2024-07-04
+last_modified_at: 2024-08-08
 categories:
   - 공부
 tags:
