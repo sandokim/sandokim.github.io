@@ -125,7 +125,7 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 - **Scene Graph에 추가되는 새로운 이미지의 Image Registration과 Traingulation을 잘하게 하거나**
 
 
-본 페이퍼에서는 이에 대한 5가지 Contribution을 제안합니다.
+본 페이퍼에서는 이에 대한 다음 5가지 Contribution을 제안합니다.
 
 ### Scene Graph Augmentation, Next Best View Selection, Robust and Efficient Triangulation, Bundle Adjustment, Redundant View Mining
 
