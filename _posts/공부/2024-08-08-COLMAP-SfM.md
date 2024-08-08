@@ -41,10 +41,12 @@ reconstruction stage에서
   - pose estimates: $\mathcal{P}=$ { $\mathbf{P}_c \in \mathbf{SE}(3) \mid c=1...N_P$ } for registered images.
   - the reconstructed scene structure as a set of points $\mathcal{X}=$ { $\mathbf{X}_k \in \mathbb{R}^3 \mid k=1...N_X$ }.
 
-### Incremental Reconstruction의 workflow는 다음과 같습니다.
+## Incremental Reconstruction의 workflow는 다음과 같습니다.
 Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초가 되며, 모델을 신중하게 선택된 두 개의 뷰 재구성으로 초기화한 후, 점진적으로 새로운 이미지를 등록하고, 씬 포인트를 삼각측량하고, 아웃라이어를 필터링하며, Bundle Adjustment (BA)을 사용하여 재구성을 정제합니다.
 
-### Incremental Reconstruction의 단계를 설명하겠습니다. (Initialization, Image Registration, Triangulation, Bundle Adjustment)
+## Incremental Reconstruction의 단계를 설명하겠습니다. 
+
+### Initialization, Image Registration, Triangulation, Bundle Adjustment
 
 #### 1. **Initialization**: 모델을 신중하게 선택된 두 개의 뷰(이미지)를 사용하여 초기화합니다. 여기서 "초기화"란, 모델의 시작점을 설정하는 과정으로, **선택된 두 개의 이미지를 기반으로 초기 3D 구조를 만드는 것을 의미합니다.**
 - SfM initializes the model with a carefully selected two-view reconstruction.
