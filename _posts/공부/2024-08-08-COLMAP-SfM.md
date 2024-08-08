@@ -98,6 +98,7 @@ $$
 -----
 
 # Challenge
+
 현재 최첨단 SfM 알고리즘은 대규모 Internet photo collections에서 다양한 복잡한 이미지 분포를 처리할 수 있지만, completeness와 robustness 측면에서 완전히 만족스러운 결과를 자주 내지 못합니다. 종종 시스템은 경험적으로 등록 가능해야 하는 많은 이미지를 등록하지 못하거나, mis-registrations 또는 drift로 인해 broken models을 생성합니다. 
 
 ### 첫 번째 원인은 correspondence search가 불완전한 scene graph를 생성하기 때문일 수 있습니다.
@@ -112,6 +113,10 @@ Image registration과 triangulation은 상호보완적 관계에 있어,
 Incremental reconstruction 과정에서 각 단계에서 accuracy와 completeness를 극대화하는 것이 SfM의 주요 과제입니다. 
 
 본 논문에서는 이 과제를 해결하고 현재 최첨단 기술에 비해 completeness, robustness, accuracy 측면에서 결과를 크게 개선하면서 효율성을 높였습니다 (Sec. 5).
+
+------
+
+# Contribution
 
 
 ### Reference
