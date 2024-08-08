@@ -88,6 +88,12 @@ Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초�
 
 - BA는 카메라 파라미터(포즈) $\mathbf{P}_c$와 점 파라미터 $\mathbf{X}_k$를 동시에 non-linear refinement를 하여 reprojection error(재투영 오차)를 최소화하는 기법입니다.
 
+$$
+\mathit{E} = \Sigma_j \rho_j (||\pi(\mathrm{P}_c, \mathrm{X}_k - x_j||^2_2)
+$$
+
+- $\pi$: scene points를 image space로 project하는 function.
+- $\rho_k$: outliers를 잠재적으로 down-weight 하기 위한 loss function.
 
 -----
 
