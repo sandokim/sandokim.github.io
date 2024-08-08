@@ -22,6 +22,15 @@ SfM is the process of reconstructing 3D structure from its projections into a se
 
 ![image](https://github.com/user-attachments/assets/0a714d7a-c49b-4564-8994-80289922bff6)
 
+COLMAP에서는 아래와 같은 주의사항이 있어서 네가지 조건이 잘 충족되지 않으면 3D reconstruction 결과가 좋지 않습니다. 
+
+**특히 texture 정보가 많이 없는(패턴이 거의 없는) 객체는 형상이 많이 망가진채로 복원됩니다.**
+
+- Texture 가 좋은 이미지 사용
+- 유사한 조명 조건의 이미지 사용
+- 시각적으로 많이 중첩된 이미지 사용
+- 다양한 viewpoints에서 관측한 이미지 사용
+
 -----
 
 SfM은 먼저 다음 3가지를 순서대로 수행하고, scene graph를 Incremental Reconstruction에 넘겨줍니다.
@@ -150,3 +159,4 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 ### Reference
 - [Structure-from-Motion Revisited](https://openaccess.thecvf.com/content_cvpr_2016/papers/Schonberger_Structure-From-Motion_Revisited_CVPR_2016_paper.pdf)
   - COLMAP의 SfM을 설명하는 CVPR paper
+- [[CV] SFM (Structure From Motion) : 연속된 2D 이미지들로 카메라 포즈와 3D shape 재구성하기](https://mvje.tistory.com/92)
