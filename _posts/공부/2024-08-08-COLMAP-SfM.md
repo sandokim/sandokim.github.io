@@ -124,6 +124,7 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 - **Corresspondence search를 잘하게 하여 Scene Graph를 보강하여**, Corresspondence search의 다음 스텝인 Incremental Reconstruction에 좋은 Scene Graph를 넘겨줄 수 있도록 하거나
 - **Scene Graph에 추가되는 새로운 이미지의 Image Registration과 Traingulation을 잘하게 하거나**
 
+
 본 페이퍼에서는 이에 대한 5가지 Contribution을 제안합니다.
 
 ### Scene Graph Augmentation, Next Best View Selection, Robust and Efficient Triangulation, Bundle Adjustment, Redundant View Mining
