@@ -35,8 +35,8 @@ SfM은 먼저 다음 3가지를 순서대로 수행하고, scene graph를 Increm
 reconstruction stage에서
 - input: scene graph
 - outputs:
-  - pose estimates: $\mathcal{P} = \{\bf{P}_c \in \bf{SE}(3) \ | \ c=1...N_P\}$ for registered images
-  - the reconstructed scene structure as a set of points $\mathcal{X} = \{\bf{X}_k \in \mathbb{R}^3 \ | \ k=1...N_X\}$.
+  - pose estimates: $\mathcal{P} = \{\mathbf{P}_c \in \mathbf{SE}(3) \ | \ c=1...N_{\mathit{P}}\}$ for registered images
+  - the reconstructed scene structure as a set of points $\mathcal{X} = \{\mathbf{X}_k \in \mathbb{R}^3 \ | \ k=1...N_{\mathit{X}}\}$.
   
 Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초가 되며, 모델을 신중하게 선택된 두 개의 뷰 재구성으로 초기화한 후, 점진적으로 새로운 이미지를 등록하고, 씬 포인트를 삼각측량하고, 아웃라이어를 필터링하며, Bundle Adjustment (BA)을 사용하여 재구성을 정제합니다.
 
