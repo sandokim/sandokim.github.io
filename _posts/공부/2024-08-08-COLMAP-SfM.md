@@ -81,10 +81,12 @@ Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초�
 - 카메라 포즈의 불확실성은 triangulated 점들에 전파되고,
 - 반대로 triangulated 점들의 불확실성도 카메라 포즈에 영향을 미치며,
 - 추가적인 triangulations은 중복성을 증가시켜 초기 카메라 포즈를 개선할 수 있습니다.
+- **further refinement가 없으면, SfM은 보통 빠르게 복구 불가능한 상태로 drift합니다.**
+- **BA는 futher refinement를 해줍니다.**
 
-  
 #### 4. **Bundle Adjustment, BA**: 전체 재구성 결과를 최적화하여 정확도를 높이는 과정입니다. **BA는 여러 뷰로부터 얻어진 포인트들의 위치와 카메라 매개변수를 동시에 조정하여 오류를 최소화합니다.**
 
+- BA는 카메라 파라미터(포즈) $\mathbf{P}_c$와 점 파라미터 $\mathbf{X}_k$를 동시에 non-linear refinement를 하여 reprojection error(재투영 오차)를 최소화하는 기법입니다.
 
 
 -----
