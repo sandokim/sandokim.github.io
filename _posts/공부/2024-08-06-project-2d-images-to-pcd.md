@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] Project 2D images to point clouds, depth map unprojection"
+title: "[3D CV] Project 2D images to point clouds, depth map backprojection"
 last_modified_at: 2024-08-06
 categories:
   - 공부
@@ -9,24 +9,24 @@ tags:
   - metric depth estimation (MDE)
   - relative depth estimation (RED)
   - reprojection
-  - unprojection
+  - backprojection
   - metric depth
   - depth map reprojection
   - homogeneous coordinate
   - point clouds
   - camera intrinsics
   - pcd
-excerpt: "2D image coordinates에 대한 z value를 알면, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다."
+excerpt: "2D image coordinates에 대한 z value를 알면, 각 픽셀들을 3D로 backprojection한 point clouds를 얻을 수 있습니다."
 use_math: true
 classes: wide
 comments: true
 ---
 
-# Unprojection depth map (Project 2D images to point clouds)
+# Backproject depth map (Project 2D images to point clouds)
 
-***2D image coordinates에 대한 z value를 알면***, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
+***2D image coordinates에 대한 z value를 알면***, 각 픽셀들을 3D로 backproject한 point clouds를 얻을 수 있습니다.
 
-다시말해, ***detph map이 있으면***, 각 픽셀들을 3D로 unprojection한 point clouds를 얻을 수 있습니다.
+다시말해, ***detph map이 있으면***, 각 픽셀들을 3D로 backproject한 point clouds를 얻을 수 있습니다.
 
 [Project 2D images to point clouds github code](https://github.com/DepthAnything/Depth-Anything-V2/blob/main/metric_depth/depth_to_pointcloud.py)
 
