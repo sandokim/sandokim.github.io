@@ -118,17 +118,17 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 
 # Contribution
 
-본 페이퍼에서 주장하고자 하는 바는, SfM의 main challenges를 푸는 새로운 알고리즘을 제안하는 것입니다.
+본 페이퍼에서 주장하고자 하는 바는, SfM의 main challenges를 푸는 새로운 알고리즘을 제안하는 것입니다. 
 
-1. 초기화 및 triangulation 구성 요소의 robustness를 향상시키는 정보를 추가하여 **scene graph를 보강하는 geometric verification 전략**을 소개합니다.
+1. **Scene Graph Augmentation**: 초기화 및 triangulation 구성 요소의 robustness를 향상시키는 정보를 추가하여 **scene graph를 보강하는 geometric verification 전략**을 소개합니다.
    
-2. incremental reconstruction 과정의 robustness와 accuracy를 최대화하는 **next best view selection 방법**입니다.
+2. **Next Best View Selection**: incremental reconstruction 과정의 robustness와 accuracy를 최대화하는 **next best view selection 방법**입니다.
  
-3. 기존 최첨단 기법보다 낮은 계산 비용으로 훨씬 더 complete한 scene structure를 생성하는 **robust triangulation 방법**입니다.
+3. **Robust and Efficient Triangulation**: 기존 최첨단 기법보다 낮은 계산 비용으로 훨씬 더 complete한 scene structure를 생성하는 **robust triangulation 방법**입니다.
  
-4. drift 효과를 완화하여 completeness와 accuracy를 크게 향상시키는 **iterative BA, retriangulation, 및 outlier filtering 전략**입니다.
+4. **Bundle Adjustment**: drift 효과를 완화하여 completeness와 accuracy를 크게 향상시키는 **iterative BA, retriangulation, 및 outlier filtering 전략**입니다.
  
-5. redundant view mining을 통해 **dense photo collections에 대한 더 효율적인 BA parameterization**입니다.
+5. **Redundant View Mining**: redundant view mining을 통한 **dense photo collections에 대한 더 효율적인 BA parameterization**입니다.
  
    - redundant view mining은 3D 재구성 작업에서 중복된 뷰(이미지)를 찾아내고 활용하는 과정을 의미합니다.
    - 이는 robustness와 completeness 측면에서 현재 최첨단 기법을 명확히 능가하면서도 효율성을 유지하는 시스템을 결과로 도출합니다.
