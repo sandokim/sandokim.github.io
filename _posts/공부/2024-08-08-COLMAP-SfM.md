@@ -51,7 +51,7 @@ reconstruction stage에서
   - the reconstructed scene structure as a set of points $\mathcal{X}=$ { $\mathbf{X}_k \in \mathbb{R}^3 \mid k=1...N_X$ }.
 
 ## Incremental Reconstruction의 workflow는 다음과 같습니다.
-Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초가 되며, 모델을 신중하게 선택된 두 개의 뷰 재구성으로 초기화한 후, 점진적으로 새로운 이미지를 등록하고, 씬 포인트를 삼각측량하고, 아웃라이어를 필터링하며, Bundle Adjustment (BA)을 사용하여 재구성을 정제합니다.
+Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초가 되며, 모델을 신중하게 선택된 두 개의 뷰 재구성으로 초기화한 후, 점진적으로 새로운 이미지를 등록하고, 씬 포인트를 삼각측량하고, 아웃라이어를 필터링하며, Bundle Adjustment (BA)을 사용하여 재구성을 refine합니다.
 
 ## Incremental Reconstruction의 단계를 설명하겠습니다. 
 
@@ -63,6 +63,7 @@ Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초�
 - Choosing a suitable initial pair is critical, since the reconstruction may never recover from a bad initialization.
 - reconstruction performance의 robustness, accuracy, performance는 incremental process의 seed location에 의해 좌우됩니다.
 - image graph에서 많은 overlapping cameras를 가지는 dense location에서 initailize를 하면, increased redundancy에 의해 더 robust하고 accurate한 reconstruction이 가능합니다.
+- ***즉, 카메라 중첩이 많은 곳에서 image graph 의 dense한 위치에서 초기화하면 중복성 증가로 성능이 좋아집니다.***
 - 반면에 카메라가 많이 겹치지 않는 sparser location에서 initialize를 하면, BAs에서 다뤄야할 points가 적어져서 sparser problems이 되므로 reconstruction process의 runtime이 짧아집니다.
 
 
@@ -150,8 +151,6 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
  
    - redundant view mining은 3D 재구성 작업에서 중복된 뷰(이미지)를 찾아내고 활용하는 과정을 의미합니다.
    - 이는 robustness와 completeness 측면에서 현재 최첨단 기법을 명확히 능가하면서도 효율성을 유지하는 시스템을 결과로 도출합니다.
-   
-
 
 
 
