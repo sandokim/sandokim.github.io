@@ -120,6 +120,8 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 
 본 페이퍼에서 주장하고자 하는 바는, SfM의 main challenges를 푸는 새로운 알고리즘을 제안하는 것입니다. 
 
+### Scene Graph Augmentation, Next Best View Selection, Robust and Efficient Triangulation, Bundle Adjustment, Redundant View Mining
+
 1. **Scene Graph Augmentation**: 초기화 및 triangulation 구성 요소의 robustness를 향상시키는 정보를 추가하여 **scene graph를 보강하는 geometric verification 전략**을 소개합니다.
    
 2. **Next Best View Selection**: incremental reconstruction 과정의 robustness와 accuracy를 최대화하는 **next best view selection 방법**입니다.
