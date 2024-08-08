@@ -20,10 +20,12 @@ comments: true
 
 SfM is the process of reconstructing 3D structure from its projections into a series of images taken from different viewpoints.
 
+![image](https://github.com/user-attachments/assets/0a714d7a-c49b-4564-8994-80289922bff6)
+
 SfM은 먼저 다음 3가지를 순서대로 수행합니다.
-1. feature extraction
-2. matching
-3. geometric verification
+1. **feature extraction**
+2. **matching**
+3. **geometric verification**
 
 결과물인 씬 그래프는 재구성 단계의 기초가 되며, 모델을 신중하게 선택된 두 개의 뷰 재구성으로 초기화한 후, 점진적으로 새로운 이미지를 등록하고, 씬 포인트를 삼각측량하고, 아웃라이어를 필터링하며, Bundle Adjustment (BA)을 사용하여 재구성을 정제합니다.
 
