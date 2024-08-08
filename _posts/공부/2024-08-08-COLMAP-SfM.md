@@ -171,3 +171,7 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 - [[CV] SFM (Structure From Motion) : 연속된 2D 이미지들로 카메라 포즈와 3D shape 재구성하기](https://mvje.tistory.com/92)
   
   - 좋은 블로그 포스트 작성해 주셔서 감사의 인사를 드립니다.
+ 
+- [[시각지능] Triangulation](https://velog.io/@claude_ssim/%EC%8B%9C%EA%B0%81%EC%A7%80%EB%8A%A5-Triangulation)
+
+  - 깔끔한 정리 감사드립니다.
