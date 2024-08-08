@@ -61,7 +61,7 @@ Correspondence Search의 결과물인 Scene Graph는 재구성 단계의 기초�
 
 - PnP 문제는 포즈 $\mathbf{P}_c $와, uncalibrated 카메라의 경우, 그 내부 매개변수를 추정하는 것을 포함합니다.
 - 따라서 집합 $\mathcal{P} $는 **새로 등록된 이미지의 포즈** $\mathbf{P}_c $에 의해 확장됩니다.
-- 2D-3D 대응이 종종 **이상치(outlier)**로 오염되어 있기 때문에, calibrated 카메라의 포즈는 **일반적으로 RANSAC과 a minimal pose solver를 사용하여 추정**됩니다.
+- 2D-3D 대응이 종종 **outlier**로 오염되어 있기 때문에, calibrated 카메라의 포즈는 **일반적으로 RANSAC과 a minimal pose solver를 사용하여 추정**됩니다.
 - uncalibrated 카메라의 경우, 다양한 minimal solvers 또는 sampling-based approaches가 존재합니다.
 - 우리는 정확한 포즈 추정과 신뢰할 수 있는 삼각 측량을 위해 새로운 견고한 다음 최적 이미지 선택 방법을 Sec. 4.2에서 제안합니다.
 
