@@ -105,6 +105,14 @@ $$
 - $\pi$: scene points를 image space로 project하는 function.
 - $\rho_k$: outliers를 잠재적으로 down-weight 하기 위한 loss function.
 
+![image](https://github.com/user-attachments/assets/3355ed59-46df-49ba-ad83-bf4a6f4d3cd8)
+
+BA는 이전 단계에서 계산한 camera pose 와 3D points를 refine 하여 reprojection error 를 최소화하는 작업입니다. 
+
+3D point(landmark)에서 카메라 좌표계의 원점까지의 직선을 ray로 표현할 수 있고, 이러한 ray가 여러개 있을 때 'bundles of ray' 라고 표현합니다. 
+
+Reprojection한 위치와 이미지 상의 위치의 차이인 reprojection error 를 cost function으로 사용하여 최적화를 진행하는데, image projection 과정은 non-linear 하기 때문에 Gauss-Newton 등의 non-linear optimization 방법을 사용해야 합니다.
+
 -----
 
 # Challenge
@@ -157,5 +165,9 @@ Incremental reconstruction 과정에서 각 단계에서 accuracy와 completenes
 
 ### Reference
 - [Structure-from-Motion Revisited](https://openaccess.thecvf.com/content_cvpr_2016/papers/Schonberger_Structure-From-Motion_Revisited_CVPR_2016_paper.pdf)
+  
   - COLMAP의 SfM을 설명하는 CVPR paper
+    
 - [[CV] SFM (Structure From Motion) : 연속된 2D 이미지들로 카메라 포즈와 3D shape 재구성하기](https://mvje.tistory.com/92)
+  
+  - 좋은 블로그 포스트에 감사의 인사를 전합니다.
