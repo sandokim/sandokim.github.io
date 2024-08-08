@@ -18,6 +18,8 @@ comments: true
 
 # COLMAP의 Structure from Motion (SfM)
 
+SfM is the process of reconstructing 3D structure from its projections into a series of images taken from different viewpoints.
+
 
 
 ### Reference
