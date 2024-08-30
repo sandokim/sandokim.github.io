@@ -56,3 +56,18 @@ comments: true
 ![image](https://github.com/user-attachments/assets/573af53d-f8d0-4994-92cc-0f02e9b5e29a)
 
 끝~
+
+### ppt 옵션에서 이미지 크기 및 품질 -> 고화질
+
+![image](https://github.com/user-attachments/assets/716724b4-e9e0-440c-a852-235f6c476e9d)
+
+### 화질 감소를 최소화 하려면 이미지를 ppt에 붙여넣은 크기대로 표의 사이즈를 조절하여 진행합니다.
+
+![image](https://github.com/user-attachments/assets/89ad6e4d-b79a-408b-96e2-c5efcb9c90fc)
+
+![image](https://github.com/user-attachments/assets/f75a4bc2-ccca-4422-bd3a-61ab5b77e8a0)
+
+좌측 바둑판으로 분할한 이미지 / 우측 원본 이미지
+
+![image](https://github.com/user-attachments/assets/316e155e-835c-4fd8-a28a-bbcc59226f30)
+
