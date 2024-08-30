@@ -65,9 +65,9 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/89ad6e4d-b79a-408b-96e2-c5efcb9c90fc)
 
-![image](https://github.com/user-attachments/assets/f75a4bc2-ccca-4422-bd3a-61ab5b77e8a0)
+![image](https://github.com/user-attachments/assets/61ce1e43-89fe-416e-83d0-a1f93f6bccc9)
 
-좌측 바둑판으로 분할한 이미지 / 우측 원본 이미지
+#### 좌측 바둑판으로 분할한 이미지 / 우측 원본 이미지
 
 ![image](https://github.com/user-attachments/assets/316e155e-835c-4fd8-a28a-bbcc59226f30)
 
