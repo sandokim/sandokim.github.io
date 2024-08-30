@@ -51,7 +51,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/1645565a-e617-4934-81e4-cb3017954aae)
 
-이미지가 바둑판 식으로 잘 분리되었습니다.
+이미지가 바둑판 식으로 잘 분리되었습니다. (단, 화질은 원본에 비해 조금 떨어집니다.)
 
 ![image](https://github.com/user-attachments/assets/573af53d-f8d0-4994-92cc-0f02e9b5e29a)
 
