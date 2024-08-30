@@ -11,6 +11,8 @@ tags:
   - diff-gaussian-rasterization-depth
   - end of output
   - This error originates from a subprocess, and is likely not a problem with pip
+  - pip install -e .
+  - pip install --no-build-isolation -e .
 excerpt: "CUDA_HOME error"
 use_math: true
 classes: wide
