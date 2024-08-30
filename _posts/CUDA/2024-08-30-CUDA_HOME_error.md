@@ -13,6 +13,8 @@ tags:
   - This error originates from a subprocess, and is likely not a problem with pip
   - pip install -e .
   - pip install --no-build-isolation -e .
+  - .cu 설치
+  - c++
 excerpt: "CUDA_HOME error"
 use_math: true
 classes: wide
@@ -67,5 +69,14 @@ Build cuda_11.8.r11.8/compiler.31833905_0
 conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
 
+다시 `pip install -e .`를 하여 제대로 `.cu` 관련 submodule을 설치 완료하였습니다.
 
+```cmd
+pip install -e .
+Obtaining file:///mai_nas/KHS/SoSC/submodules/diff-gaussian-rasterization-depth
+  Preparing metadata (setup.py) ... done
+Installing collected packages: diff_gaussian_rasterization_depth
+  Running setup.py develop for diff_gaussian_rasterization_depth
+Successfully installed diff_gaussian_rasterization_depth-0.0.0
+```
 
