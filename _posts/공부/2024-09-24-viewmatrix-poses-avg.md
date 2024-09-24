@@ -101,7 +101,7 @@ def unpad_poses(p):
 - 모든 poses에 대해 이 world2cam 변환을 matrix multiplication하여 모든 poese들이 world coordinate에 가깝도록 옮깁니다.
 - `pad_poses`, `unpad_poses`는 단순히 4x4 transformation인 homogeneous coordinate에서 연산하고 return 하기 위해 사용합니다.
 
-![image](https://github.com/user-attachments/assets/576f60c5-671b-454e-b1db-0c6306211a3e)
+![image](https://github.com/user-attachments/assets/512c4e57-4e2c-40ef-aeaf-7379cc08d98c)
 
 
 
