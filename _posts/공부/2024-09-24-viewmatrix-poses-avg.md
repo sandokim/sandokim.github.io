@@ -1,11 +1,12 @@
 ---
-title: "[3D CV] viewmatrix, poses_avg, normalize"
+title: "[3D CV] viewmatrix, poses_avg, recenter_poses"
 last_modified_at: 2024-09-24
 categories:
   - 공부
 tags:
   - viewmatrix
   - poses_avg
+  - recenter_poses
   - Poses
   - Camera Extrinsics
   - world to camera
@@ -75,5 +76,37 @@ poses.shape: (N, 3, 5)
 3. 이를 stack하여 x방향, y방향, z방향 벡터, translation인 `position`을 쌓아 cam2world 3x4 matrix로 반환합니다.
 
 ![bandicam 2024-09-24 20-33-01-718](https://github.com/user-attachments/assets/e9587422-9a9b-47b7-92b7-4f569c1d4c40)
+
+### recenter_poses
+
+```python
+def recenter_poses(poses: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+  """Recenter poses around the origin."""
+  cam2world = poses_avg(poses)
+  transform = np.linalg.inv(pad_poses(cam2world))
+  poses = transform @ pad_poses(poses)
+  return unpad_poses(poses), transform
+
+def pad_poses(p):
+    """Pad [..., 3, 4] pose matrices with a homogeneous bottom row [0,0,0,1]."""
+    bottom = np.broadcast_to([0, 0, 0, 1.], p[..., :1, :4].shape)
+    return np.concatenate([p[..., :3, :4], bottom], axis=-2)
+
+def unpad_poses(p):
+    """Remove the homogeneous bottom row from [..., 4, 4] pose matrices."""
+    return p[..., :3, :4]
+```
+
+- `recenter_poses`는 는 위에서 poses_avg로 구한 하나의 cam2world에 역변환을 취하여 world2cam을 구하고
+- 모든 poses에 대해 이 world2cam 변환을 matrix multiplication하여 모든 poese들이 world coordinate에 가깝도록 옮깁니다.
+- `pad_poses`, `unpad_poses`는 단순히 4x4 transformation인 homogeneous coordinate에서 연산하고 return 하기 위해 사용합니다.
+
+![image](https://github.com/user-attachments/assets/576f60c5-671b-454e-b1db-0c6306211a3e)
+
+
+
+
+
+
 
 
