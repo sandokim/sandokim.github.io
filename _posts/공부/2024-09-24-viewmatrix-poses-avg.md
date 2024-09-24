@@ -104,8 +104,18 @@ def unpad_poses(p):
 ![image](https://github.com/user-attachments/assets/512c4e57-4e2c-40ef-aeaf-7379cc08d98c)
 
 
+### backcenter_poses
 
-
+- 이처럼 모든 poses에 대한 평균 pose인 cam2world를 구하고, 이의 역변환인 world2cam을 모든 poses들에 대해 매트릭스 연산하여, poses를 한번에 원하는 위치로 옮겨줄 수 있습니다.
+- 응용으로는 아래와 같이 pose_ref의 cam2world를 구하여, 이의 역변환인 world2cam으로, poses를 모두 recenter할 수 있습니다.
+  
+```
+def backcenter_poses(poses, pose_ref):
+    """Recenter poses around the origin."""
+    cam2world = poses_avg(pose_ref)
+    poses = pad_poses(cam2world) @ pad_poses(poses)
+    return unpad_poses(poses)
+```
 
 
 
