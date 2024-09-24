@@ -97,7 +97,7 @@ def unpad_poses(p):
     return p[..., :3, :4]
 ```
 
-- `recenter_poses`는 는 위에서 poses_avg로 구한 하나의 cam2world에 역변환을 취하여 world2cam을 구하고
+- `recenter_poses`는 위에서 poses_avg로 구한 하나의 cam2world에 역변환을 취하여 world2cam을 구하고
 - 모든 poses에 대해 이 world2cam 변환을 matrix multiplication하여 모든 poese들이 world coordinate에 가깝도록 옮깁니다.
 - `pad_poses`, `unpad_poses`는 단순히 4x4 transformation인 homogeneous coordinate에서 연산하고 return 하기 위해 사용합니다.
 
