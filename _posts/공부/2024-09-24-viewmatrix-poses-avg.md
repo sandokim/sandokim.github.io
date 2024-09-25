@@ -103,7 +103,7 @@ def poses_avg(poses):
 2. normalize한 `right` 벡터와 normalize한 `lookdir`벡터를 cross product하여 `up` 벡터를 제대로 직교하게 정의해줍니다.
 3. 이를 stack하여 x방향, y방향, z방향 벡터, translation인 `position`을 쌓아 cam2world 3x4 matrix로 반환합니다.
 
-![image](https://github.com/user-attachments/assets/cd34e978-d0a4-494b-ac9e-7bc5d3eda5d5)
+![image](https://github.com/user-attachments/assets/78773a9f-9ad0-4efe-9ea5-fdb0afd6d9c2)
 
 ### recenter_poses
 
