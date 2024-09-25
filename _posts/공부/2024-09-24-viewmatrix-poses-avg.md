@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] viewmatrix, poses_avg, recenter_poses"
+title: "[3D CV] viewmatrix, poses_avg, recenter_poses, poses_bounds.npy, generate_spiral_path"
 last_modified_at: 2024-09-24
 categories:
   - 공부
@@ -7,6 +7,8 @@ tags:
   - viewmatrix
   - poses_avg
   - recenter_poses
+  - poses_bounds.npy
+  - generate_spiral_path
   - Poses
   - Camera Extrinsics
   - world to camera
@@ -117,6 +119,65 @@ def backcenter_poses(poses, pose_ref):
     return unpad_poses(poses)
 ```
 
+### poses_bounds.npy 
 
+- poses_bounds.npy는 (N, 17)로 이미지 N 개수만큼 pose가 N개 있고, 3x5=15개와 near bound, far bound 2개가 더해서 17의 shape을 가집니다.
+- poses_bounds.npy를 load하고 near, far는 사용하지 않기 위해 poses_arr[:, :-2]로 (N,15)의 shape을 취하고 reshape하여 (N, 3, 5)의 poses로 만듭니다.
+- bounds는 따로 poses[:, -2:]로 인덱싱하여 (N, 2)로 N개의 pose에 대해 near, far bound를 정의해줍니다.
 
+```python
+  poses = poses_arr[:, :-2].reshape([-1, 3, 5])
+  bounds = poses_arr[:, -2:]
+```
+
+### generate_spiral_path
+
+```python
+def generate_spiral_path(poses_arr,
+                         n_frames: int = 180,
+                         n_rots: int = 2,
+                         zrate: float = .5) -> np.ndarray:
+  """Calculates a forward facing spiral path for rendering."""
+  poses = poses_arr[:, :-2].reshape([-1, 3, 5])
+  bounds = poses_arr[:, -2:]
+  fix_rotation = np.array([
+      [0, -1, 0, 0],
+      [1, 0, 0, 0],
+      [0, 0, 1, 0],
+      [0, 0, 0, 1],
+  ], dtype=np.float32)
+  poses = poses[:, :3, :4] @ fix_rotation
+
+  scale = 1. / (bounds.min() * .75)
+  poses[:, :3, 3] *= scale
+  bounds *= scale
+  poses, transform = recenter_poses(poses)
+
+  close_depth, inf_depth = bounds.min() * .9, bounds.max() * 5.
+  dt = .75
+  focal = 1 / (((1 - dt) / close_depth + dt / inf_depth))
+
+  # Get radii for spiral path using 90th percentile of camera positions.
+  positions = poses[:, :3, 3]
+  radii = np.percentile(np.abs(positions), 90, 0)
+  radii = np.concatenate([radii, [1.]])
+
+  # Generate poses for spiral path.
+  render_poses = []
+  cam2world = poses_avg(poses)
+  up = poses[:, :3, 1].mean(0)
+  for theta in np.linspace(0., 2. * np.pi * n_rots, n_frames, endpoint=False):
+    t = radii * [np.cos(theta), -np.sin(theta), -np.sin(theta * zrate), 1.]
+    position = cam2world @ t
+    lookat = cam2world @ [0, 0, -focal, 1.]
+    z_axis = position - lookat
+    render_pose = np.eye(4)
+    render_pose[:3] = viewmatrix(z_axis, up, position)
+    render_pose = np.linalg.inv(transform) @ render_pose
+    render_pose[:3, 1:3] *= -1
+    render_pose[:3, 3] /= scale
+    render_poses.append(np.linalg.inv(render_pose))
+  render_poses = np.stack(render_poses, axis=0)
+  return render_poses
+```
 
