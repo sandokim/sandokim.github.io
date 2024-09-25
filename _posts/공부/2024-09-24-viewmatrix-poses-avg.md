@@ -181,3 +181,55 @@ def generate_spiral_path(poses_arr,
   return render_poses
 ```
 
+### transform_poses_pca
+
+- 이 코드는 카메라의 위치와 방향을 표현하는 poses 데이터를 주성분 분석(PCA, Principal Component Analysis)을 사용해 좌표계를 XYZ 축에 맞춰 변환하는 함수입니다.
+- poses는 각 카메라의 월드 좌표계에서 카메라 좌표계로의 변환을 나타내는 행렬들로, 이 함수는 poses의 평균 위치를 원점으로 맞춘 뒤, 주성분을 찾아서 회전 행렬을 계산하고, 카메라의 좌표계를 변경하는 과정입니다.
+
+```python
+def transform_poses_pca(poses):
+    """Transforms poses so principal components lie on XYZ axes.
+
+  Args:
+    poses: a (N, 3, 4) array containing the cameras' camera to world transforms.
+
+  Returns:
+    A tuple (poses, transform), with the transformed poses and the applied
+    camera_to_world transforms.
+  """
+    t = poses[:, :3, 3]
+    t_mean = t.mean(axis=0)
+    t = t - t_mean
+
+    eigval, eigvec = np.linalg.eig(t.T @ t)
+    # Sort eigenvectors in order of largest to smallest eigenvalue.
+    inds = np.argsort(eigval)[::-1]
+    eigvec = eigvec[:, inds]
+    rot = eigvec.T
+    if np.linalg.det(rot) < 0:
+        rot = np.diag(np.array([1, 1, -1])) @ rot
+
+    transform = np.concatenate([rot, rot @ -t_mean[:, None]], -1)
+    poses_recentered = unpad_poses(transform @ pad_poses(poses))
+    transform = np.concatenate([transform, np.eye(4)[3:]], axis=0)
+
+    # Flip coordinate system if z component of y-axis is negative
+    if poses_recentered.mean(axis=0)[2, 1] < 0:
+        poses_recentered = np.diag(np.array([1, -1, -1])) @ poses_recentered
+        transform = np.diag(np.array([1, -1, -1, 1])) @ transform
+
+    # Just make sure it's it in the [-1, 1]^3 cube
+    scale_factor = 1. / np.max(np.abs(poses_recentered[:, :3, 3]))
+    poses_recentered[:, :3, 3] *= scale_factor
+    transform = np.diag(np.array([scale_factor] * 3 + [1])) @ transform
+    return poses_recentered, transform
+```
+1. 평균 위치 맞추기 (t_mean): poses의 카메라 위치를 평균 내어 원점에 맞춥니다.
+2. 주성분 계산 (eigval, eigvec): 카메라 위치들의 공분산 행렬에서 고유값 분해를 하여 주성분 축을 찾습니다. 고유값이 큰 축이 더 중요한 축이므로, 이를 기준으로 좌표계를 회전시킵니다.
+3. 좌표계 회전 (rot): 가장 중요한 주성분이 X축에 맞도록 하고, 그 다음 축들이 Y와 Z축에 맞도록 회전합니다. 만약 회전 행렬의 행렬식이 음수라면, Z축 방향을 반대로 맞춥니다.
+4. 변환 행렬 적용 (transform): 원래의 poses에 변환 행렬을 적용하여 카메라의 새로운 좌표계로 변환된 poses를 계산합니다.
+5. 좌표계 플립: 변환된 좌표계의 Y축이 아래쪽을 향하고 있다면, 좌표계를 다시 반전시킵니다.
+6. 크기 조정 (scale_factor): 변환된 좌표계를 크기 조정하여 [-1, 1] 범위에 맞춥니다.
+- 이 과정에서 PCA를 통해 카메라의 위치를 보다 직관적으로 볼 수 있는 형태로 변환하여, 주성분 축이 XYZ 축에 맞게 좌표계를 회전하고 정렬하는 것입니다.
+- 이 코드는 카메라의 배치가 어떻게 이루어져 있는지 시각적으로 더 잘 이해하고자 할 때 유용할 수 있습니다. 3D 공간에서 카메라들의 위치가 어떻게 분포하는지 파악할 수 있게 도와줍니다.
+
