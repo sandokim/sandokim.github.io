@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] viewmatrix, poses_avg, recenter_poses, poses_bounds.npy, generate_spiral_path"
+title: "[3D CV] viewmatrix, poses_avg, recenter_poses, poses_bounds.npy, generate_spiral_path, generate_ellipse_path"
 last_modified_at: 2024-09-24
 categories:
   - 공부
@@ -9,6 +9,8 @@ tags:
   - recenter_poses
   - poses_bounds.npy
   - generate_spiral_path
+  - generate_ellipse_path
+  - focus_pt_fn
   - Poses
   - Camera Extrinsics
   - world to camera
@@ -232,4 +234,47 @@ def transform_poses_pca(poses):
 6. 크기 조정 (scale_factor): 변환된 좌표계를 크기 조정하여 [-1, 1] 범위에 맞춥니다.
 - 이 과정에서 PCA를 통해 카메라의 위치를 보다 직관적으로 볼 수 있는 형태로 변환하여, 주성분 축이 XYZ 축에 맞게 좌표계를 회전하고 정렬하는 것입니다.
 - 이 코드는 카메라의 배치가 어떻게 이루어져 있는지 시각적으로 더 잘 이해하고자 할 때 유용할 수 있습니다. 3D 공간에서 카메라들의 위치가 어떻게 분포하는지 파악할 수 있게 도와줍니다.
+
+### focus_pt_fn
+
+- 이 코드는 poses라는 카메라의 위치와 방향 정보를 입력받아, 모든 카메라의 **초점 축(focal axis)**에 가장 가까운 점을 계산하는 함수입니다.
+- **이 함수는 여러 카메라가 서로 다른 방향을 보고 있을 때, 각 카메라의 시선(축)에 가장 가까운 공통의 한 점(집중점, focus point)을 찾는 과정입니다.**
+
+```python
+def focus_pt_fn(poses):
+  """Calculate nearest point to all focal axes in poses."""
+  directions, origins = poses[:, :3, 2:3], poses[:, :3, 3:4]
+  m = np.eye(3) - directions * np.transpose(directions, [0, 2, 1])
+  mt_m = np.transpose(m, [0, 2, 1]) @ m
+  focus_pt = np.linalg.inv(mt_m.mean(0)) @ (mt_m @ origins).mean(0)[:, 0]
+  return focus_pt
+```
+
+#### 입력 poses:
+- poses는 여러 카메라의 위치와 방향을 포함하는 행렬입니다. 각 pose는 카메라의 월드 좌표계에서 카메라 좌표계로 변환하는 정보가 들어 있습니다.
+- poses[:, :3, 2:3]: 각 카메라의 z축(초점 축)을 나타냅니다. 이 축이 카메라가 바라보는 방향을 나타냅니다.
+- poses[:, :3, 3:4]: 각 카메라의 위치(원점)를 나타냅니다.
+
+#### 카메라 축 기반 계산:
+- directions: 각 카메라의 z축 방향(즉, 초점 방향)을 추출합니다.
+- origins: 각 카메라의 위치(원점)를 추출합니다.
+
+#### 근사적인 카메라 축들로부터 평면 계산:
+- m = np.eye(3) - directions * np.transpose(directions, [0, 2, 1]): 각 카메라의 초점 축을 이용하여 평면을 정의합니다.
+- 여기서 np.eye(3)은 단위 행렬이고, 초점 축을 기준으로 카메라의 축에 수직한 평면을 계산하는 과정입니다.
+
+#### 평면을 사용해 초점점(focus point) 계산:
+- mt_m = np.transpose(m, [0, 2, 1]) @ m: 각 카메라 평면의 정보에서 변환된 행렬을 구합니다.
+- focus_pt = np.linalg.inv(mt_m.mean(0)) @ (mt_m @ origins).mean(0)[:, 0]: 이 과정을 통해, 모든 카메라가 공통으로 바라보는 점, 즉 초점점(focus point)을 계산합니다.
+- 각 카메라의 초점 축이 가리키는 평면에서 가장 가까운 점을 찾는 과정이라고 볼 수 있습니다.
+
+#### 주요 개념:
+- 초점 축 (Focal Axis): 각 카메라가 바라보는 방향입니다. 각 카메라의 z축을 기준으로 하여 이를 계산합니다.
+- 평면 계산: 각 카메라의 z축에 수직인 평면을 정의하여, 이 평면들이 교차하는 지점 또는 근접한 지점을 구하는 방식입니다.
+- 초점점 (Focus Point): 여러 카메라의 시선이 모이는 지점 또는 그 지점에 가장 가까운 점을 계산합니다.
+
+#### 요약:
+- 이 함수는 여러 카메라의 방향과 위치를 고려하여, 모든 카메라의 시선이 교차하는 가장 가까운 공통의 한 점을 계산하는 함수입니다.
+- 이 계산은 카메라 배열에서 특정한 한 지점을 동시에 바라보도록 시각적 중심을 찾는 데 유용할 수 있습니다.
+
 
