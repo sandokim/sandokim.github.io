@@ -79,7 +79,7 @@ poses.shape: (N, 3, 5)
 2. normalize한 `right` 벡터와 normalize한 `lookdir`벡터를 cross product하여 `up` 벡터를 제대로 직교하게 정의해줍니다.
 3. 이를 stack하여 x방향, y방향, z방향 벡터, translation인 `position`을 쌓아 cam2world 3x4 matrix로 반환합니다.
 
-![bandicam 2024-09-24 20-33-01-718](https://github.com/user-attachments/assets/e9587422-9a9b-47b7-92b7-4f569c1d4c40)
+![image](https://github.com/user-attachments/assets/cd34e978-d0a4-494b-ac9e-7bc5d3eda5d5)
 
 ### recenter_poses
 
