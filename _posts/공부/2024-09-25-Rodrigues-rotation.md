@@ -10,7 +10,7 @@ tags:
   - so(3)
   - SE(3)
   - se(3)
-excerpt: "현 카메라를 기준으로 가까운 카메라를 고르는 법을 알아봅시다."
+excerpt: "Rodrigues' Rotation Formula로 현 카메라를 기준으로 가까운 카메라를 고르는 법을 알아봅시다."
 use_math: true
 classes: wide
 comments: true
