@@ -1,20 +1,15 @@
 ---
-title: "[3D CV] Rodrigues rotation, near cam"
+title: "[3D CV] Rodrigues' Rotation Formula"
 last_modified_at: 2024-09-25
 categories:
   - 공부
 tags:
-  - viewmatrix
-  - poses_avg
-  - recenter_poses
-  - rodriguse rotation
-  - near cam
+  - Rodrigues' rotation
   - Poses
-  - Camera Extrinsics
-  - world to camera
-  - camera to world
-  - w2c
-  - c2w
+  - SO(3)
+  - so(3)
+  - SE(3)
+  - se(3)
 excerpt: "현 카메라를 기준으로 가까운 카메라를 고르는 법을 알아봅시다."
 use_math: true
 classes: wide
