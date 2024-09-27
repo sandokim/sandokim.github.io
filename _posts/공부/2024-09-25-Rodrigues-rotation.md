@@ -5,6 +5,8 @@ categories:
   - 공부
 tags:
   - Rodrigues' rotation
+  - angular velocity
+  - linear velocity
   - Poses
   - SO(3)
   - so(3)
@@ -17,4 +19,6 @@ comments: true
 ---
 
 ![image](https://github.com/user-attachments/assets/b6efe895-3007-478f-a032-a0fad4df9500)
+
+![image](https://github.com/user-attachments/assets/d40e4da6-a11f-481c-b1bf-254bcb426f42)
 
