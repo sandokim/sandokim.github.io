@@ -27,26 +27,6 @@ One way to compute the triangualation is the **Bowyer-Watson algorithm**.
 
 ![image](https://github.com/user-attachments/assets/cf9b481b-c883-43a5-979f-0b1d76ce1ad0)
 
-![image](https://github.com/user-attachments/assets/0638e6f4-ac49-4fd3-80d5-3f06c74eeec9)
-
-![image](https://github.com/user-attachments/assets/711f3ebb-913c-4d1c-b4ad-c30dd41ce6c9)
-
-![image](https://github.com/user-attachments/assets/a4fc6986-4b0e-47ac-a7aa-a1b042706bee)
-
-![image](https://github.com/user-attachments/assets/b9896eb3-ed24-4f7f-8ac6-46ba07095834)
-
-![image](https://github.com/user-attachments/assets/2e60cec0-e959-4693-b442-3dba2d1b1672)
-
-![image](https://github.com/user-attachments/assets/768e2d50-c184-48e5-b27a-172a68e58712)
-
-![image](https://github.com/user-attachments/assets/a4cbebfa-ac3f-4c77-8817-9ef2fe70e5f4)
-
-![image](https://github.com/user-attachments/assets/657fdbda-3e45-47fa-b4ab-c7d5565eeb1c)
-
-![image](https://github.com/user-attachments/assets/81a007ee-0a07-4f28-8aaf-084047ddb890)
-
-![image](https://github.com/user-attachments/assets/94d1a17a-6e39-4d7d-a5eb-69f4601363dc)
-
-![image](https://github.com/user-attachments/assets/5e97e326-0e98-4382-a8bb-fba84bd330f4)
+최종적으로 아래와 같은 결과를 얻습니다. (자세한 알고리즘은 포스트 상단 유튜브 영상을 참고하세요.)
 
 ![image](https://github.com/user-attachments/assets/511deb7f-49b4-4ef7-8d8b-6bfe46891285)
