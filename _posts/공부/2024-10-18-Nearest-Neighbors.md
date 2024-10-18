@@ -29,6 +29,6 @@ comments: true
 
 ### 3. Ball Tree
 - Core Concept: A tree structure that recursively partitions data points into nested hyperspheres (balls) rather than axis-aligned cuts.
-- Advantages: **Performs better in higher-dimensional spaces compared to KD Tree, with more balanced partitioning based on distance metrics.**
+- Advantages: _**Performs better in higher-dimensional spaces compared to KD Tree, with more balanced partitioning based on distance metrics.**_
 - Disadvantages: More complex to implement than KD Tree. Still struggles with very high-dimensional data but handles it better than KD Tree.
 - Use Case: Preferred for high-dimensional datasets where KD Tree performance diminishes.
