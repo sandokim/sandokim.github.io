@@ -25,8 +25,9 @@ Delaunay triangulation is used for creating **triangular meshes** given a set of
 
 ### Nearest Neighbor 구하기
 
-**어떤 점들의 집합에 대한 들로네 삼각분할이 있으면 nearest neighbor를 곧바로 구할 수 있게 됩니다.** 예를 들어, 아래 그림에서 p의 nearest neighbor를 구하고 싶으면 점 p와 연결된 edge들만 조사하면 이들 중에 nearest neighbor가 존재하게 됩니다.
+**어떤 점들의 집합에 대한 들로네 삼각분할이 있으면 nearest neighbor를 곧바로 구할 수 있게 됩니다.** 
 
+예를 들어, 아래 그림에서 p의 nearest neighbor를 구하고 싶으면 점 p와 연결된 edge들만 조사하면 이들 중에 nearest neighbor가 존재하게 됩니다.
 
 즉, 원래는 모든 점들과 일일히 거리를 비교해 봐야 하겠지만 들로네 삼각분할이 있으면 그 점과 연결된 점들과의 거리만 조사하면 된다는 의미입니다.
 
