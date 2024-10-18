@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] Delaunay triangulation (델로네 삼각분할)"
+title: "[3D CV] Delaunay triangulation"
 last_modified_at: 2024-10-19
 categories:
   - 공부
