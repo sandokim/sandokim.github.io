@@ -29,11 +29,11 @@ Delaunay triangulation is used for creating **triangular meshes** given a set of
 
 예를 들어, 아래 그림에서 p의 nearest neighbor를 구하고 싶으면 점 p와 연결된 edge들만 조사하면 이들 중에 nearest neighbor가 존재하게 됩니다.
 
+![image](https://github.com/user-attachments/assets/67052cf8-3691-413e-98ca-bedbe340b2eb)
+
 즉, 원래는 모든 점들과 일일히 거리를 비교해 봐야 하겠지만 들로네 삼각분할이 있으면 그 점과 연결된 점들과의 거리만 조사하면 된다는 의미입니다.
 
 또한 k-nearest neighbor를 구할 때에도 들로네 삼각망에서 직접 연결된 점들로부터 시작해서 tree 형태로 점차 탐색범위를 확장해가면 됩니다.
-
-![image](https://github.com/user-attachments/assets/67052cf8-3691-413e-98ca-bedbe340b2eb)
 
 -----------------------------------------------------------------------------------------
 
