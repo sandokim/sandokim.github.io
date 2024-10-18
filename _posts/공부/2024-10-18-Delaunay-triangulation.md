@@ -17,7 +17,7 @@ comments: true
 
 Delaunay triangulation is used for creating **triangular meshes** given a set of points.
 
-델로네 삼각분할에서는 삼각형의 외접원(삼각형을 포함하는 원) 안에 다른 삼각형의 꼭짓점이 위치하지 않아야 하는 조건이 있습니다.
+델로네 삼각분할에서는 삼각형의 외접원(삼각형을 포함하는 원, Circumcircle) 안에 다른 삼각형의 꼭짓점이 위치하지 않아야 하는 조건이 있습니다.
 
 ![image](https://github.com/user-attachments/assets/40cc7513-2322-4fa2-b2f2-25599f650964)
 
