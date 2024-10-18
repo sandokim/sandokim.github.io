@@ -14,6 +14,9 @@ comments: true
 ---
 
 > [Delaunay Triangulation Youtube Explanation](https://www.youtube.com/watch?v=GctAunEuHt4)
+> [들로네 삼각분할(Delaunay triangulation) & 보로노이 다이어그램(Voronoi diagram)](https://darkpgmr.tistory.com/96)
+
+들로네 삼각분할은 이러한 여러 삼각분할 중에서 각각의 삼각형들이 최대한 정삼각형에 가까운 즉, 길쭉하고 홀쭉한 삼각형이 나오지 않도록 하는 분할을 말합니다.
 
 Delaunay triangulation is used for creating **triangular meshes** given a set of points.
 
