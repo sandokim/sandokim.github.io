@@ -1,6 +1,6 @@
 ---
 title: "[3D CV] Delaunay triangulation"
-last_modified_at: 2024-10-19
+last_modified_at: 2024-10-18
 categories:
   - 공부
 tags:
