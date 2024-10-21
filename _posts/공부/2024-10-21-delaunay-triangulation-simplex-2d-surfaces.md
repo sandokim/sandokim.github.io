@@ -43,6 +43,8 @@ In geometry, a simplex (plural: simplexes or simplices) is a generalization of t
 
 The four simplexes that can be fully represented in 3D space.
 
+_**... the word "simplex" simply means any finite set of vertices.**_
+
 ### Code 구현
 
 ```python
