@@ -1,5 +1,5 @@
 ---
-title: "[3D CV] Extract 2D surfaces (표면 메시) in 3D with Delaunay triangulation"
+title: "[3D CV] Extract surface meshes from 3D points with Delaunay triangulation"
 last_modified_at: 2024-10-18
 categories:
   - 공부
@@ -10,12 +10,10 @@ tags:
   - polygon mesh
   - reconstruction
   - point cloud
-  - 표면 메시
-  - mesh
+  - 표면 메시(surface mesh)
   - 3D Delaunay triangulation
-  - tetrahedra
-  - 2D surfaces
-excerpt: "Delaunay triangulation로 표면 메시 추출하는 방법 정리"
+  - 사면체(tetrahedra)
+excerpt: "Point cloud로부터 Delaunay triangulation로 surface mesh를 추출하는 방법 및 코드"
 use_math: true
 classes: wide
 comments: true
@@ -48,6 +46,20 @@ _**... the word "simplex" simply means any finite set of vertices.**_ (위키피
 "simplex"는 단순히 점들의 집합이라기보다는, 그 점들이 이루는 구체적인 기하학적 형상을 의미하는 것이 더 정확합니다.
 
 따라서, Delaunay 객체의 simplices는 vertices(점)로 이루어진 삼각형(또는 3D의 경우 사면체)을 의미합니다.
+
+### Faces are simplices themselves. (위키피디아 설명)
+
+**모든 simplex는 하위 차원의 simplex들을 포함하고 있으며, 이를 face라고 부릅니다.**
+
+예를 들어:
+
+- 삼각형(2차원 simplex)의 face는 그 삼각형을 이루는 변(1차원 simplex)입니다.
+- 사면체(3차원 simplex)의 face는 그 사면체를 이루는 삼각형(2차원 simplex)입니다.
+
+### 사면체(3차원 simplex)에서 삼각형(2차원 simplex)가 face입니다.
+
+사면체(3차원 simplex)는 네 개의 꼭짓점으로 구성된 입체 도형이며, 이 사면체는 네 개의 삼각형 면을 가집니다. 각각의 삼각형 면은 사면체의 face를 구성하며, 이 삼각형 면들이 모여 사면체의 표면 메시(surface mesh)를 형성합니다.
+
 
 ### Code 구현
 
