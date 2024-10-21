@@ -27,7 +27,7 @@ comments: true
 
 3D Delaunay triangulation은 사면체(tetrahedra)를 생성하지만, 우리는 표면 메시만 필요하므로 사면체의 외부 면(2D surfaces)만 추출하여 사용할 것입니다.
 
-이를 위해 `scipy.spatial import Delaunay`로 point cloud에 대한 Delaunay 객체를 tri 변수로 생성하고, simplices를 사용합니다.
+이를 위해 `scipy.spatial import Delaunay`로 `point cloud`에 대한 `Delaunay` 객체를 `tri` 변수로 생성하고, `simplices`를 사용합니다.
 
 ### simplices
 
