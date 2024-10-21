@@ -60,6 +60,8 @@ _**... the word "simplex" simply means any finite set of vertices.**_ (위키피
 
 사면체(3차원 simplex)는 네 개의 꼭짓점으로 구성된 입체 도형이며, 이 사면체는 네 개의 삼각형 면을 가집니다. 각각의 삼각형 면은 사면체의 face를 구성하며, 이 삼각형 면들이 모여 사면체의 표면 메시(surface mesh)를 형성합니다.
 
+--------------------------------------------
+
 ### 실전 코드
 
 <img src="https://github.com/user-attachments/assets/7467569a-667d-44c9-ac4b-9edd162c33cb" alt="image" width="50%" height="50%"/>
