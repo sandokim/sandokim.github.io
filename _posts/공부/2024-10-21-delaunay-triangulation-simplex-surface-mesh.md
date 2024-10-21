@@ -125,9 +125,14 @@ import open3d as o3d
 import numpy as np
 from scipy.spatial import Delaunay
 
-def extract_surface_mesh(points, tetra):
+def extract_surface_mesh(tetra):
     # 각 사면체의 면을 추출
-    faces = tetra[:, [0, 1, 2, 0, 2, 3, 0, 1, 3, 1, 2, 3]].reshape(-1, 3)
+    faces = np.vstack((
+        tetra[:, [0, 1, 2]],
+        tetra[:, [0, 2, 3]],
+        tetra[:, [0, 1, 3]],
+        tetra[:, [1, 2, 3]]
+    ))
     
     # 중복 면 제거 (표면 면만 남김)
     faces = np.sort(faces, axis=1)
@@ -139,24 +144,18 @@ def extract_surface_mesh(points, tetra):
 def barycentric_deformation(GT, BP, GT_colors, BP_colors):
     print("\n Processing Barycentric Deformation.. \n")
     
-    # Convert numpy arrays to Open3D point clouds
     gt_pcd = o3d.geometry.PointCloud()
     gt_pcd.points = o3d.utility.Vector3dVector(GT)
     gt_pcd.colors = o3d.utility.Vector3dVector(GT_colors / 255.0)
     
     bp_pcd = o3d.geometry.PointCloud()
     bp_pcd.points = o3d.utility.Vector3dVector(BP)
-    bp_pcd.colors = o3d.utility.Vector3dVector(BP_colors / 255.0)
+    bp_colors = o3d.utility.Vector3dVector(BP_colors / 255.0)
     
     # Create a mesh from BP using 3D Delaunay triangulation
     bp_points = np.asarray(bp_pcd.points)
     tri = Delaunay(bp_points)
-    surface_faces = extract_surface_mesh(bp_points, tri.simplices)
-    
-    bp_mesh = o3d.geometry.TriangleMesh()
-    bp_mesh.vertices = o3d.utility.Vector3dVector(bp_points)
-    bp_mesh.triangles = o3d.utility.Vector3iVector(surface_faces)
-    bp_mesh.compute_vertex_normals()
+    surface_faces = extract_surface_mesh(tri.simplices)
 ```
 
 
