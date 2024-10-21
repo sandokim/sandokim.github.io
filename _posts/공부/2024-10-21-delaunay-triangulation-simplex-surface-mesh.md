@@ -68,8 +68,57 @@ _**... the word "simplex" simply means any finite set of vertices.**_ (위키피
 
 <img src="https://github.com/user-attachments/assets/7467569a-667d-44c9-ac4b-9edd162c33cb" alt="image" width="80%" height="80%"/>
 
-<img src="https://github.com/user-attachments/assets/3aa1d1d3-97d1-4e4e-a6f8-c7d1d13d019c" alt="image" width="80%" height="80%"/>
+Triangulation of a set of points:
 
+```python
+import numpy as np
+points = np.array([[0, 0], [0, 1.1], [1, 0], [1, 1]])
+from scipy.spatial import Delaunay
+tri = Delaunay(points)
+```
+
+points는 4개의 좌표가 들어있는 2차원 NumPy 배열입니다. 각각의 좌표는 (x, y) 형태로 되어 있죠.
+
+- points[:, 0]은 모든 행에서 첫 번째 열(즉, x 좌표들)을 선택합니다.
+- points[:, 1]은 모든 행에서 두 번째 열(즉, y 좌표들)을 선택합니다.
+
+예를 들어:
+
+- points[:, 0]은 [0, 0, 1, 1]이 되고, 이는 x 좌표들입니다.
+- points[:, 1]은 [0, 1.1, 0, 1]이 되고, 이는 y 좌표들입니다.
+
+이 값들은 그래프를 그릴 때 x축과 y축 좌표로 사용됩니다. plt.triplot과 plt.plot에서 각각 x 좌표와 y 좌표를 지정하는 역할을 합니다.
+
+We can plot it:
+
+```python
+import matplotlib.pyplot as plt
+plt.triplot(points[:,0], points[:,1], tri.simplices)
+plt.plot(points[:,0], points[:,1], 'o')
+plt.show()
+```
+
+![image](https://github.com/user-attachments/assets/6ca0ae61-02cd-4c4b-967e-f1282d974972)
+
+Point indices and coordinates for the two triangles forming the triangulation:
+
+```python
+tri.simplices
+array([[2, 3, 0],                 # may vary
+       [3, 1, 0]], dtype=int32)
+```
+
+Note that depending on how rounding errors go, the simplices may be in a different order than above.
+
+```python
+points[tri.simplices]
+array([[[ 1. ,  0. ],            # may vary
+        [ 1. ,  1. ],
+        [ 0. ,  0. ]],
+       [[ 1. ,  1. ],
+        [ 0. ,  1.1],
+        [ 0. ,  0. ]]])
+```
 
 ### Code 구현
 
