@@ -64,8 +64,6 @@ _**... the word "simplex" simply means any finite set of vertices.**_ (위키피
 
 ### 실전 코드
 
-<img src="https://github.com/user-attachments/assets/eeb92172-9256-4716-83e5-f68e3e2700bb" alt="image" width="80%" height="80%"/>
-
 <img src="https://github.com/user-attachments/assets/7467569a-667d-44c9-ac4b-9edd162c33cb" alt="image" width="80%" height="80%"/>
 
 Triangulation of a set of points:
