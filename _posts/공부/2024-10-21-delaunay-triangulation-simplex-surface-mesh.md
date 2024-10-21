@@ -64,7 +64,12 @@ _**... the word "simplex" simply means any finite set of vertices.**_ (위키피
 
 ### 실전 코드
 
+<img src="https://github.com/user-attachments/assets/eeb92172-9256-4716-83e5-f68e3e2700bb" alt="image" width="50%" height="50%"/>
+
 <img src="https://github.com/user-attachments/assets/7467569a-667d-44c9-ac4b-9edd162c33cb" alt="image" width="50%" height="50%"/>
+
+<img src="https://github.com/user-attachments/assets/3aa1d1d3-97d1-4e4e-a6f8-c7d1d13d019c" alt="image" width="50%" height="50%"/>
+
 
 ### Code 구현
 
