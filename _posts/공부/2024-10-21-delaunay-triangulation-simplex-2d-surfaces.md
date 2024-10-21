@@ -43,7 +43,11 @@ In geometry, a simplex (plural: simplexes or simplices) is a generalization of t
 
 The four simplexes that can be fully represented in 3D space.
 
-_**... the word "simplex" simply means any finite set of vertices.**_
+_**... the word "simplex" simply means any finite set of vertices.**_ (위키피디아에서 단순하게 표현)
+
+"simplex"는 단순히 점들의 집합이라기보다는, 그 점들이 이루는 구체적인 기하학적 형상을 의미하는 것이 더 정확합니다.
+
+따라서, Delaunay 객체의 simplices는 vertices(점)로 이루어진 삼각형(또는 3D의 경우 사면체)을 의미합니다.
 
 ### Code 구현
 
