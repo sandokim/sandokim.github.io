@@ -14,7 +14,7 @@ comments: true
 
 > [Barycentric Coordinates with Applications in Mesh Deformation](https://www.cs.wustl.edu/~taoju/research/bary.htm)
 
-Constructing a function that interpolates a set of values defined at vertices of a mesh is a fundamental operation in computer graphics. For example, Gouraud shading computes intensity $f[x]$ at an interior point x of a triangle from intensities at the triangle vertices $f_i$ using affine combination
+Constructing a function that interpolates a set of values defined at vertices of a mesh is a fundamental operation in computer graphics. For example, Gouraud shading computes intensity $f[x]$ at an interior point $x$ of a triangle from intensities at the triangle vertices $f_i$ using affine combination
 
 ![image](https://github.com/user-attachments/assets/597cd956-159e-45ef-8e07-31c32b853cd8)
 
