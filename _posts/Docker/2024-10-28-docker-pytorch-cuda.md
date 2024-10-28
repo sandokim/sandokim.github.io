@@ -122,7 +122,13 @@ conda activate CoR-GS
 
 **주의할 점**: **만들어진 가상환경은 torch가 깔려있지 않은 상태**이므로 제일 먼저, cuda version / torch version이 맞는 것을 [pytorch org previous versions](https://pytorch.org/get-started/previous-versions/)에서 찾아서 설치해줍니다.
 
-![image](https://github.com/user-attachments/assets/bb986982-673b-4e52-a732-3f79c2b55d5b)
+- `pip`로 설치해줍시다.
+
+![image](https://github.com/user-attachments/assets/8513c30f-00cb-4bc9-97f2-8c32c12187fb)
+
+```terminal
+pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu113
+```
 
 `environment.yml`의 나머지 모듈들은 requirements.txt에 붙여넣고 설치하는 방식을 사용하면 됩니다.
 
