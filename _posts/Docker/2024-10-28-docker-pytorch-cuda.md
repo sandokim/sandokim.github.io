@@ -1,6 +1,6 @@
 ---
 title: "[Docker] Docker로 Pytorch CUDA 버전 맞춰진 container 생성하기"
-last_modified_at: 2024-07-09
+last_modified_at: 2024-10-28
 categories:
   - Docker
 tags:
