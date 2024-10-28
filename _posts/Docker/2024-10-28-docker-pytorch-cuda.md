@@ -72,14 +72,16 @@ docker run으로 container를 실행시 다음과 같이 들어가집니다.
 생성된 container는 CONTAINER ID를 가지고 CONTAINER ID의 앞 3글자로 container를 중지시키거나, 제거할 수 있습니다.
 
 - container를 제거할 때는
-  - 현재 container 내에서 exit로 나와 container를 종료시키거나
-  - 외부 터미널에서 docker stop [CONTAINER ID 앞 3글자]로 종료시킨다음
-- docker rm [CONTAINER ID 앞 3글자]로 제거해줄 수 있습니다.
+  - 현재 `container` 내에서 `exit`로 나와 `container`를 종료시키거나
+  - 외부 터미널에서 `docker stop [CONTAINER ID 앞 3글자]`로 종료시킨다음
+- `docker rm [CONTAINER ID 앞 3글자]`로 제거해줄 수 있습니다.
 
 ![image](https://github.com/user-attachments/assets/827e24cd-c32a-4d35-bdd3-b3f7a0444a44)
 
-- docker stop `97b`
-- docker rm `97b`
+- `docker stop 97b`
+- `docker rm 97b`
+
+
 
   
 
