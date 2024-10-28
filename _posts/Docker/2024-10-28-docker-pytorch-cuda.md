@@ -81,9 +81,25 @@ docker run으로 container를 실행시 다음과 같이 들어가집니다.
 - `docker stop 97b`
 - `docker rm 97b`
 
+container가 처음 생성되었을 시에는 conda를 실행해주어야 conda 사용할 수 있습니다.
 
+아래명령어를 입력해줍니다.
 
-  
+```terminal
+conda init bash
+source ~/.bashrc
+```  
+
+![image](https://github.com/user-attachments/assets/ad79305d-93b3-47c5-ab2b-4c3e3e31bb16)
+
+이제 모든 세팅이 끝났습니다. 현재 container의 cuda version / pytorch version을 확인해봅시다.
+
+- nvcc -V (cuda version이 11.3인지 확인)
+- pip list (torch version 1.12.1인지 확인)
+
+![image](https://github.com/user-attachments/assets/410a457b-4a19-4ca4-8c3b-30af4f7cea57)
+
+![image](https://github.com/user-attachments/assets/d3e42c35-9836-496d-a0d6-a0921338bbbd)
 
 
 
