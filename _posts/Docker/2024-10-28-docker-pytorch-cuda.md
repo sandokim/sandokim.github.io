@@ -101,5 +101,39 @@ source ~/.bashrc
 
 ![image](https://github.com/user-attachments/assets/d3e42c35-9836-496d-a0d6-a0921338bbbd)
 
+### python version까지 맞춰야하는 경우에는 생성한 container에서 conda로 가상환경을 만들어서 사용해줍니다.
+
+예제에서 생성한 container의 python version이 3.7.13 입니다.
+
+![image](https://github.com/user-attachments/assets/396fdb42-17c5-4500-af4d-c3d08390fdbf)
+
+하지만 project에서 사용하는 python version은 3.8.1 입니다.
+
+![image](https://github.com/user-attachments/assets/ba27fab7-e8a1-487f-81f5-d7f4010ae637)
+
+이 경우 python version이 달라서 library가 설치가 제대로 안될 수 있습니다.
+
+이때는 현재 container에서 다음과 같이 python 3.8.1 version의 가상환경을 만들어서 사용합시다.
+
+```python
+conda create -n CoR-GS python=3.8.1
+conda activate CoR-GS
+```
+
+**주의할 점**: **만들어진 가상환경은 torch가 깔려있지 않은 상태**이므로 제일 먼저, cuda version / torch version이 맞는 것을 [pytorch org previous versions](https://pytorch.org/get-started/previous-versions/)에서 찾아서 설치해줍니다.
+
+![image](https://github.com/user-attachments/assets/bb986982-673b-4e52-a732-3f79c2b55d5b)
+
+`environment.yml`의 나머지 모듈들은 requirements.txt에 붙여넣고 설치하는 방식을 사용하면 됩니다.
+
+![image](https://github.com/user-attachments/assets/9d259f1e-93f1-4832-ad42-292d099837c9)
+
+아래와 같이 requirements.txt 파일을 만들고
+
+```python
+pip install -r requirements.txt
+```
+
+![image](https://github.com/user-attachments/assets/f868c17d-79fb-4295-8ef7-ee373a0e4240)
 
 
