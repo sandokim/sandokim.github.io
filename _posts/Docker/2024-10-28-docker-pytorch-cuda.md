@@ -55,7 +55,7 @@ docker images로 docker pull로 내려받은 pytorch version / cuda version을 �
 container를 생성시 다음과 같은 커맨드를 입력합니다. 
 
 - `--name`으로 생성되는 container 이름을 정해줄 수 있습니다. (예시에선 CoR-GS로 NAMES를 정했습니다.)
-- `-v`는 현재 서버의 directory를 생성할 container에 dircectory에 mount할 경로를 정해줍니다.
+- `-v`는 현재 서버의 directory를 생성할 container에 directory에 mount할 경로를 정해줍니다.
 
 ```python
 docker run -it --gpus all --net=host --pid=host --ipc=host -v /mai_nas:/mai_nas --name CoR-GS fa5 /bin/bash
