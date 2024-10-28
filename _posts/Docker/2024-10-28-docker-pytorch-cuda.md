@@ -128,7 +128,7 @@ conda activate CoR-GS
 
 ![image](https://github.com/user-attachments/assets/9d259f1e-93f1-4832-ad42-292d099837c9)
 
-아래와 같이 requirements.txt 파일을 만들고
+아래와 같이 requirements.txt 파일을 만들고 다음 커맨드를 실행하여 관련 모듈을 설치합니다.
 
 ```python
 pip install -r requirements.txt
@@ -136,4 +136,21 @@ pip install -r requirements.txt
 
 ![image](https://github.com/user-attachments/assets/f868c17d-79fb-4295-8ef7-ee373a0e4240)
 
+마지막으로 submodules 설치에 대해 알아보겠습니다. 설치해야하는 submodules는 아래와 같이 2개입니다.
+
+![image](https://github.com/user-attachments/assets/877ffff2-cb94-4e54-9cbf-a48ea810bdee)
+
+submodules는 직접 디렉토리로 이동하여 개발모드로 설치해줍니다.
+
+```terminal
+cd submodules/diff-gaussian-rasterization-confidence
+pip install -e .
+cd submodules/simple-knn
+pip install -e .
+```
+
+![image](https://github.com/user-attachments/assets/283bcbb0-b418-4baa-a9ea-ebab12348152)
+
+
+긴글 읽어주셔서 감사합니다.
 
