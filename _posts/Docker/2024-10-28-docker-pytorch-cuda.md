@@ -16,9 +16,26 @@ comments: true
 
 > [pytorch/pytorch - Docker Image - Docker Hub](https://hub.docker.com/r/pytorch/pytorch)
 
-Docker에서 container는 새로운 컴퓨터를 하나 판다고 생각하시면 편합니다.
+Docker에서 container는 새로운 컴퓨터를 하나 판다고 생각하시면 편합니다. 
 
-따라서 docker image를 pull할 때, docker hub pytorch에서 pytorch/cuda 버전이 맞는 것을 입력해줍니다.
+(Docker는 같은 서버를 사용하는 사용자 사이에서 CUDA 환경변수의 꼬임을 방지하기 위해 사용합니다.)
+
+아래와 같이 `export`로 직접 커맨드 창에 입력하여 CUDA path를 설정하는 방식을 사용할 수도 있지만 매번 그러기엔 귀찮고, 헷갈릴 수 있습니다. 
+
+```terminal
+export PATH=/usr/local/cuda-11.3/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH
+```
+
+만약 새로운 컴퓨터를 하나 파면 그 컴퓨터 안에서는 계속 같은 환경변수를 유지한다면 정말 편할 것입니다.
+
+이를 해결해주는 것이 docker입니다.
+
+바로 실전으로 넘어가봅시다.
+
+###  Docker로 Pytorch CUDA 버전 맞춰진 container(=독립적인 컴퓨터) 생성하기
+
+docker image를 pull할 때, docker hub pytorch에서 pytorch/cuda 버전이 맞는 것을 입력해줍니다.
 
 먼저 [docker hub](https://hub.docker.com/r/pytorch/pytorch)로 들어가서 Tags 탭으로 가줍니다.
 
