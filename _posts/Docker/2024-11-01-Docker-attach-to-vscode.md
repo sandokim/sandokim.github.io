@@ -27,3 +27,5 @@ Running중인 docker container를 VScode에 atttach할 때 다음과 같은 에�
 sudo usermod -aG docker $USER
 # 터미널 재시작 필요
 ```
+
+![image](https://github.com/user-attachments/assets/56eef740-b92a-48f3-8a4a-abb758d6646d)
