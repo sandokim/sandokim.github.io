@@ -7,6 +7,7 @@ tags:
   - docker
   - container
   - attach to VScode
+  - docker group
 excerpt: "Docker container를 VScode에 attach하는 법을 알아봅시다."
 use_math: true
 classes: wide
@@ -29,3 +30,17 @@ sudo usermod -aG docker $USER
 ```
 
 ![image](https://github.com/user-attachments/assets/56eef740-b92a-48f3-8a4a-abb758d6646d)
+
+### 정상적으로 VScode에 실행중인 docker container를 attach 하였습니다.
+
+![image](https://github.com/user-attachments/assets/98af20f8-97ae-43ab-9a27-f3bc03c8ee9a)
+
+이제 이 container를 새로운 컴퓨터에서 작업하듯, debugging도 할 수 있습니다.
+
+Extension으로 python debugger도 설치해줍니다.
+
+![image](https://github.com/user-attachments/assets/76575c14-b845-4d6d-ab2e-b3294a5f26b3)
+
+이 작업을 통해 앞으로는 VScode에 attach한 docker container 내에서 환경변수 충돌없이, 디버깅도 하며 개발을 할 수 있습니다.
+
+감사합니다.
