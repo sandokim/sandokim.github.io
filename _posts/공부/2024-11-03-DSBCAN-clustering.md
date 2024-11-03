@@ -21,11 +21,11 @@ Given a point cloud from e.g. a depth sensor we want to group local point cloud 
 For this purpose, we can use clustering algorithms. 
 Open3D implements DBSCAN [Ester1996] that is a density based clustering algorithm. 
 
-The algorithm is implemented in cluster_dbscan and requires two parameters: 
+The algorithm is implemented in `cluster_dbscan` and requires two parameters: 
 
 - `eps` defines the distance to neighbors in a cluster 
 - `min_points` defines the minimum number of points required to form a cluster.
-- The function returns labels, where the `label` -1 indicates noise.
+- The function returns `labels`, where the label `-1` indicates noise.
 
 ```python
 pcd = o3d.io.read_point_cloud("../../test_data/fragment.ply")
