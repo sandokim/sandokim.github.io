@@ -48,6 +48,11 @@ depth map을 위처럼 처리하여 가장 가까운 값은 0.0, 가장 먼 값�
 우리가 원하는 좌표계의 scale에 맞게 rescale할 수 있습니다.
 
 ```python
+'''
+depth_map: Mono Depth from the src camera
+rendered_depth_min/_max: 3dgs rendered depth min/max from the src camera in COLMAP coordinate
+'''
+
 depth_map = depth_map.detach().cpu().numpy()
 # Scale monodepth to COLMAP coordinate
 scaled_depth = (depth_map - depth_map.min())/(depth_map.max() - depth_map.min())
@@ -55,6 +60,13 @@ scaled_depth = scaled_depth * (rendered_depth_max - rendered_depth_min) + render
 
 # 코드 출처: https://github.com/ForMyCat/SparseGS/blob/master/scene/cameras.py#L106C1-L109C105
 ```
+
+- `scaled_depth`는 monodepth estimation을 통해 얻은 `depth map`을 [0.0, 1.0]으로 normalize한 것이고, (이때 depth map은 inverse depth가 아니어야 합니다.)
+
+- `rendered_depth_min`과 `rendered_depth_max`는 현재 source camera (src camera)를 기준으로 depth의 최소/최대 값입니다.
+
+- `scaled_depth`를 `render_depth_min`과 `rendered_depth_max`의 사이 길이에 곱해주고, `rendered_depth_min`만큼 src camerea로부터 shift 시켜주어, COLMAP coordinate에 맞게 depth map을 rescaling할 수 있습니다.
+
 
 
 
