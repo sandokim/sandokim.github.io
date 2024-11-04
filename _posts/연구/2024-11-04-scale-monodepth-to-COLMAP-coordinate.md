@@ -65,7 +65,7 @@ scaled_depth = scaled_depth * (rendered_depth_max - rendered_depth_min) + render
 
 - `rendered_depth_min`과 `rendered_depth_max`는 현재 source camera (src camera)를 기준으로 depth의 최소/최대 값입니다.
 
-- `scaled_depth`를 `render_depth_min`과 `rendered_depth_max`의 사이 길이에 곱해주고, `rendered_depth_min`만큼 src camerea로부터 shift 시켜주어, COLMAP coordinate에 맞게 depth map을 rescaling할 수 있습니다.
+- [0.0, 1.0]의 값을 갖는 `scaled_depth`를 `render_depth_min`과 `rendered_depth_max`의 사이 길이에 곱해주고, `rendered_depth_min`만큼 src camerea로부터 shift 시켜주어, COLMAP coordinate에 맞게 depth map을 rescaling할 수 있습니다.
 
 
 
