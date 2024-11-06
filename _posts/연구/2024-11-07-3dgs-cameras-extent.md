@@ -15,9 +15,10 @@ classes: wide
 comments: true
 ---
 
-
 ```python
 scene.cameras_extent
 ```
 
+> [Question about scene_extent #48](https://github.com/graphdeco-inria/gaussian-splatting/issues/48)
 
+> [How should the background of an unbounded scene be handled? #300](https://github.com/graphdeco-inria/gaussian-splatting/issues/300)
