@@ -109,6 +109,10 @@ git push origin main
 변경된 파일들을 커밋하기 위해 다음과 같은 단계를 따르면 됩니다:
 
 1. 먼저 __pycache__ 파일들과 불필요한 파일들을 .gitignore에 추가:
+
+- `.gitignore`은 현재 프로젝트 경로에 `.gitignore` 이름으로 파일을 생성해주면 됩니다.
+- `.gitignore`에 불필요한 파일들을 다음과 같이 추가해줍니다.
+
 ```bash
 __pycache__/
 *.pyc
