@@ -169,6 +169,8 @@ git push origin main
 
 - 이전과 동일하게 `commit`하고, `push`하면 됩니다.
 
+![image](https://github.com/user-attachments/assets/7801b6b3-70ef-4d8a-83c8-e9d837cd8289)
+
 ### 만약 위 과정을 거치지 않고, 모든 변경사항을 한 번에 스테이징하려면 다음과 같이하면 됩니다:
 ```bash
 git add -A
