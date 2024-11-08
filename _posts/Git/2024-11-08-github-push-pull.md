@@ -162,10 +162,12 @@ git push origin main
 
 #### 새로 추가된 파일을 제대로 커밋하려면 `git status`에서 Untracked files 목록에서 확인하고 `add` 해야합니다.
 
-- 아래와 같이 새로 추가된 scripts 관련 파일 3개만 깃허브 저장소에 파일로써 추가되도록 하려면, add를 다음과 같이 해주고, 커밋하고, push하면 됩니다.
-- 
+- 아래와 같이 새로 추가된 scripts 관련 파일 3개만 깃허브 저장소에 파일로써 추가되도록 하려면,
+- `add`를 다음과 같이 해주고,
+  
 ![image](https://github.com/user-attachments/assets/9ee0d892-9041-4d56-bd43-19bc2b4a9cce)
 
+- 이전과 동일하게 `commit`하고, `push`하면 됩니다.
 
 ### 만약 위 과정을 거치지 않고, 모든 변경사항을 한 번에 스테이징하려면 다음과 같이하면 됩니다:
 ```bash
