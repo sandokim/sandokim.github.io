@@ -145,12 +145,15 @@ git add scripts/run_*.sh
 
 ![image](https://github.com/user-attachments/assets/59912086-4843-433c-b356-7ae863463c91)
 
-# 커밋 메시지와 함께 커밋
+3. 커밋 메시지와 함께 커밋합니다.
+   
 ```bash
 git commit -m "Update TPS deformation with margin-based filtering and code reorganization"
 ```
 
-3. 변경사항을 원격 저장소에 푸시:
+![image](https://github.com/user-attachments/assets/9df43f43-49c4-4bae-b64e-edf2cef16145)
+
+4. 변경사항을 원격 저장소에 push합니다:
 ```bash
 git push origin main
 ```
