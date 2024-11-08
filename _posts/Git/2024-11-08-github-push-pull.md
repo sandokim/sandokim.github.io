@@ -143,7 +143,7 @@ git add scripts/run_*.sh
 ```
 
 - Change할 파일들(기존 코드관련 파일을 삭제하였거나, 또는 새로 만든 코드관련 파일들)만 위처럼 `git rm 삭제된 파일`, `git add 변경된 파일, 혹은 새로 추가된 파일`을을 `terminal`에 입력해줍니다.
-- `git status`로 확인하면 Change가 적용되어 깃허브로 commite될 파일들만 초록색 목록으로 다시 나오게 됩니다.
+- `git status`로 확인하면 Change가 적용되어 깃허브로 commit될 파일들만 초록색 목록으로 다시 나오게 됩니다.
 
 ![image](https://github.com/user-attachments/assets/59912086-4843-433c-b356-7ae863463c91)
 
@@ -159,6 +159,13 @@ git commit -m "Update TPS deformation with margin-based filtering and code reorg
 ```bash
 git push origin main
 ```
+
+#### 새로 추가된 파일을 제대로 커밋하려면 `git status`에서 Untracked files 목록에서 확인하고 `add` 해야합니다.
+
+- 아래와 같이 새로 추가된 scripts 관련 파일 3개만 깃허브 저장소에 파일로써 추가되도록 하려면, add를 다음과 같이 해주고, 커밋하고, push하면 됩니다.
+- 
+![image](https://github.com/user-attachments/assets/9ee0d892-9041-4d56-bd43-19bc2b4a9cce)
+
 
 ### 만약 위 과정을 거치지 않고, 모든 변경사항을 한 번에 스테이징하려면 다음과 같이하면 됩니다:
 ```bash
