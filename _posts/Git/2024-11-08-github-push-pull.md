@@ -100,7 +100,63 @@ git push origin main
 ```
 
 
+### 실전예제
+
+`git status`를 입력하면 아래와 같이 modified된 파일들이 나열되고, untracked된 것들은 따로 표시가 됩니다. 
+
+![image](https://github.com/user-attachments/assets/15d4b28b-4306-4b95-9b7f-6e31fc8acf9a)
+
+변경된 파일들을 커밋하기 위해 다음과 같은 단계를 따르면 됩니다:
+
+1. 먼저 __pycache__ 파일들과 불필요한 파일들을 .gitignore에 추가:
+# .gitignore 파일에 추가
+__pycache__/
+*.pyc
+.vscode/
+
+2. 현재 변경사항을 확인하고 커밋할 파일들만 선택:
+```bash
+# 삭제된 파일들 git에서 제거
+git rm graphics_utils.py
+git rm scripts/copy_mask_dtu_r4_3v.sh
+git rm scripts/copy_mask_dtu_r4_6v.sh
+git rm scripts/copy_mask_dtu_r4_9v.sh
+
+# 변경된 주요 파일들 추가
+git add arguments/__init__.py
+git add scene/__init__.py
+git add scene/gaussian_model.py
+git add utils/camera_utils.py
+git add utils/general_utils.py
+git add utils/graphics_utils.py
+git add utils/pose_utils.py
+git add utils/tps_utils.py
+git add train_tps_deform_all.py
+git add scripts/run_*.sh
+
+# 커밋 메시지와 함께 커밋
+git commit -m "Update TPS deformation with margin-based filtering and code reorganization"
+```
+
+3. 변경사항을 원격 저장소에 푸시:
+```bash
+git push origin main
+```
+
+### 만약 위 과정을 거치지 않고, 모든 변경사항을 한 번에 스테이징하려면 다음과 같이하면 됩니다:
+```bash
+git add -A
+git commit -m "Update TPS deformation with margin-based filtering and code reorganization"
+git push origin main
+```
+
+단 `git add -A`의 경우 untracked인 파일들은 staging되지 않기 때문에, untracted 파일들까지 더해서 깃허브에 업로드하여 코드를 업데이트 하려면, 이 부분을 따로 해줘야합니다. 
+
+다만, 경험삼 때로는 untracked 파일들은 output과 같이 용량이 크고, submodules와 같이 용량은 크면서 코드 작업동안 바꾸지 않는 것들은 untracked 파일들로 두는게, git push, pull에서 코드를 올리고 내려받을 때 시간적으로 효율적입니다.
+
 감사합니다.
+
+
 
 
 
