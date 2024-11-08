@@ -138,8 +138,15 @@ git add utils/pose_utils.py
 git add utils/tps_utils.py
 git add train_tps_deform_all.py
 git add scripts/run_*.sh
+```
+
+- Change할 파일들(기존 코드관련 파일을 삭제하였거나, 또는 새로 만든 코드관련 파일들)만 위처럼 `git rm 삭제된 파일`, `git add 변경된 파일, 혹은 새로 추가된 파일`을을 `terminal`에 입력해줍니다.
+- `git status`로 확인하면 Change가 적용되어 깃허브로 commite될 파일들만 초록색 목록으로 다시 나오게 됩니다.
+
+![image](https://github.com/user-attachments/assets/59912086-4843-433c-b356-7ae863463c91)
 
 # 커밋 메시지와 함께 커밋
+```bash
 git commit -m "Update TPS deformation with margin-based filtering and code reorganization"
 ```
 
