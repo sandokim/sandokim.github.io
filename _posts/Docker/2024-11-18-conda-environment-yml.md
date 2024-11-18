@@ -16,7 +16,7 @@ classes: wide
 comments: true
 ---
 
-# conda env create --file environment.yml에서 무한로딩 되는 경우 해결법
+### `conda env create --file environment.yml`에서 무한로딩 되는 경우 해결법
 
 ![image](https://github.com/user-attachments/assets/2fe5701b-bf05-4c7b-8334-1745d9972a59)
 
