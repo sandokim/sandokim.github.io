@@ -21,3 +21,8 @@ comments: true
 ![image](https://github.com/user-attachments/assets/2fe5701b-bf05-4c7b-8334-1745d9972a59)
 
 docker로 pytorch와 cuda를 맞춘 컨테이너에서, git clone을 통해 코드를 내려받고, `conda env create --file environment.yml`을 실행했을 때, 위와 같이 무한로딩이 되는 경우가 있습니다.
+
+기다리다보면 env 깔리긴 합니다.
+
+![image](https://github.com/user-attachments/assets/6c093364-9f77-4655-b30e-e64a7e898f85)
+
