@@ -65,3 +65,17 @@ cat ~/.ssh/id_rsa.pub
 ![image](https://github.com/user-attachments/assets/4aeecda8-15c8-4092-9060-8ecc46b939ff)
 
 - 단 중간에 `git config --global --add safe.dircetory `와 같은 커맨드를 추가하라고 에러가 발생하는데, 그대로 커맨드 창에 복붙하여 해결한 뒤, 생성됐던 폴더는 제거하고, 다시 clone하면 됩니다.
+
+#### 아래와 같이 성공적으로 `diff-gaussian-rasterization`이라는 submodules를 clone 완료하였습니다.
+
+![image](https://github.com/user-attachments/assets/89a1fa88-077c-4f3c-9de6-b5498986791e)
+
+#### 설치는 다음과 같이 하면 됩니다.
+
+```terminal
+pip install ./diff-gaussian-rasterization
+```
+
+- CUDA와 Pytorch 버전을 맞게 환경을 구축해두었다면 (Docker Container 활용 추천), submodules를 설치할 때도 별 문제없이 설치가 완료됩니다.
+
+
