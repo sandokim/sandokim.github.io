@@ -5,6 +5,8 @@ categories:
   - Docker
 tags:
   - docker
+  - docker contrainer
+  - 도커 컨테이너
   - conda
   - conda env
   - environment.yml
@@ -20,7 +22,7 @@ comments: true
 
 ![image](https://github.com/user-attachments/assets/2fe5701b-bf05-4c7b-8334-1745d9972a59)
 
-다음과 같이 docker로 pytorch와 cuda를 맞춘 컨테이너에서
+다음과 같이 github 코드에서 권장하는 pytorch와 cuda를 맞춘 Docker 컨테이너에서
 
 ![image](https://github.com/user-attachments/assets/4a157571-f1c0-43fa-a4e2-a2333ad17e35)
 
