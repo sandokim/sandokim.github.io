@@ -78,4 +78,5 @@ pip install ./diff-gaussian-rasterization
 
 - CUDA와 Pytorch 버전을 맞게 환경을 구축해두었다면 (Docker Container 활용 추천), submodules를 설치할 때도 별 문제없이 설치가 완료됩니다.
 
+![image](https://github.com/user-attachments/assets/fae5e7d8-af92-4213-b998-9ce4e012d460)
 
