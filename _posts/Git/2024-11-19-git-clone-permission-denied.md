@@ -16,6 +16,8 @@ comments: true
 
 # git@github.com: Permission denied (publickey)
 
+![image](https://github.com/user-attachments/assets/53065e9c-6396-4050-993d-279dbb95d7f9)
+
 ### git push 또는 git pull 할 때 발생하는 에러
 
 ```terminal
@@ -57,3 +59,9 @@ cat ~/.ssh/id_rsa.pub
 #### Add SSH Key를 눌러줍니다. (Title 입력할 필요는 없습니다.)
 
 ![image](https://github.com/user-attachments/assets/c1e7e9cb-c7c6-4b94-935f-32c2c3ed0447)
+
+#### 다시 git clone시 정상적으로 clone이 됩니다.
+
+![image](https://github.com/user-attachments/assets/4aeecda8-15c8-4092-9060-8ecc46b939ff)
+
+-단 중간에 `git config --global --add safe.dircetory `와 같은 커맨드를 추가하라고 에러가 발생하는데 그대로 커맨드 창에 복붙하여 해결한 뒤, 다시 clone하면 됩니다.
