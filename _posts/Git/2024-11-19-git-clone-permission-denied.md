@@ -46,11 +46,11 @@ and the repository exists.
 cat ~/.ssh/id_rsa.pub
 ```
 
-![image](https://github.com/user-attachments/assets/42b69ca0-5fbc-463b-90c6-575f7542e163)
+![image](https://github.com/user-attachments/assets/7883b4b6-89bb-414f-bb42-77b731f392f6)
 
 위 명령어로 나온 키를 GitHub에 등록합니다.
 
 #### Settings -> SSH and GPC Keys -> New SSH key -> Key 부분에 위에서 확인한 ssh키 복붙하기
 
-![image](https://github.com/user-attachments/assets/8ccd43d7-b2c3-47c2-acf0-aa89796bf68e)
+![image](https://github.com/user-attachments/assets/6762f45f-12dd-4cd9-b524-d94c72b3cbc8)
 
