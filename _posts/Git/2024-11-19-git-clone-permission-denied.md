@@ -54,3 +54,6 @@ cat ~/.ssh/id_rsa.pub
 
 ![image](https://github.com/user-attachments/assets/6762f45f-12dd-4cd9-b524-d94c72b3cbc8)
 
+#### Add SSH Key를 눌러줍니다. (Title 입력할 필요는 없습니다.)
+
+![image](https://github.com/user-attachments/assets/c1e7e9cb-c7c6-4b94-935f-32c2c3ed0447)
