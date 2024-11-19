@@ -14,7 +14,7 @@ classes: wide
 comments: true
 ---
 
-# git@github.com: Permission denied (publickey)
+# `git@github.com`: Permission denied (publickey)
 
 ![image](https://github.com/user-attachments/assets/53065e9c-6396-4050-993d-279dbb95d7f9)
 
