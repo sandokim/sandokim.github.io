@@ -1,5 +1,5 @@
 ---
-title: "[Git] Github repository, git pull"
+title: "[Git] Github repository, git pull, 깃으로 협업하는 법"
 last_modified_at: 2024-11-20
 categories:
   - Git
