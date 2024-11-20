@@ -7,6 +7,9 @@ tags:
   - git
   - github
   - github repository
+  - git init
+  - git commit
+  - git push
   - submodules
   - modules
   - .gitmodules
@@ -21,8 +24,6 @@ use_math: true
 classes: wide
 comments: true
 ---
-
-# Git 꿀팁 정리
 
 > [깃, 깃허브 한번에 이해시켜드리고 포트폴리오 올리는 법까지 알려드림. 15분안에 당신은 Github 전문가가 됩니다](https://www.youtube.com/watch?v=lelVripbt2M)
 
