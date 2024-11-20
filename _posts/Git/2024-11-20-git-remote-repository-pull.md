@@ -34,3 +34,9 @@ git push origin master
 
 
 ### pull request(PR)는 master에 갈 수 있도록 허락해달라는 요청입니다.
+
+
+
+### Merge pull request는 엄청난 책임이 따릅니다.
+
+pull request를 하는 경우, master branch와 합쳐집니다.
