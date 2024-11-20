@@ -43,9 +43,10 @@ Merge pull request를 하는 경우, pull request를 한 다른 branch가 master
 
 
 
-### 현재 작업중인 코드와 협업하면서 깃허브에서 다른 사용자에 의해 바뀐 코드가 동기화되도록 해줘야 합니다.
+### 현재 본인이 작업중인 코드와 깃허브에서 다른 사용자에 의해 바뀐 코드가 동기화되도록 해줘야 합니다.
 
-
-
-
+- `git add .`
+- `git commit -m "second commit"`
+- `git pull origin master`로 github master branch에서 업데이트 된 내용을 현재 본인이 작업한 코드와 동기화 해줍니다.
+- `git push origin master`로 깃허브의 master branch를 업데이트 해줍니다.
 
