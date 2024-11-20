@@ -31,3 +31,6 @@ comments: true
 ```terminal
 git push origin master
 ```
+
+
+### Pull request는 master에 갈 수 있도록 허락해달라는 요청입니다.
