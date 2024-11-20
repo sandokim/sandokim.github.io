@@ -32,9 +32,11 @@ comments: true
 git push origin master
 ```
 
+### 신입사원을 위한 branch를 따로 만들어줘야 합니다.
 
-### Pull request(PR)는 master에 갈 수 있도록 허락해달라는 요청입니다.
 
+
+### Pull request(PR)는 다른 branch에서 작업한 코드가 master에 합쳐질 수 있도록 허락해달라는 요청입니다.
 
 
 ### Merge pull request는 엄청난 책임이 따릅니다.
