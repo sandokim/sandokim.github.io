@@ -1,6 +1,6 @@
 ---
 title: "[Github] git@github.com: Permission denied (publickey) 에러 해결"
-last_modified_at: 2024-07-09
+last_modified_at: 2024-11-19
 categories:
   - Git
 tags:
