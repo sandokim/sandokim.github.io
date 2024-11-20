@@ -25,3 +25,9 @@ comments: true
 
 > [회사에서 개발자들은 어떻게 일할까? 회사에서 쓰는 실전 깃 깃허브 한방에 끝내기! 15분만 투자해라 님들의 회사생활이 편해짐](https://www.youtube.com/watch?v=cwC8t9dno2s)
 
+
+### master는 최종 브렌치이므로 개발할 때, 함부로 master에 push를 하면 안됩니다.
+
+```terminal
+git push origin master
+```
