@@ -40,3 +40,12 @@ git push origin master
 ### Merge pull request는 엄청난 책임이 따릅니다.
 
 Merge pull request를 하는 경우, pull request를 한 다른 branch가 master branch와 합쳐집니다.
+
+
+
+### 현재 작업중인 코드와 협업하면서 깃허브에서 다른 사용자에 의해 바뀐 코드가 동기화되도록 해줘야 합니다.
+
+
+
+
+
