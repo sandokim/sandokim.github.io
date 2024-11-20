@@ -14,7 +14,7 @@ classes: wide
 comments: true
 ---
 
-# VScode, CursorAI Extensions 꿀팁
+# VScode, CursorAI Extension 꿀팁
 
 자동으로 코드 정렬해주는 Extension
 
