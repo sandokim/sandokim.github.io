@@ -33,7 +33,7 @@ git push origin master
 ```
 
 
-### pull request(PR)는 master에 갈 수 있도록 허락해달라는 요청입니다.
+### Pull request(PR)는 master에 갈 수 있도록 허락해달라는 요청입니다.
 
 
 
