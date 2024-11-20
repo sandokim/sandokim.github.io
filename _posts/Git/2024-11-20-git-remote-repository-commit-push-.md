@@ -1,5 +1,5 @@
 ---
-title: "[Git] Git Tips"
+title: "[Git] Github repository, git commit, git push"
 last_modified_at: 2024-11-20
 categories:
   - Git
