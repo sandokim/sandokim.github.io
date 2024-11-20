@@ -39,4 +39,4 @@ git push origin master
 
 ### Merge pull request는 엄청난 책임이 따릅니다.
 
-pull request를 하는 경우, master branch와 합쳐집니다.
+Merge pull request를 하는 경우, pull request를 한 다른 branch가 master branch와 합쳐집니다.
