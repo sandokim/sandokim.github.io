@@ -138,3 +138,44 @@ push는 하지않고, pull을 먼저 해줍니다.
 
 - `git push origin master`로 github master branch를 업데이트 해줍니다.
 
+### freshman branch에서 다시 master branch로 돌아가서 코딩을 해봅시다.
+
+git switch {브렌치 이름}으로 branch를 바꿔줄 수 있습니다.
+
+```terminal
+git switch master
+```
+
+다음과 같은 에러가 뜬다면, master branch이름이 default로 `main`으로 되어있기 때문에 그렇습니다. 
+
+<img width="425" alt="image" src="https://github.com/user-attachments/assets/75f34e83-7182-43cb-b7f5-40526fa7b607">
+
+<img width="537" alt="image" src="https://github.com/user-attachments/assets/e64306ab-9aa1-41c3-8558-53e969530332">
+
+branch이름을 `main`에서 `master`로 바꿔줍니다.
+
+<img width="785" alt="image" src="https://github.com/user-attachments/assets/a56506a6-fd11-427f-9241-29e91cc8e760">
+
+<img width="797" alt="image" src="https://github.com/user-attachments/assets/eed8cc55-83bc-46f9-969d-2616f1b13069">
+
+<img width="536" alt="image" src="https://github.com/user-attachments/assets/7a007d39-fefe-4289-acc9-ebdd6ddf0248">
+
+<img width="533" alt="image" src="https://github.com/user-attachments/assets/ad52eff8-bd28-4c96-9b6c-7bd874504c3f">
+
+`main`에서 `master`로 이름이 바뀐 master branch를 pull 해줍니다.
+
+<img width="503" alt="image" src="https://github.com/user-attachments/assets/56226edf-73ba-44e3-9a92-12dd0cf875d7">
+
+master branch로 switch 해줍니다.
+
+```terminal
+git switch master
+```
+
+<img width="598" alt="image" src="https://github.com/user-attachments/assets/192804d3-d179-451f-8973-7974f0ff6a46">
+
+이제 master branch에서 다시 코딩을 시작할 수 있습니다.
+
+감사합니다.
+
+
