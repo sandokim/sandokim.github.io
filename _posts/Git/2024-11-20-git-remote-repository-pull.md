@@ -24,16 +24,52 @@ comments: true
 ---
 
 > [회사에서 개발자들은 어떻게 일할까? 회사에서 쓰는 실전 깃 깃허브 한방에 끝내기! 15분만 투자해라 님들의 회사생활이 편해짐](https://www.youtube.com/watch?v=cwC8t9dno2s)
-
-
+ 
 ### master는 최종 branch이므로 개발할 때, 함부로 master에 push를 하면 안됩니다.
 
 ```terminal
 git push origin master
 ```
 
-### 신입사원을 위한 branch를 따로 만들어줘야 합니다.
+> [[Git] Github repository, git commit, git push](https://sandokim.github.io/git/git-remote-repository-commit-push/)
 
+이전 포스트를 참고하여 Github repository를 만든 상태에서 협업하는 법을 진행해봅시다.
+
+### git clone을 먼저 해줍니다.
+
+```terminal
+git clone https://github.com/sandokim/STAR-GS.git {option 복사할 경로의 폴더이름}
+```
+
+<img width="828" alt="image" src="https://github.com/user-attachments/assets/e6137c06-13b0-4053-ad46-47a6943bbf98">
+
+```terminal
+cd STAR-GS
+code .
+```
+
+### 코드를 수정합니다. git clone할 때 이미 세팅정보도 같이와서 init, remote는 필요없습니다.
+
+```terminal
+git add .
+git commit -m "freshman first commit"
+```
+
+### `git push origin master`을 하지말고, 신입사원을 위한 branch를 따로 만들어줘야 합니다.
+
+```terminal
+git checkout -b freshman
+```
+
+<img width="505" alt="image" src="https://github.com/user-attachments/assets/456c1b84-ad60-4c0e-8ed2-7bd20e13d02c">
+
+이제 freshman branch로 push합니다.
+
+<img width="490" alt="image" src="https://github.com/user-attachments/assets/c7b26067-75f5-418f-b731-cdbbc9877b66">
+
+새로운 freshman branch가 생긴 것을 확인할 수 있습니다.
+
+<img width="815" alt="image" src="https://github.com/user-attachments/assets/e2a61878-9f1d-4d7b-87e3-116e95eb923d">
 
 
 ### Pull request(PR)는 다른 branch에서 작업한 코드가 master에 합쳐질 수 있도록 허락해달라는 요청입니다.
