@@ -164,6 +164,10 @@ branch이름을 `main`에서 `master`로 바꿔줍니다.
 
 `main`에서 `master`로 이름이 바뀐 master branch를 pull 해줍니다.
 
+```terminal
+git pull origin master
+```
+
 <img width="503" alt="image" src="https://github.com/user-attachments/assets/56226edf-73ba-44e3-9a92-12dd0cf875d7">
 
 master branch로 switch 해줍니다.
