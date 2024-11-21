@@ -10,6 +10,7 @@ tags:
   - github group project
   - branch
   - develop branch
+  - 깃허브 그룹 프로젝트
 excerpt: "Github group project"
 use_math: true
 classes: wide
