@@ -117,7 +117,7 @@ merge되었을때, freshman이 커밋할 때 사용한 commit message가 표시�
 
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/9fe08547-cb0d-4098-8934-9971abd14093">
 
-### 현재 본인이 작업중인 코드와 협업중인 다른 사용자에 의해 바뀐 Github의 master branch 코드가 동기화되도록 해줘야 합니다.
+### 현재 리더 본인이 작업중인 코드와 협업중인 다른 사용자(freshman)에 의해 바뀐 Github의 master branch 코드가 동기화되도록 해줘야 합니다.
 
 리더도 개발을 하고 있던 도중입니다. 이때 freshman과 merge해서 github repository에서 버전이 바뀐 상황이라고 해봅시다. (버전이 완전히 달라진 상황)
 
