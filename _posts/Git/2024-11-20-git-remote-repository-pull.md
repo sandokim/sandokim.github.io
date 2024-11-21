@@ -69,17 +69,45 @@ git checkout -b freshman
 
 새로운 freshman branch가 생긴 것을 확인할 수 있습니다.
 
-<img width="815" alt="image" src="https://github.com/user-attachments/assets/e2a61878-9f1d-4d7b-87e3-116e95eb923d">
+<img width="524" alt="image" src="https://github.com/user-attachments/assets/1d8e5dd0-801c-4a31-8c76-17c039a158c5">
 
+pull request를 해봅시다.
+
+<img width="524" alt="image" src="https://github.com/user-attachments/assets/bcf69d6b-4168-430d-b0f9-74d403a37448">
+
+<img width="790" alt="image" src="https://github.com/user-attachments/assets/9534d656-6961-4116-bea1-8bc023e4ba7a">
+
+그러면 아래와 같이 Pull request가 생깁니다.
+
+<img width="787" alt="image" src="https://github.com/user-attachments/assets/359e2dda-9f79-46ad-8a01-1ac9ee863977">
 
 ### Pull request(PR)는 다른 branch에서 작업한 코드가 master에 합쳐질 수 있도록 허락해달라는 요청입니다.
 
+다시 Senior 입장에서 Pull request를 살펴봅시다.
+
+<img width="788" alt="image" src="https://github.com/user-attachments/assets/9e0d5881-ce6b-4078-81ef-74359af011a7">
+
+<img width="781" alt="image" src="https://github.com/user-attachments/assets/1c4fea6a-fa3b-4121-acb1-f5cbca4a231e">
+
+<img width="789" alt="image" src="https://github.com/user-attachments/assets/14050da4-d3da-426f-b253-5987be7be0fd">
+
+필요하다면 바뀐 코드에 대해 코멘트를 남겨줄 수 있습니다.
+
+<img width="796" alt="image" src="https://github.com/user-attachments/assets/f0a82959-da78-48d3-97e3-e526516bb7af">
+
+아래와 같이 코멘트가 표시됩니다.
+
+<img width="786" alt="image" src="https://github.com/user-attachments/assets/b2b2274d-9e0c-402d-a101-5c68c4b1dd1d">
+
+코드가 괜찮다고 생각된다면 이제 merge를 해줍니다.
 
 ### Merge pull request는 엄청난 책임이 따릅니다.
 
 Merge pull request를 하는 경우, pull request를 한 다른 branch가 master branch와 합쳐집니다.
 
+<img width="785" alt="image" src="https://github.com/user-attachments/assets/bb92bc8a-4613-4803-a80c-591d2eca5556">
 
+이를 통해 최종 master branch 프로덕트가 완성됩니다.
 
 ### 현재 본인이 작업중인 코드와 협업중인 다른 사용자에 의해 바뀐 Github의 master branch 코드가 동기화되도록 해줘야 합니다.
 
