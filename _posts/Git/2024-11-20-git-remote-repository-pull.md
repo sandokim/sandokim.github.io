@@ -109,7 +109,13 @@ Merge pull request를 하는 경우, pull request를 한 다른 branch가 master
 
 <img width="785" alt="image" src="https://github.com/user-attachments/assets/000ce7f8-cab8-44df-b67f-481ff0128df3">
 
-이를 통해 최종 master branch 프로덕트가 완성됩니다.
+이를 통해 freshman의 branch과 master branch가 merge되어 최종 master branch 프로덕트가 완성됩니다.
+
+<img width="792" alt="image" src="https://github.com/user-attachments/assets/8a6380c2-48c8-46ff-a63f-30d184364f35">
+
+merge되었을때, freshman이 커밋할 때 사용한 commit message가 표시되는 것을 확인할 수 있습니다.
+
+<img width="686" alt="image" src="https://github.com/user-attachments/assets/9fe08547-cb0d-4098-8934-9971abd14093">
 
 ### 현재 본인이 작업중인 코드와 협업중인 다른 사용자에 의해 바뀐 Github의 master branch 코드가 동기화되도록 해줘야 합니다.
 
