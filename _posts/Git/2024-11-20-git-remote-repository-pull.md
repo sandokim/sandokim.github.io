@@ -107,6 +107,8 @@ Merge pull request를 하는 경우, pull request를 한 다른 branch가 master
 
 <img width="785" alt="image" src="https://github.com/user-attachments/assets/bb92bc8a-4613-4803-a80c-591d2eca5556">
 
+<img width="785" alt="image" src="https://github.com/user-attachments/assets/000ce7f8-cab8-44df-b67f-481ff0128df3">
+
 이를 통해 최종 master branch 프로덕트가 완성됩니다.
 
 ### 현재 본인이 작업중인 코드와 협업중인 다른 사용자에 의해 바뀐 Github의 master branch 코드가 동기화되도록 해줘야 합니다.
