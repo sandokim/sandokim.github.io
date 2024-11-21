@@ -119,8 +119,22 @@ merge되었을때, freshman이 커밋할 때 사용한 commit message가 표시�
 
 ### 현재 본인이 작업중인 코드와 협업중인 다른 사용자에 의해 바뀐 Github의 master branch 코드가 동기화되도록 해줘야 합니다.
 
+리더도 개발을 하고 있던 도중입니다. 이때 freshman과 merge해서 github repository에서 버전이 바뀐 상황이라고 해봅시다. (버전이 완전히 달라진 상황)
+
+master branch에 변화가 생겼다면, 같이 개발 중이던 모든 사람은 pull이란걸 해줘야합니다.
+
+즉, master에 있는 source code와 동기화를 해주는 것입니다.
+
+먼저 리더 본인이 작업 중인 코드를 날리면 안되므로, 다음을 하여 저장을 해줍니다.
+
 - `git add .`
 - `git commit -m "second commit"`
+
+push는 하지않고, pull을 먼저 해줍니다.
+
 - `git pull origin master`로 github master branch에서 업데이트 된 내용을 현재 본인이 작업한 코드와 동기화 해줍니다.
+
+최종적으로
+
 - `git push origin master`로 github master branch를 업데이트 해줍니다.
 
