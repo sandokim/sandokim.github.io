@@ -121,7 +121,7 @@ merge되었을때, freshman이 커밋할 때 사용한 commit message가 표시�
 
 리더도 개발을 하고 있던 도중입니다. 이때 freshman과 merge해서 github repository에서 버전이 바뀐 상황이라고 해봅시다. (버전이 완전히 달라진 상황)
 
-master branch에 변화가 생겼다면, 같이 개발 중이던 모든 사람은 pull이란걸 해줘야합니다.
+### master branch에 변화가 생겼다면, 같이 개발 중이던 모든 사람은 pull이란걸 해줘야합니다.
 
 즉, master에 있는 source code와 동기화를 해주는 것입니다.
 
