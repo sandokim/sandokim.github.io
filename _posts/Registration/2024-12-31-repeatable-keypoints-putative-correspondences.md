@@ -37,7 +37,7 @@ Inspired by the recent advances in image matching [22, 25, 39], keypoint-free me
 
 ![image](https://github.com/user-attachments/assets/ffe29722-cc63-4731-9757-2f3795829fe4)
 
-왼쪽 superpoint (patch) level / 오른쪽 dense point level
+위 그림 왼쪽 superpoint (patch) level / 오른쪽 dense point level
 
 ### Putative Correspondences
 Putative correspondences are initial matches between keypoints in two different images or point clouds4. The process typically involves:
