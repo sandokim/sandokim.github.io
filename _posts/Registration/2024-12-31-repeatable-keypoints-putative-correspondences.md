@@ -35,6 +35,10 @@ keypoint-free method는 3D 포인트 클라우드 처리와 객체 포즈 추정
 
 Inspired by the recent advances in image matching [22, 25, 39], keypoint-free methods [36] **downsample the input point clouds into superpoints and then match them through examining whether their local neighborhood (patch) overlaps.** **Such superpoint (patch) matching is then propagated to individual points, yielding dense point correspondences.** Consequently, **the accuracy of dense point correspondences highly depends on that of superpoint matches.**
 
+![image](https://github.com/user-attachments/assets/ffe29722-cc63-4731-9757-2f3795829fe4)
+
+왼쪽 superpoint (patch) level / 오른쪽 dense point level
+
 ### Putative Correspondences
 Putative correspondences are initial matches between keypoints in two different images or point clouds4. The process typically involves:
 - Detecting keypoints in both images or point clouds.
