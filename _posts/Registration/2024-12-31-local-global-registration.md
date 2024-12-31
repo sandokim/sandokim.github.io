@@ -14,6 +14,10 @@ classes: wide
 comments: true
 ---
 
+#### Reference
+
+> [Zero NeRF: Registration with Zero Overlap](https://arxiv.org/abs/2211.12544)
+
 ### Registration은 크게 Global Registration과 Local Registration으로 분류할 수 있습니다.
 
 - Local registration은 approximate solution을 초기값으로써 필요로 합니다.
