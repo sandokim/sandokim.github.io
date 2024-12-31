@@ -14,7 +14,10 @@ classes: wide
 comments: true
 ---
 
+### Registration은 크게 Global Registration과 Local Registration으로 분류할 수 있습니다.
 
+- Local registration은 approximate solution을 초기값으로써 필요로 합니다.
+- 반면 Global Registration은 초기값을 필요로 하지 않고 일반적으로 explicit correspondences를 찾는 과정을 포함합니다.
 
 
 
