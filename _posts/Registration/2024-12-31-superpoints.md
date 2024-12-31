@@ -1,4 +1,23 @@
+---
+title: "[Registration] Superpoints"
+last_modified_at: 2024-12-31
+categories:
+  - Registration
+tags:
+  - Registration
+  - 정합
+  - superpoints
+  - downsample the input point clouds
+  - Geotransformer
+excerpt: "downsample the input point clouds into superpoints and then match them through examining whether their local neighborhood (patch) overlaps."
+use_math: true
+classes: wide
+comments: true
+---
 
+> Reference
+
+> [Geometric Transformer for Fast and Robust Point Cloud Registration](https://openaccess.thecvf.com/content/CVPR2022/papers/Qin_Geometric_Transformer_for_Fast_and_Robust_Point_Cloud_Registration_CVPR_2022_paper.pdf)
 
 포인트 클라우드를 다운샘플링하고 슈퍼포인트로 변환하는 과정은 다음과 같습니다:
 
