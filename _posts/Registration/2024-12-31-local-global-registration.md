@@ -26,6 +26,6 @@ comments: true
 
 #### Iterative Closes Point (ICP)
 
-- **Iterative Closest Point (ICP)**와 그 변형 기법들은 Local Registration의 대표적인 형태입니다.
+- Iterative Closest Point (ICP)와 그 변형 기법들은 Local Registration의 대표적인 형태입니다.
 - ICP는 local minima에 빠지기 쉬우며, 장면이 완벽하게 정합되더라도 부분적으로만 겹치는 장면에서는 문제가 발생할 수 있습니다.
 - ICP는 명시적인 대응(explicit correspondences)을 필요로 하지 않지만, 겹침(overlap)에 의존합니다.
