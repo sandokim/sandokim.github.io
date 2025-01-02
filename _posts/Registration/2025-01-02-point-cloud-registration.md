@@ -36,7 +36,7 @@ comments: true
   - 추출된 특징점을 기반으로 두 데이터 간의 대응점을 찾습니다.
   - 방법: 최근접 이웃 검색(NN Search), KNN, RANSAC 등을 사용하여 신뢰할 수 있는 매칭을 필터링
 - Transformation Estimation (변환 추정):
-  - 매칭된 대응점을 이용해 두 데이터 간의 변환 관계(예: 회전, 이동, 스케일 등)를 계산합니다.
+  - 매칭된 대응점을 이용해 두 Point cloud 간의 변환 관계(예: 회전, 이동, 스케일 등)를 계산합니다.
   - 예: homography, rigid transformation, Affine transformation, ICP(Iterative Closest Point) 등
 
 ### Point cloud registration을 하는 이유는 large-scale 3D scene reconstruction을 하기 위해서입니다.
