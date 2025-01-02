@@ -14,6 +14,7 @@ tags:
   - ORB
   - LIFT
   - SuperPoint
+  - SuperGlue
 excerpt: "이러한 규칙 기반의 특징 점 매칭은 결국 특징점의 디스크립터간의 관계를 파악하는 구조에서 그칩니다."
 use_math: true
 classes: wide
@@ -29,6 +30,10 @@ comments: true
 > [ORB: An efficient alternative to SIFT or SURF](https://ieeexplore.ieee.org/document/6126544)
 
 > [LIFT: Learned Invariant Feature Transform](https://arxiv.org/pdf/1603.09114)
+
+> [Superglue: Learning feature matching with graph neural networks](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sarlin_SuperGlue_Learning_Feature_Matching_With_Graph_Neural_Networks_CVPR_2020_paper.pdf)
+
+> [LoFTR: Detector-free local feature matching with transformers](https://openaccess.thecvf.com/content/CVPR2021/papers/Sun_LoFTR_Detector-Free_Local_Feature_Matching_With_Transformers_CVPR_2021_paper.pdf)
 
 ### 규칙 기반 특징점 매칭
 
@@ -73,4 +78,47 @@ SuperPoint는 LIFT와 달리 이미지 크기의 제한이 없으며, 훈련 과
 SuperPoint는 레이블이없는 데이터에 대해 기본적인 도형 이미지를 통해 훈련된 기준 특징추출 모델과 Homographic 적응 절차를 적용하여 레이블을 자동으로 지정합니다. 
 
 이후 생성된 레이블을 통해 CNN를 훈련합니다. 
+
+### 딥러닝을 사용한 특징점 매칭
+
+딥러닝을 사용하여 특징점을 추출하는 방법뿐만 아니라 딥러닝을 사용하여 특징점을 매칭하는 방법 또한 연구되고 있습니다. 
+
+기존의 연구들은 두 이미지의 특징점의 디스크립터를 통해서만 관계를 파악하는 한계가 있었기 때문에 딥러닝을 사용하여 이러한 한계를 극복하려 했습니다. 
+
+특히 **특징점 매칭 시 특징점의 디스크립터만을 고려하는 것이 아닌** **특징점 사이의 관계도 고려하여 매칭 하는 연구**가 진행되고 있습니다. 
+
+SuperGlue는 SuperPoint의 후속 연구로 Graph Neural Networks (GNN)을 사용하여 두 이미지 사이 특징점들 간 관계뿐만 아니라 같은 이미지에 있는 특징점의 관계 또한 고려하여 특징점 매칭을 수행합니다. 
+
+SuperGlue는 이미 추출된 특징점과 디스크립터를 입력데이터로 받아 매칭을 수행하며 추출된 특징점에 노드로 같은 이미지에 존재하는 특징점간의 엣지를 생성한 그래프인 self 그래프와 매칭 쌍 이미지에 존재하는 특징점간 엣지를 생성한 cross 그래프를 두 개 생성하여 GNN을 적용합니다. 
+
+이를 통해 SuperGlue는 본 이미지에서의 특징점의 맥락과 상대 이미지의 특징점과의 맥락을 전부 반영하여 이미지 매칭을 수행할 수 있습니다. 
+
+아래 그림은 SuperGlue의 동작 과정을 보여줍닌다. 
+
+![image](https://github.com/user-attachments/assets/35aee1bc-4b5d-4033-a423-41e388ca56e1)
+
+**SuperGlue는** 추출된 특징점과 디스크립터를 입력으로 받는 기법이므로 추출된 특징점간의 관계를 고려하여 매칭을 수행하지만 **특징점이 검출되지 않은 구역이나 이미지의 전체적인 맥락은 고려하지 못합니다. **
+
+또한 다른 위치의 특징점이 같은 디스크립터를 가진다면 둘 사이의 차이를 구별하는 위치 정보를 고려하지 못합니다.
+
+이를 해결하기 위해 제안된 Detector-Free Local Feature Matching with Transformers (LoFTR)은 SuperGlue나 SIFT같은 기존방법처럼 추출된 특징점을 매칭하는 것이 아니라 
+
+이미지에 CNN을 통해 추출된 feature map을 사용한 뒤 관계성을 판단하고 
+
+추후 coarse-to-fine module을 통해 특징점을 지정합니다.
+
+아래 그림은 LoFTR의 동작 과정을 보여줍니다. 
+
+![image](https://github.com/user-attachments/assets/482f5c0a-3e3b-4d2e-bc68-3776ffed5241)
+
+**LoFTR은** 추출된 feature map을 같은 이미지의 특징 사이의 관계를 나타내는 self attention layer와 매칭 쌍 이미지의 특징 사이의 관계를 나타내는 cross attention layer를 생성한 뒤 **디스크립터 없이 바로 이미지 매칭을 수행한다.**
+
+더불어 매칭된 Feature map에서 Coarse-to-Fine Module을 제안하여 상세히 특징점의 위치를 추정합니다. 
+
+LoFTR는 SuperGlue와 같이 self attention layer, cross attention layer를 통해 본 이미지내부의 관계와 매칭 대상 이미지와의 관계를 고려하지만
+
+GNN이 아닌 transformer를 사용하여 성능을 발전시키고 **추출된 특징점이 아니라 feature map을 사용하여 특징의 위치적 정보를 고려할 수 있는 기법**입니다. 
+
+또한 LoFTR의 높은 성능 때문에 이후에도 LoFTR을 토대로 사용한 다양한 이미지 매칭 기법들이 등장하였습니다.
+
 
