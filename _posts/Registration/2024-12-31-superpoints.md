@@ -1,5 +1,5 @@
 ---
-title: "[Registration] Superpoints"
+title: "[Registration] Superpoints, Repeatability, descriptor matching"
 last_modified_at: 2024-12-31
 categories:
   - Registration
@@ -7,8 +7,9 @@ tags:
   - Registration
   - 정합
   - superpoints
-  - downsample the input point clouds
   - Geotransformer
+  - repeatability
+  - descripotr matching
 excerpt: "downsample the input point clouds into superpoints and then match them through examining whether their local neighborhood (patch) overlaps."
 use_math: true
 classes: wide
@@ -28,7 +29,6 @@ comments: true
 - 원본 3D 표현을 유지하면서 포인트 수를 줄입니다.
 - 데이터를 더 관리하기 쉬운 크기로 변환합니다.
 - 저장 및 처리 요구 사항을 줄입니다.
-
 
 ### 슈퍼포인트 (Superpoints)
 - 슈퍼포인트는 다음과 같은 특징을 가집니다:
@@ -54,7 +54,7 @@ This is likely due to the fact that SIFT performs extra sub-pixel localization, 
 
 ORB는 이 반복성이 높아서 동일 위치에서 특징점을 잘 찾지만, 특징점의 배치가 고르게 분포되지 않고 특정 영역에 몰려 있어서 최종 호모그래피 추정 작업에서 낮은 점수를 기록합니다.
 
-**ORB achieves the highest repeatability (Rep.); however, its detections tend to form sparse clusters throughout the image as shown in Figure 8, thus scoring poorly on the final homography estimation task. **
+ORB achieves the highest repeatability (Rep.); however, its detections tend to form sparse clusters throughout the image as shown in Figure 8, thus scoring poorly on the final homography estimation task.
 
 This suggests that **optimizing solely for repeatability does not result in better matching or estimation further up the pipeline.**
 
