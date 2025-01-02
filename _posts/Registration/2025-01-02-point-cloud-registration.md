@@ -65,7 +65,7 @@ The mainstream methods typically involve **extracting features from point clouds
 
 ### NeRF로 large-scale scene reconstruction을 하는 이유
 
-1. large-scale reconstruction을 위해서는 data collection process가 길어지게 됨. 즉, 시간이 걸려 추가적으로 얻어지는 데이터가 생김. 이 데이터로 학습되어 얻어지는 scene을 registration해서 더하는 방식으로 scene을 확장함.
+1. large-scale reconstruction을 위해서는 data collection process가 길어지게 됩니다. 즉, 시간이 걸려 추가적으로 얻어지는 데이터가 생기게 됩니다. 이 데이터로 학습되어 얻어지는 scene을 registration해서 더하는 방식으로 scene을 확장합니다.
 2. NeRF을 많은 이미지로 학습 시키는 것은 시간이 오래걸림. 따라서 large-scale scene을 여러 개의 small scene들로 나눠서 병렬적으로 학습한 다음, registration으로 small scene들을 합칠 수 있습니다.
 
 When considering large-scale scene reconstruction based on NeRF, there are two main challenges: 
