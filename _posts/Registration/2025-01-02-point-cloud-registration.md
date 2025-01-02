@@ -24,3 +24,8 @@ comments: true
 > [GaussReg: Fast 3D Registration with Gaussian Splatting](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/02380.pdf)
 
 **Point cloud registration is a fundamental problem for larges-cale 3D scene scanning and reconstruction.**
+
+### HLoc vs GaussReg
+
+Our GaussReg is 44× faster than HLoc (SuperPoint as the feature extractor and SuperGlue as the matcher) with comparable accuracy.
+
