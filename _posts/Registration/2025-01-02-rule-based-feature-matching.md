@@ -13,6 +13,7 @@ tags:
   - BRIEF
   - ORB
   - LIFT
+  - Tilde
   - SuperPoint
   - SuperGlue
 excerpt: "이러한 규칙 기반의 특징 점 매칭은 결국 특징점의 디스크립터간의 관계를 파악하는 구조에서 그칩니다."
@@ -30,6 +31,8 @@ comments: true
 > [ORB: An efficient alternative to SIFT or SURF](https://ieeexplore.ieee.org/document/6126544)
 
 > [LIFT: Learned Invariant Feature Transform](https://arxiv.org/pdf/1603.09114)
+
+> [Tilde: A temporally invariant learned detector](https://openaccess.thecvf.com/content_cvpr_2015/papers/Verdie_TILDE_A_Temporally_2015_CVPR_paper.pdf)
 
 > [SuperPoint: Self-Supervised Interest Point Detection and Description](https://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w9/DeTone_SuperPoint_Self-Supervised_Interest_CVPR_2018_paper.pdf)
 
@@ -61,7 +64,7 @@ BRIEF는 간단하고 빠르게 계산될 수 있지만 특징점의 방향과 �
 
 ### 이후 이미지의 전체 맥락을 파악할 수 있도록 딥러닝 기반 특징점 추출 방식이 도입되었다라는 흐름입니다.
 
-딥러닝 기법이 발달함에 따라 여러 가지 훈련 가능한 특징 추출 모델들이 등장하였습니다. 
+딥러닝 기법이 발달함에 따라 여러 가지 훈련 가능한 특징 추출 모델들이 등장하였습니다 (Lift: Learned invariant feature transform, Tilde: A temporally invariant learned detector) 
 
 그 중 Learned Invarient Feature Transform (LIFT)는 Convolution Neural Network(CNN)을 사용하여 훈련이 가능하며 SIFT와 유사한 특징점 추출과 디스크립터 생성 기법을 제안했습니다.
 
