@@ -25,9 +25,16 @@ comments: true
 
 > [From coarse to fine: Robust hierarchical localization at large scale](https://openaccess.thecvf.com/content_CVPR_2019/papers/Sarlin_From_Coarse_to_Fine_Robust_Hierarchical_Localization_at_Large_Scale_CVPR_2019_paper.pdf)
 
+### Point cloud registration은 왜하는가?
+
 **Point cloud registration is a fundamental problem for larges-cale 3D scene scanning and reconstruction.**
+
+In traditional 3D scene scanning and reconstruction, a large-scale scene is usually divided into different blocks, resulting in many independent sub-scenes that may not in the same coordinate system. 
+
+Therefore, the registration between them plays a crucial role.
+
+The mainstream methods typically involve **extracting features from point clouds** and **locating matching points to calculate the transformation between the two input scenes.**
 
 ### HLoc vs GaussReg
 
 Our GaussReg is 44× faster than HLoc (SuperPoint as the feature extractor and SuperGlue as the matcher) with comparable accuracy.
-
