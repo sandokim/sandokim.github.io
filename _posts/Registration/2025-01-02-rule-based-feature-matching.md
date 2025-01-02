@@ -16,7 +16,7 @@ tags:
   - Tilde
   - SuperPoint
   - SuperGlue
-excerpt: "이러한 규칙 기반의 특징 점 매칭은 결국 특징점의 디스크립터간의 관계를 파악하는 구조에서 그칩니다."
+excerpt: "규칙 기반의 특징 점 매칭은 결국 특징점의 디스크립터간의 관계를 파악하는 구조에서 그칩니다."
 use_math: true
 classes: wide
 comments: true
