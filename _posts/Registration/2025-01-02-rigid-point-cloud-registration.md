@@ -21,7 +21,7 @@ comments: true
 
 **Rigid point cloud registration refers to the problem of finding the optimal rotation and translation parameters that align two point clouds.**
 
-![image](https://github.com/user-attachments/assets/e3739677-a2f6-4467-afc1-bc12fcb6afd6)
+![image](https://github.com/user-attachments/assets/74ac24fb-843d-43c5-90b0-c0a026662cfa)
 
 A common solution to point cloud registration follows the following pipeline: 
 
