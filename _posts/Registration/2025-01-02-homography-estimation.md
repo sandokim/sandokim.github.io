@@ -28,7 +28,7 @@ comments: true
 
 > [[OpenCV][C++] Homography 호모그래피 findHomography getPerspectiveTransform Projective Perspective 차이 warp](https://blog.naver.com/dorergiverny/223362309242)
 
-### Homography 란?
+### Homography $\mathcal{H}$ 란?
 
 호모그래피 (homography)는 서로 다른 카메라 뷰의 영상에 있는 두 평면 사이의 변환 또는 3차원 공간의 평면과 영상에 투영된 평면 사이의 변환행렬입니다. 
 
