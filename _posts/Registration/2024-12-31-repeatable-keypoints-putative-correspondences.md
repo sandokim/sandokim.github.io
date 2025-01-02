@@ -20,7 +20,9 @@ comments: true
 > [Geometric Transformer for Fast and Robust Point Cloud Registration](https://openaccess.thecvf.com/content/CVPR2022/papers/Qin_Geometric_Transformer_for_Fast_and_Robust_Point_Cloud_Registration_CVPR_2022_paper.pdf)
 
 ### Repeatable Keypoints
-Repeatable keypoints are distinctive points in an image or point cloud that can be consistently detected across different views or instances of the same object or scene. These points have specific characteristics:
+Repeatable keypoints are distinctive points in an image or point cloud that can be consistently detected across different views or instances of the same object or scene. 
+
+These points have specific characteristics:
 - Uniqueness: They stand out from surrounding pixels due to distinct visual attributes.
 - Invariance: They remain detectable despite image transformations like rotation, scaling, or lighting changes.
 - Repeatability: They can be reliably identified in different versions of the same scene.
