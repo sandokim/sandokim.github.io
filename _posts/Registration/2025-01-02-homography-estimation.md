@@ -26,13 +26,15 @@ comments: true
 
 > [[OpenCV][C++] Homography 호모그래피 findHomography getPerspectiveTransform Projective Perspective 차이 warp](https://blog.naver.com/dorergiverny/223362309242)
 
-### Homographic Adaptation 이란?
-
-Homography Estimation과 Homographic Adaptation은 관련은 있지만 다른 개념입니다:
+### Homography 란?
 
 호모그래피 (homography)는 서로 다른 카메라 뷰의 영상에 있는 두 평면 사이의 변환 또는 3차원 공간의 평면과 영상에 투영된 평면 사이의 변환행렬입니다. 
 
 Homography는 다시 말하면 **두 개의 2D 평면 사이의 관계를 나타내는 행렬**입니다. 
+
+### Homographic Adaptation 이란?
+
+Homography Estimation과 Homographic Adaptation은 관련은 있지만 다른 개념입니다:
 
 ### Homography Estimation:
 - 두 이미지 간의 평면 변환 관계를 나타내는 행렬(homography matrix)을 찾는 과정입니다.
