@@ -64,7 +64,10 @@ BRIEF는 간단하고 빠르게 계산될 수 있지만 특징점의 방향과 �
 
 ### 이후 이미지의 전체 맥락을 파악할 수 있도록 딥러닝 기반 특징점 추출 방식이 도입되었다라는 흐름입니다.
 
-딥러닝 기법이 발달함에 따라 여러 가지 훈련 가능한 특징 추출 모델들이 등장하였습니다 (Lift: Learned invariant feature transform, Tilde: A temporally invariant learned detector) 
+딥러닝 기법이 발달함에 따라 여러 가지 훈련 가능한 특징 추출 모델들이 등장하였습니다:
+
+- Lift: Learned invariant feature transform
+- Tilde: A temporally invariant learned detector 
 
 그 중 Learned Invarient Feature Transform (LIFT)는 Convolution Neural Network(CNN)을 사용하여 훈련이 가능하며 SIFT와 유사한 특징점 추출과 디스크립터 생성 기법을 제안했습니다.
 
