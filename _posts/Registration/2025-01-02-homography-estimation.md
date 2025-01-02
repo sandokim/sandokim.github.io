@@ -46,7 +46,7 @@ Homography Estimation과 Homographic Adaptation은 관련은 있지만 다른 �
 ### Homographic Adaptation:
 - SuperPoint에서 제안된 기법으로, 관심점 검출의 반복성을 향상시키는 방법입니다.
 - 입력 이미지에 여러 무작위 호모그래피를 적용하여 다양한 시점과 스케일에서 관심점을 검출합니다.
-- 검출된 관심점들을 원본 이미지로 역변환하여 의사 ground truth를 생성합니다.
+- 검출된 관심점들을 원본 이미지로 역변환하여 pseudo ground truth를 생성합니다.
 - 이를 통해 모델의 도메인 적응력을 높이고, 실제 환경에서의 성능을 개선합니다.
 
 **Homographic Adaptation은 Homography Estimation의 개념을 활용하지만, 주로 관심점 검출기의 성능 향상과 자기 지도 학습에 초점을 맞춥니다.**
