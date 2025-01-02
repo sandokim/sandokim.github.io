@@ -28,5 +28,9 @@ A common solution to point cloud registration follows the following pipeline:
 3. obtain putative correspondences via nearest neighbor matching
 4. estimate the rigid transformation, typically in a robust fashion using RANSAC.
 
+In recent years, researchers have applied learning to point cloud registration.
 
+Many of these works focus on **learning the feature descriptors** [14,15,54] and sometimes also the **keypoint detection** [2, 20, 49].
+
+**The final two steps generally remain unchanged and these approaches still require nearest neighbor matching and RANSAC to obtain the final transformation.**
 
