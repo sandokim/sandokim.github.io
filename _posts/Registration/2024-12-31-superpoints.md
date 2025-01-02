@@ -50,7 +50,7 @@ This is likely due to the fact that SIFT performs extra sub-pixel localization, 
 
 ### Repeatability가 높다고해서 최종 Homography 추정이 잘되는 것은 아닙니다.
 
-반복성(Repeatability)는 이미지 간의 조건(조명, 각도 등)이 바뀌더라도 동일한 위치에서 특징점을 검출하는 능력을 의미합니다.
+**Repeatability는 이미지 간의 조건(조명, 각도 등)이 바뀌더라도 동일한 위치에서 특징점을 검출하는 능력을 의미합니다.**
 
 ORB는 이 반복성이 높아서 동일 위치에서 특징점을 잘 찾지만, 특징점의 배치가 고르게 분포되지 않고 특정 영역에 몰려 있어서 최종 호모그래피 추정 작업에서 낮은 점수를 기록합니다.
 
