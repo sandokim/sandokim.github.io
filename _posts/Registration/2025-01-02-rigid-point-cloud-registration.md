@@ -34,3 +34,5 @@ Many of these works focus on **learning the feature descriptors** [14,15,54] and
 
 **The final two steps generally remain unchanged and these approaches still require nearest neighbor matching and RANSAC to obtain the final transformation.**
 
+These algorithms do not take the post-processing into account during training, and their performance can be sensitive to the post-processing choices to pick out the correct correspondences, e.g. number of sampled interest points or
+distance threshold in RANSAC.
