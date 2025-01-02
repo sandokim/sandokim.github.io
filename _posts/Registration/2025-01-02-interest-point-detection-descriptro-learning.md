@@ -38,11 +38,11 @@ comments: true
 
 - 목적: 서로 다른 이미지에서 같은 keypoint를 식별할 수 있게 하는 것
 - 방법:
- - Contrastive loss를 이용한 metric learning
- - Siamese training 기법 활용
+  - Contrastive loss를 이용한 metric learning
+  - Siamese training 기법 활용
 - 특징:
- - Keypoint location과 descriptor 계산이 ~90%의 가중치를 공유
- - 같은 keypoint는 다른 각도에서도 유사한 descriptor 생성
- - 다른 keypoint와는 구별되는 descriptor 생성
+  - Keypoint location과 descriptor 계산이 ~90%의 가중치를 공유
+  - 같은 keypoint는 다른 각도에서도 유사한 descriptor 생성
+  - 다른 keypoint와는 구별되는 descriptor 생성
 
 SuperPoint의 핵심은 이 두 과정(Interest point detection & descriptor learning)을 하나의 네트워크에서 동시에 수행한다는 점입니다. 이를 통해 GPU에서 실시간으로 처리가 가능하며, 기존의 hand-crafted 방식보다 우수한 성능을 보입니다.
