@@ -25,7 +25,7 @@ comments: true
 
 > [From coarse to fine: Robust hierarchical localization at large scale](https://openaccess.thecvf.com/content_CVPR_2019/papers/Sarlin_From_Coarse_to_Fine_Robust_Hierarchical_Localization_at_Large_Scale_CVPR_2019_paper.pdf)
 
-### Point cloud registration은 왜하는가?
+### Point cloud registration을 하는 이유는 large-scale 3D scene reconstruction을 하기 위해서입니다.
 
 **Point cloud registration is a fundamental problem for larges-cale 3D scene scanning and reconstruction.**
 
@@ -34,6 +34,16 @@ In traditional 3D scene scanning and reconstruction, a large-scale scene is usua
 Therefore, the registration between them plays a crucial role.
 
 The mainstream methods typically involve **extracting features from point clouds** and **locating matching points to calculate the transformation between the two input scenes.**
+
+### NeRF로 large-scale scene reconstruction을 하는 이유
+
+1. large-scale reconstruction을 위해서는 data collection process가 길어지게 됨. 이후에 추가적으로 얻어지는 scene을 registration해서 더하는 방식으로 확장해야 합니다.
+2. NeRF을 많은 이미지로 학습 시키는 것은 시간이 오래걸림. 따라서 large-scale scene을 여러 개의 small scene들로 나눠서 병렬적으로 학습한 다음, registration으로 small scene들을 합칠 수 있습니다.
+
+When considering large-scale scene reconstruction based on NeRF, there are two main challenges: 
+
+1. Due to the complex occlusions present in real-world scenes, lots of images or videos are often required to capture for large-scale reconstruction, leading to a time-consuming data collection process. 
+2. Optimizing NeRF with numerous images is computationally intensive. Therefore, a direct approach is to divide a large-scale scene into some smaller scenes, reconstruct them separately, and then use registration to combine all these small scenes together.
 
 ### HLoc vs GaussReg
 
