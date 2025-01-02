@@ -66,7 +66,7 @@ SuperPoint는 LIFT와 달리 이미지 크기의 제한이 없으며, 훈련 과
 
 기존 딥러닝을 사용한 특징추출 모델은 훈련하기 위해 지도된 결과 값을 가진 훈련 데이터를 사용해야 했지만 SuperPoint는 자체 감독 훈련을 적용하여 이를 극복했습니다. 
 
-그림 5는 SuperPoint의 자체 감독 훈련 개요를 보여줍니다.
+아래 그림은 SuperPoint의 자체 감독 훈련 개요를 보여줍니다.
 
 ![image](https://github.com/user-attachments/assets/4e513c0c-8ac2-4225-9b0e-1035ce3fd25f)
 
