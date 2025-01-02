@@ -9,7 +9,7 @@ tags:
   - superpoints
   - keypoint
   - descriptors
-  - interest point
+  - interest points
   - homographic adatation
   - homography estimation
 excerpt: "Homography Estimation과 Homographic Adaptation은 관련은 있지만 다른 개념입니다."
