@@ -25,6 +25,19 @@ comments: true
 
 > [From coarse to fine: Robust hierarchical localization at large scale](https://openaccess.thecvf.com/content_CVPR_2019/papers/Sarlin_From_Coarse_to_Fine_Robust_Hierarchical_Localization_at_Large_Scale_CVPR_2019_paper.pdf)
 
+### Registration 순서: feature extraction, feature matching, transformation estimation
+
+**Registration의 기본 순서는 일반적으로 다음과 같이 이루어집니다:
+- Feature Extraction (특징 추출):
+  - 두 데이터(예: 두 이미지, 포인트 클라우드 등)에서 의미 있는 특징점(keypoints)과 디스크립터(descriptors)를 추출합니다.
+  - 예: SIFT, ORB, SuperPoint 등
+- Feature Matching (특징 매칭):
+  - 추출된 특징점을 기반으로 두 데이터 간의 대응점을 찾습니다.
+  - 방법: 최근접 이웃 검색(NN Search), KNN, RANSAC 등을 사용하여 신뢰할 수 있는 매칭을 필터링
+- Transformation Estimation (변환 추정):
+  - 매칭된 대응점을 이용해 두 데이터 간의 변환 관계(예: 회전, 이동, 스케일 등)를 계산합니다.
+  - 예: homography, rigid transformation, Affine transformation, ICP(Iterative Closest Point) 등
+
 ### Point cloud registration을 하는 이유는 large-scale 3D scene reconstruction을 하기 위해서입니다.
 
 **Point cloud registration is a fundamental problem for larges-cale 3D scene scanning and reconstruction.**
