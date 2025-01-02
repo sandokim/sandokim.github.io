@@ -44,3 +44,20 @@ SuperPoint tends to produce a larger number of correct matches which densely cov
 
 ![image](https://github.com/user-attachments/assets/db590a3f-2eb4-4edd-b68a-900784bdf577)
 
+SIFT performs well for sub-pixel precision homographies $\epsilon = 1$ and has the lowest mean localization error (MLE). 
+
+This is likely due to the fact that SIFT performs extra sub-pixel localization, while other methods do not perform this step.
+
+### Repeatability가 높다고해서 최종 Homography 추정이 잘되는 것은 아닙니다.
+
+**반복성(Repeatability)**는 이미지 간의 조건(조명, 각도 등)이 바뀌더라도 동일한 위치에서 특징점을 검출하는 능력을 의미합니다.
+
+ORB는 이 반복성이 높아서 동일 위치에서 특징점을 잘 찾지만, 특징점의 배치가 고르게 분포되지 않고 특정 영역에 몰려 있어서 최종 호모그래피 추정 작업에서 낮은 점수를 기록합니다.
+
+**ORB achieves the highest repeatability (Rep.); however, its detections tend to form sparse clusters throughout the image as shown in Figure 8, thus scoring poorly on the final homography estimation task. **
+
+This suggests that **optimizing solely for repeatability does not result in better matching or estimation further up the pipeline.**
+
+### SuperPoint는 descriptor-focused metrics인 nearest neighbor mAP (NN mAP)와 macthing score (M. score)에서 높은 점수를 기록했습니다.
+
+**SuperPoint** scores strongly in descriptor-focused metrics such as nearest neighbor mAP (NN mAP) and matching score (M. Score), which confirms findings from both Choy et al. [3] and Yi et al. [32] which **show that learned representations for descriptor matching outperform hand-tuned representations.**
