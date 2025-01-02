@@ -27,7 +27,8 @@ comments: true
 
 ### Registration 순서: feature extraction, feature matching, transformation estimation
 
-**Registration의 기본 순서는 일반적으로 다음과 같이 이루어집니다:
+**Registration의 기본 순서는 일반적으로 다음과 같이 이루어집니다:**
+
 - Feature Extraction (특징 추출):
   - 두 데이터(예: 두 이미지, 포인트 클라우드 등)에서 의미 있는 특징점(keypoints)과 디스크립터(descriptors)를 추출합니다.
   - 예: SIFT, ORB, SuperPoint 등
