@@ -17,7 +17,9 @@ comments: true
 
 > [REGTR: End-to-end Point Cloud Correspondences with Transformers](https://openaccess.thecvf.com/content/CVPR2022/papers/Yew_REGTR_End-to-End_Point_Cloud_Correspondences_With_Transformers_CVPR_2022_paper.pdf)
 
-Rigid point cloud registration refers to the problem of finding the optimal rotation and translation parameters that align two point clouds. 
+### Rigid point cloud registration
+
+**Rigid point cloud registration refers to the problem of finding the optimal rotation and translation parameters that align two point clouds.**
 
 A common solution to point cloud registration follows the following pipeline: 
 
