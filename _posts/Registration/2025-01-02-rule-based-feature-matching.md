@@ -36,7 +36,7 @@ SIFT를 기반(SIFT, SURF)으로하는 이미지 매칭 기법은 디스크립�
 
 SIFT의 디스크립터는 주변 영역을 16개의 구간으로 나누어 각 구간의 그래디언트를 집계하여값을 생성하기 때문에 **추출된 디스크립터의 크기는 128차원의 벡터**이므로 연산량이 크다는 단점이 있다. 
 
-이를 보완하기 위해 Binary Robust Independent Elementary Features(BRIEF)[5] 알고리즘이 고안되었습니다. 
+이를 보완하기 위해 Binary Robust Independent Elementary Features(BRIEF) 알고리즘이 고안되었습니다. 
 
 BRIEF는 이미지의 디스크립터를 이진 특징 벡터로 기술하여 계산이 필요한 차원의 수를 크게 줄이는 알고리즘으로 SIFT 보다 빠른 연산이 가능하게 했습니다. 
 
