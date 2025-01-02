@@ -39,7 +39,9 @@ comments: true
   - 매칭된 대응점을 이용해 두 Point cloud 간의 변환 관계(예: 회전, 이동, 스케일 등)를 계산합니다.
   - 예: homography, rigid transformation, Affine transformation, ICP(Iterative Closest Point) 등
  
-### 3D point cloud registration는 correspondence searching(feature extraction & feature matching)과 transformation estimation으로 구성됩니다.
+### 3D point cloud registration (correspondence searching & transformation estimation)
+
+3D point cloud registration는 feature extraction과 feature matching을 합쳐 부르는 correspondence searching과 transformation estimation으로 구성된다고 말할 수도 있습니다..
 
 3D point cloud registration has been developed for decades. Given two overlapping point clouds with different coordinate systems, the target of this task is to find the transformation between them. 
 
