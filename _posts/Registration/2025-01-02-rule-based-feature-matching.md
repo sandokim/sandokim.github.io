@@ -27,6 +27,7 @@ comments: true
 > [ORB: An efficient alternative to SIFT or SURF](https://ieeexplore.ieee.org/document/6126544)
 
 ### 규칙 기반 특징점 매칭
+
 특징점 검출은 과정 이후 찾은 특징점을 벡터로 저장하거나 표현하기 위해서 디스크립터를 생성하고, 
 
 이 디스크립터를 사용하여 특징점 매칭을 진행합니다. 
@@ -39,7 +40,7 @@ SIFT의 디스크립터는 주변 영역을 16개의 구간으로 나누어 각 
 
 BRIEF는 이미지의 디스크립터를 이진 특징 벡터로 기술하여 계산이 필요한 차원의 수를 크게 줄이는 알고리즘으로 SIFT 보다 빠른 연산이 가능하게 했습니다. 
 
-Oriented FAST and Rotated BRIEF(ORB)[6]는 특징점 추출 과정에 FAST 알고리즘을 사용하고 특징점 매칭 과정에 BRIEF 알고리즘을 사용하여 SIFT 보다 개선된 수행시간을 보였습니다. 
+Oriented FAST and Rotated BRIEF(ORB)는 특징점 추출 과정에 FAST 알고리즘을 사용하고 특징점 매칭 과정에 BRIEF 알고리즘을 사용하여 SIFT 보다 개선된 수행시간을 보였습니다. 
 
 BRIEF는 간단하고 빠르게 계산될 수 있지만 특징점의 방향과 강도를 표현하는 능력은 SIFT보다 제한적이다. 
 
