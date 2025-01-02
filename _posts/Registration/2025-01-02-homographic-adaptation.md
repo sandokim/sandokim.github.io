@@ -22,7 +22,9 @@ comments: true
 
 > [TILDE: A Temporally Invariant Learned DEtector](https://openaccess.thecvf.com/content_cvpr_2015/papers/Verdie_TILDE_A_Temporally_2015_CVPR_paper.pdf)
 
-The TILDE interest point detection system used a principle similar to Homographic Adaptation; however, their approach does not benefit from the power of large fully-convolutional neural networks.
+The TILDE interest point detection system used a principle similar to **Homographic Adaptation**; however, their approach does not benefit from the power of large fully-convolutional neural networks.
+
+### Homographic Adaptation 이란?
 
 Homographic Adaptation은 SuperPoint에서 제안된 기법으로, 관심점 검출의 반복성을 높이고 도메인 간 적응(예: 합성에서 실제 이미지로)을 수행하기 위한 다중 스케일, 다중 호모그래피 접근 방식입니다. 
 
