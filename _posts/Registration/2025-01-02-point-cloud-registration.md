@@ -38,6 +38,18 @@ comments: true
 - Transformation Estimation (변환 추정):
   - 매칭된 대응점을 이용해 두 Point cloud 간의 변환 관계(예: 회전, 이동, 스케일 등)를 계산합니다.
   - 예: homography, rigid transformation, Affine transformation, ICP(Iterative Closest Point) 등
+ 
+### 3D point cloud registration는 correspondence searching(feature extraction & feature matching)과 transformation estimation으로 구성됩니다.
+
+3D point cloud registration has been developed for decades. Given two overlapping point clouds with different coordinate systems, the target of this task is to find the transformation between them. 
+
+Traditional methods [4, 17, 18, 21, 23, 40, 42] divide this process into two parts: **correspondence searching and transformation estimation.**
+
+Correspondence searching involves finding sparse matched feature points between the source and target point clouds. 
+
+Transformation estimation is to calculate the transformation matrix using these correspondences.
+
+These two stages will be conducted iteratively to find the optimal transformation.
 
 ### Point cloud registration을 하는 이유는 large-scale 3D scene reconstruction을 하기 위해서입니다.
 
