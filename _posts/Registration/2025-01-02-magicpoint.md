@@ -13,6 +13,7 @@ tags:
   - homographic adatation
   - homography estimation
   - MagicPoint
+  - repeatability
 excerpt: "MagicPoint는 interest points 검출에 초점을 맞춘 모델입니다."
 use_math: true
 classes: wide
@@ -41,6 +42,8 @@ MagicPoint는 SuperPoint 개발의 중요한 첫 단계로, 합성 데이터를 
 ![image](https://github.com/user-attachments/assets/1a5434b1-0600-4a7b-a669-0a6a597a6a3a)
 
 ### MagicPoint vs SuperPoint(=MagicPoint + Homographic Adaptation)
+
+In summary, the Homographic Adaptation technique used to transform MagicPoint into SuperPoint gives a large boost in repeatability, especially under large viewpoint changes.
 
 SuperPoint는 조명 변화에 가장 반복적으로 대응하며, 시점 변화에서도 경쟁력을 보이고, 모든 시나리오에서 MagicPoint를 능가합니다.
 
