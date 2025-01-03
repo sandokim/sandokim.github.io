@@ -25,6 +25,8 @@ comments: true
 
 > [From coarse to fine: Robust hierarchical localization at large scale](https://openaccess.thecvf.com/content_CVPR_2019/papers/Sarlin_From_Coarse_to_Fine_Robust_Hierarchical_Localization_at_Large_Scale_CVPR_2019_paper.pdf)
 
+> [DReg-NeRF: Deep Registration for Neural Radiance Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_DReg-NeRF_Deep_Registration_for_Neural_Radiance_Fields_ICCV_2023_paper.pdf)
+
 ### Registration 순서: feature extraction, feature matching, transformation estimation
 
 **Registration의 기본 순서는 일반적으로 다음과 같이 이루어집니다:**
@@ -38,6 +40,10 @@ comments: true
 - Transformation Estimation (변환 추정):
   - 매칭된 대응점을 이용해 두 Point cloud 간의 변환 관계(예: 회전, 이동, 스케일 등)를 계산합니다.
   - 예: homography, rigid transformation, Affine transformation, ICP(Iterative Closest Point) 등
+ 
+### Point cloud registration
+
+Point cloud registration is a classic problem in 3D computer vision, which aims at computing the relative transformation from the source point cloud to the target point cloud.
  
 ### 3D point cloud registration (correspondence searching & transformation estimation)
 
