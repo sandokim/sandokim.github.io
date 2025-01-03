@@ -23,11 +23,11 @@ comments: true
 > [DReg-NeRF: Deep Registration for Neural Radiance Fields
 ](https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_DReg-NeRF_Deep_Registration_for_Neural_Radiance_Fields_ICCV_2023_paper.pdf)
 
-> [Superglue: Learning feature matching with graph neural networks]()
+> [Superglue: Learning feature matching with graph neural networks](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sarlin_SuperGlue_Learning_Feature_Matching_With_Graph_Neural_Networks_CVPR_2020_paper.pdf)
 
-> [Predator: Registration of 3d point clouds with low overlap]()
+> [Predator: Registration of 3d point clouds with low overlap](https://openaccess.thecvf.com/content/CVPR2021/papers/Huang_Predator_Registration_of_3D_Point_Clouds_With_Low_Overlap_CVPR_2021_paper.pdf)
 
-> [REGTR: end-to-end point cloud correspondences with transformers]()
+> [REGTR: end-to-end point cloud correspondences with transformers](https://openaccess.thecvf.com/content/CVPR2022/papers/Yew_REGTR_End-to-End_Point_Cloud_Correspondences_With_Transformers_CVPR_2022_paper.pdf)
 
 ### Matching 2D image correspondences: SuperGlue, Predator, REGTR
 
