@@ -49,14 +49,23 @@ comments: true
 
 **Point cloud registration은 source point cloud와 target point cloud의 3D 좌표계에서 correspondences를 기반으로 상대적인 rigid transformation을 계산하는 문제입니다.**
 
-**이 과정에서 correspondences의 confidence scores를 기반으로 가중치를 부여하며, 낮은 confidence scores를 가진 correspondences는 mask out 처리됩니다.**
+이 과정에서는 correspondences(두 점군 사이의 대응점)에 대해 confidence scores를 계산합니다. 이 점수는 각 대응점의 신뢰도를 나타내며, 
+
+- 높은 confidence scores를 가진 correspondences는 더 중요한 것으로 간주되어 가중치가 더 크게 부여됩니다.
+- 반면, 낮은 confidence scores를 가진 correspondences는 신뢰도가 낮다고 판단되어 계산에서 제외(mask out)됩니다.
+
+여기서 confidence scores란, 예측된 점 $\tilde{X}\_{source}$와 $\tilde{X}\_{target}$이 실제로 서로 대응되는 점일 가능성을 나타냅니다. 동시에, **이 점들이 각각 source NeRF와 target NeRF에서 얼마나 잘 보이는지(가시성, visibility)**를 반영합니다. 
+
+간단히 말하면, 점수가 높을수록 두 점이 진짜 대응점일 확률이 높고, 해당 점이 NeRF의 렌더링된 3D 공간에서 카메라 시점(viewpoint)에서 가려지지 않고 명확히 관찰될 수 있는, 가시성이 높은 위치에 있다는 의미입니다.
 
 After encoding features by transformer, we further adopt a single-head attention layer to predict the corresponding point locations $\tilde{X}\_{source}$ and confidence scores $\tilde{S}\_{source}$ of the source voxel points $\hat{X}_{source}$ in the target NeRF’s coordinate frame. 
 
 Similarly, we also predict the corresponding point locations $\tilde{X}\_{target}$ and confidence scores $S_{target}$ of the target voxel points $\hat{X}_{target}$ in the source NeRF’s coordinate frame. 
 
 Finally, we **utilize the predicted correspondences to compute the relative rigid transformation.**
- 
+
+**The confidence scores are used as weights that mask out the irrelevant correspondences and can be interpreted as how likely the predicted points from $\tilde{X}\_source$ and $\tilde{X}\_target$ are correspondences and are visible in the source NeRF and the target NeRF.** 
+
 ### 3D point cloud registration (correspondence searching & transformation estimation)
 
 3D point cloud registration는 feature extraction과 feature matching을 합쳐 부르는 correspondence searching과 transformation estimation으로 구성된다고 말할 수도 있습니다.
