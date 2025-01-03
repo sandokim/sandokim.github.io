@@ -39,7 +39,7 @@ comments: true
 - **Relative Depth Error (RDE)**, the ratio of the Euclidean distance between the estimated and ground-truth depth to the ground-truth depth.
   - $\text{RDE} = \frac{\| \text{estimated depth} - \text{ground-truth depth} \|}{\text{ground-truth depth}}$
 
-- **Recall Rate(RR) or Success Ratio**, the ratio of successful registration. --> Dataset 전부에 대해 registration이 실패 없이 수행된 비율
+- **Recall Rate(RR) or Success Ratio**, the ratio of successful registration. --> Dataset에 대해 registration이 실패 없이 수행된 비율
   - The quantitative results are shown in Table 1, where the **Success Ratio indicates the portion of successful registrations**. As shown in Table 1, for 82 scenes in ScanNet-GSReg, HLoc only registers 75.6% of them successfully, while our method achieves a **100% success ratio.**
   - We first compared our method with GaussReg on the ScanNet-GSReg dataset. As is shown in Tab. 2, both methods can handle this dataset with a **100% success ratio**, ...
 
