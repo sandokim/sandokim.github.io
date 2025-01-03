@@ -43,7 +43,7 @@ comments: true
  
 ### Point cloud registration
 
-Point cloud registration is a classic problem in 3D computer vision, which aims at computing the relative transformation from the source point cloud to the target point cloud.
+**Point cloud registration is** a classic problem in 3D computer vision, which aims at **computing the relative transformation from the source point cloud to the target point cloud.**
  
 ### 3D point cloud registration (correspondence searching & transformation estimation)
 
