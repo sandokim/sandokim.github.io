@@ -1,6 +1,6 @@
 ---
 title: "[Registration] SuperGlue, Predator, REGTR"
-last_modified_at: 2024-12-31
+last_modified_at: 2025-01-03
 categories:
   - Registration
 tags:
@@ -37,8 +37,8 @@ The ground-truth overlapping scores are computed from dense point clouds and use
 
 ### SuperGlue, Predator, REGTR 모두 self-attention, cross-attention mechanism 사용
 
-- In the self-attention layers, $Q = K = V$ represents the same feature tensor in each block. 
-- In the cross-attention layers, **the keys, and the values are the feature tensors from the other block.**
+- In the **self-attention** layers, $Q = K = V$ represents the same feature tensor in each block.
+  - The self-attention mechanism enables the network to learn the relationship inside the same feature points
+- In the **cross-attention** layers, **the keys, and the values are the feature tensors from the other block.**
+  - the cross-attention mechanism enables the communication of the different feature points
 
-- The self-attention mechanism enables the network to learn the relationship inside the same feature points,
-- while the cross-attention mechanism enables the communication of the different feature points.
