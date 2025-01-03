@@ -24,7 +24,7 @@ comments: true
 
 > [DReg-NeRF]()
 
-#### Relative Rotation Error(RRE), Relative Translation Error(RTE), and Relative Scale Error(RSE) between the estimated transformation and ground truth transformation as the evaluation metric of the registration accuracy.
+#### Relative Rotation Error (RRE), Relative Translation Error (RTE), and Relative Scale Error (RSE) between the estimated transformation and ground truth transformation as the evaluation metric of the registration accuracy.
 
 - **Relative Rotational Error (RRE)**, the geodesic distance between the estimated and ground-truth rotation matrix.
 
