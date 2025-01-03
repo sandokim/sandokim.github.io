@@ -21,9 +21,9 @@ comments: true
 
 > Reference
 
-> [GaussReg: Fast 3D Registration with Gaussian Splatting]()
+> [GaussReg: Fast 3D Registration with Gaussian Splatting](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/02380.pdf)
 
-> [DReg-NeRF]()
+> [DReg-NeRF](https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_DReg-NeRF_Deep_Registration_for_Neural_Radiance_Fields_ICCV_2023_paper.pdf)
 
 #### Relative Rotation Error (RRE), Relative Translation Error (RTE), and Relative Scale Error (RSE) between the estimated transformation and ground truth transformation as the evaluation metric of the registration accuracy.
 
