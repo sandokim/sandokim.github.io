@@ -29,6 +29,8 @@ comments: true
 
 > [REGTR: end-to-end point cloud correspondences with transformers]()
 
+### Matching 2D image correspondences: SuperGlue, Predator, REGTR
+
 Inspired by **SuperGlue** [32], which is a deep learning method for **matching 2D image correspondences**, Predator [16] and REGTR [42] adopted the self-attention and cross-attention mechanisms from SuperGlue to learn the correlation for pairwise lowoverlapping point clouds. 
 
 The ground-truth overlapping scores are computed from dense point clouds and used to mask out the correspondences outside the overlapping regions.
