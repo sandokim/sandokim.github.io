@@ -39,7 +39,8 @@ comments: true
 - **Relative Depth Error (RDE)**, the ratio of the Euclidean distance between the estimated and ground-truth depth to the ground-truth depth.
   - $\text{RDE} = \frac{\| \text{estimated depth} - \text{ground-truth depth} \|}{\text{ground-truth depth}}$
 
-- **Recall Rate(RR)** to evaluate the ratio of successful registration.
+- **Recall Rate(RR)** to evaluate the ratio of successful registration. --> Dataset 전부에 대해 registration이 실패 없이 수행된 비율
+  - We first compared our method with GaussReg on the ScanNet-GSReg dataset. As is shown in Tab. 2, both methods can handle this dataset with a 100% success ratio, ...
 
 - **Absolute Translational Error (ATE)**, the Euclidean distance between the estimated and ground-truth translation vectors.
 
