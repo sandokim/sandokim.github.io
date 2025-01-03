@@ -64,7 +64,7 @@ Similarly, we also predict the corresponding point locations $\tilde{X}\_{target
 
 Finally, we **utilize the predicted correspondences to compute the relative rigid transformation.**
 
-**The confidence scores are used as weights that mask out the irrelevant correspondences and can be interpreted as how likely the predicted points from $\tilde{X}\_source$ and $\tilde{X}\_target$ are correspondences and are visible in the source NeRF and the target NeRF.** 
+**The confidence scores are used as weights that mask out the irrelevant correspondences and can be interpreted as how likely the predicted points from $\tilde{X}\_{source}$ and $\tilde{X}\_{target}$ are correspondences and are visible in the source NeRF and the target NeRF.** 
 
 ### 3D point cloud registration (correspondence searching & transformation estimation)
 
