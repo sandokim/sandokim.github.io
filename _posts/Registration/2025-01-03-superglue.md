@@ -31,8 +31,14 @@ comments: true
 
 ### Matching 2D image correspondences: SuperGlue, Predator, REGTR
 
-Inspired by **SuperGlue** [32], which is a deep learning method for **matching 2D image correspondences**, Predator [16] and REGTR [42] adopted the self-attention and cross-attention mechanisms from SuperGlue to learn the correlation for pairwise lowoverlapping point clouds. 
+Inspired by **SuperGlue** [32], which is a deep learning method for **matching 2D image correspondences**, Predator [16] and REGTR [42] adopted the self-attention and cross-attention mechanisms from SuperGlue to learn the correlation for pairwise low overlapping point clouds. 
 
 The ground-truth overlapping scores are computed from dense point clouds and used to mask out the correspondences outside the overlapping regions.
 
+### SuperGlue, Predator, REGTR 모두 self-attention, cross-attention mechanism 사용
 
+- In the self-attention layers, $Q = K = V$ represents the same feature tensor in each block. 
+- In the cross-attention layers, **the keys, and the values are the feature tensors from the other block.**
+
+- The self-attention mechanism enables the network to learn the relationship inside the same feature points,
+- while the cross-attention mechanism enables the communication of the different feature points.
