@@ -44,6 +44,14 @@ comments: true
 ### Point cloud registration
 
 **Point cloud registration is** a classic problem in 3D computer vision, which aims at **computing the relative transformation from the source point cloud to the target point cloud.**
+
+**Point cloud registration에서는 source point cloud와 target point cloud의 3D coordinate frame에서 correspondences로 relative rigid transformation을 계산합니다.**
+
+After encoding features by transformer, we further adopt a single-head attention layer to predict the corresponding point locations $\tilde{X}_{source}$ and confidence scores $\tilde{S}_{source}$ of the source voxel points $\hat{X}_{source}$ in the target NeRF’s coordinate frame. 
+
+Similarly, we also predict the corresponding point locations $\tilde{X}_{target}$ and confidence scores $S_{target}$ of the target voxel points $\hat{X}_{target}$ in the source NeRF’s coordinate frame. 
+
+Finally, we **utilize the predicted correspondences to compute the relative rigid transformation.**
  
 ### 3D point cloud registration (correspondence searching & transformation estimation)
 
