@@ -43,6 +43,8 @@ comments: true
  
 ### Point cloud registration
 
+> [DReg-NeRF: Deep Registration for Neural Radiance Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_DReg-NeRF_Deep_Registration_for_Neural_Radiance_Fields_ICCV_2023_paper.pdf)
+
 **Point cloud registration is** a classic problem in 3D computer vision, which aims at **computing the relative transformation from the source point cloud to the target point cloud.**
 
 **Point cloud registration은 source point cloud와 target point cloud의 3D 좌표계에서 correspondences를 기반으로 상대적인 rigid transformation을 계산하는 문제입니다.**
