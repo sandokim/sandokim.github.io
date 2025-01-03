@@ -45,4 +45,7 @@ comments: true
 - **Absolute Translational Error (ATE)**, the Euclidean distance between the estimated and ground-truth translation vectors.
 
 
+#### Registration 성능 평가에서는 다음과 같이 RRE, RTE, RSE, RDE, ATE를 report하고 있음
+
+
 
