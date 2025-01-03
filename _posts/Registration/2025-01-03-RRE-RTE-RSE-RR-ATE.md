@@ -1,5 +1,5 @@
 ---
-title: "[Registration] Evaluation Metircs: RRE, RTE, RSE, RR, ATE"
+title: "[Registration] Evaluation Metircs: RRE, RTE, RSE, RDE, RR, ATE"
 last_modified_at: 2025-01-03
 categories:
   - Registration
@@ -10,9 +10,10 @@ tags:
   - RRE
   - RTE
   - RSE
+  - RDE
   - RR
   - ATE
-excerpt: "Relative Rotation Error (RRE), Relative Translation Error (RTE), and Relative Scale Error (RSE), Absolute Translational Error (ATE)"
+excerpt: "Relative Rotation Error (RRE), Relative Translation Error (RTE), Relative Scale Error (RSE), Relative Depth Error (RDE), Absolute Translational Error (ATE)"
 use_math: true
 classes: wide
 comments: true
@@ -30,7 +31,10 @@ comments: true
 
 - **Relative Translation Error (RTE)**, the ratio of the Euclidean distance between the estimated and ground-truth translation vectors to the norm of the ground-truth translation vector.
 
-- **Relative Scale Error (RSE)**, the ratio of the Euclidean distance between the estimated and ground-truth scale factors to the ground-truth scale factor. 
+- **Relative Scale Error (RSE)**, the ratio of the Euclidean distance between the estimated and ground-truth scale factors to the ground-truth scale factor.
+
+- **Relative Depth Error (RDE)**, the ratio of the Euclidean distance between the estimated and ground-truth depth to the ground-truth depth.
+  - $\text{RDE} = \frac{\| \text{estimated depth} - \text{ground-truth depth} \|}{\text{ground-truth depth}}$
 
 - **Recall Rate(RR)** to evaluate the ratio of successful registration.
 
