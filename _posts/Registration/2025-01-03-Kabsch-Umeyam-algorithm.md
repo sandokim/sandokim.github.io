@@ -19,7 +19,7 @@ comments: true
 > [DReg-NeRF: Deep Registration for Neural Radiance Fields
 ](https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_DReg-NeRF_Deep_Registration_for_Neural_Radiance_Fields_ICCV_2023_paper.pdf)
 
-> [Least-squares estimation of transformation parameters between two point patterns]()
+> [Least-squares estimation of transformation parameters between two point patterns](https://ieeexplore.ieee.org/document/88573)
 
 ### Kabsch-Umeyama algorithm: Least-squares estimation of transformation parameters between two point patterns
 
