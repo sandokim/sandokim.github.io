@@ -12,7 +12,7 @@ tags:
   - self-attention
   - cross-attention
   - matching 2D image correspondences
-excerpt: "downsample the input point clouds into superpoints and then match them through examining whether their local neighborhood (patch) overlaps."
+excerpt: "Matching 2D image correspondences: SuperGlue, Predator, REGTR"
 use_math: true
 classes: wide
 comments: true
