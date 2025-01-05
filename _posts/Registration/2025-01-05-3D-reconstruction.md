@@ -29,3 +29,37 @@ comments: true
   - Match features across different images.
   - **jointly optimize a set of 3D points and camera poses to be consistent with these matches** (the wellexplored problem of bundle adjustment).
 
+### Bundle Adjustement
+
+Bundle Adjustment 설명
+**Bundle Adjustment (BA)**는 3D 재구성과 컴퓨터 비전에서 사용되는 최적화 기법으로, **카메라의 자세(pose)와 3D 포인트를 동시에 조정**하여 이미지와의 일관성을 극대화합니다.
+
+- 입력 데이터:
+  - 여러 카메라에서 촬영된 이미지와 추출된 2D 특징점.
+  - 초기 추정된 카메라 자세 및 3D 점.
+
+- 목표:
+  - 재투영 오류(Reprojection Error)를 최소화.
+  - 재투영 오류란, 3D 점을 카메라 모델을 통해 2D 이미지로 투영했을 때 예상 위치와 실제 위치 간의 차이.
+
+- 최적화 대상:
+  - 카메라 파라미터 (위치, 방향, 내재 파라미터).
+  - 3D 포인트 좌표.
+ 
+- 작동 방식
+  - 최적화 알고리즘(예: Levenberg-Marquardt)을 사용하여,
+  - **카메라 모델과 3D 포인트가 주어진 이미지와 최대한 일치하도록 조정.**
+  - 이 과정은 모든 이미지를 한꺼번에 고려하므로, "번들(Bundle)"이라는 용어가 사용됨.
+
+- 특징
+  - 고정밀도: 이미지 간의 일관성을 최대화하여 정밀한 3D 재구성 가능.
+  - 연산 비용: 전체 이미지와 3D 포인트를 고려하므로 계산량이 많아 대규모 데이터에는 병렬화가 필요.
+
+- 응용 분야
+  - 3D 장면 재구성.
+  - Structure-from-Motion(SfM) 및 SLAM.
+  - 컴퓨터 그래픽스에서의 카메라 추적 및 보정.
+  
+쉽게 말해, **Bundle Adjustment는 여러 카메라 이미지가 관찰한 3D 구조를 가장 잘 설명하는 카메라 위치와 장면을 동시에 미세 조정하는 과정입니다.**
+
+
