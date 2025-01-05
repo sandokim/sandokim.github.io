@@ -11,6 +11,8 @@ tags:
   - SIFT
   - bundle adjustment
   - large-scale scene reconstruction
+  - triangulate across images
+  - sparse 3D point cloud
 excerpt: "3D reconstruction pipeline: Extract 2D features, matche features across different images, jointly optimize a set of 3D points and camera poses to be consistent with these matches."
 classes: wide
 comments: true
@@ -63,3 +65,18 @@ Bundle Adjustment 설명
 쉽게 말해, **Bundle Adjustment는 여러 카메라 이미지가 관찰한 3D 구조를 가장 잘 설명하는 카메라 위치와 장면을 동시에 미세 조정하는 과정입니다.**
 
 
+### Structure-from-Motion(SfM)과 같은 전통적인 3D 재구성 기법는 camera pose와 sparse 3D point cloud를 생성합니다.
+- 특징:
+  - 입력 이미지로부터 camera pose와 sparse 3D point cloud를 생성.
+  - 2D 이미지 특징 추출(예: SIFT), 이미지 간 특징 매칭, bundle adjustment를 통해 수행.
+
+- 한계:
+  - 결과는 sparse 3D point cloud로, 완전한 3D 장면 모델을 위해 추가 처리 필요.
+  - multi-view stereo algorithm(예: PMVS)으로 dense point cloud나 triangle mesh 생성.
+  - 텍스처 부족이나 반사 표면으로 인해 artifacts 및 holes 발생.
+  - 계산량이 많아 확장성과 처리 속도에 제약.
+
+- 후처리:
+  - photo-realistic 모델 시각화를 위해 추가적인 후처리 필요.
+  - 주로 기하학적 정확성에 초점.
+ 
