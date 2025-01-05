@@ -1,6 +1,6 @@
 ---
 title: "[Registration] Large-scale scene reconstruction's challenge"
-last_modified_at: 2024-12-31
+last_modified_at: 2025-01-05
 categories:
   - Registration
 tags:
@@ -55,5 +55,4 @@ Rather, data for different parts of the environment may need to be sourced from 
   - 이를 통해:
     - 유연성 극대화, 임의의 대규모 환경 처리 가능.
     - 환경의 부분적 업데이트 및 확장 가능(**재학습 불필요**).
-   
-  
+
