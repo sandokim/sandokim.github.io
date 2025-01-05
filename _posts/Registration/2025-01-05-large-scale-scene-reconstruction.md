@@ -51,7 +51,7 @@ Rather, data for different parts of the environment may need to be sourced from 
     - 환경 업데이트나 확장은 네트워크 전체 재학습(retraining)이 필요.
 - 문제 해결 방안:
   - 대규모 환경을 **개별 Block-NeRF로 분할 및 독립적 학습**.
-  - 추론 시 관련된 Block-NeRF만 렌더링하여 동적으로 결합 및 생성.
+  - **추론 시 관련된 Block-NeRF만 렌더링하여 동적으로 결합 및 생성**.
   - 이를 통해:
     - 유연성 극대화, 임의의 대규모 환경 처리 가능.
     - 환경의 부분적 업데이트 및 확장 가능(**재학습 불필요**).
