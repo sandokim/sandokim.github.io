@@ -24,9 +24,8 @@ comments: true
 
 3D reconstruction techniques have been developed and refined over decades, with modern methods relying on mature software like COLMAP.
 
-Most reconstruction methods follow a common pipeline:
-
-- Extract 2D image features (e.g., SIFT).
-- Match features across different images.
-- **jointly optimize a set of 3D points and camera poses to be consistent with these matches** (the wellexplored problem of bundle adjustment).
+- Most reconstruction methods follow a common pipeline:
+  - Extract 2D image features (e.g., SIFT).
+  - Match features across different images.
+  - **jointly optimize a set of 3D points and camera poses to be consistent with these matches** (the wellexplored problem of bundle adjustment).
 
