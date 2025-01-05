@@ -23,6 +23,11 @@ comments: true
 
 ### Large-scale scene reconstruction에서 어려운 점
 
+- the presence of transient objects (cars and pedestrians)
+- highly unlikely to be collected in a single capture under consistent conditions
+- variance in scene geometry (e.g., construction work and parked cars)
+- variance in appearance (e.g., weather conditions and time of day)
+
 Reconstructing such large-scale environments introduces additional challenges, including **the presence of transient objects (cars and pedestrians)**, limitations in model capacity, along with memory and compute constraints. 
 
 Furthermore, training data for such **large environments is highly unlikely to be collected in a single capture under consistent conditions.**
