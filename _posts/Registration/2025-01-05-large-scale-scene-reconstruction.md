@@ -21,7 +21,7 @@ comments: true
 
 >[Block-NeRF: Scalable Large Scene Neural View Synthesis](https://openaccess.thecvf.com/content/CVPR2022/papers/Tancik_Block-NeRF_Scalable_Large_Scene_Neural_View_Synthesis_CVPR_2022_paper.pdf)
 
-### Large-scale scene reconstruction에서 어려운 점: 일시적으로 등장하는 objects (transient objects)
+### Large-scale scene reconstruction에서 어려운 점
 
 Reconstructing such large-scale environments introduces additional challenges, including **the presence of transient objects (cars and pedestrians)**, limitations in model capacity, along with memory and compute constraints. 
 
