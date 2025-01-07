@@ -72,6 +72,8 @@ Note that this operation is also referred to as the $soft \ argmin$ operation in
 
 **While the depth hypotheses are uniformly sampled within range [dmin, dmax] during cost volume construction, the expectation value here is able to produce a continuous depth estimation.**
 
+_i.e. The depth hypotheses are uniformly sampled from 425mm to 935mm with a 2mm resolution (D = 256)._
+
 The output depth map (Fig. 2 (b)) is of the same size to 2D image feature maps, which is downsized by four in each dimension compared to input images.
 
 #### Probability Map
