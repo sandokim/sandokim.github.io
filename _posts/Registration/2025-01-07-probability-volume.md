@@ -64,9 +64,21 @@ $$
 
 **Where $P(d)$ is the probability estimation for all pixels at depth $d$.**
 
-Note that this operation is also referred to as the $soft argmin$ operation in [17]. It is fully differentiable and able to approximate the argmax result.
+Note that this operation is also referred to as the $soft \ argmin$ operation in [17]. It is fully differentiable and able to approximate the argmax result.
 
 **While the depth hypotheses are uniformly sampled within range [dmin, dmax] during cost volume construction, the expectation value here is able to produce a continuous depth estimation.**
 
 The output depth map (Fig. 2 (b)) is of the same size to 2D image feature maps, which is downsized by four in each dimension compared to input images.
+
+#### Probability Map
+
+**The probability distribution along the depth direction also reflects the depth estimation quality.** 
+
+Although the multi-scale 3D CNN has very strong ability to regularize the probability to the single modal distribution, we notice that for those falsely matched pixels, their probability distributions are scattered and cannot be concentrated to one peak (see Fig. 2 (c)). 
+
+**Based on this observation, we define the quality of a depth estimation $\hat{d}$ as the probability that the ground truth depth is within a small range near the estimation.** 
+
+**As depth hypotheses are discretely sampled along the camera frustum, we simply take the probability sum over the four nearest depth hypotheses to measure the estimation quality.** 
+
+Notice that other statistical measurements, such as standard deviation or entropy can also be used here, but in our experiments we observe no significant improvement from these measurements for depth map filtering. Moreover, our probability sum formulation leads to a better control of thresholding parameter for outliers filtering.
 
