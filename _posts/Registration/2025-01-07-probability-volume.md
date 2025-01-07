@@ -23,11 +23,13 @@ comments: true
 
 >[MVSNet: Depth Inference for Unstructured Multi-view Stereo](https://openaccess.thecvf.com/content_ECCV_2018/papers/Yao_Yao_MVSNet_Depth_Inference_ECCV_2018_paper.pdf)
 
-Probability volume으로부터 depth map을 얻을 수 있습니다.
-
 - **_the depth map retrieved from the probability volume_**
-
 - **_build a 3D cost volume from the extracted feature maps and input cameras._**
+- **_i.e. The depth hypotheses are uniformly sampled from 425mm to 935mm with a 2mm resolution (D = 256)._**
+
+- Probability volume으로부터 depth map을 얻을 수 있습니다.
+- 3D cost volume은 extracted feature maps와 input cameras로부터 build합니다.
+- depth hypotheses는 425mm부터 935mm까지 2mm 간격으로 균일 샘플링된 후보 깊이 값들로, 각 픽셀의 최적 깊이를 추정하기 위해 cost volume을 평가하는 데 사용됩니다.
 
 #### Differential Homography
 
@@ -69,8 +71,6 @@ $$
 Note that this operation is also referred to as the $soft \ argmin$ operation in [17]. It is fully differentiable and able to approximate the argmax result.
 
 **While the depth hypotheses are uniformly sampled within range [dmin, dmax] during cost volume construction, the expectation value here is able to produce a continuous depth estimation.**
-
-_i.e. The depth hypotheses are uniformly sampled from 425mm to 935mm with a 2mm resolution (D = 256)._
 
 The output depth map (Fig. 2 (b)) is of the same size to 2D image feature maps, which is downsized by four in each dimension compared to input images.
 
