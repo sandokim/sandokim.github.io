@@ -59,7 +59,7 @@ We will show in Sec. 3.3 that **one can easily determine the depth reconstructio
 
 The simplest way to retrieve depth map $D$ from the probability volume $P$ is the pixel-wise winner-take-all [5] (i.e., $argmax$). 
 
-However, **the $argmax$ operation is unable to produce sub-pixel estimation, and cannot be trained with back-propagation due to its indifferentiability. **
+However, **the $argmax$ operation is unable to produce sub-pixel estimation, and cannot be trained with back-propagation due to its indifferentiability.**
 Instead, **we compute the expectation value along the depth direction, i.e., the probability weighted sum over all hypotheses**:
 
 $$
