@@ -103,5 +103,21 @@ he initial depth map is then added back to generate the refined depth map.
 
 The last layer does not contain the BN layer and the ReLU unit as to learn the negative residual. Also, to prevent being biased at a certain depth scale, we pre-scale the initial depth magnitude to range [0, 1], and convert it back after the refinement.
 
+#### Loss
 
+Losses for both the initial depth map and the refined depth map are considered.
 
+We use the mean absolute difference between the ground truth depth map and the estimated depth map as our training loss. 
+
+**As ground truth depth maps are not always complete in the whole image** (see Sec. 4.1), **we only consider those pixels with valid ground truth labels:**
+
+$$
+\text{Loss} = \sum_{p \in P_{\text{valid}}} 
+\underbrace{\| d(p) - \hat{d}_i(p) \|_1}_{\text{Loss0}} 
++ \lambda \cdot 
+\underbrace{\| d(p) - \hat{d}_r(p) \|_1}_{\text{Loss1}}
+$$
+
+Where $\textbf{p}_{valid}$ denotes the set of valid ground truth pixels, $d(p)$ the ground truth depth value of pixel $p$, $\hat{d}_i(p)$ the initial depth estimation and $\hat{d}_r(p)$ the refined depth estimation. 
+
+The parameter $\lambda$$ is set to 1.0 in experiments.
