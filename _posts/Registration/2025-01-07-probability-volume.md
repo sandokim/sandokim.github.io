@@ -82,3 +82,22 @@ Although the multi-scale 3D CNN has very strong ability to regularize the probab
 
 Notice that other statistical measurements, such as standard deviation or entropy can also be used here, but in our experiments we observe no significant improvement from these measurements for depth map filtering. Moreover, our probability sum formulation leads to a better control of thresholding parameter for outliers filtering.
 
+### Depth Map Refinement
+
+_the depth map retrieved from the probability volume_
+
+While **the depth map retrieved from the probability volume** is a qualified output, the reconstruction boundaries may suffer from oversmoothing due to the large receptive field involved in the regularization,
+which is similar to the problems in semantic segmentation [4] and image matting [37]. 
+
+Notice that the reference image in natural contains boundary information, we thus use the reference image as a guidance to refine the depth map. 
+
+Inspired by the recent image matting algorithm [37], we apply a depth residual learning network at the end of MVSNet. 
+
+The initial depth map and the resized reference image are concatenated as a 4-channel input, which is then passed through three 32-channel 2D convolutional layers followed by one 1-channel convolutional layer to learn the depth residual.
+
+he initial depth map is then added back to generate the refined depth map. 
+
+The last layer does not contain the BN layer and the ReLU unit as to learn the negative residual. Also, to prevent being biased at a certain depth scale, we pre-scale the initial depth magnitude to range [0, 1], and convert it back after the refinement.
+
+
+
