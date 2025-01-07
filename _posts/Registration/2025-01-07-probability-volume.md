@@ -33,7 +33,7 @@ build a 3D cost volume from the extracted feature maps and input cameras.
 
 #### Differential Homography
 
-All feature maps are warped into different fronto-parallel planes of the reference camera to form $N$ feature volumes ${V_i}^N_{i=1}$. 
+All feature maps are warped into different fronto-parallel planes of the reference camera to form $N$ feature volumes ${V_i}^N_{i=1}$ 
 
 The coordinate mapping from the warped feature map $V_i(d)$ to $F_i$ at depth $d$ is determined by the planar transformation $x′ ∼ H_i(d)$ · x, where ‘∼’ denotes the projective equality and $H_i(d)$ the homography between the $i^{th}$ feature map and the reference feature map at depth $d$.
 
