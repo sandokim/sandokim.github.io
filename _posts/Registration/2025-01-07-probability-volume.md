@@ -29,7 +29,7 @@ Probability volume으로부터 depth map을 얻을 수 있습니다.
 
 ### Cost Volume
 
-build a 3D cost volume from the extracted feature maps and input cameras.
+_build a 3D cost volume from the extracted feature maps and input cameras._
 
 #### Differential Homography
 
