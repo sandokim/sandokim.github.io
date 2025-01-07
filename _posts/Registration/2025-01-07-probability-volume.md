@@ -112,12 +112,11 @@ We use the mean absolute difference between the ground truth depth map and the e
 **As ground truth depth maps are not always complete in the whole image** (see Sec. 4.1), **we only consider those pixels with valid ground truth labels:**
 
 $$
-\text{Loss} = \sum_{p \in P_{\text{valid}}} 
-\underbrace{\| d(p) - \hat{d}_i(p) \|_1}_{\text{Loss0}} 
-+ \lambda \cdot 
-\underbrace{\| d(p) - \hat{d}_r(p) \|_1}_{\text{Loss1}}
+\text{Loss} = \sum_{p \in P_{\text{valid}}} \underbrace{\| d(p) - \hat{d}_i(p) \|_1}\_{\text{Loss0}} + \lambda \cdot \underbrace{\| d(p) - \hat{d}_r(p) \|_1}\_{\text{Loss1}}
 $$
 
-Where $\textbf{p}_{valid}$ denotes the set of valid ground truth pixels, $d(p)$ the ground truth depth value of pixel $p$, $\hat{d}_i(p)$ the initial depth estimation and $\hat{d}_r(p)$ the refined depth estimation. 
+Where $\textbf{p}_{valid}$ denotes the set of valid ground truth pixels, $d(p)$ the ground truth depth value of pixel $p$, 
+
+$\hat{d}_i(p)$ the initial depth estimation and $\hat{d}_r(p)$ the refined depth estimation. 
 
 The parameter $\lambda$$ is set to 1.0 in experiments.
