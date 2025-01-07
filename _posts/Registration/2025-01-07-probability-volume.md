@@ -115,8 +115,9 @@ $$
 \text{Loss} = \sum_{p \in P_{\text{valid}}} \underbrace{\Vert d(p) - \hat{d}_i(p) \Vert_1}\_{\text{Loss0}} + \lambda \cdot \underbrace{\Vert d(p) - \hat{d}_r(p) \Vert_1}\_{\text{Loss1}}
 $$
 
-Where $\textbf{p}_{valid}$ denotes the set of valid ground truth pixels, $d(p)$ the ground truth depth value of pixel $p$, 
-
-$\hat{d}_i(p)$ the initial depth estimation and $\hat{d}_r(p)$ the refined depth estimation. 
+- $\textbf{p}_{valid}$ denotes the set of valid ground truth pixels,
+- $d(p)$ the ground truth depth value of pixel $p$,
+- $\hat{d}_i(p)$ the initial depth estimation,
+- $\hat{d}_r(p)$ the refined depth estimation. 
 
 The parameter $\lambda$$ is set to 1.0 in experiments.
