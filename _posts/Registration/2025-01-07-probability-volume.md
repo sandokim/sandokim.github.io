@@ -27,6 +27,7 @@ comments: true
 - **_build a 3D cost volume from the extracted feature maps and input cameras._**
 - **_i.e. The depth hypotheses are uniformly sampled from 425mm to 935mm with a 2mm resolution (D = 256)._**
 
+다시말해 
 - Probability volume으로부터 depth map을 얻을 수 있습니다.
 - 3D cost volume은 extracted feature maps와 input cameras로부터 build합니다.
 - depth hypotheses는 425mm부터 935mm까지 2mm 간격으로 균일 샘플링된 후보 깊이 값들로, 각 픽셀의 최적 깊이를 추정하기 위해 cost volume을 평가하는 데 사용됩니다.
