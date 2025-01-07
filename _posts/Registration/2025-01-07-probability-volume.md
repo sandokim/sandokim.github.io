@@ -99,7 +99,7 @@ Inspired by the recent image matting algorithm [37], we apply a depth residual l
 
 The initial depth map and the resized reference image are concatenated as a 4-channel input, which is then passed through three 32-channel 2D convolutional layers followed by one 1-channel convolutional layer to learn the depth residual.
 
-he initial depth map is then added back to generate the refined depth map. 
+The initial depth map is then added back to generate the refined depth map. 
 
 The last layer does not contain the BN layer and the ReLU unit as to learn the negative residual. Also, to prevent being biased at a certain depth scale, we pre-scale the initial depth magnitude to range [0, 1], and convert it back after the refinement.
 
