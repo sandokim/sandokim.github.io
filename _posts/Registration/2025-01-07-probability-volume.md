@@ -25,7 +25,7 @@ comments: true
 
 Probability volume으로부터 depth map을 얻을 수 있습니다.
 
-### _the depth map retrieved from the probability volume_
+_the depth map retrieved from the probability volume_
 
 ### Cost Volume
 
