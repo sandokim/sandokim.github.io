@@ -23,6 +23,10 @@ comments: true
 
 >[MVSNet: Depth Inference for Unstructured Multi-view Stereo](https://openaccess.thecvf.com/content_ECCV_2018/papers/Yao_Yao_MVSNet_Depth_Inference_ECCV_2018_paper.pdf)
 
+Probability volume으로부터 depth map을 얻을 수 있습니다.
+
+### _the depth map retrieved from the probability volume_
+
 ### Cost Volume
 
 build a 3D cost volume from the extracted feature maps and input cameras.
