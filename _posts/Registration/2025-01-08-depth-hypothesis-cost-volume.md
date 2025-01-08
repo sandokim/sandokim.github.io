@@ -58,7 +58,7 @@ On the other hand, **we could also consider enhancing the fine feature extractio
 - 수술용 실(surgical suture)과 같은 작고 섬세한 구조물을 배경에서 분리하기 위해, cost volume이 중요한 역할을 합니다.
 - 하지만 기존의 모델은 이러한 세밀한(local fine) 특징을 충분히 추출하지 못하기 때문에, 복잡한 수술 환경에서 일부 물체를 정확히 재구성하지 못하는 한계가 드러났습니다.
   - 해결책으로서 cost volume 강화:
-    - 이 문맥에서 제안된 해결책은 local fine feature를 추출할 수 있는 **특수 레이어(special layers)**를 추가하여 cost volume을 강화하는 것입니다.
+    - 이 문맥에서 제안된 해결책은 local fine feature를 추출할 수 있는 layers를 추가하여 cost volume을 강화하는 것입니다.
     - 즉, 복잡한 환경에서도 작은 구조물을 구별할 수 있도록 cost volume에 정교한 특징 추출 능력을 부여하자는 접근입니다.
 
 
