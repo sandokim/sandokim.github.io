@@ -42,7 +42,7 @@ With the predicted disparity maps and the original stereo image pair, **left and
 
 ### Learning 3D Geometric Consistency
 
-**The disparity maps of the left and right images were first converted to depth maps and then backprojected to 3D coordinates to obtain left and right surgical scene point clouds $(P^l,P^r \in \mathcal{R}^{hw \times 3})$ by multiplying the depth maps with the intrinsic parameter matrix $(K)$. **
+**The disparity maps of the left and right images were first converted to depth maps and then backprojected to 3D coordinates to obtain left and right surgical scene point clouds $(P^l,P^r \in \mathcal{R}^{hw \times 3})$ by multiplying the depth maps with the intrinsic parameter matrix $(K)$.**
 
 The 3D consistency loss employed Iterative Closest Point (ICP) [17,21], a classic rigid registration method that derives a transformation matrix between two point clouds by iteratively minimizing point-to-point distances between correspondences.
 
