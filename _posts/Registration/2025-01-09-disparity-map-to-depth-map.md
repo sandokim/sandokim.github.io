@@ -82,3 +82,19 @@ The 3D consistency loss employed Iterative Closest Point (ICP) [17,21], a classi
 The final residual registration error after ICP minimization was output as one of the returned values. 
 
 More specifically, to explicitly explore global 3D loss, the ICP loss at the original input image scale was calculated with only 1000 randomly selected points to reduce the computational workload.
+
+
+### Depth where no useful information
+
+**Some parts of the left scene were not visible in the right view and vice versa, leading to non-overlapping generated point clouds.**
+
+**These areas are mainly located at the left edge of the left image and right edge of the right image after rectification.**
+
+**Depth and image pixels in those area had no useful information for learning, either in 2D and 3D.** 
+
+Our experiments indicated that retaining the contribution to the loss functions for such pixels and voxels degraded the overall performance. 
+
+Many previous approaches solved this problem by padding these areas with zeros [3] or values from the border [4], but this can lead to edge artifacts in depth images [17].
+
+To tackle this problem, we present a blind masking module $M^{l,r}$ that suppressed and eliminated these outliers and gave more emphasis to correspondences between the left and right views (Fig. 1).
+
