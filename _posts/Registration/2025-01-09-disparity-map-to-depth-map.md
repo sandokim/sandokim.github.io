@@ -60,7 +60,9 @@ _With the predicted disparity maps and the original stereo image pair, **left an
 - Optical flow와 비슷한 접근 방식으로, 픽셀 단위로 이미지가 어떻게 움직이는지를 표현합니다.
 
 _With the predicted disparity maps and the original stereo image pair, **left and right images could then be reconstructed by warping the counter-part RGB image with the disparity map** mimicking optical flow [3,14]._
-위 문장에서 말하는 작업
+
+결론적으로 위 문장에서 말하는 작업
+
 - 목표: 왼쪽 이미지를 오른쪽 이미지로, 또는 오른쪽 이미지를 왼쪽 이미지로 재구성(reconstruction)합니다.
 - 방법:
   - 예측된 disparity map을 사용하여 각 픽셀의 이동 방향과 거리를 계산.
