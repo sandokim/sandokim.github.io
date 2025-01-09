@@ -30,7 +30,7 @@ Previous methods (EndoGaussian, Deform3dgs) incorporate inverse depth maps into 
 The depth loss in these approaches is formulated as:
 
 $$
-L^{−1}_{\hat{D}} = \Vert M \odot (\hat{D}^{−1} − D^{−1|) \Vert, (11)
+L^{−1}_{\hat{D}} = \Vert M \odot (\hat{D}^{−1} − D^{−1}) \Vert, (11)
 $$
 
 where $D$ and $\hat{D}$ are the depth map from stereo-matching and rendered depth, respectively. **Inverse depth maps compress the dynamic range of depth values, reducing the disparity between the binocular and rendered depth maps.**
