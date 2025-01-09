@@ -44,7 +44,7 @@ To address this problem, our observation is that normalisation can bring both bi
 Our normalised depth loss is formulated as:
 
 $$
-L_{\hat{D} = \Vert M \odot (\hat{D}\_{norm} − D\_{norm}) \Vert. (12)
+L_{\hat{D}} = \Vert M \odot (\hat{D}\_{norm} − D\_{norm}) \Vert. (12)
 $$
 
 
