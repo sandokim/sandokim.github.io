@@ -1,5 +1,5 @@
 ---
-title: "[Registration] How to recover depth maps from predicted dispairty"
+title: "[Registration] How to recover depth maps from predicted dispairty & RGB image warping loss"
 last_modified_at: 2025-01-09
 categories:
   - Registration
@@ -12,6 +12,7 @@ tags:
   - depth map
   - Monodepth1
   - M3Depth
+  - image warping
 excerpt: "Left image만 input으로 하여, left, right disparity를 예측하고, 예측된 두 disparity로부터 camera focal length와 두 카메라 간의 baseline distance로 계산하여 depth map을 복원할 수 있습니다."
 use_math: true
 classes: wide
@@ -30,5 +31,10 @@ Similar to Monodepth1, in M3Depth, the left image $I^l$ of a stereo image pair $
 
 Given the camera focal length $f$ and the baseline distance $b$ between the cameras, left and right depth maps $D^l, D^r \in \mathcal{R}_+^{h \times w}$ could then be trivially recovered from the predicted disparity, $(D^l, D^r) = bf(d^l, d^r)$.
 
-$h$ and $w$ denot image height and widht.
+$h$ and $w$ denot image height and width.
+
+
+### Image Reconstruction Loss in 2D
+
+With the predicted disparity maps and the original stereo image pair, **left and right images could then be reconstructed by warping the counter-part RGB image with the disparity map** mimicking optical flow [3,14].
 
