@@ -35,7 +35,7 @@ Given the camera focal length $f$ and the baseline distance $b$ between the came
 $h$ and $w$ denot image height and width.
 
 
-### Image Reconstruction Loss in 2D
+### Image Reconstruction Loss in 2D (구한 predicated disparity로 right image를 left image로 warping하여 RGB image loss를 구현할 수 있습니다.)
 
 With the predicted disparity maps and the original stereo image pair, **left and right images could then be reconstructed by warping the counter-part RGB image with the disparity map** mimicking optical flow [3,14].
 
