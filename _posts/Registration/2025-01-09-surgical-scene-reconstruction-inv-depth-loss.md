@@ -48,6 +48,5 @@ L_{\hat{D}} = \Vert M \odot (\hat{D}\_{norm} − D\_{norm}) \Vert. (12)
 $$
 
 
-### Surgical Scene에 depth loss 적용시, mask 부분은 제외하기 위해 binary mask를 element-wise multiplication한 다음 계산함.
-
+### Surgical Scene에 depth loss 적용시, mask 부분은 제외하기 위해 binary mask를 element-wise multiplication한 다음 계산합니다.
 
