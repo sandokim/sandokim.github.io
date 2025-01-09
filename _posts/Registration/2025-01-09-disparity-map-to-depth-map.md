@@ -41,7 +41,7 @@ $h$ and $w$ denot image height and width.
 
 _With the predicted disparity maps and the original stereo image pair, **left and right images could then be reconstructed by warping the counter-part RGB image with the disparity map** mimicking optical flow [3,14]._
 
-위 문장은 **예측된 disparity map(시차 맵)과 원래의 스테레오 이미지 쌍(좌우 이미지)을 사용하여, 각 좌우 이미지를 재구성할 수 있다"는 내용입니다."**
+위 문장은 **예측된 disparity map(시차 맵)과 원래의 스테레오 이미지 쌍(좌우 이미지)을 사용하여, 각 좌우 이미지를 재구성할 수 있다**는 내용입니다.
 
 이 과정은 disparity map을 optical flow처럼 사용하여 반대쪽 RGB 이미지를 왜곡(warping)시켜 이루어진다고 설명하고 있습니다. 
 
