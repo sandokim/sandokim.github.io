@@ -10,6 +10,8 @@ tags:
   - inverse depth map
   - predicted disparity
   - depth map
+  - Monodepth1
+  - M3Depth
 excerpt: "Left image만 input으로 하여, left, right disparity를 예측하고, 예측된 두 disparity로부터 camera focal length와 두 카메라 간의 abseline distanc로 계산하여 depth map을 복원할 수 있습니다."
 use_math: true
 classes: wide
@@ -20,7 +22,7 @@ comments: true
 
 > [M3Depth: Self-supervised Depth Estimation in Laparoscopic Image Using 3D Geometric Consistency](https://arxiv.org/pdf/2208.08407)
 
-#### Left image만 input으로 하여, left, right disparity를 예측하고, 예측된 두 disparity로부터 camera focal length와 두 카메라 간의 abseline distanc로 계산하여 depth map을 복원할 수 있습니다.
+#### Depth estimation model(Monodepth1)는 Left image만 input으로 하여, left, right disparity를 예측하고, 예측된 두 disparity로부터 camera focal length와 두 카메라 간의 abseline distanc로 계산하여 depth map을 복원할 수 있습니다.
 
 Similar to Monodepth1, in M3Depth, the left image $I^l$ of a stereo image pair $(I^l, I^r \in \mathcal{R}\_+^{h \times w \times 3})$ was always the input and the framework generated two distinct left and right disparity maps $d^l, d^r \in \mathcal{R}\_+^{h \times w}$ simultaneously, _i.e_ $\mathcal{Z}: I^l \rightarrow (d^l, d^r)$.
 
