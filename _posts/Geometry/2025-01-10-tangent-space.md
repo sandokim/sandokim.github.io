@@ -83,7 +83,7 @@ we assume that the third column $r_3$ of the rotation matrix from the covariance
 
 **Cloning.**
 
-![image](https://github.com/user-attachments/assets/5a7b8209-83df-4012-a126-ba843edcb1d9)
+![image](https://github.com/user-attachments/assets/61f49e8d-d6f2-4b48-91d4-addd4004ad9e)
 
 Cloning 과정의 수식
 
@@ -140,7 +140,7 @@ Splitting 수식 설명
 
 내적을 이용한 Co-planar constraint는 다음과 같이 표현할 수 있습니다.
 
-![image](https://github.com/user-attachments/assets/3fba3605-5051-477c-9d6b-f331623c71ca)
+![image](https://github.com/user-attachments/assets/e3b23bf1-c67e-4afe-b1f9-182c73d8f38e)
 
 Splitting 과정은 $S_{co}$ 에 속한 Gaussian들이 매끄러운 표면의 기하학적 정렬성을 유지하면서 분리되도록 설계되었습니다. 이를 수학적으로 표현하면 다음과 같습니다:
 
