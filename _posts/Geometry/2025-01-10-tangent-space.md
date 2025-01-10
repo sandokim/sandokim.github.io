@@ -125,10 +125,10 @@ Splitting 수식 설명
 Splitting 과정은 $S_{co}$ 에 속한 Gaussian들이 매끄러운 표면의 기하학적 정렬성을 유지하면서 분리되도록 설계되었습니다. 이를 수학적으로 표현하면 다음과 같습니다:
 
 $$
-\[\mu^{i+1} | \mu^{i+1 T} r_3^{i+1} = \mu^{iT}r_3^i, \ G_{\theta}^{i+1} \in S_{co}\]
+\[\mu^{i+1} | \mu^{i+1 \intercal} r_3^{i+1} = \mu^{i \intercal}r_3^i, \ G_{\theta}^{i+1} \in S_{co}\]
 $$
 
-1. $\mu^{i+1 T}r_3^{i+1} = \mu^{iT}r_3^i$:
+1. $\mu^{i+1 \intercal}r_3^{i+1} = \mu^{i \intercal}r_3^i$:
 - 새로운 Gaussian $G_{\theta}^{i+1}$의 중심 $\mu^{i+1}$이 기존 Gaussian $G_{\theta}^i$의 법선 벡터 $r_3^i$와 동일한 투영값을 가져야 한다는 조건.
 - 이는 새로운 Gaussian이 기존 Gaussian과 동일한 평면에 존재함을 보장합니다.
 
