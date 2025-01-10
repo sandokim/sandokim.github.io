@@ -45,9 +45,8 @@ Tangent space는 3D 모델의 표면에서 정의되는 좌표계를 의미합�
 - Bitangent (또는 Binormal) 벡터: Tangent와 수직인 벡터입니다.
 - Normal 벡터: 표면에 수직인 벡터입니다.
 
-이 논문에서는 특히 smooth한 영역에서 thin ellipsoid를 사용할 때 tangent space를 활용합니다. 
+이 논문에서는 특히 smooth한 영역에서 thin ellipsoid를 사용할 때 tangent space를 활용합니다:
 
-- 구체적으로:
 - Ellipsoid의 회전 행렬 R의 세 번째 열을 normal 벡터로 초기화합니다.
 - 이를 통해 thin ellipsoid가 smooth한 영역의 표면에 놓이도록 유도합니다.
   
