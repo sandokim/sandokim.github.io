@@ -83,6 +83,8 @@ we assume that the third column $r_3$ of the rotation matrix from the covariance
 
 **Cloning.**
 
+![image](https://github.com/user-attachments/assets/5a7b8209-83df-4012-a126-ba843edcb1d9)
+
 Cloning 과정의 수식
 
 The gradient of the position is calculated over 10 iterations [19]. The position $\mu_{i+1}$ of the new Gaussian is obtained when the accumulated gradient ($\delta \mu_i$) exceeds the threshold $\gamma$. 
