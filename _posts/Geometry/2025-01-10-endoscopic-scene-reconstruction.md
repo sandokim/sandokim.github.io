@@ -27,9 +27,7 @@ comments: true
 
 > [A Survey on 3D Gaussian Splatting](https://arxiv.org/pdf/2401.03890)
 
-### Endoscopic scene reconstruction 
-
-![image](https://github.com/user-attachments/assets/85f56054-95bd-4b86-a8d1-a08e4f448cb9)
+### Endoscopic scene reconstruction의 개요는 [A Survey on 3D Gaussian Splatting](https://arxiv.org/pdf/2401.03890)를 참조하기 바랍니다.
 
 -----
 
