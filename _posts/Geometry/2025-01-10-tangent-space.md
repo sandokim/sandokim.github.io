@@ -90,7 +90,7 @@ The gradient of the position is calculated over 10 iterations [19]. The position
 However, instead of being set along the direction of the gradient, the new position of the clone Gaussian is determined as follows:
 
 $$
-\mu^{i+1} = \mu^i + \delta \mu^i - r_3 \delta \mu^i
+\mu^{i+1} = \mu^i + \delta \mu^i - r_3^{\intercal} \delta \mu^i
 $$
 
 1. $\mu^i$
