@@ -1,6 +1,6 @@
 ---
 title: "[Geometry] Geometric Constraints on Tangent Space and Co-planar Constraint in 3DGS"
-last_modified_at: 2025-01-09
+last_modified_at: 2025-01-10
 categories:
   - Geometry
 tags:
