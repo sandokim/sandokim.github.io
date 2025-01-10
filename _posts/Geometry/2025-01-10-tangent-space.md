@@ -125,7 +125,7 @@ Splitting 수식 설명
 Splitting 과정은 $S_{co}$ 에 속한 Gaussian들이 매끄러운 표면의 기하학적 정렬성을 유지하면서 분리되도록 설계되었습니다. 이를 수학적으로 표현하면 다음과 같습니다:
 
 $$
-\[\mu^{i+1} | \mu^{i+1 \intercal} r_3^{i+1} = \mu^{i \intercal}r_3^i, \ \mathcal{G}\_{\theta}^{i+1} \in S_{co}\]
+[\mu^{i+1} | \mu^{i+1 \intercal} r_3^{i+1} = \mu^{i \intercal}r_3^i, \ \mathcal{G}\_{\theta}^{i+1} \in S_{co}\]
 $$
 
 1. $\mu^{i+1 \intercal}r_3^{i+1} = \mu^{i \intercal}r_3^i$:
