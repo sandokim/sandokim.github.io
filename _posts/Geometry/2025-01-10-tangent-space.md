@@ -134,12 +134,9 @@ Splitting 수식 설명
 
 내적의 성질을 이용해서 새로 복제된 Gaussian이 같은 평면에 있다고 정의합니다. 
 
-먼저 내적은 다음과 같이 두 벡터의 연산으로 스칼라 값을 얻습니다.
-
 ![image](https://github.com/user-attachments/assets/c72a10a9-3628-4478-b448-6501b221d9dd)
 
-
-
+![image](https://github.com/user-attachments/assets/3fba3605-5051-477c-9d6b-f331623c71ca)
 
 Splitting 과정은 $S_{co}$ 에 속한 Gaussian들이 매끄러운 표면의 기하학적 정렬성을 유지하면서 분리되도록 설계되었습니다. 이를 수학적으로 표현하면 다음과 같습니다:
 
