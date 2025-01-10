@@ -83,6 +83,10 @@ we assume that the third column $r_3$ of the rotation matrix from the covariance
 
 **Cloning.**
 
+... $r^{\intercal}\_3 \mu$ shows the distance between the origin of the world coordinate and the plane established by normal $r_3$ and position $\mu$ vectors of $G_{\theta}$.
+
+아래 직접 그린 그림들에 오류가 있을 수 있으므로 지적해주시면 감사하겠습니다.
+
 ![image](https://github.com/user-attachments/assets/61f49e8d-d6f2-4b48-91d4-addd4004ad9e)
 
 Cloning 과정의 수식
