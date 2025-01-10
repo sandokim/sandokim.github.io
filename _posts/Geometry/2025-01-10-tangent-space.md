@@ -72,7 +72,40 @@ Tangent space는 3D 모델의 표면에서 정의되는 좌표계를 의미합�
 - Gaussian 복제: 새로 생성된 Gaussian이 원본과 같은 평면 상에 있도록 합니다. 이는 원본의 normal 벡터에 수직인 방향으로만 이동을 허용함으로써 달성됩니다.
 - 기하학적 일관성 제약: Smooth한 영역에 있는 thin ellipsoid들에 대해, 가장 가까운 이웃들이 co-planar하도록 유도하는 새로운 제약 조건을 제안합니다.
 
-### 3D Gaussian의 splitting & cloning에서 Tangent space & co-planar constraint의 역할
-tangent space와 co-planar constraint의 활용은 3D 모델의 기하학적 구조를 보존하면서 렌더링 품질을 향상시키는 데 중요한 역할을 합니다. 특히 smooth한 표면을 더 정확하게 표현하고, Gaussian의 분포를 기하학적으로 의미 있게 제어하는 데 도움을 줍니다.
+## Method
+### 3.2 Gaussian Initialization and Densification
+
+#### Densification in the tangential space.
+
+**Cloning.**
+
+Cloning 과정의 수식
+
+$$
+\mu^{i+1} = \mu^i + \delta \mu^i - r_3 \delta \mu^i
+$$
+
+1. $\mu^i$
+- 현재 Gaussian의 위치 (중심점).
+- 기존 Gaussian의 중심 위치에서 업데이트 시작.
+
+2. $\delta \mu^i$:
+- gradient vector
+- 3D Gaussian의 위치를 업데이트하기 위한 방향과 크기를 제공.
+
+3. $r_3 \delta \mu^i$:
+- $\delta \mu^i$의 법선 벡터 $r_3$ 방향 성분.
+- 그래디언트 벡터가 법선 벡터 r_3에 정렬된 방향 성분을 계산.
+
+4. $\delta \mu^i - r_3 \delta \mu^i$:
+- 그래디언트에서 법선 벡터 방향 성분을 제거하여, 법선 벡터에 수직인 방향만 남김.
+- 결과: 새로운 Gaussian의 중심 $\mu^{i+1}$은 원래 Gaussian의 평면(법선 $r_3$에 수직)에 위치하도록 보장.
+
+5. 목적:
+- 새롭게 clone된 Gaussian이 원래 Gaussian의 평면에 위에 머물도록 하여, 표면의 기하학적 정합성을 유지.  
+
+**Splitting.**
+
+
 
 
