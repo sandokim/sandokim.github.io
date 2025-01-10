@@ -41,8 +41,11 @@ EndoNeRF와 마찬가지로 StereoMIS 데이터도 fixed-view settings로 합니
 
 ### Datasets 
 To use the StereoMIS dataset, please follow this github repo to preprocess the dataset. 
+
 After that, run the provided script stereomis2endonerf.py to extract clips from the StereoMIS dataset and organize the depth, masks, images, intrinsic and extrinsic parameters in the same format as EndoNeRF. 
+
 In our implementation, **we used RAFT to estimate the stereo depth for StereoMIS clips.** 
-Following EndoNeRF dataset, this script only supports fixed-view settings.
+
+**Following EndoNeRF dataset, this script only supports fixed-view settings.**
 
 
