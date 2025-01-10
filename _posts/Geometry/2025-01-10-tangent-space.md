@@ -33,7 +33,7 @@ For general regions, we follow the traditional initialization process [19] that 
 
   ![image](https://github.com/user-attachments/assets/3c9c2753-0e83-49bf-a03b-c78172070351)
 
-Based on the design, we encourage these thin ellipsoids to lie on the surface of smooth regions.
+  - Based on the design, we encourage these thin ellipsoids to lie on the surface of smooth regions.
 
 ### Tangent space (Normal vector, Tangent vector, Binormal vector)
 
