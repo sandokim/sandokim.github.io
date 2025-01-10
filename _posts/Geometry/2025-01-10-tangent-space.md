@@ -134,7 +134,11 @@ Splitting 수식 설명
 
 내적의 성질을 이용해서 새로 복제된 Gaussian이 같은 평면에 있다고 정의합니다. 
 
+내적은 다음과 같습니다.
+
 ![image](https://github.com/user-attachments/assets/c72a10a9-3628-4478-b448-6501b221d9dd)
+
+내적을 이용한 Co-planar constraint는 다음과 같이 표현할 수 있습니다.
 
 ![image](https://github.com/user-attachments/assets/3fba3605-5051-477c-9d6b-f331623c71ca)
 
