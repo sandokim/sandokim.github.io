@@ -35,15 +35,25 @@ For general regions, we follow the traditional initialization process [19] that 
 
 Based on the design, we encourage these thin ellipsoids to lie on the surface of smooth regions.
 
-### Tangent space
+### Tangent space (Normal vector, Tangent vector, Binormal vector)
 
 Tangent space는 3D 모델의 표면에서 정의되는 좌표계를 의미합니다. 
 
 이는 일반적으로 다음 세 가지 벡터로 구성됩니다:
 
-- Tangent 벡터: 표면의 "흐름" 또는 방향을 나타냅니다.
-- Bitangent (또는 Binormal) 벡터: Tangent와 수직인 벡터입니다.
-- Normal 벡터: 표면에 수직인 벡터입니다.
+![image](https://github.com/user-attachments/assets/15fffc25-63a1-40e6-94bc-ddbed3fc2d86)
+
+**Normal 벡터**
+- 정의: 표면에서 "바깥쪽"을 가리키는 방향 벡터
+- 특징: 표면의 평면이나 접선에 수직(90도 각도)
+
+**Tangent 벡터**
+- 정의: **표면의 평면 내에 존재하거나 곡면의 한 점에서 접하는 벡터**
+- 특징: Normal 벡터와 수직
+
+**Binormal (Bitangent) 벡터**
+- 정의: **Normal 벡터와 Tangent 벡터 모두에 수직**인 "다른" 접선 벡터
+- 특징: **Normal, Tangent와 함께 직교 좌표계 형성**
 
 이 논문에서는 특히 smooth한 영역에서 thin ellipsoid를 사용할 때 tangent space를 활용합니다:
 
