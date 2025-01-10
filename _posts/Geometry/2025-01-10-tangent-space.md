@@ -75,11 +75,19 @@ Tangent space는 3D 모델의 표면에서 정의되는 좌표계를 의미합�
 ## Method
 ### 3.2 Gaussian Initialization and Densification
 
+#### Initialization.
+
+we assume that the third column $r_3$ of the rotation matrix from the covariance matrix $\Sigma$ represents the normal while the other two columns are set as a group of normalized basis vectors perpendicular to $r_3$.
+
 #### Densification in the tangential space.
 
 **Cloning.**
 
 Cloning 과정의 수식
+
+The gradient of the position is calculated over 10 iterations [19]. The position $\mu_{i+1}$ of the new Gaussian is obtained when the accumulated gradient ($\delta \mu_i$) exceeds the threshold $\gamma$. 
+
+However, instead of being set along the direction of the gradient, the new position of the clone Gaussian is determined as follows:
 
 $$
 \mu^{i+1} = \mu^i + \delta \mu^i - r_3 \delta \mu^i
