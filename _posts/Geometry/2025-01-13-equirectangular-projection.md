@@ -64,3 +64,8 @@ Equirectangular 이미지는 이러한 구면 좌표계를 사용하여 이미�
 - Left 방법: 파노라마를 작은 원근 이미지로 나눈 뒤 학습하고, 이를 다시 합치는 방식 → "이어붙이는 과정에서 왜곡 발생"
 - Right 방법: 파노라마를 그대로 입력으로 사용 → "3D-GS가 파노라마 데이터를 제대로 처리하지 못해 학습 실패"
 - 따라서, 두 방법 모두 파노라마 데이터를 효과적으로 처리하기에는 문제가 있다는 점을 지적한 내용입니다.
+
+360-GS의 저자는 위와 같은 panormaic inputs을 그대로 쓰는 것에 문제가 있음을 착안하고, 이를 해결하기 위해 tangent plane에 먼저 3d gaussian을 splatting하고 spherical surface로 mapping하는 방식을 사용했다고 합니다. 
+
+![image](https://github.com/user-attachments/assets/4d0198be-7569-4fd8-a894-1f2a10b7f8cf)
+
