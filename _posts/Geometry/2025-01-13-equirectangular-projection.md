@@ -22,6 +22,8 @@ comments: true
 
 > [Equirectangular Image (등장방형 이미지) 설명 | 이미지 좌표 변환 | 구면좌표 벡터 계산](https://mvje.tistory.com/211)
 
+> [[논문리뷰] 360-GS: Layout-guided Panoramic Gaussian Splatting For Indoor Roaming](https://kimjy99.github.io/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/360-gs/)
+
 Equirectangular image는 구면 좌표계를 직각 좌표계로 매핑한 이미지입로 구면 좌표계의 각도를 직각 좌표계의 픽셀로 일대일 매핑하여 표현합니다.
 
 Equirectangular Projection(등 장방형 도법)은 구체 형태의 파노라마 이미지를 표시하기 위해 주로 사용되는 투영법입니다.
