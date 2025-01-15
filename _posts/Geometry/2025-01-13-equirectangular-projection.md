@@ -84,8 +84,7 @@ Employing a 2D Gaussian for fitting such a projection would lead to significant 
 
 이러한 투영에 대해 2D 가우시안을 사용하여 적합(fitting)하면 상당한 오류가 발생할 수 있습니다.
 
-![image](https://github.com/user-attachments/assets/33aba853-1a9e-4b29-a1c2-44a453298abe)
-
+![image](https://github.com/user-attachments/assets/1f073e3d-8076-4fd7-9fee-fb5eeb8b3903)
 
 360-GS의 저자는 위와 같이 panormaic inputs을 그대로 쓰는 것에 문제가 있음을 착안하고, 이를 해결하기 위해 tangent plane에 먼저 3d gaussian을 splatting하고 spherical surface로 mapping하는 방식을 사용했습니다.
 
