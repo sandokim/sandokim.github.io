@@ -10,6 +10,8 @@ tags:
   - equirectangular projection
   - 360 degree scene reconstruction
   - panoramic inputs
+  - layout point cloud
+  - depth point cloud
 excerpt: "Geometric constraint in 3DGS"
 use_math: true
 classes: wide
