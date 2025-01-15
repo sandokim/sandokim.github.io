@@ -76,9 +76,9 @@ Consequently, the top and bottom of the image appear severely distorted.
 
 Employing a 2D Gaussian for fitting such a projection would lead to significant errors.
 
-로컬 아핀 근사는 투영 변환(projective transformation)에 의존하기 때문에, 3D 가우시안(3D Gaussians)을 파노라마 이미지(panoramic images) 상의 2D 가우시안(2D Gaussians)으로 매핑하는 데 적합하지 않습니다.
+**로컬 아핀 근사는 투영 변환(projective transformation)에 의존하기 때문에, 3D 가우시안(3D Gaussians)을 파노라마 이미지(panoramic images) 상의 2D 가우시안(2D Gaussians)으로 매핑하는 데 적합하지 않습니다.**
 
-파노라마 이미지는 가로로 360° 전체와 세로로 180° 전체를 포함합니다. 결과적으로, 이미지의 상단과 하단은 심각하게 왜곡되어 나타납니다. 
+**파노라마 이미지는 가로로 360° 전체와 세로로 180° 전체를 포함합니다. 결과적으로, 이미지의 상단과 하단은 심각하게 왜곡되어 나타납니다.**
 
 그림 3에 나타난 것처럼, 파노라마 투영(panoramic projection)은 다양한 구성(configuration) 하에서 가우시안으로 모델링할 수 없는 독특한 형태를 가정합니다. 
 
