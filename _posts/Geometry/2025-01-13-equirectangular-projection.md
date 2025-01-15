@@ -97,7 +97,18 @@ _**An alternative approach for the application of 3D-GS to panoramic inputs invo
 - Right 방법: 파노라마를 그대로 입력으로 사용 → "3DGS가 파노라마 데이터를 제대로 처리하지 못해 학습 실패"
 - 따라서, 두 방법 모두 파노라마 데이터를 효과적으로 처리하기에는 문제가 있다는 점을 지적한 내용입니다.
 
-360-GS의 저자는 위와 같이 panormaic inputs을 그대로 쓰는 것에 문제가 있음을 착안하고, 이를 해결하기 위해 tangent plane에 먼저 3d gaussian을 splatting하고 spherical surface로 mapping하는 방식을 사용했습니다.
+**360-GS의 저자는 위와 같이 panormaic inputs을 그대로 쓰는 것에 문제가 있음을 착안하고, 이를 해결하기 위해 tangent plane에 먼저 3d gaussian을 splatting하고 spherical surface로 mapping하는 방식을 사용했습니다.**
+
+목표는 파노라마 집합에서 3D 가우시안 표현을 최적화하고, 직접적인 파노라마 렌더링을 가능하게 하는 것입니다. 
+
+구면 투영을 직접적으로 표현하는 데 있어 발생하는 어려움을 고려하여, 저자는 구면 표면(spherical surface)에 대한 splatting을 두 단계로 분해하는 새로운 splatting 기법을 소개합니다. 
+
+- 첫 번째 단계는 단위 구의 접선 평면(tangent plane)에서 splatting을 수행하고, 
+- 두 번째 단계는 이를 구면 표면(spherical surface)으로 매핑하는 것입니다. 
+
+이를 통해 3D 가우시안을 2D 가우시안으로 투영하여 렌더링을 가능하게 합니다. 
+
+360° 가우시안 splatting 기법의 개요는 그림 5에 나와 있습니다.
 
 ![image](https://github.com/user-attachments/assets/4d0198be-7569-4fd8-a894-1f2a10b7f8cf)
 
