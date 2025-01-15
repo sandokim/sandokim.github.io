@@ -10,6 +10,10 @@ tags:
   - equirectangular projection
   - 360 degree scene reconstruction
   - panoramic inputs
+  - sparse-view inputs
+  - room layout
+  - panoramic room layout estimation
+  - layout-guided point cloud
   - layout point cloud
   - depth point cloud
 excerpt: "Geometric constraint in 3DGS"
