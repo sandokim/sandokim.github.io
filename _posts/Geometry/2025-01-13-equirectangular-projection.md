@@ -90,5 +90,7 @@ Employing a 2D Gaussian for fitting such a projection would lead to significant 
 
 360-GS의 저자는 위와 같이 panormaic inputs을 그대로 쓰는 것에 문제가 있음을 착안하고, 이를 해결하기 위해 tangent plane에 먼저 3d gaussian을 splatting하고 spherical surface로 mapping하는 방식을 사용했습니다.
 
+_**An alternative approach for the application of 3D-GS to panoramic inputs involves transforming the panoramas into perspective images before optimizing 3D Gaussians.**_
+
 ![image](https://github.com/user-attachments/assets/4d0198be-7569-4fd8-a894-1f2a10b7f8cf)
 
