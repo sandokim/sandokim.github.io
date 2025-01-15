@@ -42,7 +42,35 @@ Equirectangular 이미지는 이러한 구면 좌표계를 사용하여 이미�
 
 ----------
 
-### 3DGS에 naive하게 panoramic inputs을 넣었을 때 문제점
+### 파노라마 투영에서 3D-2D 가우시안 매핑의 한계
+
+Since the local affine approximation relies on projective transformation, it is not suitable for mapping 3D Gaussians to 2D Gaussians on panoramic images. A panoramic image covers the whole 360◦ horizontally and the whole 180◦ vertically.
+
+Consequently, the top and bottom of the image appear severely distorted. 
+
+**As illustrated in Fig. 3, the panoramic projection assumes distinct shapes that can not be modeled with Gaussians under varying configurations.**
+
+Employing a 2D Gaussian for fitting such a projection would lead to significant errors.
+
+**로컬 아핀 근사는 투영 변환(projective transformation)에 의존하기 때문에, 3D 가우시안(3D Gaussians)을 파노라마 이미지(panoramic images) 상의 2D 가우시안(2D Gaussians)으로 매핑하는 데 적합하지 않습니다.**
+
+**파노라마 이미지는 가로로 360° 전체와 세로로 180° 전체를 포함합니다. 결과적으로, 이미지의 상단과 하단은 심각하게 왜곡되어 나타납니다.**
+
+**그림 3에 나타난 것처럼, 파노라마 투영(panoramic projection)은 다양한 구성(configuration) 하에서 가우시안으로 모델링할 수 없는 독특한 형태를 가정합니다.**
+
+이러한 투영에 대해 2D 가우시안을 사용하여 적합(fitting)하면 상당한 오류가 발생할 수 있습니다.
+
+![image](https://github.com/user-attachments/assets/f2bf93fb-c12a-4e17-bb76-3985976916fb)
+
+_**An alternative approach for the application of 3D-GS to panoramic inputs involves transforming the panoramas into perspective images before optimizing 3D Gaussians.**_
+
+**3DGS를 panoramic inputs에 적용하는 대안적인 접근법은, panormaic inputs을 perspective image로 변환한 후 3D 가우시안을 최적화하는 방식입니다.**
+
+**그러나 이처럼 naive하게 panoramic inputs을 perspective image로 변환후 3DGS에 넣어 3DGS를 최적화하고,**
+
+**rendering된 perspective image들을 다시 panormaic inputs으로 stiching하면 stichiting artifacts가 발생합니다.**
+
+그렇다고 단순히 panormaic inputs을 3DGS에 넣어 최적화하면 3DGS가 파노라마 데이터를 효과적으로 처리하지 못해, 학습이 실패합니다.
 
 ![image](https://github.com/user-attachments/assets/7b836655-332c-4d9f-a11e-591847da4aeb)
 
@@ -66,31 +94,10 @@ Equirectangular 이미지는 이러한 구면 좌표계를 사용하여 이미�
 
 #### 요약
 - Left 방법: 파노라마를 작은 원근 이미지로 나눈 뒤 학습하고, 이를 다시 합치는 방식 → "이어붙이는 과정에서 왜곡 발생"
-- Right 방법: 파노라마를 그대로 입력으로 사용 → "3D-GS가 파노라마 데이터를 제대로 처리하지 못해 학습 실패"
+- Right 방법: 파노라마를 그대로 입력으로 사용 → "3DGS가 파노라마 데이터를 제대로 처리하지 못해 학습 실패"
 - 따라서, 두 방법 모두 파노라마 데이터를 효과적으로 처리하기에는 문제가 있다는 점을 지적한 내용입니다.
 
-
-Since the local affine approximation relies on projective transformation, it is not suitable for mapping 3D Gaussians to 2D Gaussians on panoramic images. A panoramic image covers the whole 360◦ horizontally and the whole 180◦ vertically.
-
-Consequently, the top and bottom of the image appear severely distorted. 
-
-**As illustrated in Fig. 3, the panoramic projection assumes distinct shapes that can not be modeled with Gaussians under varying configurations.**
-
-Employing a 2D Gaussian for fitting such a projection would lead to significant errors.
-
-**로컬 아핀 근사는 투영 변환(projective transformation)에 의존하기 때문에, 3D 가우시안(3D Gaussians)을 파노라마 이미지(panoramic images) 상의 2D 가우시안(2D Gaussians)으로 매핑하는 데 적합하지 않습니다.**
-
-**파노라마 이미지는 가로로 360° 전체와 세로로 180° 전체를 포함합니다. 결과적으로, 이미지의 상단과 하단은 심각하게 왜곡되어 나타납니다.**
-
-**그림 3에 나타난 것처럼, 파노라마 투영(panoramic projection)은 다양한 구성(configuration) 하에서 가우시안으로 모델링할 수 없는 독특한 형태를 가정합니다.**
-
-이러한 투영에 대해 2D 가우시안을 사용하여 적합(fitting)하면 상당한 오류가 발생할 수 있습니다.
-
-![image](https://github.com/user-attachments/assets/1f073e3d-8076-4fd7-9fee-fb5eeb8b3903)
-
 360-GS의 저자는 위와 같이 panormaic inputs을 그대로 쓰는 것에 문제가 있음을 착안하고, 이를 해결하기 위해 tangent plane에 먼저 3d gaussian을 splatting하고 spherical surface로 mapping하는 방식을 사용했습니다.
-
-_**An alternative approach for the application of 3D-GS to panoramic inputs involves transforming the panoramas into perspective images before optimizing 3D Gaussians.**_
 
 ![image](https://github.com/user-attachments/assets/4d0198be-7569-4fd8-a894-1f2a10b7f8cf)
 
