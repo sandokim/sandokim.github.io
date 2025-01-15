@@ -24,6 +24,8 @@ comments: true
 
 > [[논문리뷰] 360-GS: Layout-guided Panoramic Gaussian Splatting For Indoor Roaming](https://kimjy99.github.io/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/360-gs/)
 
+_파노라마 이미지는 가로로 360° 전체와 세로로 180° 전체를 포함합니다. 결과적으로, 이미지의 상단과 하단은 심각하게 왜곡되어 나타납니다._
+
 Equirectangular image는 구면 좌표계를 직각 좌표계로 매핑한 이미지입로 구면 좌표계의 각도를 직각 좌표계의 픽셀로 일대일 매핑하여 표현합니다.
 
 Equirectangular Projection(등 장방형 도법)은 구체 형태의 파노라마 이미지를 표시하기 위해 주로 사용되는 투영법입니다.
@@ -80,7 +82,7 @@ Employing a 2D Gaussian for fitting such a projection would lead to significant 
 
 **파노라마 이미지는 가로로 360° 전체와 세로로 180° 전체를 포함합니다. 결과적으로, 이미지의 상단과 하단은 심각하게 왜곡되어 나타납니다.**
 
-그림 3에 나타난 것처럼, 파노라마 투영(panoramic projection)은 다양한 구성(configuration) 하에서 가우시안으로 모델링할 수 없는 독특한 형태를 가정합니다. 
+**그림 3에 나타난 것처럼, 파노라마 투영(panoramic projection)은 다양한 구성(configuration) 하에서 가우시안으로 모델링할 수 없는 독특한 형태를 가정합니다.**
 
 이러한 투영에 대해 2D 가우시안을 사용하여 적합(fitting)하면 상당한 오류가 발생할 수 있습니다.
 
