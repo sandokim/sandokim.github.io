@@ -88,6 +88,11 @@ Nearby 3D Gaussians always share similar spatial and temporal information. To mo
 - [12] Sara Fridovich-Keil, Giacomo Meanti, Frederik Rahbæk Warburg, Benjamin Recht, and Angjoo Kanazawa. **K-planes: Explicit radiance fields in space, time, and appearance**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 12479–12488, 2023. 1, 2, 4, 5, 6, 7, 13, 14
 - [48] Ruizhi Shao, Zerong Zheng, Hanzhang Tu, Boning Liu, Hongwen Zhang, and Yebin Liu. **Tensor4d: Efficient neural 4d decomposition for high-fidelity dynamic reconstruction and rendering**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 16632– 16642, 2023. 1, 2, 4
 
+**While the vanilla 4D neural voxel is memory-consuming, we adopt a 4D K-Planes [12] module to decompose the 4D neural voxel into 6 multi-resolution planes.**
+
+**All 3D Gaussians in a certain area can be contained in the bounding plane voxels and the deformation of Gaussians can also be encoded in nearby temporal voxels.**
+
+
 
 
 
