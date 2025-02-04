@@ -19,6 +19,10 @@ comments: true
 
 <이미지 출처 4D Gaussian Splatting>
 
+## Related Works
+
+### 2.1. Novel View Synthesis
+
 - [9] proposes to use an explicit voxel grid to model temporal information, accelerating the learning time for dynamic scenes to half an hour and applied in [19, 32, 62]. The proposed deformation-based neural rendering methods are shown in Fig. 2 (a).
   - [9] Jiemin Fang, Taoran Yi, Xinggang Wang, Lingxi Xie, Xiaopeng Zhang, Wenyu Liu, Matthias Nießner, and Qi Tian. Fast dynamic radiance fields with time-aware neural voxels. In SIGGRAPH Asia 2022 Conference Papers, pages 1–9, 2022. 1, 2, 4, 5, 6, 7, 12, 13, 14, 15
   - [19] Xiang Guo, Jiadai Sun, Yuchao Dai, Guanying Chen, Xiaoqing Ye, Xiao Tan, Errui Ding, Yumeng Zhang, and Jingdong Wang. Forward flow for novel view synthesis of dynamic scenes. In Proceedings of the IEEE/CVF International Conference on Computer Vision, pages 16022–16033, 2023. 2, 5, 6, 7, 12
