@@ -136,3 +136,13 @@ $$
 
 Finally, we obtain the deformed 3D Gaussians $G' = \\{X', s', r', \sigma, C\\}$.
 
+### 4.3 Optimization
+#### 3D Gaussian Initialization.
+4D Gaussians can also leverage the power of proper 3D Gaussian initialization.
+
+We optimize 3D Gaussians at initial 3000 iterations for warm-up and then render images with 3D Gaussians $\hat{I} = S(M,G)$ instead of 4D Gaussians $\hat{I}=S(M,G')$. 
+
+The illustration of the optimization process is shown in Fig. 4.
+
+![image](https://github.com/user-attachments/assets/5fb680ab-c6c2-40ff-ba46-dcad75ecdba2)
+
