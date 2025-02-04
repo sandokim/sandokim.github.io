@@ -54,3 +54,28 @@ comments: true
 _The aforementioned methods though achieve fast training speed, real-time rendering for dynamic scenes is still challenging, especially for monocular input._
 
 - 4D Gaussian Splatting aims at constructing a highly efficient training and rendering pipeline in Fig. 2 (c), while maintaining the quality, even for sparse inputs.
+
+### 4.2 Gaussiann Deformation Field Network
+The network to learn the Gaussian deformation field includes an efficient spatial-temporal structure encoder $H$ and a Gaussian deformation decoder $D$ for predicting the defromation of each 3D Gaussian.
+
+- The deformation of 3D Gaussians $\Delta G$
+- Gaussian deformation field network $F$
+- the deformed 3D Gaussians $G'$
+- the spatial-temporal structure encoder $H$
+- the multi-head Gaussian deformation Decoder $D$
+
+$$
+G' = \Delta G + G 
+$$
+
+$$
+f_d = H(G,t) 
+$$
+
+$$
+\Delta G = D(f)
+$$
+
+$$
+\Delta G = F(G,t)
+$$
