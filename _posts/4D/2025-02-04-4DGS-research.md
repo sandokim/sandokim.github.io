@@ -119,4 +119,20 @@ The discussion of the production process is similar to K-Planes [12].
 
 Then a tiny MLP $\phi_d$ merges all the features by $f_d = \phi_d(f_h)$.
 
+#### Multi-head Gaussian Deformation Decoder.
+When all the features of 3D Gaussians are encoded, we can compute any desired variable with a multi-head Gaussian deformation decoder $D = \\{\phi_x, \phi_r, \phi_s \\}$. 
+
+Seperate MLPs are employed to compute 
+
+- the deformation of position $\Delta X = \phi_x(f_d)$,
+- the defomration of rotation $\Delta r = \phi_r(f_d)$,
+- the deformation of scaling $\Delta s = \phi_s(f_d)$.
+
+Then, the deformed feature $(X', r', s')$ can be addressed as:
+
+$$
+(X', r', s') = (X + \Delta X, r + \Delta r, s + \Delta s).
+$$
+
+Finally, we obtain the deformed 3D Gaussians $G' = {X', s', r', \sigma, C}$.
 
