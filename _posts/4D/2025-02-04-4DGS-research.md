@@ -149,3 +149,22 @@ The illustration of the optimization process is shown in Fig. 4.
 
 ![image](https://github.com/user-attachments/assets/5fb680ab-c6c2-40ff-ba46-dcad75ecdba2)
 
+#### Loss Function.
+Similar to other reconstruction methods [9,22,42], we use the L1 color loss to supervise the training process.
+
+- [9] Jiemin Fang, Taoran Yi, Xinggang Wang, Lingxi Xie, Xiaopeng Zhang, Wenyu Liu, Matthias Nießner, and Qi Tian. **Fast dynamic radiance fields with time-aware neural voxels**. In SIGGRAPH Asia 2022 Conference Papers, pages 1–9, 2022. 1, 2, 4, 5, 6, 7, 12, 13, 14, 15
+- [22] Bernhard Kerbl, Georgios Kopanas, Thomas Leimk¨uhler, and George Drettakis. **3d gaussian splatting for real-time radiance field rendering**. ACM Transactions on Graphics (ToG), 42(4):1–14, 2023. 1, 3, 4, 5, 6, 7, 11, 12, 14
+- [42] Albert Pumarola, Enric Corona, Gerard Pons-Moll, and Francesc Moreno-Noguer. **D-nerf: Neural radiance fields for dynamic scenes**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 10318–10327, 2021. 1, 2, 5, 6, 12, 15
+
+A grid-based total-variational loss [5,9,12,51] $L_{tv}$ is also applied.
+
+$$
+L = |\hat{I}-I| + L_{tv}.
+$$
+
+- [5] Ang Cao and Justin Johnson. **Hexplane: A fast representation for dynamic scenes**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 130–141, 2023. 1, 2, 4, 5, 6, 7, 13, 14
+- [9] Jiemin Fang, Taoran Yi, Xinggang Wang, Lingxi Xie, Xiaopeng Zhang, Wenyu Liu, Matthias Nießner, and Qi Tian. **Fast dynamic radiance fields with time-aware neural voxels**. In SIGGRAPH Asia 2022 Conference Papers, pages 1–9, 2022. 1, 2, 4, 5, 6, 7, 12, 13, 14, 15
+- [12] Sara Fridovich-Keil, Giacomo Meanti, Frederik Rahbæk Warburg, Benjamin Recht, and Angjoo Kanazawa. **K-planes: Explicit radiance fields in space, time, and appearance**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 12479–12488, 2023. 1, 2, 4, 5, 6, 7, 13, 14
+- [51] Cheng Sun, Min Sun, and Hwann-Tzong Chen. **Direct voxel grid optimization: Super-fast convergence for radiance fields reconstruction**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 5459– 5469, 2022. 1, 3, 5
+
+
