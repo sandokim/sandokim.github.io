@@ -143,7 +143,7 @@ Finally, we obtain the deformed 3D Gaussians $G' = \\{X', s', r', \sigma, C\\}$.
 We optimize 3D Gaussians at initial 3000 iterations for warm-up and then render images with 3D Gaussians $\hat{I} = S(M,G)$ instead of 4D Gaussians $\hat{I}=S(M,G')$. 
 
 - $M = [R,T]$: a view matrix
-- a novel-view image $\hat{I}$ is rendered by differential splatting [63] $S$.
+- a novel-view image $\hat{I}$ is rendered by differential splatting $S$.
 
 The illustration of the optimization process is shown in Fig. 4.
 
