@@ -134,5 +134,5 @@ $$
 (X', r', s') = (X + \Delta X, r + \Delta r, s + \Delta s).
 $$
 
-Finally, we obtain the deformed 3D Gaussians $G' = {X', s', r', \sigma, C}$.
+Finally, we obtain the deformed 3D Gaussians $G' = \\{X', s', r', \sigma, C\\}$.
 
