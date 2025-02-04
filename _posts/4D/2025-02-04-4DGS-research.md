@@ -92,7 +92,30 @@ Nearby 3D Gaussians always share similar spatial and temporal information. To mo
 
 **All 3D Gaussians in a certain area can be contained in the bounding plane voxels and the deformation of Gaussians can also be encoded in nearby temporal voxels.**
 
+Specifically, the spatial-temporal structure encoder $H$ contains 6 multi-resolution plane modules $R_l(i,j)$ and a tiny MLP $\phi_d$, i.e. $H(G,t) = \{R_l(i,j), \phi_d | (i,j) \in {(x,y),(x,z),(y,z),(x,t),(y,t),(z,t)}, l \in {1,2}\}.$
 
+The position $\mu = (x,y,z)$ is the mean value of 3D Gaussians $G$.
 
+Each voxel module is defined by $R(i,j) \in \mathcal{R}^{h \times lN_i \times lN_j}$, where $h$ stands for the hidden dim of features, and $N$ denotes the basic resolution of voxel grid and $l$ equals to the upsampling scale.
+
+- $N$: the basic resolution of voxel grid
+- $l$: the upsampling scale
+
+This entails encoding information of the 3D Gaussians within the 6 2D voxel planes while considering temporal information.
+
+The formula for **computing seperate voxel features** is as follows:
+
+$$
+f_h = \bigcup_l \prod \text{interp}(R_l(i,j)), 
+$$
+$$
+(i,j) \in \{(x,y),(x,z),(y,z),(x,t),(y,t),(z,t)\}
+$$
+
+$f_h \in \mathcal{R}^{h * l}$ is the feature of neural voxels. 'interp' denotes the bilinear interpolation for querying the voxel features located at 4 vertices of the grid.
+
+The discussion of the production process is similar to K-Planes [12].
+
+Then a tiny MLP $\phi_d$ merges all the features by $f_d = \phi_d(f_h)$.
 
 
