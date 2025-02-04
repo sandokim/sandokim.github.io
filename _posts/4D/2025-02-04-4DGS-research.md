@@ -168,3 +168,12 @@ $$
 - [51] Cheng Sun, Min Sun, and Hwann-Tzong Chen. **Direct voxel grid optimization: Super-fast convergence for radiance fields reconstruction**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 5459– 5469, 2022. 1, 3, 5
 
 
+
+### Fair Comparison Setup은 어떻게 하였는지?
+### 5.2. Results
+**The K-Planes results on the synthetic dataset originate from the Deformable-3DGS [60] paper.**
+
+**The other results of the compared methods are from their papers, reproduced by their code or provided by the authors.**
+
+**The rendering spped and storage data for [5,9,12,22] are estimated based on the official implementations.**
+
