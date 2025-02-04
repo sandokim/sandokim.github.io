@@ -79,3 +79,15 @@ $$
 $$
 \Delta G = F(G,t)
 $$
+
+#### Spatial-Temporal Structure Encoders.
+Nearby 3D Gaussians always share similar spatial and temporal information. To model 3D Gaussians' features effectively, we introduce an efficient spatial-temporal struture encoder $H$ including a multi-resolution HexPlane $R(i,j)$ and a tiny MLP $\phi_d$ inspired by [5,9,12,48]
+
+- [5] Ang Cao and Justin Johnson. **Hexplane: A fast representation for dynamic scenes**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 130–141, 2023. 1, 2, 4, 5, 6, 7, 13, 14
+- [9] Jiemin Fang, Taoran Yi, Xinggang Wang, Lingxi Xie, Xiaopeng Zhang, Wenyu Liu, Matthias Nießner, and Qi Tian. **Fast dynamic radiance fields with time-aware neural voxels**. In SIGGRAPH Asia 2022 Conference Papers, pages 1–9, 2022. 1, 2, 4, 5, 6, 7, 12, 13, 14, 15
+- [12] Sara Fridovich-Keil, Giacomo Meanti, Frederik Rahbæk Warburg, Benjamin Recht, and Angjoo Kanazawa. **K-planes: Explicit radiance fields in space, time, and appearance**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 12479–12488, 2023. 1, 2, 4, 5, 6, 7, 13, 14
+- [48] Ruizhi Shao, Zerong Zheng, Hanzhang Tu, Boning Liu, Hongwen Zhang, and Yebin Liu. **Tensor4d: Efficient neural 4d decomposition for high-fidelity dynamic reconstruction and rendering**. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 16632– 16642, 2023. 1, 2, 4
+
+
+
+
