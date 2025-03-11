@@ -131,6 +131,6 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 ![image](https://github.com/user-attachments/assets/5a271bd0-a539-49cd-a3d6-1bac9eff26bc)
 
-![image](https://github.com/user-attachments/assets/abf971df-2e76-45dd-8307-ee6bc46fbaaf)
+<img src="https://github.com/user-attachments/assets/abf971df-2e76-45dd-8307-ee6bc46fbaaf" width="800">
 
-![image](https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97)
+<img src="https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97" width="800">
