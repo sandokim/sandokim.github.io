@@ -129,7 +129,7 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 - reference image의 픽셀을 homogeneous coordinates로 표현하고, 평면까지의 거리 𝑑를 이용해 해당 3D 점의 위치를 계산할 수 있다. 
 - 계산된 3D 점은 다른 뷰의 카메라로 projection할 수 있다.
 
-![image](https://github.com/user-attachments/assets/2791eb03-defe-4d92-9995-0dc84fa3c485)
+![image](https://github.com/user-attachments/assets/409ddc2f-bfa0-4bf2-a779-72c32eb748f3)
 
 <img src="https://github.com/user-attachments/assets/3d31eb06-7ee8-4d19-b340-5b3ddd1788f2" width="800">
 
