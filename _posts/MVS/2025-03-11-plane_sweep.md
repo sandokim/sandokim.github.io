@@ -9,6 +9,7 @@ tags:
   - plane sweep
   - plane sweep algorithm
   - plane homography
+  - Lambertian surface
 excerpt: "Plane sweep algorithm in multi-view stereo"
 use_math: true
 classes: wide
@@ -59,8 +60,20 @@ Binocular stereo에서는 일반적으로 두 이미지를 정렬(rectify)하여
 
 # Plane Sweeping 이론
 
+- **램버시안 표면(Lambertian surface)**은 빛을 모든 방향으로 균일하게 반사하는 표면을 의미합니다. 즉, 관찰자가 어떤 방향에서 보더라도 밝기가 동일하게 보이는 특성을 가집니다.
+
+**Plane sweeping은 스테레오 문제를 해결하기 위한 방법으로, 이는 두 개 이상의 캘리브레이션된 뷰가 주어졌을 때 장면의 표면(surfaces)을 찾아내는 문제**입니다. 
+
+- **표면이 램버시안(Lambertian)이라고 가정하고**,
+- 가림(occlusion)이 없다고 가정하면,
+
+**하나의 표면 위의 점은 모든 뷰에서 같은 외관(appearance)을 가져야 합니다.** 따라서 스테레오 문제에 대한 개념적인 해결책은 모든 뷰에서 광학적 일관성(photoconsistency)을 최대화하는 점들을 찾아내는 것입니다.
+
 Plane sweep 알고리즘의 입력은 여러 개의 뷰로 구성됩니다. 여기서 뷰(view)란 하나의 이미지와 해당 이미지에 대응하는 카메라 파라미터로 정의됩니다. 간단하게 하기 위해, 여러 뷰 중 하나를 기준(reference) 뷰로 선택합니다. 나머지 모든 이미지는 이 기준 이미지와 비교되어 photoconsistency(광학 일관성)를 측정하는 데 사용됩니다. 알고리즘의 **출력은 기준 뷰에 대한 깊이 맵(depth map)입니다.**
 
 <img src="https://github.com/user-attachments/assets/7c104ed7-4b6e-4967-a20f-408ee03942ad" width="600">
 
 ![image](https://github.com/user-attachments/assets/16fdd5a2-9a64-4068-af0d-c5117335d12e)
+
+<img src="https://github.com/user-attachments/assets/0f7cb9e7-a53e-4752-892d-c8a0acd1f072" width="600">
+
