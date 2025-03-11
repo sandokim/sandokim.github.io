@@ -60,5 +60,6 @@ Binocular stereo에서는 일반적으로 두 이미지를 정렬(rectify)하여
 
 Plane sweep 알고리즘의 입력은 여러 개의 뷰로 구성됩니다. 여기서 뷰(view)란 하나의 이미지와 해당 이미지에 대응하는 카메라 파라미터로 정의됩니다. 간단하게 하기 위해, 여러 뷰 중 하나를 기준(reference) 뷰로 선택합니다. 나머지 모든 이미지는 이 기준 이미지와 비교되어 photoconsistency(광학 일관성)를 측정하는 데 사용됩니다. 알고리즘의 **출력은 기준 뷰에 대한 깊이 맵(depth map)입니다.**
 
-![image](https://github.com/user-attachments/assets/7c104ed7-4b6e-4967-a20f-408ee03942ad)
+<img src="https://github.com/user-attachments/assets/7c104ed7-4b6e-4967-a20f-408ee03942ad" width="600">
 
+![image](https://github.com/user-attachments/assets/16fdd5a2-9a64-4068-af0d-c5117335d12e)
