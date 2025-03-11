@@ -122,3 +122,15 @@ _**즉, 평면을 움직이면서 어느 위치에서 어떤 물체가 가장 �
 Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모두에 매우 중요합니다. 샘플링이 너무 희소하면 photoconsistency의 최적점을 놓칠 수 있고, 반대로 너무 조밀하면 비효율적입니다. Plane sweep 동안 평면은, warped 이미지의 이동량이 1픽셀 이하(또는 원하는 이미지 샘플링 레벨) 가 되도록 움직여야 합니다. 모든 픽셀이 같은 속도로 움직이진 않지만, 참조 이미지의 네 모서리 픽셀만 측정하면 충분합니다. 평면 워핑은 선형이므로, 내부 픽셀들은 모서리 픽셀들의 선형 결합이며 따라서 그 움직임은 모서리 기준으로 제한됩니다.
 
 샘플링 속도를 높이기 위해서는 이미지를 다운샘플링하여 픽셀 크기를 키우는 방식을 사용할 수 있습니다. 또한 해상도 조절 및 뷰 선택(baseline control) 을 통해 샘플링 레이트를 조절할 수 있으며, 이는 정확도와 효율성 간의 최적 균형을 달성하기 위한 방법입니다 [2].
+
+# Plane Sweeping 알고리즘 쉽게 이해하기
+
+- Plane Sweeping은 3D 점이 plane 𝜋 위에 있다는 기하학적 제약을 활용하여, 
+- reference image의 픽셀을 homogeneous coordinates로 표현하고, 평면까지의 거리 𝑑를 이용해 해당 3D 점의 위치를 계산할 수 있다. 
+- 계산된 3D 점은 다른 뷰의 카메라로 projection할 수 있다.
+
+![image](https://github.com/user-attachments/assets/5a271bd0-a539-49cd-a3d6-1bac9eff26bc)
+
+![image](https://github.com/user-attachments/assets/abf971df-2e76-45dd-8307-ee6bc46fbaaf)
+
+![image](https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97)
