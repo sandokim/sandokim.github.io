@@ -18,6 +18,8 @@ comments: true
 
 > Reference
 
+> [A space-sweep approach to true multi-image matching](https://ieeexplore.ieee.org/document/517097)
+
 > [Plane sweep algorithm in multi-view stereo](https://medium.com/@alokguy2004/plane-sweep-algorithm-in-multi-view-stereo-fd070bb0d92f)
 
 > [Plane Sweeping](https://link.springer.com/referenceworkentry/10.1007/978-3-030-63416-2_205)
