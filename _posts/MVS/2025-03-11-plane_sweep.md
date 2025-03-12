@@ -209,6 +209,8 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 ![image](https://github.com/user-attachments/assets/950696bf-ae88-4da5-8a6c-23e2786c0456)
 
+Rotation matrix에서 $R^{-1}=R^T$이다.
+
 ✅ 한줄 요약
 
 위 Homography 행렬은 target view의 픽셀을 depth 𝑧 기준의 3D 평면 위에 놓고, 이를 source view의 image plane으로 warp하기 위한 완전한 수학적 표현이다.
