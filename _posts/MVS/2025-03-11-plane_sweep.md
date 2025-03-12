@@ -10,6 +10,9 @@ tags:
   - plane sweep algorithm
   - plane homography
   - Lambertian surface
+  - MVSNet
+  - MVSNeRF
+  - MVSGaussians
 excerpt: "Plane sweep algorithm in multi-view stereo"
 use_math: true
 classes: wide
@@ -23,6 +26,8 @@ comments: true
 > [Plane sweep algorithm in multi-view stereo](https://medium.com/@alokguy2004/plane-sweep-algorithm-in-multi-view-stereo-fd070bb0d92f)
 
 > [Plane Sweeping](https://link.springer.com/referenceworkentry/10.1007/978-3-030-63416-2_205)
+
+> [MVSGaussian: Fast Generalizable Gaussian Splatting Reconstruction from Multi-View Stereo](https://arxiv.org/abs/2405.12218)
 
 # Plane Sweep Algorithm in Multi-view Stereo
 
@@ -128,8 +133,14 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 - Plane Sweeping은 3D 점이 plane 𝜋 위에 있다는 기하학적 제약을 활용하여, 
 - reference image의 픽셀을 homogeneous coordinates로 표현하고, 평면까지의 거리 𝑑를 이용해 해당 3D 점의 위치를 계산할 수 있다. 
 - 계산된 3D 점은 다른 뷰의 카메라로 projection할 수 있다.
+- Homography는 두 카메라 사이의 변환이므로 카메라가 바뀌면 homography (H)가 같을 수 없음
 
-![image](https://github.com/user-attachments/assets/8d4b5561-3df8-4974-ae03-e143e4f61b88)
+![image](https://github.com/user-attachments/assets/3cc79a21-9e32-406b-8b33-6bbcbef2293d)
+
+- reference 카메라를 기준으로 multiple fornoto-parallel planes at target view (=reference view)를 생성하고
+- target view camera의 principal axis의 축을 따라 z 방향을 결정하여, sampled depth $z$를 정합니다. (이때 z는 0~128로 가정)
+
+![image](https://github.com/user-attachments/assets/950696bf-ae88-4da5-8a6c-23e2786c0456)
 
 <img src="https://github.com/user-attachments/assets/3d31eb06-7ee8-4d19-b340-5b3ddd1788f2" width="800">
 
