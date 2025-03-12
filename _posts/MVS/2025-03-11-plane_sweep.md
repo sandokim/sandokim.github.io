@@ -174,7 +174,11 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 ![image](https://github.com/user-attachments/assets/5437bd75-30e2-4b6c-ad33-1f18b301939f)
 
-![image](https://github.com/user-attachments/assets/6ca0456c-5e65-4c5c-a7f4-d7702706e633)
+![image](https://github.com/user-attachments/assets/3358b373-b59d-44f4-91ce-3db85f050852)
+
+이 안의 $\frac{1}{d}$가 바로 “어떤 가상 평면(depth d)을 기준으로 보고 있는지”를 명확히 보여주는 항이야.
+
+𝑑가 커질수록 (멀리 있는 평면일수록), homography 행렬은 점점 identity에 가까워짐 (왜냐면 상대 이동량의 영향이 작아지니까)
 
 ![image](https://github.com/user-attachments/assets/9a71daa6-661d-4a0e-8657-a8d61699f48d)
 
