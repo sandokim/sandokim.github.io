@@ -138,7 +138,6 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 - Plane Sweeping은 3D 점이 plane 𝜋 위에 있다는 기하학적 제약을 활용하여, 
 - reference image의 픽셀을 homogeneous coordinates로 표현하고, 평면까지의 거리 𝑑를 이용해 해당 3D 점의 위치를 계산할 수 있다. 
 - 계산된 3D 점은 다른 뷰의 카메라로 projection할 수 있다.
-- 알아둘 점: Homography는 두 카메라 사이의 변환이므로 카메라가 바뀌면 homography (H)가 같을 수 없음
 
 ![image](https://github.com/user-attachments/assets/3cc79a21-9e32-406b-8b33-6bbcbef2293d)
 
@@ -150,3 +149,5 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 <img src="https://github.com/user-attachments/assets/3d31eb06-7ee8-4d19-b340-5b3ddd1788f2" width="800">
 
 <img src="https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97" width="800">
+
+- 알아둘 점: Homography는 두 카메라 사이의 변환이므로 카메라가 바뀌면 homography (H)가 같을 수 없음
