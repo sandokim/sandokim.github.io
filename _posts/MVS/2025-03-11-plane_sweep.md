@@ -225,17 +225,17 @@ MVSNeRF, MVSGaussian 같은 구조에서 cost volume을 쌓을 때, 여러 sourc
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/0015a85f-6d6f-49d4-a26b-7bf1edfb9543" alt="MVSNet Plane Sweeping"><br>
-  <small>&lt;MVSNet Homography 수식&gt;</small>
+  &lt;MVSNet Homography 수식&gt;
 </p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4b9e6470-11e7-4b6d-93c6-c10d79cd4823" alt="MVSNeRF Plane Sweeping"><br>
-  <small>&lt;MVSNeRF Homography 수식&gt;</small>
+  &lt;MVSNeRF Homography 수식&gt;
 </p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/76d8461b-41ce-4003-8b30-cddbdd5eac55" alt="MVSGaussians Plane Sweeping"><br>
-  <small>&lt;MVSGaussians Homography 수식&gt;</small>
+  &lt;MVSGaussians Homography 수식&gt;
 </p>
 
 ### 본래 homography 변환은 고정이 맞다.
