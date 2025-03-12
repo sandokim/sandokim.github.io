@@ -139,7 +139,7 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 - reference image의 픽셀을 homogeneous coordinates로 표현하고, 평면까지의 거리 𝑑를 이용해 해당 3D 점의 위치를 계산할 수 있다. 
 - 계산된 3D 점은 다른 뷰의 카메라로 projection할 수 있다.
 
-![image](https://github.com/user-attachments/assets/3cc79a21-9e32-406b-8b33-6bbcbef2293d)
+![image](https://github.com/user-attachments/assets/a49d77d4-7fc4-4c08-95f1-a429d46854e3)
 
 - reference 카메라를 기준으로 multiple fornoto-parallel planes at target view (=reference view)를 생성하고
 - target view camera의 principal axis의 축을 따라 z 방향을 결정하여, sampled depth $z$를 정합니다. (이때 z는 0~128로 가정)
