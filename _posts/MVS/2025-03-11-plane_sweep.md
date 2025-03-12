@@ -178,6 +178,29 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 ![image](https://github.com/user-attachments/assets/9a71daa6-661d-4a0e-8657-a8d61699f48d)
 
+# MVSNet에서 homography 수식 단계별로 다시 이해하기
+
+![image](https://github.com/user-attachments/assets/34938c40-7db8-45f1-96e0-14d7fe0db204)
+
+![image](https://github.com/user-attachments/assets/0fada3c6-fc34-4697-b990-70bf7c85bf1c)
+
+![image](https://github.com/user-attachments/assets/07670257-083b-4343-aded-eccad04d1365)
+
+![image](https://github.com/user-attachments/assets/93393802-260f-4563-9da1-4c7b7861ad6d)
+
+![image](https://github.com/user-attachments/assets/5c68719d-9f3e-4436-a3ea-4b6c2a3cabf9)
+
+![image](https://github.com/user-attachments/assets/5444d107-d112-40b2-9b5d-36c1b8cda39f)
+
+![image](https://github.com/user-attachments/assets/614065c4-64bc-4094-a616-b15c93bf2731)
+
+![image](https://github.com/user-attachments/assets/6c07613b-6a6a-4f7c-9eb1-d4654428e1df)
+
+✅ 요약
+
+- Homography 수식 안에 있는 𝐾,𝑅들은 "픽셀 → world → 다시 픽셀"로 가는 모든 변환을 선형적으로 정리한 구조다.
+- 각 항은 좌표계 전환 (image → camera → world → camera → image)의 각 단계를 표현한다.
+
 # MVSGaussians에서의 homography 변환
 
 ![image](https://github.com/user-attachments/assets/950696bf-ae88-4da5-8a6c-23e2786c0456)
