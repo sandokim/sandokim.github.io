@@ -148,6 +148,7 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 <img src="https://github.com/user-attachments/assets/3d31eb06-7ee8-4d19-b340-5b3ddd1788f2" width="800">
 
-<img src="https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97" width="800">
-
-- 알아둘 점: Homography는 두 카메라 사이의 변환이므로 카메라가 바뀌면 homography (H)가 같을 수 없음
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97" alt="Plane Sweep Algorithm", width="800"><br>
+  <small>&lt;알아둘 점: Homography는 두 카메라 사이의 변환이므로 카메라가 바뀌면 homography (H)가 같을 수 없음&gt;</small>
+</p>
