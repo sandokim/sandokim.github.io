@@ -219,6 +219,27 @@ Rotation matrix에서 $R^{-1}=R^T$이다.
 
 MVSNeRF, MVSGaussian 같은 구조에서 cost volume을 쌓을 때, 여러 source view의 feature들을 target view의 depth plane에 정렬(warp)해야 하기 때문. 이 homography는 그 정렬을 정확하게 해주는 기하학적 연결 고리다.
 
+
+
+# MVSNet 수식, MVSNeRF 수식, MVSGaussian 수식
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0015a85f-6d6f-49d4-a26b-7bf1edfb9543" alt="MVSNet Plane Sweeping"><br>
+  <small>&lt;MVSNet Homography 수식&gt;</small>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4b9e6470-11e7-4b6d-93c6-c10d79cd4823" alt="MVSNeRF Plane Sweeping"><br>
+  <small>&lt;MVSNeRF Homography 수식&gt;</small>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/76d8461b-41ce-4003-8b30-cddbdd5eac55" alt="MVSGaussians Plane Sweeping"><br>
+  <small>&lt;MVSGaussians Homography 수식&gt;</small>
+</p>
+
+### 본래 homography 변환은 고정이 맞다.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97" alt="Plane Sweep Algorithm", width="800"><br>
   <small>&lt;알아둘 점: Homography는 두 카메라 사이의 변환이므로 카메라가 바뀌면 homography (H)가 같을 수 없음&gt;</small>
