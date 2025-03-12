@@ -158,3 +158,12 @@ MVSNeRF, MVSGaussian 같은 구조에서 cost volume을 쌓을 때, 여러 sourc
   <img src="https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97" alt="Plane Sweep Algorithm", width="800"><br>
   <small>&lt;알아둘 점: Homography는 두 카메라 사이의 변환이므로 카메라가 바뀌면 homography (H)가 같을 수 없음&gt;</small>
 </p>
+
+# Homography, Fundamental matrix, Essential matrix 차이
+
+![image](https://github.com/user-attachments/assets/e16e718e-2ef9-41df-b67f-46c290e6dd7c)
+
+Homography는 두 이미지 간 평면 상의 대응 변환입니다. 3D plane 위의 점들이 두 이미지 간 어떻게 transform되는지를 나타냄.
+
+Homography는 단일 3D 평면 상에서 유도됨 → 평면 기반 warping에 매우 유용.
+
