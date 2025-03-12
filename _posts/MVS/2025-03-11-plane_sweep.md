@@ -27,6 +27,8 @@ comments: true
 
 > [Plane Sweeping](https://link.springer.com/referenceworkentry/10.1007/978-3-030-63416-2_205)
 
+> [MVSNet: Depth Inference for Unstructured Multi-view Stereo](https://arxiv.org/abs/1804.02505)
+
 > [MVSGaussian: Fast Generalizable Gaussian Splatting Reconstruction from Multi-View Stereo](https://arxiv.org/abs/2405.12218)
 
 # Plane Sweep Algorithm in Multi-view Stereo
@@ -141,8 +143,42 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 ![image](https://github.com/user-attachments/assets/043373f8-2fde-4df5-b977-914fcbdcd58f)
 
+# Differential Homography
 - reference 카메라를 기준으로 multiple fornoto-parallel planes at target view (=reference view)를 생성하고
 - target view camera의 principal axis의 축을 따라 z 방향을 결정하여, sampled depth $z$를 정합니다. (이때 z는 0~128로 가정)
+
+**Homography는 "3D 평면 기준"일 때만 고정된 변환이다.** 즉, “한 평면 위의 점들만 대응한다면”, 두 카메라 간의 homography는 고정된 하나의 행렬로 표현 가능해.
+
+하지만 scene 전체는 평면이 아니라 다양한 depth를 가진 3D 구조잖아? 
+
+따라서: 
+
+"depth 𝑑"란, 우리가 가정하는 가상의 평면(z=d) 위의 homography를 의미하는 거야. 이게 바로 plane-induced homography라는 개념이야.
+
+🔍 쉽게 설명하면 이렇게 생각해봐:
+
+① 두 카메라 간 homography가 고정되려면?
+
+모든 3D point가 동일한 3D 평면 위에 있어야 해.
+예를 들어, 모든 점이 z=2m 평면 위에 있다고 가정하면, 그 평면에 대한 homography 𝐻(𝑑=2)는 고정된 하나의 행렬이야.
+
+② 그런데 현실의 3D scene은?
+
+어떤 점은 1.5m, 어떤 점은 3m 떨어져 있음 → 하나의 homography로는 다 안됨.
+
+그래서 MVSNet은 가상의 depth plane들을 쌓아서, 각 depth마다 별도의 homography로 source view feature를 warp함.
+
+→ 결국 MVSNet은:
+
+“만약 이 픽셀이 depth 𝑑에 있다고 가정하면, source view에선 어디에 대응될까?”를 여러 depth 𝑑에 대해 다르게 계산하는 구조야.
+
+![image](https://github.com/user-attachments/assets/5437bd75-30e2-4b6c-ad33-1f18b301939f)
+
+![image](https://github.com/user-attachments/assets/6ca0456c-5e65-4c5c-a7f4-d7702706e633)
+
+![image](https://github.com/user-attachments/assets/9a71daa6-661d-4a0e-8657-a8d61699f48d)
+
+# MVSGaussians에서의 homography 변환
 
 ![image](https://github.com/user-attachments/assets/950696bf-ae88-4da5-8a6c-23e2786c0456)
 
