@@ -146,7 +146,13 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 ![image](https://github.com/user-attachments/assets/950696bf-ae88-4da5-8a6c-23e2786c0456)
 
-<img src="https://github.com/user-attachments/assets/3d31eb06-7ee8-4d19-b340-5b3ddd1788f2" width="800">
+✅ 한줄 요약
+
+위 Homography 행렬은 target view의 픽셀을 depth 𝑧 기준의 3D 평면 위에 놓고, 이를 source view의 image plane으로 warp하기 위한 완전한 수학적 표현이다.
+
+🔍 참고: 왜 이렇게 복잡하게 쓰는가?
+
+MVSNeRF, MVSGaussian 같은 구조에서 cost volume을 쌓을 때, 여러 source view의 feature들을 target view의 depth plane에 정렬(warp)해야 하기 때문. 이 homography는 그 정렬을 정확하게 해주는 기하학적 연결 고리다.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9c631f1c-db44-4363-bef7-78ba921dfb97" alt="Plane Sweep Algorithm", width="800"><br>
