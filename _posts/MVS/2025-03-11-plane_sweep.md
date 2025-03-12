@@ -130,6 +130,11 @@ Plane sweep에서 3D 공간의 적절한 샘플링은 정확도와 효율성 모
 
 # Plane Sweeping 알고리즘 쉽게 이해하기
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ac5bd5a6-86d5-4c31-9957-fcb78beafaf2" alt="Plane Sweep Algorithm Concept"><br>
+  <small>&lt;이미지 출처: <a href="https://www.researchgate.net/figure/Concept-of-the-plane-sweep-algorithm_fig4_227221786">https://www.researchgate.net/figure/Concept-of-the-plane-sweep-algorithm_fig4_227221786</a>&gt;</small>
+</p>
+
 - Plane Sweeping은 3D 점이 plane 𝜋 위에 있다는 기하학적 제약을 활용하여, 
 - reference image의 픽셀을 homogeneous coordinates로 표현하고, 평면까지의 거리 𝑑를 이용해 해당 3D 점의 위치를 계산할 수 있다. 
 - 계산된 3D 점은 다른 뷰의 카메라로 projection할 수 있다.
