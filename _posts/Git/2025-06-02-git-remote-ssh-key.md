@@ -47,8 +47,8 @@ git remote -v
 ```
 출력이 아래처럼 나오면 성공입니다:
 ```terminal
-origin  git@github.com:sandokim/gaussian-splatting_sparse.git (fetch)
-origin  git@github.com:sandokim/gaussian-splatting_sparse.git (push)
+origin  git@github.com:sandokim/gaussian-splatting.git (fetch)
+origin  git@github.com:sandokim/gaussian-splatting.git (push)
 ```
 
 #### Git으로 push하기 전에 Tip
