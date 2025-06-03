@@ -42,7 +42,7 @@ COLMAP은 재구성 과정에서 intrinsic 파라미터(Principal point는 제�
 
 하지만 복잡한 distortion 모델의 경우, 자동 최적화가 퇴화된(degenerate) 파라미터로 수렴할 위험이 있습니다.
 
-그래서 이미 측정된 intrinsics가 있다면, refine_* 옵션을 통해 **intrinsics를 고정(fix)**할 수 있습니다.
+그래서 이미 측정된 intrinsics가 있다면, refine_* 옵션을 통해 intrinsics를 고정(fix)할 수 있습니다.
 
 경로: Reconstruction > Reconstruction options > Bundle Adj. > refine_*
 
