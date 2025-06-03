@@ -70,3 +70,39 @@ COLMAP GUI 또는 CLI에서:
 이미지를 불러올 때 camera_id를 동일하게 하여 intrinsics 공유.
 
 이후 COLMAP은 해당 intrinsics를 기반으로 extrinsics만 추정하게 됩니다.
+
+### 📐 COLMAP의 Reference Frame과 월드좌표계
+COLMAP을 사용해 Structure-from-Motion 재구성을 수행하면, 모든 카메라 포즈와 3D 포인트는 하나의 좌표계 기준에서 정의됩니다. 이 좌표계가 어떻게 정해지고, 어떤 의미를 가지며, 어떻게 다룰 수 있는지를 이해하는 것은 COLMAP 결과를 제대로 활용하기 위한 필수 조건입니다.
+
+#### ✅ Reference Frame은 어떻게 정해지는가?
+_"The reference frame is initialized to correspond to the first camera that is reconstructed."_
+
+COLMAP은 재구성 과정에서 처음으로 성공적으로 모델에 등록된 이미지를 기준으로 reference frame(기준 좌표계)을 초기화합니다. 이 이미지는 사용자 파일 목록의 첫 이미지가 아니라, 실제로 feature matching과 triangulation 조건을 만족해 최초로 구조화된 이미지입니다.
+
+이 이미지의 카메라 좌표계가 재구성 초기에는 월드 좌표계의 기준으로 사용됩니다. 즉, 해당 카메라는 원점 (0, 0, 0)에 위치하고, 회전은 단위행렬이 됩니다.
+
+📌 어떤 이미지가 초기 기준이 되었는지는 images.txt 파일의 가장 첫 번째 이미지 정보 줄을 보면 됩니다.
+
+#### 🔁 그러나 Reference Frame은 고정되어 있지 않다
+중요한 점은, 이 초기 기준 이미지가 최종적으로도 월드 좌표계의 중심으로 남는다는 보장은 없다는 것입니다.
+
+COLMAP은 reconstruction이 끝난 후, Bundle Adjustment(BA)를 통해 전체 모델의 최적화를 수행합니다. 이 과정에서 reconstruction 전체가 회전되거나 이동될 수 있으며, 이에 따라 기준 이미지의 위치도 변할 수 있습니다.
+
+즉,
+
+COLMAP의 reference frame은 초기 좌표계 설정을 위한 임시 기준일 뿐,
+
+최종 결과에서의 world coordinate system은 정확히 어떤 이미지 기준이라고 단정 지을 수 없습니다.
+
+다시 말해, 초기에는 특정 이미지가 기준이 되더라도, 최종적으로는 전체 모델이 조정된 하나의 일관된 좌표계 안에 위치하게 됩니다. 이 좌표계는 절대적인 의미의 “월드”가 아니라, 내부적으로 정렬된 상대적인 월드 프레임입니다.
+
+#### 🧭 원하는 기준 좌표계로 바꾸고 싶다면?
+COLMAP이 정의한 좌표계는 상대적이므로, 다음과 같은 후처리를 통해 의미 있는 좌표계로 재정렬해야 할 수 있습니다:
+
+특정 카메라(예: cam1)를 원점에 두고 Z축이 위를 향하도록 전체 reconstruction을 rigid transform으로 변환
+
+또는 외부 좌표계(예: GPS, 로봇 로컬 프레임 등)와 대응점 기반으로 정합
+
+
+
+
