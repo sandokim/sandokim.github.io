@@ -103,8 +103,43 @@ COLMAP이 정의한 좌표계는 상대적이므로, 다음과 같은 후처리�
 
 또는 외부 좌표계(예: GPS, 로봇 로컬 프레임 등)와 대응점 기반으로 정합
 
-### COLMAP에서 각 이미지의 카메라 포즈는 하나의 월드좌표계에서 정의되고, 그 카메라 포즈는 $-R^t*T$로 주어집니다.
-_"The pose of each image is defined with respect to a world coordinate system and the position of the image in the world coordinate system is given as -R^t*T."_
+### 📐 COLMAP에서 카메라 포즈(pose)와 위치(position)의 정의
+_"The pose of each image is defined with respect to a world coordinate system and the position of the image in the world coordinate system is given as -Rᵗ * T."_
 
+이 문장에서 중요한 점은 pose와 position을 구분하는 것입니다.
+
+- Pose: 월드 좌표계로부터 카메라 좌표계로 가는 변환(R, T)을 의미합니다. 즉, 카메라가 월드 공간 안에서 어떤 위치에 있고, 어떤 방향을 바라보는지를 함께 포함합니다.
+- Position: 그중에서도 카메라 중심점의 좌표만을 의미합니다. 회전(R)은 고려하지 않고, 카메라의 월드 기준 위치를 나타냅니다.
+
+#### 📌 좌표계 간 변환 수식
+- 𝑋: 월드 좌표계에서의 3D 포인트
+- 𝑥: 카메라(로컬) 좌표계에서의 3D 포인트
+- 𝑅: 월드 → 카메라 변환 회전 행렬
+- 𝑇: 월드 원점이 카메라 좌표계에서 보이는 위치 (translation vector)
+
+COLMAP에서는 다음과 같은 카메라 중심 기준 모델을 사용합니다:
+
+$$
+x = R \cdot X + T
+$$
+
+즉, 월드 좌표계의 포인트 𝑋는 회전과 이동을 거쳐 카메라 좌표계의 𝑥로 변환됩니다.
+
+이를 월드 좌표계 기준으로 풀어쓰면 다음과 같이 정리됩니다:
+
+$$
+X =R^t(x-T)
+$$
+
+📌 카메라의 위치(Position) 계산
+카메라의 위치는, 월드 좌표계에서 카메라 원점이 어디에 있는가를 뜻하며, 위 수식에서 𝑥=0인 경우로 계산됩니다.
+
+즉,
+
+$$
+Camera \ Position \ C=−R^t \cdot T 
+$$
+
+이는 COLMAP의 `images.txt`에서 주어진 R (쿼터니언 → 회전행렬로 변환)과 T를 통해 직접 계산할 수 있습니다.
 
 
