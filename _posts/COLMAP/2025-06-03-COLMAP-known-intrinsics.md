@@ -104,7 +104,7 @@ COLMAP이 정의한 좌표계는 상대적이므로, 다음과 같은 후처리�
 또는 외부 좌표계(예: GPS, 로봇 로컬 프레임 등)와 대응점 기반으로 정합
 
 ### 📐 COLMAP에서 카메라 포즈(pose)와 위치(position)의 정의
-_"The pose of each image is defined with respect to a world coordinate system and the position of the image in the world coordinate system is given as $-R^t * T$."_
+"The pose of each image is defined with respect to a world coordinate system and the position of the image in the world coordinate system is given as $-R^t * T$."
 
 이 문장에서 중요한 점은 pose와 position을 구분하는 것입니다.
 
@@ -128,7 +128,7 @@ $$
 이를 월드 좌표계 기준으로 풀어쓰면 다음과 같이 정리됩니다:
 
 $$
-X =R^t(x-T)
+X =R^t(x-T) = R^t \cdot x - R^t \cdot T
 $$
 
 📌 카메라의 위치(Position) 계산
