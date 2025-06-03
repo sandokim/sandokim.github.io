@@ -51,6 +51,11 @@ COLMAP은 재구성 과정에서 intrinsic 파라미터(Principal point는 제�
 ### ✅ COLMAP은 기본적으로 Principal Point는 최적화하지 않습니다. (Principal point refinement)
 주점(principal point)은 일반적으로 추정이 까다롭기 때문에 COLMAP은 기본적으로 이를 고정시킵니다.
 
+<div style="text-align: center;">
+  <img src="https://github.com/user-attachments/assets/aaa4c20c-d6ac-4c22-8356-fa502359906f" width="450" alt="Reconstruction > Reconstruction options > Bundle > Camera parameters" />
+  <p><em>Reconstruction > Reconstruction options > Bundle > Camera parameters</em></p>
+</div>
+
 하지만 모든 이미지가 재구성된 이후에는 구조가 충분히 결정되므로, global bundle adjustment 단계에서 주점을 refine할 수 있습니다.
 
 이때도 intrinsics를 여러 이미지가 공유하는 경우에 안정적으로 수행 가능합니다.
