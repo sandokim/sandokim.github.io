@@ -26,7 +26,7 @@ comments: true
 
 [COLMAP FAQ: Share intrinsics, Fix intrinsics, Principal point refinement](https://colmap.github.io/faq.html#faq-share-intrinsics)
 
-### ✅ COLMAP은 기본적으로 Intrinsics를 공유해줘버린다 (Share intrinsics)
+### ✅ COLMAP은 기본적으로 Intrinsics를 공유할 수 있습니다 (Share intrinsics)
 COLMAP은 같은 카메라로 찍은 여러 이미지가 같은 intrinsics를 공유하도록 할 수 있습니다.
 
 이건 이미지가 동일한 camera_id를 갖는 경우 자동으로 적용됩니다.
@@ -35,10 +35,10 @@ COLMAP은 같은 카메라로 찍은 여러 이미지가 같은 intrinsics를 �
 
 이 설정은 Database Management 툴을 통해 조정 가능합니다.
 
-### ✅ COLMAP은 기본적으로 Intrinsics를 알아서 최적화해줘버린다 (Fix intrinsics)
+### ✅ COLMAP은 기본적으로 Intrinsics를 알아서 최적화하지만, Intrinsics를 최적화 과정에서 제외할 수 있습니다. (Fix intrinsics)
 COLMAP은 재구성 과정에서 intrinsic 파라미터(Principal point는 제외)를 자동으로 최적화합니다.
 
-이미지 수가 충분하고, 여러 이미지가 같은 intrinsics를 공유할 때 COLMAP의 self-calibration이 꽤 정확합니다..
+이미지 수가 충분하고, 여러 이미지가 같은 intrinsics를 공유할 때 COLMAP의 self-calibration이 꽤 정확합니다.
 
 하지만 복잡한 distortion 모델의 경우, 자동 최적화가 퇴화된(degenerate) 파라미터로 수렴할 위험이 있습니다.
 
@@ -48,7 +48,7 @@ COLMAP은 재구성 과정에서 intrinsic 파라미터(Principal point는 제�
 
 재구성 후 전체 번들조정(global bundle adjustment) 시에도 refine 여부를 지정할 수 있다.
 
-### ✅ COLMAP은 기본적으로 Principal Point는 손대지 말아버린다 (Principal point refinement)
+### ✅ COLMAP은 기본적으로 Principal Point는 최적화하지 않습니다. (Principal point refinement)
 주점(principal point)은 일반적으로 추정이 까다롭기 때문에 COLMAP은 기본적으로 이를 고정시킵니다.
 
 하지만 모든 이미지가 재구성된 이후에는 구조가 충분히 결정되므로, global bundle adjustment 단계에서 주점을 refine할 수 있습니다.
