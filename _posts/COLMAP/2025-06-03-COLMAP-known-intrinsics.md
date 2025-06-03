@@ -65,7 +65,7 @@ Camera calibration이 미리 되어 있고, COLMAP에 정확한 intrinsics를 �
 
 COLMAP GUI 또는 CLI에서:
 
-refine_focal_length, refine_principal_point, refine_extra_params 등을 False로 설정해 intrinsics를 고정.
+`refine_focal_length, refine_principal_point, refine_extra_params` 등을 False로 설정해 intrinsics를 고정.
 
 이미지를 불러올 때 camera_id를 동일하게 하여 intrinsics 공유.
 
