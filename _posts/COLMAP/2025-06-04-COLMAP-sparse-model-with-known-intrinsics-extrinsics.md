@@ -74,9 +74,10 @@ _COLMAP GUI에서 known intrinsics과 known extrinsics를 manual하게 넣어주
   <em>LLFF의 fern 장면의 sparse/0/images.txt에서 IMG_4043를 촬영한 CAMERA_ID는 1</em>
 </p>
 
-이 경우 이미지 간 유효 영역이 일관되므로, 추가적인 정합 보정이 필요하지 않습니다.
+LLFF, Mip-NeRF360, 그리고 CoR-GS의 Sparse View 설정에 맞게 전처리된 DTU 데이터셋은 모두 장면(scene)별로 shared intrinsics를 사용하며, 각 장면에 대해 **하나의 CAMERA_ID**만 존재합니다.
+카메라 모델은 LLFF는 SIMPLE_RADIAL, Mip-NeRF360과 DTU는 PINHOLE을 사용합니다. 이 경우 이미지 간 유효 영역이 일관되므로, 추가적인 정합 보정이 필요하지 않습니다.
 
-그러나 실제로는 각 카메라마다 개별적으로 intrinsics를 보정하여 undistortion을 적용하는 것이 일반적이며, 이 경우 카메라별 왜곡 특성에 따라 유효 영역의 위치와 크기가 달라질 수 있습니다. 따라서 다중 뷰 정합을 위해서는 모든 이미지에 대해 공통된 유효 영역을 기준으로 center crop을 수행하여 해상도를 통일해야 합니다.
+반면, 실제 환경에서는 shared intrinsics를 사용하지 않고, 각 카메라마다 개별적으로 intrinsics를 보정한 후 이를 바탕으로 undistortion을 적용하는 방식이 일반적입니다. 이 경우 카메라별 왜곡 특성의 차이로 인해 유효 영역의 위치와 크기가 서로 달라질 수 있습니다. 이는 각 이미지가 자신에게 맞는 intrinsics를 기준으로 정의된 픽셀 좌표계와 광선 투사 방향을 정확히 유지함으로써, 여러 시점에서의 3D 복원이 기하적으로 일관되게 이루어지도록 하기 위함입니다.
 
 이 과정에서 focal length인 $f_x$, $f_y$는 변하지 않으며, crop 위치에 따라 이미지 중심점 $(c_x, c_y)$만 보정됩니다. 이는 crop이 센서나 렌즈의 물리적 특성을 변경하는 것이 아니라, 단지 이미지의 좌표계를 재정렬하는 과정이기 때문입니다. 중심점의 보정은 다음과 같은 방식으로 수행됩니다:
 
