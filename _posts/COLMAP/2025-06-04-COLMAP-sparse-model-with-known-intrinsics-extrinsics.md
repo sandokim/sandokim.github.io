@@ -49,7 +49,30 @@ _COLMAP GUI에서 known intrinsics과 known extrinsics를 manual하게 넣어주
 
 3D 복원 문제에서 다중 뷰 데이터셋을 구성할 때, 일부 저자들은 모든 카메라에 대해 공통된 intrinsics를 적용한 후, 동일한 기준으로 undistortion과 crop을 수행합니다.
 
-대표적으로 LLFF, DTU, Mip-NeRF360 데이터셋에서 각 scene을 촬영한 카메라들에 대해 shared intrinsics를 사용합니다.
+대표적으로 LLFF, Mip-NeRF360 데이터셋에서 각 scene을 촬영한 카메라들에 대해 shared intrinsics를 사용합니다.
+
+이는 `sparse/0/cameras.txt`에서 CAMERA_ID의 수가 1개이며, `sparse/0/images.txt`에서 각 이미지에 해당하는 CAMERA_ID가 동일한 ID를 공유하는 것을 봄으로써 확인 가능합니다.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9a191c34-4860-4065-b98b-f763a997e518" />
+  <br/>
+  <em>그림 4. LLFF의 fern 장면의 sparse/0/cameras.txt에서 CAMERA_ID는 1만 존재</em>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cf04d499-3fe3-48dd-b136-e6cac5bc571b" />
+  <br/>
+  <em>LLFF의 fern 장면의 sparse/0/images.txt에서 IMG_4045를 촬영한 CAMERA_ID는 1</em>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/525e579a-fed2-428b-9bda-1b8469ce1786" />
+  <br/>
+  <em>LLFF의 fern 장면의 sparse/0/images.txt에서 IMG_4044를 촬영한 CAMERA_ID는 1</em>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5b869731-44be-453e-a865-398d7877f61d" />
+  <br/>
+  <em>LLFF의 fern 장면의 sparse/0/images.txt에서 IMG_4043를 촬영한 CAMERA_ID는 1</em>
+</p>
 
 이 경우 이미지 간 유효 영역이 일관되므로, 추가적인 정합 보정이 필요하지 않습니다.
 
