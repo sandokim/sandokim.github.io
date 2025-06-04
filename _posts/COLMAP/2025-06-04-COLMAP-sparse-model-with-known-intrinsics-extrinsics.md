@@ -83,8 +83,8 @@ LLFF, Mip-NeRF360, 그리고 CoR-GS의 Sparse View 설정에 맞게 전처리된
 
 $$
 \begin{bmatrix}
-f_x & 0 & c_x - \delta{x} \\
-0 & f_y & c_y - \delta{y} \\
+f_x & 0 & c_x - \delta_x \\
+0 & f_y & c_y - \delta_y \\
 0 & 0 & 1 
 \end{bmatrix}
 $$
