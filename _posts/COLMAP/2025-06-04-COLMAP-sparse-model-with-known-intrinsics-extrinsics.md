@@ -1,0 +1,76 @@
+---
+title: "[COLMAP] COLMAP Sparse model with known intrinsics & known extrinsics"
+last_modified_at: 2025-06-03
+categories:
+  - 공부
+tags:
+  - COLMAP
+  - Poses
+  - Camera Extrinsics
+  - Camera Intrinsics
+  - Sparse Model
+  - COLMAP Database
+excerpt: "COLMAP의 DB를 조작하여 known intrinsics와 known extrinsics으로 sparse model 만들기"
+use_math: true
+classes: wide
+comments: true
+---
+
+> [How to use pre-constructed DB for reconstruction from known poses #433](https://github.com/colmap/colmap/issues/433)
+
+_COLMAP GUI에서 known intrinsics과 known extrinsics를 manual하게 넣어주어, sparse 3D model을 만들 수 있습니다._
+
+본 포스트에서는 다중 카메라 세팅에서 known intrinsics와 known extrinsics를 구하는 방법을 알아봅시다.
+
+### ✅ Known Intrinsics 기반 다중 카메라 보정 및 Undistortion 후 처리
+카메라의 intrinsics는 제조사 명세와 실제 렌즈 왜곡, 센서 정렬 등의 오차로 인해 상이할 수 있으므로, 정확한 intrinsics를 얻기 위해서는 각 카메라에 대해 checkerboard 패턴을 활용한 별도의 보정(calibration)이 필요합니다. 이를 위해 각 카메라로 다양한 6 DoF 자세(회전 및 병진)에서 최소 20장 이상의 checkerboard 이미지를 촬영합니다.
+
+보정된 intrinsics를 기반으로 각 이미지에 대해 해당 카메라의 내부 파라미터를 적용하여 undistortion을 수행하면, 왜곡 제거로 인해 이미지 가장자리에 유효하지 않은 검정 영역(black border)이 발생할 수 있습니다. 
+
+예를 들어, COLMAP의 경우 이 검정 영역이 포함되지 않도록 자동으로 이미지를 crop하며, 이로 인해 결과 이미지의 해상도가 원본과 달라질 수 있습니다.
+
+<p align="center">
+  <img width="494" alt="image" src="https://github.com/user-attachments/assets/d8663ad9-7d4a-4330-a526-208df257c54c" />
+  <br/>
+  <em>그림 1. COLMAP의 undistortion 이후 이미지 해상도 변화.</em>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/23e7069f-bc28-45cd-b08a-1a2daea2e944" />
+  <br/>
+  <em>그림 2. 원본 이미지 예시.</em>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/95644cb8-2dd0-4225-be88-f6b837bb7432" />
+  <br/>
+  <em>그림 3. COLMAP undistortion 후 이미지 예시.</em>
+</p>
+
+3D 복원 문제에서 다중 뷰 데이터셋을 구성할 때, 일부 저자들은 모든 카메라에 대해 공통된 intrinsics를 적용한 후, 동일한 기준으로 undistortion과 crop을 수행합니다.
+
+대표적으로 LLFF, DTU, Mip-NeRF360 데이터셋에서 각 scene을 촬영한 카메라들에 대해 shared intrinsics를 사용합니다.
+
+이 경우 이미지 간 유효 영역이 일관되므로, 추가적인 정합 보정이 필요하지 않습니다.
+
+그러나 실제로는 각 카메라마다 개별적으로 intrinsics를 보정하여 undistortion을 적용하는 것이 일반적이며, 이 경우 카메라별 왜곡 특성에 따라 유효 영역의 위치와 크기가 달라질 수 있습니다. 따라서 다중 뷰 정합을 위해서는 모든 이미지에 대해 공통된 유효 영역을 기준으로 center crop을 수행하여 해상도를 통일해야 합니다.
+
+이 과정에서 focal length인 $f_x$, $f_y$는 변하지 않으며, crop 위치에 따라 이미지 중심점 $(c_x, c_y)$만 보정됩니다. 이는 crop이 센서나 렌즈의 물리적 특성을 변경하는 것이 아니라, 단지 이미지의 좌표계를 재정렬하는 과정이기 때문입니다. 중심점의 보정은 다음과 같은 방식으로 수행됩니다:
+
+$$
+\begin{bmatrix}
+f_x \ 0 \ c_x - \delta{x} \\
+0 \ f_y \ c_y - \delta{y} \\
+0 \ 0 \ 1 
+\end{bmatrix}
+$$
+
+여기서 $(\delta_x, \delta_y)$는 crop 영역의 좌상단이 원본 이미지 기준에서 얼마나 떨어져 있는지를 나타내는 offset입니다. 이를 반영해 intrinsics를 보정함으로써, 이후의 구조 복원(SfM), 삼각측량(triangulation) 등의 단계에서 정확한 기하 정합을 유지할 수 있습니다.
+
+
+
+
+
+
+
+
