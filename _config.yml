@@ -21,7 +21,7 @@ locale                   : "en-US"
 title                    : "📷 cam2world는 camera pose를 world space에서 보는 것 🤳"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Hyseong Kim"
+name                     : "Hyeseong Kim"
 description              : "An amazing website."
 url                      :  "https://sandokim.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -110,7 +110,7 @@ author:
   avatar           : "/assets/img/profile/birthday_hyeseong.png"
   bio              : "3D Computer Vision & Medical AI Researcher"
   location         : "Seoul, Korea"
-  email            : "hyseongkim@yonsei.ac.kr"
+  email            : "hyeseongkim@yonsei.ac.kr"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
